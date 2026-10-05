@@ -48,7 +48,7 @@
       this.config.sauces.forEach(sauce => {
         const button = document.createElement('button');
         button.type = 'button';
-        button.className = 'sauce-button';
+        button.className = 'sauce-button ah-choice';
         button.dataset.sauce = sauce.id;
         button.innerHTML = `<span class="sauce-bowl" style="--sauce-color:${sauce.color};--sauce-highlight:${sauce.highlight}" aria-hidden="true"></span><span>${sauce.label}</span><span class="check" aria-hidden="true">✓</span>`;
         button.addEventListener('click', () => this.setSauce(sauce.id));
@@ -58,7 +58,7 @@
         this.state.toppings[topping.id] = 0;
         const button = document.createElement('button');
         button.type = 'button';
-        button.className = 'topping-button';
+        button.className = 'topping-button ah-choice';
         button.style.setProperty('--ingredient-color', topping.color);
         button.innerHTML = `<span class="ingredient-art">${topping.art}</span><span class="ingredient-name">${topping.label}</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>`;
         button.addEventListener('click', () => this.setLevel(topping.id, (this.state.toppings[topping.id] + 1) % 4));

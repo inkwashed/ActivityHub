@@ -1,0 +1,41 @@
+/* Load after app layout CSS. Only shared control classes are styled here. */
+:is(button,a).ah-button {
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--ah-space-2);
+  min-width:var(--ah-control-size);min-height:var(--ah-control-size);
+  padding:9px 18px;border:1px solid var(--ah-border);border-radius:var(--ah-radius-pill);
+  background:var(--ah-surface);color:var(--ah-ink);font:inherit;font-size:16px;line-height:1.4;
+  text-decoration:none;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+  transition:background-color var(--ah-fast),border-color var(--ah-fast),transform var(--ah-fast);
+}
+:is(button,a).ah-button.ah-button-secondary{background:var(--ah-secondary);border-color:var(--ah-selected-border)}
+:is(button,a).ah-button.ah-button-icon{width:var(--ah-control-size);height:var(--ah-control-size);padding:9px;border-radius:var(--ah-radius-control);flex-shrink:0}
+.ah-button svg,.ah-button img{width:var(--ah-icon-size);height:var(--ah-icon-size);flex-shrink:0}
+.ah-button svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+button.ah-choice{background:var(--ah-surface);color:var(--ah-ink);border:2px solid var(--ah-border);touch-action:manipulation;transition:background-color var(--ah-fast),border-color var(--ah-fast),transform var(--ah-fast)}
+:is(button,a).ah-button[aria-pressed="true"],button.ah-choice[aria-pressed="true"]{background:var(--ah-selected);border-color:var(--ah-selected-border)}
+@media(hover:hover){
+  :is(button,a).ah-button:not(:disabled):not([aria-disabled="true"]):hover,button.ah-choice:not(:disabled):hover{background:var(--ah-hover);border-color:var(--ah-selected-border)}
+  :is(button,a).ah-button-secondary:not(:disabled):not([aria-disabled="true"]):hover{background:var(--ah-secondary-hover)}
+  button.ah-choice[aria-pressed="true"]:not(:disabled):hover,:is(button,a).ah-button[aria-pressed="true"]:not(:disabled):hover{background:var(--ah-secondary-hover)}
+}
+:is(button,a).ah-button:not(:disabled):not([aria-disabled="true"]):active,button.ah-choice:not(:disabled):active{background:var(--ah-pressed);transform:scale(.98)}
+:is(button,a).ah-button-secondary:not(:disabled):not([aria-disabled="true"]):active{background:var(--ah-secondary-pressed)}
+:is(button,a).ah-button:focus-visible,button.ah-choice:focus-visible{outline:3px solid var(--ah-focus);outline-offset:3px}
+:is(button,a).ah-button:disabled,:is(button,a).ah-button[aria-disabled="true"],button.ah-choice:disabled{background:var(--ah-disabled);color:var(--ah-muted);border-color:var(--ah-divider);cursor:default;transform:none}
+:is(button,a).ah-button[hidden]{display:none}
+/* Shared EASY/HARD switch; checked means HARD. */
+.ah-mode-toggle{position:relative;display:flex;align-items:center;min-height:44px;cursor:pointer;white-space:nowrap;flex-shrink:0}
+.ah-mode-toggle input{position:absolute;inset:0;z-index:1;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+.switch-track{position:relative;display:block;width:116px;height:44px;flex-shrink:0;border-radius:var(--ah-radius-pill);background:var(--ah-secondary);color:var(--ah-ink);border:1px solid var(--ah-selected-border);transition:background var(--ah-fast),color var(--ah-fast)}
+.switch-knob{display:grid;place-items:center;font-family:Arial,sans-serif;font-size:24px;font-weight:bold;color:var(--ah-strong);position:absolute;top:4px;left:4px;width:34px;height:34px;border-radius:50%;background:var(--ah-surface);box-shadow:0 2px 4px #20322426;transition:transform var(--ah-fast)}
+.mode-easy,.mode-hard{position:absolute;top:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;letter-spacing:1px;line-height:1}
+.mode-easy{left:42px;right:5px}.mode-hard{display:none;left:5px;right:42px}
+.ah-mode-toggle input:checked+.switch-track{background:var(--ah-strong);color:var(--ah-surface);border-color:var(--ah-strong)}
+.ah-mode-toggle input:checked+.switch-track .switch-knob{transform:translateX(72px)}
+.ah-mode-toggle input:checked+.switch-track .mode-easy{display:none}
+.ah-mode-toggle input:checked+.switch-track .mode-hard{display:flex}
+.ah-mode-toggle input:focus-visible+.switch-track{outline:3px solid var(--ah-focus);outline-offset:3px}
+@media(hover:hover){.ah-mode-toggle input:not(:disabled):hover+.switch-track{background:var(--ah-secondary-hover)}.ah-mode-toggle input:checked:not(:disabled):hover+.switch-track{background:var(--ah-strong-hover)}}
+.ah-mode-toggle input:not(:disabled):active+.switch-track{box-shadow:inset 0 0 0 2px var(--ah-selected-border)}
+.ah-mode-toggle input:disabled{cursor:default}.ah-mode-toggle input:disabled+.switch-track{opacity:.6}
+@media(prefers-reduced-motion:reduce){.ah-button,.ah-choice,.switch-track,.switch-knob{transition:none!important}.ah-button:active,.ah-choice:active{transform:none!important}}

@@ -1,10 +1,10 @@
-PIZZA BUILDER · v0.12
+PIZZA BUILDER · v0.13
 
 GET STARTED
-Unzip the folder, then open index.html in Safari, Chrome, Firefox, or Edge.
-Keep index.html, styles.css, config.js, builder.js, fullscreen.js, and layout.js together.
+Open apps/pizza/index.html from the ActivityHub folder in a desktop browser.
+Keep the apps/ and shared/ folders together; both contain required assets.
 No installation, internet connection, account, or build step is required.
-For an iPad, serve this folder through a local/static web server and open its
+For an iPad, serve ActivityHub through a local/static web server and open its
 address in Safari. iPad Files previews may not execute JavaScript as a browser does.
 
 PLAY
@@ -105,3 +105,7 @@ publish a link or send a message. The editable pizza remains uncooked.
 Keep sharing.js with the other app files. Browser-dependent image decoding and
 download behavior, especially iPad saving, still need real-device verification.
 The back button is deliberately disabled until the textbook resource list exists.
+
+v0.13: Shared button styles, palette, and balanced language icon. Keep the
+ActivityHub shared/ folder alongside apps/. The app folder alone no longer
+contains all UI assets. See ../../docs/STYLE-GUIDE.md and style-guide.html.

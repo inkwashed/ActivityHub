@@ -1,13 +1,11 @@
-# ActivityHub working conventions
+# ActivityHub instructions
 
-This folder is the canonical working project for ActivityHub. Make future Pizza Builder changes in `apps/pizza/`, not in the old Codex task's `outputs/pizza-builder/` snapshot.
+This repository is the canonical working source. Do not edit historical Codex output snapshots as the working copy.
 
-- Keep applets plain HTML, CSS, and JavaScript with no external dependencies unless the user requests a change.
-- Preserve direct opening of `index.html` on desktop and static hosting compatibility.
-- Prioritize touch-friendly iPad layouts, while keeping small screens and enlarged text usable.
-- Keep original artwork and no student data collection.
-- Preserve topping order and bottom-to-top stacking: cheese, pepperoni, sausage, tomatoes, green peppers, mushrooms, onions, pineapples, corn.
-- Keep EASY/HARD, language, back navigation, and fullscreen controls consistent across future applets.
-- Back navigation and Japanese are currently placeholders; do not imply they are functional.
-- Tests under `tests/` use mocks; do not claim browser or device verification from these tests.
-- Create ZIP releases only when requested or useful for delivery. The source in this repository remains authoritative.
+Before building or changing an applet:
+
+1. Read `docs/WORKFLOW.md` for goals, reference ownership, implementation workflow, verification, and shared-change rollout.
+2. For UI changes, read `docs/STYLE-GUIDE.md`; use `shared/tokens.css`, `shared/controls.css`, and `shared/icons/`.
+3. Read any scoped instructions under the app being changed.
+
+Keep project-wide process in the workflow document, visual specifications in the style guide, and app-specific rules in that app's files. Update the owning reference rather than adding redundant instructions here. User instructions take precedence over repository guidance.

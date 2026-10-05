@@ -1,0 +1,33 @@
+/* ActivityHub visual tokens. Change these centrally, not per applet. */
+:root {
+  --ah-font: ui-rounded, "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif;
+  --ah-canvas: #f8f6ed;
+  --ah-surface: #fffefa;
+  --ah-ink: #263f36;
+  --ah-muted: #627067;
+  --ah-border: #9cae9b;
+  --ah-divider: #dcded0;
+  --ah-hover: #e8eddf;
+  --ah-pressed: #d5e1cc;
+  --ah-secondary: #e0ead7;
+  --ah-secondary-hover: #cedfc2;
+  --ah-secondary-pressed: #bed2b1;
+  --ah-selected: #eef4e8;
+  --ah-selected-border: #417655;
+  --ah-strong: #294e40;
+  --ah-strong-hover: #203e32;
+  --ah-accent: #d85836;
+  --ah-focus: #245eb3;
+  --ah-disabled: #edf0e8;
+  --ah-control-size: 44px;
+  --ah-icon-size: 24px;
+  --ah-radius-control: 12px;
+  --ah-radius-panel: 20px;
+  --ah-radius-pill: 999px;
+  --ah-fast: 150ms;
+  --ah-space-1: 4px;
+  --ah-space-2: 8px;
+  --ah-space-3: 12px;
+  --ah-space-4: 16px;
+  --ah-space-6: 24px;
+}
