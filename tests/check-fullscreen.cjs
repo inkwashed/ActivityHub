@@ -10,7 +10,7 @@ async function check(mode){
   page[pref?'webkitRequestFullscreen':'requestFullscreen']=async()=>{if(mode==='denied')throw Error('Denied');doc[key]=page;events[pref?'webkitfullscreenchange':'fullscreenchange']()};
   doc[pref?'webkitExitFullscreen':'exitFullscreen']=async()=>{doc[key]=null;events[pref?'webkitfullscreenchange':'fullscreenchange']()};
  }
- vm.runInNewContext(source,{document:doc,setTimeout:()=>1,clearTimeout:()=>{}});
+ vm.runInNewContext(source,{window:{},document:doc,setTimeout:()=>1,clearTimeout:()=>{}});
  assert.equal(attrs['aria-pressed'],'false');await click();
  if(mode==='unsupported'||mode==='denied'){assert.equal(notice.hidden,false);assert.equal(attrs['aria-pressed'],'false');assert(!button.disabled);return}
  assert.equal(attrs['aria-pressed'],'true');assert.equal(attrs['aria-label'],'Exit fullscreen');

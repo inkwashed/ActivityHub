@@ -79,7 +79,7 @@ Use checks proportional to the change; do not add tests that merely restate CSS 
 
 | Applet | Entry point | Behavior checks | Current limitations |
 | --- | --- | --- | --- |
-| Pizza Builder | `apps/pizza/index.html` | `node tests/check.cjs`, `node tests/check-fullscreen.cjs`, `node tests/check-sharing.cjs` from repository root | Mock-based checks; physical iPad visual/download checks outstanding. Textbook back link and Japanese are placeholders. |
+| Pizza Builder | `apps/pizza/index.html` | `node tests/check.cjs`, `node tests/check-fullscreen.cjs`, `node tests/check-sharing.cjs` from repository root | Mock-based checks; physical iPad visual/download checks outstanding. Textbook back link is a placeholder; English/Japanese interface language is supported. |
 
 Shared today: design tokens, control CSS, and the language, Reset, and camera icons. The visual guide consumes those actual shared files.
 
@@ -98,3 +98,7 @@ Deploy only when requested as part of the current work. Identify the destination
 - Initial workflow: central process reference, separate visual specification, shared executable styles, per-app exceptions, and explicit multi-applet rollout checks. Based on the current Pizza Builder and ActivityHub design system.
 
 Add concise entries for consequential changes to project standards; routine activity edits belong in their app notes.
+
+## Interface language boundary
+
+Use `shared/i18n.js` for interface language and `shared/ui-ja.js` for common Japanese control translations. App-specific instructions belong in `apps/<name>/ui-ja.js`. Mark only interface text with `data-i18n`; never translate lesson vocabulary or target grammar. Mark English learning regions with `lang="en"` even when the document language is Japanese. Switching language must not change activity state. On startup, match browser/system language preferences in order to supported languages, including regional tags such as ja-JP. Fall back to English if none match. Manual selection lasts for the page visit and is not overridden during that visit.

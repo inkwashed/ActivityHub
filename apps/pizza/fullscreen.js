@@ -1,5 +1,6 @@
 /* Fullscreen is requested only from a user tap; the pizza state is preserved. */
 (() => {
+  const t = text => window.ActivityHubI18n ? window.ActivityHubI18n.t(text) : text;
   'use strict';
   const button = document.querySelector('#fullscreen');
   const notice = document.querySelector('#fullscreen-notice');
@@ -17,14 +18,14 @@
   function sync() {
     const isFullscreen = !!active();
     button.setAttribute('aria-pressed', String(isFullscreen));
-    button.setAttribute('aria-label', isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen');
-    button.title = isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen';
+    button.setAttribute('aria-label', t(isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'));
+    button.title = t(isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen');
     button.disabled = false;
     notice.hidden = true;
   }
   button.addEventListener('click', async () => {
     if (!request || !exit) {
-      message('Fullscreen is not available in this browser. Try hiding the browser toolbar for more space.');
+      message(t('Fullscreen is not available in this browser. Try hiding the browser toolbar for more space.'));
       return;
     }
     button.disabled = true;
@@ -34,7 +35,7 @@
       sync();
     } catch (error) {
       button.disabled = false;
-      message('Fullscreen could not open. You can keep building your pizza here.');
+      message(t('Fullscreen could not open. You can keep building your pizza here.'));
     }
   });
   // These also handle browser-owned exit controls and the Escape key.
@@ -42,9 +43,10 @@
   document.addEventListener('webkitfullscreenchange', sync);
   function failed() {
     button.disabled = false;
-    message('Fullscreen could not open. You can keep building your pizza here.');
+    message(t('Fullscreen could not open. You can keep building your pizza here.'));
   }
   document.addEventListener('fullscreenerror', failed);
   document.addEventListener('webkitfullscreenerror', failed);
+  document.addEventListener('activityhub:languagechange', sync);
   sync();
 })();

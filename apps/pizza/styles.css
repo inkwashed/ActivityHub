@@ -119,3 +119,6 @@ dialog::backdrop{background:#17291ecc}
 #pizza-photo[hidden],#download-photo[hidden]{display:none}
 .save-hint{font-size:14px;line-height:1.4;color:var(--ah-muted)}
 @media(max-width:950px){header{gap:8px}.header-actions{gap:8px}.brand{font-size:12px}}
+
+.language-options{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+html[lang="ja"] .mode-easy,html[lang="ja"] .mode-hard{font-size:12px;letter-spacing:0}

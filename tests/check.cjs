@@ -87,3 +87,22 @@ app.setLevel('cheese',0);assert.equal(sentence(),'I want a lot of corn.');
 app.setLevel('corn',2);assert.equal(sentence(),'I want some corn.');
 advanced(false);assert.equal(sentence(),'I want corn.');
 console.log('PASS: grouped amounts, list punctuation, empty groups, sauce suffix, and unchanged Basic Mode.');
+
+// Exercise the real translation helper with builder state already populated.
+const events={};const label={dataset:{i18n:'Reset'},textContent:'Reset'};
+context.document.documentElement={lang:'en'};
+context.document.addEventListener=(name,fn)=>{events[name]=fn};
+context.document.dispatchEvent=event=>events[event.type]?.();
+context.document.querySelectorAll=selector=>selector==='[data-i18n]'?[label]:[];
+context.Event=class{constructor(type){this.type=type}};
+for(const file of ['shared/i18n.js','shared/ui-ja.js','apps/pizza/ui-ja.js'])vm.runInContext(fs.readFileSync(file,'utf8'),context);
+const englishOrder=sentence(),pizzaState=JSON.stringify(app.state),piece=app.groups.get('corn').children[0];
+context.window.ActivityHubI18n.setLanguage('ja');
+assert.equal(label.textContent,'リセット');assert.equal(context.document.documentElement.lang,'ja');
+assert.equal(context.window.ActivityHubI18n.t('Add your toppings'),'トッピングをのせよう');
+assert.equal(sentence(),englishOrder);assert.equal(JSON.stringify(app.state),pizzaState);assert.equal(app.groups.get('corn').children[0],piece);
+app.setSauce('tomato');assert.equal(sentence(),'I want corn with tomato sauce.');
+context.window.ActivityHubI18n.setLanguage('en');assert.equal(label.textContent,'Reset');
+assert.equal(context.window.ActivityHubI18n.t('Add your toppings'),'Add your toppings');
+context.window.ActivityHubI18n.setLanguage('invalid');assert.equal(context.window.ActivityHubI18n.language,'en');
+console.log('PASS: Japanese/English interface switching, English order preservation, activity state/placements unchanged, and invalid language handling.');

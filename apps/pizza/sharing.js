@@ -1,5 +1,6 @@
 /* Local-only photo export: no upload, external assets, or student data. */
 (() => {
+  const t = text => window.ActivityHubI18n ? window.ActivityHubI18n.t(text) : text;
   const shareDialog = document.querySelector('#share-dialog');
   const languageDialog = document.querySelector('#language-dialog');
   const photo = document.querySelector('#pizza-photo');
@@ -68,7 +69,7 @@
   document.querySelector('#share').addEventListener('click', async () => {
     clearPhoto();
     const token = generation;
-    status.textContent = 'Making your photo…';
+    status.dataset.i18n = 'Making your photo…'; status.textContent = t(status.dataset.i18n);
     shareDialog.showModal();
     try {
       const builder = window.pizzaBuilder;
@@ -95,9 +96,9 @@
       photoURL = URL.createObjectURL(blob);
       photo.src = photoURL; download.href = photoURL;
       photo.hidden = download.hidden = false;
-      status.textContent = 'Ready to save!';
+      status.dataset.i18n = 'Ready to save!'; status.textContent = t(status.dataset.i18n);
     } catch (error) {
-      if (token === generation) status.textContent = 'The photo could not be made. Please close this preview and try again.';
+      if (token === generation) { status.dataset.i18n = 'The photo could not be made. Please close this preview and try again.'; status.textContent = t(status.dataset.i18n); }
     }
   });
 })();

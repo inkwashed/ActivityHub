@@ -51,7 +51,7 @@ Use 4, 8, 12, 16, and 24px spacing tokens as a baseline. Quantity dots sit close
 | Selectable card | `ah-choice` | Sauce, topping |
 | Difficulty | `ah-mode-toggle` and switch markup | EASY/HARD with command knob |
 
-Actions use a thin 1px border and dark text. Secondary actions start a shade darker rather than using an unrelated solid fill. Choice cards retain a 2px border for selection clarity. Text buttons are pills; icon buttons have 12px corners; panels use roughly 20px corners.
+Actions use a thin 1px border and dark text. Secondary actions start a shade darker rather than using an unrelated solid fill. Choice cards retain a 2px border for selection clarity and use `--ah-radius-control` (12px) for rounded corners. Their corner radius belongs in the shared control rule, not in app or example overrides. Text buttons are pills; icon buttons have 12px corners; panels use roughly 20px corners.
 
 ### Behavior contract
 
@@ -91,3 +91,9 @@ Dialogs use the same palette and controls, a title, a visible close button, nati
 ## Current audit
 
 Pizza Builder adopts shared controls for Reset, Share, download, language, fullscreen, both dialog-close buttons, disabled back, sauce/topping cards, and the mode switch. The language bubbles are rebalanced. Old app-local hover/selected rules were removed. Behavior tests pass; physical-device visual verification remains outstanding.
+
+## Interface languages
+
+Language settings offer English and 日本語. Translate functional labels, mode wording, instructions, dialog messages, and accessible control labels. Keep lesson vocabulary and target English sentences unchanged. Use the shared translation helper and common dictionary; extend only app-specific strings locally. Japanese mode labels are かんたん / むずかしい. Allow wrapping instead of clipping Japanese instructions.
+
+Default interface language follows the first supported browser/system language preference (including regional variants), falling back to English. The language menu still allows a manual choice for the current visit.

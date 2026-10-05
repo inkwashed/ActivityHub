@@ -1,5 +1,5 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
-class El{constructor(){this.events={};this.hidden=false;this.open=false;this.children={}}addEventListener(k,f){this.events[k]=f}querySelector(k){return this.children[k] ||= new El()}removeAttribute(k){delete this[k]}showModal(){this.open=true}close(){this.open=false;this.events.close?.()}}
+class El{constructor(){this.dataset={};this.events={};this.hidden=false;this.open=false;this.children={}}addEventListener(k,f){this.events[k]=f}querySelector(k){return this.children[k] ||= new El()}removeAttribute(k){delete this[k]}showModal(){this.open=true}close(){this.open=false;this.events.close?.()}}
 const els=Object.fromEntries(['#share-dialog','#language-dialog','#pizza-photo','#download-photo','#share-status','#language','#share','#sentence'].map(k=>[k,new El()]));els['#sentence'].textContent='I want cheese with tomato sauce.';
 let svg, revoked=[],drawn=false,blobbed=false;
 const context2d={measureText:s=>({width:s.length*16}),fillRect(){},drawImage(){drawn=true},fillText(){}};

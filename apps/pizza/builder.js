@@ -1,5 +1,6 @@
 /* Reusable quantity/placement engine. No modules or network requests, so file:// works. */
 (() => {
+  const t = text => window.ActivityHubI18n ? window.ActivityHubI18n.t(text) : text;
   'use strict';
   class FoodBuilder {
     constructor(root, config) {
@@ -38,11 +39,12 @@
       return this.positions.get(topping.id);
     }
     mount() {
+      if (document.addEventListener) document.addEventListener('activityhub:languagechange', () => this.config.toppings.forEach(item => this.updateButton(item)));
       const advancedToggle = document.querySelector('#advanced-mode');
       advancedToggle.addEventListener('change', () => {
         this.advancedMode = advancedToggle.checked;
         this.updateSentence();
-        this.announce(`${this.advancedMode ? 'Hard' : 'Easy'} mode. ${this.root.querySelector('#sentence').textContent}`);
+        this.announce(`${t(this.advancedMode ? 'Hard mode.' : 'Easy mode.')} ${this.root.querySelector('#sentence').textContent}`);
       });
       const sauces = this.root.querySelector('#sauce-options');
       this.config.sauces.forEach(sauce => {
@@ -117,7 +119,7 @@
       }
       this.root.querySelectorAll('[data-sauce]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.sauce === id)));
       this.updateSentence();
-      if (announce) this.announce(sauce ? `${sauce.label} selected.` : 'Dry crust. Choose a sauce or no sauce.');
+      if (announce) this.announce(sauce ? `${sauce.label}: ${t('selected.')}` : 'Dry crust. Choose a sauce or no sauce.');
     }
     setLevel(id, level, announce = true) {
       const topping = this.config.toppings.find(item => item.id === id);
@@ -138,13 +140,13 @@
       }
       this.updateButton(topping);
       this.updateSentence();
-      if (announce) this.announce(`${topping.label}: ${['removed', 'light', 'regular', 'extra'][level]}.`);
+      if (announce) this.announce(`${topping.label}: ${t(['removed', 'light', 'regular', 'extra'][level])}.`);
     }
     updateButton(topping) {
       const level = this.state.toppings[topping.id];
       const button = this.buttons.get(topping.id);
       button.setAttribute('aria-pressed', String(level > 0));
-      button.setAttribute('aria-label', `${topping.label}, ${['none', 'light', 'regular', 'extra'][level]}. Tap to ${level === 3 ? 'remove' : 'add more'}.`);
+      button.setAttribute('aria-label', `${topping.label}, ${t(['none', 'light', 'regular', 'extra'][level])}. ${t(level === 3 ? 'Tap to remove.' : 'Tap to add more.')}`);
       [...button.querySelectorAll('.dots i')].forEach((dot, index) => dot.classList.toggle('filled', index < level));
     }
     updateSentence() {
@@ -180,7 +182,7 @@
       this.root.querySelector('#pizza').setAttribute('aria-label', `Pizza with ${sauce ? sauce.label : 'no sauce selected'}${chosen.length ? ', ' + chosen.map(item => item.label).join(', ') : ''}.`);
     }
 
-    announce(message) { document.querySelector('#announcement').textContent = message; }
+    announce(message) { document.querySelector('#announcement').textContent = t(message); }
     clear() {
       this.config.toppings.forEach(item => this.setLevel(item.id, 0, false));
       this.positions.clear();

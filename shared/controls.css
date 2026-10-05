@@ -11,7 +11,7 @@
 :is(button,a).ah-button.ah-button-icon{width:var(--ah-control-size);height:var(--ah-control-size);padding:9px;border-radius:var(--ah-radius-control);flex-shrink:0}
 .ah-button svg,.ah-button img{width:var(--ah-icon-size);height:var(--ah-icon-size);flex-shrink:0}
 .ah-button svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-button.ah-choice{background:var(--ah-surface);color:var(--ah-ink);border:2px solid var(--ah-border);touch-action:manipulation;transition:background-color var(--ah-fast),border-color var(--ah-fast),transform var(--ah-fast)}
+button.ah-choice{background:var(--ah-surface);color:var(--ah-ink);border:2px solid var(--ah-border);border-radius:var(--ah-radius-control);touch-action:manipulation;transition:background-color var(--ah-fast),border-color var(--ah-fast),transform var(--ah-fast)}
 :is(button,a).ah-button[aria-pressed="true"],button.ah-choice[aria-pressed="true"]{background:var(--ah-selected);border-color:var(--ah-selected-border)}
 @media(hover:hover){
   :is(button,a).ah-button:not(:disabled):not([aria-disabled="true"]):hover,button.ah-choice:not(:disabled):hover{background:var(--ah-hover);border-color:var(--ah-selected-border)}

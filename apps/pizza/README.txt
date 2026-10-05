@@ -109,3 +109,12 @@ The back button is deliberately disabled until the textbook resource list exists
 v0.13: Shared button styles, palette, and balanced language icon. Keep the
 ActivityHub shared/ folder alongside apps/. The app folder alone no longer
 contains all UI assets. See ../../docs/STYLE-GUIDE.md and style-guide.html.
+
+Japanese interface support: choose 日本語 from the language button. Controls and
+instructions translate; food vocabulary, the question, order, and photo caption
+remain English. Selection lasts for the current page visit and preserves pizza
+and difficulty state. Shared i18n scripts and the app ui-ja.js must be included.
+
+The starting interface language follows supported browser/system preferences
+(ja-JP → Japanese, en-US → English). If none match, English is used. Manual
+selection lasts for this page visit; the lesson content remains English.
