@@ -1,0 +1,43 @@
+PIZZA BUILDER — PLANNING REVIEW, v0.4
+Compared with the full “Plan Pizza Builder” conversation.
+
+IMPLEMENTED
+- Pizza base, three sauces, and all seven originally agreed toppings.
+- Optional sauce, dry-crust reset, and a continuous spreading animation.
+- Sausage and pepperoni added in v0.4; nine toppings total, cheese first.
+- Three quantity levels, small state dots, fourth-tap removal, and Clear Pizza.
+- Sprinkled placement that preserves earlier pieces, rotation/scale variation,
+  ingredient-specific quantities, and fuller shredded-cheese clusters.
+- Picture-and-English-label buttons, “What do you want?” and “I want ...”.
+- Original artwork, no login or student data, no external dependencies.
+- Separate recipe configuration and placement engine.
+- Responsive layout, compact tablet controls, and natural scrolling on phones.
+
+DISCUSSED BUT NOT YET IMPLEMENTED
+- Direct removal by tapping an ingredient on the pizza, or a separate remove/
+  undo control. Current removal is the fourth button tap or Clear Pizza.
+- A Done! view showing the finished pizza cleanly.
+- Optional audio prompts, teacher mode, and random pizza challenges.
+- Optional hiding of English labels or quantity dots, repositioning pieces,
+  and multiple artwork variants per ingredient. These were exploratory ideas.
+- Installable PWA with offline caching after a website visit. The downloaded
+  files already work offline in a desktop browser, but this is not a PWA.
+- The wider Student Tools landing page, additional builders, and hosting setup.
+- A fully general shared framework: recipe data is configurable now, but the
+  circular placement boundary, page wording, and base styling still need
+  adapting for a parfait glass or other builder. A second app would test this.
+
+Earlier removal suggestions were alternatives to the agreed tap cycle.
+Bacon appeared among brainstormed examples, not the final seven-topping scope;
+the user has now rounded out the list with sausage and pepperoni.
+
+VALIDATION
+Logic checks cover all nine quantity cycles, retained placements, sauce changes,
+spiral progression/cancellation, reduced-motion behavior, and reset.
+Tablet styling targets 768 x 1024 and 1024 x 768, with extra allowance for browser
+controls (768 x 900 and 1024 x 650 content areas). No overflow is hidden to force
+fit. Physical iPad/browser layout and animation verification remain outstanding;
+the earlier local-file browser preview was blocked by browser security policy.
+
+Update v0.12: The Share photo preview now supplies a finished-pizza display and
+PNG download. The earlier Done-view suggestion is partially covered by this.

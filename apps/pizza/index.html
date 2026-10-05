@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Let's make a pizza!</title>
+<meta name="description" content="A playful, touch-friendly pizza builder for English learners.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%23e6a64a'/%3E%3Ccircle cx='32' cy='32' r='23' fill='%23c9402b'/%3E%3Ccircle cx='23' cy='24' r='6' fill='%23ffe290'/%3E%3Ccircle cx='41' cy='36' r='7' fill='%23ffe290'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+<script defer src="fullscreen.js"></script><script defer src="layout.js"></script>
+<script defer src="config.js"></script><script defer src="builder.js"></script><script defer src="sharing.js"></script>
+</head>
+<body>
+<header><div class="brand"><button class="icon-button back-button" type="button" disabled aria-label="Back to textbook resources (coming soon)" title="Textbook resources — coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5L8 12L15 19"/></svg></button><span class="brand-icon" aria-hidden="true">✦</span> LITTLE PIZZA KITCHEN</div><div class="header-actions"><button id="language" class="icon-button" type="button" aria-label="Language settings" title="Language settings"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M17 19H9L4 23V6Q4 3 7 3H23Q26 3 26 6V11M19 14H27Q30 14 30 17V26Q30 29 27 29H24L20 32V29H18Q15 29 15 26V18Q15 14 19 14Z"/><path d="M8 8H20M14 6V8M10 8Q11 14 17 16M18 8Q16 14 9 17M20 25L23 18L26 25M21 23H25"/></svg></button><label class="advanced-toggle"><input id="advanced-mode" type="checkbox" role="switch" aria-label="Hard mode"><span class="switch-track" aria-hidden="true"><span class="switch-knob">⌘</span><span class="mode-easy">EASY</span><span class="mode-hard">HARD</span></span></label><span class="edition">Let's Try! 2 · Unit 7</span><button id="fullscreen" class="fullscreen-button" type="button" aria-label="Enter fullscreen" aria-pressed="false" title="Enter fullscreen"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="expand-icon" d="M9 3H3V9M15 3H21V9M3 15V21H9M21 15V21H15"/><path class="collapse-icon" d="M3 9H9V3M15 3V9H21M9 21V15H3M21 15H15V21"/></svg></button></div></header>
+<p id="fullscreen-notice" class="fullscreen-notice" role="status" hidden></p>
+<main id="builder">
+<section class="kitchen" aria-labelledby="title">
+<div class="heading"><span class="eyebrow">YOU'RE THE CHEF!</span><h1 id="title">Let's make a pizza!</h1><p>What do you want?</p></div>
+<div class="pizza-stage"><div class="board"><div class="pizza" id="pizza" role="img" aria-label="Dry pizza crust"><div class="sauce" id="sauce" hidden></div><div id="pieces" aria-hidden="true"></div></div></div></div>
+<div class="order"><span class="speech-mark" aria-hidden="true">“</span><p id="sentence">I want ….</p><span class="speech-mark speech-mark-closing" aria-hidden="true">”</span></div>
+<div class="pizza-actions"><button class="clear" id="clear" type="button"><span aria-hidden="true">↺</span> Reset</button><button class="share-button" id="share" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3M8 7L12 3L16 7M5 12V20H19V12"/></svg> Share</button></div>
+</section>
+<section class="pantry" aria-label="Pizza ingredients">
+<fieldset><legend><span class="step">1</span> Sauce or no sauce?</legend><div class="sauce-options" id="sauce-options"></div></fieldset>
+<fieldset class="topping-section"><legend><span class="step">2</span> Add your toppings</legend><p class="hint">Tap for more. Tap again after <span aria-label="three dots">● ● ●</span> to remove.</p><div class="topping-options" id="topping-options"></div></fieldset>
+<p class="pantry-footer">A little of this. A little of that. Your pizza!</p>
+</section>
+</main><div id="announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+<dialog id="language-dialog" aria-labelledby="language-title"><div class="dialog-heading"><h2 id="language-title">Language</h2><button class="dialog-close icon-button" type="button" aria-label="Close language settings">×</button></div><p>English ✓</p><p lang="ja">日本語 <span lang="en">— coming soon</span></p></dialog>
+<dialog id="share-dialog" aria-labelledby="share-title"><div class="dialog-heading"><h2 id="share-title">Your pizza!</h2><button class="dialog-close icon-button" type="button" aria-label="Close pizza preview">×</button></div><p id="share-status" role="status">Making your photo…</p><img id="pizza-photo" alt="Your finished pizza in a white photo frame" hidden><a id="download-photo" class="share-button" download="my-pizza.png" hidden>Download photo</a><p class="save-hint">If the photo opens in a new tab, save it from there.</p></dialog>
+</body></html>
