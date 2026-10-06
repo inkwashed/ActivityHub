@@ -98,4 +98,4 @@ Language settings offer English and 日本語. Translate functional labels, mode
 
 Default interface language follows the first supported browser/system language preference (including regional variants), falling back to English. The language menu still allows a manual choice for the current visit.
 
-Copyright uses the shared compact footer (`shared/copyright.js`) with a 12px notice and a 44px touch target for usage details. Include its measured height in the viewport layout. The terms dialog uses existing shared controls and interface translations.
+Copyright uses the shared compact footer (`shared/copyright.js`) with a 12px text-only notice. Do not add a button or terms dialog to individual applets. Include its measured height in the viewport layout. The future ActivityHub home page will link to the full terms.

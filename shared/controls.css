@@ -40,7 +40,5 @@ button.ah-choice{background:var(--ah-surface);color:var(--ah-ink);border:2px sol
 .ah-mode-toggle input:disabled{cursor:default}.ah-mode-toggle input:disabled+.switch-track{opacity:.6}
 @media(prefers-reduced-motion:reduce){.ah-button,.ah-choice,.switch-track,.switch-knob{transition:none!important}.ah-button:active,.ah-choice:active{transform:none!important}}
 
-/* Common copyright notice; keeps the activity visible and terms accessible. */
+/* Compact text-only copyright notice. */
 .ah-copyright{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 12px;padding:4px 16px;color:var(--ah-muted);font-size:12px;line-height:1.4}
-button.ah-terms-button{font-size:14px;padding:7px 12px;min-height:44px}
-.ah-terms-dialog p{font-size:16px;line-height:1.6}
