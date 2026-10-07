@@ -19,13 +19,13 @@ Start with [the central workflow](docs/WORKFLOW.md). It defines project goals, w
 
 ## Public domain and hosting
 
-Public brand: **Let’s EiGo!**. Domain: **letseigo.com**. The owner has configured the domain and is awaiting certificate issuance. Live HTTPS has not been independently verified. `ActivityHub` remains the repository name.
+Public brand: **Let’s EiGo!**. Domain: **letseigo.com**. The owner confirms that the custom domain is connected and HTTPS enforcement is enabled. `ActivityHub` remains the repository name.
 
-Original GitHub Pages Pizza Builder address: https://inkwashed.github.io/ActivityHub/apps/pizza/index.html
+Original GitHub Pages Pizza Builder address: https://inkwashed.github.io/ActivityHub/apps/pizza/
 
-Intended address after the custom domain is connected: https://letseigo.com/apps/pizza/index.html
+Public addresses: https://letseigo.com/ and https://letseigo.com/apps/pizza/
 
-The intended address is not a deployment verification. This documentation update does not configure DNS, GitHub Pages, redirects, or a CNAME file. Keep internal links and shared asset references relative so the app works under either hosting path. Once the domain is connected and verified, update this section to record the live address.
+Keep internal links relative and use trailing-slash directory URLs. The HTML entry files remain named `index.html`. Shared `local-links.js` preserves navigation when opening files directly offline.
 
 Homepage usage terms open in a native, scrollable dialog with a close button and Escape dismissal; closing returns focus to the opener. Applet footers remain text only. `LICENSE.txt` is authoritative: after editing it, run `node scripts/sync-license.cjs` to update the embedded homepage text. Embedding allows direct local opening without a network request. The license wording remains English; dialog controls support English/Japanese.
 
