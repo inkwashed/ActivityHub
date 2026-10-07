@@ -4,7 +4,7 @@
   const footer = document.createElement('footer');
   footer.className = 'ah-copyright';
   const notice = document.createElement('span');
-  notice.dataset.i18n = '© 2026 · All rights reserved.';
+  notice.dataset.i18n = '© 2026 letseigo.com · All rights reserved.';
   notice.textContent = notice.dataset.i18n;
   footer.append(notice);
   document.body.append(footer);

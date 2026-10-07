@@ -42,7 +42,8 @@
       if (document.addEventListener) document.addEventListener('activityhub:languagechange', () => this.config.toppings.forEach(item => this.updateButton(item)));
       const advancedToggle = document.querySelector('#advanced-mode');
       advancedToggle.addEventListener('change', () => {
-        this.advancedMode = advancedToggle.checked;
+        this.advancedMode = this.creative?.active ? false : advancedToggle.checked;
+        advancedToggle.checked = this.advancedMode;
         this.updateSentence();
         this.announce(`${t(this.advancedMode ? 'Hard mode.' : 'Easy mode.')} ${this.root.querySelector('#sentence').textContent}`);
       });
@@ -63,7 +64,7 @@
         button.className = 'topping-button ah-choice';
         button.style.setProperty('--ingredient-color', topping.color);
         button.innerHTML = `<span class="ingredient-art">${topping.art}</span><span class="ingredient-name">${topping.label}</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>`;
-        button.addEventListener('click', () => this.setLevel(topping.id, (this.state.toppings[topping.id] + 1) % 4));
+        button.addEventListener('click', () => this.creative?.active ? this.creative.add(topping.id) : this.setLevel(topping.id, (this.state.toppings[topping.id] + 1) % 4));
         this.buttons.set(topping.id, button);
         this.root.querySelector('#topping-options').append(button);
         const group = document.createElement('div');
@@ -146,6 +147,7 @@
       const level = this.state.toppings[topping.id];
       const button = this.buttons.get(topping.id);
       button.setAttribute('aria-pressed', String(level > 0));
+      if (this.creative?.active) { button.setAttribute('aria-label', `${topping.label}. ${t('Add one piece.')}`); return; }
       button.setAttribute('aria-label', `${topping.label}, ${t(['none', 'light', 'regular', 'extra'][level])}. ${t(level === 3 ? 'Tap to remove.' : 'Tap to add more.')}`);
       [...button.querySelectorAll('.dots i')].forEach((dot, index) => dot.classList.toggle('filled', index < level));
     }
@@ -184,6 +186,7 @@
 
     announce(message) { document.querySelector('#announcement').textContent = t(message); }
     clear() {
+      if (this.creative?.active) { this.creative.clear(); return; }
       this.config.toppings.forEach(item => this.setLevel(item.id, 0, false));
       this.positions.clear();
       this.setSauce(this.config.defaultSauce, false);

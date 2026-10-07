@@ -118,3 +118,22 @@ and difficulty state. Shared i18n scripts and the app ui-ja.js must be included.
 The starting interface language follows supported browser/system preferences
 (ja-JP → Japanese, en-US → English). If none match, English is used. Manual
 selection lasts for this page visit; the lesson content remains English.
+
+FREE MODE
+Use TAP / FREE beside the topping heading. TAP and FREE retain separate pizzas
+and sauces for this page visit. FREE adds one piece per ingredient tap and
+forces EASY; TAP restores its previous difficulty. Reset clears only the active
+pizza. Select a piece, drag it, or use Smaller/Larger, rotate, Flip, Duplicate,
+and Delete. The piece list can select items hidden under other toppings.
+Arrow keys move a focused piece (Shift moves farther); Delete removes it.
+Pieces stay within the pizza with scale limited to 0.5–2.5 and 120 pieces max.
+Share captures FREE positions, sizes, rotations, flips, and fixed layer order.
+Touch/mouse dragging uses pointer events. Pinch/twist gestures are not included.
+creative.js is required. Real-device drag and export rendering checks remain.
+
+FREE controls now use a vertical icon toolbar beside the pizza. The compact
+piece picker sits in the toppings header. The info button beside TAP/FREE opens
+the instructions. Icons retain translated screen-reader labels and tooltips.
+
+Public identity: letseigo.com. See the repository README for current hosting
+and planned domain status. Copyright attribution uses the shared domain notice.

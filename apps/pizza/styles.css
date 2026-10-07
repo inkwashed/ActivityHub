@@ -122,3 +122,36 @@ dialog::backdrop{background:#17291ecc}
 
 .language-options{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
 html[lang="ja"] .mode-easy,html[lang="ja"] .mode-hard{font-size:12px;letter-spacing:0}
+
+/* Creative mode shares controls while leaving TAP's composition intact. */
+.topping-legend{width:100%;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.build-toggle{margin-left:auto}
+.free-layer{position:absolute;inset:0;container-type:size;pointer-events:none;border-radius:50%}
+.free-layer[hidden],#free-tools[hidden],#pieces[hidden]{display:none}
+.free-piece{position:absolute;width:44px;height:44px;margin:0;padding:0;border:0;background:transparent;transform:translate(-50%,-50%);pointer-events:auto;touch-action:none;cursor:grab;overflow:visible}
+.free-piece:active{cursor:grabbing}
+.free-art{position:absolute;left:50%;top:50%;width:calc(var(--food-size)*1cqw);aspect-ratio:1;transform:translate(-50%,-50%) rotate(var(--angle)) scaleX(var(--flip));display:block;pointer-events:none;border-radius:5px}
+.free-art svg{display:block;width:100%;height:100%;filter:drop-shadow(0 2px 1px #51240a33)}
+.free-piece.selected .free-art{outline:2px dashed var(--ah-focus);outline-offset:3px}
+.free-piece:focus-visible{outline:3px solid var(--ah-focus);outline-offset:2px;border-radius:8px}
+.free-toolbar{display:flex;flex-direction:column;align-items:center;gap:6px}
+
+
+#piece-picker{max-width:100%;width:145px;min-height:44px;font:inherit;font-size:14px;color:var(--ah-ink);background:var(--ah-surface);border:1px solid var(--ah-border);border-radius:12px;padding:8px}
+#piece-picker:focus-visible{outline:3px solid var(--ah-focus);outline-offset:3px}
+.is-free .dots,.is-free .topping-section>.hint{display:none}
+.is-free .pizza{isolation:isolate}
+
+/* Reserve a separate lane for editing so controls never cover the pizza. */
+.pizza-stage{position:relative}
+#free-tools{position:absolute;right:0;top:50%;transform:translateY(-50%);width:44px}
+.is-free .pizza-stage{min-height:344px;display:grid;grid-template-columns:minmax(0,1fr) 44px;column-gap:12px;place-items:center}
+.is-free .pizza-stage .board{width:min(100%,420px);max-width:100%}
+@supports(width:1cqh){@media(min-width:700px) and (min-height:600px){.is-free .pizza-stage .board{width:min(calc(100cqw - 56px),100cqh);height:min(calc(100cqw - 56px),100cqh)}}}
+.is-free .kitchen{grid-template-rows:auto minmax(344px,1fr) auto auto}
+.build-mode-controls{display:inline-flex;align-items:center;gap:6px;margin-left:auto}
+.build-toggle{margin-left:0}
+#piece-picker-wrap{min-width:0;max-width:100%}
+#piece-picker-wrap[hidden]{display:none}
+#piece-picker{width:145px;max-width:100%;padding:6px;font-weight:normal}
+@media(max-width:950px){#piece-picker{width:125px}.topping-legend{font-size:18px}}

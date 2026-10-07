@@ -79,7 +79,7 @@ Use checks proportional to the change; do not add tests that merely restate CSS 
 
 | Applet | Entry point | Behavior checks | Current limitations |
 | --- | --- | --- | --- |
-| Pizza Builder | `apps/pizza/index.html` | `node tests/check.cjs`, `node tests/check-fullscreen.cjs`, `node tests/check-sharing.cjs` from repository root | Mock-based checks; physical iPad visual/download checks outstanding. Textbook back link is a placeholder; English/Japanese interface language is supported. |
+| Pizza Builder | `apps/pizza/index.html` | `node tests/check.cjs`, `node tests/check-fullscreen.cjs`, `node tests/check-sharing.cjs`, `node tests/check-creative.cjs` from repository root | Mock-based checks; physical iPad visual/download checks outstanding. Textbook back link is a placeholder; English/Japanese interface language is supported. |
 
 Shared today: design tokens, control CSS, and the language, Reset, and camera icons. The visual guide consumes those actual shared files.
 
@@ -106,3 +106,9 @@ Use `shared/i18n.js` for interface language and `shared/ui-ja.js` for common Jap
 ## Copyright notices
 
 Include `shared/copyright.js` in applets, before viewport layout measurement and after shared translations. Include the root `LICENSE.txt` in deployments and packages. Reserve the visible footer height instead of overlaying the activity. The shared English/Japanese footer is text only, with no button or terms dialog. Add the visible full-terms link to the ActivityHub home page when it is built; do not duplicate license text into each app. Preserve the permission for built-in completed-photo exports. Update the root terms and shared notice together when the owner changes the usage policy.
+
+Creative interaction modes should preserve their own compositions and keep learning modes unambiguous. Pizza Builder FREE forces EASY, restores TAP difficulty on return, and keeps photo export faithful to manual transforms. No pinch/rotation gestures are currently implemented.
+
+## Public identity and domain
+
+Use `letseigo.com` in shared copyright attribution. ActivityHub remains the repository/project name. The purchased custom domain is planned for GitHub Pages; connection is pending, not verified by this documentation update. See the root README for current and intended public addresses. Preserve relative app/asset links and do not add DNS, CNAME, or redirect changes unless domain setup is requested. After successful domain connection, update the README status rather than duplicating deployment status in each app.

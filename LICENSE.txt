@@ -1,6 +1,6 @@
-ACTIVITYHUB — TERMS OF USE
+ACTIVITYHUB / LETSEIGO.COM — TERMS OF USE
 
-Copyright © 2026. All rights reserved.
+Copyright © 2026 letseigo.com. All rights reserved.
 
 Permission is granted to individual users, teachers, schools, and other educational users to access and use an unmodified copy of ActivityHub free of charge for personal, classroom, and non-commercial educational purposes.
 
@@ -9,6 +9,8 @@ These terms cover ActivityHub applets, source code, and original artwork and ass
 You may save, print, and share the completed activity images produced by the built-in photo/download features for personal, classroom, and non-commercial educational purposes. This permission does not authorize extracting or redistributing the underlying artwork, asset collection, or applet code.
 
 You may share links to the official hosted version of ActivityHub.
+
+Designated domain: letseigo.com. GitHub Pages remains the current hosting platform while the custom domain is being connected.
 
 Without prior written permission from the copyright holder, you may not:
 

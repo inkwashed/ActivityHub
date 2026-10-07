@@ -99,3 +99,9 @@ Language settings offer English and 日本語. Translate functional labels, mode
 Default interface language follows the first supported browser/system language preference (including regional variants), falling back to English. The language menu still allows a manual choice for the current visit.
 
 Copyright uses the shared compact footer (`shared/copyright.js`) with a 12px text-only notice. Do not add a button or terms dialog to individual applets. Include its measured height in the viewport layout. The future ActivityHub home page will link to the full terms.
+
+Pizza Builder adds a TAP/FREE pill beside the topping heading, using the shared switch shape. FREE disables the EASY/HARD switch in EASY state and explains this in its instructions. Editing actions reuse shared buttons; the piece picker provides access to overlapped pieces. The selection outline uses the focus-color token.
+
+FREE editing uses a vertical icon toolbar to the right of the pizza, with a dedicated 44px lane and 12px separation. Reuse shared smaller/larger, rotation, flip, duplicate, and delete SVGs with translated accessible labels/tooltips. Put the compact piece picker in the topping header and expose instructions through the info button beside TAP/FREE. Header controls may wrap on narrower screens.
+
+The text-only footer attribution is `© 2026 letseigo.com · All rights reserved.`; Japanese retains `letseigo.com` and translates the rights notice. Keep the domain as plain text in applet footers.

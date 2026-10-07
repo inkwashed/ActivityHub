@@ -16,7 +16,7 @@ window.ActivityHubI18n.register({
   "Fullscreen is not available in this browser. Try hiding the browser toolbar for more space.": "このブラウザでは全画面にできません。ブラウザのツールバーを隠すと、広く表示できます。",
   "Fullscreen could not open. You can keep building your pizza here.": "全画面にできませんでした。このまま続けられます。",
   "English practice words and sentences stay in English.": "学習する単語や文は英語のままです。",
-  "© 2026 · All rights reserved.": "© 2026 · 無断転載・再配布禁止",
+  "© 2026 letseigo.com · All rights reserved.": "© 2026 letseigo.com · 無断転載・再配布禁止",
   "Use & copyright": "利用条件・著作権",
   "Close usage terms": "利用条件を閉じる",
   "Free for personal, classroom, and non-commercial educational use.": "個人・授業・非営利の教育目的で無料で利用できます。",

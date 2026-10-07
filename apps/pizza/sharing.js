@@ -32,9 +32,10 @@
       art += `<ellipse cx="${50 + Math.cos(angle) * radius}" cy="${50 + Math.sin(angle) * radius}" rx="${.3 + (i % 3) * .17}" ry=".3" fill="#975523" opacity=".32"/>`;
     }
     for (const topping of builder.config.toppings) {
-      const count = topping.counts[builder.state.toppings[topping.id]];
+      const freePieces = builder.creative?.active ? builder.creative.items.filter(item => item.topping === topping.id) : null;
+      const count = freePieces ? freePieces.length : topping.counts[builder.state.toppings[topping.id]];
       if (!count) continue;
-      const positions = builder.placements(topping);
+      const positions = freePieces || builder.placements(topping);
       for (let i = 0; i < count; i++) {
         const p = positions[i];
         // DOM pizza radius is 50%; photo radius is 47%, so scale all placements together.
@@ -42,7 +43,7 @@
         const size = topping.size * .94;
         let shape = topping.art.replace('<svg ', `<svg x="${-size/2}" y="${-size/2}" width="${size}" height="${size}" `);
         if (topping.id === 'cheese') shape = shape.replaceAll('#fff0b0', '#f5cd72').replaceAll('#fff0ac', '#f0c368').replaceAll('#ffe99d', '#edbc5e');
-        art += `<g transform="translate(${x} ${y}) rotate(${p.rotate}) scale(${p.scale})">${shape}</g>`;
+        art += `<g transform="translate(${x} ${y}) rotate(${p.rotate}) scale(${p.flip ? -p.scale : p.scale} ${p.scale})">${shape}</g>`;
       }
     }
     art += '<circle cx="50" cy="50" r="40" fill="#ad6426" opacity=".06"/></svg>';
