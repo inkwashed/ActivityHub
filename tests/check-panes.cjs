@@ -1,0 +1,15 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const button=()=>({events:{},addEventListener(k,fn){this.events[k]=fn}});
+const previous=button(),next=button(),status={};
+const fruit={dataset:{builderPane:'Ice cream & fruit'},selection:3};
+const syrup={dataset:{builderPane:'Finishing touches'},selection:'caramel'};
+const root={querySelectorAll:()=>[fruit,syrup],querySelector:s=>({'[data-pane-previous]':previous,'[data-pane-next]':next,'[data-pane-status]':status}[s])};
+const events={};let japanese=false;
+vm.runInNewContext(fs.readFileSync('shared/builder-panes.js','utf8'),{window:{ActivityHubI18n:{t:s=>japanese?'翻訳':s}},document:{querySelectorAll:()=>[root],addEventListener:(k,f)=>events[k]=f}});
+assert.equal(fruit.hidden,false);assert.equal(syrup.hidden,true);
+next.events.click();assert.equal(syrup.hidden,false);assert.equal(fruit.hidden,true);assert(status.textContent.startsWith('2 / 2'));
+next.events.click();assert.equal(fruit.hidden,false);
+previous.events.click();assert.equal(syrup.hidden,false);
+japanese=true;events['activityhub:languagechange']();assert(status.textContent.endsWith('翻訳'));
+assert.equal(fruit.selection,3);assert.equal(syrup.selection,'caramel');
+console.log('PASS: initial pane, both arrows, wrapping, translation, and retained pane state.');

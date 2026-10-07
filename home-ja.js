@@ -1,4 +1,9 @@
 window.ActivityHubI18n.register({
+  "Special feature": "スペシャルアプリ",
+  "A little note. A lovely moment.": "小さな手紙で、心あたたまるひとときを。",
+  "Create a personal digital card, add your message, and share a little kindness with a link.": "デジタルカードにメッセージを添えて、リンクで気持ちを届けましょう。",
+  "Create a digital card": "デジタルカードを作る",
+  "Opens in a new tab.": "新しいタブで開きます。",
   "Close terms": "利用条件を閉じる",
   "Let’s EiGo! home": "Let’s EiGo! ホーム",
   "Skip to activities": "教材へ進む",

@@ -1,5 +1,5 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
-const source=fs.readFileSync('apps/pizza/fullscreen.js','utf8');
+const source=fs.readFileSync('shared/fullscreen.js','utf8');
 async function check(mode){
  const attrs={},events={};let click;
  const button={setAttribute:(k,v)=>attrs[k]=v,addEventListener:(k,fn)=>click=fn};

@@ -15,7 +15,7 @@ const root={querySelector:s=>elements[s],querySelectorAll:s=>s==='[data-sauce]'?
 let frames=new Map(), frameId=0, reduce=false;
 const context={requestAnimationFrame:fn=>{frames.set(++frameId,fn);return frameId},cancelAnimationFrame:id=>frames.delete(id),window:{matchMedia:()=>({matches:reduce})},document:{querySelector:s=>s==='#builder'?root:elements[s],createElement:()=>new Element()}};
 vm.createContext(context);
-for(const file of ['config.js','builder.js'])vm.runInContext(fs.readFileSync('apps/pizza/'+file,'utf8'),context);
+for(const file of ['apps/pizza/config.js','shared/builder.js','apps/pizza/builder.js'])vm.runInContext(fs.readFileSync(file,'utf8'),context);
 const app=context.window.pizzaBuilder;
 const expectedOrder=['cheese','pepperoni','sausage','tomatoes','green-peppers','mushrooms','onions','pineapples','corn'];
 assert.deepEqual(Array.from(app.config.toppings,x=>x.id),expectedOrder);

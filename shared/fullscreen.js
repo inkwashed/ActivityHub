@@ -1,4 +1,4 @@
-/* Fullscreen is requested only from a user tap; the pizza state is preserved. */
+/* Fullscreen is requested only from a user tap; the activity state is preserved. */
 (() => {
   const t = text => window.ActivityHubI18n ? window.ActivityHubI18n.t(text) : text;
   'use strict';
@@ -35,7 +35,7 @@
       sync();
     } catch (error) {
       button.disabled = false;
-      message(t('Fullscreen could not open. You can keep building your pizza here.'));
+      message(t('Fullscreen could not open. You can keep using this activity here.'));
     }
   });
   // These also handle browser-owned exit controls and the Escape key.
@@ -43,7 +43,7 @@
   document.addEventListener('webkitfullscreenchange', sync);
   function failed() {
     button.disabled = false;
-    message(t('Fullscreen could not open. You can keep building your pizza here.'));
+    message(t('Fullscreen could not open. You can keep using this activity here.'));
   }
   document.addEventListener('fullscreenerror', failed);
   document.addEventListener('webkitfullscreenerror', failed);

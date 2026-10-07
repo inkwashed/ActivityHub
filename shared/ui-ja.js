@@ -14,7 +14,7 @@ window.ActivityHubI18n.register({
   "Textbook resources — coming soon": "教科書の教材一覧（準備中）",
   "Back to textbook resources (coming soon)": "教科書の教材一覧に戻る（準備中）",
   "Fullscreen is not available in this browser. Try hiding the browser toolbar for more space.": "このブラウザでは全画面にできません。ブラウザのツールバーを隠すと、広く表示できます。",
-  "Fullscreen could not open. You can keep building your pizza here.": "全画面にできませんでした。このまま続けられます。",
+  "Fullscreen could not open. You can keep using this activity here.": "全画面にできませんでした。このまま続けられます。",
   "English practice words and sentences stay in English.": "学習する単語や文は英語のままです。",
   "Let’s EiGo! © 2026 letseigo.com · All rights reserved.": "Let’s EiGo! © 2026 letseigo.com · 無断転載・再配布禁止",
   "Use & copyright": "利用条件・著作権",
@@ -26,3 +26,5 @@ window.ActivityHubI18n.register({
   "Read full terms": "利用条件の全文を読む",
   "Back to textbook activities": "教科書の教材一覧に戻る"
 });
+
+window.ActivityHubI18n.register({"Previous options":"前の選択肢","Next options":"次の選択肢"});

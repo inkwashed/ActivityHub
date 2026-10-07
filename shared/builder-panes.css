@@ -1,0 +1,8 @@
+/* Side rails remain in the panel; no controls extend outside the viewport. */
+.ah-builder .pantry[data-builder-panes]{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:8px;padding:12px}
+.pane-rail{align-self:center}
+.pane-content{min-width:0}
+.pane-status{margin:0 0 14px;font-size:14px;line-height:1.4;color:var(--ah-muted);text-align:center;min-height:20px}
+[data-builder-pane][hidden]{display:none!important}
+[data-builder-pane] fieldset{min-width:0}
+@media(max-width:950px){.ah-builder main:has([data-builder-panes]){gap:20px;padding-left:16px;padding-right:16px}.ah-builder .pantry[data-builder-panes]{column-gap:4px;padding:10px 6px}}

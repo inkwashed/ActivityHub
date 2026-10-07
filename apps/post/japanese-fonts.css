@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'Mochiy Pop One';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+3000-30FF, U+31F0-31FF, U+3400-9FFF, U+F900-FAFF, U+FF00-FFEF, U+20000-3134F;
+  src: url(assets/fonts/mochiy-pop-one.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Serif JP';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+3000-30FF, U+31F0-31FF, U+3400-9FFF, U+F900-FAFF, U+FF00-FFEF, U+20000-3134F;
+  src: url(assets/fonts/noto-serif-jp.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Yomogi';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+3000-30FF, U+31F0-31FF, U+3400-9FFF, U+F900-FAFF, U+FF00-FFEF, U+20000-3134F;
+  src: url(assets/fonts/yomogi.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Yuji Syuku';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+3000-30FF, U+31F0-31FF, U+3400-9FFF, U+F900-FAFF, U+FF00-FFEF, U+20000-3134F;
+  src: url(assets/fonts/yuji-syuku.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Zen Maru Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+3000-30FF, U+31F0-31FF, U+3400-9FFF, U+F900-FAFF, U+FF00-FFEF, U+20000-3134F;
+  src: url(assets/fonts/zen-maru-gothic.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Zen Old Mincho';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+3000-30FF, U+31F0-31FF, U+3400-9FFF, U+F900-FAFF, U+FF00-FFEF, U+20000-3134F;
+  src: url(assets/fonts/zen-old-mincho.ttf) format('truetype');
+}

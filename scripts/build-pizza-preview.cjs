@@ -3,7 +3,7 @@ const fs = require('fs'), path = require('path'), vm = require('vm');
 const root = path.join(__dirname, '..');
 const context = {window:{}};
 vm.runInNewContext(fs.readFileSync(path.join(root,'apps/pizza/config.js'),'utf8'),context);
-const engine = fs.readFileSync(path.join(root,'apps/pizza/builder.js'),'utf8');
+const engine = fs.readFileSync(path.join(root,'shared/builder.js'),'utf8');
 vm.runInNewContext(engine.replace('window.pizzaBuilder = new FoodBuilder(document.querySelector(\'#builder\'), window.PIZZA_CONFIG);',''),context);
 const config = context.window.PIZZA_CONFIG;
 const builder = Object.create(context.window.FoodBuilder.prototype);

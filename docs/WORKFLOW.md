@@ -79,11 +79,13 @@ Use checks proportional to the change; do not add tests that merely restate CSS 
 
 | Applet | Entry point | Behavior checks | Current limitations |
 | --- | --- | --- | --- |
+| ほんの手紙 POST (featured) | `apps/post/index.html` | `node tests/check-post.cjs` | Independent styling by request; English UI with paired Japanese card fonts. Static links contain card text; no server inbox. Physical-device verification outstanding. |
+| Parfait Builder (prototype) | `apps/parfait/index.html` | `node tests/check-parfait.cjs` | TAP only; no FREE/photo export yet. Mock checks; device visuals outstanding. Not on homepage. |
 | Pizza Builder | `apps/pizza/index.html` | `node tests/check.cjs`, `node tests/check-fullscreen.cjs`, `node tests/check-sharing.cjs`, `node tests/check-creative.cjs` from repository root | Mock-based checks; physical iPad visual/download checks outstanding. Textbook back link returns to the home page’s Let’s Try! 2 section; English/Japanese interface language is supported. |
 
-Shared today: design tokens, control and dialog CSS, common action/editing icons and the paper-airplane mark, interface translation helpers/dictionary, language-dialog open/close behavior, and the copyright footer. The visual guide consumes those actual shared files.
+Shared today: builder quantity/selection/sentence/reset logic (`shared/builder.js`), fullscreen and viewport measurement, design tokens, control and dialog CSS, common action/editing icons and the paper-airplane mark, interface translation helpers/dictionary, language-dialog open/close behavior, and the copyright footer. The visual guide consumes those actual shared files.
 
-Still app-local today: header and language-dialog markup, fullscreen logic, viewport measurement, sentence generation, and photo export. Their common portions may be extracted when another app needs them. Do not claim they already update across multiple applets, and do not blindly generalize pizza-specific export or placement geometry.
+Still app-local today: header and language-dialog markup, pizza sauce animation, creative editing, and photo export. Their common portions may be extracted when another app needs them. Do not claim they already update across multiple applets, and do not blindly generalize pizza-specific export or placement geometry.
 
 Add a row when an applet is created. Update coverage as shared behavior is extracted. Preserve activity-specific details in the app's own documentation.
 
@@ -121,3 +123,19 @@ The root `index.html` is the textbook activity directory. Home-specific layout a
 Homepage usage terms open in a native, scrollable dialog with a close button and Escape dismissal; closing returns focus to the opener. Applet footers remain text only. `LICENSE.txt` is authoritative: after editing it, run `node scripts/sync-license.cjs` to update the embedded homepage text. Embedding allows direct local opening without a network request. The license wording remains English; dialog controls support English/Japanese.
 
 Use relative trailing-slash directory URLs for home and applet navigation (for example `apps/pizza/` and `../../#lets-try-2`). Keep `index.html` as the actual entry file. Include `shared/local-links.js` to resolve directory links to explicit entry files only under `file:` for offline use. Public links use HTTPS on letseigo.com.
+
+## Builder engine ownership
+
+Before every pizza or parfait functional change, explicitly evaluate whether it benefits both builders. Shared quantity cycles, retained placements, accessible selection state, EASY/HARD order language, and reset live in `shared/builder.js`; both applets load that engine. Subclasses own visual geometry/rendering (pizza sauce animation, parfait glass placement). Ingredients, counts, artwork, and nouns live in app configuration. Preserve existing pizza behavior and run both builders' checks after engine changes. Avoid copying functional fixes between applets. Creative editing and photo export remain pizza-specific implementations for now; extract reusable portions when adding them to another builder.
+
+The builder engine supports optional `bases` and `sauces` configuration, validated selection, reset defaults, and base-aware order sentences. App subclasses provide `renderBase`/`renderSauce` for visual treatment. Parfait scoops and drizzle remain local; pizza keeps its spiral sauce renderer.
+
+## Featured standalone card app
+
+ほんの手紙 POST lives at `apps/post/index.html` and is featured separately from textbook activities on the home page. Its home-page link opens a new tab. By user request, it retains its own branding, styles, fonts, controls, and layout rather than adopting the shared app shell for now. The home-page feature uses the site design and English/Japanese translations. `apps/post/` is the canonical working copy; the earlier postcard-applet folder is the import source, not the site working copy. No deployment is implied by local integration.
+
+Builder navigation/heading spacing is owned by `shared/builder-layout.css`, loaded by both builders after their app layout CSS and before shared controls. Check both consumers whenever changing it; food-stage proportions remain local.
+
+Option paging is a shared opt-in builder feature (`builder-panes.js`/`.css`), independent of ingredient state. Parfait uses ice cream/fruit and finishing-syrup panes; pizza remains a single panel. Never rebuild ingredient controls when changing pages.
+
+Builder placement strategies: the default remains cached circular scatter for Pizza. `placement.mode: ordered-rows` enables selection-order tracking, row reflow, and per-ingredient orientation in the shared engine. Parfait supplies the glass-specific row coordinates and fruit size in config. Amount changes redistribute the existing row evenly without recreating pieces; removal closes gaps, re-addition appends a new top layer, and reset clears the order. Run both builders’ tests for placement changes.

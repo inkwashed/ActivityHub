@@ -115,3 +115,21 @@ Homepage usage terms open in a native, scrollable dialog with a close button and
 For unobtrusive text actions such as the homepage’s Use & copyright modal opener, use a native button with `ah-text-action`: underlined text with no filled background or border, a 44px touch height, and visible keyboard focus. Use actual links for navigation.
 
 The original paper-airplane logo lives in `shared/icons/site-mark.svg`. Use this SVG for the home page header and favicon, preserving its square aspect ratio and orange palette. Applets should retain their own identity: Pizza Kitchen uses `apps/pizza/icon.svg` in its header and favicon. Store activity-specific marks with their applet; use the shared airplane only as a fallback when an applet has no mark. Use empty alt text beside a visible brand/activity title to avoid duplicate announcements.
+
+Builder applets reuse the same shared controls, modal frames, and header ordering. Parfait uses an app-specific glass and fruit artwork; these do not redefine the shared control palette. Reusable behavior belongs to the builder engine described in WORKFLOW.md.
+
+## Featured POST exception
+
+By user request, `apps/post/` retains its independent stationery styling and formatting for now, including its header, controls, fonts, and footer. Its home-page feature follows this site guide. Unifying the app shell is deferred.
+
+## Builder layout standards
+
+Pizza and parfait use `body.ah-builder` and `shared/builder-layout.css` (after app styles, before controls). This owns header padding, logo size, navigation gaps, title/eyebrow/question typography, workspace gutters, panel padding, and section headings. Change common dimensions there rather than adding app overrides. Desktop headers use 6px vertical/24px horizontal padding; logos are 30px and control targets remain 44px. Main titles use 28–39px on tablet/desktop, the target question 22px, section headings 20px, and helper text 14px. Mobile layouts wrap and scroll.
+
+Artwork stages remain app-specific. On tablet/desktop, Parfait reserves at least 40px below its heading and allocates spare viewport height above the glass for future decorative stacking. The workspace subtracts measured header/footer heights and vertical padding; long orders or enlarged text may naturally expand it. This spacing change does not implement above-rim ingredient placement, which still needs its own rendering update.
+
+## Builder option panes
+
+For crowded builders, use `shared/builder-panes.js` and `shared/builder-panes.css`. A `[data-builder-panes]` panel contains named `[data-builder-pane]` sections, a live `[data-pane-status]`, and shared 44px previous/next icon buttons in side rails. Arrows cycle through panes. Hidden panes retain their controls and selections but leave the tab order. Keep the panel footprint stable; allow scrolling on short screens or enlarged text. Page labels and accessible navigation names translate, while ingredient vocabulary stays English.
+
+Parfait filling uses a restrained contrasting contour so pale cream stays visible against the glass. Decorative fruit rows use consistent orientation and even spacing rather than broad random rotation; strawberry points face upward. Layer ordering is content behind the glass outline, with the open rim allowing above-glass decoration.
