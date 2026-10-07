@@ -14,7 +14,7 @@
       const help = document.querySelector('#free-info-dialog');
       document.querySelector('#free-info').addEventListener('click', () => help.showModal());
       document.querySelector('#free-info-close').addEventListener('click', () => help.close());
-      for (const [action,label] of [['smaller','Smaller'],['larger','Larger'],['left','Rotate left'],['right','Rotate right'],['flip','Flip'],['duplicate','Duplicate'],['delete','Delete']]) {
+      for (const [action,label] of [['larger','Larger'],['smaller','Smaller'],['left','Rotate left'],['right','Rotate right'],['flip','Flip'],['duplicate','Duplicate'],['delete','Delete']]) {
         const b = document.createElement('button');b.type='button';b.className='ah-button ah-button-icon';b.setAttribute('aria-label',t(label));b.title=t(label);b.setAttribute('data-i18n-aria-label',label);b.setAttribute('data-i18n-title',label);b.disabled=true;
         const icon = {left:'rotate-left',right:'rotate-right',flip:'flip',duplicate:'duplicate',delete:'delete',smaller:'smaller',larger:'larger'}[action];
         b.innerHTML=`<img src="../../shared/icons/${icon}.svg" alt="" aria-hidden="true">`;

@@ -1,4 +1,4 @@
-# ActivityHub instructions
+# Let’s EiGo! instructions
 
 This repository is the canonical working source. Do not edit historical Codex output snapshots as the working copy.
 

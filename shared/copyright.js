@@ -1,10 +1,10 @@
 /* Shared text-only copyright footer. Full terms remain in ../LICENSE.txt.
-   The future ActivityHub home page will provide the visible terms link. */
+   The Let’s EiGo! home page provides the visible terms link. */
 (() => {
   const footer = document.createElement('footer');
   footer.className = 'ah-copyright';
   const notice = document.createElement('span');
-  notice.dataset.i18n = '© 2026 letseigo.com · All rights reserved.';
+  notice.dataset.i18n = 'Let’s EiGo! © 2026 letseigo.com · All rights reserved.';
   notice.textContent = notice.dataset.i18n;
   footer.append(notice);
   document.body.append(footer);

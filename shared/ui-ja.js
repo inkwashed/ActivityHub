@@ -16,12 +16,13 @@ window.ActivityHubI18n.register({
   "Fullscreen is not available in this browser. Try hiding the browser toolbar for more space.": "このブラウザでは全画面にできません。ブラウザのツールバーを隠すと、広く表示できます。",
   "Fullscreen could not open. You can keep building your pizza here.": "全画面にできませんでした。このまま続けられます。",
   "English practice words and sentences stay in English.": "学習する単語や文は英語のままです。",
-  "© 2026 letseigo.com · All rights reserved.": "© 2026 letseigo.com · 無断転載・再配布禁止",
+  "Let’s EiGo! © 2026 letseigo.com · All rights reserved.": "Let’s EiGo! © 2026 letseigo.com · 無断転載・再配布禁止",
   "Use & copyright": "利用条件・著作権",
   "Close usage terms": "利用条件を閉じる",
   "Free for personal, classroom, and non-commercial educational use.": "個人・授業・非営利の教育目的で無料で利用できます。",
   "Please share the official link. Reposting, rehosting, selling, rebranding, or distributing modified applets or assets requires prior written permission. Keep copyright and attribution notices intact.": "紹介するときは公式ページのリンクを共有してください。アプレットや素材の転載、別サイトでの公開、販売、名称変更、改変版の配布には、事前の書面による許可が必要です。著作権・作者の表示は削除しないでください。",
   "You may save, print, and share your completed activity photos for personal and classroom use.": "完成した作品の写真は、個人利用や授業のために保存・印刷・共有できます。",
   "The full English terms explain the permissions and restrictions.": "詳しい利用条件は、英語の全文をご確認ください。",
-  "Read full terms": "利用条件の全文を読む"
+  "Read full terms": "利用条件の全文を読む",
+  "Back to textbook activities": "教科書の教材一覧に戻る"
 });

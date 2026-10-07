@@ -137,3 +137,7 @@ the instructions. Icons retain translated screen-reader labels and tooltips.
 
 Public identity: letseigo.com. See the repository README for current hosting
 and planned domain status. Copyright attribution uses the shared domain notice.
+
+FREE toolbar: larger (+) appears above smaller (−), followed by rotate left,
+rotate right, flip, duplicate, and delete. Shared appearance and ordering
+standards are maintained in docs/STYLE-GUIDE.md; process in docs/WORKFLOW.md.

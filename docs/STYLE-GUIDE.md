@@ -1,4 +1,4 @@
-# ActivityHub style guide
+# Let’s EiGo! style guide
 
 Version 0.1 — a living guide based on Pizza Builder. Revise this guide and the shared styles together as the collection develops.
 
@@ -67,7 +67,7 @@ Actions use a thin 1px border and dark text. Secondary actions start a shade dar
 
 ## Shared header and icons
 
-Left: textbook-back control, app mark, app title. Right: language, EASY/HARD, textbook/unit info, fullscreen. Use 24px icons in 44px targets. Wrap on narrower screens instead of creating horizontal scroll. Back remains disabled until a real textbook resource destination exists.
+Left: textbook-back control, applet-specific mark (or the shared mark when none exists), activity title (Pizza Builder uses the bold, letter-spaced LITTLE PIZZA KITCHEN title). Right: language, EASY/HARD, textbook/unit info, fullscreen. Use 24px icons in 44px targets. Wrap on narrower screens instead of creating horizontal scroll. Back links to the relevant textbook section on the home page; disable it only when no real destination exists.
 
 Reset uses `reset.svg`; photo preview/Share uses `camera.svg`. Both have a 24×24 viewBox, 1.8px rounded strokes, and similar drawing bounds; render them at the shared 24px icon size. Avoid font glyphs for these actions because their apparent size varies by platform.
 
@@ -77,7 +77,7 @@ Language uses similarly sized speech bubbles and matching strokes. Reuse the sha
 
 Let tablet/desktop activities fill available height, preserving room for prompts and actions. Constrain geometry by both width and height. Phones, short windows, and enlarged text may scroll; never hide overflow to disguise clipping.
 
-Dialogs use the same palette and controls, a title, a visible close button, native focus handling, and a scrollable interior when needed. Export artwork may use its own palette; surrounding controls remain shared.
+All native `<dialog>` elements must use `class="ah-dialog"` from `shared/controls.css`, including language, help, preview, and terms dialogs. It supplies the shared 20px panel radius, thin border, cream fill, 24px padding, dimmed backdrop, heading layout, and viewport-constrained scrolling. Use `.dialog-heading`, a labelled title, and a shared 44px close button with an accessible name. Preserve native focus handling and Escape dismissal. App CSS may adjust content-specific width or scrolling (such as license text), but must not duplicate the dialog frame. Check actual dialog opening in the interactive guide and every affected app when changing this component. Export artwork may use its own palette; surrounding controls remain shared.
 
 ## Review checklist
 
@@ -90,7 +90,7 @@ Dialogs use the same palette and controls, a title, a visible close button, nati
 
 ## Current audit
 
-Pizza Builder adopts shared controls for Reset, Share, download, language, fullscreen, both dialog-close buttons, disabled back, sauce/topping cards, and the mode switch. The language bubbles are rebalanced. Old app-local hover/selected rules were removed. Behavior tests pass; physical-device visual verification remains outstanding.
+Pizza Builder adopts shared controls for Reset, Share, download, language, fullscreen, both dialog-close buttons, textbook back link, sauce/topping cards, and the mode switch. The language bubbles are rebalanced. Old app-local hover/selected rules were removed. Behavior tests pass; physical-device visual verification remains outstanding.
 
 ## Interface languages
 
@@ -98,10 +98,20 @@ Language settings offer English and 日本語. Translate functional labels, mode
 
 Default interface language follows the first supported browser/system language preference (including regional variants), falling back to English. The language menu still allows a manual choice for the current visit.
 
-Copyright uses the shared compact footer (`shared/copyright.js`) with a 12px text-only notice. Do not add a button or terms dialog to individual applets. Include its measured height in the viewport layout. The future ActivityHub home page will link to the full terms.
+Copyright uses the shared compact footer (`shared/copyright.js`) with a 12px text-only notice. Do not add a button or terms dialog to individual applets. Include its measured height in the viewport layout. The root home page links to the full terms.
 
 Pizza Builder adds a TAP/FREE pill beside the topping heading, using the shared switch shape. FREE disables the EASY/HARD switch in EASY state and explains this in its instructions. Editing actions reuse shared buttons; the piece picker provides access to overlapped pieces. The selection outline uses the focus-color token.
 
-FREE editing uses a vertical icon toolbar to the right of the pizza, with a dedicated 44px lane and 12px separation. Reuse shared smaller/larger, rotation, flip, duplicate, and delete SVGs with translated accessible labels/tooltips. Put the compact piece picker in the topping header and expose instructions through the info button beside TAP/FREE. Header controls may wrap on narrower screens.
+FREE editing uses a vertical icon toolbar to the right of the pizza, with a dedicated 44px lane and 12px separation. Order the vertical actions from top to bottom: larger (+), smaller (−), rotate left, rotate right, flip, duplicate, delete. Reuse the shared size, rotation, flip, duplicate, and delete SVGs with translated accessible labels/tooltips. Put the compact piece picker in the topping header and expose instructions through the info button beside TAP/FREE. Header controls may wrap on narrower screens.
 
-The text-only footer attribution is `© 2026 letseigo.com · All rights reserved.`; Japanese retains `letseigo.com` and translates the rights notice. Keep the domain as plain text in applet footers.
+The text-only footer attribution is `Let’s EiGo! © 2026 letseigo.com · All rights reserved.`; Japanese retains `Let’s EiGo!` and `letseigo.com` and translates the rights notice. Keep the domain as plain text in applet footers.
+
+## Brand
+
+Use **Let’s EiGo!** on the home page, in page titles, and in documentation. Applet headers display their activity name, without an additional site-brand line. Place the site brand unobtrusively before the copyright notice in the shared footer. Keep the shared palette and control styling; applets may have their own logos and favicons. The repository name and internal `ah-`/`ActivityHubI18n` identifiers remain unchanged.
+
+Homepage usage terms open in a native, scrollable dialog with a close button and Escape dismissal; closing returns focus to the opener. Applet footers remain text only. `LICENSE.txt` is authoritative: after editing it, run `node scripts/sync-license.cjs` to update the embedded homepage text. Embedding allows direct local opening without a network request. The license wording remains English; dialog controls support English/Japanese.
+
+For unobtrusive text actions such as the homepage’s Use & copyright modal opener, use a native button with `ah-text-action`: underlined text with no filled background or border, a 44px touch height, and visible keyboard focus. Use actual links for navigation.
+
+The original paper-airplane logo lives in `shared/icons/site-mark.svg`. Use this SVG for the home page header and favicon, preserving its square aspect ratio and orange palette. Applets should retain their own identity: Pizza Kitchen uses `apps/pizza/icon.svg` in its header and favicon. Store activity-specific marks with their applet; use the shared airplane only as a fallback when an applet has no mark. Use empty alt text beside a visible brand/activity title to avoid duplicate announcements.

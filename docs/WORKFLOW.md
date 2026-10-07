@@ -1,4 +1,4 @@
-# ActivityHub applet workflow
+# Let’s EiGo! applet workflow
 
 Status: living reference. Update this document when the way we build, maintain, or release applets changes. This is the process source of truth for the whole project; do not use another applet as an undocumented specification.
 
@@ -29,7 +29,7 @@ Written references define intent. Shared code implements it. Editing a Markdown 
 - Use plain HTML, CSS, and JavaScript with no external dependencies unless the user requests otherwise. Preserve static hosting and direct desktop opening of the app's HTML with the repository structure intact.
 - Collect no student information. Keep export/preview operations local unless an external service is explicitly part of the request.
 - Use original or appropriately licensed artwork. Keep textbook vocabulary faithful without copying textbook illustrations.
-- Use the shared design system for common controls. Do not fork palette, hover behavior, icons, or mode switches into app-local CSS.
+- Keep applet-specific logos and favicons local to each app; the main site uses the shared paper airplane. Use the shared design system for common controls. Do not fork palette, hover behavior, icons, or mode switches into app-local CSS.
 - Preserve accessibility: native semantic controls, accessible labels, keyboard operation, visible focus, adequate touch targets, and reduced-motion behavior. Detailed visual specifications belong in the style guide.
 - Let the main activity grow with available width and height. Allow scrolling when needed rather than clipping controls, long prompts, or enlarged text.
 - Keep optional language complexity in EASY/HARD modes where relevant. Do not force a mode switch into an activity with no meaningful difference between modes.
@@ -79,11 +79,11 @@ Use checks proportional to the change; do not add tests that merely restate CSS 
 
 | Applet | Entry point | Behavior checks | Current limitations |
 | --- | --- | --- | --- |
-| Pizza Builder | `apps/pizza/index.html` | `node tests/check.cjs`, `node tests/check-fullscreen.cjs`, `node tests/check-sharing.cjs`, `node tests/check-creative.cjs` from repository root | Mock-based checks; physical iPad visual/download checks outstanding. Textbook back link is a placeholder; English/Japanese interface language is supported. |
+| Pizza Builder | `apps/pizza/index.html` | `node tests/check.cjs`, `node tests/check-fullscreen.cjs`, `node tests/check-sharing.cjs`, `node tests/check-creative.cjs` from repository root | Mock-based checks; physical iPad visual/download checks outstanding. Textbook back link returns to the home page’s Let’s Try! 2 section; English/Japanese interface language is supported. |
 
-Shared today: design tokens, control CSS, and the language, Reset, and camera icons. The visual guide consumes those actual shared files.
+Shared today: design tokens, control and dialog CSS, common action/editing icons and the paper-airplane mark, interface translation helpers/dictionary, language-dialog open/close behavior, and the copyright footer. The visual guide consumes those actual shared files.
 
-Still app-local today: header markup, fullscreen logic, language dialog, viewport measurement, sentence generation, and photo export. Their common portions may be extracted when another app needs them. Do not claim they already update across multiple applets, and do not blindly generalize pizza-specific export or placement geometry.
+Still app-local today: header and language-dialog markup, fullscreen logic, viewport measurement, sentence generation, and photo export. Their common portions may be extracted when another app needs them. Do not claim they already update across multiple applets, and do not blindly generalize pizza-specific export or placement geometry.
 
 Add a row when an applet is created. Update coverage as shared behavior is extracted. Preserve activity-specific details in the app's own documentation.
 
@@ -95,7 +95,8 @@ Deploy only when requested as part of the current work. Identify the destination
 
 ## Decision history
 
-- Initial workflow: central process reference, separate visual specification, shared executable styles, per-app exceptions, and explicit multi-applet rollout checks. Based on the current Pizza Builder and ActivityHub design system.
+- Current standards: Let’s EiGo! public branding; textbook-section back navigation; shared English/Japanese interface controls with English lesson content; text-only app copyright with home-page terms; vertical editing actions ordered larger before smaller. See the style guide for visual details.
+- Initial workflow: central process reference, separate visual specification, shared executable styles, per-app exceptions, and explicit multi-applet rollout checks. Based on the current Pizza Builder and Let’s EiGo! design system.
 
 Add concise entries for consequential changes to project standards; routine activity edits belong in their app notes.
 
@@ -105,10 +106,16 @@ Use `shared/i18n.js` for interface language and `shared/ui-ja.js` for common Jap
 
 ## Copyright notices
 
-Include `shared/copyright.js` in applets, before viewport layout measurement and after shared translations. Include the root `LICENSE.txt` in deployments and packages. Reserve the visible footer height instead of overlaying the activity. The shared English/Japanese footer is text only, with no button or terms dialog. Add the visible full-terms link to the ActivityHub home page when it is built; do not duplicate license text into each app. Preserve the permission for built-in completed-photo exports. Update the root terms and shared notice together when the owner changes the usage policy.
+Include `shared/copyright.js` in applets, before viewport layout measurement and after shared translations. Include the root `LICENSE.txt` in deployments and packages. Reserve the visible footer height instead of overlaying the activity. The shared English/Japanese footer is text only, with no button or terms dialog. Keep the visible full-terms link on the root home page; do not duplicate license text into each app. Preserve the permission for built-in completed-photo exports. Update the root terms and shared notice together when the owner changes the usage policy.
 
 Creative interaction modes should preserve their own compositions and keep learning modes unambiguous. Pizza Builder FREE forces EASY, restores TAP difficulty on return, and keeps photo export faithful to manual transforms. No pinch/rotation gestures are currently implemented.
 
 ## Public identity and domain
 
-Use `letseigo.com` in shared copyright attribution. ActivityHub remains the repository/project name. The purchased custom domain is planned for GitHub Pages; connection is pending, not verified by this documentation update. See the root README for current and intended public addresses. Preserve relative app/asset links and do not add DNS, CNAME, or redirect changes unless domain setup is requested. After successful domain connection, update the README status rather than duplicating deployment status in each app.
+Use **Let’s EiGo!** as the public brand; applet headers retain their activity titles and the shared footer carries the site brand. Use `letseigo.com` in shared copyright attribution. `ActivityHub` remains the repository name; existing `ah-` styles and `ActivityHubI18n` identifiers are internal compatibility names. See the root README for deployment status. Preserve relative app/asset links and do not change DNS, CNAME, or redirects unless domain setup is requested.
+
+## Home page
+
+The root `index.html` is the textbook activity directory. Home-specific layout and translations live in `home.css` and `home-ja.js`; use shared tokens, controls, copyright, and `shared/language-dialog.js`. Add real, available activities to their textbook section and point each app’s back link to that section. Keep lesson vocabulary and grammar examples in English. Update the home page alongside new app releases.
+
+Homepage usage terms open in a native, scrollable dialog with a close button and Escape dismissal; closing returns focus to the opener. Applet footers remain text only. `LICENSE.txt` is authoritative: after editing it, run `node scripts/sync-license.cjs` to update the embedded homepage text. Embedding allows direct local opening without a network request. The license wording remains English; dialog controls support English/Japanese.

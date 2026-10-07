@@ -1,5 +1,9 @@
-# ActivityHub
+# Let’s EiGo!
 Repository for English textbook-based activities and games for use in and out of the classroom.
+
+## Home page
+
+Open `index.html` locally for the textbook activity directory. It links to Pizza Builder and the usage terms, supports English/Japanese interface text, and uses shared controls. Pizza Builder’s back arrow returns to its textbook section. Publish the repository root through GitHub Pages to include the home page.
 
 ## Shared design system
 
@@ -15,10 +19,14 @@ Start with [the central workflow](docs/WORKFLOW.md). It defines project goals, w
 
 ## Public domain and hosting
 
-Purchased domain: **letseigo.com**. This is the planned public address for the activities collection; connection to GitHub Pages is pending. ActivityHub remains the repository/project name.
+Public brand: **Let’s EiGo!**. Domain: **letseigo.com**. The owner has configured the domain and is awaiting certificate issuance. Live HTTPS has not been independently verified. `ActivityHub` remains the repository name.
 
-Current Pizza Builder address: https://inkwashed.github.io/ActivityHub/apps/pizza/index.html
+Original GitHub Pages Pizza Builder address: https://inkwashed.github.io/ActivityHub/apps/pizza/index.html
 
 Intended address after the custom domain is connected: https://letseigo.com/apps/pizza/index.html
 
 The intended address is not a deployment verification. This documentation update does not configure DNS, GitHub Pages, redirects, or a CNAME file. Keep internal links and shared asset references relative so the app works under either hosting path. Once the domain is connected and verified, update this section to record the live address.
+
+Homepage usage terms open in a native, scrollable dialog with a close button and Escape dismissal; closing returns focus to the opener. Applet footers remain text only. `LICENSE.txt` is authoritative: after editing it, run `node scripts/sync-license.cjs` to update the embedded homepage text. Embedding allows direct local opening without a network request. The license wording remains English; dialog controls support English/Japanese.
+
+The homepage pizza preview uses the applet’s original topping artwork and placement engine: regular cheese and corn with tomato sauce. Rebuild after relevant artwork changes with `node scripts/build-pizza-preview.cjs`.

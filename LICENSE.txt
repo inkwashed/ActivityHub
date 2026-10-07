@@ -1,14 +1,14 @@
-ACTIVITYHUB / LETSEIGO.COM — TERMS OF USE
+Let’s EiGo! / LETSEIGO.COM — TERMS OF USE
 
 Copyright © 2026 letseigo.com. All rights reserved.
 
-Permission is granted to individual users, teachers, schools, and other educational users to access and use an unmodified copy of ActivityHub free of charge for personal, classroom, and non-commercial educational purposes.
+Permission is granted to individual users, teachers, schools, and other educational users to access and use an unmodified copy of Let’s EiGo! free of charge for personal, classroom, and non-commercial educational purposes.
 
-These terms cover ActivityHub applets, source code, and original artwork and assets supplied with them. Any separately identified third-party material remains subject to its own terms.
+These terms cover Let’s EiGo! applets, source code, and original artwork and assets supplied with them. Any separately identified third-party material remains subject to its own terms.
 
 You may save, print, and share the completed activity images produced by the built-in photo/download features for personal, classroom, and non-commercial educational purposes. This permission does not authorize extracting or redistributing the underlying artwork, asset collection, or applet code.
 
-You may share links to the official hosted version of ActivityHub.
+You may share links to the official hosted version of Let’s EiGo!.
 
 Designated domain: letseigo.com. GitHub Pages remains the current hosting platform while the custom domain is being connected.
 

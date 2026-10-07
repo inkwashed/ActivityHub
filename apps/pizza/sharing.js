@@ -2,7 +2,6 @@
 (() => {
   const t = text => window.ActivityHubI18n ? window.ActivityHubI18n.t(text) : text;
   const shareDialog = document.querySelector('#share-dialog');
-  const languageDialog = document.querySelector('#language-dialog');
   const photo = document.querySelector('#pizza-photo');
   const download = document.querySelector('#download-photo');
   const status = document.querySelector('#share-status');
@@ -16,11 +15,10 @@
     photo.removeAttribute('src');
     download.removeAttribute('href');
   }
-  for (const dialog of [shareDialog, languageDialog]) {
+  for (const dialog of [shareDialog]) {
     dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
   }
   shareDialog.addEventListener('close', clearPhoto);
-  document.querySelector('#language').addEventListener('click', () => languageDialog.showModal());
 
   function pizzaSVG(builder) {
     const sauce = builder.config.sauces.find(item => item.id === builder.state.sauce);

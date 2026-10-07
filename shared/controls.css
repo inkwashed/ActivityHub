@@ -42,3 +42,20 @@ button.ah-choice{background:var(--ah-surface);color:var(--ah-ink);border:2px sol
 
 /* Compact text-only copyright notice. */
 .ah-copyright{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 12px;padding:4px 16px;color:var(--ah-muted);font-size:12px;line-height:1.4}
+
+/* Shared native dialogs. Keep content-specific widths/layout in the consumer. */
+dialog.ah-dialog{box-sizing:border-box;border:1px solid var(--ah-divider);border-radius:var(--ah-radius-panel);padding:24px;background:var(--ah-canvas);color:var(--ah-ink);font-family:var(--ah-font);width:min(440px,calc(100vw - 28px));max-height:calc(100vh - 28px);max-height:calc(100dvh - 28px);overflow:auto}
+dialog.ah-dialog::backdrop{background:#17291ecc}
+.ah-dialog .dialog-heading{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.ah-dialog .dialog-heading h2{margin:0;font-size:24px;line-height:1.25;overflow-wrap:anywhere}
+.ah-dialog .language-options{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}
+.ah-dialog p{line-height:1.6}
+
+/* Quiet modal/help actions: link appearance with native button semantics. */
+button.ah-text-action{appearance:none;background:none;border:0;border-radius:0;padding:12px 0;min-height:44px;font:inherit;color:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer;touch-action:manipulation}
+button.ah-text-action:focus-visible{outline:3px solid var(--ah-focus);outline-offset:3px}
+@media(hover:hover){button.ah-text-action:hover{color:var(--ah-ink)}}
+button.ah-text-action:active{color:var(--ah-strong)}
+
+/* Shared paper-airplane brand mark; dimensions are set by each header. */
+.site-logo{display:block;flex-shrink:0;object-fit:contain}
