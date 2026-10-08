@@ -56,9 +56,17 @@
     topping(item){return this.builder.config.toppings.find(x=>x.id===item.topping)}
     constrain(item){
       item.scale=Math.max(this.sizes.min,Math.min(this.sizes.max,item.scale));
-      const radius=Math.max(0,44-this.topping(item).size*item.scale*.7072);
-      const dx=item.x-50,dy=item.y-50,d=Math.hypot(dx,dy);
-      if(d>radius){item.x=50+dx*radius/d;item.y=50+dy*radius/d;}
+      // Positions remain pizza-relative; movement is bounded by the full stage.
+      const pizza=this.pizza.getBoundingClientRect();
+      const stage=this.pizza.closest?.('.pizza-stage')?.getBoundingClientRect() || pizza;
+      const width=pizza.width, height=pizza.height||width;
+      const angle=item.rotate*Math.PI/180;
+      const half=this.topping(item).size*item.scale/2*(Math.abs(Math.cos(angle))+Math.abs(Math.sin(angle)));
+      const left=((stage.left||0)-(pizza.left||0))/width*100;
+      const top=((stage.top||0)-(pizza.top||0))/height*100;
+      const right=left+stage.width/width*100, bottom=top+(stage.height||stage.width)/height*100;
+      item.x=Math.max(Math.min(left+half,(left+right)/2),Math.min(Math.max(right-half,(left+right)/2),item.x));
+      item.y=Math.max(Math.min(top+half,(top+bottom)/2),Math.min(Math.max(bottom-half,(top+bottom)/2),item.y));
     }
     add(id,copy) {
       if(this.items.length>=120){this.builder.announce('Pizza is full. Remove a piece to add another.');return;}

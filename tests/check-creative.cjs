@@ -24,7 +24,8 @@ free.edit('larger');assert(item.scale>1);free.edit('right');assert.equal(item.ro
 const event={button:0,pointerId:7,clientX:100,clientY:100,preventDefault(){}};
 item.node.listeners.pointerdown(event);item.node.listeners.pointermove({...event,clientX:150,clientY:125});assert(item.x>50);assert(item.y>50);
 item.node.listeners.pointercancel(event);assert.equal(free.drag,null);
-item.x=200;item.y=200;free.constrain(item);assert(Math.hypot(item.x-50,item.y-50)<=44-free.topping(item).size*item.scale*.7072+.00001);
+item.x=200;item.y=200;free.constrain(item);assert(item.x<100&&item.y<100);assert(item.x>60&&item.y>60);
+item.x=-200;item.y=-200;free.constrain(item);assert(item.x>=0&&item.y>=0);assert(item.x<40&&item.y<40);
 free.edit('duplicate');assert.equal(free.items.length,3);assert.equal(free.items[2].flip,true);assert.equal(free.items[2].rotate,15);
 for(let i=0;i<30;i++)free.edit('larger');assert.equal(free.items[2].scale,4);
 for(let i=0;i<30;i++)free.edit('smaller');assert.equal(free.items[2].scale,1.25);

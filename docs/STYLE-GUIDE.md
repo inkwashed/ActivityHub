@@ -180,3 +180,5 @@ winning CSS rule when only one mode changes. Use shared controls unchanged;
 keep food geometry and app-specific menu sizing in the app layout file.
 
 In stacked portrait/phone layouts, move the same editing toolbar below the artwork and above its order sentence. Lay its 44px buttons out horizontally, centered, wrapping on narrow phones. Restore the vertical menu-side placement in landscape. Move existing controls rather than duplicating them so state, focus order, and listeners stay consistent.
+
+Creative movement bounds belong to the activity play area, not necessarily the food silhouette. Pizza PLAY permits crust overlap within the rectangular stage; exports must include those placements. Keep LEARN’s preset placement rules independent.

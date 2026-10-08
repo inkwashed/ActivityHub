@@ -22,7 +22,16 @@
 
   function pizzaSVG(builder) {
     const sauce = builder.config.sauces.find(item => item.id === builder.state.sauce);
-    let art = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 100 100"><defs><radialGradient id="crust"><stop offset="0.78" stop-color="#edba60"/><stop offset="0.9" stop-color="#db963b"/><stop offset="0.97" stop-color="#ad6426"/><stop offset="1" stop-color="#e6ae54"/></radialGradient></defs><circle cx="50" cy="51" r="48" fill="#543318" opacity=".15"/><circle cx="50" cy="50" r="47" fill="url(#crust)"/>`;
+    // Fit the complete creative composition, including pieces beyond the crust.
+    let min=0,max=100;
+    if(builder.creative?.active) for(const p of builder.creative.items){
+      const topping=builder.config.toppings.find(t=>t.id===p.topping);
+      const angle=p.rotate*Math.PI/180;
+      const half=topping.size*.94*p.scale/2*(Math.abs(Math.cos(angle))+Math.abs(Math.sin(angle)));
+      const x=50+(p.x-50)*.94,y=50+(p.y-50)*.94;
+      min=Math.min(min,x-half-2,y-half-2);max=Math.max(max,x+half+2,y+half+2);
+    }
+    let art = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="${min} ${min} ${max-min} ${max-min}"><defs><radialGradient id="crust"><stop offset="0.78" stop-color="#edba60"/><stop offset="0.9" stop-color="#db963b"/><stop offset="0.97" stop-color="#ad6426"/><stop offset="1" stop-color="#e6ae54"/></radialGradient></defs><circle cx="50" cy="51" r="48" fill="#543318" opacity=".15"/><circle cx="50" cy="50" r="47" fill="url(#crust)"/>`;
     if (sauce && !sauce.empty) art += `<circle cx="50" cy="50" r="40" fill="${sauce.color}"/>`;
     // Toasted rim freckles only in the finished photo; the builder stays uncooked.
     for (let i = 0; i < 38; i++) {

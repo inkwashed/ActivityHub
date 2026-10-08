@@ -178,7 +178,7 @@ For the upcoming Parfait pass:
    behavior with Pizza quantity cycling just to reuse its layout.
 3. If adding PLAY, extract common composition/editing responsibilities first.
    Supply Parfait-specific placement, containment, and export rendering; do not
-   copy circular pizza bounds or baked-photo treatment.
+   copy Pizza’s rectangular play-area bounds or baked-photo treatment.
 4. Keep LEARN/PLAY columns stable and title above all menu tools. Use the shared
    touch, translation, accessibility, and size-language contracts.
 5. Check both builders after shared changes. Compare identical landscape sizes
