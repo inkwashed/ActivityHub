@@ -15,3 +15,12 @@
 @media(orientation:portrait),(max-width:899px),(max-height:599px){
  .ah-builder #builder.is-create .pizza-stage .board{width:min(100%,560px);height:auto;max-width:100%;aspect-ratio:1}
 }
+
+/* Reserve touchscreen gestures for editing only on the PLAY canvas. */
+.is-create #pizza{touch-action:none}
+@media(orientation:portrait),(max-width:899px),(max-height:599px){
+ .ah-builder #builder.is-create .pizza-menu-body{grid-template-columns:minmax(0,1fr);gap:0}
+ .ah-builder #builder #free-tools{width:100%;margin:12px auto}
+ .ah-builder #builder .free-toolbar{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:8px}
+ .ah-builder #builder .free-toolbar .ah-button{flex:0 0 44px}
+}

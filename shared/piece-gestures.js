@@ -12,9 +12,18 @@
    this.points.clear();this.item=null;this.node=null;
    ids.forEach(id=>{if(node?.hasPointerCapture?.(id))node.releasePointerCapture(id)});
   }
+  // The second finger may land beside a small piece, not precisely on it.
+  bindSurface(surface){
+   surface.addEventListener('pointerdown',e=>{
+    if(e.pointerType!=='touch'||!this.item||this.points.size!==1||this.points.has(e.pointerId))return;
+    e.preventDefault();e.stopPropagation();
+    this.points.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    this.node.setPointerCapture(e.pointerId);this.rebase();
+   },true);
+  }
   bind(node,item){
    node.addEventListener('pointerdown',e=>{
-    if(!this.options.enabled()||e.button!==0||this.points.size>=2||(this.item&&this.item!==item))return;
+    if(!this.options.enabled()||(e.pointerType!=='touch'&&e.button!==0)||this.points.size>=2||(this.item&&this.item!==item))return;
     e.preventDefault();
     if(!this.item){this.item=item;this.node=node;this.options.select(item);node.focus({preventScroll:true});}
     this.points.set(e.pointerId,{x:e.clientX,y:e.clientY});node.setPointerCapture(e.pointerId);this.rebase();

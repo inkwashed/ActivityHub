@@ -133,7 +133,7 @@ Size policy and singular/plural nouns live in config.js. New pieces start at
 scale 2; range 1.25–4, step .25. Small is below 1.75, big starts at 2.75.
 There is a 120-piece limit. Touch targets grow with art, minimum 44px.
 
-One finger/mouse drags; two fingers on a piece resize via shared/piece-gestures.js.
+One finger/mouse drags; hold a piece with one finger and place a second anywhere on the pizza to resize via shared/piece-gestures.js.
 Laptop trackpad zoom is not a piece-resize gesture. Rotation and flip use the
 vertical toolbar: larger, smaller, rotate left/right, flip, duplicate, delete.
 Arrow keys move a focused piece (Shift moves farther); Delete removes it.
@@ -157,3 +157,5 @@ Earlier version notes above are historical, not current requirements.
 Run tests/check-creative.cjs, check-choice-pager.cjs, check-builder-jump.cjs,
 and check-sharing.cjs with Node. These are mocked behavior checks, not browser
 layout checks. Physical iPad pinch/drag, layout, and photo saving remain to test.
+
+In stacked layouts the editing toolbar moves below the pizza and above the order, with centered horizontal buttons that wrap on phones. Landscape keeps the vertical toolbar beside the menu. Pinch changes need renewed physical iPad verification.

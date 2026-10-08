@@ -1,6 +1,9 @@
 const fs=require('fs'),vm=require('vm');
 vm.runInNewContext(fs.readFileSync('tests/check.cjs','utf8')+`
-for(const id of ['#pizza-menu','#pizza-workspace','#pizza-actions','#free-tools','#piece-picker','#free-mode','#piece-picker-wrap','#free-info-dialog','#free-info','#free-info-close'])elements[id]=new Element();
+for(const id of ['.pizza-menu-body','.order','#pizza-menu','#pizza-workspace','#pizza-actions','#free-tools','#piece-picker','#free-mode','#piece-picker-wrap','#free-info-dialog','#free-info','#free-info-close'])elements[id]=new Element();
+Element.prototype.insertBefore=function(node,before){this.append(node)};
+let layoutChange;const layoutMedia={matches:false,addEventListener(type,handler){layoutChange=handler}};
+context.window.matchMedia=()=>layoutMedia;
 Element.prototype.replaceChildren=function(){this.children=[]};
 Element.prototype.focus=function(){};
 Element.prototype.getBoundingClientRect=function(){return {width:400}};
@@ -12,6 +15,7 @@ const tapState=app.state,tapNodes=app.groups.get('mushrooms').children.slice();
 vm.runInContext(fs.readFileSync('shared/piece-gestures.js','utf8'),context);
 vm.runInContext(fs.readFileSync('apps/pizza/creative.js','utf8'),context);
 const free=app.creative;free.switchMode(true);
+assert.equal(free.tools.parent,elements['.pizza-menu-body']);layoutMedia.matches=true;layoutChange();assert.equal(free.tools.parent,elements['#pizza-workspace']);layoutMedia.matches=false;layoutChange();assert.equal(free.tools.parent,elements['.pizza-menu-body']);
 assert.equal(elements['#pizza-actions'].parent,elements['#pizza-menu']);
 assert.equal(app.advancedMode,false);assert.equal(toggle.disabled,true);assert.equal(app.state.sauce,null);
 app.buttons.get('corn').listeners.click();assert.equal(free.items.length,1);assert.equal(sentence(),'I want 1 medium corn.');
@@ -51,7 +55,9 @@ assert.equal(context.window.FoodBuilder.sizeBand(2.75,app.config.creativeSizes),
 free.clear();free.add('cheese');
 const pinch=free.items[0], touch=(id,x,y)=>({button:0,pointerId:id,clientX:x,clientY:y,preventDefault(){}});
 pinch.node.listeners.pointerdown(touch(1,100,100));
-pinch.node.listeners.pointerdown(touch(2,120,100));
+let surfaceDown;free.gestures.bindSurface({addEventListener(type,handler){surfaceDown=handler}});
+surfaceDown({...touch(2,120,100),pointerType:'touch',stopPropagation(){}});
+assert.equal(free.gestures.points.size,2);
 pinch.node.listeners.pointermove(touch(2,140,100));
 assert.equal(pinch.scale,4);assert.equal(pinch.rotate,0);assert(sentence().includes('1 big cheese'));
 pinch.node.listeners.pointermove(touch(2,110,100));

@@ -7,8 +7,19 @@
       this.freeState = { sauce: null, toppings: Object.fromEntries(builder.config.toppings.map(x => [x.id, 0])) };
       this.pizza = document.querySelector('#pizza');
       this.gestures=new window.PieceGestures({enabled:()=>this.active,bounds:()=>this.pizza.getBoundingClientRect(),select:item=>this.select(item.id),change:(item,resizing)=>{this.constrain(item);this.paint(item);if(resizing)this.sync();}});
+      this.gestures.bindSurface(this.pizza);
       this.layer = document.createElement('div');this.layer.className = 'free-layer';this.layer.hidden = true;this.pizza.append(this.layer);
       this.tools = document.querySelector('#free-tools');this.picker = document.querySelector('#piece-picker');
+      // Move the same controls, preserving listeners, state, and keyboard order.
+      if(window.matchMedia){
+        const stacked=window.matchMedia('(orientation:portrait), (max-width:899px), (max-height:599px)');
+        const placeTools=()=>{
+          const host=document.querySelector(stacked.matches?'#pizza-workspace':'.pizza-menu-body');
+          const before=document.querySelector(stacked.matches?'.order':'#pizza-menu');
+          host.insertBefore(this.tools,before);
+        };
+        stacked.addEventListener('change',placeTools);placeTools();
+      }
       this.toggle = document.querySelector('#free-mode');this.difficulty = document.querySelector('#advanced-mode');
       this.actions = new Map();
       this.pickerWrap = document.querySelector('#piece-picker-wrap');
@@ -23,7 +34,7 @@
       }
       this.toggle.addEventListener('change',()=>this.switchMode(this.toggle.checked));
       this.picker.addEventListener('change',()=>this.select(Number(this.picker.value)||null));
-      this.pizza.addEventListener('pointerdown',e=>{if(this.active && !e.target.closest('.free-piece'))this.select(null)});
+      this.pizza.addEventListener('pointerdown',e=>{if(this.active && !this.gestures.item && !e.target.closest('.free-piece'))this.select(null)});
       document.addEventListener('activityhub:languagechange',()=>{if(this.active)this.refreshPicker()});
     }
     switchMode(active) {

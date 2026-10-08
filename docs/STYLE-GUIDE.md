@@ -162,7 +162,7 @@ Use `ah-section-number` from shared/controls.css for numbered activity sections:
 
 PLAY uses English count-and-size language (small/medium/big), independent of LEARN’s EASY/HARD wording. Piece touch areas grow with their artwork and retain a 44px minimum. Size words describe relative ingredient size, not identical pixel dimensions across different foods.
 
-PLAY touch editing uses one finger to move a piece and two fingers on that piece to resize it. Keep the +/− controls as an accessible alternative; rotate and flip remain explicit toolbar actions. Pinching respects the same size limits and size labels as the toolbar. Prevent native touch gestures only on draggable pieces, preserving page scrolling elsewhere.
+PLAY touch editing uses one finger to move a piece and two fingers on that piece to resize it. Keep the +/− controls as an accessible alternative; rotate and flip remain explicit toolbar actions. Pinching respects the same size limits and size labels as the toolbar. In PLAY, reserve native touch gestures on the artwork canvas for editing; preserve page scrolling outside it. Start on a piece, then place the second finger anywhere on the canvas to resize that piece.
 
 In landscape, both Pizza modes use the same bounded 420–444px menu column. LEARN fills it, keeping “Choose a sauce” beside the mode toggle and help control on standard landscape screens; PLAY divides it into a 44px toolbar, a 12px gutter, and its compact input panel. The menu heading spans the full column. The pizza, question, and order retain the same column and stage sizing across modes (long order text may still require more space). Use 14px panel padding and a 32px menu title, retaining labelled choices, two rows of three toppings, and 44px navigation targets. Keep this activity-specific sizing in Pizza `layout.css`, loaded after shared responsive rules; the shared stacked-layout policy still takes precedence for portrait and smaller screens.
 
@@ -178,3 +178,5 @@ When changing a dimension, remove superseded declarations rather than stacking
 more overrides. Check both modes at identical viewport sizes and inspect the
 winning CSS rule when only one mode changes. Use shared controls unchanged;
 keep food geometry and app-specific menu sizing in the app layout file.
+
+In stacked portrait/phone layouts, move the same editing toolbar below the artwork and above its order sentence. Lay its 44px buttons out horizontally, centered, wrapping on narrow phones. Restore the vertical menu-side placement in landscape. Move existing controls rather than duplicating them so state, focus order, and listeners stay consistent.
