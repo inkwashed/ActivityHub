@@ -11,4 +11,4 @@ Follow the root instructions and central workflow/style references.
 
 These are current activity-specific constraints, not requirements to copy into unrelated applets. Revise them when the user changes the activity.
 
-- FREE mode is an independent composition with singular editable pieces. It forces EASY and disables difficulty switching; TAP restores its saved difficulty. Preserve TAP nodes/placements when switching. Reset affects only the active composition. Photo export must honor FREE transforms and the established layer order.
+- PLAY mode is an independent composition with singular editable pieces. It forces EASY and disables difficulty switching; LEARN restores its saved difficulty. Preserve LEARN nodes/placements when switching. Reset affects only the active composition. Photo export must honor PLAY transforms and the established layer order.

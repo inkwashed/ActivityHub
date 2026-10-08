@@ -1,29 +1,25 @@
 # Little Parfait Cafe — prototype
 
-Open `apps/parfait/index.html` directly, or serve the repository and visit `/apps/parfait/`. Not yet listed on the home page; noindex is a search-engine hint, not access control.
+Open `apps/parfait/index.html` or serve the repository and visit `/apps/parfait/`. Not listed on the homepage; noindex is not access control.
 
-Nine configurable fruits, whipped-cream-base startup, optional vanilla/strawberry/mint chocolate chip ice cream, optional chocolate/strawberry/caramel syrup, TAP quantities (three levels then removal), EASY/HARD grouped English orders, reset, English/Japanese instructions, fullscreen. FREE editing and photo export are not included in this initial prototype.
+## Building a parfait
 
-Fruit artwork and glass geometry are original and app-specific. The initial vocabulary follows this teacher-created Unit 7 list, pending confirmation against the user's textbook: https://wordwall.net/pt/resource/65806826/lets-try-2-unit-7-vegetables-fruits
+Four layers each have two fruit slots. Tap fruit to fill the selected slot; the first choice advances focus selection to slot two. Choose the same fruit twice for a uniform row, or different fruits for a six-piece alternating row. A single filled slot previews a uniform row. Select either slot to replace or clear it. Layer arrows revisit rows without losing selections. The options-pane arrows switch between ice cream/fruit and syrup.
 
-Run `node tests/check-parfait.cjs` from repository root. Logic uses DOM mocks; visual/browser and physical iPad checks remain outstanding.
+EASY permits direct editing. HARD guides the English exchange with “Parfait, please!”, “What do you want?”, “OK, anything else?”, and “OK, next?”. The complete order lists layer pairs in order, including repeated fruits on different layers, with syrup at the end. Quantity language/dots are not used. Mode changes preserve the composition.
 
-Fruit art direction: simple flat SVG shapes with restrained outlines and a few interior details, matching the strawberry slice. Prioritize recognizable cut silhouettes over realism: apple slices have a nearly straight cut edge and curved peel edge; peaches have a shallow central indentation; melon details remain minimal. Avoid texture, elaborate highlights, or extra perspective faces.
+Two optional ice cream scoops rest on whipped cream occupying half the glass. Optional syrup fills a middle cream band. Reset clears fruit, ice cream, and syrup but leaves whipped cream. PLAY and photo export are not yet implemented.
 
-Keep peel/rind accents thin; kiwi slices are peeled, with a medium-green edge instead of brown skin.
+## Shared versus local
 
-Glass silhouette: a short, wide trapezoidal bowl with a flared rim, narrower flat bottom, sloped pedestal stem, matching the app icon. This is app-specific presentation; ingredient placement behavior remains independent.
+`shared/layer-builder.js` extends the shared FoodBuilder with paired-slot state, editing, summary, dialogue, and row rendering. Config defines fruit art, fixed rows, orientations, and piece counts. Glass geometry, cream, and scoop/syrup drawing remain local. Pizza keeps quantity mode. Assess future changes for shared-engine reuse.
 
-The bowl uses a shared rounded SVG silhouette for its mask and thicker outline; the pedestal flares into a sloped base instead of an oval foot.
+Artwork stays simple: flat fruit slices, thin peel accents, peeled kiwi, softly textured round scoops. The bowl has a thick rounded outline and sloped pedestal behind it. Fruit stays in front of filling but behind the outline and may rise above the rim. Cream retains a light beige contour.
 
-Keep the stem behind the bowl so its top edge cannot interrupt the bowl outline. Bowl outline is 6px visible (12px centered stroke clipped to the silhouette); pedestal outline is 5.5px.
+## Checks
 
-On tablet/desktop the left workspace uses available viewport height, placing extra space above the glass and keeping the order/Reset beneath it. Short screens retain the compact layout; long content may scroll rather than clip. This prepares room for FREE mode without enabling it yet.
+Run `node tests/check-parfait.cjs` and pizza checks after shared engine changes. Tests use DOM mocks; visual browser/iPad checks remain outstanding. Initial fruit list follows a teacher-created Unit 7 resource pending textbook confirmation: https://wordwall.net/pt/resource/65806826/lets-try-2-unit-7-vegetables-fruits
 
-Ice cream uses original flat SVG scoop drawings with softly uneven outlines and sparse scoop marks, shared between flavor buttons and bowl rendering. Scoop boxes keep a square aspect ratio independent of glass dimensions; avoid percentage heights or gradient-ball shading.
+## Next styling pass
 
-Preset assembly: permanent inset whipped cream fills the lower 50% of the bowl. Selecting syrup adds a middle band (cream–syrup–cream); reset removes syrup and scoops while retaining cream. Two round scoops rest above it; their crowns can extend above the open rim. Glass background, contents, and foreground outline are separate layers. Rendering stays app-specific; shared selection/order behavior is unchanged.
-
-Whipped cream has a softly peaked top silhouette, with smooth tapered sides and bottom. The standard two scoops sit side by side on the taller cream base.
-
-Fruit placement uses shared ordered rows. The first four selected fruits occupy lower cream, upper cream, cream peaks, and scoop tops. Additional varieties build overlapping decorative rows above those (all-nine arrangements will be busy). Strawberries point up; other fruits retain their illustrated orientation with only ±2° variation. Amount changes evenly redistribute a row; removing fruit closes the gap, re-adding puts it last. Fruit is in front of filling/highlights, behind the glass outline, and may extend above the rim. Whipped cream has a light warm-beige contour for definition.
+Follow the builder adoption checklist in `docs/WORKFLOW.md` and the visual rules in `docs/STYLE-GUIDE.md`. Shared responsive/jump controls are already loaded; Pizza’s stable menu/tool column and creative editor have not been ported. Preserve the paired fruit layers when adopting styling.

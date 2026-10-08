@@ -151,15 +151,11 @@ window.PARFAIT_CONFIG.sauces = [
  {id:'caramel',label:'caramel syrup',color:'#bc7830',highlight:'#e7b066'}
 ];
 
-// Ordered rows are shared engine behavior; these coordinates match this glass.
-window.PARFAIT_CONFIG.placement = {
- mode:'ordered-rows', pieceSize:14,
- rows:[
-  {y:82,left:33,right:67}, {y:59,left:28,right:72},
-  {y:39,left:22,right:78}, {y:-5,left:24,right:76},
-  {y:-8,left:22,right:78}, {y:-11,left:24,right:76},
-  {y:-14,left:22,right:78}, {y:-17,left:24,right:76},
-  {y:-20,left:22,right:78}
- ]
+// Four fixed layers; each row alternates the two choices.
+window.PARFAIT_CONFIG.interaction = 'layers';
+window.PARFAIT_CONFIG.layerLayout = {
+ pieceSize:14, piecesPerRow:6,
+ rows:[{y:82,left:33,right:67},{y:59,left:28,right:72},
+       {y:39,left:22,right:78},{y:-5,left:24,right:76}]
 };
 window.PARFAIT_CONFIG.toppings.find(item => item.id === 'strawberries').rotation = 180;

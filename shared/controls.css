@@ -59,3 +59,13 @@ button.ah-text-action:active{color:var(--ah-strong)}
 
 /* Shared paper-airplane brand mark; dimensions are set by each header. */
 .site-logo{display:block;flex-shrink:0;object-fit:contain}
+
+/* LEARN / PLAY needs a little more label room than EASY / HARD. */
+.ah-mode-toggle.build-toggle .switch-track{width:128px}
+.ah-mode-toggle.build-toggle input:checked+.switch-track .switch-knob{transform:translateX(84px)}
+
+/* Numbered sections: stable step number, shared across applets. */
+.ah-section-heading{display:flex;align-items:center;gap:10px}
+.ah-section-number{display:inline-grid;place-items:center;flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--ah-strong);color:var(--ah-surface);font-size:16px;font-weight:bold;line-height:1;letter-spacing:0;vertical-align:middle}
+@media(min-width:700px) and (min-height:600px){.ah-section-number{width:26px;height:26px;font-size:15px}}
+.is-create .ah-section-number{display:inline-grid;width:26px;height:26px;font-size:15px}

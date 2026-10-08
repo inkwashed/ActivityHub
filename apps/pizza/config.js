@@ -24,3 +24,8 @@
     ]
   };
 })();
+
+// PLAY counts refer to individual draggable pieces, grouped by size band.
+window.PIZZA_CONFIG.creativeSizes={min:1.25,max:4,initial:2,step:.25,smallBelow:1.75,bigFrom:2.75};
+const countNames={cheese:['cheese','cheese'],pepperoni:['pepperoni','pepperoni'],sausage:['sausage','sausages'],tomatoes:['tomato','tomatoes'],'green-peppers':['green pepper','green peppers'],mushrooms:['mushroom','mushrooms'],onions:['onion','onions'],pineapples:['pineapple','pineapples'],corn:['corn','corn']};
+window.PIZZA_CONFIG.toppings.forEach(item=>{[item.countSingular,item.countPlural]=countNames[item.id];});

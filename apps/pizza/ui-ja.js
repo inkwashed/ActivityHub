@@ -1,7 +1,7 @@
 window.ActivityHubI18n.register({
   "YOU'RE THE CHEF!": "きみがシェフ！",
   "Let's make a pizza!": "ピザを作ろう！",
-  "Sauce or no sauce?": "ソースを選ぼう",
+  "Choose a sauce": "ソースを選ぼう",
   "Add your toppings": "トッピングをのせよう",
   "Tap for more. Tap again after ● ● ● to remove.": "タップすると量が増えます。● ● ● のあと、もう一度タップすると取り除けます。",
   "A little of this. A little of that. Your pizza!": "好きなものをのせて、自分だけのピザを作ろう！",
@@ -23,8 +23,8 @@ window.ActivityHubI18n.register({
   "extra": "多め",
   "removed": "取り除きました",
   "selected.": "選びました。",
-  "Free mode": "自由に作るモード",
-  "Add one piece, then drag it. Select a piece to edit it. FREE uses EASY language.": "材料を1つ追加して、ドラッグで動かそう。選ぶと大きさや向きを変えられます。FREEではかんたんモードになります。",
+  "Play mode": "自由に作るモード",
+  "Add one piece, then drag it. Select a piece to edit it. PLAY uses EASY language.": "材料を1つ追加して、ドラッグで動かそう。選ぶと大きさや向きを変えられます。PLAYではかんたんモードになります。",
   "Select a piece": "材料を選ぶ",
   "Edit ingredient": "材料を編集",
   "Smaller": "小さく",
@@ -35,10 +35,16 @@ window.ActivityHubI18n.register({
   "Duplicate": "コピー",
   "Delete": "取り除く",
   "Add one piece.": "1つ追加します。",
-  "Free mode. Easy language is on.": "自由に作るモードです。かんたんモードになります。",
-  "Tap mode.": "タップモードです。",
-  "Free pizza reset.": "自由に作るピザをリセットしました。",
+  "Play mode. Easy language is on.": "自由に作るモードです。かんたんモードになります。",
+  "Learn mode.": "学習モードです。",
+  "Creative pizza reset.": "自由に作るピザをリセットしました。",
   "Pizza is full. Remove a piece to add another.": "材料がいっぱいです。取り除いてから追加してください。",
-  "About FREE mode": "FREEモードの使い方",
+  "About PLAY mode": "PLAYモードの使い方",
   "Close help": "説明を閉じる"
 });
+
+window.ActivityHubI18n.register({"Sauce":"ソース","Toppings":"トッピング"});
+
+window.ActivityHubI18n.register({"Previous toppings":"前のトッピング","Next toppings":"次のトッピング"});
+
+window.ActivityHubI18n.register({"Add one piece, then drag it. Pinch with two fingers or use + and − to change its size. PLAY counts small, medium, and big pieces.":"材料を追加して動かそう。2本の指で広げたり縮めたり、＋と−で大きさを変えられます。PLAYではsmall・medium・bigごとに数を数えます。"});

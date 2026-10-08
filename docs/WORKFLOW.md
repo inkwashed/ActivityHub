@@ -39,7 +39,7 @@ Written references define intent. Shared code implements it. Editing a Markdown 
 ## Build a new applet
 
 1. Read this file and the style guide. Identify the textbook/unit, learning goal, target phrases, student interaction, and requested scope. Resolve only decisions that materially affect the activity; do not expand into unrelated features.
-2. Create `apps/<name>/` with a clear entry point and small activity-specific files. Reuse `shared/` assets via relative paths. Load shared tokens first, app layout styles second, and shared controls last.
+2. Create `apps/<name>/` with a clear entry point and small activity-specific files. Reuse `shared/` assets via relative paths. Follow the stylesheet order in STYLE-GUIDE.md; keep any final app geometry overrides explicitly scoped and documented.
 3. Put lesson vocabulary, item data, and quantities in configuration when useful. Keep rendering and activity state separate from that data. Avoid premature frameworks for hypothetical activities.
 4. Reuse existing common implementations. If a needed behavior exists only inside another applet, extract the genuinely common part into `shared/`, integrate both consumers, and check the original app rather than copying it.
 5. Implement the smallest complete requested activity, then add responsive behavior, accessibility, and relevant empty/error/reset states. Keep incomplete functionality visibly unavailable.
@@ -80,7 +80,7 @@ Use checks proportional to the change; do not add tests that merely restate CSS 
 | Applet | Entry point | Behavior checks | Current limitations |
 | --- | --- | --- | --- |
 | ほんの手紙 POST (featured) | `apps/post/index.html` | `node tests/check-post.cjs` | Independent styling by request; English UI with paired Japanese card fonts. Static links contain card text; no server inbox. Physical-device verification outstanding. |
-| Parfait Builder (prototype) | `apps/parfait/index.html` | `node tests/check-parfait.cjs` | TAP only; no FREE/photo export yet. Mock checks; device visuals outstanding. Not on homepage. |
+| Parfait Builder (prototype) | `apps/parfait/index.html` | `node tests/check-parfait.cjs` | LEARN only; no PLAY/photo export yet. Mock checks; device visuals outstanding. Not on homepage. |
 | Pizza Builder | `apps/pizza/index.html` | `node tests/check.cjs`, `node tests/check-fullscreen.cjs`, `node tests/check-sharing.cjs`, `node tests/check-creative.cjs` from repository root | Mock-based checks; physical iPad visual/download checks outstanding. Textbook back link returns to the home page’s Let’s Try! 2 section; English/Japanese interface language is supported. |
 
 Shared today: builder quantity/selection/sentence/reset logic (`shared/builder.js`), fullscreen and viewport measurement, design tokens, control and dialog CSS, common action/editing icons and the paper-airplane mark, interface translation helpers/dictionary, language-dialog open/close behavior, and the copyright footer. The visual guide consumes those actual shared files.
@@ -110,7 +110,7 @@ Use `shared/i18n.js` for interface language and `shared/ui-ja.js` for common Jap
 
 Include `shared/copyright.js` in applets, before viewport layout measurement and after shared translations. Include the root `LICENSE.txt` in deployments and packages. Reserve the visible footer height instead of overlaying the activity. The shared English/Japanese footer is text only, with no button or terms dialog. Keep the visible full-terms link on the root home page; do not duplicate license text into each app. Preserve the permission for built-in completed-photo exports. Update the root terms and shared notice together when the owner changes the usage policy.
 
-Creative interaction modes should preserve their own compositions and keep learning modes unambiguous. Pizza Builder FREE forces EASY, restores TAP difficulty on return, and keeps photo export faithful to manual transforms. No pinch/rotation gestures are currently implemented.
+Creative interaction modes should preserve their own compositions and keep learning modes unambiguous. Pizza Builder PLAY forces EASY, restores LEARN difficulty on return, and keeps photo export faithful to manual transforms. Shared `piece-gestures.js` supports one-finger dragging and two-finger pinch resizing in Pizza PLAY. Keep gesture rotation disabled; rotation and flipping remain toolbar actions. Apply app-specific size and placement limits through the gesture callbacks, and update size-based language during resizing. Verify pointer transitions and cancellation whenever changing gesture handling.
 
 ## Public identity and domain
 
@@ -139,3 +139,52 @@ Builder navigation/heading spacing is owned by `shared/builder-layout.css`, load
 Option paging is a shared opt-in builder feature (`builder-panes.js`/`.css`), independent of ingredient state. Parfait uses ice cream/fruit and finishing-syrup panes; pizza remains a single panel. Never rebuild ingredient controls when changing pages.
 
 Builder placement strategies: the default remains cached circular scatter for Pizza. `placement.mode: ordered-rows` enables selection-order tracking, row reflow, and per-ingredient orientation in the shared engine. Parfait supplies the glass-specific row coordinates and fruit size in config. Amount changes redistribute the existing row evenly without recreating pieces; removal closes gaps, re-addition appends a new top layer, and reset clears the order. Run both builders’ tests for placement changes.
+
+Paired-layer interaction is implemented by `shared/layer-builder.js`, extending FoodBuilder. Parfait opts into four two-slot rows: identical choices produce a uniform row, mixed choices alternate; EASY is direct editing and HARD provides dialogue. Quantity mode remains Pizza’s interaction. Parfait no longer uses the earlier click-order quantity-row prototype. Run `tests/check-parfait.cjs` and pizza checks for shared changes.
+
+Pizza’s creative mode is labelled PLAY (formerly FREE/CREATE). Its compact palette layout lives in `shared/builder-create.css` for future builder reuse; behavior and internal free-mode IDs remain unchanged.
+
+Shared `choice-pager.js` pages existing controls within a section without replacing them or changing builder state. Pizza uses six topping choices per page while all sections remain visible. This complements whole-section `builder-panes.js`; use the appropriate pattern for the activity. Run `tests/check-choice-pager.cjs` for pager changes.
+
+Shared responsive policy supersedes blanket no-scroll requirements: target a one-screen landscape workspace on tablet/desktop, and stack activity above controls on portrait/tablet and phone layouts. Reuse `builder-responsive.css` and `builder-jump.js`; preserve natural overflow for accessibility. See STYLE-GUIDE.md for thresholds and verification sizes.
+
+Numbered activity sections use the shared `ah-section-number` component and style-guide heading convention. Keep section numbering stable when switching panes, layers, language, or modes.
+
+PLAY order summaries use actual creative pieces grouped by ingredient and size band. Shared FoodBuilder owns count/size wording and band classification; each app config supplies countable labels and size policy. Pizza starts at scale 2, ranges 1.25–4 in .25 steps, with small below 1.75 and big at 2.75 or above. Resizing must update the sentence, picker, accessible labels, export, and containment. LEARN language remains unchanged.
+
+
+## Builder adoption checklist: Parfait and future applets
+
+Reuse standards by reference, not by copying Pizza files. Current ownership:
+
+| Concern | Implementation | Adoption status |
+| --- | --- | --- |
+| Tokens, buttons, switches, numbered headings, dialogs | shared/tokens.css, controls.css, icons/ | Both builders |
+| Header/title spacing | shared/builder-layout.css | Both builders |
+| Landscape/stacked layout and quick jump | shared/builder-responsive.css, builder-jump.js | Both builders; device verification pending |
+| Paging choices within a section | shared/choice-pager.js and .css | Pizza; optional for Parfait |
+| Paging whole sections | shared/builder-panes.js and .css | Parfait |
+| Quantity and count/size sentences | shared/builder.js plus app config | Pizza; Parfait uses paired layers |
+| Two-slot fruit layers and dialogue | shared/layer-builder.js | Parfait |
+| Pointer drag/pinch primitives | shared/piece-gestures.js | Pizza; reusable callbacks for app bounds/size limits |
+| Compact choice presentation | shared/builder-create.css | Pizza opt-in; some selectors still assume sauce/topping markup |
+| Stable toolbar/menu arrangement | apps/pizza/layout.css and markup | Pizza-specific until another consumer needs extraction |
+| Creative composition and photo export | apps/pizza/creative.js, sharing.js | Pizza only; not a complete shared editor |
+
+For the upcoming Parfait pass:
+1. Apply shared visual standards while retaining the glass geometry, paired fruit
+   layers, English dialogue, and current optional ice cream/syrup behavior.
+2. Decide which paging model suits each section; do not replace paired-slot
+   behavior with Pizza quantity cycling just to reuse its layout.
+3. If adding PLAY, extract common composition/editing responsibilities first.
+   Supply Parfait-specific placement, containment, and export rendering; do not
+   copy circular pizza bounds or baked-photo treatment.
+4. Keep LEARN/PLAY columns stable and title above all menu tools. Use the shared
+   touch, translation, accessibility, and size-language contracts.
+5. Check both builders after shared changes. Compare identical landscape sizes
+   (1024×768, 1133×744, desktop), portrait 768×1024, narrow phones, Japanese,
+   long orders, and enlarged text. Verify drag/pinch and saving on an actual iPad.
+
+A passing mock suite does not establish visual fit. Keep browser/device checks
+explicitly outstanding until performed. No Parfait release or homepage listing
+is implied by this documentation or by adopting shared styles.

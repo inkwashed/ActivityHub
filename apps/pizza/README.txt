@@ -119,25 +119,41 @@ The starting interface language follows supported browser/system preferences
 (ja-JP → Japanese, en-US → English). If none match, English is used. Manual
 selection lasts for this page visit; the lesson content remains English.
 
-FREE MODE
-Use TAP / FREE beside the topping heading. TAP and FREE retain separate pizzas
-and sauces for this page visit. FREE adds one piece per ingredient tap and
-forces EASY; TAP restores its previous difficulty. Reset clears only the active
-pizza. Select a piece, drag it, or use Smaller/Larger, rotate, Flip, Duplicate,
-and Delete. The piece list can select items hidden under other toppings.
+CURRENT LEARN / PLAY BEHAVIOR
+LEARN uses labelled choices and three quantity levels; topping pages show six
+choices (two rows of three), then the remaining three. Both pages reserve two
+rows. PLAY shows all nine picture-only choices and adds one editable piece per
+tap. Each mode preserves its own pizza and sauce. PLAY locks difficulty to EASY;
+returning to LEARN restores its previous difficulty. Reset affects only the
+active pizza. The pager remembers the previous LEARN page.
+
+PLAY counts actual pieces grouped by ingredient and size, for example:
+“I want 2 small cheese, 3 big pepperoni, and 2 medium sausages.”
+Size policy and singular/plural nouns live in config.js. New pieces start at
+scale 2; range 1.25–4, step .25. Small is below 1.75, big starts at 2.75.
+There is a 120-piece limit. Touch targets grow with art, minimum 44px.
+
+One finger/mouse drags; two fingers on a piece resize via shared/piece-gestures.js.
+Laptop trackpad zoom is not a piece-resize gesture. Rotation and flip use the
+vertical toolbar: larger, smaller, rotate left/right, flip, duplicate, delete.
 Arrow keys move a focused piece (Shift moves farther); Delete removes it.
-Pieces stay within the pizza with scale limited to 0.5–2.5 and 120 pieces max.
-Share captures FREE positions, sizes, rotations, flips, and fixed layer order.
-Touch/mouse dragging uses pointer events. Pinch/twist gestures are not included.
-creative.js is required. Real-device drag and export rendering checks remain.
+Deletion selects the previous piece, or the next if deleting the first.
+The picker beside Toppings selects overlapped pieces. Share preserves transforms
+and the configured ingredient layer order. Help and controls support Japanese;
+food names, question, order, and photo caption remain English.
 
-FREE controls now use a vertical icon toolbar beside the pizza. The compact
-piece picker sits in the toppings header. The info button beside TAP/FREE opens
-the instructions. Icons retain translated screen-reader labels and tooltips.
+LAYOUT OWNERSHIP
+layout.css loads after shared responsive CSS. Both landscape modes use the same
+420–444px menu column and canvas geometry. PLAY reserves 44px + 12px inside the
+menu column for the toolbar; the title spans toolbar and panel. Both modes show
+the title/eyebrow, with Reset/Share beneath choices. LEARN's first heading is
+“Choose a sauce”. Portrait and small screens stack artwork above choices with
+the shared quick-jump control. Long content may scroll instead of clipping.
 
-Public identity: letseigo.com. See the repository README for current hosting
-and planned domain status. Copyright attribution uses the shared domain notice.
-
-FREE toolbar: larger (+) appears above smaller (−), followed by rotate left,
-rotate right, flip, duplicate, and delete. Shared appearance and ordering
-standards are maintained in docs/STYLE-GUIDE.md; process in docs/WORKFLOW.md.
+REFERENCE AND VERIFICATION
+Use docs/WORKFLOW.md for shared ownership and the Parfait adoption checklist;
+docs/STYLE-GUIDE.md for visual standards and docs/style-guide.html for controls.
+Earlier version notes above are historical, not current requirements.
+Run tests/check-creative.cjs, check-choice-pager.cjs, check-builder-jump.cjs,
+and check-sharing.cjs with Node. These are mocked behavior checks, not browser
+layout checks. Physical iPad pinch/drag, layout, and photo saving remain to test.

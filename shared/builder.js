@@ -67,6 +67,7 @@
         button.type = 'button';
         button.className = 'sauce-button ah-choice';
         button.dataset.sauce = sauce.id;
+        button.title = sauce.label;
         button.innerHTML = `<span class="sauce-bowl" style="--sauce-color:${sauce.color};--sauce-highlight:${sauce.highlight}" aria-hidden="true"></span><span>${sauce.label}</span><span class="check" aria-hidden="true">✓</span>`;
         button.addEventListener('click', () => this.setSauce(sauce.id));
         sauces.append(button);
@@ -77,8 +78,9 @@
         button.type = 'button';
         button.className = 'topping-button ah-choice';
         button.style.setProperty('--ingredient-color', topping.color);
-        button.innerHTML = `<span class="ingredient-art">${topping.art}</span><span class="ingredient-name">${topping.label}</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>`;
-        button.addEventListener('click', () => this.creative?.active ? this.creative.add(topping.id) : this.setLevel(topping.id, (this.state.toppings[topping.id] + 1) % 4));
+        button.title = topping.label;
+        button.innerHTML = `<span class="ingredient-art">${topping.art}</span><span class="ingredient-name">${topping.label}</span>${this.config.interaction === 'layers' ? '' : '<span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>'}`;
+        button.addEventListener('click', () => this.chooseTopping ? this.chooseTopping(topping.id) : this.creative?.active ? this.creative.add(topping.id) : this.setLevel(topping.id, (this.state.toppings[topping.id] + 1) % 4));
         this.buttons.set(topping.id, button);
         this.root.querySelector('#topping-options').append(button);
         const group = document.createElement('div');
@@ -166,6 +168,21 @@
       [...button.querySelectorAll('.dots i')].forEach((dot, index) => dot.classList.toggle('filled', index < level));
     }
     updateSentence() {
+      if (this.creative?.active) {
+        const words=[];
+        for(const topping of this.config.toppings) {
+          for(const band of ['small','medium','big']) {
+            const count=this.creative.items.filter(item=>item.topping===topping.id && FoodBuilder.sizeBand(item.scale,this.config.creativeSizes)===band).length;
+            if(count)words.push(`${count} ${band} ${count===1?(topping.countSingular||topping.label):(topping.countPlural||topping.label)}`);
+          }
+        }
+        const list=words.length<2?(words[0]||''):words.length===2?words.join(' and '):words.slice(0,-1).join(', ')+', and '+words.at(-1);
+        const sauce=this.config.sauces.find(item=>item.id===this.state.sauce);
+        const sentence=list?`I want ${list}${sauce?' with '+sauce.label:''}.`:sauce?`I want a ${this.config.noun||'pizza'} with ${sauce.label}.`:'I want ….';
+        this.root.querySelector('#sentence').textContent=sentence;
+        this.root.querySelector(this.config.sceneSelector||'#pizza').setAttribute('aria-label',sentence);
+        return;
+      }
       const sauce = this.config.sauces.find(item => item.id === this.state.sauce);
       const chosen = this.config.toppings.filter(item => this.state.toppings[item.id] > 0);
       const joinList = words => words.length < 2 ? (words[0] || '')
@@ -212,6 +229,7 @@
       this.announce(this.config.resetMessage || 'Pizza cleared to a dry crust. Choose a sauce or no sauce.');
     }
   }
+  FoodBuilder.sizeBand=(scale,policy={})=>scale<(policy.smallBelow??1.75)?'small':scale>=(policy.bigFrom??2.75)?'big':'medium';
   FoodBuilder.nextMaskId = 0;
   window.FoodBuilder = FoodBuilder;
 

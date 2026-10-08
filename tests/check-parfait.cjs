@@ -10,60 +10,38 @@ class Element {
  querySelector(s){return this.reveal ||= new Element()}
  querySelectorAll(s){return s==='.dots i'?this.dots:[]}
 }
-const elements=Object.fromEntries(['#base-options','#ice-cream','#drizzle','#advanced-mode','#pieces','#sauce-options','#topping-options','#clear','#sauce','#sentence','#parfait','#announcement'].map(id=>[id,new Element()]));
-const root={querySelector:s=>elements[s],querySelectorAll:s=>s==='[data-sauce]'?elements['#sauce-options'].children:[]};
+const elements=Object.fromEntries(['#layer-number','#layer-previous','#layer-next','#clear-slot','#layer-conversation','#base-options','#ice-cream','#drizzle','#advanced-mode','#pieces','#sauce-options','#topping-options','#clear','#sauce','#sentence','#parfait','#announcement'].map(id=>[id,new Element()]));
+const slots=[new Element(),new Element()];slots.forEach((b,i)=>b.dataset.layerSlot=String(i));
+const root={querySelector:s=>elements[s],querySelectorAll:s=>s==='[data-layer-slot]'?slots:s==='[data-sauce]'?elements['#sauce-options'].children:[]};
 let frames=new Map(), frameId=0, reduce=false;
 const context={requestAnimationFrame:fn=>{frames.set(++frameId,fn);return frameId},cancelAnimationFrame:id=>frames.delete(id),window:{matchMedia:()=>({matches:reduce})},document:{querySelector:s=>s==='#builder'?root:elements[s],createElement:()=>new Element()}};
 vm.createContext(context);
-for(const file of ['apps/parfait/config.js','shared/builder.js','apps/parfait/builder.js'])vm.runInContext(fs.readFileSync(file,'utf8'),context);
+for(const file of ['apps/parfait/config.js','shared/builder.js','shared/layer-builder.js','apps/parfait/builder.js'])vm.runInContext(fs.readFileSync(file,'utf8'),context);
 const app=context.window.parfaitBuilder;
 
-assert.equal(elements['#sentence'].textContent,'I want ….');
+
+assert.equal(app.state.layers.length,4);
 assert.equal(app.buttons.size,9);
-for(const topping of app.config.toppings){
- app.setLevel(topping.id,1); const first=app.groups.get(topping.id).children[0];
- app.setLevel(topping.id,2); assert.equal(app.groups.get(topping.id).children[0],first);
- assert.equal(app.groups.get(topping.id).children.length,6);
- app.setLevel(topping.id,3);assert.equal(app.groups.get(topping.id).children.length,10);
- app.setLevel(topping.id,0);assert.equal(app.groups.get(topping.id).children.length,0);
-}
-app.setLevel('strawberries',1);app.setLevel('bananas',2);
-assert.equal(elements['#sentence'].textContent,'I want strawberries and bananas.');
-app.advancedMode=true;app.updateSentence();
-assert.equal(elements['#sentence'].textContent,'I want a little bit of strawberries and some bananas.');
-app.config.toppings.forEach(t=>app.setLevel(t.id,2));
-assert.equal(elements['#sentence'].textContent,'I want some of everything.');
-app.clear();assert.equal(elements['#sentence'].textContent,'I want ….');
-assert.equal(app.positions.size,0);
-console.log('PASS: parfait fruit cycles, retained pieces, grouped language, everything, and reset.');
-
-app.setBase('vanilla');app.setSauce('chocolate');app.setLevel('strawberries',1);app.advancedMode=false;app.updateSentence();
-assert.equal(elements['#sentence'].textContent,'I want vanilla ice cream and strawberries with chocolate syrup.');
-assert(elements['#drizzle'].html.includes('syrup-middle'));
-assert(!elements['#drizzle'].html.includes('drizzle-line'));
-app.setBase('mint');assert.equal((elements['#ice-cream'].html.match(/class="ice-scoop /g)||[]).length,2);assert(elements['#ice-cream'].html.includes('with-chips'));
-app.setSauce('none');assert.equal(elements['#drizzle'].html,'');
-app.setBase('none');assert.equal(elements['#ice-cream'].html,'');
-app.setBase('strawberry');app.setSauce('caramel');app.clear();
-assert.equal(app.state.base,null);assert.equal(app.state.sauce,null);
+app.chooseTopping('strawberries');assert.equal(app.activeSlot,1);
+app.chooseTopping('strawberries');
+assert.equal(elements['#sentence'].textContent,'I want strawberries\nwith no syrup.');
+assert.equal(app.groups.get('strawberries').children.length,6);
+app.goLayer(1);app.chooseTopping('apples');app.chooseTopping('bananas');
+assert.equal(app.groups.get('apples').children.length,3);
+assert.equal(app.groups.get('bananas').children.length,3);
+app.goLayer(1);app.chooseTopping('peaches');app.chooseTopping('peaches');
+app.goLayer(1);app.chooseTopping('cherries');app.chooseTopping('melons');
+assert.equal(elements['#sentence'].textContent,'I want strawberries,\napples and bananas,\npeaches,\ncherries and melons\nwith no syrup.');
+const saved=JSON.stringify(app.state.layers);
+app.advancedMode=true;app.updateSentence();assert.equal(JSON.stringify(app.state.layers),saved);
+assert.equal(elements['#layer-conversation'].hidden,false);
+app.goLayer(-1);assert(elements['#layer-conversation'].textContent.includes('What do you want?')||elements['#layer-conversation'].textContent.includes('OK, next?'));
+app.activeSlot=0;app.chooseTopping('apples');assert.equal(app.state.layers[2][0],'apples');
+assert.equal(app.state.layers[1][0],'apples');
+app.setBase('mint');app.setSauce('chocolate');assert(elements['#sentence'].textContent.includes('mint chocolate chip ice cream'));
+assert(elements['#sentence'].textContent.endsWith('with chocolate syrup.'));
+assert.equal((elements['#ice-cream'].html.match(/class="ice-scoop /g)||[]).length,2);
+app.clear();assert(app.state.layers.every(row=>row.every(value=>value===null)));
+assert.equal(elements['#sentence'].textContent,'I want ….');assert.equal(app.state.base,null);assert.equal(app.state.sauce,null);
 assert.equal(elements['#ice-cream'].html,'');assert.equal(elements['#drizzle'].html,'');
-assert.equal(elements['#sentence'].textContent,'I want ….');
-console.log('PASS: ice cream/syrup sentences, removal, chip rendering, and cream-base reset.');
-
-assert(fs.readFileSync('apps/parfait/index.html','utf8').includes('class="whipped-base"'));
-app.clear();
-app.setLevel('bananas',1);app.setLevel('strawberries',1);app.setLevel('apples',1);app.setLevel('melons',1);
-assert.deepEqual(Array.from(app.selectionOrder),['bananas','strawberries','apples','melons']);
-const fruit=id=>app.config.toppings.find(t=>t.id===id);
-assert(app.placements(fruit('bananas'))[0].y>app.placements(fruit('strawberries'))[0].y);
-assert(app.placements(fruit('melons'))[0].y<0);
-assert(app.placements(fruit('strawberries')).every(p=>p.rotate>=178&&p.rotate<=182));
-const piece=app.groups.get('bananas').children[0];
-app.setLevel('bananas',3);assert.equal(app.groups.get('bananas').children[0],piece);
-const points=app.placements(fruit('bananas'));
-const gap=points[1].x-points[0].x;
-assert(points.slice(1).every((p,i)=>Math.abs(p.x-points[i].x-gap)<1e-9));
-app.setLevel('strawberries',0);assert.deepEqual(Array.from(app.selectionOrder),['bananas','apples','melons']);
-app.setLevel('strawberries',1);assert.equal(app.selectionOrder.at(-1),'strawberries');
-app.clear();assert.equal(app.selectionOrder.length,0);
-console.log('PASS: click-ordered layers, even rows, point-up strawberries, removal/re-addition, and reset.');
+console.log('PASS: paired layers, repeated fruit, mixed-row counts, summary, editing, mode preservation, ice cream/syrup, and reset.');

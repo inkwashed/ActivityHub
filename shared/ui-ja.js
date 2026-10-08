@@ -28,3 +28,5 @@ window.ActivityHubI18n.register({
 });
 
 window.ActivityHubI18n.register({"Previous options":"前の選択肢","Next options":"次の選択肢"});
+
+window.ActivityHubI18n.register({"Back to activity":"作品に戻る","Jump to choices":"材料を選ぶ"});

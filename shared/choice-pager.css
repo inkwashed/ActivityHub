@@ -1,0 +1,23 @@
+.choice-pager{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:6px;align-items:center;min-width:0}
+.choice-pager [data-choice-list]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;min-width:0}
+.choice-pager [data-choice-list]>[hidden]{display:none!important}
+.choice-pager [data-choice-status]{grid-column:1/-1;text-align:center;font-size:12px;color:var(--ah-muted);margin:2px 0 0}
+/* Pizza keeps a paged LEARN row and expands all compact choices in PLAY. */
+.ah-builder #pizza-menu{align-self:start;display:block;min-height:0}
+.ah-builder #pizza-menu .topping-section{display:block;flex:none;margin-top:16px}
+.ah-builder #pizza-menu .topping-options{grid-template-rows:none;flex:none}
+.ah-builder #pizza-menu .topping-button{min-width:0;min-height:88px;padding:6px 2px}
+.ah-builder #pizza-menu .ingredient-name{font-size:14px;overflow-wrap:anywhere}
+.ah-builder #pizza-menu .ingredient-art{width:36px;height:36px}
+.ah-builder #pizza-menu .pizza-actions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:16px;grid-column:1/-1}
+.ah-builder #pizza-menu .pizza-actions .ah-button{padding:9px 12px}
+.ah-builder #pizza-workspace{grid-template-rows:auto minmax(210px,1fr) auto}
+.ah-builder .is-create #pizza-menu .topping-button{min-height:var(--play-choice-size,52px)}
+.ah-builder .is-create #pizza-menu .ingredient-art{width:min(100%,var(--play-food-size,36px));height:auto;aspect-ratio:1}
+@media(orientation:portrait),(max-width:699px){.ah-builder .is-create #pizza-menu{display:block}.ah-builder .is-create #pizza-menu .topping-options{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.choice-pager[data-expanded="true"]{grid-template-columns:minmax(0,1fr)}
+.choice-pager [data-choice-previous][hidden],.choice-pager [data-choice-next][hidden],.choice-pager [data-choice-status][hidden]{display:none}
+
+/* Reserve two rows for six-choice pages, even on a partly filled last page. */
+.ah-builder #pizza-menu .choice-pager[data-page-size="6"]:not([data-expanded="true"]) .topping-options{grid-template-rows:repeat(2,minmax(88px,auto));align-content:start}

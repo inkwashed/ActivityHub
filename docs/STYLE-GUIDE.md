@@ -9,7 +9,7 @@ Version 0.1 — a living guide based on Pizza Builder. Revise this guide and the
 - `shared/icons/`: balanced language, Reset, and camera icons.
 - `docs/style-guide.html`: working examples using the same styles as the app.
 
-Load tokens first, app layout styles second, and shared controls last. App styles own layout and activity artwork; shared styles own control appearance and states. Reuse the shared classes instead of copying button rules into each applet.
+Load tokens, app base styles, shared builder chrome, shared controls, then optional shared layout components and shared responsive policy. A documented app geometry file may follow the responsive policy, scoped to its app and matching the same breakpoints. App styles own layout and activity artwork; shared styles own control appearance and states. Reuse the shared classes instead of copying button rules into each applet.
 
 ## Visual direction
 
@@ -100,9 +100,9 @@ Default interface language follows the first supported browser/system language p
 
 Copyright uses the shared compact footer (`shared/copyright.js`) with a 12px text-only notice. Do not add a button or terms dialog to individual applets. Include its measured height in the viewport layout. The root home page links to the full terms.
 
-Pizza Builder adds a TAP/FREE pill beside the topping heading, using the shared switch shape. FREE disables the EASY/HARD switch in EASY state and explains this in its instructions. Editing actions reuse shared buttons; the piece picker provides access to overlapped pieces. The selection outline uses the focus-color token.
+Pizza Builder adds a LEARN/PLAY pill beside the first (sauce) heading, using the shared switch shape. PLAY disables the EASY/HARD switch in EASY state and explains this in its instructions. Editing actions reuse shared buttons; the piece picker provides access to overlapped pieces. The selection outline uses the focus-color token.
 
-FREE editing uses a vertical icon toolbar to the right of the pizza, with a dedicated 44px lane and 12px separation. Order the vertical actions from top to bottom: larger (+), smaller (−), rotate left, rotate right, flip, duplicate, delete. Reuse the shared size, rotation, flip, duplicate, and delete SVGs with translated accessible labels/tooltips. Put the compact piece picker in the topping header and expose instructions through the info button beside TAP/FREE. Header controls may wrap on narrower screens.
+Pizza PLAY editing uses a vertical icon toolbar within the menu column, below the shared menu heading and to the left of the input panel, with a dedicated 44px lane and 12px separation. Order the vertical actions from top to bottom: larger (+), smaller (−), rotate left, rotate right, flip, duplicate, delete. Reuse the shared size, rotation, flip, duplicate, and delete SVGs with translated accessible labels/tooltips. Put the compact piece picker beside the PLAY topping heading, using the remaining row width and expose instructions through the info button beside LEARN/PLAY. Header controls may wrap on narrower screens.
 
 The text-only footer attribution is `Let’s EiGo! © 2026 letseigo.com · All rights reserved.`; Japanese retains `Let’s EiGo!` and `letseigo.com` and translates the rights notice. Keep the domain as plain text in applet footers.
 
@@ -133,3 +133,48 @@ Artwork stages remain app-specific. On tablet/desktop, Parfait reserves at least
 For crowded builders, use `shared/builder-panes.js` and `shared/builder-panes.css`. A `[data-builder-panes]` panel contains named `[data-builder-pane]` sections, a live `[data-pane-status]`, and shared 44px previous/next icon buttons in side rails. Arrows cycle through panes. Hidden panes retain their controls and selections but leave the tab order. Keep the panel footprint stable; allow scrolling on short screens or enlarged text. Page labels and accessible navigation names translate, while ingredient vocabulary stays English.
 
 Parfait filling uses a restrained contrasting contour so pale cream stays visible against the glass. Decorative fruit rows use consistent orientation and even spacing rather than broad random rotation; strawberry points face upward. Layer ordering is content behind the glass outline, with the open rim allowing above-glass decoration.
+
+Paired-layer builders replace quantity dots with two explicit selectable slots and separate previous/next layer controls. The selected slot uses shared choice styling; fruit cards indicate membership in the current row. Keep dialogue and order summaries in English with preserved line breaks. Translate editing controls. Option-pane arrows and layer arrows must retain distinct accessible names.
+
+Creative builder palettes may opt into `shared/builder-create.css` using `.is-create` on the workspace. In landscape use a bounded icon-only palette with at least 44px touch targets; portrait places the compact tray below the artwork. Hide labels visually, preserve accessible names, and retain the piece picker. Pizza calls this mode PLAY; internal free-mode identifiers remain for compatibility. LEARN retains labelled choices.
+
+Keep the activity title and eyebrow visible above the choices in both LEARN and PLAY. The target-language question stays above the artwork. Budget compact choice heights for the visible menu heading.
+
+In both LEARN and PLAY, place Reset/Share permanently after the ingredient sections in the menu. The canvas has no action row.
+
+The landscape PLAY palette scales ingredient buttons from 52–84px tall and artwork from 36–56px using viewport height minus measured header/footer space. Size the palette within a stable mode-independent menu column; Pizza’s dimensions are specified below. Portrait keeps its compact tray.
+
+Pizza keeps LEARN/PLAY and its info control at the right of the first sauce heading in both modes. PLAY section titles are “1 Sauce” and “2 Toppings” (translated as interface text); LEARN retains the full instructions. The compact sidebar accommodates that header in one row, and portrait uses full-width sections in the bottom tray.
+
+For long ingredient lists, use `shared/choice-pager.js` and `.css`: keep each section heading visible and page its existing choice buttons in groups of three with 44px side arrows and a page indicator. Unlike whole-section panes, this keeps sauce and toppings together. Hidden choices retain their state and leave keyboard navigation; arrows wrap. Pizza uses six-choice paging (two rows of three) in LEARN, reserving both rows on the final three-choice page; PLAY displays all nine compact topping icons in a three-column grid, without paging arrows or a page indicator. Returning to LEARN restores its previous page.
+
+Pizza places its eyebrow and activity title above the right-hand buttons panel in both LEARN and PLAY. The English question stays above the pizza. On narrow screens the intro stays with the menu as the columns stack.
+
+## Responsive layout policy (all builders)
+
+Load `shared/builder-responsive.css` after shared layout components; only documented app geometry exceptions (Pizza `layout.css`) follow it. Prefer a single-screen, side-by-side workspace in landscape at least 900 CSS px wide and 600px tall (including iPad mini-class landscape). Budget using measured header/footer height and keep 44px targets. Avoid page scrolling where content fits; long orders, enlarged text, or translated content may still scroll instead of clipping. Never force fit by hiding overflow.
+
+Portrait tablets, phones, and shorter/narrower windows stack activity first, controls second. Use `data-jump-section="activity"` and `"choices"` with `tabindex="-1"`, and load `shared/builder-jump.js`. A discreet bottom-edge control jumps between sections, moves keyboard focus, translates its label, and respects reduced motion. Reserve bottom space and safe-area insets so it cannot cover final controls. No automatic scrolling on mode/orientation changes. This applies to both pizza and parfait; verify landscape 1024×768/1133×744, portrait 768×1024, phones, enlarged text, and long content.
+
+## Numbered section headings
+
+Use `ah-section-number` from shared/controls.css for numbered activity sections: a dark green circle with a bold white number (30px normally, 26px for compact/tablet layouts). Pair it with heading text using `ah-section-heading`, or an existing flex heading with an 8–10px gap. Use real `legend` or heading elements, with the number in its own span so translation never removes it. Keep numbering stable across option pages and modes. Section numbers describe steps/categories, not changing layer or page counts. Pizza uses 1 Sauce / 2 Toppings; parfait uses 1 Ice cream / 2 Fruit layers / 3 Syrup. Reuse this component in future applets with numbered sections; do not create app-local badge styles.
+
+PLAY uses English count-and-size language (small/medium/big), independent of LEARN’s EASY/HARD wording. Piece touch areas grow with their artwork and retain a 44px minimum. Size words describe relative ingredient size, not identical pixel dimensions across different foods.
+
+PLAY touch editing uses one finger to move a piece and two fingers on that piece to resize it. Keep the +/− controls as an accessible alternative; rotate and flip remain explicit toolbar actions. Pinching respects the same size limits and size labels as the toolbar. Prevent native touch gestures only on draggable pieces, preserving page scrolling elsewhere.
+
+In landscape, both Pizza modes use the same bounded 420–444px menu column. LEARN fills it, keeping “Choose a sauce” beside the mode toggle and help control on standard landscape screens; PLAY divides it into a 44px toolbar, a 12px gutter, and its compact input panel. The menu heading spans the full column. The pizza, question, and order retain the same column and stage sizing across modes (long order text may still require more space). Use 14px panel padding and a 32px menu title, retaining labelled choices, two rows of three toppings, and 44px navigation targets. Keep this activity-specific sizing in Pizza `layout.css`, loaded after shared responsive rules; the shared stacked-layout policy still takes precedence for portrait and smaller screens.
+
+
+## Stable mode layout and review
+
+Changing interaction mode should not move the main question or menu title, or
+change the canvas width merely to accommodate tools. Reserve editing tools
+inside the choices column and center the menu title over the whole column.
+Keep long text and enlarged interface fonts free to expand vertically.
+
+When changing a dimension, remove superseded declarations rather than stacking
+more overrides. Check both modes at identical viewport sizes and inspect the
+winning CSS rule when only one mode changes. Use shared controls unchanged;
+keep food geometry and app-specific menu sizing in the app layout file.
