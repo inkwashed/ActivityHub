@@ -9,3 +9,5 @@
 .pronunciation-settings-row select{flex:1;min-width:0;width:0;min-height:44px;font:inherit}
 .pronunciation-settings-row button{flex-shrink:0}
 .pronunciation-note{font-size:14px;line-height:1.5;color:var(--ah-muted)}
+.pronunciation-status{display:block;margin:4px auto;max-width:490px;font-size:14px;line-height:1.4;color:var(--ah-muted);text-align:center}
+.pronunciation-status:empty{display:none}

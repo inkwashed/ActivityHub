@@ -7,7 +7,8 @@ class Element {
  querySelectorAll(){return this.children.filter(x=>x.className==='pronunciation-word');}
 }
 let spoken=[],cancelled=0;
-const window={addEventListener(){},SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},speechSynthesis:{getVoices:()=>[{lang:'ja-JP',default:true},{lang:'en-US'}],speak:u=>spoken.push(u),cancel:()=>cancelled++}};
+let timerCallback;
+const window={setTimeout(fn){timerCallback=fn;return 1;},clearTimeout(){timerCallback=null;},addEventListener(){},SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},speechSynthesis:{getVoices:()=>[{lang:'ja-JP',default:true},{lang:'en-US'}],speak:u=>spoken.push(u),cancel:()=>cancelled++}};
 const document={addEventListener(){},createElement:()=>new Element(),createTextNode:text=>({textContent:text})};
 vm.runInNewContext(fs.readFileSync('shared/pronunciation.js','utf8'),{window,document});
 const p=new Element();p.parentElement=new Element();
@@ -40,3 +41,10 @@ speech.preferredVoice=speech.voiceKey(bubbles);speech.speak('Excluded');assert.e
 speech.preferredVoice=speech.voiceKey(american);speech.speak('Chosen');assert.equal(spoken.at(-1).voice,american);
 speech.synth.getVoices=()=>[bubbles,american,british];speech.preferredVoice='';speech.speak('Fallback');assert.equal(spoken.at(-1).voice,american);
 console.log('Curated shortlist, Google default, novelty exclusion and device fallback checks passed.');
+
+speech.preferredVoice='device-default';speech.speak('Device voice');assert.equal(spoken.at(-1).voice,undefined);assert.equal(spoken.at(-1).lang,'en-US');
+timerCallback();assert.match(speech.status.textContent,/Speech did not start/);assert.equal(speech.utterance,null);
+let resumed=0;speech.synth.paused=true;speech.synth.resume=()=>resumed++;
+speech.speak('Resume');assert.equal(resumed,1);spoken.at(-1).onstart();assert.equal(timerCallback,null);
+speech.synth.getVoices=()=>[{...american},{...american},british];assert.equal(speech.recommendedVoices().length,2);
+console.log('Device-default voice, paused engine, startup timeout, and deduplication checks passed.');

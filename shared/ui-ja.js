@@ -1,4 +1,6 @@
 window.ActivityHubI18n.register({
+  "Device default (English)": "端末の標準音声（英語）",
+  "Speech did not start. Try Device default (English) in language settings.": "読み上げが始まりませんでした。言語設定で「端末の標準音声（英語）」をお試しください。",
   "Default voice": "読み上げ音声",
   "Try voice": "試聴",
   "Automatic (English)": "自動（英語）",

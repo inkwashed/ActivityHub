@@ -18,7 +18,7 @@
       this.button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4L6 8H3V16H6L11 20Z M15 8Q19 12 15 16 M18 5Q24 12 18 19"/></svg>';
       sentence.parentElement.append(this.button);
       this.status = document.createElement('span');
-      this.status.className = 'sr-only';
+      this.status.className = 'pronunciation-status';
       this.status.setAttribute('role', 'status');
       sentence.parentElement.after(this.status);
       this.button.disabled = !this.available;
@@ -41,7 +41,12 @@
     recommendedVoices() {
       // Exclude novelty/effect voices; keep a small, device-dependent shortlist.
       const novelty = /\b(albert|bad news|bahh|bells|boing|bubbles|cellos|deranged|good news|hysterical|jester|organ|trinoids|whisper|wobble|zarvox)\b/i;
-      const voices = this.englishVoices().filter(voice => !novelty.test(voice.name || ''));
+      const seen = new Set();
+      const voices = this.englishVoices().filter(voice => {
+        const key = `${voice.name}|${voice.lang}|${voice.localService}`;
+        if (novelty.test(voice.name || '') || seen.has(key)) return false;
+        seen.add(key); return true;
+      });
       const google = voices.find(voice => /^Google US English$/i.test(voice.name || '') && /^en[-_]US$/i.test(voice.lang));
       const rest = voices.filter(voice => voice !== google);
       const us = rest.find(voice => /^en[-_]US$/i.test(voice.lang));
@@ -63,11 +68,12 @@
         const voices = this.recommendedVoices();
         this.voiceSelect.replaceChildren();
         const option = (value, label) => { const el = document.createElement('option'); el.value = value; el.textContent = label; this.voiceSelect.append(el); };
-        option('', `${t('Automatic (English)')}${voices[0]?.name ? ' — ' + voices[0].name : ''}`);
+        option('', t('Automatic (English)'));
+        option('device-default', t('Device default (English)'));
         voices.forEach(voice => option(this.voiceKey(voice), `${voice.name} · ${voice.lang} · ${t(voice.localService ? 'On device' : 'Online')}`));
-        const missing = this.preferredVoice && !voices.some(voice => this.voiceKey(voice) === this.preferredVoice);
+        const missing = this.preferredVoice && this.preferredVoice !== 'device-default' && !voices.some(voice => this.voiceKey(voice) === this.preferredVoice);
         this.voiceSelect.value = missing ? '' : this.preferredVoice;
-        this.voiceSelect.disabled = !this.available || !voices.length;
+        this.voiceSelect.disabled = !this.available;
         preview.disabled = !this.available;
         this.settingsStatus.textContent = !this.available ? t('Pronunciation is unavailable in this browser') : missing ? t('Your saved voice is not in the recommended list. Using automatic English for now.') : '';
       };
@@ -88,6 +94,7 @@
       this.refreshVoices();
     }
     stop() {
+      window.clearTimeout(this.startTimer);
       if (this.utterance) {
         this.utterance = null;
         this.synth.cancel();
@@ -99,20 +106,44 @@
       const utterance = new window.SpeechSynthesisUtterance(text.replace(/\s+/g, ' ').trim());
       // Re-read voices on each tap: some browsers populate them asynchronously.
       const english = this.recommendedVoices();
-      const voice = english.find(voice => this.voiceKey(voice) === this.preferredVoice) || english[0];
+      const voice = this.preferredVoice === 'device-default' ? null : english.find(voice => this.voiceKey(voice) === this.preferredVoice) || english[0];
       utterance.lang = voice?.lang || 'en-US';
       if (voice) utterance.voice = voice;
       utterance.rate = .9;
+      utterance.volume = 1;
       this.utterance = utterance;
       status.textContent = '';
-      utterance.onend = () => { if (this.utterance === utterance) this.utterance = null; };
+      const report = message => {
+        status.textContent = message;
+        if (this.settingsStatus && status !== this.settingsStatus) this.settingsStatus.textContent = message;
+      };
+      utterance.onstart = () => {
+        if (this.utterance !== utterance) return;
+        window.clearTimeout(this.startTimer);
+      };
+      utterance.onend = () => {
+        if (this.utterance !== utterance) return;
+        window.clearTimeout(this.startTimer);
+        this.utterance = null;
+      };
       utterance.onerror = event => {
         if (this.utterance !== utterance) return;
+        window.clearTimeout(this.startTimer);
         this.utterance = null;
-        if (!['canceled','interrupted'].includes(event.error)) status.textContent = t('Audio could not play. Please try again.');
+        if (!['canceled','interrupted'].includes(event.error)) report(`${t('Audio could not play. Please try again.')} (${event.error || 'unknown'})`);
       };
-      try { this.synth.speak(utterance); }
-      catch { this.utterance = null; status.textContent = t('Audio could not play. Please try again.'); }
+      this.startTimer = window.setTimeout(() => {
+        if (this.utterance !== utterance) return;
+        this.stop();
+        report(t('Speech did not start. Try Device default (English) in language settings.'));
+      }, 10000);
+      try {
+        // Keep playback inside the tap handler; queued speech cannot run while paused.
+        if (this.synth.paused) this.synth.resume();
+        this.synth.speak(utterance);
+      } catch {
+        this.stop(); report(t('Audio could not play. Please try again.'));
+      }
     }
     render(text, names) {
       if (this.text === text) return;
