@@ -48,3 +48,5 @@ window.ActivityHubI18n.register({"Sauce":"ソース","Toppings":"トッピング
 window.ActivityHubI18n.register({"Previous toppings":"前のトッピング","Next toppings":"次のトッピング"});
 
 window.ActivityHubI18n.register({"Add one piece, then drag it. Pinch with two fingers or use + and − to change its size. PLAY counts small, medium, and big pieces.":"材料を追加して動かそう。2本の指で広げたり縮めたり、＋と−で大きさを変えられます。PLAYではsmall・medium・bigごとに数を数えます。"});
+
+window.ActivityHubI18n.register({"About LEARN mode":"LEARNモードの使い方","Choose a sauce, then tap toppings to add more. Three dots means extra; tap once more to remove. Read your order aloud. Try HARD for more detailed sentences.":"ソースを選んで、トッピングをタップすると量が増えます。点が3つになったら、もう一度タップすると取り除けます。注文を声に出して読んでみよう。HARDでは、量も伝える文に挑戦できます。"});

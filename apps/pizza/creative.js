@@ -24,7 +24,7 @@
       this.actions = new Map();
       this.pickerWrap = document.querySelector('#piece-picker-wrap');
       const help = document.querySelector('#free-info-dialog');
-      document.querySelector('#free-info').addEventListener('click', () => help.showModal());
+      document.querySelector('#free-info').addEventListener('click', () => {this.updateHelp();help.showModal();});
       document.querySelector('#free-info-close').addEventListener('click', () => help.close());
       for (const [action,label] of [['larger','Larger'],['smaller','Smaller'],['left','Rotate left'],['right','Rotate right'],['flip','Flip'],['duplicate','Duplicate'],['delete','Delete']]) {
         const b = document.createElement('button');b.type='button';b.className='ah-button ah-button-icon';b.setAttribute('aria-label',t(label));b.title=t(label);b.setAttribute('data-i18n-aria-label',label);b.setAttribute('data-i18n-title',label);b.disabled=true;
@@ -35,14 +35,23 @@
       this.toggle.addEventListener('change',()=>this.switchMode(this.toggle.checked));
       this.picker.addEventListener('change',()=>this.select(Number(this.picker.value)||null));
       this.pizza.addEventListener('pointerdown',e=>{if(this.active && !this.gestures.item && !e.target.closest('.free-piece'))this.select(null)});
-      document.addEventListener('activityhub:languagechange',()=>{if(this.active)this.refreshPicker()});
+      document.addEventListener('activityhub:languagechange',()=>{if(this.active)this.refreshPicker();this.updateHelp()});
+    }
+    updateHelp() {
+      const title=this.active?'About PLAY mode':'About LEARN mode';
+      const text=this.active?"Add one piece, then drag it. Pinch with two fingers or use + and − to change its size. PLAY counts small, medium, and big pieces.":"Choose a sauce, then tap toppings to add more. Three dots means extra; tap once more to remove. Read your order aloud. Try HARD for more detailed sentences.";
+      const heading=document.querySelector('#free-info-title'), body=document.querySelector('#mode-help-text');
+      heading.dataset.i18n=title;heading.textContent=t(title);
+      body.dataset.i18n=text;body.textContent=t(text);
+      const button=document.querySelector('#free-info');
+      button.setAttribute('data-i18n-aria-label',title);button.setAttribute('aria-label',t(title));
     }
     switchMode(active) {
       if(active===this.active)return;
       this.gestures.cancel();this.drag=null;
       if(active){this.tapState=this.builder.state;this.tapHard=this.builder.advancedMode;this.builder.state=this.freeState;this.builder.advancedMode=false;}
       else {this.freeState=this.builder.state;this.builder.state=this.tapState;this.builder.advancedMode=this.tapHard;}
-      this.active=active;this.toggle.checked=active;this.difficulty.checked=this.builder.advancedMode;this.difficulty.disabled=active;
+      this.active=active;this.updateHelp();this.toggle.checked=active;this.difficulty.checked=this.builder.advancedMode;this.difficulty.disabled=active;
       document.querySelector('#builder').classList.toggle('is-free',active);
       document.querySelector('#builder').classList.toggle('is-create',active);
       document.querySelector('#topping-options').choicePager?.setExpanded(active);

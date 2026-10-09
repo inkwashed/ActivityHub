@@ -157,7 +157,6 @@ html[lang="ja"] .mode-easy,html[lang="ja"] .mode-hard{font-size:12px;letter-spac
 
 /* LEARN panel details; shared mode widths are owned by layout.css. */
 @media (orientation:landscape) and (min-width:900px) and (min-height:600px){
- .ah-builder #builder:not(.is-create) #pizza-menu{padding:14px}
  .ah-builder #builder .pizza-menu-heading{margin-bottom:12px}
  .ah-builder #builder .pizza-menu-heading h1{font-size:32px;letter-spacing:-1px}
  .ah-builder #builder:not(.is-create) .sauce-legend{font-size:18px;gap:8px}

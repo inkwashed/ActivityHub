@@ -10,7 +10,7 @@
 .ah-builder #pizza-menu .ingredient-name{font-size:14px;overflow-wrap:anywhere}
 .ah-builder #pizza-menu .ingredient-art{width:36px;height:36px}
 .ah-builder #pizza-menu .pizza-actions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:16px;grid-column:1/-1}
-.ah-builder #pizza-menu .pizza-actions .ah-button{padding:9px 12px}
+.ah-builder #pizza-menu .pizza-actions .ah-button{flex:1;min-width:0;padding:9px 12px}
 .ah-builder #pizza-workspace{grid-template-rows:auto minmax(210px,1fr) auto}
 .ah-builder .is-create #pizza-menu .topping-button{min-height:var(--play-choice-size,52px)}
 .ah-builder .is-create #pizza-menu .ingredient-art{width:min(100%,var(--play-food-size,36px));height:auto;aspect-ratio:1}

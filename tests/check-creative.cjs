@@ -1,6 +1,6 @@
 const fs=require('fs'),vm=require('vm');
 vm.runInNewContext(fs.readFileSync('tests/check.cjs','utf8')+`
-for(const id of ['.pizza-menu-body','.order','#pizza-menu','#pizza-workspace','#pizza-actions','#free-tools','#piece-picker','#free-mode','#piece-picker-wrap','#free-info-dialog','#free-info','#free-info-close'])elements[id]=new Element();
+for(const id of ['.pizza-menu-body','.order','#pizza-menu','#pizza-workspace','#pizza-actions','#free-tools','#piece-picker','#free-mode','#piece-picker-wrap','#free-info-dialog','#free-info','#free-info-close','#free-info-title','#mode-help-text'])elements[id]=new Element();
 Element.prototype.insertBefore=function(node,before){this.append(node)};
 let layoutChange;const layoutMedia={matches:false,addEventListener(type,handler){layoutChange=handler}};
 context.window.matchMedia=()=>layoutMedia;
@@ -14,7 +14,7 @@ app.clear();advanced(true);app.setLevel('mushrooms',2);app.setSauce('tomato');
 const tapState=app.state,tapNodes=app.groups.get('mushrooms').children.slice();
 vm.runInContext(fs.readFileSync('shared/piece-gestures.js','utf8'),context);
 vm.runInContext(fs.readFileSync('apps/pizza/creative.js','utf8'),context);
-const free=app.creative;free.switchMode(true);
+const free=app.creative;free.updateHelp();assert.equal(elements['#free-info-title'].textContent,'About LEARN mode');assert(elements['#mode-help-text'].textContent.includes('Three dots'));free.switchMode(true);assert.equal(elements['#free-info-title'].textContent,'About PLAY mode');assert(elements['#mode-help-text'].textContent.includes('Pinch'));
 assert.equal(free.tools.parent,elements['.pizza-menu-body']);layoutMedia.matches=true;layoutChange();assert.equal(free.tools.parent,elements['#pizza-workspace']);layoutMedia.matches=false;layoutChange();assert.equal(free.tools.parent,elements['.pizza-menu-body']);
 assert.equal(elements['#pizza-actions'].parent,elements['#pizza-menu']);
 assert.equal(app.advancedMode,false);assert.equal(toggle.disabled,true);assert.equal(app.state.sauce,null);

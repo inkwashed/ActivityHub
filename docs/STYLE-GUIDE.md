@@ -140,7 +140,7 @@ Creative builder palettes may opt into `shared/builder-create.css` using `.is-cr
 
 Keep the activity title and eyebrow visible above the choices in both LEARN and PLAY. The target-language question stays above the artwork. Budget compact choice heights for the visible menu heading.
 
-In both LEARN and PLAY, place Reset/Share permanently after the ingredient sections in the menu. The canvas has no action row.
+In both LEARN and PLAY, place Reset/Share permanently after the ingredient sections in the menu. Give both buttons equal flexible widths so together they fill the panel’s inner width, with an 8px gap. Preserve the neutral Reset and secondary Share styling and minimum 44px touch height. The canvas has no action row. Pizza implements the common action-row sizing in shared/choice-pager.css, without mode-specific width overrides.
 
 The landscape PLAY palette scales ingredient buttons from 52–84px tall and artwork from 36–56px using viewport height minus measured header/footer space. Size the palette within a stable mode-independent menu column; Pizza’s dimensions are specified below. Portrait keeps its compact tray.
 
@@ -182,3 +182,14 @@ keep food geometry and app-specific menu sizing in the app layout file.
 In stacked portrait/phone layouts, move the same editing toolbar below the artwork and above its order sentence. Lay its 44px buttons out horizontally, centered, wrapping on narrow phones. Restore the vertical menu-side placement in landscape. Move existing controls rather than duplicating them so state, focus order, and listeners stay consistent.
 
 Creative movement bounds belong to the activity play area, not necessarily the food silhouette. Pizza PLAY permits crust overlap within the rectangular stage; exports must include those placements. Keep LEARN’s preset placement rules independent.
+
+Mode help must describe the currently selected mode: update its dialog title, instructions, and info-button accessible label together. Translate these interface strings without changing lesson vocabulary or activity state.
+
+
+Panel padding must not change with LEARN/PLAY mode. Pizza uses one
+`--builder-panel-padding: 14px` value in `apps/pizza/layout.css` on all sides,
+in both landscape and stacked layouts. The first heading row uses an 8px gap
+and 10px bottom margin in both modes; the toggle/help pair retains its shared
+6px gap and 44px targets. Compact mode may change choice artwork and card
+spacing, but must not alter the panel's outer inset or shift its header controls.
+Future builders should likewise define panel padding once, outside mode rules.

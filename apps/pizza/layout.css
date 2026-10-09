@@ -1,5 +1,8 @@
 /* Pizza owns the relationship between the canvas and creative editing tray.
    Loaded after shared responsive rules so both modes retain identical geometry. */
+.ah-builder #builder{--builder-panel-padding:14px}
+.ah-builder #builder #pizza-menu{padding:var(--builder-panel-padding)}
+.ah-builder #builder #pizza-menu .sauce-legend{gap:8px;margin-bottom:10px;align-items:center}
 .pizza-menu-body{display:grid;grid-template-columns:minmax(0,1fr);align-items:start}
 .ah-builder #builder.is-create .pizza-menu-body{grid-template-columns:44px minmax(0,1fr);gap:12px}
 .ah-builder #builder #free-tools{position:static;transform:none;width:44px;align-self:center}

@@ -161,3 +161,5 @@ layout checks. Physical iPad pinch/drag, layout, and photo saving remain to test
 In stacked layouts the editing toolbar moves below the pizza and above the order, with centered horizontal buttons that wrap on phones. Landscape keeps the vertical toolbar beside the menu. Pinch changes need renewed physical iPad verification.
 
 PLAY placement uses the entire rectangular artwork stage, not a circular crust boundary. Rotated artwork stays within that stage while allowing crust overlap. Share expands its framing to include off-crust pieces. LEARN scatter is unchanged.
+
+Both modes use the same 14px panel inset and first-heading spacing from layout.css, keeping the toggle/help controls aligned at the upper-right edge.

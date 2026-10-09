@@ -26,7 +26,7 @@
 
 /* Actions remain beneath the palette in both modes. */
 .is-create .pantry .pizza-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.is-create .pantry .pizza-actions .ah-button{flex:1;min-width:0;padding:9px 8px;font-size:14px;gap:6px}
+.is-create .pantry .pizza-actions .ah-button{padding:9px 8px;font-size:14px;gap:6px}
 
 /* Grow the landscape palette with spare height, within a bounded sidebar. */
 @media(orientation:landscape) and (min-width:700px){
