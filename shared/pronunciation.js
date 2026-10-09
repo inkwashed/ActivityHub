@@ -58,7 +58,7 @@
       if (!dialog) return;
       const section = document.createElement('div');
       section.className = 'pronunciation-settings';
-      section.innerHTML = '<label for="pronunciation-voice" data-i18n="Default voice">Default voice</label><div class="pronunciation-settings-row"><select id="pronunciation-voice"></select><button type="button" class="ah-button" data-i18n="Try voice">Try voice</button></div><p class="pronunciation-note" data-i18n="English voices available on this device. Online voices may need an internet connection.">English voices available on this device. Online voices may need an internet connection.</p><p class="pronunciation-note" role="status"></p>';
+      section.innerHTML = '<label for="pronunciation-voice" data-i18n="Default voice">Default voice</label><div class="pronunciation-settings-row"><select id="pronunciation-voice"></select><button type="button" class="ah-button" data-i18n="Try voice">Try voice</button></div><p class="pronunciation-note" data-i18n="English voices available on this device. Online voices may need an internet connection.">English voices available on this device. Online voices may need an internet connection.</p><p class="pronunciation-note" data-i18n="No sound on iPad? Turn off Silent Mode in Control Center.">No sound on iPad? Turn off Silent Mode in Control Center.</p><p class="pronunciation-note" role="status"></p>';
       dialog.append(section);
       this.voiceSelect = section.querySelector('select');
       const preview = section.querySelector('button');
@@ -106,7 +106,8 @@
     speak(text, status = this.status) {
       const report = message => {
         this.lastPlaybackMessage = message;
-        status.textContent = message;
+        // Routine diagnostics belong in settings, never below the artwork.
+        if (status === this.settingsStatus) status.textContent = message;
         if (this.settingsStatus && status !== this.settingsStatus) this.settingsStatus.textContent = message;
       };
       if (!this.available) { report(t('Pronunciation is unavailable in this browser')); return; }

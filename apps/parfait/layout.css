@@ -15,9 +15,10 @@
 .ah-builder #parfait-menu fieldset{margin-bottom:12px}
 .ah-builder #parfait-menu .syrup-section{margin-top:16px}
 @media(orientation:landscape) and (min-width:900px) and (min-height:600px){
- .ah-builder #builder{grid-template-columns:minmax(0,1fr) clamp(420px,42dvh,444px)}
+ .ah-builder #parfait-workspace .parfait-stage{width:min(100%,400px, max(280px,calc((100svh - 390px)*1.25)))}
+ .ah-builder #builder{grid-template-columns:minmax(0,1fr) clamp(420px,42svh,444px)}
  .ah-builder #builder .parfait-menu-heading h1{font-size:32px;letter-spacing:-1px}
- .ah-builder #builder #parfait-workspace{min-height:calc(100dvh - var(--header-height,56px) - var(--footer-height,26px) - 2 * clamp(12px,2vh,24px))}
+ .ah-builder #builder #parfait-workspace{min-height:calc(100svh - var(--header-height,56px) - var(--footer-height,26px) - 2 * clamp(12px,2vh,24px))}
  .ah-builder #parfait-workspace .heading{margin-bottom:64px}
  .ah-builder #parfait-workspace .order{font-size:21px;margin:10px auto 0}
 }
@@ -92,5 +93,5 @@
 .ah-builder #builder.is-create #parfait-menu #piece-picker-wrap{flex:1;min-width:0;margin:0 0 0 auto}
 .ah-builder #builder.is-create #parfait-menu #piece-picker{min-width:0;font-size:14px}
 
-#parfait-photo{display:block;max-width:100%;max-height:60dvh;width:auto;height:auto;margin:18px auto;box-shadow:0 4px 16px #0002}
+#parfait-photo{display:block;max-width:100%;max-height:60svh;width:auto;height:auto;margin:18px auto;box-shadow:0 4px 16px #0002}
 #parfait-photo[hidden],#download-photo[hidden]{display:none}

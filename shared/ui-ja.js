@@ -1,4 +1,5 @@
 window.ActivityHubI18n.register({
+  "No sound on iPad? Turn off Silent Mode in Control Center.": "iPadで音が出ない場合は、コントロールセンターで消音モードをオフにしてください。",
   "Starting audio…": "音声を開始しています…",
   "Browser reports audio playback started.": "ブラウザから音声再生開始の通知が届きました。",
   "Browser reports audio playback finished.": "ブラウザから音声再生終了の通知が届きました。",

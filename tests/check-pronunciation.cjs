@@ -13,6 +13,7 @@ const document={addEventListener(){},createElement:()=>new Element(),createTextN
 vm.runInNewContext(fs.readFileSync('shared/pronunciation.js','utf8'),{window,document});
 const p=new Element();p.parentElement=new Element();
 const speech=new window.BuilderPronunciation(p);
+speech.settingsStatus=new Element();
 const text='I want 2 medium vanilla scoops and green peppers with tomato sauce.';
 speech.render(text,['vanilla scoops','green peppers','tomato sauce','tomato']);
 assert.equal(p.textContent,text);
@@ -28,7 +29,7 @@ const american={name:'English US',voiceURI:'us',lang:'en-US',localService:true};
 speech.synth.getVoices=()=>[american,british];
 speech.preferredVoice=speech.voiceKey(british);speech.speak('Hello');assert.equal(spoken.at(-1).voice,british);
 speech.preferredVoice='missing';speech.speak('Hello');assert.equal(spoken.at(-1).voice,american);
-const previewStatus=new Element();speech.speak('Preview',previewStatus);spoken.at(-1).onerror({error:'network'});assert.match(previewStatus.textContent,/could not play/);
+const previewStatus=speech.settingsStatus;speech.speak('Preview',previewStatus);spoken.at(-1).onerror({error:'network'});assert.match(previewStatus.textContent,/could not play/);
 console.log('Saved voice selection, unavailable voice fallback, and preview error checks passed.');
 const google={name:'Google US English',voiceURI:'google',lang:'en-US',localService:false};
 const bubbles={name:'Bubbles',voiceURI:'bubbles',lang:'en-US',default:true};
@@ -43,14 +44,14 @@ speech.synth.getVoices=()=>[bubbles,american,british];speech.preferredVoice='';s
 console.log('Curated shortlist, Google default, novelty exclusion and device fallback checks passed.');
 
 speech.preferredVoice='device-default';speech.speak('Device voice');assert.equal(spoken.at(-1).voice,undefined);assert.equal(spoken.at(-1).lang,'en-US');
-timerCallback();assert.match(speech.status.textContent,/Speech did not start/);assert.equal(speech.utterance,null);
+timerCallback();assert.match(speech.settingsStatus.textContent,/Speech did not start/);assert.equal(speech.utterance,null);
 let resumed=0;speech.synth.paused=true;speech.synth.resume=()=>resumed++;
 speech.speak('Resume');assert.equal(resumed,1);spoken.at(-1).onstart();assert.equal(timerCallback,null);
 speech.synth.getVoices=()=>[{...american},{...american},british];assert.equal(speech.recommendedVoices().length,2);
 console.log('Device-default voice, paused engine, startup timeout, and deduplication checks passed.');
 speech.previewButton=new Element();
-speech.speak('Feedback');assert.equal(speech.status.textContent,'Starting audio…');assert.equal(speech.previewButton.attrs['data-playing'],'true');
-spoken.at(-1).onstart();assert.match(speech.status.textContent,/started/);
-spoken.at(-1).onend();assert.match(speech.status.textContent,/finished/);assert.equal(speech.previewButton.attrs['data-playing'],'false');
-speech.synth.getVoices=()=>{throw new Error('voice lookup failed');};speech.speak('Setup error');assert.match(speech.status.textContent,/could not play/);assert.equal(speech.previewButton.attrs['data-playing'],'false');
+speech.speak('Feedback');assert.equal(speech.settingsStatus.textContent,'Starting audio…');assert.equal(speech.previewButton.attrs['data-playing'],'true');
+spoken.at(-1).onstart();assert.match(speech.settingsStatus.textContent,/started/);
+spoken.at(-1).onend();assert.match(speech.settingsStatus.textContent,/finished/);assert.equal(speech.previewButton.attrs['data-playing'],'false');
+speech.synth.getVoices=()=>{throw new Error('voice lookup failed');};speech.speak('Setup error');assert.match(speech.settingsStatus.textContent,/could not play/);assert.equal(speech.previewButton.attrs['data-playing'],'false');
 console.log('Immediate tap feedback, start/end feedback, and setup exception checks passed.');

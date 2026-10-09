@@ -2,8 +2,8 @@
 .ah-builder #builder{--learn-card-height:88px;--play-choice-size:52px;--play-food-size:36px}
 @media(orientation:landscape) and (min-width:900px) and (min-height:600px){
  .ah-builder #builder{
-  --learn-card-height:clamp(88px,calc((100dvh - var(--header-height,56px) - var(--footer-height,26px) - 410px)/var(--learn-card-rows,3)),112px);
-  --play-choice-size:clamp(52px,calc((100dvh - var(--header-height,56px) - var(--footer-height,26px) - 380px)/var(--play-card-rows,4)),84px);
+  --learn-card-height:clamp(88px,calc((100svh - var(--header-height,56px) - var(--footer-height,26px) - 410px)/var(--learn-card-rows,3)),112px);
+  --play-choice-size:clamp(52px,calc((100svh - var(--header-height,56px) - var(--footer-height,26px) - 380px)/var(--play-card-rows,4)),84px);
   --play-food-size:clamp(36px,calc(var(--play-choice-size) - 20px),56px);
  }
 }
