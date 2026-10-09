@@ -80,7 +80,7 @@ Use checks proportional to the change; do not add tests that merely restate CSS 
 | Applet | Entry point | Behavior checks | Current limitations |
 | --- | --- | --- | --- |
 | ほんの手紙 POST (featured) | `apps/post/index.html` | `node tests/check-post.cjs` | Independent styling by request; English UI with paired Japanese card fonts. Static links contain card text; no server inbox. Physical-device verification outstanding. |
-| Parfait Builder (prototype) | `apps/parfait/index.html` | `node tests/check-parfait.cjs` | LEARN only; no PLAY/photo export yet. Mock checks; device visuals outstanding. Not on homepage. |
+| Parfait Builder (prototype) | `apps/parfait/index.html` | `node tests/check-parfait.cjs` | LEARN/PLAY; EASY only; local photo export; iPad download check pending. Mock checks; device visuals outstanding. Not on homepage. |
 | Pizza Builder | `apps/pizza/index.html` | `node tests/check.cjs`, `node tests/check-fullscreen.cjs`, `node tests/check-sharing.cjs`, `node tests/check-creative.cjs` from repository root | Mock-based checks; physical iPad visual/download checks outstanding. Textbook back link returns to the home page’s Let’s Try! 2 section; English/Japanese interface language is supported. |
 
 Shared today: builder quantity/selection/sentence/reset logic (`shared/builder.js`), fullscreen and viewport measurement, design tokens, control and dialog CSS, common action/editing icons and the paper-airplane mark, interface translation helpers/dictionary, language-dialog open/close behavior, and the copyright footer. The visual guide consumes those actual shared files.
@@ -136,11 +136,11 @@ The builder engine supports optional `bases` and `sauces` configuration, validat
 
 Builder navigation/heading spacing is owned by `shared/builder-layout.css`, loaded by both builders after their app layout CSS and before shared controls. Check both consumers whenever changing it; food-stage proportions remain local.
 
-Option paging is a shared opt-in builder feature (`builder-panes.js`/`.css`), independent of ingredient state. Parfait uses ice cream/fruit and finishing-syrup panes; pizza remains a single panel. Never rebuild ingredient controls when changing pages.
+Option paging is a shared opt-in builder feature (`builder-panes.js`/`.css`), independent of ingredient state. Both builders currently show all sections in one panel; Parfait whole-section paging was removed for a layout review. Never rebuild ingredient controls when changing pages.
 
 Builder placement strategies: the default remains cached circular scatter for Pizza. `placement.mode: ordered-rows` enables selection-order tracking, row reflow, and per-ingredient orientation in the shared engine. Parfait supplies the glass-specific row coordinates and fruit size in config. Amount changes redistribute the existing row evenly without recreating pieces; removal closes gaps, re-addition appends a new top layer, and reset clears the order. Run both builders’ tests for placement changes.
 
-Paired-layer interaction is implemented by `shared/layer-builder.js`, extending FoodBuilder. Parfait opts into four two-slot rows: identical choices produce a uniform row, mixed choices alternate; EASY is direct editing and HARD provides dialogue. Quantity mode remains Pizza’s interaction. Parfait no longer uses the earlier click-order quantity-row prototype. Run `tests/check-parfait.cjs` and pizza checks for shared changes.
+Paired-layer interaction is implemented by `shared/layer-builder.js`, extending FoodBuilder. Parfait opts into one two-slot row: identical choices produce a uniform row, mixed choices alternate; EASY is direct editing and HARD provides dialogue. Quantity mode remains Pizza’s interaction. Parfait no longer uses the earlier click-order quantity-row prototype. Run `tests/check-parfait.cjs` and pizza checks for shared changes.
 
 Pizza’s creative mode is labelled PLAY (formerly FREE/CREATE). Its compact palette layout lives in `shared/builder-create.css` for future builder reuse; behavior and internal free-mode IDs remain unchanged.
 
@@ -162,8 +162,8 @@ Reuse standards by reference, not by copying Pizza files. Current ownership:
 | Tokens, buttons, switches, numbered headings, dialogs | shared/tokens.css, controls.css, icons/ | Both builders |
 | Header/title spacing | shared/builder-layout.css | Both builders |
 | Landscape/stacked layout and quick jump | shared/builder-responsive.css, builder-jump.js | Both builders; device verification pending |
-| Paging choices within a section | shared/choice-pager.js and .css | Pizza; optional for Parfait |
-| Paging whole sections | shared/builder-panes.js and .css | Parfait |
+| Paging choices within a section | shared/choice-pager.js and .css | Pizza (six per page), Parfait fruit (three per page) |
+| Paging whole sections | shared/builder-panes.js and .css | Available; Parfait currently shows all sections together |
 | Quantity and count/size sentences | shared/builder.js plus app config | Pizza; Parfait uses paired layers |
 | Two-slot fruit layers and dialogue | shared/layer-builder.js | Parfait |
 | Pointer drag/pinch primitives | shared/piece-gestures.js | Pizza; reusable callbacks for app bounds/size limits |
@@ -188,3 +188,42 @@ For the upcoming Parfait pass:
 A passing mock suite does not establish visual fit. Keep browser/device checks
 explicitly outstanding until performed. No Parfait release or homepage listing
 is implied by this documentation or by adopting shared styles.
+
+Base and sauce options may supply `buttonLabel` for a shorter choice label while retaining `label` for complete order sentences. Parfait uses flavor-only buttons and full ice-cream names in orders.
+
+Paired-layer ingredients may override the default `layerLayout.pieceSize` with `layerSize` and set `rotation` in app configuration. Use these for visual balance without changing row counts or shared default sizing.
+
+Paired-layer draw order follows row then piece position: each successive fruit overlaps the previous one regardless of ingredient type. Keep ingredient wrappers free of stacking contexts so per-piece depth can interleave; upper rows remain above lower rows. This belongs to layer-builder.js, not Pizza’s ingredient stacking.
+
+Creative editing now uses shared/creative-builder.js in both builders; Pizza has a bootstrap and Parfait supplies local bounds, help, and EASY-only policy. Test both check-creative.cjs and check-parfait-creative.cjs after editing it. Photo workflow is shared; dessert/pizza rendering stays app-specific. Parfait HARD is disabled pending redesign.
+
+Paired fruit selection starts at slot 1 and stays on the selected slot after each choice, allowing repeated substitutions. Changing slots is explicit; clearing selects the cleared slot, and Reset returns to slot 1.
+
+Shared card sizing is owned by builder-card-sizing.css and loaded by both applets after choice-row.css. App configuration via CSS row-count variables accounts for different menu contents while retaining identical sizing limits. Check both applets when changing this file.
+
+CreativeBuilder supports an optional item catalog, artwork callback, and synchronization callback for app-specific editable categories. Parfait adds scoops to this catalog without adding them to LEARN fruit choices; category layer plus insertion order determines both picker order and drawing depth. Syrup artwork remains Parfait-owned.
+
+## Builder PLAY stacking contract
+
+This is the default for every current and future builder using CreativeBuilder.
+
+- `orderedItems()` is the single source of truth for the dropdown and visual depth. First entry is at the back; each later entry is above earlier entries. Repeated ingredient types interleave normally.
+- Preserve insertion order within each category. Do not sort by ingredient name, ingredient catalog position, size, or current selection. Selecting, dragging, resizing, rotating, or flipping must not bring a piece to the front.
+- An app may explicitly define category `layer` values when needed (Parfait scoops before fruit). Missing values default to zero. Within each category, new pieces and duplicates append after existing pieces; TOP explicitly moves the selected piece to the end of its category, keeping selection and transforms intact; do not regroup individual flavors or fruits.
+- After adding/removing items, synchronize drawing depth and picker order. Delete selects the previous displayed item, or the first remaining item if the first was removed; empty lists clear selection.
+- Any preview/export must consume the same ordered list. Do not reconstruct PLAY order by looping through ingredient definitions. Pizza Share already follows this rule; future Parfait export must too.
+- LEARN owns its separate composition rules: Pizza uses configured topping order; Parfait alternates its fruit pair. This contract does not change LEARN placement.
+
+When modifying ordering, verify mixed repeated ingredients, duplicates, deletion, selection without reordering, category boundaries, and export parity. Run both creative-editor suites and the affected export checks. Any future user-controlled reorder feature must update this same ordered list rather than introducing a second visual order.
+
+Creative artwork callbacks are cached per piece: transforms update position/scale only, preserving artwork nodes and in-progress animations. Replace artwork only when its content changes (for example syrup flavor). Verify transform operations do not restart decoration animations.
+
+Both builders now share builder-photo.js for asynchronous image generation, local PNG preview/download, error handling, and object-URL cleanup. App sharing.js supplies SVG composition and caption; Parfait preserves its dessert appearance and PLAY order, while Pizza retains baked-photo artwork. Run check-sharing.cjs and check-parfait-creative.cjs after export changes.
+
+Parfait export must reproduce the bowl/cream interior masks, not just their stroke widths: the live masks clip the outer half of those outlines. The pedestal retains its full outline.
+
+## Builder pronunciation
+
+Both builders use optional `shared/pronunciation.js` through `FoodBuilder.setSentence` (including paired-fruit and PLAY output). Keep result text unchanged: vocabulary buttons contain only the original phrase, so copying and photo exports continue to use `textContent`. Match configured labels and count nouns longest-first; do not split multiword ingredients. Use browser speech synthesis with an English voice regardless of interface language; prefer Google US English when exposed by the browser, then a standard US-English voice, then another standard English voice. Playback starts only on a user tap, replaces previous playback, and stops when the sentence changes or the page is left. Do not speak on ingredient selection. No speech service, API key, or audio upload is added. Device voices and offline availability vary. Verify with `tests/check-pronunciation.cjs` plus both builders' checks; physical iPad audio testing remains necessary.
+
+Pronunciation settings are mounted by the shared pronunciation component inside each builder's language dialog. Offer Google US English plus at most two standard English alternatives (first US-English match, then default/other English), excluding novelty voices. Automatic uses the first shortlisted voice; explicit saved choices are honored only within that shortlist. Refresh on `voiceschanged` and dialog opening, and offer explicit preview playback. Save the voice URI/name plus language in `letseigo.englishVoice` local storage (shared by applets on the same origin); blocked storage falls back to the current session. Missing or excluded saved voices temporarily use automatic English without discarding the preference. Voice quality must be judged on actual devices; names and online/local metadata are not quality rankings.

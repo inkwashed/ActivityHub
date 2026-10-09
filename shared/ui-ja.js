@@ -1,4 +1,15 @@
 window.ActivityHubI18n.register({
+  "Default voice": "読み上げ音声",
+  "Try voice": "試聴",
+  "Automatic (English)": "自動（英語）",
+  "On device": "端末内",
+  "Online": "オンライン",
+  "English voices available on this device. Online voices may need an internet connection.": "この端末で使える英語の音声です。オンライン音声にはインターネット接続が必要な場合があります。",
+  "Your saved voice is not in the recommended list. Using automatic English for now.": "保存した音声が推奨リストにないため、一時的に英語の音声を自動選択しています。",
+  "Listen": "発音を聞く",
+  "Listen to your order": "注文を聞く",
+  "Pronunciation is unavailable in this browser": "このブラウザでは読み上げを利用できません",
+  "Audio could not play. Please try again.": "音声を再生できませんでした。もう一度お試しください。",
   "Reset": "リセット",
   "Share": "写真",
   "Download photo": "写真を保存",
@@ -30,3 +41,9 @@ window.ActivityHubI18n.register({
 window.ActivityHubI18n.register({"Previous options":"前の選択肢","Next options":"次の選択肢"});
 
 window.ActivityHubI18n.register({"Back to activity":"作品に戻る","Jump to choices":"材料を選ぶ"});
+
+window.ActivityHubI18n.register({"Select a piece": "材料を選ぶ", "Edit ingredient": "材料を編集", "Smaller": "小さく", "Larger": "大きく", "Rotate left": "左に回す", "Rotate right": "右に回す", "Flip": "裏返す", "Duplicate": "コピー", "Delete": "取り除く", "Add one piece.": "1つ追加します。", "Learn mode.": "学習モードです。", "Play mode. Easy language is on.": "自由に作るモードです。かんたんモードになります。"});
+
+window.ActivityHubI18n.register({"Move to top of group":"このグループの一番手前へ"});
+
+window.ActivityHubI18n.register({"Making your photo…":"写真を作っています…","Ready to save!":"写真を保存できます！","If the photo opens in a new tab, save it from there.":"写真が別のタブで開いたら、そこから保存してください。","The photo could not be made. Please close this preview and try again.":"写真を作れませんでした。閉じて、もう一度試してください。","Close preview":"写真を閉じる"});

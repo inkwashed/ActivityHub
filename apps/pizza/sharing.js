@@ -1,25 +1,4 @@
-/* Local-only photo export: no upload, external assets, or student data. */
 (() => {
-  const t = text => window.ActivityHubI18n ? window.ActivityHubI18n.t(text) : text;
-  const shareDialog = document.querySelector('#share-dialog');
-  const photo = document.querySelector('#pizza-photo');
-  const download = document.querySelector('#download-photo');
-  const status = document.querySelector('#share-status');
-  let generation = 0;
-  let photoURL;
-  function clearPhoto() {
-    generation++;
-    if (photoURL) URL.revokeObjectURL(photoURL);
-    photoURL = null;
-    photo.hidden = download.hidden = true;
-    photo.removeAttribute('src');
-    download.removeAttribute('href');
-  }
-  for (const dialog of [shareDialog]) {
-    dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
-  }
-  shareDialog.addEventListener('close', clearPhoto);
-
   function pizzaSVG(builder) {
     const sauce = builder.config.sauces.find(item => item.id === builder.state.sauce);
     // Fit the complete creative composition, including pieces beyond the crust.
@@ -31,15 +10,27 @@
       const x=50+(p.x-50)*.94,y=50+(p.y-50)*.94;
       min=Math.min(min,x-half-2,y-half-2);max=Math.max(max,x+half+2,y+half+2);
     }
-    let art = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="${min} ${min} ${max-min} ${max-min}"><defs><radialGradient id="crust"><stop offset="0.78" stop-color="#edba60"/><stop offset="0.9" stop-color="#db963b"/><stop offset="0.97" stop-color="#ad6426"/><stop offset="1" stop-color="#e6ae54"/></radialGradient></defs><circle cx="50" cy="51" r="48" fill="#543318" opacity=".15"/><circle cx="50" cy="50" r="47" fill="url(#crust)"/>`;
+    // Flat oak illustration sized to the full photo, including expanded PLAY bounds.
+    const oak=`<g id="oak-counter" transform="translate(${min} ${min}) scale(${(max-min)/100})">
+      <rect width="100" height="100" fill="#d9b783"/>
+      <path d="M0 0H25V100H0ZM50 0H75V100H50Z" fill="#e2c292"/>
+      <path d="M25 0V100M50 0V100M75 0V100" stroke="#b78e58" stroke-width=".35" opacity=".5"/>
+      <g fill="none" stroke="#b98f5b" stroke-width=".3" stroke-linecap="round" opacity=".35">
+       <path d="M6 0C3 18 10 28 7 47S3 78 6 100M17 0C21 24 13 43 18 61S22 85 19 100M32 0C28 20 36 31 33 53S29 82 32 100M43 0C46 19 39 42 44 63S47 87 44 100M58 0C54 20 62 39 58 59S55 83 59 100M69 0C72 22 65 40 69 61S72 82 69 100M82 0C78 25 85 38 81 61S79 87 83 100M94 0C97 20 90 38 94 59S97 82 94 100"/>
+      </g>
+      <path d="M11 5Q8 16 11 28M37 70Q40 82 37 94M88 6Q85 18 88 32" fill="none" stroke="#f1d8af" stroke-width=".5" opacity=".65"/>
+    </g>`;
+    let art = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="${min} ${min} ${max-min} ${max-min}"><defs><radialGradient id="crust"><stop offset="0.78" stop-color="#edba60"/><stop offset="0.9" stop-color="#db963b"/><stop offset="0.97" stop-color="#ad6426"/><stop offset="1" stop-color="#e6ae54"/></radialGradient></defs>${oak}<circle cx="50" cy="51" r="48" fill="#543318" opacity=".15"/><circle cx="50" cy="50" r="47" fill="url(#crust)"/>`;
     if (sauce && !sauce.empty) art += `<circle cx="50" cy="50" r="40" fill="${sauce.color}"/>`;
     // Toasted rim freckles only in the finished photo; the builder stays uncooked.
     for (let i = 0; i < 38; i++) {
       const angle = i * 2.399963, radius = 43 + Math.sin(i * 4.1) * 2;
       art += `<ellipse cx="${50 + Math.cos(angle) * radius}" cy="${50 + Math.sin(angle) * radius}" rx="${.3 + (i % 3) * .17}" ry=".3" fill="#975523" opacity=".32"/>`;
     }
-    for (const topping of builder.config.toppings) {
-      const freePieces = builder.creative?.active ? builder.creative.items.filter(item => item.topping === topping.id) : null;
+    const entries=builder.creative?.active
+      ? (builder.creative.orderedItems?.() || builder.creative.items).map(piece=>({topping:builder.config.toppings.find(t=>t.id===piece.topping),freePieces:[piece]}))
+      : builder.config.toppings.map(topping=>({topping,freePieces:null}));
+    for (const {topping,freePieces} of entries) {
       const count = freePieces ? freePieces.length : topping.counts[builder.state.toppings[topping.id]];
       if (!count) continue;
       const positions = freePieces || builder.placements(topping);
@@ -56,57 +47,5 @@
     art += '<circle cx="50" cy="50" r="40" fill="#ad6426" opacity=".06"/></svg>';
     return art;
   }
-  function loadImage(source) {
-    return new Promise((resolve, reject) => {
-      const image = new Image();
-      image.onload = () => resolve(image);
-      image.onerror = () => reject(new Error('Image could not load'));
-      image.src = source;
-    });
-  }
-  function wrapText(context, text, width) {
-    const lines = []; let line = '';
-    for (const word of text.split(/\s+/)) {
-      const next = line ? `${line} ${word}` : word;
-      if (line && context.measureText(next).width > width) { lines.push(line); line = word; }
-      else line = next;
-    }
-    if (line) lines.push(line);
-    return lines;
-  }
-  document.querySelector('#share').addEventListener('click', async () => {
-    clearPhoto();
-    const token = generation;
-    status.dataset.i18n = 'Making your photo…'; status.textContent = t(status.dataset.i18n);
-    shareDialog.showModal();
-    try {
-      const builder = window.pizzaBuilder;
-      // Capture current selections and wording before awaiting image decoding.
-      const svg = pizzaSVG(builder);
-      const sentence = document.querySelector('#sentence').textContent;
-      const image = await loadImage('data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg));
-      const canvas = document.createElement('canvas');
-      const context = canvas.getContext('2d');
-      if (!context) throw new Error('Canvas unavailable');
-      context.font = '30px Arial';
-      const lines = wrapText(context, sentence, 860);
-      canvas.width = 1000;
-      canvas.height = Math.max(1180, 1060 + lines.length * 40);
-      context.fillStyle = '#fffefa'; context.fillRect(0, 0, canvas.width, canvas.height);
-      context.fillStyle = '#e8d9ba'; context.fillRect(50, 50, 900, 900);
-      context.drawImage(image, 50, 50, 900, 900);
-      context.textAlign = 'center'; context.fillStyle = '#294e40'; context.font = 'bold 36px Arial';
-      context.fillText('My pizza!', 500, 1009);
-      context.font = '30px Arial';
-      lines.forEach((line, i) => context.fillText(line, 500, 1060 + i * 40));
-      const blob = await new Promise((resolve, reject) => canvas.toBlob(value => value ? resolve(value) : reject(new Error('Export failed')), 'image/png'));
-      if (token !== generation || !shareDialog.open) return;
-      photoURL = URL.createObjectURL(blob);
-      photo.src = photoURL; download.href = photoURL;
-      photo.hidden = download.hidden = false;
-      status.dataset.i18n = 'Ready to save!'; status.textContent = t(status.dataset.i18n);
-    } catch (error) {
-      if (token === generation) { status.dataset.i18n = 'The photo could not be made. Please close this preview and try again.'; status.textContent = t(status.dataset.i18n); }
-    }
-  });
+window.BuilderPhoto({builder:()=>window.pizzaBuilder,render:pizzaSVG,imageSelector:'#pizza-photo',caption:'My pizza!'});
 })();

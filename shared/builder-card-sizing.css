@@ -1,0 +1,18 @@
+/* Shared card rhythm. Apps supply row counts, never separate mode dimensions. */
+.ah-builder #builder{--learn-card-height:88px;--play-choice-size:52px;--play-food-size:36px}
+@media(orientation:landscape) and (min-width:900px) and (min-height:600px){
+ .ah-builder #builder{
+  --learn-card-height:clamp(88px,calc((100dvh - var(--header-height,56px) - var(--footer-height,26px) - 410px)/var(--learn-card-rows,3)),112px);
+  --play-choice-size:clamp(52px,calc((100dvh - var(--header-height,56px) - var(--footer-height,26px) - 380px)/var(--play-card-rows,4)),84px);
+  --play-food-size:clamp(36px,calc(var(--play-choice-size) - 20px),56px);
+ }
+}
+.ah-builder #builder .pantry #topping-options{gap:6px}
+.ah-builder #builder .pantry #topping-options .topping-button{min-height:var(--learn-card-height);padding:6px 2px;gap:3px}
+.ah-builder #builder .pantry #topping-options .ingredient-art{width:36px;height:36px;flex-shrink:0}
+.ah-builder #builder.is-create .pantry #topping-options .topping-button{min-height:var(--play-choice-size);padding:6px;gap:0}
+.ah-builder #builder.is-create .pantry #topping-options .ingredient-art{width:var(--play-food-size);height:var(--play-food-size)}
+.ah-builder #builder .four-choice-row .ah-choice{min-height:var(--learn-card-height)}
+.ah-builder #builder.is-create .four-choice-row .ah-choice{min-height:var(--play-choice-size);gap:0;padding:6px}
+.ah-builder #builder.is-create .four-choice-row .scoop-icon{width:var(--play-food-size);height:var(--play-food-size)}
+.ah-builder #builder.is-create .four-choice-row .sauce-bowl{width:var(--play-food-size);height:calc(var(--play-food-size)*.8)}

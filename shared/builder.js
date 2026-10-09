@@ -56,7 +56,7 @@
       if (document.addEventListener) document.addEventListener('activityhub:languagechange', () => this.config.toppings.forEach(item => this.updateButton(item)));
       const advancedToggle = document.querySelector('#advanced-mode');
       advancedToggle.addEventListener('change', () => {
-        this.advancedMode = this.creative?.active ? false : advancedToggle.checked;
+        this.advancedMode = this.creative?.active || this.config.easyOnly ? false : advancedToggle.checked;
         advancedToggle.checked = this.advancedMode;
         this.updateSentence();
         this.announce(`${t(this.advancedMode ? 'Hard mode.' : 'Easy mode.')} ${this.root.querySelector('#sentence').textContent}`);
@@ -68,7 +68,7 @@
         button.className = 'sauce-button ah-choice';
         button.dataset.sauce = sauce.id;
         button.title = sauce.label;
-        button.innerHTML = `<span class="sauce-bowl" style="--sauce-color:${sauce.color};--sauce-highlight:${sauce.highlight}" aria-hidden="true"></span><span>${sauce.label}</span><span class="check" aria-hidden="true">✓</span>`;
+        button.innerHTML = `${sauce.art || `<span class="sauce-bowl" style="--sauce-color:${sauce.color};--sauce-highlight:${sauce.highlight}" aria-hidden="true"></span>`}<span>${sauce.buttonLabel || sauce.label}</span><span class="check" aria-hidden="true">✓</span>`;
         button.addEventListener('click', () => this.setSauce(sauce.id));
         sauces.append(button);
       });
@@ -97,8 +97,8 @@
           const button = document.createElement('button');
           button.type = 'button'; button.className = 'base-button ah-choice';
           button.dataset.base = base.id;
-          button.innerHTML = `${base.art || ''}<span>${base.label}</span>`;
-          button.addEventListener('click', () => this.setBase(base.id));
+          button.innerHTML = `${base.art || ''}<span>${base.buttonLabel || base.label}</span>`;
+          button.addEventListener('click', () => this.chooseBase ? this.chooseBase(base.id) : this.setBase(base.id));
           this.root.querySelector('#base-options').append(button);
         });
         this.setBase(this.config.defaultBase ?? null, false);
@@ -167,19 +167,29 @@
       button.setAttribute('aria-label', `${topping.label}, ${t(['none', 'light', 'regular', 'extra'][level])}. ${t(level === 3 ? 'Tap to remove.' : 'Tap to add more.')}`);
       [...button.querySelectorAll('.dots i')].forEach((dot, index) => dot.classList.toggle('filled', index < level));
     }
+    setSentence(sentence) {
+      const element = this.root.querySelector('#sentence');
+      if (!window.BuilderPronunciation) { element.textContent = sentence; return; }
+      this.pronunciation ||= new window.BuilderPronunciation(element);
+      const catalog = [...this.config.toppings, ...(this.config.bases || []), ...this.config.sauces, ...(this.creative?.catalog || [])];
+      const names = catalog.flatMap(item => [item.label, item.countSingular, item.countPlural]);
+      this.pronunciation.render(sentence, names);
+    }
     updateSentence() {
       if (this.creative?.active) {
         const words=[];
-        for(const topping of this.config.toppings) {
+        for(const topping of this.creative.catalog) {
           for(const band of ['small','medium','big']) {
             const count=this.creative.items.filter(item=>item.topping===topping.id && FoodBuilder.sizeBand(item.scale,this.config.creativeSizes)===band).length;
             if(count)words.push(`${count} ${band} ${count===1?(topping.countSingular||topping.label):(topping.countPlural||topping.label)}`);
           }
         }
+        const base=this.config.bases?.find(item=>item.id===this.state.base&&!item.empty);
+        if(base)words.unshift(base.label);
         const list=words.length<2?(words[0]||''):words.length===2?words.join(' and '):words.slice(0,-1).join(', ')+', and '+words.at(-1);
         const sauce=this.config.sauces.find(item=>item.id===this.state.sauce);
         const sentence=list?`I want ${list}${sauce?' with '+sauce.label:''}.`:sauce?`I want a ${this.config.noun||'pizza'} with ${sauce.label}.`:'I want ….';
-        this.root.querySelector('#sentence').textContent=sentence;
+        this.setSentence(sentence);
         this.root.querySelector(this.config.sceneSelector||'#pizza').setAttribute('aria-label',sentence);
         return;
       }
@@ -214,7 +224,7 @@
         : chosen.length
         ? `I want ${list}${sauce ? ` with ${sauce.label}` : ''}.`
         : sauce ? `I want a ${this.config.noun || 'pizza'} with ${sauce.label}.` : 'I want ….';
-      this.root.querySelector('#sentence').textContent = sentence;
+      this.setSentence(sentence);
       this.root.querySelector(this.config.sceneSelector || '#pizza').setAttribute('aria-label', `${this.config.noun || 'Pizza'} with ${sauce ? sauce.label : 'no sauce selected'}${chosen.length ? ', ' + chosen.map(item => item.label).join(', ') : ''}.`);
     }
 

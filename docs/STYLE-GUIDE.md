@@ -102,7 +102,7 @@ Copyright uses the shared compact footer (`shared/copyright.js`) with a 12px tex
 
 Pizza Builder adds a LEARN/PLAY pill beside the first (sauce) heading, using the shared switch shape. PLAY disables the EASY/HARD switch in EASY state and explains this in its instructions. Editing actions reuse shared buttons; the piece picker provides access to overlapped pieces. The selection outline uses the focus-color token.
 
-Pizza PLAY editing uses a vertical icon toolbar within the menu column, below the shared menu heading and to the left of the input panel, with a dedicated 44px lane and 12px separation. Order the vertical actions from top to bottom: larger (+), smaller (−), rotate left, rotate right, flip, duplicate, delete. Reuse the shared size, rotation, flip, duplicate, and delete SVGs with translated accessible labels/tooltips. Put the compact piece picker beside the PLAY topping heading, using the remaining row width and expose instructions through the info button beside LEARN/PLAY. Header controls may wrap on narrower screens.
+Pizza PLAY editing uses a vertical icon toolbar within the menu column, below the shared menu heading and to the left of the input panel, with a dedicated 44px lane and 12px separation. Order the vertical actions from top to bottom: larger (+), smaller (−), rotate left, rotate right, flip, duplicate, TOP, delete. Reuse the shared size, rotation, flip, duplicate, and delete SVGs with translated accessible labels/tooltips. Put the compact piece picker beside the PLAY topping heading, using the remaining row width and expose instructions through the info button beside LEARN/PLAY. Header controls may wrap on narrower screens.
 
 The text-only footer attribution is `Let’s EiGo! © 2026 letseigo.com · All rights reserved.`; Japanese retains `Let’s EiGo!` and `letseigo.com` and translates the rights notice. Keep the domain as plain text in applet footers.
 
@@ -158,7 +158,7 @@ Portrait tablets, phones, and shorter/narrower windows stack activity first, con
 
 ## Numbered section headings
 
-Use `ah-section-number` from shared/controls.css for numbered activity sections: a dark green circle with a bold white number (30px normally, 26px for compact/tablet layouts). Pair it with heading text using `ah-section-heading`, or an existing flex heading with an 8–10px gap. Use real `legend` or heading elements, with the number in its own span so translation never removes it. Keep numbering stable across option pages and modes. Section numbers describe steps/categories, not changing layer or page counts. Pizza uses 1 Sauce / 2 Toppings; parfait uses 1 Ice cream / 2 Fruit layers / 3 Syrup. Reuse this component in future applets with numbered sections; do not create app-local badge styles.
+Use `ah-section-number` from shared/controls.css for numbered activity sections: a dark green circle with a bold white number (30px normally, 26px for compact/tablet layouts). Pair it with heading text using `ah-section-heading`, or an existing flex heading with an 8–10px gap. Use real `legend` or heading elements, with the number in its own span so translation never removes it. Keep numbering stable across option pages and modes. Section numbers describe steps/categories, not changing layer or page counts. Pizza uses 1 Sauce / 2 Toppings; parfait uses 1 Ice cream / 2 Choose some fruit / 3 Syrup. Reuse this component in future applets with numbered sections; do not create app-local badge styles.
 
 PLAY uses English count-and-size language (small/medium/big), independent of LEARN’s EASY/HARD wording. Piece touch areas grow with their artwork and retain a 44px minimum. Size words describe relative ingredient size, not identical pixel dimensions across different foods.
 
@@ -193,3 +193,41 @@ and 10px bottom margin in both modes; the toggle/help pair retains its shared
 6px gap and 44px targets. Compact mode may change choice artwork and card
 spacing, but must not alter the panel's outer inset or shift its header controls.
 Future builders should likewise define panel padding once, outside mode rules.
+
+Parfait adopts the 420–444px landscape menu column and 14px panel inset in its app layout.css. Its title/eyebrow sit above choices, the question above the glass, and Reset fills the menu action row. Keep paired fruit slots; all Parfait ingredient sections currently share one panel; do not add unavailable PLAY/Share controls merely for visual symmetry.
+
+For four short base choices, opt into `four-choice-row` from shared/choice-row.css (after app layout). Use four equal cards with artwork above wrapping 14px labels and an 8px gap. At widths of 380px or less, use two columns. Pizza sauces and Parfait ice cream/syrups use this pattern; Pizza PLAY retains accessible labels while displaying icons only.
+
+Parfait fruit slots are picture-only with accessible numbered fruit names. Empty slots use a grey circle/slash. A shared-style 44px swap icon between slots reverses their order; disable it when both choices are identical.
+
+Filled fruit slots expose a grey circle-X clear button in the upper-right corner, with a 44px hit target and translated slot-specific label. Keep it a sibling of the selection button, never a nested button. Hide it for empty slots and return focus to the cleared slot.
+
+Parfait fruit choices show one row of three with shared choice-pager arrows and page status. Paging changes only the visible choices, preserving both selected slots. Ice cream and syrup stay on the same panel.
+
+Paired-fruit choice icons and selected-slot previews use the same configured rotation as placed fruit. Keep the angle in ingredient configuration rather than duplicating per-fruit CSS. Empty-slot icons remain upright.
+
+Parfait now provides LEARN/PLAY and contextual help beside its first heading, with HARD disabled. PLAY displays all fruit icons and a piece picker, hides paired slots, and uses the same landscape/stacked toolbar placement as Pizza. Share is available in both modes.
+
+Parfait LEARN places the selected fruit pair and swap control on the “Add fruit” heading row. Allow wrapping only when narrow screens or enlarged text need it.
+
+Parfait PLAY uses short section titles (Flavor, Fruit, Syrup) and picture-only flavor, fruit, and syrup choices. Hide choice text visually while keeping accessible names; LEARN retains instructional headings and vocabulary labels.
+
+Both builders load shared/builder-card-sizing.css after app geometry and choice-row styles. It owns compact/growing card dimensions: LEARN 88–112px, PLAY 52–84px, PLAY artwork 36–56px. Use the same 6px fruit-grid gaps, 14px panel inset, 8px heading gap and 10px heading bottom margin. Landscape growth budgets for actual card rows (Pizza PLAY four, Parfait PLAY five); stacked layouts use compact minimums. Content can exceed these minimums for long labels or enlarged text. Do not add independent app-specific height formulas.
+
+In Parfait PLAY, place the piece picker beside the Fruit heading, using the remaining width without wrapping the heading row. Preserve the accessible picker label. LEARN continues to show its paired slots in that row.
+
+## PLAY list and visual stacking
+
+The picker reads from back to front: item 1 is behind item 2, and so on. Preserve this relationship even when ingredient types repeat. Selection highlights a piece without changing its depth. Explicit category grouping is allowed (scoops before fruit), but items within each category retain their creation order. Previews and exports must look consistent with the editor. Implementation and verification requirements are owned by the Builder PLAY stacking contract in WORKFLOW.md.
+
+LEARN four-choice cards use 6px vertical padding and a 3px artwork/label gap; scoop icons are 32px. Long flavor labels can still increase row height rather than shrinking vocabulary text. Paired fruit selectors use a 48px minimum height, distinct from ingredient cards. PLAY retains its shared responsive artwork sizing.
+
+The shared PLAY toolbar includes TOP (shared/icons/top.svg) after Duplicate. It brings the selected piece to the front of its category and updates its picker position; scoops cannot cross in front of fruit. Use a translated accessible name and tooltip, and disable it when nothing is selected.
+
+Parfait now includes Share beside Reset with equal flexible widths, using the shared camera icon, secondary button, and photo-preview dialog. Photo captions retain English target sentences; dialog controls translate.
+
+## Pronunciation in builder results
+
+Place a shared-style 44px speaker button beside the order sentence. Render ingredient names as inline buttons with inherited English sentence typography and a subtle dotted underline; keep complete vocabulary phrases together as one playback target. Preserve visible keyboard focus, a minimum 44px target height, and natural wrapping on smaller screens. Load `shared/pronunciation.css` in both builders. Translate playback control labels and errors, never the spoken lesson text. Unsupported browsers retain plain result text and a disabled speaker with an explanatory accessible label.
+
+The language dialog includes a “Default voice” labelled native select and a shared “Try voice” button for pronunciation-enabled builders. Show Automatic with its resolved voice name, plus at most three recommended English voices: Google US English and up to two standard alternatives. Include language/accent code and translated on-device/online labels; omit novelty voices. Preserve 44px controls, shrink the select within the dialog, and translate helper/error text. Voice selection and preview never alter the English order or ingredients.

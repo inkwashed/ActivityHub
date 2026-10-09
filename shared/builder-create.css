@@ -31,8 +31,6 @@
 /* Grow the landscape palette with spare height, within a bounded sidebar. */
 @media(orientation:landscape) and (min-width:700px){
  .ah-builder main.is-create{
-  --play-choice-size:clamp(52px,calc((100dvh - var(--header-height,56px) - var(--footer-height,26px) - 380px)/5),84px);
-  --play-food-size:clamp(36px,calc(var(--play-choice-size) - 20px),56px);
   grid-template-columns:minmax(0,1fr) clamp(300px,34dvh,324px);
  }
  .ah-builder .is-create .sauce-button,.ah-builder .is-create .topping-button{min-height:var(--play-choice-size)}

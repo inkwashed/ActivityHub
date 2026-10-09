@@ -70,7 +70,7 @@ window.PARFAIT_CONFIG = {
       ],
       "size": 21,
       "color": "#c95852",
-      "art": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\" aria-hidden=\"true\"><path d=\"M12 15L47 10L55 42L23 54Z\" fill=\"#ffdb58\" stroke=\"#d89e25\" stroke-width=\"3\"/><path d=\"M23 20L39 17M27 30L43 26M30 40L46 35\" stroke=\"#fff1a1\" stroke-width=\"4\" stroke-linecap=\"round\"/></svg>"
+      "art": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\" aria-hidden=\"true\"><path d=\"M23 14Q32 17 41 14L55 47Q32 58 9 47Z\" fill=\"#ffe17a\" stroke=\"#d3b25c\" stroke-width=\"1.3\" stroke-linejoin=\"round\"/><path d=\"M16 44Q32 50 48 44\" stroke=\"#fff3b7\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M26 23L22 35M37 23L41 35\" stroke=\"#f2cf67\" stroke-width=\"1.5\" stroke-linecap=\"round\"/></svg>"
     },
     {
       "id": "peaches",
@@ -96,7 +96,7 @@ window.PARFAIT_CONFIG = {
       ],
       "size": 21,
       "color": "#c95852",
-      "art": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\" aria-hidden=\"true\"><path d=\"M20 35Q31 20 34 8Q40 21 45 37\" fill=\"none\" stroke=\"#607a3e\" stroke-width=\"3\"/><circle cx=\"19\" cy=\"42\" r=\"13\" fill=\"#c74152\" stroke=\"#983345\" stroke-width=\"2\"/><circle cx=\"45\" cy=\"43\" r=\"12\" fill=\"#dc5260\" stroke=\"#983345\" stroke-width=\"2\"/><path d=\"M14 36l3-2M40 37l3-2\" stroke=\"#ffb5b0\" stroke-width=\"3\" stroke-linecap=\"round\"/></svg>"
+      "art": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\" aria-hidden=\"true\"><path d=\"M32 13C40 9 53 17 54 31C55 45 44 54 32 54C20 54 9 45 10 31C11 17 24 9 32 13Z\" fill=\"#d64b59\" stroke=\"#983345\" stroke-width=\"1.5\"/><path d=\"M28 15Q32 19 36 15\" stroke=\"#b03949\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><path d=\"M19 27Q20 22 25 21\" stroke=\"#ffb5b0\" stroke-width=\"3\" stroke-linecap=\"round\"/></svg>"
     },
     {
       "id": "melons",
@@ -137,25 +137,39 @@ const scoopArt = base => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1
  </svg>`;
 window.PARFAIT_CONFIG.bases = [
  {id:'none',label:'no ice cream',empty:true},
- {id:'vanilla',label:'vanilla ice cream',color:'#fff0ce',edge:'#cfb989',light:'#fff9e9'},
- {id:'strawberry',label:'strawberry ice cream',color:'#f3b0b9',edge:'#cf8796',light:'#ffdae0'},
- {id:'mint',label:'mint chocolate chip ice cream',color:'#b8ddc6',edge:'#80b09a',light:'#e0f2e5',chips:true}
+ {id:'vanilla',label:'vanilla ice cream',buttonLabel:'vanilla',color:'#fff0ce',edge:'#cfb989',light:'#fff9e9'},
+ {id:'strawberry',label:'strawberry ice cream',buttonLabel:'strawberry',color:'#f3b0b9',edge:'#cf8796',light:'#ffdae0'},
+ {id:'mint',label:'mint chocolate chip ice cream',buttonLabel:'mint chocolate chip',color:'#b8ddc6',edge:'#80b09a',light:'#e0f2e5',chips:true}
 ].map(base => {
  const scoop = base.empty ? '' : scoopArt(base);
- return {...base,scoop,art:`<span class="scoop-icon" aria-hidden="true">${base.empty?'−':scoop}</span>`};
+ return {...base,scoop,art:`<span class="scoop-icon" aria-hidden="true">${base.empty?'<svg viewBox="0 0 24 24" fill="none" stroke="#8a918c" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6 18.4 18.4"/></svg>':scoop}</span>`};
 });
 window.PARFAIT_CONFIG.sauces = [
- {id:'none',label:'no syrup',empty:true,color:'#eff6ed',highlight:'#fff'},
- {id:'chocolate',label:'chocolate syrup',color:'#70432c',highlight:'#9c6948'},
- {id:'strawberry',label:'strawberry syrup',color:'#c9455b',highlight:'#ee7990'},
- {id:'caramel',label:'caramel syrup',color:'#bc7830',highlight:'#e7b066'}
+ {id:'none',label:'no syrup',empty:true,art:'<span class="scoop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#8a918c" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6 18.4 18.4"/></svg></span>',color:'#eff6ed',highlight:'#fff'},
+ {id:'chocolate',label:'chocolate syrup',buttonLabel:'chocolate',color:'#70432c',highlight:'#9c6948'},
+ {id:'strawberry',label:'strawberry syrup',buttonLabel:'strawberry',color:'#c9455b',highlight:'#ee7990'},
+ {id:'caramel',label:'caramel syrup',buttonLabel:'caramel',color:'#bc7830',highlight:'#e7b066'}
 ];
 
-// Four fixed layers; each row alternates the two choices.
+// One decorative row at the former third-layer position; alternate two choices.
 window.PARFAIT_CONFIG.interaction = 'layers';
 window.PARFAIT_CONFIG.layerLayout = {
- pieceSize:14, piecesPerRow:6,
- rows:[{y:82,left:33,right:67},{y:59,left:28,right:72},
-       {y:39,left:22,right:78},{y:-5,left:24,right:76}]
+ pieceSize:21, piecesPerRow:6,
+ rows:[{y:39,left:22,right:78}]
 };
 window.PARFAIT_CONFIG.toppings.find(item => item.id === 'strawberries').rotation = 180;
+
+// Slice silhouettes need more room than round fruit to read at the same scale.
+for (const item of window.PARFAIT_CONFIG.toppings) {
+ if (['apples','peaches','oranges'].includes(item.id)) item.layerSize = 27;
+ if (item.id === 'melons') item.layerSize = 34.5;
+ if (['apples','peaches'].includes(item.id)) item.rotation = -25;
+}
+
+window.PARFAIT_CONFIG.creativeSizes={min:1.25,max:4,initial:2,step:.25,smallBelow:1.75,bigFrom:2.75};
+for(const item of window.PARFAIT_CONFIG.toppings){
+ item.creativeSize=(item.layerSize||21)/2;
+ item.countPlural=item.label;item.countSingular=({strawberries:'strawberry',cherries:'cherry'})[item.id]||item.label.replace(/s$/,'');
+}
+
+window.PARFAIT_CONFIG.easyOnly=true;

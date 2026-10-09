@@ -139,7 +139,7 @@ vertical toolbar: larger, smaller, rotate left/right, flip, duplicate, delete.
 Arrow keys move a focused piece (Shift moves farther); Delete removes it.
 Deletion selects the previous piece, or the next if deleting the first.
 The picker beside Toppings selects overlapped pieces. Share preserves transforms
-and the configured ingredient layer order. Help and controls support Japanese;
+and the displayed PLAY picker order (later entries draw on top). Help and controls support Japanese;
 food names, question, order, and photo caption remain English.
 
 LAYOUT OWNERSHIP
@@ -163,3 +163,5 @@ In stacked layouts the editing toolbar moves below the pizza and above the order
 PLAY placement uses the entire rectangular artwork stage, not a circular crust boundary. Rotated artwork stays within that stage while allowing crust overlap. Share expands its framing to include off-crust pieces. LEARN scatter is unchanged.
 
 Both modes use the same 14px panel inset and first-heading spacing from layout.css, keeping the toggle/help controls aligned at the upper-right edge.
+
+Share photos use an original light-oak SVG counter backdrop with subtle plank seams and grain. It fills expanded PLAY framing and does not change the live builder background.

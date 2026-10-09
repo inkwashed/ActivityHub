@@ -1,0 +1,7 @@
+/* Opt-in four-choice row: artwork above a wrapping vocabulary label. */
+.ah-builder #builder .four-choice-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.ah-builder #builder .four-choice-row .ah-choice{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;min-height:88px;padding:6px 4px;gap:3px;text-align:center;font-size:14px;line-height:1.25}
+.ah-builder #builder .four-choice-row .scoop-icon{width:32px;height:32px}
+.ah-builder #builder .four-choice-row .sauce-bowl{width:36px;height:28px;flex-shrink:0}
+.ah-builder #builder.is-create .four-choice-row .ah-choice{min-height:var(--play-choice-size,52px)}
+@media(max-width:380px){.ah-builder #builder .four-choice-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
