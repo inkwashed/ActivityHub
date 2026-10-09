@@ -11,3 +11,5 @@
 .pronunciation-note{font-size:14px;line-height:1.5;color:var(--ah-muted)}
 .pronunciation-status{display:block;margin:4px auto;max-width:490px;font-size:14px;line-height:1.4;color:var(--ah-muted);text-align:center}
 .pronunciation-status:empty{display:none}
+.pronunciation-settings-row button[data-playing="true"]{background:var(--ah-selected);border-color:var(--ah-selected-border);box-shadow:inset 0 0 0 1px var(--ah-selected-border)}
+.pronunciation-settings [role="status"]{min-height:1.5em;color:var(--ah-ink);font-weight:600}

@@ -1,4 +1,7 @@
 window.ActivityHubI18n.register({
+  "Starting audio…": "音声を開始しています…",
+  "Browser reports audio playback started.": "ブラウザから音声再生開始の通知が届きました。",
+  "Browser reports audio playback finished.": "ブラウザから音声再生終了の通知が届きました。",
   "Device default (English)": "端末の標準音声（英語）",
   "Speech did not start. Try Device default (English) in language settings.": "読み上げが始まりませんでした。言語設定で「端末の標準音声（英語）」をお試しください。",
   "Default voice": "読み上げ音声",

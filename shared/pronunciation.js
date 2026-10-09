@@ -62,6 +62,8 @@
       dialog.append(section);
       this.voiceSelect = section.querySelector('select');
       const preview = section.querySelector('button');
+      this.previewButton = preview;
+      preview.className = 'ah-button ah-button-secondary';
       this.settingsStatus = section.querySelector('[role="status"]');
       try { this.preferredVoice = window.localStorage.getItem('letseigo.englishVoice') || ''; } catch { this.preferredVoice = ''; }
       this.refreshVoices = () => {
@@ -75,7 +77,7 @@
         this.voiceSelect.value = missing ? '' : this.preferredVoice;
         this.voiceSelect.disabled = !this.available;
         preview.disabled = !this.available;
-        this.settingsStatus.textContent = !this.available ? t('Pronunciation is unavailable in this browser') : missing ? t('Your saved voice is not in the recommended list. Using automatic English for now.') : '';
+        if (!this.utterance && !this.lastPlaybackMessage) this.settingsStatus.textContent = !this.available ? t('Pronunciation is unavailable in this browser') : missing ? t('Your saved voice is not in the recommended list. Using automatic English for now.') : '';
       };
       this.voiceSelect.addEventListener('change', () => {
         this.stop();
@@ -95,54 +97,62 @@
     }
     stop() {
       window.clearTimeout(this.startTimer);
+      if (this.previewButton) this.previewButton.setAttribute('data-playing', 'false');
       if (this.utterance) {
         this.utterance = null;
         this.synth.cancel();
       }
     }
     speak(text, status = this.status) {
-      if (!this.available) return;
-      this.stop();
-      const utterance = new window.SpeechSynthesisUtterance(text.replace(/\s+/g, ' ').trim());
-      // Re-read voices on each tap: some browsers populate them asynchronously.
-      const english = this.recommendedVoices();
-      const voice = this.preferredVoice === 'device-default' ? null : english.find(voice => this.voiceKey(voice) === this.preferredVoice) || english[0];
-      utterance.lang = voice?.lang || 'en-US';
-      if (voice) utterance.voice = voice;
-      utterance.rate = .9;
-      utterance.volume = 1;
-      this.utterance = utterance;
-      status.textContent = '';
       const report = message => {
+        this.lastPlaybackMessage = message;
         status.textContent = message;
         if (this.settingsStatus && status !== this.settingsStatus) this.settingsStatus.textContent = message;
       };
-      utterance.onstart = () => {
-        if (this.utterance !== utterance) return;
-        window.clearTimeout(this.startTimer);
-      };
-      utterance.onend = () => {
-        if (this.utterance !== utterance) return;
-        window.clearTimeout(this.startTimer);
-        this.utterance = null;
-      };
-      utterance.onerror = event => {
-        if (this.utterance !== utterance) return;
-        window.clearTimeout(this.startTimer);
-        this.utterance = null;
-        if (!['canceled','interrupted'].includes(event.error)) report(`${t('Audio could not play. Please try again.')} (${event.error || 'unknown'})`);
-      };
-      this.startTimer = window.setTimeout(() => {
-        if (this.utterance !== utterance) return;
-        this.stop();
-        report(t('Speech did not start. Try Device default (English) in language settings.'));
-      }, 10000);
+      if (!this.available) { report(t('Pronunciation is unavailable in this browser')); return; }
+      this.stop();
+      report(t('Starting audio…'));
+      if (this.previewButton) this.previewButton.setAttribute('data-playing', 'true');
+      let utterance;
       try {
-        // Keep playback inside the tap handler; queued speech cannot run while paused.
+        utterance = new window.SpeechSynthesisUtterance(text.replace(/\s+/g, ' ').trim());
+        const english = this.recommendedVoices();
+        const voice = this.preferredVoice === 'device-default' ? null : english.find(voice => this.voiceKey(voice) === this.preferredVoice) || english[0];
+        utterance.lang = voice?.lang || 'en-US';
+        if (voice) utterance.voice = voice;
+        utterance.rate = .9;
+        utterance.volume = 1;
+        this.utterance = utterance;
+        const finished = () => {
+          window.clearTimeout(this.startTimer);
+          this.utterance = null;
+          if (this.previewButton) this.previewButton.setAttribute('data-playing', 'false');
+        };
+        utterance.onstart = () => {
+          if (this.utterance !== utterance) return;
+          window.clearTimeout(this.startTimer);
+          report(t('Browser reports audio playback started.'));
+        };
+        utterance.onend = () => {
+          if (this.utterance !== utterance) return;
+          finished(); report(t('Browser reports audio playback finished.'));
+        };
+        utterance.onerror = event => {
+          if (this.utterance !== utterance) return;
+          finished();
+          report(`${t('Audio could not play. Please try again.')} (${event.error || 'unknown'})`);
+        };
+        this.startTimer = window.setTimeout(() => {
+          if (this.utterance !== utterance) return;
+          this.stop();
+          report(t('Speech did not start. Try Device default (English) in language settings.'));
+        }, 10000);
+        // Keep playback inside the tap handler, including a paused-engine resume.
         if (this.synth.paused) this.synth.resume();
         this.synth.speak(utterance);
-      } catch {
-        this.stop(); report(t('Audio could not play. Please try again.'));
+      } catch (error) {
+        this.stop();
+        report(`${t('Audio could not play. Please try again.')} (${error.name || 'unknown'})`);
       }
     }
     render(text, names) {
