@@ -1,8 +1,8 @@
 /* Inline vocabulary keeps the sentence's exact text for copying and photos. */
 .order .pronunciation-speaker{flex:0 0 44px;align-self:center}
-#sentence .pronunciation-word{appearance:none;display:inline;min-height:44px;max-width:100%;padding:0 2px;margin:0;border:0;border-radius:4px;background:transparent;color:inherit;font:inherit;line-height:inherit;letter-spacing:inherit;text-align:inherit;white-space:normal;cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-decoration-thickness:1px;text-underline-offset:4px;box-shadow:none}
-#sentence .pronunciation-word:hover,#sentence .pronunciation-word:active{background:var(--ah-selected-bg,#e3ebdc)}
-#sentence .pronunciation-word:focus-visible{outline:2px solid var(--ah-selected-border,#427c54);outline-offset:2px}
+:is(#sentence,.question) .pronunciation-word{appearance:none;display:inline;min-height:44px;max-width:100%;padding:0 2px;margin:0;border:0;border-radius:4px;background:transparent;color:inherit;font:inherit;line-height:inherit;letter-spacing:inherit;text-align:inherit;white-space:normal;cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-decoration-thickness:1px;text-underline-offset:4px;box-shadow:none}
+:is(#sentence,.question) .pronunciation-word:hover,:is(#sentence,.question) .pronunciation-word:active{background:var(--ah-selected-bg,#e3ebdc)}
+:is(#sentence,.question) .pronunciation-word:focus-visible{outline:2px solid var(--ah-selected-border,#427c54);outline-offset:2px}
 .pronunciation-settings{margin-top:20px;padding-top:16px;border-top:1px solid var(--ah-border,#d8ddcf)}
 .pronunciation-settings label{display:block;font-weight:700;margin-bottom:8px}
 .pronunciation-settings-row{display:flex;gap:8px;align-items:stretch}

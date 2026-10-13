@@ -169,7 +169,7 @@ for (const item of window.PARFAIT_CONFIG.toppings) {
 window.PARFAIT_CONFIG.creativeSizes={min:1.25,max:4,initial:2,step:.25,smallBelow:1.75,bigFrom:2.75};
 for(const item of window.PARFAIT_CONFIG.toppings){
  item.creativeSize=(item.layerSize||21)/2;
- item.countPlural=item.label;item.countSingular=({strawberries:'strawberry',cherries:'cherry'})[item.id]||item.label.replace(/s$/,'');
+ item.countPlural=item.label;item.countSingular=({strawberries:'strawberry',cherries:'cherry',peaches:'peach'})[item.id]||item.label.replace(/s$/,'');
 }
 
 window.PARFAIT_CONFIG.easyOnly=true;

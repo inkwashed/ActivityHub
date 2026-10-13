@@ -1,0 +1,1085 @@
+[
+  {
+    "id": "alfredo-sauce",
+    "text": "alfredo sauce",
+    "prompt": "alfredo sauce.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: alfredo sauce.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ælfɹˈɛdO sˈɔs."
+    ],
+    "seconds": 1.942,
+    "mp3Bytes": 16172,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "b551c12a4c3494172b5ff95cbf156eb401ca2b460095532add0cb141637dd8ec"
+  },
+  {
+    "id": "apple",
+    "text": "apple",
+    "prompt": "apple.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: apple.",
+    "trimSeconds": 1.47,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈæpᵊl."
+    ],
+    "seconds": 1.405,
+    "mp3Bytes": 11948,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "d3f0971f03cf05eff9632597d3f6f3300ece73054855fa857f91aceb546881c9"
+  },
+  {
+    "id": "apples",
+    "text": "apples",
+    "prompt": "apples.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: apples.",
+    "trimSeconds": 1.42,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈæpᵊlz."
+    ],
+    "seconds": 1.505,
+    "mp3Bytes": 12716,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "00b49a441675f0c9ca2062843740bac398ef91bdd8f45056cea426b1e2910aba"
+  },
+  {
+    "id": "banana",
+    "text": "banana",
+    "prompt": "[banana](/bʌnˈænə/).",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: [banana](/bʌnˈænə/).",
+    "trimSeconds": 1.3325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: bʌnˈænə."
+    ],
+    "seconds": 1.542,
+    "mp3Bytes": 13100,
+    "review": "approved by user",
+    "sourceBatch": "banana-pronunciation-01",
+    "sha256": "7f5b48db559ed139127be4000e734b605298a47be7ed51dce40eec439b17ca22"
+  },
+  {
+    "id": "bananas",
+    "text": "bananas",
+    "prompt": "[bananas](/bʌnˈænəz/).",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: [bananas](/bʌnˈænəz/).",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: bʌnˈænəz."
+    ],
+    "seconds": 1.617,
+    "mp3Bytes": 13676,
+    "review": "approved by user",
+    "sourceBatch": "banana-pronunciation-01",
+    "sha256": "6c51e5b465e94583b48fd05381dae52c612667cc76b886a4a5db82b86ac01204"
+  },
+  {
+    "id": "bbq-sauce",
+    "text": "BBQ sauce",
+    "prompt": "Barbecue sauce.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: Barbecue sauce.",
+    "trimSeconds": 1.0825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: bˈɑɹbəkjˌu sˈɔs."
+    ],
+    "seconds": 1.992,
+    "mp3Bytes": 16748,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "e226af6ed2a12db52fd2590e5b834ee1f8578cc2338fd458906f4e8b6172db12"
+  },
+  {
+    "id": "caramel",
+    "text": "caramel",
+    "prompt": "caramel.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: caramel.",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: kˈɑɹməl."
+    ],
+    "seconds": 1.442,
+    "mp3Bytes": 12332,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "2e0e64f7d9010de05e413306eec94ac6330dd8099dc06bb19acd01a41629ac35"
+  },
+  {
+    "id": "caramel-syrup",
+    "text": "caramel syrup",
+    "prompt": "caramel syrup.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: caramel syrup.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: kˈɑɹməl sˈɪɹəp."
+    ],
+    "seconds": 1.893,
+    "mp3Bytes": 15788,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "995a11386f3ba7d14a7bfe4662f81b8e820c955c0990935f7a79b335b0ab3edc"
+  },
+  {
+    "id": "cheese",
+    "text": "cheese",
+    "prompt": "cheese.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: cheese.",
+    "trimSeconds": 1.3575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ʧˈiz."
+    ],
+    "seconds": 1.468,
+    "mp3Bytes": 12524,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "460ada9daa99e347db7fc8ef65c1c40f33c8786dba0c2921c6a6f92433baed45"
+  },
+  {
+    "id": "cherries",
+    "text": "cherries",
+    "prompt": "cherries.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: cherries.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ʧˈɛɹiz."
+    ],
+    "seconds": 1.555,
+    "mp3Bytes": 13100,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "31193bcb8ce611fea6374a7753ce145abd3147ceea4941e017c59a8c752d0959"
+  },
+  {
+    "id": "cherry",
+    "text": "cherry",
+    "prompt": "cherry.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: cherry.",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ʧˈɛɹi."
+    ],
+    "seconds": 1.455,
+    "mp3Bytes": 12332,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "94aaa8afa7e984eba07fe877b1a0281993b4545b40c44935084ddb201c969779"
+  },
+  {
+    "id": "chocolate",
+    "text": "chocolate",
+    "prompt": "chocolate.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: chocolate.",
+    "trimSeconds": 1.295,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ʧˈɑkᵊlət."
+    ],
+    "seconds": 1.555,
+    "mp3Bytes": 13100,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "be9a665bbcc51ec65eb8b5bc87f43858d7d9a1fab23552e08d93ab21d7ee78ac"
+  },
+  {
+    "id": "chocolate-syrup",
+    "text": "chocolate syrup",
+    "prompt": "chocolate syrup.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: chocolate syrup.",
+    "trimSeconds": 1.145,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ʧˈɑkᵊlət sˈɪɹəp."
+    ],
+    "seconds": 1.955,
+    "mp3Bytes": 16364,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "3f8d93d2c3d3c6e0242bf4fb683ef5437fb06571dda82f42399e4615d0b5e7ae"
+  },
+  {
+    "id": "corn",
+    "text": "corn",
+    "prompt": "corn.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: corn.",
+    "trimSeconds": 1.2449999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: kˈɔɹn."
+    ],
+    "seconds": 1.43,
+    "mp3Bytes": 12140,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "20ae25d6c8bb4aae61ab883fba3e2d1b37ebccd830cf1d6744c84fa6de5113a7"
+  },
+  {
+    "id": "green-pepper",
+    "text": "green pepper",
+    "prompt": "green pepper.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: green pepper.",
+    "trimSeconds": 1.17,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ɡɹˈin pˈɛpəɹ."
+    ],
+    "seconds": 1.805,
+    "mp3Bytes": 15212,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "246e0c45cb8f3e06d629ff3c1cb37c328ede11f88eb58a564b005c5d250aa9f7"
+  },
+  {
+    "id": "green-peppers",
+    "text": "green peppers",
+    "prompt": "green peppers.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: green peppers.",
+    "trimSeconds": 1.145,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ɡɹˈin pˈɛpəɹz."
+    ],
+    "seconds": 1.98,
+    "mp3Bytes": 16556,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "dfbd1eae36b258e5c75d7147f6194e8331f34a71f7f7f6cfc56870399b0e4e86"
+  },
+  {
+    "id": "kiwi-fruit",
+    "text": "kiwi fruit",
+    "prompt": "kiwi fruit.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: kiwi fruit.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: kˈiwi fɹˈut."
+    ],
+    "seconds": 1.768,
+    "mp3Bytes": 14828,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "e7b166d8fd99f8bd1d8d2e6f5bee30a89612ccc8017ce94a3d43b150336de0df"
+  },
+  {
+    "id": "kiwi-fruits",
+    "text": "kiwi fruits",
+    "prompt": "kiwi fruits.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: kiwi fruits.",
+    "trimSeconds": 1.1199999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: kˈiwi fɹˈuts."
+    ],
+    "seconds": 1.83,
+    "mp3Bytes": 15404,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "02564c46f762126b92a2c1561eb8706f7760b7977783e81b1369fd582c3919bf"
+  },
+  {
+    "id": "melon",
+    "text": "melon",
+    "prompt": "melon.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: melon.",
+    "trimSeconds": 1.395,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˈɛlən."
+    ],
+    "seconds": 1.405,
+    "mp3Bytes": 11948,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "6adf97491361a7e838310f866d4a85bb3e33ca8bf62e9cae5fcb063bc887a24b"
+  },
+  {
+    "id": "melons",
+    "text": "melons",
+    "prompt": "melons.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: melons.",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˈɛlənz."
+    ],
+    "seconds": 1.53,
+    "mp3Bytes": 12908,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "cc82a1c46e693a13bab4a8dba2d3e0b25cc1fba9e860357ba6e4f0717a9ff0c1"
+  },
+  {
+    "id": "mint-chocolate-chip",
+    "text": "mint chocolate chip",
+    "prompt": "mint chocolate chip.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: mint chocolate chip.",
+    "trimSeconds": 1.095,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˈɪnt ʧˈɑkᵊlət ʧˈɪp."
+    ],
+    "seconds": 2.205,
+    "mp3Bytes": 18284,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "cfbf64b40653f9e75e1e55b44c1c8c0efdec2ae358beba6f86a8ee2ef3ae6d3d"
+  },
+  {
+    "id": "mint-chocolate-chip-ice-cream",
+    "text": "mint chocolate chip ice cream",
+    "prompt": "mint chocolate chip ice cream.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: mint chocolate chip ice cream.",
+    "trimSeconds": 1.1199999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˈɪnt ʧˈɑkᵊlət ʧˈɪp ˈIs kɹˈim."
+    ],
+    "seconds": 2.855,
+    "mp3Bytes": 23468,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "6137b6ba5adde899418901ed0b3d4884845f1f8d7b7ff74fd48b5547cdbdf07e"
+  },
+  {
+    "id": "mint-chocolate-chip-scoop",
+    "text": "mint chocolate chip scoop",
+    "prompt": "mint chocolate chip scoop.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: mint chocolate chip scoop.",
+    "trimSeconds": 1.095,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˈɪnt ʧˈɑkᵊlət ʧˈɪp skˈup."
+    ],
+    "seconds": 2.455,
+    "mp3Bytes": 20396,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "b20d77d4d8a1f2907e952c1a765371e3d0f6ae551d4254b9f474977ec3609cbb"
+  },
+  {
+    "id": "mint-chocolate-chip-scoops",
+    "text": "mint chocolate chip scoops",
+    "prompt": "mint chocolate chip scoops.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: mint chocolate chip scoops.",
+    "trimSeconds": 1.095,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˈɪnt ʧˈɑkᵊlət ʧˈɪp skˈups."
+    ],
+    "seconds": 2.605,
+    "mp3Bytes": 21548,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "c51b2ed653eb4875048d6f9610dd4fd3503c0c52614bf6f838951c0b4b548470"
+  },
+  {
+    "id": "mushroom",
+    "text": "mushroom",
+    "prompt": "mushroom.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: mushroom.",
+    "trimSeconds": 1.3074999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˈʌʃɹˌum."
+    ],
+    "seconds": 1.617,
+    "mp3Bytes": 13676,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "4a728da200a9359aa3307b9db6bf19094acc37f4f7a6a077fcf9fc6eda1180f4"
+  },
+  {
+    "id": "mushrooms",
+    "text": "mushrooms",
+    "prompt": "mushrooms.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: mushrooms.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˈʌʃɹˌumz."
+    ],
+    "seconds": 1.718,
+    "mp3Bytes": 14444,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "7aba78f100000c3d38130476b48e821358525cbf345de43b25c2377f7efabcb9"
+  },
+  {
+    "id": "no-ice-cream",
+    "text": "no ice cream",
+    "prompt": "no ice cream.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: no ice cream.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: nˈO ˈIs kɹˈim."
+    ],
+    "seconds": 1.893,
+    "mp3Bytes": 15788,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "861eb7c49e4d6f5278500dfb19588e83cca4a16ae078ab5249ac9e9c6a4140d7"
+  },
+  {
+    "id": "no-sauce",
+    "text": "no sauce",
+    "prompt": "no sauce.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: no sauce.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: nˈO sˈɔs."
+    ],
+    "seconds": 1.643,
+    "mp3Bytes": 13868,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "62ab1be7382ba291f7304e06975485437c7af60d467964598e7b1b4f1d0720d6"
+  },
+  {
+    "id": "no-syrup",
+    "text": "no syrup",
+    "prompt": "no syrup.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: no syrup.",
+    "trimSeconds": 1.1824999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: nˈO sˈɪɹəp."
+    ],
+    "seconds": 1.643,
+    "mp3Bytes": 13868,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "e6af0dbcb935d91a1f571883e4d1847b01a1f7d90f57b4773a62213547f83f8e"
+  },
+  {
+    "id": "onion",
+    "text": "onion",
+    "prompt": "onion.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: onion.",
+    "trimSeconds": 1.4075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈʌnjᵊn."
+    ],
+    "seconds": 1.442,
+    "mp3Bytes": 12332,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "3962f20b809d6d185057246cb8800edc5a8e8f4c86df4d4133ed301152d772a2"
+  },
+  {
+    "id": "onions",
+    "text": "onions",
+    "prompt": "onions.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: onions.",
+    "trimSeconds": 1.3575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈʌnjᵊnz."
+    ],
+    "seconds": 1.567,
+    "mp3Bytes": 13292,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "485c0e3b36f50ad3ce5f548e603878872ccc75f1776a5f786356b14c2d177116"
+  },
+  {
+    "id": "orange",
+    "text": "orange",
+    "prompt": "orange.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: orange.",
+    "trimSeconds": 1.3199999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈɔɹᵊnʤ."
+    ],
+    "seconds": 1.555,
+    "mp3Bytes": 13100,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "69adaf8d8aea4cd8817ba370592bfc8de13d7b9628caaf4c219d647293fbf22d"
+  },
+  {
+    "id": "oranges",
+    "text": "oranges",
+    "prompt": "oranges.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: oranges.",
+    "trimSeconds": 1.3325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈɔɹᵊnʤᵻz."
+    ],
+    "seconds": 1.643,
+    "mp3Bytes": 13868,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "21da0d171b0323a944bf68f5ebafeebce8fc57e99cb61e7a934b10cb712b9d77"
+  },
+  {
+    "id": "peach",
+    "text": "peach",
+    "prompt": "peach.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: peach.",
+    "trimSeconds": 1.3199999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˈiʧ."
+    ],
+    "seconds": 1.405,
+    "mp3Bytes": 11948,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "cdbf149e7118f089cf023b3def5d83221fb0414366959063260d679d538345b0"
+  },
+  {
+    "id": "peaches",
+    "text": "peaches",
+    "prompt": "peaches.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: peaches.",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˈiʧᵻz."
+    ],
+    "seconds": 1.643,
+    "mp3Bytes": 13868,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "5b7884909ccb73d79f5a0ec8c7c10c3ae78146437cbfe1036d1f8c04d168f8a8"
+  },
+  {
+    "id": "pepperoni",
+    "text": "pepperoni",
+    "prompt": "pepperoni.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: pepperoni.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˌɛpəɹˈOni."
+    ],
+    "seconds": 1.742,
+    "mp3Bytes": 14636,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "320822504b947f45323fb2af84a045914443fb4717256f615eb82693a2ecdea8"
+  },
+  {
+    "id": "pineapple",
+    "text": "pineapple",
+    "prompt": "pineapple.",
+    "apps": [
+      "pizza",
+      "parfait"
+    ],
+    "generationPrompt": "Listen: pineapple.",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˈInˌæpᵊl."
+    ],
+    "seconds": 1.617,
+    "mp3Bytes": 13676,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "5889b1ea36622140304c659c7c2fd9693a818e3e2b33eea80d716fc3d08352d6"
+  },
+  {
+    "id": "pineapples",
+    "text": "pineapples",
+    "prompt": "pineapples.",
+    "apps": [
+      "pizza",
+      "parfait"
+    ],
+    "generationPrompt": "Listen: pineapples.",
+    "trimSeconds": 1.2075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˈInˌæpᵊlz."
+    ],
+    "seconds": 1.692,
+    "mp3Bytes": 14252,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "3c20e20c80eac55ef396c77d15f530f3a926af18b2f1e62b4348d380682db9a3"
+  },
+  {
+    "id": "sausage",
+    "text": "sausage",
+    "prompt": "sausage.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: sausage.",
+    "trimSeconds": 1.395,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: sˈɔsɪʤ."
+    ],
+    "seconds": 1.605,
+    "mp3Bytes": 13484,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "199d5335c8a4b2de09f552450b3e3042d9d7c8ab3a76fca55655e54ceeec04b7"
+  },
+  {
+    "id": "sausages",
+    "text": "sausages",
+    "prompt": "sausages.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: sausages.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: sˈɔsɪʤᵻz."
+    ],
+    "seconds": 1.755,
+    "mp3Bytes": 14828,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "962b675a40e483250d7ead9138abafd7e7d13d3e9dcd88fbfbe859cbaf47739e"
+  },
+  {
+    "id": "strawberries",
+    "text": "strawberries",
+    "prompt": "strawberries.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: strawberries.",
+    "trimSeconds": 1.1949999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: stɹˈɔbˌɛɹiz."
+    ],
+    "seconds": 1.805,
+    "mp3Bytes": 15212,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "c02be82c931f379997a8a739b61ededf06cb8bc7050748e0f2e39ebd43823fd2"
+  },
+  {
+    "id": "strawberry",
+    "text": "strawberry",
+    "prompt": "strawberry.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: strawberry.",
+    "trimSeconds": 1.2449999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: stɹˈɔbˌɛɹi."
+    ],
+    "seconds": 1.73,
+    "mp3Bytes": 14636,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "84988921967e5aa8b797a426ca24756c0d53a1f07d8796f9ba1146962ba14949"
+  },
+  {
+    "id": "strawberry-ice-cream",
+    "text": "strawberry ice cream",
+    "prompt": "strawberry ice cream.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: strawberry ice cream.",
+    "trimSeconds": 1.145,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: stɹˈɔbˌɛɹi ˈIs kɹˈim."
+    ],
+    "seconds": 2.38,
+    "mp3Bytes": 19820,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "23a16580c0b297456ef3a25d9b80d8daf15c0e5f5b0769adc13cf24676bad017"
+  },
+  {
+    "id": "strawberry-scoop",
+    "text": "strawberry scoop",
+    "prompt": "strawberry scoop.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: strawberry scoop.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: stɹˈɔbˌɛɹi skˈup."
+    ],
+    "seconds": 1.942,
+    "mp3Bytes": 16172,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "2c0f4d56faad6760349fa0b37a91b3f4bd22d6a66f0f77fdaa93ad3545e50635"
+  },
+  {
+    "id": "strawberry-scoops",
+    "text": "strawberry scoops",
+    "prompt": "strawberry scoops.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: strawberry scoops.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: stɹˈɔbˌɛɹi skˈups."
+    ],
+    "seconds": 2.067,
+    "mp3Bytes": 17324,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "bd79fd2544cc801d4f78d11ba7433a53442fe60e3bf8595dcdf5a893db70e9aa"
+  },
+  {
+    "id": "strawberry-syrup",
+    "text": "strawberry syrup",
+    "prompt": "strawberry syrup.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: strawberry syrup.",
+    "trimSeconds": 1.145,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: stɹˈɔbˌɛɹi sˈɪɹəp."
+    ],
+    "seconds": 2.08,
+    "mp3Bytes": 17324,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "6fb66815a443de3d0d6ff118f5d35cec2b5531694a3eeb95c031e7792ebc81ab"
+  },
+  {
+    "id": "tomato",
+    "text": "tomato",
+    "prompt": "tomato.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: tomato.",
+    "trimSeconds": 1.3824999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: təmˈATO."
+    ],
+    "seconds": 1.667,
+    "mp3Bytes": 14060,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "18f1bb0ebb16b016641890f58bd445cf16d1c50c8456b6801ca006024a016354"
+  },
+  {
+    "id": "tomato-sauce",
+    "text": "tomato sauce",
+    "prompt": "tomato sauce.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: tomato sauce.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: təmˈATO sˈɔs."
+    ],
+    "seconds": 1.942,
+    "mp3Bytes": 16172,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "0fd0f725927b41e7dfc96bc7c3cbb3104e1bf6cf188860c4ad7b7b82d2ce2063"
+  },
+  {
+    "id": "tomatoes",
+    "text": "tomatoes",
+    "prompt": "tomatoes.",
+    "apps": [
+      "pizza"
+    ],
+    "generationPrompt": "Listen: tomatoes.",
+    "trimSeconds": 1.3074999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: təmˈATOz."
+    ],
+    "seconds": 1.643,
+    "mp3Bytes": 13868,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "b10983160a0ff99749c9f37a3f35e23fdae96cdff5fc0dd6fa2318a2cc471421"
+  },
+  {
+    "id": "vanilla",
+    "text": "vanilla",
+    "prompt": "vanilla.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: vanilla.",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: vənˈɪlə."
+    ],
+    "seconds": 1.53,
+    "mp3Bytes": 12908,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "649263e5d9402821b7a7fe1fd13a43748bad7ab2b10dc9d4c7caa3a5bfc98908"
+  },
+  {
+    "id": "vanilla-ice-cream",
+    "text": "vanilla ice cream",
+    "prompt": "vanilla ice cream.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: vanilla ice cream.",
+    "trimSeconds": 1.145,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: vənˈɪlə ˈIs kɹˈim."
+    ],
+    "seconds": 2.205,
+    "mp3Bytes": 18284,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "d10a87fa6d69de35e616aea3a4cf039ad97e8348709942990ec49e038e8dc4f1"
+  },
+  {
+    "id": "vanilla-scoop",
+    "text": "vanilla scoop",
+    "prompt": "vanilla scoop.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: vanilla scoop.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: vənˈɪlə skˈup."
+    ],
+    "seconds": 1.893,
+    "mp3Bytes": 15788,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "6be56cb8975d72ebdee51efc735a3e3ba8eaefa4c1358b8981f8361e20d7b69a"
+  },
+  {
+    "id": "vanilla-scoops",
+    "text": "vanilla scoops",
+    "prompt": "vanilla scoops.",
+    "apps": [
+      "parfait"
+    ],
+    "generationPrompt": "Listen: vanilla scoops.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: vənˈɪlə skˈups."
+    ],
+    "seconds": 1.917,
+    "mp3Bytes": 15980,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "e3ece402ac900e60e1b265a6fa12ab83d31356f6c73009fcf949612ecac11418"
+  },
+  {
+    "id": "what-do-you-want",
+    "text": "What do you want?",
+    "prompt": "What do you want?",
+    "apps": [
+      "pizza",
+      "parfait"
+    ],
+    "generationPrompt": "Listen: What do you want?",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: wˌʌt dˈu ju wˈɑnt?"
+    ],
+    "seconds": 1.593,
+    "mp3Bytes": 13484,
+    "review": "approved by user",
+    "sourceBatch": "vocabulary-01-leadin",
+    "sha256": "3ad714bd54908decac369e2d74e69cbe177eca53989c8fb7d922ccf734cc91c3"
+  }
+]

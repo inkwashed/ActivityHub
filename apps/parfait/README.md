@@ -1,6 +1,6 @@
-# Little Parfait Cafe — prototype
+# Little Parfait Cafe
 
-Open `apps/parfait/index.html` or serve the repository and visit `/apps/parfait/`. Not listed on the homepage; noindex is not access control.
+Open `apps/parfait/index.html` or serve the repository and visit `/apps/parfait/`. Listed on the homepage under Let’s Try! 2 Unit 7.
 
 ## Building a parfait
 
@@ -42,4 +42,8 @@ Share uses shared/builder-photo.js for preview/download and sharing.js for Parfa
 
 Share photos use an original simple SVG cafe backdrop: a warm counter, pale window, and muted greenery. The counter/shadow align with the glass pedestal and the scene adapts to expanded PLAY framing. This is export-only and requires no downloaded artwork.
 
-Pronunciation: the result speaker reads the full English order; dotted-underlined ingredient phrases play individually. Both use shared browser speech synthesis, including PLAY count nouns. Actual voice and offline availability depend on the device; iPad audio verification is pending.
+Pronunciation: the result speaker reads the full English order; dotted-underlined ingredient phrases play individually. Vocabulary phrases (including PLAY count nouns) use the approved shared Kokoro recordings; full orders and missing/failed clips use browser speech. Recordings load only when tapped. Actual sentence voice and offline availability depend on the device; physical iPad verification of recorded playback remains pending.
+
+LEARN order text wraps naturally within the available width; fruit, flavor, and syrup phrases have no forced line breaks.
+
+LEARN combines fruit and selected syrup into one natural list after the ice cream (for example, “I want vanilla ice cream with strawberries, bananas, and chocolate syrup.”). With no fruit, ice cream keeps “with chocolate syrup”; no syrup stays an explicit “with no syrup” qualifier. PLAY retains its count-and-size wording.

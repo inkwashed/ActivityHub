@@ -1,0 +1,443 @@
+{
+  "language": "en-US",
+  "voice": "af_heart",
+  "speed": 0.7,
+  "sampleRate": 24000,
+  "clips": [
+    {
+      "id": "alfredo-sauce",
+      "text": "alfredo sauce",
+      "prompt": "alfredo sauce.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "apple",
+      "text": "apple",
+      "prompt": "apple.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "apples",
+      "text": "apples",
+      "prompt": "apples.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "banana",
+      "text": "banana",
+      "prompt": "[banana](/bʌnˈænə/).",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "bananas",
+      "text": "bananas",
+      "prompt": "[bananas](/bʌnˈænəz/).",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "bbq-sauce",
+      "text": "BBQ sauce",
+      "prompt": "Barbecue sauce.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "caramel",
+      "text": "caramel",
+      "prompt": "caramel.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "caramel-syrup",
+      "text": "caramel syrup",
+      "prompt": "caramel syrup.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "cheese",
+      "text": "cheese",
+      "prompt": "cheese.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "cherries",
+      "text": "cherries",
+      "prompt": "cherries.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "cherry",
+      "text": "cherry",
+      "prompt": "cherry.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "chocolate",
+      "text": "chocolate",
+      "prompt": "chocolate.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "chocolate-syrup",
+      "text": "chocolate syrup",
+      "prompt": "chocolate syrup.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "corn",
+      "text": "corn",
+      "prompt": "corn.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "green-pepper",
+      "text": "green pepper",
+      "prompt": "green pepper.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "green-peppers",
+      "text": "green peppers",
+      "prompt": "green peppers.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "kiwi-fruit",
+      "text": "kiwi fruit",
+      "prompt": "kiwi fruit.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "kiwi-fruits",
+      "text": "kiwi fruits",
+      "prompt": "kiwi fruits.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "melon",
+      "text": "melon",
+      "prompt": "melon.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "melons",
+      "text": "melons",
+      "prompt": "melons.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "mint-chocolate-chip",
+      "text": "mint chocolate chip",
+      "prompt": "mint chocolate chip.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "mint-chocolate-chip-ice-cream",
+      "text": "mint chocolate chip ice cream",
+      "prompt": "mint chocolate chip ice cream.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "mint-chocolate-chip-scoop",
+      "text": "mint chocolate chip scoop",
+      "prompt": "mint chocolate chip scoop.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "mint-chocolate-chip-scoops",
+      "text": "mint chocolate chip scoops",
+      "prompt": "mint chocolate chip scoops.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "mushroom",
+      "text": "mushroom",
+      "prompt": "mushroom.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "mushrooms",
+      "text": "mushrooms",
+      "prompt": "mushrooms.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "no-ice-cream",
+      "text": "no ice cream",
+      "prompt": "no ice cream.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "no-sauce",
+      "text": "no sauce",
+      "prompt": "no sauce.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "no-syrup",
+      "text": "no syrup",
+      "prompt": "no syrup.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "onion",
+      "text": "onion",
+      "prompt": "onion.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "onions",
+      "text": "onions",
+      "prompt": "onions.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "orange",
+      "text": "orange",
+      "prompt": "orange.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "oranges",
+      "text": "oranges",
+      "prompt": "oranges.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "peach",
+      "text": "peach",
+      "prompt": "peach.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "peaches",
+      "text": "peaches",
+      "prompt": "peaches.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "pepperoni",
+      "text": "pepperoni",
+      "prompt": "pepperoni.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "pineapple",
+      "text": "pineapple",
+      "prompt": "pineapple.",
+      "apps": [
+        "pizza",
+        "parfait"
+      ]
+    },
+    {
+      "id": "pineapples",
+      "text": "pineapples",
+      "prompt": "pineapples.",
+      "apps": [
+        "pizza",
+        "parfait"
+      ]
+    },
+    {
+      "id": "sausage",
+      "text": "sausage",
+      "prompt": "sausage.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "sausages",
+      "text": "sausages",
+      "prompt": "sausages.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "strawberries",
+      "text": "strawberries",
+      "prompt": "strawberries.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "strawberry",
+      "text": "strawberry",
+      "prompt": "strawberry.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "strawberry-ice-cream",
+      "text": "strawberry ice cream",
+      "prompt": "strawberry ice cream.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "strawberry-scoop",
+      "text": "strawberry scoop",
+      "prompt": "strawberry scoop.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "strawberry-scoops",
+      "text": "strawberry scoops",
+      "prompt": "strawberry scoops.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "strawberry-syrup",
+      "text": "strawberry syrup",
+      "prompt": "strawberry syrup.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "tomato",
+      "text": "tomato",
+      "prompt": "tomato.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "tomato-sauce",
+      "text": "tomato sauce",
+      "prompt": "tomato sauce.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "tomatoes",
+      "text": "tomatoes",
+      "prompt": "tomatoes.",
+      "apps": [
+        "pizza"
+      ]
+    },
+    {
+      "id": "vanilla",
+      "text": "vanilla",
+      "prompt": "vanilla.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "vanilla-ice-cream",
+      "text": "vanilla ice cream",
+      "prompt": "vanilla ice cream.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "vanilla-scoop",
+      "text": "vanilla scoop",
+      "prompt": "vanilla scoop.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "vanilla-scoops",
+      "text": "vanilla scoops",
+      "prompt": "vanilla scoops.",
+      "apps": [
+        "parfait"
+      ]
+    },
+    {
+      "id": "what-do-you-want",
+      "text": "What do you want?",
+      "prompt": "What do you want?",
+      "apps": [
+        "pizza",
+        "parfait"
+      ]
+    }
+  ]
+}

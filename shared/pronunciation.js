@@ -1,4 +1,4 @@
-/* Optional, local browser speech for builder results. Does not alter order text. */
+/* Shared recorded vocabulary and browser speech for builder results. Does not alter order text. */
 (() => {
   const t = text => window.ActivityHubI18n?.t(text) || text;
   const escape = text => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -23,7 +23,13 @@
       sentence.parentElement.after(this.status);
       this.button.disabled = !this.available;
       this.button.addEventListener('click', () => this.speak(sentence.textContent));
+      this.question = document.querySelector?.('[data-pronunciation-question]');
+      if (this.question) {
+        this.question.disabled = !(this.available || this.recording(this.question.textContent));
+        this.question.addEventListener('click', () => this.speak(this.question.textContent));
+      }
       this.labels = () => {
+        this.question?.setAttribute('aria-label', `${t('Listen')}: ${this.question.textContent}`);
         const label = this.available ? 'Listen to your order' : 'Pronunciation is unavailable in this browser';
         this.button.setAttribute('aria-label', t(label));
         this.button.title = t(label);
@@ -58,7 +64,7 @@
       if (!dialog) return;
       const section = document.createElement('div');
       section.className = 'pronunciation-settings';
-      section.innerHTML = '<label for="pronunciation-voice" data-i18n="Default voice">Default voice</label><div class="pronunciation-settings-row"><select id="pronunciation-voice"></select><button type="button" class="ah-button" data-i18n="Try voice">Try voice</button></div><p class="pronunciation-note" data-i18n="English voices available on this device. Online voices may need an internet connection.">English voices available on this device. Online voices may need an internet connection.</p><p class="pronunciation-note" data-i18n="No sound on iPad? Turn off Silent Mode in Control Center.">No sound on iPad? Turn off Silent Mode in Control Center.</p><p class="pronunciation-note" role="status"></p>';
+      section.innerHTML = '<label for="pronunciation-voice" data-i18n="Default voice">Default voice</label><div class="pronunciation-settings-row"><select id="pronunciation-voice"></select><button type="button" class="ah-button" data-i18n="Try voice">Try voice</button></div><p class="pronunciation-note" data-i18n="Words use recorded audio. This voice is for full sentences and words without recordings. Online voices may need an internet connection.">Words use recorded audio. This voice is for full sentences and words without recordings. Online voices may need an internet connection.</p><p class="pronunciation-note" data-i18n="No sound on iPad? Turn off Silent Mode in Control Center.">No sound on iPad? Turn off Silent Mode in Control Center.</p><p class="pronunciation-note" role="status"></p>';
       dialog.append(section);
       this.voiceSelect = section.querySelector('select');
       const preview = section.querySelector('button');
@@ -85,7 +91,7 @@
         try { window.localStorage.setItem('letseigo.englishVoice', this.preferredVoice); } catch { /* Session-only if storage is blocked. */ }
         this.refreshVoices();
       });
-      preview.addEventListener('click', () => this.speak('What do you want? I want strawberries, cheese, and vanilla ice cream.', this.settingsStatus));
+      preview.addEventListener('click', () => this.speak('What do you want? I want strawberries, cheese, and vanilla ice cream.', this.settingsStatus, true));
       this.synth?.addEventListener('voiceschanged', this.refreshVoices);
       document.addEventListener('activityhub:languagechange', this.refreshVoices);
       document.querySelector('#language')?.addEventListener('click', this.refreshVoices);
@@ -96,6 +102,12 @@
       this.refreshVoices();
     }
     stop() {
+      if (this.audio) {
+        const audio = this.audio;
+        this.audio = null;
+        audio.onended = audio.onerror = null;
+        audio.pause();
+      }
       window.clearTimeout(this.startTimer);
       if (this.previewButton) this.previewButton.setAttribute('data-playing', 'false');
       if (this.utterance) {
@@ -103,7 +115,31 @@
         this.synth.cancel();
       }
     }
-    speak(text, status = this.status) {
+    recording(text) { return window.Audio && window.ActivityHubAudio?.resolve(text); }
+    speak(text, status = this.status, browserOnly = false) {
+      const url = !browserOnly && this.recording(text);
+      if (url) {
+        this.stop();
+        let audio;
+        const fallback = () => {
+          if (this.audio !== audio) return;
+          this.stop();
+          this.speak(text, status, true);
+        };
+        try {
+          audio = new window.Audio(url);
+          this.audio = audio;
+          audio.onended = () => { if (this.audio === audio) this.audio = null; };
+          audio.onerror = fallback;
+          // Start directly in the tap handler for Safari; never preload the library.
+          const playing = audio.play();
+          playing?.catch(fallback);
+        } catch {
+          if (audio) fallback();
+          else this.speak(text, status, true);
+        }
+        return;
+      }
       const report = message => {
         this.lastPlaybackMessage = message;
         // Routine diagnostics belong in settings, never below the artwork.
@@ -163,7 +199,7 @@
       this.sentence.replaceChildren();
       const known = new Set(names.filter(Boolean).map(name => name.toLowerCase()));
       for (const part of segments(text, names)) {
-        if (this.available && known.has(part.toLowerCase())) {
+        if ((this.available || this.recording(part)) && known.has(part.toLowerCase())) {
           const button = document.createElement('button');
           button.type = 'button'; button.className = 'pronunciation-word';
           button.textContent = part; button.lang = 'en';

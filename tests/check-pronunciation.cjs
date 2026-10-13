@@ -55,3 +55,35 @@ spoken.at(-1).onstart();assert.match(speech.settingsStatus.textContent,/started/
 spoken.at(-1).onend();assert.match(speech.settingsStatus.textContent,/finished/);assert.equal(speech.previewButton.attrs['data-playing'],'false');
 speech.synth.getVoices=()=>{throw new Error('voice lookup failed');};speech.speak('Setup error');assert.match(speech.settingsStatus.textContent,/could not play/);assert.equal(speech.previewButton.attrs['data-playing'],'false');
 console.log('Immediate tap feedback, start/end feedback, and setup exception checks passed.');
+
+// Recorded playback: exact phrase lookup, no eager audio, interruption and stale failures.
+(async () => {
+ const audio=[];
+ window.Audio=class {
+  constructor(url){this.url=url;audio.push(this);}
+  play(){return new Promise((resolve,reject)=>{this.reject=reject;});}
+  pause(){this.paused=true;}
+ };
+ window.ActivityHubAudio={resolve:text=>text==='bananas'?'banana.mp3':null};
+ speech.synth.getVoices=()=>[american];
+ assert.equal(audio.length,0);
+ speech.speak('bananas');assert.equal(audio.length,1);assert.equal(audio[0].url,'banana.mp3');
+ const before=spoken.length;
+ speech.speak('bananas');assert.equal(audio[0].paused,true);
+ audio[0].reject(new Error('stale'));await Promise.resolve();assert.equal(spoken.length,before);
+ audio[1].reject(new Error('missing'));await Promise.resolve();assert.equal(spoken.at(-1).text,'bananas');
+ speech.speak('bananas');const current=audio.at(-1);speech.render('New order',[]);assert.equal(current.paused,true);
+ speech.speak('I want bananas.');assert.equal(spoken.at(-1).text,'I want bananas.');
+ speech.speak('bananas',speech.settingsStatus,true);assert.equal(spoken.at(-1).text,'bananas');
+ unavailable.render('bananas',['bananas']);assert.equal(plain.querySelectorAll().length,1);
+ console.log('Recorded playback, missing-file fallback, stale rejection, text-change cancellation and no-speech vocabulary checks passed.');
+const question=new Element();question.textContent='What do you want?';
+document.querySelector=selector=>selector==='[data-pronunciation-question]'?question:null;
+window.ActivityHubAudio={resolve:text=>text==='What do you want?'?'question.mp3':null};
+const questionOrder=new Element();questionOrder.parentElement=new Element();
+const questionPlayer=new window.BuilderPronunciation(questionOrder);
+question.events.click();assert.equal(questionPlayer.audio.url,'question.mp3');
+assert.equal(question.attrs['aria-label'],'Listen: What do you want?');
+questionPlayer.stop();
+console.log('Target question uses recorded playback and an accessible button.');
+})().catch(error=>{console.error(error);process.exitCode=1;});

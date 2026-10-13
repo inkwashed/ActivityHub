@@ -5,3 +5,8 @@ node_modules/
 .env.*
 !.env.example
 releases/
+
+# Local speech models, source WAVs and unreviewed generation batches.
+work/audio/
+
+scripts/audio/__pycache__/

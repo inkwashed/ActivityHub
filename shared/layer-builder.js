@@ -70,12 +70,16 @@
   }
   updateSentence() {
    if(this.creative?.active){super.updateSentence();return;}
-   const labels=this.state.layers.map(pair=>[...new Set(pair.filter(Boolean))].map(id=>this.config.toppings.find(item=>item.id===id).label).join(' and ')).filter(Boolean);
+   const fruits=[...new Set(this.state.layers.flat().filter(Boolean))].map(id=>this.config.toppings.find(item=>item.id===id).label);
    const base=this.config.bases?.find(item=>item.id===this.state.base&&!item.empty);
    const syrup=this.config.sauces.find(item=>item.id===this.state.sauce);
-   let order=labels.join(',\n');
-   if(base)order=base.label+(order?' with\n'+order:'');
-   const sentence=order?`I want ${order}\nwith ${syrup?.label||'no syrup'}.`:'I want ….';
+   const list=items=>items.length<3?items.join(' and '):items.slice(0,-1).join(', ')+', and '+items.at(-1);
+   // Fruit and selected syrup form one list; an absent syrup remains a qualifier.
+   const additions=[...fruits];
+   if(syrup&&!syrup.empty)additions.push(syrup.label);
+   let order=base?base.label+(additions.length?' with '+list(additions):''):list(additions);
+   if(order&&(!syrup||syrup.empty))order+=' with no syrup';
+   const sentence=order?`I want ${order}.`:'I want ….';
    this.setSentence(sentence);
    this.root.querySelector(this.config.sceneSelector).setAttribute('aria-label',`Parfait with whipped cream. ${sentence.replace(/\n/g,' ')}`);
    const number=this.root.querySelector('#layer-number');

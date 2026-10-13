@@ -1,0 +1,4 @@
+kokoro==0.9.4
+transformers<5
+soundfile==0.14.0
+imageio-ffmpeg==0.6.0

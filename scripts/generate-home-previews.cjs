@@ -1,0 +1,21 @@
+/* Reuse actual Share renderers and ingredient artwork for reproducible home previews. */
+const fs=require('node:fs'),vm=require('node:vm');
+const stage={left:0,top:0,width:400,height:320};
+const glass={left:12,top:0,width:376,height:249.6};
+let render;
+const window={BuilderPhoto:options=>{render=options.render;}};
+const document={querySelector:selector=>({getBoundingClientRect:()=>selector==='.parfait-stage'?stage:glass})};
+const context=vm.createContext({window,document});
+const load=path=>vm.runInContext(fs.readFileSync(path,'utf8'),context);
+load('shared/builder.js');load('apps/pizza/config.js');load('apps/pizza/sharing.js');
+const pizza=Object.create(window.FoodBuilder.prototype);
+pizza.config=window.PIZZA_CONFIG;pizza.seed=pizza.config.seed>>>0;pizza.positions=new Map();
+pizza.state={sauce:'tomato',toppings:Object.fromEntries(pizza.config.toppings.map(t=>[t.id,['cheese','corn'].includes(t.id)?2:0]))};
+fs.writeFileSync('assets/pizza-preview.svg',render(pizza)+'\n');
+load('apps/parfait/config.js');
+window.LayerBuilder=class{constructor(root,config){this.config=config;}};
+load('apps/parfait/builder.js');load('apps/parfait/sharing.js');
+const parfait=window.parfaitBuilder;
+parfait.state={base:'vanilla',sauce:'chocolate',layers:[['strawberries','strawberries']]};
+fs.writeFileSync('assets/parfait-preview.svg',render(parfait)+'\n');
+console.log('Updated both homepage examples using the Share renderers.');

@@ -235,3 +235,9 @@ The language dialog includes a “Default voice” labelled native select and a 
 Pronunciation diagnostics appear only in voice settings; keep the artwork/order area free of playback messages. In settings, show immediate starting feedback and browser-reported playback status; these events do not prove the user heard sound. The preview uses secondary button styling and a persistent active treatment while speech is pending/playing. Deduplicate identical voice labels to avoid confusing device voice lists.
 
 Use stable small-viewport height (`svh`) for builder fit budgets and card growth so mobile browser chrome cannot resize the activity during scrolling. Parfait stage width is width-based in stacked layouts; landscape has one bounded height-aware sizing rule with a 280px target minimum, still capped by available column width. Keep the iPad Silent Mode note in pronunciation settings.
+
+Recorded vocabulary uses the existing inline pronunciation buttons without changing sentence text or layout. Voice settings explain that device voice choices affect sentences and unrecorded words; recorded vocabulary retains its approved voice. Keep that explanation translated.
+
+The English target question is also a native inline pronunciation button, using the same dotted underline, focus treatment, and minimum target height as vocabulary. Keep heading typography and play the approved question recording on tap.
+
+Homepage applet cards—including featured applets—use a compact square preview column capped at 260px, with the remaining width assigned to the text column. Use 20px card padding, a 24px column gap, and 16px preview corners. At 620px and below, stack the card with a centered preview capped at 220px and a 20px gap. Images use proportional containment; never stretch artwork or enlarge the preview to match text height. Text may grow independently.
