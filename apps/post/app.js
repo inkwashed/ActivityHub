@@ -37,8 +37,20 @@ function validate(input){
  if(['accentFinish','headingFinish','subheadingFinish','messageFinish'].some(k=>!['solid','metallic'].includes(out[k])))throw Error('Invalid accent finish');
  if(!Number.isFinite(out.headingSize)||out.headingSize<24||out.headingSize>64||!Number.isFinite(out.subheadingSize)||out.subheadingSize<14||out.subheadingSize>36)throw Error('Invalid text size');return out;
 }
-function encodeCard(card){const bytes=new TextEncoder().encode(JSON.stringify([8,...keys.map(k=>card[k])]));let bin='';bytes.forEach(b=>bin+=String.fromCharCode(b));return btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');}
-function decodeCard(token){if(token.length>8000||!/^[\w-]+$/.test(token))throw Error('Invalid link');const bytes=Uint8Array.from(atob(token.replace(/-/g,'+').replace(/_/g,'/')),c=>c.charCodeAt(0));const values=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes));if(!Array.isArray(values)||![1,2,3,4,5,6,7,8].includes(values[0]))throw Error('Unsupported card version');const fields=values[0]===1?legacyKeys:values[0]===2?version2Keys:values[0]===3?version3Keys:values[0]===4?version4Keys:values[0]===5?version5Keys:values[0]===6?version6Keys:values[0]===7?version7Keys:keys;if(values.length!==fields.length+1)throw Error('Invalid card');const card=Object.fromEntries(fields.map((k,i)=>[k,values[i+1]]));return validate(values[0]>=3?card:upgradeParticles(values[0]===1?upgradeLegacy(card):card));}
+function encodeCard(card){
+ const encode=values=>PostLinkCodec.encode(new TextEncoder().encode(JSON.stringify(values)));
+ const legacy=encode([8,...keys.map(k=>card[k])]);
+ const compact=encode([9,...keys.map(k=>{const v=card[k],id=typeof v==='string'?PostLinkDictionaryV9.indexOf(v):-1;return id<0?v:id;})]);
+ return compact.length<legacy.length?compact:legacy;
+}
+function decodeCard(token){const bytes=PostLinkCodec.decode(token);const values=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes));if(!Array.isArray(values)||![1,2,3,4,5,6,7,8,9].includes(values[0]))throw Error('Unsupported card version');const fields=values[0]===1?legacyKeys:values[0]===2?version2Keys:values[0]===3?version3Keys:values[0]===4?version4Keys:values[0]===5?version5Keys:values[0]===6?version6Keys:values[0]===7?version7Keys:keys;if(values.length!==fields.length+1)throw Error('Invalid card');const card=Object.fromEntries(fields.map((k,i)=>{
+ let value=values[i+1];
+ if(values[0]===9&&typeof defaults[k]==='string'&&typeof value==='number'){
+  if(!Number.isInteger(value)||value<0||value>=PostLinkDictionaryV9.length)throw Error('Unknown dictionary entry');
+  value=PostLinkDictionaryV9[value];
+ }
+ return [k,value];
+}));return validate(values[0]>=3?card:upgradeParticles(values[0]===1?upgradeLegacy(card):card));}
 function fontSpec(size,family,bold=false,italic=false){return `${italic?'italic ':''}${bold?'700':'400'} ${size}px ${fonts[family]}`;}
 function wrap(text,width,size,family,bold=false,italic=false){
  ctx.font=fontSpec(size,family,bold,italic);
@@ -360,7 +372,7 @@ function openTextColor(key){
  updateColorDialog(state[key]);
  $('text-color-dialog').showModal();
 }
-function setStep(n){step=n;if(n===5)openSections.set(5,'Share link');if(n>=0&&n<=4){backShowing=n===3;updateVisibleFace();}render();$('controls').querySelector('h1').setAttribute('tabindex','-1');$('controls').querySelector('h1').focus({preventScroll:true});}
+function setStep(n){if(n!==step)status('');step=n;if(n===5)openSections.set(5,'Share link');if(n>=0&&n<=4){backShowing=n===3;updateVisibleFace();}render();$('controls').querySelector('h1').setAttribute('tabindex','-1');$('controls').querySelector('h1').focus({preventScroll:true});}
 function updateButtons(){document.querySelectorAll('[data-key]').forEach(b=>b.setAttribute('aria-pressed',state[b.dataset.key]===b.dataset.value));document.querySelectorAll('[data-toggle]').forEach(b=>b.setAttribute('aria-pressed',state[b.dataset.toggle]));}
 function link(){return location.href.split(/[?#]/)[0]+'#card='+encodeCard(validate(state));}
 function updateShareLink(){generated='';try{generated=link()}catch{status('Please shorten your text or remove unsupported characters before sharing.');return;}$('share-result').hidden=false;$('share-url').value=generated;$('view-link').href=generated;$('email-link').href='mailto:?subject='+encodeURIComponent('A little note for you')+'&body='+encodeURIComponent('I made you a postcard:\n\n'+generated);}

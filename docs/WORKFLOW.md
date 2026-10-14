@@ -70,7 +70,7 @@ Use checks proportional to the change; do not add tests that merely restate CSS 
 
 - Activity: initial state, selection/removal, reset, relevant modes, long prompts, and fully populated states.
 - Shared controls: default, hover on pointer devices, touch press, keyboard focus/activation, selected, disabled, and reduced motion.
-- Layout: iPad portrait and landscape, desktop normal/fullscreen, narrow mobile, and enlarged text. Include both short and long order text; preserve meaningful activity space without horizontal overflow.
+- Layout: verify that choices stay top-aligned when modes, ingredient sources, or order length change; check shared card-sizing stylesheet and row-count configuration. Check iPad portrait and landscape, desktop normal/fullscreen, narrow mobile, and enlarged text. Include both short and long order text; preserve meaningful activity space without horizontal overflow.
 - Files: local assets resolve; shared relative paths survive hosting and local opening; no unnecessary network dependency has been introduced.
 - Exports/dialogs where present: opening/closing, error state, current-state capture, long captions, download behavior, and state preservation.
 - Evidence: distinguish syntax/source checks, mocked behavior checks, real browser checks, and physical-device checks. Missing device access is a limitation to report, not a reason to claim verification.
@@ -80,6 +80,7 @@ Use checks proportional to the change; do not add tests that merely restate CSS 
 | Applet | Entry point | Behavior checks | Current limitations |
 | --- | --- | --- | --- |
 | ほんの手紙 POST (featured) | `apps/post/index.html` | `node tests/check-post.cjs` | Independent styling by request; English UI with paired Japanese card fonts. Static links contain card text; no server inbox. Physical-device verification outstanding. |
+| Sandwich Builder (prototype) | `apps/sandwich/index.html` | `node tests/check-sandwich.cjs` | Three filling slots and source choices; shared PLAY editor; local browser/device review pending. Not on homepage. |
 | Parfait Builder | `apps/parfait/index.html` | `node tests/check-parfait.cjs` | LEARN/PLAY; EASY only; local photo export; iPad download check pending. Mock checks; device visuals outstanding. Listed on homepage. |
 | Pizza Builder | `apps/pizza/index.html` | `node tests/check.cjs`, `node tests/check-fullscreen.cjs`, `node tests/check-sharing.cjs`, `node tests/check-creative.cjs` from repository root | Mock-based checks; physical iPad visual/download checks outstanding. Textbook back link returns to the home page’s Let’s Try! 2 section; English/Japanese interface language is supported. |
 
@@ -197,7 +198,18 @@ Paired-layer draw order follows row then piece position: each successive fruit o
 
 Creative editing now uses shared/creative-builder.js in both builders; Pizza has a bootstrap and Parfait supplies local bounds, help, and EASY-only policy. Test both check-creative.cjs and check-parfait-creative.cjs after editing it. Photo workflow is shared; dessert/pizza rendering stays app-specific. Parfait HARD is disabled pending redesign.
 
-Paired fruit selection starts at slot 1 and stays on the selected slot after each choice, allowing repeated substitutions. Changing slots is explicit; clearing selects the cleared slot, and Reset returns to slot 1.
+## Multiple-item selector contract
+
+Apply this contract to builders with two or more explicit item slots. Visual specifications belong to “Multiple-item selectors” in STYLE-GUIDE.md.
+
+- Start with slot 1 selected. Adding or replacing an ingredient keeps that slot selected; do not auto-advance. Clearing selects the cleared slot and returns keyboard focus to its selection button. Reset returns to slot 1.
+- Each intervening swap button exchanges only its two neighboring slots, including empty slots. Move the complete item state, including source choices and any other item-specific metadata, without recreating or discarding it.
+- Selection follows the moved item when the active slot is in the exchanged pair. Otherwise the active slot stays unchanged. Update contextual controls, artwork, and output together; announce the swap through the existing accessible announcement mechanism.
+- Disable a swap when both slots are empty or when exchanging them would make no meaningful change. Compare all relevant item state: identical ingredients with different sources must still be swappable.
+- Preserve the app’s rendering and sentence rules while updating them to reflect the new slot order. Keep slot editing independent of PLAY placements and ingredient paging.
+- Verify swaps in both directions, filled/empty pairs, identical items with different metadata, active selection inside/outside the pair, source retention, reset, and mode isolation. Include keyboard and touch checks when browser/device access is available.
+
+Current implementations are Parfait’s two-slot interaction in `shared/layer-builder.js` and Sandwich’s three-slot interaction in `apps/sandwich/builder.js`. This is a common behavior contract, not a claim that both already use one generic slot component. Reuse the existing shared implementation where it fits; keep app-specific source data and grammar local.
 
 Shared card sizing is owned by builder-card-sizing.css and loaded by both applets after choice-row.css. App configuration via CSS row-count variables accounts for different menu contents while retaining identical sizing limits. Check both applets when changing this file.
 
@@ -241,3 +253,7 @@ The site-wide audio library belongs in `assets/audio/`; its README owns generati
 The approved vocabulary library now contains 54 Heart recordings, including corrected banana/bananas. Both builders load the shared library before pronunciation.js. Publish assets/audio along with shared files and app entry pages. The voice setting controls browser-synthesized sentences/fallbacks, not recorded vocabulary. Retain approved provenance in assets/audio/manifest.json.
 
 Homepage builder examples are generated by `node scripts/generate-home-previews.cjs` using each app’s Share renderer and configured artwork/background. Regenerate after relevant artwork/export changes and refresh preview image hashes in index.html. Keep example ingredients consistent with their homepage captions.
+
+CreativeBuilder supports an optional `onSelect(editor)` callback for contextual controls (Sandwich ingredient sources). It follows selection without changing stacking or requiring app-local replacement of editor methods. Source-choice mappings and initials grammar remain sandwich-specific.
+
+ChoicePager supports `data-choice-play-only="true"` options: exclude them from LEARN page counts and reveal them only when expanded for PLAY. Sandwich uses this for editable bread; its fixed bottom bread remains part of the scene.

@@ -1,6 +1,6 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const context=vm.createContext({TextEncoder,TextDecoder,btoa,atob,URL,location:{href:'https://example.org/'},document:{createElement:()=>({getContext:()=>({font:'18px Georgia',measureText(t){return {width:t.length*parseFloat(this.font.match(/([\d.]+)px/)[1])*.55}}})})}});
-vm.runInContext(fs.readFileSync('apps/post/data.js','utf8')+'\n'+fs.readFileSync('apps/post/app.js','utf8').split("let helpButton=null")[0],context);
+vm.runInContext(fs.readFileSync('apps/post/link-dictionary.js','utf8')+'\n'+fs.readFileSync('apps/post/link-codec.js','utf8')+'\n'+fs.readFileSync('apps/post/data.js','utf8')+'\n'+fs.readFileSync('apps/post/app.js','utf8').split("let helpButton=null")[0],context);
 function evaluate(s){return vm.runInContext(s,context)}
 assert.equal(evaluate('JSON.stringify(decodeCard(encodeCard(defaults)))===JSON.stringify(defaults)'),true);
 assert.equal(evaluate(`(()=>{const s={...defaults,message:'ありがとう 💌\\nBonne année <script>alert(1)</script>'};return JSON.stringify(decodeCard(encodeCard(s)))===JSON.stringify(s)})()`),true);
@@ -88,3 +88,32 @@ assert.equal(context.exportCalls.filter(c=>c[0]==='underline').length,2);
 assert.equal(context.exportCalls.filter(c=>c[0]==='stop').length,2);
 assert.ok(!exportSource.includes('embeddedFontStyles'),'PNG export must not fetch fonts on file URLs');
 console.log('Passed: PNG text positions, Japanese text, font styles, metallic gradients, and underlines.');
+
+// Old v8 links and new compressed links must describe exactly the same card.
+assert.equal(evaluate(`(()=>{const raw=btoa(unescape(encodeURIComponent(JSON.stringify([8,...keys.map(k=>defaults[k])]))));return JSON.stringify(decodeCard(raw.replace(/=/g,'').replace(/\\+/g,'-').replace(/\\//g,'_')))===JSON.stringify(defaults)})()`),true);
+for(const message of ['A short note.','ありがとう。素敵な一年になりますように！ 💌','x'.repeat(500)]){
+ context.sampleMessage=message;
+ assert.equal(evaluate(`(()=>{const s={...defaults,message:sampleMessage};return JSON.stringify(decodeCard(encodeCard(s)))===JSON.stringify(s)})()`),true);
+}
+const codecSource=fs.readFileSync('apps/post/link-codec.js','utf8');
+const codecContext=vm.createContext({btoa,atob,Uint8Array});vm.runInContext(codecSource,codecContext);
+let seed=1234567;
+for(const size of [1,2,7,8,9,18,100,4095,4096,6000]){
+ const bytes=Uint8Array.from({length:size},()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed>>>24;});
+ codecContext.bytes=bytes;
+ assert.deepEqual(Array.from(vm.runInContext('PostLinkCodec.decode(PostLinkCodec.encode(bytes))',codecContext)),Array.from(bytes));
+}
+for(const token of ['z1.','z1.AA','z1.AQA','z1.AQAA','z1.!!!!']){context.invalidToken=token;assert.throws(()=>evaluate('decodeCard(invalidToken)'));}
+assert.equal(evaluate('encodeCard(defaults).startsWith("z1.")'),true);
+context.plainToken=evaluate("btoa(JSON.stringify([8,...keys.map(k=>defaults[k])])).replace(/=+$/,'')");
+console.log(`Passed: compression, legacy v8, Unicode/emoji, random-byte boundaries, malformed streams. Default payload: ${context.plainToken.length} → ${evaluate('encodeCard(defaults).length')} characters.`);
+for(const message of ['12 love you 001','Love, Corinne\nありがとう 💌','Merry Christmas','merry Christmas']){
+ context.dictionaryMessage=message;
+ assert.equal(evaluate(`(()=>{const card={...defaults,message:dictionaryMessage};const old=PostLinkCodec.encode(new TextEncoder().encode(JSON.stringify([8,...keys.map(k=>card[k])])));return JSON.stringify(decodeCard(old))===JSON.stringify(card)&&JSON.stringify(decodeCard(encodeCard(card)))===JSON.stringify(card)&&encodeCard(card).length<=old.length;})()`),true);
+}
+for(const id of [-1,999999,0.5])assert.throws(()=>evaluate(`decodeCard(PostLinkCodec.encode(new TextEncoder().encode(JSON.stringify([9,${id},...keys.slice(1).map(k=>defaults[k])]))))`));
+for(const theme of Object.keys(evaluate('themes'))){
+ context.dictionaryTheme=theme;
+ assert.equal(evaluate(`(()=>{const card=occasionTemplate(dictionaryTheme);return JSON.stringify(decodeCard(encodeCard(card)))===JSON.stringify(validate(card));})()`),true);
+}
+console.log('Passed: v9 dictionary references, literal numeric/case-sensitive/Unicode messages, compressed v8 compatibility, template round trips, and shortest-encoding selection.');

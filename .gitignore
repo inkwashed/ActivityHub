@@ -10,3 +10,6 @@ releases/
 work/audio/
 
 scripts/audio/__pycache__/
+
+# Local textbook extraction and prototype scratch files.
+work/sandwich/

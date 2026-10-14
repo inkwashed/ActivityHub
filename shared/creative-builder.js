@@ -117,6 +117,7 @@
       this.selected=this.items.some(x=>x.id===id)?id:null;
       this.items.forEach(x=>x.node.classList.toggle('selected',x.id===this.selected));
       this.actions.forEach(b=>b.disabled=this.selected===null);this.picker.value=this.selected?String(this.selected):'';
+      this.options.onSelect?.(this);
     }
     edit(action){
       const item=this.items.find(x=>x.id===this.selected);if(!item)return;

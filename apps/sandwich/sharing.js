@@ -1,0 +1,1 @@
+window.BuilderPhoto({builder:()=>window.sandwichBuilder,render:builder=>window.SandwichLesson.svg(builder.creative?.active?builder.creative.orderedItems():builder.state.slots.filter(Boolean),builder.config,!!builder.creative?.active,true),imageSelector:'#sandwich-photo',caption:'My sandwich!'});

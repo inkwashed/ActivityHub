@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {createHash} = require('node:crypto');
 const root = path.resolve(__dirname, '..');
-for (const app of ['pizza', 'parfait']) {
+for (const app of ['pizza', 'parfait', 'sandwich']) {
   const file = path.join(root, 'apps', app, 'index.html');
   const html = fs.readFileSync(file, 'utf8');
   const updated = html.replace(/\b(src|href)="([^"?#]+\.(?:js|css|svg))(?:\?v=[a-f0-9]+)?"/g, (match, attr, url) => {

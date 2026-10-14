@@ -134,7 +134,7 @@ For crowded builders, use `shared/builder-panes.js` and `shared/builder-panes.cs
 
 Parfait filling uses a restrained contrasting contour so pale cream stays visible against the glass. Decorative fruit rows use consistent orientation and even spacing rather than broad random rotation; strawberry points face upward. Layer ordering is content behind the glass outline, with the open rim allowing above-glass decoration.
 
-Paired-layer builders replace quantity dots with two explicit selectable slots and separate previous/next layer controls. The selected slot uses shared choice styling; fruit cards indicate membership in the current row. Keep dialogue and order summaries in English with preserved line breaks. Translate editing controls. Option-pane arrows and layer arrows must retain distinct accessible names.
+Builders with a fixed set of ingredient slots follow the multiple-item selector standard below. Ingredient paging is separate from slot swapping; give paging and swap controls distinct accessible names. Keep lesson output in English with natural wrapping.
 
 Creative builder palettes may opt into `shared/builder-create.css` using `.is-create` on the workspace. In landscape use a bounded icon-only palette with at least 44px touch targets; portrait places the compact tray below the artwork. Hide labels visually, preserve accessible names, and retain the piece picker. Pizza calls this mode PLAY; internal free-mode identifiers remain for compatibility. LEARN retains labelled choices.
 
@@ -198,7 +198,17 @@ Parfait adopts the 420–444px landscape menu column and 14px panel inset in its
 
 For four short base choices, opt into `four-choice-row` from shared/choice-row.css (after app layout). Use four equal cards with artwork above wrapping 14px labels and an 8px gap. At widths of 380px or less, use two columns. Pizza sauces and Parfait ice cream/syrups use this pattern; Pizza PLAY retains accessible labels while displaying icons only.
 
-Parfait fruit slots are picture-only with accessible numbered fruit names. Empty slots use a grey circle/slash. A shared-style 44px swap icon between slots reverses their order; disable it when both choices are identical.
+### Multiple-item selectors
+
+Use this pattern whenever a builder offers two or more explicit item slots, including Parfait’s fruit pair and Sandwich’s three fillings.
+
+- Show ingredient artwork only, with no visible slot numbers, names, plus signs, or placeholder text. Empty slots show an upright grey circle/slash symbol. Use the configured ingredient artwork and orientation.
+- Use shared `ah-choice` styling and `aria-pressed` to identify the selected slot. Give each slot an accessible name containing its position and current ingredient, or a translated empty-slot instruction.
+- Keep slots equal-width with a 48px minimum height and approximately 36px artwork. Place a shared-style 44px swap button with opposing arrows between every adjacent pair, with 8px gaps. Three slots therefore have two swap buttons. Preserve touch targets on narrow screens rather than shrinking them.
+- Label each swap accessibly with its affected positions (for example, “Swap fillings 1 and 2”); the two-slot case may use “Swap fruit choices.” Translate control labels and announcements, while ingredient vocabulary remains English.
+- Keep selection, keyboard focus, disabled states, and clear controls visible and usable. Interaction and state-preservation requirements belong to the multiple-item selector contract in WORKFLOW.md.
+
+Parfait uses this standard for its two fruit slots.
 
 Filled fruit slots expose a grey circle-X clear button in the upper-right corner, with a 44px hit target and translated slot-specific label. Keep it a sibling of the selection button, never a nested button. Hide it for empty slots and return focus to the cleared slot.
 
@@ -241,3 +251,11 @@ Recorded vocabulary uses the existing inline pronunciation buttons without chang
 The English target question is also a native inline pronunciation button, using the same dotted underline, focus treatment, and minimum target height as vocabulary. Keep heading typography and play the approved question recording on tap.
 
 Homepage applet cards—including featured applets—use a compact square preview column capped at 260px, with the remaining width assigned to the text column. Use 20px card padding, a 24px column gap, and 16px preview corners. At 620px and below, stack the card with a centered preview capped at 220px and a 20px gap. Images use proportional containment; never stretch artwork or enlarge the preview to match text height. Text may grow independently.
+
+Sandwich prototype uses three icon-only editable filling slots with adjacent swap arrows and a source selector that appears for the active filling or PLAY piece. Keep source labels readable, use native 44px selects, and preserve the selection when moving between slots. Its side-view food geometry is app-specific; shared typography, panel padding, paging, mode toggle, toolbar, and modal standards still apply.
+
+### Builder choices-column alignment
+
+The direct `#builder > [data-jump-section="choices"]` column is top-aligned using shared/builder-layout.css in LEARN and PLAY. Do not vertically center it to match the artwork or changing order text. Stacked layouts use horizontal auto margins only, not vertical auto margins. Keep the menu heading 12px above the panel; the toolbar may center beside the panel independently. Every builder, including Sandwich, loads shared/builder-card-sizing.css and declares its visible LEARN/PLAY row counts instead of setting separate card-height rules. Sandwich uses two LEARN rows and four PLAY rows, 14px panel padding, and a 44px toolbar with a 12px gutter.
+
+Compact PLAY palettes must not inherit LEARN-sized whitespace. Use shared/builder-card-sizing.css for both modes. Default PLAY padding is 6px with 52–84px card growth; dense palettes may opt into `--play-choice-padding` and `--play-choice-max` while retaining the shared 52px minimum and 44px touch targets. Sandwich’s four-column, 16-item palette uses 4px padding and a 64px growth cap. Check compact and tall landscape screens as well as stacked layouts when adding a builder.

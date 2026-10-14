@@ -29,3 +29,6 @@
  .ah-builder .heading .question{font-size:25px;margin-bottom:15px}
  .ah-builder .pantry{padding:21px 16px}
 }
+
+/* Choices remain anchored when the artwork or order grows. */
+.ah-builder #builder > [data-jump-section="choices"]{align-self:start;min-width:0}

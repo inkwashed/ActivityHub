@@ -18,7 +18,7 @@ window.PARFAIT_CONFIG = {
       ],
       "size": 21,
       "color": "#c95852",
-      "art": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\" aria-hidden=\"true\"><path d=\"M17 12Q32 8 47 12Q57 19 49 35Q42 49 32 57Q22 49 15 35Q7 19 17 12Z\" fill=\"#e95764\" stroke=\"#b83749\" stroke-width=\"2\"/><path d=\"M20 16Q32 13 44 16Q50 20 44 32Q39 42 32 49Q25 42 20 32Q14 20 20 16Z\" fill=\"#ffacaa\"/><path d=\"M27 15Q32 14 37 15L36 27Q35 36 32 43Q29 36 28 27Z\" fill=\"#fff0d7\"/><path d=\"M23 22L28 26M41 22L36 26M23 31L29 33M41 31L35 33M27 40L31 39M37 40L33 39\" stroke=\"#ffe0cf\" stroke-width=\"2\" stroke-linecap=\"round\"/><g fill=\"#ffd49e\"><ellipse cx=\"15\" cy=\"22\" rx=\"1\" ry=\"2\"/><ellipse cx=\"49\" cy=\"22\" rx=\"1\" ry=\"2\"/><ellipse cx=\"20\" cy=\"38\" rx=\"1\" ry=\"2\"/><ellipse cx=\"44\" cy=\"38\" rx=\"1\" ry=\"2\"/></g></svg>"
+      "art": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" fill=\"none\" aria-hidden=\"true\"><path d=\"M17 12Q32 8 47 12Q57 19 49 35Q42 49 32 57Q22 49 15 35Q7 19 17 12Z\" fill=\"#e95764\" stroke=\"#b83749\" stroke-width=\"2\"/><path d=\"M20 16Q32 13 44 16Q50 20 44 32Q39 42 32 49Q25 42 20 32Q14 20 20 16Z\" fill=\"#ffacaa\"/><path d=\"M27 15Q32 14 37 15L36 27Q35 36 32 43Q29 36 28 27Z\" fill=\"#fff0d7\"/><path d=\"M23 22L28 26M41 22L36 26M23 31L29 33M41 31L35 33M27 40L31 39M37 40L33 39\" stroke=\"#ffe0cf\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg>"
     },
     {
       "id": "bananas",

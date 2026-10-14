@@ -3,7 +3,8 @@
  class ChoicePager {
   constructor(root) {
    this.root=root;this.list=root.querySelector('[data-choice-list]');
-   this.items=[...this.list.children];this.size=Number(root.dataset.pageSize)||3;
+   this.playItems=[...this.list.children].filter(item=>item.dataset?.choicePlayOnly==='true');
+   this.items=[...this.list.children].filter(item=>!this.playItems.includes(item));this.size=Number(root.dataset.pageSize)||3;
    this.list.choicePager=this;this.expanded=false;
    this.page=0;this.pages=Math.max(1,Math.ceil(this.items.length/this.size));
    this.previous=root.querySelector('[data-choice-previous]');this.next=root.querySelector('[data-choice-next]');
@@ -20,6 +21,7 @@
   show(page) {
    this.page=(page+this.pages)%this.pages;
    this.items.forEach((item,i)=>{item.hidden=!this.expanded && Math.floor(i/this.size)!==this.page;});
+   this.playItems.forEach(item=>{item.hidden=!this.expanded;});
    this.previous.hidden=this.next.hidden=this.status.hidden=this.expanded;
    this.status.textContent=`${this.page+1} / ${this.pages}`;
    this.previous.disabled=this.next.disabled=this.pages===1;
