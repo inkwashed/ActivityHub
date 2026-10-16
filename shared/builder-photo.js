@@ -41,15 +41,18 @@ window.BuilderPhoto = options => {
   document.querySelector('#share').addEventListener('click', async () => {
     clearPhoto();
     const token = generation;
-    status.dataset.i18n = 'Making your photo…'; status.textContent = t(status.dataset.i18n);
+    status.dataset.i18n = options.messages?.making || 'Making your photo…'; status.textContent = t(status.dataset.i18n);
     shareDialog.showModal();
     try {
       const builder = options.builder();
       // Capture current selections and wording before awaiting image decoding.
+      let canvas;
+      if(options.canvas){canvas=await options.canvas(builder);}
+      else {
       const svg = options.render(builder);
       const sentence = options.square ? '' : document.querySelector('#sentence').textContent;
       const image = await loadImage('data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg));
-      const canvas = document.createElement('canvas');
+      canvas = document.createElement('canvas');
       const context = canvas.getContext('2d');
       if (!context) throw new Error('Canvas unavailable');
       if (options.square) {
@@ -68,6 +71,7 @@ window.BuilderPhoto = options => {
       context.font = '30px Arial';
       lines.forEach((line, i) => context.fillText(line, 500, 1060 + i * 40));
       }
+      }
       const blob = await new Promise((resolve, reject) => canvas.toBlob(value => value ? resolve(value) : reject(new Error('Export failed')), 'image/png'));
       if (token !== generation || !shareDialog.open) return;
       photoURL = URL.createObjectURL(blob);
@@ -75,7 +79,7 @@ window.BuilderPhoto = options => {
       photo.hidden = download.hidden = false;
       status.dataset.i18n = 'Ready to save!'; status.textContent = t(status.dataset.i18n);
     } catch (error) {
-      if (token === generation) { status.dataset.i18n = 'The photo could not be made. Please close this preview and try again.'; status.textContent = t(status.dataset.i18n); }
+      if (token === generation) { status.dataset.i18n = options.messages?.error || 'The photo could not be made. Please close this preview and try again.'; status.textContent = t(status.dataset.i18n); }
     }
   });
 };

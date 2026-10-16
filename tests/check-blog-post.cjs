@@ -1,0 +1,16 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
+const root=path.resolve(__dirname,'..'),context={window:{}};vm.createContext(context);
+for(const file of ['shared/blog-post.js','myblog/NH6-5/config.js'])vm.runInContext(fs.readFileSync(path.join(root,file),'utf8'),context);
+const {BlogPost:b,WorldBlogConfig:c}=context.window;
+assert.equal(b.sentences(c,b.normalize(c,c.example)).join(' '),"This is my cap. It's from Vietnam. Vietnam is in Asia. Vietnam is a nice country.");
+assert.equal(b.normalize(c).fields.item,'');
+const custom=b.normalize(c,{fields:{item:'handmade scarf',country:'Peru',continent:'South America',description:'beautiful'}});
+assert.equal(b.sentences(c,custom)[2],'Peru is in South America.');
+assert.equal(b.normalize(c,{fields:{item:'x'.repeat(100)}}).fields.item.length,80);
+const bad=b.normalize(c,{fields:{item:42,country:{}},images:[{src:'javascript:alert(1)'},{src:'data:image/svg+xml,<svg>'}]});assert.equal(bad.fields.item,'');assert.equal(bad.images[0].id,'cap');
+assert.equal(b.normalize(c,{fields:{item:'a\nb'}}).fields.item,'a b');
+assert.equal(b.normalize(c,{images:Array(7).fill({id:'cap'})}).images.length,3);
+assert.equal(b.normalize(c,null).images.length,1);
+assert.equal(b.safePhoto('data:image/jpeg;base64,AAAA'),true);
+assert.equal(b.safePhoto('data:image/jpeg;base64,'+'A'.repeat(700000)),false);
+console.log('Blog model checks passed: grammar, free text, corrupt state, image validation and limits.');

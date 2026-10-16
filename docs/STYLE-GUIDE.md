@@ -108,7 +108,7 @@ The text-only footer attribution is `Let’s EiGo! © 2026 letseigo.com · All r
 
 ## Brand
 
-Use **Let’s EiGo!** on the home page, in page titles, and in documentation. Applet headers display their activity name, without an additional site-brand line. Place the site brand unobtrusively before the copyright notice in the shared footer. Keep the shared palette and control styling; applets may have their own logos and favicons. The repository name and internal `ah-`/`ActivityHubI18n` identifiers remain unchanged.
+Use **Let’s EiGo!** on the home page, in page titles, and in documentation. Applet headers display their activity name, without an additional site-brand line. Place the site brand unobtrusively before the copyright notice in the shared footer. Keep the shared palette and control styling; applets retain their own logos and browser-tab favicons. The repository name and internal `ah-`/`ActivityHubI18n` identifiers remain unchanged.
 
 Homepage usage terms open in a native, scrollable dialog with a close button and Escape dismissal; closing returns focus to the opener. Applet footers remain text only. `LICENSE.txt` is authoritative: after editing it, run `node scripts/sync-license.cjs` to update the embedded homepage text. Embedding allows direct local opening without a network request. The license wording remains English; dialog controls support English/Japanese.
 
@@ -310,4 +310,14 @@ The EASY/HARD switch uses shared/icons/command.svg at 24 × 24px inside the cent
 
 App state autosaves locally without a toggle or repeated save messages. Reset remains the way to start over; keep its existing active-mode behavior. Do not reopen dialogs or resume audio automatically when restoring a saved activity.
 
-Home-screen shortcuts use the shared site airplane by default, while browser-tab favicons and applet header marks keep their own artwork. Every app entry includes shared/icons/apple-touch-icon.png (180px) and its own manifest referencing shared 192px/512px PNGs. Keep shared/icons/site-mark.svg as the editable master; regenerate the PNGs after palette/geometry changes. Manifests retain app-specific names and launch URLs and use browser display mode; this icon convention does not imply offline support or change navigation.
+Home-screen shortcuts use the shared site airplane by default, while browser-tab favicons and applet header marks keep their own artwork. Keep each applet’s `rel="icon"` pointed at its app-specific asset; never replace it when updating `apple-touch-icon` or manifest icons. Every app entry includes shared/icons/apple-touch-icon.png (180px) and its own manifest referencing shared 192px/512px PNGs. Keep shared/icons/site-mark.svg as the editable master; regenerate the PNGs after palette/geometry changes. Manifests retain app-specific names and launch URLs and use browser display mode; this icon convention does not imply offline support or change navigation.
+
+App-link sharing uses a QR icon button immediately after Language in the header, with a translated accessible label. Use shared/page-qr.js and shared/page-qr.css for the native dialog, black-and-white airplane QR, PNG download and Copy link. Show the public entry URL and keep the QR square with a four-module quiet zone. Keep image/creation Share actions separate. POST follows the same Language-then-QR header order, alongside a homepage back link. Its language dialog explains that its card editor remains English; card text is never translated. The local Lab uses an explicitly labelled homepage demonstration.
+
+QR dialog actions use the short labels “Download” and “Copy”, with a decorative download arrow or overlapping-sheets icon on the left, using the same shared button spacing as Reset/Share.
+
+The homepage header ends with a circular saved-avatar button after Language and QR. Use the shared grey profile silhouette when no valid local avatar is available. It opens a Profile dialog with the current selfie, a locally saved Name field, and an Edit Selfie action with a small Polaroid icon at the bottom linking to the avatar builder.
+
+## My Blog writing and snapshots
+
+Place native text inputs inline in the English sentence frames, with subtle underlines, visible focus and at least 44px touch height. Keep the right panel for photos and basic controls, including the usual Reset/Share pair. On small screens, use Post/Photos navigation. Display the saved homepage profile name beside the avatar; use “My blog” when absent. Share previews a compact webpage-style PNG with a small browser bar, profile, images and full sentences, using the shared dialog frame rather than the Builder Polaroid composition.

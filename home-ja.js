@@ -1,4 +1,9 @@
 window.ActivityHubI18n.register({
+  "Profile settings": "プロフィール設定",
+  "Name": "名前",
+  "Profile": "プロフィール",
+  "Close profile settings": "プロフィール設定を閉じる",
+  "Edit Selfie": "アバターを編集",
   "Unit 5": "Unit 5",
   "Make a sandwich": "サンドイッチを作る",
   "Choose your fillings, explore where they come from, and tell us about your sandwich.": "具材を選んで産地を調べ、自分のサンドイッチを紹介しよう。",
@@ -24,3 +29,5 @@ window.ActivityHubI18n.register({
   "Make a pizza": "ピザを作る",
   "Made for speaking, choosing, and trying things out—together or on your own.": "話して、選んで、試してみよう。みんなでも、ひとりでも。"
 });
+
+window.ActivityHubI18n.register({"Write about your item and add pictures to make your own blog post.":"持ち物について書いて、画像を追加して、自分のブログをつくろう。","Make a post":"投稿をつくる","2 activities":"2つのアクティビティ"});

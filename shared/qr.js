@@ -1,6 +1,6 @@
 // Browser adaptation of python-qrcode (BSD); see qr-LICENSE.txt.
 // Byte-mode QR encoding with high error correction; no network requests.
-const PostQR = (() => {
+const ActivityQR = (() => {
  const blocks=[[1, 26, 9], [1, 44, 16], [2, 35, 13], [4, 25, 9], [2, 33, 11, 2, 34, 12], [4, 43, 15], [4, 39, 13, 1, 40, 14], [4, 40, 14, 2, 41, 15], [4, 36, 12, 4, 37, 13], [6, 43, 15, 2, 44, 16], [3, 36, 12, 8, 37, 13], [7, 42, 14, 4, 43, 15], [12, 33, 11, 4, 34, 12], [11, 36, 12, 5, 37, 13], [11, 36, 12, 7, 37, 13], [3, 45, 15, 13, 46, 16], [2, 42, 14, 17, 43, 15], [2, 42, 14, 19, 43, 15], [9, 39, 13, 16, 40, 14], [15, 43, 15, 10, 44, 16], [19, 46, 16, 6, 47, 17], [34, 37, 13], [16, 45, 15, 14, 46, 16], [30, 46, 16, 2, 47, 17], [22, 45, 15, 13, 46, 16], [33, 46, 16, 4, 47, 17], [12, 45, 15, 28, 46, 16], [11, 45, 15, 31, 46, 16], [19, 45, 15, 26, 46, 16], [23, 45, 15, 25, 46, 16], [23, 45, 15, 28, 46, 16], [19, 45, 15, 35, 46, 16], [11, 45, 15, 46, 46, 16], [59, 46, 16, 1, 47, 17], [22, 45, 15, 41, 46, 16], [2, 45, 15, 64, 46, 16], [24, 45, 15, 46, 46, 16], [42, 45, 15, 32, 46, 16], [10, 45, 15, 67, 46, 16], [20, 45, 15, 61, 46, 16]];
  const positions=[[], [6, 18], [6, 22], [6, 26], [6, 30], [6, 34], [6, 22, 38], [6, 24, 42], [6, 26, 46], [6, 28, 50], [6, 30, 54], [6, 32, 58], [6, 34, 62], [6, 26, 46, 66], [6, 26, 48, 70], [6, 26, 50, 74], [6, 30, 54, 78], [6, 30, 56, 82], [6, 30, 58, 86], [6, 34, 62, 90], [6, 28, 50, 72, 94], [6, 26, 50, 74, 98], [6, 30, 54, 78, 102], [6, 28, 54, 80, 106], [6, 32, 58, 84, 110], [6, 30, 58, 86, 114], [6, 34, 62, 90, 118], [6, 26, 50, 74, 98, 122], [6, 30, 54, 78, 102, 126], [6, 26, 52, 78, 104, 130], [6, 30, 56, 82, 108, 134], [6, 34, 60, 86, 112, 138], [6, 30, 58, 86, 114, 142], [6, 34, 62, 90, 118, 146], [6, 30, 54, 78, 102, 126, 150], [6, 24, 50, 76, 102, 128, 154], [6, 28, 54, 80, 106, 132, 158], [6, 32, 58, 84, 110, 136, 162], [6, 26, 54, 82, 110, 138, 166], [6, 30, 58, 86, 114, 142, 170]];
  const exp=Array(512),log=Array(256);let value=1;
@@ -12,7 +12,7 @@ const PostQR = (() => {
   const list=blockList(version),capacity=list.reduce((s,b)=>s+b.data,0),bits=[];
   const put=(v,n)=>{for(let i=n-1;i>=0;i--)bits.push((v>>>i)&1);};
   put(4,4);put(bytes.length,version<10?8:16);for(const byte of bytes)put(byte,8);
-  if(bits.length>capacity*8)throw Error('This card link is too long for a QR code. Shorten the card text, or use Copy link instead.');
+  if(bits.length>capacity*8)throw Error('This link is too long for a QR code. Use Copy link instead.');
   put(0,Math.min(4,capacity*8-bits.length));while(bits.length%8)bits.push(0);
   const data=[];for(let i=0;i<bits.length;i+=8)data.push(bits.slice(i,i+8).reduce((v,b)=>v*2+b,0));
   for(let pad=0;data.length<capacity;pad++)data.push(pad%2?17:236);
@@ -64,3 +64,6 @@ const PostQR = (() => {
  function logoBox(qr){const n=qr.modules.length;let size=Math.max(5,Math.floor(n*.12));if(size%2===0)size--;const start=(n-size)/2;for(let r=start;r<start+size;r++)for(let c=start;c<start+size;c++)if(qr.reserved[r][c])return null;return {start,size};}
  return {encode,logoBox};
 })();
+
+// Backward-compatible name for POST card sharing.
+const PostQR = ActivityQR;

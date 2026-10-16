@@ -20,7 +20,7 @@
  }
  function layer(key,s){
   let art=parts[key==='face'?({slim:'faceSlim',round:'faceRound'}[s.face]||'face'):key==='hair'&&s.hair==='curly'?'hairCurly':key];
-  if(key==='clothes')art=s.clothes==='none'?'':recolor(art,'#5d9698',s.shirtColor,['#5d9698','#467577']);
+  if(key==='clothes')art=recolor(art,'#5d9698',s.shirtColor,['#5d9698','#467577']);
   if(key==='face'){
    if(neutralSkinTones.has(s.skin)){
     const palette={'#f8cfa9':s.skin,'#efac85':shadeSkin(s.skin,.85),'#af755b':shadeSkin(s.skin,.63)};

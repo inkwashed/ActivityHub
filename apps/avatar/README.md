@@ -1,8 +1,8 @@
-# Profile Pic
+# My Selfie (Beta)
 
 Open `index.html` directly, or serve the repository and visit `/apps/avatar/`.
 
-The active app uses user-authored SVG parts: Classic, Round and Slim faces; one eye expression with Basic/Eyelashes; nose, mouth, T-shirt; Tousled and Curly hair. Skin, iris, hair, clothing and background colors are editable. Hair, nose and clothing can be hidden. Reset restores Classic/Tousled. English/Japanese interface and local square PNG export; no accounts; appearance and selected tab autosave locally in this browser. Not deployed or listed on the homepage.
+The active app uses user-authored SVG parts: Classic, Round and Slim faces; one eye expression with Basic/Eyelashes; nose, mouth, T-shirt; Tousled and Curly hair. Skin, iris, hair, clothing and background colors are editable. Hair and nose can be hidden; clothing is required. Older saves with hidden clothing restore the default T-shirt. Reset restores Classic/Tousled. English/Japanese interface and local square PNG export; no accounts; appearance and selected tab autosave locally in this browser. Not deployed or listed on the homepage.
 
 ## Active files
 
@@ -11,6 +11,7 @@ The active app uses user-authored SVG parts: Classic, Round and Slim faces; one 
 - `svg-assets/`: original supplied SVG sources. `01-face-neck.svg` is Classic; named Round/Slim files are alternatives. `06-hair.svg` is Tousled; `hair-curly.svg` is Curly.
 - `svg-parts.js`: embedded SVG markup used for both direct-file opening and export.
 - `svg-art.js`: layer composition and recoloring.
+- `icon.svg`: static render of `renderAvatar(AvatarConfig.defaults)` from the current catalog and SVG renderer, shared by the app header and favicon. Regenerate when the default artwork changes and refresh both icon cache hashes in `index.html`.
 - `tracing-templates/hair-curly.svg`: retained user editing copy.
 - `tracing-templates/bob-fitted/`: current front/back bitmap references, placement instructions and preview against all three actual SVG heads. Bob is not yet integrated into the app.
 

@@ -1,0 +1,22 @@
+const {chromium}=require('/Users/corinne/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const assert=require('node:assert/strict');
+(async()=>{const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});const context=await browser.newContext({viewport:{width:1024,height:768}});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+const origin='http://127.0.0.1:8776';await page.goto(origin);await page.click('#home-profile');await page.fill('#profile-name','Aiko');await page.click('#close-profile');await page.goto(origin+'/myblog/NH6-5/');
+assert.equal(await page.locator('#blog-author-name').innerText(),'Aiko');assert.equal(await page.locator('[data-field=item]').inputValue(),'');
+await page.locator('[data-field=item]').fill('handmade scarf');await page.locator('[data-field=country]').first().fill('Peru');
+for(const input of await page.locator('[data-field=country]').all())assert.equal(await input.inputValue(),'Peru');
+await page.locator('[data-field=continent]').fill('South America');await page.locator('[data-field=description]').fill('beautiful');
+await page.locator('[data-field=item]').evaluate(el=>{el.focus();el.setSelectionRange(el.value.length,el.value.length);});await page.locator('[data-field=item]').pressSequentially('!');assert.equal(await page.locator('[data-field=item]').inputValue(),'handmade scarf!');
+await page.waitForTimeout(350);await page.reload();assert.equal(await page.locator('[data-field=item]').inputValue(),'handmade scarf!');
+await page.click('#share');await page.waitForFunction(()=>!document.querySelector('#download-photo').hidden);
+const downloadPromise=page.waitForEvent('download');await page.click('#download-photo');const download=await downloadPromise;await download.saveAs('work/blog-snapshot.png');
+await page.locator('#share-dialog .dialog-close').click();await page.waitForFunction(()=>!document.querySelector('#blog-snapshot').hasAttribute('src'));
+const profile=await page.context().newPage();await profile.goto(origin);await profile.click('#home-profile');await profile.fill('#profile-name','Ren');await page.waitForFunction(()=>document.querySelector('#blog-author-name').textContent==='Ren');
+const png=await page.locator('#blog-avatar').screenshot();await page.locator('#blog-upload').setInputFiles([{name:'one.png',mimeType:'image/png',buffer:png},{name:'two.png',mimeType:'image/png',buffer:png}]);await page.waitForFunction(()=>document.querySelectorAll('#blog-gallery img').length===3);
+await page.locator('[data-field=item]').fill('a'.repeat(80));await page.click('#share');await page.waitForFunction(()=>!document.querySelector('#download-photo').hidden);await page.locator('#share-dialog .dialog-close').click();
+for(const [width,height] of [[1366,768],[768,1024],[390,844],[320,568],[844,390]]){await page.setViewportSize({width,height});for(const view of ['preview','edit']){if(await page.locator('.blog-switch').isVisible())await page.locator(`[data-blog-view=${view}]`).click();assert.ok(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight&&document.documentElement.scrollWidth<=innerWidth));}}
+await page.setViewportSize({width:1024,height:768});await page.click('#language');await page.click('[data-language=ja]');await page.locator('#language-dialog .dialog-close').click();assert.equal(await page.locator('#blog-author-name').innerText(),'Ren');assert.equal(await page.locator('[data-field=country]').first().inputValue(),'Peru');
+await page.click('#blog-reset');assert.equal(await page.locator('[data-field=item]').inputValue(),'');assert.equal(await page.locator('#blog-author-name').innerText(),'Ren');await page.reload();assert.equal(await page.locator('[data-field=item]').inputValue(),'');
+await page.click('#blog-example');assert.equal(await page.locator('[data-field=continent]').inputValue(),'Asia');
+await page.screenshot({path:'work/blog-inline-desktop.png'});await page.setViewportSize({width:390,height:844});await page.locator('[data-blog-view=preview]').click();await page.screenshot({path:'work/blog-inline-phone.png'});
+assert.deepEqual(errors,[]);await browser.close();console.log('PASS: inline typing/mirrors/reload/reset, homepage name and cross-tab updates, snapshot download/cleanup, 3 images/long input, 6 sizes and Japanese.');})().catch(e=>{console.error(e);process.exit(1)});

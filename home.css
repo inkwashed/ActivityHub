@@ -19,3 +19,22 @@
 }
 
 .textbook + .textbook{margin-top:40px}
+
+/* Profile entry shares the avatar saved by the builder and shown in blog posts. */
+.home-header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+#home-profile{width:48px;height:48px;padding:3px}
+#home-profile-picture{display:block;width:40px;height:40px;border-radius:50%;overflow:hidden;background:#e7e7e7}
+#home-profile-picture>svg,#home-profile-picture>img{display:block;width:100%;height:100%;max-width:none}
+@media(max-width:380px){.home-header{padding-inline:12px;gap:8px}.wordmark{font-size:21px;gap:6px}.home-header-actions{gap:4px}}
+
+#profile-dialog{width:min(400px,calc(100vw - 32px))}
+#profile-selfie{width:144px;height:144px;margin:24px auto;border-radius:50%;overflow:hidden;background:#e7e7e7}
+#profile-selfie>svg,#profile-selfie>img{display:block;width:100%;height:100%}
+.profile-actions{display:flex;justify-content:center;margin-top:24px}
+.profile-actions .ah-button{width:100%;text-decoration:none}
+
+.profile-name-field{display:grid;gap:8px}
+.profile-name-field label{font-weight:700}
+#profile-name{box-sizing:border-box;width:100%;min-height:44px;padding:10px 12px;font:inherit;color:var(--ah-ink);background:var(--ah-surface);border:1px solid var(--ah-border);border-radius:var(--ah-radius-control)}
+#profile-name:focus-visible{outline:3px solid var(--ah-focus);outline-offset:3px}
+.profile-actions img{width:22px;height:22px;flex-shrink:0}

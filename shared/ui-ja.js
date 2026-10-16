@@ -54,3 +54,19 @@ window.ActivityHubI18n.register({"Select a piece": "材料を選ぶ", "Edit ingr
 window.ActivityHubI18n.register({"Move to top of group":"このグループの一番手前へ"});
 
 window.ActivityHubI18n.register({"Making your photo…":"写真を作っています…","Ready to save!":"写真を保存できます！","If the photo opens in a new tab, save it from there.":"写真が別のタブで開いたら、そこから保存してください。","The photo could not be made. Please close this preview and try again.":"写真を作れませんでした。閉じて、もう一度試してください。","Close preview":"写真を閉じる"});
+
+window.ActivityHubI18n.register({
+ 'Share app QR code':'アプリのQRコードを共有',
+ 'Share this app':'このアプリを共有',
+ 'Scan to open this app. Your saved creation is not included.':'読み取るとアプリが開きます。保存した作品は含まれません。',
+ 'Lab demo: this QR opens the public Let’s EiGo! homepage.':'Labの見本：このQRコードは公開中のLet’s EiGo!ホームページを開きます。',
+ 'App link':'アプリのリンク',
+ 'QR code for this app':'このアプリのQRコード',
+ 'Download QR image':'QR画像を保存',
+ 'Copy link':'リンクをコピー',
+ 'Link copied.':'リンクをコピーしました。',
+ 'Select and copy the link above.':'上のリンクを選択してコピーしてください。',
+ 'QR unavailable. You can still copy the link.':'QRコードを表示できません。リンクはコピーできます。'
+});
+
+window.ActivityHubI18n.register({'Download':'ダウンロード','Copy':'コピー'});
