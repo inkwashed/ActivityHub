@@ -39,3 +39,5 @@ PLAY selection outlines follow each ingredient SVG’s visible geometry with a s
 Live LEARN and PLAY use the same full-scale SVG coordinates for the fixed bread. LEARN top bread stays at least 13 SVG units below the top to avoid clipping. The 90% scene transform is reserved for compact LEARN Share photos.
 
 Sandwich artwork has no plate or plate shadow, including the live scene, Share renderer and transparent logo/favicon.
+
+State saves automatically on this device/browser through shared/autosave.js and shared/builder-autosave.js, including independent LEARN/PLAY compositions and difficulty. Reset persists the cleared active mode. Storage failure leaves the activity usable; there is no cloud sync. Shared restore checks: `node tests/check-autosave.cjs`.

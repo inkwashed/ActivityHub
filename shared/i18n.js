@@ -7,6 +7,7 @@
   const preferences = [...(browser.languages || []), browser.language].filter(value => typeof value === 'string');
   let language = preferences.map(value => value.toLowerCase().split(/[-_]/)[0])
     .find(value => supported.includes(value)) || 'en';
+  try { const saved=window.localStorage.getItem('letseigo.language'); if(supported.includes(saved))language=saved; } catch {}
   const translations = Object.create(null);
   const t = text => language === 'ja' ? (translations[text] || text) : text;
   function apply() {
@@ -20,15 +21,16 @@
   window.ActivityHubI18n = {
     t, get language() { return language; },
     register(values) { Object.assign(translations, values); },
-    setLanguage(value) {
+    setLanguage(value, persist = true) {
       if (!supported.includes(value)) return;
       language = value; apply();
+      if(persist){try { window.localStorage.setItem('letseigo.language',value); } catch {}}
       document.dispatchEvent(new Event('activityhub:languagechange'));
     },
     apply
   };
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-language]').forEach(el => el.addEventListener('click', () => window.ActivityHubI18n.setLanguage(el.dataset.language)));
-    window.ActivityHubI18n.setLanguage(language);
+    window.ActivityHubI18n.setLanguage(language, false);
   });
 })();

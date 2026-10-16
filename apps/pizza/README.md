@@ -6,3 +6,5 @@ Layout uses the final shared builder-workspace CSS/JS: tablet/desktop viewport f
 All nine toppings appear together in a three-column, three-row grid in LEARN and PLAY, without paging arrows or a page indicator. Quantity cycling, topping order and independent mode state are unchanged.
 
 Pizza uses the full available square within its fixed play frame in both LEARN and PLAY. Mode-specific board sizes and workspace row overrides must not override the shared stage/output layout.
+
+State saves automatically on this device/browser through shared/autosave.js and shared/builder-autosave.js, including independent LEARN/PLAY compositions and difficulty. Reset persists the cleared active mode. Storage failure leaves the activity usable; there is no cloud sync. Shared restore checks: `node tests/check-autosave.cjs`.

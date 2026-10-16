@@ -51,3 +51,7 @@ LEARN combines fruit and selected syrup into one natural list after the ice crea
 Layout uses the final shared builder-workspace CSS/JS: tablet/desktop viewport fit, a stable food frame, and a reserved sentence box with limited text fitting. Long/enlarged content retains accessible overflow. Physical iPad layout verification remains necessary.
 
 The glass stage is bottom-aligned within the shared play frame, with a 4% frame-height margin beneath it. Its width is 80% of the standard food footprint (73.6% of the smaller frame dimension), preserving proportions while leaving more open space above the scoops in both modes.
+
+Live glass, stem, and cream outlines scale in SVG coordinates with the stage; cream insets use percentages. Avoid fixed-pixel/non-scaling strokes in responsive live artwork. Share rendering keeps its independent export treatment.
+
+State saves automatically on this device/browser through shared/autosave.js and shared/builder-autosave.js, including independent LEARN/PLAY compositions and difficulty. Reset persists the cleared active mode. Storage failure leaves the activity usable; there is no cloud sync. Shared restore checks: `node tests/check-autosave.cjs`.

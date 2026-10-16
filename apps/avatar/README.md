@@ -2,7 +2,7 @@
 
 Open `index.html` directly, or serve the repository and visit `/apps/avatar/`.
 
-The active app uses user-authored SVG parts: Classic, Round and Slim faces; one eye expression with Basic/Eyelashes; nose, mouth, T-shirt; Tousled and Curly hair. Skin, iris, hair, clothing and background colors are editable. Hair, nose and clothing can be hidden. Reset restores Classic/Tousled. English/Japanese interface and local square PNG export; no accounts or saved student data. Not deployed or listed on the homepage.
+The active app uses user-authored SVG parts: Classic, Round and Slim faces; one eye expression with Basic/Eyelashes; nose, mouth, T-shirt; Tousled and Curly hair. Skin, iris, hair, clothing and background colors are editable. Hair, nose and clothing can be hidden. Reset restores Classic/Tousled. English/Japanese interface and local square PNG export; no accounts; appearance and selected tab autosave locally in this browser. Not deployed or listed on the homepage.
 
 ## Active files
 

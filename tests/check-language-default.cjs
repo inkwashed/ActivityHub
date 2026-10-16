@@ -16,3 +16,11 @@ for(const [preferences, expected] of [
  assert.notEqual(context.window.ActivityHubI18n.language,expected);
 }
 console.log('PASS: regional language tags, preference ordering, unsupported fallback, missing preferences, and manual override.');
+{
+ const saved=new Map([['letseigo.language','ja']]),listeners={};
+ const context={navigator:{languages:['en-US']},window:{localStorage:{getItem:k=>saved.get(k),setItem:(k,v)=>saved.set(k,v)}},Event:class{},document:{documentElement:{},querySelectorAll:()=>[],addEventListener:(k,f)=>listeners[k]=f,dispatchEvent(){}}};
+ vm.runInNewContext(source,context);listeners.DOMContentLoaded();assert.equal(context.window.ActivityHubI18n.language,'ja');
+ context.window.ActivityHubI18n.setLanguage('en');assert.equal(saved.get('letseigo.language'),'en');
+ saved.set('letseigo.language','invalid');vm.runInNewContext(source,context);listeners.DOMContentLoaded();assert.equal(context.window.ActivityHubI18n.language,'en');
+ console.log('PASS: saved language overrides browser preference; manual changes persist and invalid values fall back.');
+}

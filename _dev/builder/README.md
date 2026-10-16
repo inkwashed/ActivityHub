@@ -38,3 +38,5 @@ LEARN choice artwork in both the slot-choice and paged quantity grids is enlarge
 The header includes “TEXTBOOK NAME · Unit 0” as a visible tablet/desktop placeholder for lesson context. Production builders use their actual textbook and unit.
 
 Mode-size regression review: compare the same viewport before/after LEARN ↔ PLAY with short and long output. Check both the frame rectangle and a permanent scene landmark (pizza diameter, sandwich bottom bread, glass base). Equal frame sizes alone cannot detect a mode-specific SVG scale. The Lab uses one unchanged board for both modes; app renderer checks must cover internal SVG transforms and export-only framing separately.
+
+State saves automatically on this device/browser through shared/autosave.js and shared/builder-autosave.js, including independent LEARN/PLAY compositions and difficulty. Reset persists the cleared active mode. Storage failure leaves the activity usable; there is no cloud sync. Shared restore checks: `node tests/check-autosave.cjs`.

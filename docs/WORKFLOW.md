@@ -107,7 +107,7 @@ Add concise entries for consequential changes to project standards; routine acti
 
 ## Interface language boundary
 
-Use `shared/i18n.js` for interface language and `shared/ui-ja.js` for common Japanese control translations. App-specific instructions belong in `apps/<name>/ui-ja.js`. Mark only interface text with `data-i18n`; never translate lesson vocabulary or target grammar. Mark English learning regions with `lang="en"` even when the document language is Japanese. Switching language must not change activity state. On startup, match browser/system language preferences in order to supported languages, including regional tags such as ja-JP. Fall back to English if none match. Manual selection lasts for the page visit and is not overridden during that visit.
+Use `shared/i18n.js` for interface language and `shared/ui-ja.js` for common Japanese control translations. App-specific instructions belong in `apps/<name>/ui-ja.js`. Mark only interface text with `data-i18n`; never translate lesson vocabulary or target grammar. Mark English learning regions with `lang="en"` even when the document language is Japanese. Switching language must not change activity state. On startup, match browser/system language preferences in order to supported languages, including regional tags such as ja-JP. Fall back to English if none match. A valid saved manual language choice takes precedence over browser preferences on later visits; save it locally across the suite. With no saved choice, follow the browser as above.
 
 ## Copyright notices
 
@@ -271,3 +271,12 @@ Stage unapproved changes in lab-scoped code, review representative sizes and sta
 Profile Pic uses the shared photo lifecycle with opt-in `square: true`: an 800×800 image without a food caption or border. Existing builder exports retain their default layout. Its catalog and original vector artwork live under `apps/avatar/`.
 
 Shared PLAY geometry is owned by CreativeBuilder and builder-workspace: use the visible tan frame for limits, measured SVG geometry for hit regions, and preserve scene coordinates for exporters. Run creative tests for Pizza, Parfait, Sandwich and Lab plus `tests/check-play-bounds.cjs` when changing this contract. Verify narrow/large rotated art, duplication, art changes, resize, touch targets and frame-edge overlap; mock geometry checks do not replace physical touch review.
+
+
+## Automatic local saves
+
+Apps automatically restore the last local state without an opt-in setting or account. Use `shared/autosave.js` with a stable app ID, versioned data-only capture, and a validating restore adapter. Builder apps and the Lab load `shared/builder-autosave.js` after their engines and workspace scripts; Profile Pic registers its own adapter. POST retains its existing draft saver and read-only shared-card behavior.
+
+Save after interactions (debounced), and flush on pagehide/hidden visibility. Keep LEARN and PLAY compositions separate; preserve mode, difficulty, selected slots, source choices, placement, transforms and layer order. Reset replaces the active composition's saved state and must not resurrect it on reload. Never serialize DOM nodes, SVG markup, dialogs, or generated exports. Restore only known catalog IDs, valid sources and bounded numeric values; ignore corrupt or incompatible data. Storage failures must not disable the app. Add meaningful restore/reset/invalid-data checks when creating or changing an adapter.
+
+These saves stay in the current browser on the current site, with separate keys per app and a separate Lab key. No email, account lookup or cloud synchronization is involved. Clearing site data removes saves; shared-device users share the saved state. Browser storage may be unavailable or temporary, and file:// persistence varies by browser. Do not promise permanent storage. Use `node tests/check-autosave.cjs` for shared and Builder restoration checks, and retain POST's existing draft tests. Manual language and voice choices are suite-wide local preferences.

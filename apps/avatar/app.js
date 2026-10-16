@@ -66,5 +66,16 @@
  });
  document.querySelector('#clear').addEventListener('click',()=>{state={...config.defaults};update();document.querySelector('#announcement').textContent=t('Avatar reset.')});
  selectTab(active);update();
+ window.ActivityAutosave?.connect('avatar',{
+  capture:()=>({state,active}),
+  restore:saved=>{
+   const clean={...config.defaults};
+   for(const key of Object.keys(clean)){
+    const options=config.parts[key]||config.palettes[key]||(key==='eyeStyle'?config.eyeStyles:[]);
+    if(options.includes(saved?.state?.[key]))clean[key]=saved.state[key];
+   }
+   state=clean;selectTab(categories.includes(saved?.active)?saved.active:'face');update();
+  }
+ });
  window.BuilderPhoto({builder:()=>({...state}),render:window.renderAvatar,imageSelector:'#avatar-photo',square:true});
 })();

@@ -96,7 +96,7 @@ Pizza Builder adopts shared controls for Reset, Share, download, language, fulls
 
 Language settings offer English and 日本語. Translate functional labels, mode wording, instructions, dialog messages, and accessible control labels. Keep lesson vocabulary and target English sentences unchanged. Use the shared translation helper and common dictionary; extend only app-specific strings locally. Japanese mode labels are かんたん / むずかしい. Allow wrapping instead of clipping Japanese instructions.
 
-Default interface language follows the first supported browser/system language preference (including regional variants), falling back to English. The language menu still allows a manual choice for the current visit.
+Default interface language follows the first supported browser/system language preference (including regional variants), falling back to English. The language menu allows a manual choice that is remembered locally across visits and applets.
 
 Copyright uses the shared compact footer (`shared/copyright.js`) with a 12px text-only notice. Do not add a button or terms dialog to individual applets. Include its measured height in the viewport layout. The root home page links to the full terms.
 
@@ -305,3 +305,7 @@ The homepage closing note and terms link belong in a dedicated footer after the 
 Builder headings show the activity title and target question without extra eyebrow captions such as “Made by you” or “You’re the chef!”. Apply this to the Lab as well; retain textbook/unit context in the header.
 
 Builder section headings use shared/builder-layout.css: 18px bold text with 1.3 line height in both LEARN and PLAY, at every viewport size. Apply the same typography to h2, legend, and labelled .ah-section-heading controls (including the Lab dropdown). Do not add app- or mode-specific heading font sizes; numbered badges retain their shared sizing.
+
+The EASY/HARD switch uses shared/icons/command.svg at 24 × 24px inside the centered knob. Do not use the ⌘ text glyph: platform font metrics can shift its visible alignment. Keep the image decorative and the native switch accessibly labelled.
+
+App state autosaves locally without a toggle or repeated save messages. Reset remains the way to start over; keep its existing active-mode behavior. Do not reopen dialogs or resume audio automatically when restoring a saved activity.
