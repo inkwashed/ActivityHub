@@ -1,8 +1,8 @@
 /* App geometry after shared responsive rules; controls keep shared styling. */
-.ah-builder #builder{--builder-panel-padding:14px;--learn-card-rows:3;--play-card-rows:5}
+.ah-builder #builder{--builder-panel-padding:14px;--learn-card-rows:5;--play-card-rows:5}
 .parfait-menu-column{min-width:0;align-self:start}
 .parfait-menu-heading{text-align:center;margin-bottom:12px}
-.ah-builder #builder #parfait-menu{padding:var(--builder-panel-padding);gap:8px;box-shadow:0 6px 0 #e9e9dc}
+.ah-builder #builder #parfait-menu{padding:var(--builder-panel-padding);gap:8px;}
 .ah-builder #parfait-menu .builder-actions{grid-column:1/-1;display:flex;gap:8px;margin-top:16px}
 .ah-builder #parfait-menu .builder-actions .ah-button{flex:1;min-width:0;min-height:44px}
 .ah-builder #parfait-menu #clear-slot{min-height:44px;font-size:14px}
@@ -11,7 +11,6 @@
 .ah-builder #parfait-menu .ingredient-art{width:36px;height:36px}
 .ah-builder #parfait-menu .pane-content{min-height:0}
 .ah-builder #parfait-menu .layer-navigation{margin:16px 0 8px}
-.ah-builder #parfait-menu .layer-navigation h2{font-size:18px}
 .ah-builder #parfait-menu fieldset{margin-bottom:12px}
 .ah-builder #parfait-menu .syrup-section{margin-top:16px}
 @media(orientation:landscape) and (min-width:900px) and (min-height:600px){
@@ -32,11 +31,12 @@
 
 .fruit-slot{position:relative;min-width:0}
 .ah-builder #parfait-menu .fruit-slot>[data-layer-slot]{width:100%;min-height:48px;padding:6px 40px 6px 6px}
-.ah-builder #parfait-menu .fruit-slot .slot-clear{position:absolute;right:0;top:0;width:44px;height:44px;padding:10px;min-height:44px;color:var(--ah-muted);border:0;background:transparent}
 .ah-builder #parfait-menu .slot-clear[hidden]{display:none}
-@media(hover:hover){.ah-builder #parfait-menu .fruit-slot .slot-clear:hover{background:var(--ah-hover)}}
 
-.ah-builder #parfait-menu .choice-pager{margin-top:12px}
+.ah-builder #parfait-menu .choice-pager{margin-top:12px;grid-template-columns:minmax(0,1fr)}
+.ah-builder #parfait-menu [data-choice-previous],
+.ah-builder #parfait-menu [data-choice-next],
+.ah-builder #parfait-menu [data-choice-status]{display:none}
 .ah-builder #parfait-menu .choice-pager #topping-options{gap:6px;grid-template-columns:repeat(3,minmax(0,1fr))}
 .ah-builder #parfait-menu .choice-pager .topping-button{min-height:88px}
 
@@ -54,7 +54,7 @@
 .free-layer{position:absolute;inset:0;container-type:size;pointer-events:none;z-index:25}
 .free-piece{position:absolute;width:max(44px,calc(var(--food-size)*1cqw));height:max(44px,calc(var(--food-size)*1cqw));padding:0;border:0;background:transparent;transform:translate(-50%,-50%);pointer-events:auto;touch-action:none;cursor:grab}
 .free-art{position:absolute;left:50%;top:50%;width:calc(var(--food-size)*1cqw);aspect-ratio:1;transform:translate(-50%,-50%) rotate(var(--angle)) scaleX(var(--flip));pointer-events:none}
-.free-art svg{display:block;width:100%;height:100%}
+.free-art>svg{display:block;width:100%;height:100%}
 .free-piece.selected .free-art{outline:2px dashed var(--ah-focus);border-radius:8px}
 .free-piece:focus-visible{outline:3px solid var(--ah-focus)}
 .is-create #parfait{touch-action:none}
@@ -68,7 +68,6 @@
 .ah-builder #parfait-menu .layer-navigation h2{flex-shrink:0}
 .ah-builder #parfait-menu .layer-navigation .layer-slots{flex:1;min-width:172px;grid-template-columns:minmax(56px,1fr) 44px minmax(56px,1fr);gap:8px}
 .ah-builder #parfait-menu .layer-navigation .fruit-slot>[data-layer-slot]{min-height:48px;padding:6px}
-.ah-builder #parfait-menu .layer-navigation .slot-clear{top:-8px;right:-8px}
 .is-create .layer-navigation .layer-slots{display:none}
 
 .play-section-label{display:none}
@@ -81,10 +80,7 @@
 .ah-builder #builder.is-create #sauce-options .ah-choice{position:relative;gap:0}
 
 /* Match Pizza header/control rhythm without changing glass proportions. */
-.ah-builder #builder #parfait-menu .flavor-heading{gap:8px;margin-bottom:10px;font-size:18px;min-height:44px}
-.ah-builder #builder.is-create #parfait-menu .flavor-heading,
-.ah-builder #builder.is-create #parfait-menu .layer-navigation h2,
-.ah-builder #builder.is-create #parfait-menu legend{font-size:16px}
+.ah-builder #builder #parfait-menu .flavor-heading{gap:8px;margin-bottom:10px;min-height:44px}
 .ah-builder #builder #parfait-menu .builder-actions .ah-button{padding:9px 12px}
 .ah-builder #builder.is-create #parfait-menu .builder-actions .ah-button{font-size:14px;gap:6px}
 .ah-builder #builder #parfait-menu .flavor-heading .build-mode-controls{flex-shrink:0}

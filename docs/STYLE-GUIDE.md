@@ -9,7 +9,7 @@ Version 0.1 — a living guide based on Pizza Builder. Revise this guide and the
 - `shared/icons/`: balanced language, Reset, and camera icons.
 - `docs/style-guide.html`: working examples using the same styles as the app.
 
-Load tokens, app base styles, shared builder chrome, shared controls, then optional shared layout components and shared responsive policy. A documented app geometry file may follow the responsive policy, scoped to its app and matching the same breakpoints. App styles own layout and activity artwork; shared styles own control appearance and states. Reuse the shared classes instead of copying button rules into each applet.
+Load tokens, app base styles, shared builder chrome, shared controls, then optional shared layout components and shared responsive policy. A documented app geometry file may follow the responsive policy. Load shared/builder-workspace.css last for builders; it owns final stage, output, and tablet/desktop fit geometry. App styles own layout and activity artwork; shared styles own control appearance and states. Reuse the shared classes instead of copying button rules into each applet.
 
 ## Visual direction
 
@@ -146,15 +146,25 @@ The landscape PLAY palette scales ingredient buttons from 52–84px tall and art
 
 Pizza keeps LEARN/PLAY and its info control at the right of the first sauce heading in both modes. PLAY section titles are “1 Sauce” and “2 Toppings” (translated as interface text); LEARN retains the full instructions. The compact sidebar accommodates that header in one row, and portrait uses full-width sections in the bottom tray.
 
-For long ingredient lists, use `shared/choice-pager.js` and `.css`: keep each section heading visible and page its existing choice buttons in groups of three with 44px side arrows and a page indicator. Unlike whole-section panes, this keeps sauce and toppings together. Hidden choices retain their state and leave keyboard navigation; arrows wrap. Pizza uses six-choice paging (two rows of three) in LEARN, reserving both rows on the final three-choice page; PLAY displays all nine compact topping icons in a three-column grid, without paging arrows or a page indicator. Returning to LEARN restores its previous page.
+For long ingredient lists, use `shared/choice-pager.js` and `.css`: keep each section heading visible and page its existing choice buttons in groups of three with 44px side arrows and a page indicator. Unlike whole-section panes, this keeps sauce and toppings together. Hidden choices retain their state and leave keyboard navigation; arrows wrap. Pizza displays all nine toppings in a three-column, three-row grid in both LEARN and PLAY, without paging arrows or a page indicator. Paged layouts remain available for other builders and the Lab.
 
 Pizza places its eyebrow and activity title above the right-hand buttons panel in both LEARN and PLAY. The English question stays above the pizza. On narrow screens the intro stays with the menu as the columns stack.
 
 ## Responsive layout policy (all builders)
 
-Load `shared/builder-responsive.css` after shared layout components; only documented app geometry exceptions (Pizza `layout.css`) follow it. Prefer a single-screen, side-by-side workspace in landscape at least 900 CSS px wide and 600px tall (including iPad mini-class landscape). Budget using measured header/footer height and keep 44px targets. Avoid page scrolling where content fits; long orders, enlarged text, or translated content may still scroll instead of clipping. Never force fit by hiding overflow.
+Load `shared/builder-workspace.css` last, after app geometry and card sizing, and load `shared/builder-workspace.js` after builder initialization. These own final layout for Pizza, Parfait, Sandwich, and future builders.
 
-Portrait tablets, phones, and shorter/narrower windows stack activity first, controls second. Use `data-jump-section="activity"` and `"choices"` with `tabindex="-1"`, and load `shared/builder-jump.js`. A discreet bottom-edge control jumps between sections, moves keyboard focus, translates its label, and respects reduced motion. Reserve bottom space and safe-area insets so it cannot cover final controls. No automatic scrolling on mode/orientation changes. This applies to both pizza and parfait; verify landscape 1024×768/1133×744, portrait 768×1024, phones, enlarged text, and long content.
+At 740 CSS px wide and 600px tall or larger, including portrait iPads, use a single-screen two-column workspace. Subtract measured header/footer heights from `100svh`; reserve 10px vertical padding, a 16px column gap, and a choices column of at least 350px (otherwise 42%). Keep choices top-aligned. Compact cards use 68px LEARN and 46px PLAY minimum heights with 44px touch targets. Do not scale down the whole interface or hide overflowing controls. Normal tablet/desktop use should require no page scrolling; exceptional enlarged text or unusually long content may scroll inside the bounded choices/output region.
+
+The activity column has a 44px question row, a flexible but sentence-independent play frame, and a fixed 140px output box with 8px gaps. All builders use the same frame sizing; each illustration retains its proportions inside it. Changing ingredients, sentence length, difficulty, or LEARN/PLAY mode must not resize the artwork. Only viewport geometry may resize the frame. Keep portrait browser-chrome changes from repeatedly scaling the scene by using stable viewport units.
+
+Style the output box consistently across all builders with `--ah-surface`, a 1px `--ah-divider` border, `--ah-radius-panel` corners, and 10px vertical / 12px horizontal padding. Keep padding and border inside its fixed 140px height so the artwork does not lose space. The shared workspace stylesheet owns this treatment.
+
+Reserve approximately three spoken-text lines in the output box. Fit sentence text from 21px down to 16px when needed, restoring 21px for shorter text. Never shrink touch targets, truncate sentences, or let the output borrow stage height. If exceptionally long text still does not fit, allow keyboard-accessible internal scrolling at the minimum size. Keep the speaker and vocabulary playback controls functional.
+
+The bordered output box provides visual separation: do not add decorative quotation marks around builder results. Keep ordinary sentence punctuation, pronunciation controls, and Sandwich initials intact. This applies to the Lab and all production builders.
+
+Below either threshold, stack activity above controls with a stable 404px play frame and the same reserved output box. Keep `data-jump-section` hooks and `shared/builder-jump.js` for keyboard-accessible section navigation. Move the existing PLAY toolbar horizontally above the output in stacked layouts; keep it vertically beside the choices in tablet/desktop layouts. Never duplicate controls. Test landscape 1024×768/1133×744, portrait 744×1133/768×1024, desktop 1366×768, phones, enlarged text, and long content in all three builders.
 
 ## Numbered section headings
 
@@ -164,7 +174,7 @@ PLAY uses English count-and-size language (small/medium/big), independent of LEA
 
 PLAY touch editing uses one finger to move a piece and two fingers on that piece to resize it. Keep the +/− controls as an accessible alternative; rotate and flip remain explicit toolbar actions. Pinching respects the same size limits and size labels as the toolbar. In PLAY, reserve native touch gestures on the artwork canvas for editing; preserve page scrolling outside it. Start on a piece, then place the second finger anywhere on the canvas to resize that piece.
 
-In landscape, both Pizza modes use the same bounded 420–444px menu column. LEARN fills it, keeping “Choose a sauce” beside the mode toggle and help control on standard landscape screens; PLAY divides it into a 44px toolbar, a 12px gutter, and its compact input panel. The menu heading spans the full column. The pizza, question, and order retain the same column and stage sizing across modes (long order text may still require more space). Use 14px panel padding and a 32px menu title, retaining labelled choices, two rows of three toppings, and 44px navigation targets. Keep this activity-specific sizing in Pizza `layout.css`, loaded after shared responsive rules; the shared stacked-layout policy still takes precedence for portrait and smaller screens.
+Tablet/desktop geometry for all builders is owned by the responsive policy above. App layout files retain food-specific drawing geometry, but must not independently size the stage from output height or override the final shared workspace.
 
 
 ## Stable mode layout and review
@@ -179,14 +189,14 @@ more overrides. Check both modes at identical viewport sizes and inspect the
 winning CSS rule when only one mode changes. Use shared controls unchanged;
 keep food geometry and app-specific menu sizing in the app layout file.
 
-In stacked portrait/phone layouts, move the same editing toolbar below the artwork and above its order sentence. Lay its 44px buttons out horizontally, centered, wrapping on narrow phones. Restore the vertical menu-side placement in landscape. Move existing controls rather than duplicating them so state, focus order, and listeners stay consistent.
+In stacked phone/short-window layouts, move the same editing toolbar below the artwork and above its order sentence. Lay its 44px buttons out horizontally, centered, wrapping on narrow phones. Restore the vertical menu-side placement in landscape, aligned to the panel’s top edge rather than vertically centered. Move existing controls rather than duplicating them so state, focus order, and listeners stay consistent.
 
 Creative movement bounds belong to the activity play area, not necessarily the food silhouette. Pizza PLAY permits crust overlap within the rectangular stage; exports must include those placements. Keep LEARN’s preset placement rules independent.
 
 Mode help must describe the currently selected mode: update its dialog title, instructions, and info-button accessible label together. Translate these interface strings without changing lesson vocabulary or activity state.
 
 
-Panel padding must not change with LEARN/PLAY mode. Pizza uses one
+Panel padding must not change with LEARN/PLAY mode. The final shared workspace uses a uniform 10px inset on tablet/desktop; the 14px app default below applies outside that compact workspace. Pizza uses one
 `--builder-panel-padding: 14px` value in `apps/pizza/layout.css` on all sides,
 in both landscape and stacked layouts. The first heading row uses an 8px gap
 and 10px bottom margin in both modes; the toggle/help pair retains its shared
@@ -194,7 +204,7 @@ and 10px bottom margin in both modes; the toggle/help pair retains its shared
 spacing, but must not alter the panel's outer inset or shift its header controls.
 Future builders should likewise define panel padding once, outside mode rules.
 
-Parfait adopts the 420–444px landscape menu column and 14px panel inset in its app layout.css. Its title/eyebrow sit above choices, the question above the glass, and Reset fills the menu action row. Keep paired fruit slots; all Parfait ingredient sections currently share one panel; do not add unavailable PLAY/Share controls merely for visual symmetry.
+Parfait follows the shared workspace dimensions. Its title sits above choices, the question above the glass, and Reset/Share fill the menu action row. Keep paired fruit slots and all ingredient sections on one panel.
 
 For four short base choices, opt into `four-choice-row` from shared/choice-row.css (after app layout). Use four equal cards with artwork above wrapping 14px labels and an 8px gap. At widths of 380px or less, use two columns. Pizza sauces and Parfait ice cream/syrups use this pattern; Pizza PLAY retains accessible labels while displaying icons only.
 
@@ -210,9 +220,9 @@ Use this pattern whenever a builder offers two or more explicit item slots, incl
 
 Parfait uses this standard for its two fruit slots.
 
-Filled fruit slots expose a grey circle-X clear button in the upper-right corner, with a 44px hit target and translated slot-specific label. Keep it a sibling of the selection button, never a nested button. Hide it for empty slots and return focus to the cleared slot.
+Filled item slots expose a simple dark-green × clear button in the upper-right corner, without an enclosing circle. Use `ah-button slot-clear` from shared/controls.css: 22px × glyph, `--ah-strong` color, transparent background, 44px hit target, and shared hover/pressed/focus feedback. The glyph is aria-hidden; give the button a translated slot-specific accessible label. Keep it a sibling of the selection button, never a nested button. Hide it for empty slots and return focus to the cleared slot. Parfait and Sandwich both use this shared treatment; do not override it per app.
 
-Parfait fruit choices show one row of three with shared choice-pager arrows and page status. Paging changes only the visible choices, preserving both selected slots. Ice cream and syrup stay on the same panel.
+Parfait shows all nine fruit choices in a three-by-three grid without paging arrows or page status. Preserve both editable fruit slots in LEARN. Ice cream and syrup stay on the same panel; retain shared button sizing.
 
 Paired-fruit choice icons and selected-slot previews use the same configured rotation as placed fruit. Keep the angle in ingredient configuration rather than duplicating per-fruit CSS. Empty-slot icons remain upright.
 
@@ -244,7 +254,7 @@ The language dialog includes a “Default voice” labelled native select and a 
 
 Pronunciation diagnostics appear only in voice settings; keep the artwork/order area free of playback messages. In settings, show immediate starting feedback and browser-reported playback status; these events do not prove the user heard sound. The preview uses secondary button styling and a persistent active treatment while speech is pending/playing. Deduplicate identical voice labels to avoid confusing device voice lists.
 
-Use stable small-viewport height (`svh`) for builder fit budgets and card growth so mobile browser chrome cannot resize the activity during scrolling. Parfait stage width is width-based in stacked layouts; landscape has one bounded height-aware sizing rule with a 280px target minimum, still capped by available column width. Keep the iPad Silent Mode note in pronunciation settings.
+Use stable small-viewport height (`svh`) for builder fit budgets and card growth so mobile browser chrome cannot resize the activity during scrolling. The final shared workspace sizes the Parfait stage proportionally inside the same stable frame as Pizza and Sandwich. Keep the iPad Silent Mode note in pronunciation settings.
 
 Recorded vocabulary uses the existing inline pronunciation buttons without changing sentence text or layout. Voice settings explain that device voice choices affect sentences and unrecorded words; recorded vocabulary retains its approved voice. Keep that explanation translated.
 
@@ -252,10 +262,46 @@ The English target question is also a native inline pronunciation button, using 
 
 Homepage applet cards—including featured applets—use a compact square preview column capped at 260px, with the remaining width assigned to the text column. Use 20px card padding, a 24px column gap, and 16px preview corners. At 620px and below, stack the card with a centered preview capped at 220px and a 20px gap. Images use proportional containment; never stretch artwork or enlarge the preview to match text height. Text may grow independently.
 
-Sandwich prototype uses three icon-only editable filling slots with adjacent swap arrows and a source selector that appears for the active filling or PLAY piece. Keep source labels readable, use native 44px selects, and preserve the selection when moving between slots. Its side-view food geometry is app-specific; shared typography, panel padding, paging, mode toggle, toolbar, and modal standards still apply.
+Sandwich shows all 16 LEARN fillings in four columns by four rows, with no paging arrows or page indicator. This is app-specific, not a new universal paging standard.
+
+Sandwich prototype uses three icon-only editable filling slots with adjacent swap arrows and a source selector that appears for the active LEARN filling. Keep source labels readable, use native 44px selects, and preserve the selection when moving between slots. Its side-view food geometry is app-specific; shared typography, panel padding, paging, mode toggle, toolbar, and modal standards still apply.
 
 ### Builder choices-column alignment
 
-The direct `#builder > [data-jump-section="choices"]` column is top-aligned using shared/builder-layout.css in LEARN and PLAY. Do not vertically center it to match the artwork or changing order text. Stacked layouts use horizontal auto margins only, not vertical auto margins. Keep the menu heading 12px above the panel; the toolbar may center beside the panel independently. Every builder, including Sandwich, loads shared/builder-card-sizing.css and declares its visible LEARN/PLAY row counts instead of setting separate card-height rules. Sandwich uses two LEARN rows and four PLAY rows, 14px panel padding, and a 44px toolbar with a 12px gutter.
+The direct `#builder > [data-jump-section="choices"]` column is top-aligned using shared/builder-layout.css in LEARN and PLAY. Do not vertically center it to match the artwork or changing order text. Stacked layouts use horizontal auto margins only, not vertical auto margins. Keep the menu heading 12px above the panel; the vertical PLAY toolbar aligns with the top edge of the adjacent panel in landscape. Every builder, including Sandwich, loads shared/builder-card-sizing.css and declares its visible LEARN/PLAY row counts instead of setting separate card-height rules. Sandwich uses four LEARN rows and four PLAY rows, with editable bread beside the piece picker. Final workspace padding and toolbar spacing follow the responsive policy above.
 
-Compact PLAY palettes must not inherit LEARN-sized whitespace. Use shared/builder-card-sizing.css for both modes. Default PLAY padding is 6px with 52–84px card growth; dense palettes may opt into `--play-choice-padding` and `--play-choice-max` while retaining the shared 52px minimum and 44px touch targets. Sandwich’s four-column, 16-item palette uses 4px padding and a 64px growth cap. Check compact and tall landscape screens as well as stacked layouts when adding a builder.
+Compact PLAY palettes must not inherit LEARN-sized whitespace. Use shared/builder-card-sizing.css for both modes. Default PLAY padding is 6px with 52–84px card growth; dense palettes may opt into `--play-choice-padding` and `--play-choice-max` while retaining the shared 52px minimum and 44px touch targets. Sandwich’s PLAY palette has 16 fillings in four columns and four rows, with bread separately beside the piece picker. Its icon-only cards use 72px minimum height, 4px padding, and artwork up to 64px wide, larger than LEARN. This app-specific layout is pending review before generalization. Check compact and tall landscape screens as well as stacked layouts when adding a builder.
+
+
+## Non-live Builder reference candidate
+
+`_dev/builder/index.html` demonstrates the current shared workspace plus a candidate composition of slot selectors, four-across paged quantity buttons, a dropdown, Reset/Share, and a four-column PLAY palette. It is a review surface, not automatic approval of new universal dimensions. Its README tracks unresolved sizing, overflow, artwork-bounds and component-adoption decisions. Promote approved changes here and into shared code with the workflow’s explicit consumer rollout; keep unapproved experiments scoped to the lab.
+
+The Lab’s LEARN choice grids follow Sandwich’s 20% artwork enlargement at the tablet/desktop breakpoint (740×600 CSS px), retaining the 36px layout box and existing card heights. Apply artwork sizing/transforms to the direct root SVG (`.ingredient-art > svg`), not every descendant SVG: nested ingredient fragments must retain their configured dimensions. Check both slot-choice and quantity-choice cards, including labels, quantity dots and edge clipping. Slot previews and PLAY sizing are independent. This is implemented in the Lab and Sandwich; further rollout requires explicit migration.
+
+Keep the textbook/unit label (`.edition`) visible in tablet/desktop builder headers, including the compact workspace. Use the actual textbook/unit in lesson applets and “TEXTBOOK NAME · Unit 0” in the Lab. Header wrapping is measured by the shared viewport script; do not hide lesson context to force a single header row. The existing phone breakpoint may hide the label.
+
+## Shared play surface and PLAY bounds
+
+All builders and the Lab use the same borderless tan `--ah-play-surface` (#eee6d2) on `.builder-play-area`, with the shared panel corner radius. The visible surface is the full shared frame, not the food silhouette. Keep its dimensions independent of sentences and mode. Artwork stays proportional inside it; food-specific Share scenery remains unchanged.
+
+PLAY uses that frame for movement, converting its rectangle to the app’s existing scene coordinates. Keep the visible artwork’s center at least 22px inside the frame; allow edge overlap, clipped at the frame, rather than constraining large pieces fully inside the food. Rotation/flip offsets must be included. Recheck positions when the frame resizes.
+
+Measure the root SVG’s visible geometry for PLAY selection and hit areas, with a small margin and a 44px minimum touch target. Transform the hit area with the artwork. Do not use the full square SVG canvas for a flat ingredient or change illustration/export coordinates to trim it. Re-measure when rendered art changes, including syrup on scoops; duplicate pieces need their own hit elements.
+
+
+### Unified PLAY palette sizing
+
+All builders and the Lab now use the shared `builder-card-sizing.css` values: 72px minimum card height, 4px padding, and 64px artwork boxes, capped to available card width without stretching. Apply this to ingredient, flavor and sauce choices. Sauce bowls retain their non-square proportions. LEARN sizing remains independent. Do not override PLAY icon sizes in compact workspace rules or duplicate these dimensions in app CSS; applets still own grid column counts. Keep root-SVG-only sizing to avoid changing nested artwork. This supersedes the older 32–56px PLAY artwork ranges and Sandwich-only sizing exception above.
+
+Builder button panels use the shared surface fill, thin divider border, and rounded corners without a drop shadow or raised lower edge. Apply this flat panel treatment to the Lab and all Builder applets; food artwork and photo previews may retain their own shadows.
+
+Mode switches must not change food scale: Pizza uses the full available square in both LEARN and PLAY. Remove legacy mode-specific board dimensions and workspace grid-row overrides rather than allowing them to defeat the final shared frame rules.
+
+Mode-stable artwork also requires identical internal drawing coordinates, not just equal CSS boxes. Check SVG viewBoxes, root transforms, background-image sizing and permanent scene elements across LEARN/PLAY. Sandwich live bread use the same unscaled coordinates in both modes; only its Share renderer may apply the compact photo transform. Keep upper artwork within the viewBox rather than shrinking the whole LEARN scene.
+
+The homepage closing note and terms link belong in a dedicated footer after the main activity directory, never between textbook sections. Align its width and horizontal padding with the directory; keep it in normal document flow. Separate adjacent textbook sections with 40px of space.
+
+Builder headings show the activity title and target question without extra eyebrow captions such as “Made by you” or “You’re the chef!”. Apply this to the Lab as well; retain textbook/unit context in the header.
+
+Builder section headings use shared/builder-layout.css: 18px bold text with 1.3 line height in both LEARN and PLAY, at every viewport size. Apply the same typography to h2, legend, and labelled .ah-section-heading controls (including the Lab dropdown). Do not add app- or mode-specific heading font sizes; numbered badges retain their shared sizing.

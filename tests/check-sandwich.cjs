@@ -40,15 +40,15 @@ b.chooseTopping('bacon');const learn=b.state;
 b.creative.switchMode(true);b.chooseTopping('tomato');
 assert.equal(b.selectedPiece().topping,'tomato');
 elements['#source-choice'].listeners.change({target:{value:'Aichi'}});
-assert.equal(b.selectedPiece().source,'Aichi');
-b.creative.edit('duplicate');assert.equal(b.selectedPiece().source,'Aichi');
+assert.equal(b.selectedPiece().source,undefined);assert.equal(elements['#source-section'].hidden,true);
+b.creative.edit('duplicate');assert.equal(b.selectedPiece().source,undefined);assert.equal(elements['#source-section'].hidden,true);
 b.chooseTopping('lettuce');assert.equal(b.selectedPiece().topping,'lettuce');
-assert.deepEqual(Array.from(elements['#source-choice'].children,x=>x.value),['','Nagano','Ibaraki','Gunma']);
+assert.equal(elements['#source-section'].hidden,true);assert.equal(elements['#source-sentence'].textContent,'');
 b.creative.edit('delete');assert.equal(b.selectedPiece().topping,'tomato');
 b.creative.switchMode(false);assert.equal(b.state,learn);assert.equal(b.state.slots[0].topping,'bacon');
 b.creative.switchMode(true);assert.equal(b.creative.items.length,2);b.clear();assert.equal(b.creative.items.length,0);assert.equal(elements['#source-section'].hidden,true);
 b.creative.switchMode(false);assert.equal(b.state.slots[0].topping,'bacon');
-console.log('PASS: PLAY source selection, duplication, deletion fallback, independent mode state/reset.');
+console.log('PASS: PLAY hides/ignores source selection, duplication, deletion fallback, independent mode state/reset.');
 
 // Returning from PLAY restores the selected LEARN difficulty.
 b.advancedMode=true;b.updateSentence();b.creative.switchMode(true);
@@ -67,7 +67,7 @@ console.log('PASS: editable PLAY bread, export inclusion, no source/initial, dup
 const filling=[{topping:'bacon'},{topping:'lettuce'},{topping:'tomato'}];
 const before=JSON.stringify(filling),lesson=context.window.SandwichLesson;
 const live=lesson.svg(filling,b.config),photo=lesson.svg(filling,b.config,false,true);
-assert.ok(live.includes('translate(50 30)'));assert.ok(photo.includes('translate(50 40)'));
+assert.ok(live.includes('translate(50 30)'));assert.ok(photo.includes('translate(50 46)'));
 assert.ok(!live.includes('picnic-background'));assert.ok(photo.includes('picnic-background'));
 assert.equal(JSON.stringify(filling),before);
 const placed=[{topping:'tomato',x:26,y:38,scale:1.3,rotate:25,flip:true}];
@@ -85,3 +85,14 @@ assert.equal(b.state.slots[1].topping,'bacon');assert.equal(b.state.slots[1].sou
 b.swapSlots(1);assert.equal(b.state.slots[1],null);assert.equal(b.state.slots[2].source,'Italy');
 assert.equal(b.activeSlot,0);
 console.log('PASS: adjacent swaps preserve sources, follow selection, support empty slots and disable identical pairs.');
+
+// Live mode changes preserve the bread coordinate system; only Share compacts it.
+const learnBase=lesson.svg([],b.config),playBase=lesson.svg([],b.config,true);
+for(const rendered of [learnBase,playBase,lesson.svg(filling,b.config)]){
+ assert.ok(!rendered.includes('translate(5 10) scale(.9)'));
+ assert.ok(rendered.includes(lesson.bread(70)));
+ assert.ok(!rendered.includes('cx="50" cy="83" rx="44" ry="8"'));
+}
+assert.ok(lesson.svg(filling,b.config).includes(lesson.bread(13)));
+assert.ok(photo.includes('translate(5 10) scale(.9)'));
+console.log('PASS: identical live bread scale across modes, safe top bread and separate Share framing.');

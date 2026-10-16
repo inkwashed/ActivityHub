@@ -40,7 +40,7 @@
 
 .is-create .learn-label{display:none}
 .is-create .play-label{display:inline}
-.ah-builder .is-create .sauce-legend,.ah-builder .is-create .topping-legend{font-size:16px;gap:6px}
+.ah-builder .is-create .sauce-legend,.ah-builder .is-create .topping-legend{gap:6px}
 
 .is-create .section-label{gap:5px;white-space:nowrap}
 .is-create .sauce-legend{flex-wrap:nowrap}

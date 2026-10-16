@@ -1,2 +1,8 @@
 
 Pronunciation: the result speaker reads the full English order; dotted-underlined ingredient phrases play individually. Vocabulary phrases (including PLAY count nouns) use the approved shared Kokoro recordings; full orders and missing/failed clips use browser speech. Recordings load only when tapped. Actual sentence voice and offline availability depend on the device; physical iPad verification of recorded playback remains pending.
+
+Layout uses the final shared builder-workspace CSS/JS: tablet/desktop viewport fit, a stable food frame, and a reserved sentence box with limited text fitting. Long/enlarged content retains accessible overflow. Physical iPad layout verification remains necessary.
+
+All nine toppings appear together in a three-column, three-row grid in LEARN and PLAY, without paging arrows or a page indicator. Quantity cycling, topping order and independent mode state are unchanged.
+
+Pizza uses the full available square within its fixed play frame in both LEARN and PLAY. Mode-specific board sizes and workspace row overrides must not override the shared stage/output layout.

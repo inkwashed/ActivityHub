@@ -30,7 +30,7 @@ Mixed fruit rows overlap sequentially from left to right, alternating the select
 
 Cream uses the same 12px non-scaling outline stroke as the glass, retaining its soft beige color. Pineapple is a pale golden ring wedge with a curved outer edge, core notch, and restrained highlights.
 
-Fruit choice buttons use shared/choice-pager.js: one row of three, wrapping previous/next arrows and a page indicator. Paging preserves the selected fruit pair; ice cream and syrup remain visible.
+All nine fruit choices appear in a three-by-three grid in LEARN and PLAY, without paging arrows or a page indicator. LEARN retains the editable fruit pair; ice cream and syrup remain visible.
 
 Creative editing uses shared/creative-builder.js and piece-gestures.js with local glass bounds and help. Run tests/check-parfait-creative.cjs for mode isolation, editing, count wording, and reset. Physical iPad validation remains outstanding.
 
@@ -47,3 +47,7 @@ Pronunciation: the result speaker reads the full English order; dotted-underline
 LEARN order text wraps naturally within the available width; fruit, flavor, and syrup phrases have no forced line breaks.
 
 LEARN combines fruit and selected syrup into one natural list after the ice cream (for example, “I want vanilla ice cream with strawberries, bananas, and chocolate syrup.”). With no fruit, ice cream keeps “with chocolate syrup”; no syrup stays an explicit “with no syrup” qualifier. PLAY retains its count-and-size wording.
+
+Layout uses the final shared builder-workspace CSS/JS: tablet/desktop viewport fit, a stable food frame, and a reserved sentence box with limited text fitting. Long/enlarged content retains accessible overflow. Physical iPad layout verification remains necessary.
+
+The glass stage is bottom-aligned within the shared play frame, with a 4% frame-height margin beneath it. Its width is 80% of the standard food footprint (73.6% of the smaller frame dimension), preserving proportions while leaving more open space above the scoops in both modes.

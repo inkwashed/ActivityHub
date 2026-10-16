@@ -9,14 +9,19 @@
       this.pizza = document.querySelector(options.scene || '#pizza');
       this.gestures=new window.PieceGestures({enabled:()=>this.active,bounds:()=>this.pizza.getBoundingClientRect(),select:item=>this.select(item.id),change:(item,resizing)=>{this.constrain(item);this.paint(item);if(resizing)this.sync();}});
       this.gestures.bindSurface(this.pizza);
+      document.addEventListener('builder:workspace-ready',event=>{
+        if(!event.detail.contains(this.pizza))return;
+        this.gestures.bindSurface(event.detail);
+        if('ResizeObserver' in window)new ResizeObserver(()=>this.items.forEach(item=>this.paint(item))).observe(event.detail);
+      });
       this.layer = document.createElement('div');this.layer.className = 'free-layer';this.layer.hidden = true;this.pizza.append(this.layer);
       this.tools = document.querySelector('#free-tools');this.picker = document.querySelector('#piece-picker');
       // Move the same controls, preserving listeners, state, and keyboard order.
       if(window.matchMedia){
-        const stacked=window.matchMedia('(orientation:portrait), (max-width:899px), (max-height:599px)');
+        const stacked=window.matchMedia('(max-width:739px), (max-height:599px)');
         const placeTools=()=>{
           const host=document.querySelector(stacked.matches?(options.workspace||'#pizza-workspace'):(options.menuBody||'.pizza-menu-body'));
-          const before=document.querySelector(stacked.matches?'.order':(options.menu||'#pizza-menu'));
+          const before=document.querySelector(stacked.matches?'.builder-output, .order':(options.menu||'#pizza-menu'));
           host.insertBefore(this.tools,before);
         };
         stacked.addEventListener('change',placeTools);placeTools();
@@ -66,6 +71,21 @@
     }
     topping(item){return this.catalog.find(x=>x.id===item.topping)}
     constrain(item){
+      const frame=this.pizza.closest?.('.builder-play-area');
+      if(frame){
+        item.scale=Math.max(this.sizes.min,Math.min(this.sizes.max,item.scale));
+        const scene=this.pizza.getBoundingClientRect(),area=frame.getBoundingClientRect();
+        // Keep the visible-art center reachable, while allowing overlap at the edges.
+        const size=(this.topping(item).creativeSize ?? this.topping(item).size)*item.scale;
+        const box=item.artBounds||{x:0,y:0,width:1,height:1};
+        const angle=(item.rotate||0)*Math.PI/180;
+        const dx=(box.x+box.width/2-.5)*size*(item.flip?-1:1),dy=(box.y+box.height/2-.5)*size;
+        const ox=dx*Math.cos(angle)-dy*Math.sin(angle),oy=(dx*Math.sin(angle)+dy*Math.cos(angle))*scene.width/(scene.height||scene.width);
+        const inset=Math.min(22,area.width/2,area.height/2);
+        const left=(area.left-scene.left+inset)/scene.width*100-ox,right=(area.right-scene.left-inset)/scene.width*100-ox;
+        const top=(area.top-scene.top+inset)/scene.height*100-oy,bottom=(area.bottom-scene.top-inset)/scene.height*100-oy;
+        item.x=Math.max(left,Math.min(right,item.x));item.y=Math.max(top,Math.min(bottom,item.y));return;
+      }
       if(this.options.constrain){this.options.constrain(item,this);return;}
       item.scale=Math.max(this.sizes.min,Math.min(this.sizes.max,item.scale));
       // Positions remain pizza-relative; movement is bounded by the full stage.
@@ -91,7 +111,7 @@
       node.setAttribute('aria-label',this.topping(item).label);
       item.renderedArt=this.options.art?this.options.art(item,this):this.topping(item).art;
       node.innerHTML=`<span class="free-art">${item.renderedArt}</span>`;
-      this.layer.append(node);item.node=node;
+      this.layer.append(node);item.node=node;item.measuredArt=null;
       node.addEventListener('click',()=>this.select(item.id));
       this.gestures.bind(node,item);
       node.addEventListener('keydown',e=>{
@@ -109,9 +129,22 @@
         const art=this.options.art(item,this);
         if(art!==item.renderedArt){item.node.innerHTML=`<span class="free-art">${art}</span>`;item.renderedArt=art;}
       }
+      this.trimArtwork(item);
+      if(this.pizza.closest?.('.builder-play-area'))this.constrain(item);
       const size=(this.topping(item).creativeSize ?? this.topping(item).size)*item.scale;
       item.node.setAttribute('aria-label',`${window.FoodBuilder.sizeBand(item.scale,this.sizes)} ${this.topping(item).countSingular||this.topping(item).label}`);
       item.node.style.cssText=`left:${item.x}%;top:${item.y}%;z-index:${this.orderedItems().indexOf(item)+1};--food-size:${size};--angle:${item.rotate}deg;--flip:${item.flip?-1:1}`;
+    }
+    trimArtwork(item){
+      if(item.measuredArt===item.renderedArt)return;
+      const art=item.node.querySelector('.free-art'),svg=art?.querySelector('svg');
+      if(!svg?.getBBox)return;
+      const box=svg.getBBox(),view=svg.viewBox.baseVal;
+      if(!box.width||!box.height||!view.width||!view.height)return;
+      item.artBounds={x:(box.x-view.x)/view.width,y:(box.y-view.y)/view.height,width:box.width/view.width,height:box.height/view.height};
+      const b=item.artBounds,hit=document.createElement('span');hit.className='piece-hit';hit.setAttribute('aria-hidden','true');
+      hit.style.cssText=`left:${(b.x+b.width/2)*100}%;top:${(b.y+b.height/2)*100}%;width:${(b.width+.04)*100}%;height:${(b.height+.04)*100}%`;
+      art.append(hit);item.node.setAttribute('data-trimmed','true');item.measuredArt=item.renderedArt;
     }
     select(id){
       this.selected=this.items.some(x=>x.id===id)?id:null;

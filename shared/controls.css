@@ -69,3 +69,14 @@ button.ah-text-action:active{color:var(--ah-strong)}
 .ah-section-number{display:inline-grid;place-items:center;flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--ah-strong);color:var(--ah-surface);font-size:16px;font-weight:bold;line-height:1;letter-spacing:0;vertical-align:middle}
 @media(min-width:700px) and (min-height:600px){.ah-section-number{width:26px;height:26px;font-size:15px}}
 .is-create .ah-section-number{display:inline-grid;width:26px;height:26px;font-size:15px}
+
+/* Shared clear action for fixed ingredient slots (Parfait and Sandwich). */
+.ah-builder .ah-button.slot-clear {
+  position:absolute; top:-8px; right:-8px;
+  display:flex; align-items:center; justify-content:center;
+  width:44px; height:44px; min-width:44px; min-height:44px;
+  padding:0; border:0; background:transparent; color:var(--ah-strong);
+  font-family:var(--ah-font); font-size:22px; line-height:1;
+}
+@media(hover:hover){.ah-builder .ah-button.slot-clear:hover{background:var(--ah-hover)}}
+.ah-builder .ah-button.slot-clear:active{background:var(--ah-pressed)}

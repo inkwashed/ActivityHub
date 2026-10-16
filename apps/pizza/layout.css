@@ -1,6 +1,6 @@
 /* Pizza owns the relationship between the canvas and creative editing tray.
    Loaded after shared responsive rules so both modes retain identical geometry. */
-.ah-builder #builder{--builder-panel-padding:14px}
+.ah-builder #builder{--builder-panel-padding:14px;--learn-card-rows:4;--play-card-rows:4}
 .ah-builder #builder #pizza-menu{padding:var(--builder-panel-padding)}
 .ah-builder #builder #pizza-menu .sauce-legend{gap:8px;margin-bottom:10px;align-items:center}
 .pizza-menu-body{display:grid;grid-template-columns:minmax(0,1fr);align-items:start}
@@ -8,15 +8,12 @@
 .ah-builder #builder #free-tools{position:static;transform:none;width:44px;align-self:center}
 .ah-builder #builder .pizza-menu-heading{margin-bottom:12px}
 .ah-builder #builder.is-create .pizza-stage{grid-template-columns:minmax(0,1fr);gap:0;min-height:0}
-.ah-builder #builder.is-create #pizza-workspace{grid-template-rows:auto minmax(210px,1fr) auto}
 @media(orientation:landscape) and (min-width:900px) and (min-height:600px){
  .ah-builder #builder,.ah-builder #builder.is-create{grid-template-columns:minmax(0,1fr) clamp(420px,42dvh,444px)}
  .ah-builder #builder .sauce-legend .section-label{white-space:nowrap}
  .ah-builder #builder .sauce-legend .build-mode-controls{flex-shrink:0}
- .ah-builder #builder.is-create .pizza-stage .board{width:min(100cqw,100cqh);height:min(100cqw,100cqh);max-width:none}
 }
 @media(orientation:portrait),(max-width:899px),(max-height:599px){
- .ah-builder #builder.is-create .pizza-stage .board{width:min(100%,560px);height:auto;max-width:100%;aspect-ratio:1}
 }
 
 /* Reserve touchscreen gestures for editing only on the PLAY canvas. */
@@ -27,3 +24,10 @@
  .ah-builder #builder .free-toolbar{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:8px}
  .ah-builder #builder .free-toolbar .ah-button{flex:0 0 44px}
 }
+
+/* All nine toppings stay visible in both modes. */
+.ah-builder #pizza-menu .choice-pager{grid-template-columns:minmax(0,1fr)}
+.ah-builder #pizza-menu .choice-pager #topping-options{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ah-builder #pizza-menu [data-choice-previous],
+.ah-builder #pizza-menu [data-choice-next],
+.ah-builder #pizza-menu [data-choice-status]{display:none}

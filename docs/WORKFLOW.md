@@ -18,7 +18,7 @@ Keep the collection maintainable: shared styles and behaviors should have one im
 | What should the interface look and feel like? | `docs/STYLE-GUIDE.md` |
 | Which colors, dimensions, and control behaviors actually render? | `shared/tokens.css` and `shared/controls.css` |
 | Which common icons should we use? | `shared/icons/` |
-| Where can we try the shared controls? | `docs/style-guide.html` |
+| Where can we try the shared controls? | `docs/style-guide.html`; full Builder experiments use local `_dev/builder/index.html` |
 | What is specific to an applet? | Its configuration, source, README, and scoped `AGENTS.md` under `apps/<name>/` |
 | What should an assistant read first? | Root `AGENTS.md`, which points here rather than duplicating these policies |
 
@@ -80,13 +80,15 @@ Use checks proportional to the change; do not add tests that merely restate CSS 
 | Applet | Entry point | Behavior checks | Current limitations |
 | --- | --- | --- | --- |
 | ほんの手紙 POST (featured) | `apps/post/index.html` | `node tests/check-post.cjs` | Independent styling by request; English UI with paired Japanese card fonts. Static links contain card text; no server inbox. Physical-device verification outstanding. |
-| Sandwich Builder (prototype) | `apps/sandwich/index.html` | `node tests/check-sandwich.cjs` | Three filling slots and source choices; shared PLAY editor; local browser/device review pending. Not on homepage. |
+| Profile Pic (prototype) | `apps/avatar/index.html` | Browser: tabs, selections, reset, square PNG preview; shared photo regression checks | User-authored SVG parts; no unit assigned or homepage listing. Physical iPad saving unverified. |
+| Builder Lab (local only) | `_dev/builder/index.html` | `node tests/check-builder-lab.cjs`, `node tests/check-builder-workspace.cjs` | Non-live candidate; sample Share only; browser/device review pending. |
+| Sandwich Builder | `apps/sandwich/index.html` | `node tests/check-sandwich.cjs` | Three filling slots and source choices; shared PLAY editor; local browser/device review pending. Listed under NEW HORIZON Elementary 6. |
 | Parfait Builder | `apps/parfait/index.html` | `node tests/check-parfait.cjs` | LEARN/PLAY; EASY only; local photo export; iPad download check pending. Mock checks; device visuals outstanding. Listed on homepage. |
 | Pizza Builder | `apps/pizza/index.html` | `node tests/check.cjs`, `node tests/check-fullscreen.cjs`, `node tests/check-sharing.cjs`, `node tests/check-creative.cjs` from repository root | Mock-based checks; physical iPad visual/download checks outstanding. Textbook back link returns to the home page’s Let’s Try! 2 section; English/Japanese interface language is supported. |
 
 Shared today: builder quantity/selection/sentence/reset logic (`shared/builder.js`), fullscreen and viewport measurement, design tokens, control and dialog CSS, common action/editing icons and the paper-airplane mark, interface translation helpers/dictionary, language-dialog open/close behavior, and the copyright footer. The visual guide consumes those actual shared files.
 
-Still app-local today: header and language-dialog markup, pizza sauce animation, creative editing, and photo export. Their common portions may be extracted when another app needs them. Do not claim they already update across multiple applets, and do not blindly generalize pizza-specific export or placement geometry.
+Still app-local today: header and language-dialog markup, food drawing/animation, and export rendering. Creative editing, gestures, photo-dialog/export plumbing, and workspace fitting now have shared implementations. Fixed-slot implementations are not yet fully unified; the lab’s opt-in component is a review candidate. Do not generalize food-specific geometry merely because the surrounding engine is shared.
 
 Add a row when an applet is created. Update coverage as shared behavior is extracted. Preserve activity-specific details in the app's own documentation.
 
@@ -127,7 +129,7 @@ Use relative trailing-slash directory URLs for home and applet navigation (for e
 
 ## Builder engine ownership
 
-Before every pizza or parfait functional change, explicitly evaluate whether it benefits both builders. Shared quantity cycles, retained placements, accessible selection state, EASY/HARD order language, and reset live in `shared/builder.js`; both applets load that engine. Subclasses own visual geometry/rendering (pizza sauce animation, parfait glass placement). Ingredients, counts, artwork, and nouns live in app configuration. Preserve existing pizza behavior and run both builders' checks after engine changes. Avoid copying functional fixes between applets. Creative editing and photo export remain pizza-specific implementations for now; extract reusable portions when adding them to another builder.
+Before every pizza or parfait functional change, explicitly evaluate whether it benefits both builders. Shared quantity cycles, retained placements, accessible selection state, EASY/HARD order language, and reset live in `shared/builder.js`; both applets load that engine. Subclasses own visual geometry/rendering (pizza sauce animation, parfait glass placement). Ingredients, counts, artwork, and nouns live in app configuration. Preserve existing pizza behavior and run both builders' checks after engine changes. Avoid copying functional fixes between applets. Creative editing and photo-export plumbing use shared implementations; food-specific renderers remain local.
 
 The builder engine supports optional `bases` and `sauces` configuration, validated selection, reset defaults, and base-aware order sentences. App subclasses provide `renderBase`/`renderSauce` for visual treatment. Parfait scoops and drizzle remain local; pizza keeps its spiral sauce renderer.
 
@@ -147,7 +149,7 @@ Pizza’s creative mode is labelled PLAY (formerly FREE/CREATE). Its compact pal
 
 Shared `choice-pager.js` pages existing controls within a section without replacing them or changing builder state. Pizza uses six topping choices per page while all sections remain visible. This complements whole-section `builder-panes.js`; use the appropriate pattern for the activity. Run `tests/check-choice-pager.cjs` for pager changes.
 
-Shared responsive policy supersedes blanket no-scroll requirements: target a one-screen landscape workspace on tablet/desktop, and stack activity above controls on portrait/tablet and phone layouts. Reuse `builder-responsive.css` and `builder-jump.js`; preserve natural overflow for accessibility. See STYLE-GUIDE.md for thresholds and verification sizes.
+Builder workspace policy: use `shared/builder-workspace.css` last and `shared/builder-workspace.js` after initialization. Tablet/desktop builders, including portrait iPads, use a viewport-bounded two-column layout with a stable play frame and reserved output box. Fit text without changing artwork size. Phones stack; exceptional long/enlarged content remains accessible through bounded overflow. STYLE-GUIDE.md owns the exact thresholds, dimensions, and output-box styling. Verify short/long sentences, mode changes, portrait/landscape toolbar relocation, pronunciation, and all three builder consumers after shared workspace changes.
 
 Numbered activity sections use the shared `ah-section-number` component and style-guide heading convention. Keep section numbering stable when switching panes, layers, language, or modes.
 
@@ -254,6 +256,18 @@ The approved vocabulary library now contains 54 Heart recordings, including corr
 
 Homepage builder examples are generated by `node scripts/generate-home-previews.cjs` using each app’s Share renderer and configured artwork/background. Regenerate after relevant artwork/export changes and refresh preview image hashes in index.html. Keep example ingredients consistent with their homepage captions.
 
-CreativeBuilder supports an optional `onSelect(editor)` callback for contextual controls (Sandwich ingredient sources). It follows selection without changing stacking or requiring app-local replacement of editor methods. Source-choice mappings and initials grammar remain sandwich-specific.
+CreativeBuilder supports an optional `onSelect(editor)` callback for contextual controls. Sandwich uses it to keep LEARN-only source controls hidden during PLAY. It follows selection without changing stacking or requiring app-local replacement of editor methods. Source-choice mappings and initials grammar remain sandwich-specific.
 
 ChoicePager supports `data-choice-play-only="true"` options: exclude them from LEARN page counts and reveal them only when expanded for PLAY. Sandwich uses this for editable bread; its fixed bottom bread remains part of the scene.
+
+Builder results use the shared output box without decorative quotation spans. Keep speech/copy/export text and normal sentence punctuation unmodified. Workspace fitting observes text and output bounds, restores preferred font size when content shortens, and never mutates builder state or scene transforms.
+
+## Builder Lab staging and rollout
+
+Use `_dev/builder/index.html` as the non-live layout/feature review surface before future Builder rollouts. It consumes shared implementations, with candidate-only fixtures clearly identified in its README. `_dev` is excluded from GitHub Pages/Jekyll in `_config.yml`; any replacement deployment pipeline must exclude it too. Do not add a homepage link or publish the lab.
+
+Stage unapproved changes in lab-scoped code, review representative sizes and states, then update the owning guide and shared implementation. Migrate every affected production builder explicitly and run its checks before publishing. Passing lab checks alone does not verify app-specific layout, state, artwork or exports. The current slot component is opt-in and has not replaced the existing Parfait/Sandwich implementations. Pending standards decisions and the device review matrix live in `_dev/builder/README.md`.
+
+Profile Pic uses the shared photo lifecycle with opt-in `square: true`: an 800×800 image without a food caption or border. Existing builder exports retain their default layout. Its catalog and original vector artwork live under `apps/avatar/`.
+
+Shared PLAY geometry is owned by CreativeBuilder and builder-workspace: use the visible tan frame for limits, measured SVG geometry for hit regions, and preserve scene coordinates for exporters. Run creative tests for Pizza, Parfait, Sandwich and Lab plus `tests/check-play-bounds.cjs` when changing this contract. Verify narrow/large rotated art, duplication, art changes, resize, touch targets and frame-edge overlap; mock geometry checks do not replace physical touch review.

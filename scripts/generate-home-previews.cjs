@@ -18,4 +18,6 @@ load('apps/parfait/builder.js');load('apps/parfait/sharing.js');
 const parfait=window.parfaitBuilder;
 parfait.state={base:'vanilla',sauce:'chocolate',layers:[['strawberries','strawberries']]};
 fs.writeFileSync('assets/parfait-preview.svg',render(parfait)+'\n');
-console.log('Updated both homepage examples using the Share renderers.');
+load('apps/sandwich/config.js');load('apps/sandwich/model.js');
+fs.writeFileSync('assets/sandwich-preview.svg',window.SandwichLesson.svg(['bacon','lettuce','tomato'].map(topping=>({topping})),window.SANDWICH_CONFIG,false,true)+'\n');
+console.log('Updated all three homepage examples using the Share renderers.');

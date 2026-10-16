@@ -1,0 +1,65 @@
+/* Final shared builder geometry. Food internals retain their own proportions. */
+.ah-builder #builder .builder-play-area{container-type:size;display:grid;place-items:center;min-width:0;min-height:0;height:404px}
+.ah-builder #builder .builder-output{height:140px;min-height:0;box-sizing:border-box;padding:10px 12px;background:var(--ah-surface);border:1px solid var(--ah-divider);border-radius:var(--ah-radius-panel);overflow:auto;overscroll-behavior:contain;width:100%;font-size:var(--output-font-size,21px)}
+.ah-builder #builder .builder-output .order{display:flex;width:100%;max-width:none;min-height:0;margin:0;gap:6px;align-items:flex-start;font-size:inherit}
+.ah-builder #builder .builder-output #sentence{font-size:inherit;line-height:1.4;min-width:0;margin:0;flex:1}
+.ah-builder #builder .builder-output #source-sentence{font-size:inherit;line-height:1.4;margin:4px 0 0}
+.ah-builder #builder .builder-play-area .pizza-stage{width:100%;height:100%;min-height:0;container-type:size;display:grid;place-items:center}
+.ah-builder #builder .builder-play-area .board,
+.ah-builder #builder .builder-play-area #sandwich{width:min(92cqw,92cqh);height:min(92cqw,92cqh);max-width:none;max-height:none;margin:0;aspect-ratio:1}
+.ah-builder #builder .builder-play-area .parfait-stage{width:min(73.6cqw,73.6cqh);height:auto;aspect-ratio:1.25;align-self:end;margin:0 0 4cqh;transform:none}
+/* Includes portrait iPads; phones keep the activity-first stack. */
+@media(min-width:740px) and (min-height:600px){
+ .ah-builder{padding-bottom:0}
+ .ah-builder header{padding:6px 16px;gap:8px}
+ .ah-builder .edition{display:inline}
+ .ah-builder #builder,.ah-builder #builder.is-create{height:calc(100svh - var(--header-height,56px) - var(--footer-height,26px));min-height:0;grid-template-columns:minmax(0,1fr) minmax(350px,42%);gap:16px;padding:10px 16px;align-items:start}
+ .ah-builder #builder .kitchen,.ah-builder #builder.is-create .kitchen{display:grid;grid-template-rows:44px minmax(0,1fr) 140px;gap:8px;height:100%;min-height:0;align-self:stretch}
+ .ah-builder #builder .kitchen>.heading{margin:0;min-height:0}
+ .ah-builder #builder .heading .question{font-size:21px;margin:0}
+ .ah-builder #builder .builder-play-area{height:100%}
+ .ah-builder #builder>[data-jump-section="choices"]{width:100%;height:100%;min-height:0;overflow:auto;overscroll-behavior:contain;padding-bottom:6px;margin:0}
+ .ah-builder #builder [data-jump-section="choices"]>.heading{margin:0 0 8px}
+ .ah-builder #builder [data-jump-section="choices"] h1{font-size:26px;margin:4px 0;letter-spacing:-.6px}
+ .ah-builder #builder .pantry{padding:10px;height:auto;min-height:0}
+ .ah-builder #builder{--learn-card-height:68px}
+ .ah-builder #builder .choice-pager[data-page-size="6"]:not([data-expanded="true"]) [data-choice-list]{grid-template-rows:repeat(2,minmax(68px,auto))}
+ .ah-builder #builder .pantry fieldset{margin-bottom:8px}
+ .ah-builder #builder .pantry .topping-section,
+ .ah-builder #builder .pantry .syrup-section,
+ .ah-builder #builder .pantry .layer-navigation{margin-top:8px}
+ .ah-builder #builder .pantry .choice-pager{margin-top:6px}
+ .ah-builder #builder .pantry .builder-actions,
+ .ah-builder #builder .pantry .pizza-actions{margin-top:8px}
+ .ah-builder #builder .pantry .hint{margin-bottom:6px}
+ .ah-builder #builder #source-section{margin:6px 0}
+ .ah-builder #builder .pizza-menu-body,
+ .ah-builder #builder .parfait-menu-body,
+ .ah-builder #builder .sandwich-menu-body{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+ .ah-builder #builder.is-create .pizza-menu-body,
+ .ah-builder #builder.is-create .parfait-menu-body,
+ .ah-builder #builder.is-create .sandwich-menu-body{grid-template-columns:44px minmax(0,1fr)}
+ .ah-builder #builder #free-tools{width:44px;margin:0;align-self:center}
+ .ah-builder #builder .free-toolbar{flex-direction:column;gap:6px;flex-wrap:nowrap}
+ .ah-builder #builder .free-toolbar .ah-button{flex:0 0 44px}
+ .builder-jump{display:none}
+}
+
+/* One visible editing surface; food silhouettes and Share scenery stay local. */
+.ah-builder #builder .builder-play-area{background:var(--ah-play-surface);border:0;border-radius:var(--ah-radius-panel);overflow:clip;isolation:isolate}
+.ah-builder #builder .builder-play-area .board{background:transparent;border:0;box-shadow:none}
+.ah-builder #builder .free-piece[data-trimmed]{pointer-events:none}
+.ah-builder #builder .free-piece[data-trimmed] .free-art{outline:none}
+.ah-builder #builder .piece-hit{position:absolute;display:block;min-width:44px;min-height:44px;transform:translate(-50%,-50%);border-radius:8px;pointer-events:auto;touch-action:none}
+.ah-builder #builder .free-piece.selected .piece-hit{outline:2px dashed var(--ah-focus)}
+
+/* Panels use their border for separation, without a raised lower edge. */
+.ah-builder #builder .pantry{box-shadow:none}
+
+/* Landscape editing tools start at the top edge of the adjacent choices panel. */
+@media(orientation:landscape) and (min-width:740px) and (min-height:600px){
+ .ah-builder #builder.is-create #free-tools{align-self:start}
+}
+
+/* Pizza uses the full available square in both modes (formerly PLAY-only). */
+.ah-builder #builder #pizza-workspace .builder-play-area .board{width:min(100cqw,100cqh);height:min(100cqw,100cqh);max-width:none;max-height:none}

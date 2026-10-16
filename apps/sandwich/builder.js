@@ -6,7 +6,7 @@
    const slots=this.root.querySelector('#slots');this.slotControls=[];this.swapControls=[];
    for(let i=0;i<3;i++){
     const wrap=document.createElement('div'),b=document.createElement('button'),clear=document.createElement('button');
-    b.type=clear.type='button';b.className='ah-choice slot';clear.className='ah-button slot-clear';clear.textContent='×';
+    b.type=clear.type='button';b.className='ah-choice slot';clear.className='ah-button slot-clear';clear.innerHTML='<span aria-hidden="true">×</span>';
     clear.setAttribute('aria-label',`Clear filling ${i+1}`);
     b.addEventListener('click',()=>{this.activeSlot=i;this.updateSentence();});
     clear.addEventListener('click',()=>{this.state.slots[i]=null;this.activeSlot=i;this.updateSentence();b.focus();});
@@ -18,6 +18,7 @@
     }
    }
    this.root.querySelector('#source-choice').addEventListener('change',e=>{
+    if(this.creative?.active)return;
     const piece=this.selectedPiece();if(!piece)return;
     const type=this.config.toppings.find(x=>x.id===piece.topping);
     piece.source=type.sources.includes(e.target.value)?e.target.value:null;this.updateSentence();
@@ -41,8 +42,8 @@
    this.buttons.get(item.id)?.setAttribute('aria-pressed',String(!!selected));
   }
   updateSource(){
-   const piece=this.selectedPiece(),section=this.root.querySelector('#source-section');section.hidden=!piece;
-   if(!piece)return;
+   const piece=this.selectedPiece(),section=this.root.querySelector('#source-section');section.hidden=!!this.creative?.active||!piece;
+   if(section.hidden)return;
    const type=this.config.toppings.find(x=>x.id===piece.topping);
    if(!type){section.hidden=true;return;}
    const select=this.root.querySelector('#source-choice');
@@ -68,13 +69,13 @@
   updateSentence(){
    const play=this.creative?.active,items=play?this.creative.orderedItems():this.state.slots.filter(Boolean);
    const output=window.SandwichLesson.describe(items,this.config,!play&&this.advancedMode);this.setSentence(output.sentence);this.decorateInitials();
-   this.root.querySelector('#source-sentence').textContent=play?output.sources:'';
-   this.root.querySelector('#sandwich').setAttribute('aria-label',output.sentence+(play?' '+output.sources:''));
+   this.root.querySelector('#source-sentence').textContent='';
+   this.root.querySelector('#sandwich').setAttribute('aria-label',output.sentence);
    const slots=this.root.querySelector('#slots');slots.hidden=!!play;
    if(!play){
     this.slotControls.forEach((wrap,i)=>{const piece=this.state.slots[i],type=this.config.toppings.find(x=>x.id===piece?.topping),button=wrap.children[0];
      button.innerHTML=`<span class="slot-art" aria-hidden="true">${type?type.art:'<svg viewBox="0 0 24 24" fill="none" stroke="#8a918c" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6 18.4 18.4"/></svg>'}</span>`;
-     button.setAttribute('aria-label',`${t('Filling')} ${i+1}: ${type?.label||t('Choose an ingredient')}`);button.setAttribute('aria-pressed',String(i===this.activeSlot));wrap.children[1].hidden=!piece;
+     button.setAttribute('aria-label',`${t('Filling')} ${i+1}: ${type?.label||t('Choose an ingredient')}`);button.setAttribute('aria-pressed',String(i===this.activeSlot));wrap.children[1].hidden=!piece;wrap.children[1].setAttribute('aria-label',t(`Clear filling ${i+1}`));
     });
     this.swapControls.forEach((button,i)=>{
      const a=this.state.slots[i],b=this.state.slots[i+1];

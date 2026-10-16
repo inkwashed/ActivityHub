@@ -47,11 +47,15 @@ window.BuilderPhoto = options => {
       const builder = options.builder();
       // Capture current selections and wording before awaiting image decoding.
       const svg = options.render(builder);
-      const sentence = document.querySelector('#sentence').textContent;
+      const sentence = options.square ? '' : document.querySelector('#sentence').textContent;
       const image = await loadImage('data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg));
       const canvas = document.createElement('canvas');
       const context = canvas.getContext('2d');
       if (!context) throw new Error('Canvas unavailable');
+      if (options.square) {
+        canvas.width = canvas.height = 800;
+        context.drawImage(image, 0, 0, 800, 800);
+      } else {
       context.font = '30px Arial';
       const lines = wrapText(context, sentence, 860);
       canvas.width = 1000;
@@ -63,6 +67,7 @@ window.BuilderPhoto = options => {
       context.fillText(options.caption, 500, 1009);
       context.font = '30px Arial';
       lines.forEach((line, i) => context.fillText(line, 500, 1060 + i * 40));
+      }
       const blob = await new Promise((resolve, reject) => canvas.toBlob(value => value ? resolve(value) : reject(new Error('Export failed')), 'image/png'));
       if (token !== generation || !shareDialog.open) return;
       photoURL = URL.createObjectURL(blob);

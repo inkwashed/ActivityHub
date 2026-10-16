@@ -1,0 +1,3 @@
+# Keep the local Builder test app out of GitHub Pages/Jekyll output.
+exclude:
+  - _dev

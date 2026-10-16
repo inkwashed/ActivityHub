@@ -2,6 +2,7 @@
 :root {
   --ah-font: ui-rounded, "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif;
   --ah-canvas: #f8f6ed;
+  --ah-play-surface: #eee6d2;
   --ah-surface: #fffefa;
   --ah-ink: #263f36;
   --ah-muted: #627067;

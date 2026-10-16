@@ -1,0 +1,2 @@
+Built-in image generation from supplied center-parted chibi portrait. Hair-only tracing guide; applet unchanged. Transparent PNG and green-background BMP. Exact fit to app not verified.
+Prompt: Isolate only brown center-parted short hair, preserving crown tufts, curtain bangs, side locks, proportions, colors, highlights, shading and outlines. Remove eyebrows, facial features, ears, skin, neck, shirt, body and background to transparency. Preserve full square canvas and source scale/placement; no redesign, accessories, text or tight crop.
