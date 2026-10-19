@@ -28,7 +28,7 @@
    const clean={...config.defaults};let valid=0;
    for(const key of Object.keys(clean)){
     const options=config.parts[key]||config.palettes[key]||(key==='eyeStyle'?config.eyeStyles:[]);
-    if(options.includes(saved.state[key])){clean[key]=saved.state[key];valid++;}
+    if(options.includes(saved.state[key])||config.isCustomColor(key,saved.state[key])){clean[key]=saved.state[key];valid++;}
    }
    if(!valid){fallback();return;}
    // Saved markup is never used: only catalog-validated values reach the renderer.

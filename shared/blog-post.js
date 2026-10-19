@@ -62,7 +62,7 @@
    const savedAvatar=window.ActivityAutosave.read('letseigo.app.avatar',1),c=window.AvatarConfig;
    const slot=$('blog-avatar');slot.replaceChildren();
    if(savedAvatar?.state&&c&&window.renderAvatar){
-    const clean={...c.defaults};for(const key of Object.keys(clean)){const options=c.parts[key]||c.palettes[key]||(key==='eyeStyle'?c.eyeStyles:[]);if(options.includes(savedAvatar.state[key]))clean[key]=savedAvatar.state[key];}
+    const clean={...c.defaults};for(const key of Object.keys(clean)){const options=c.parts[key]||c.palettes[key]||(key==='eyeStyle'?c.eyeStyles:[]);if(options.includes(savedAvatar.state[key])||c.isCustomColor(key,savedAvatar.state[key]))clean[key]=savedAvatar.state[key];}
     // Only catalog-validated values reach the existing trusted SVG renderer.
     slot.innerHTML=window.renderAvatar(clean);
    }else{const img=document.createElement('img');img.src='../../shared/icons/profile-default.svg';img.alt='';slot.append(img);}

@@ -8,3 +8,7 @@ All nine toppings appear together in a three-column, three-row grid in LEARN and
 Pizza uses the full available square within its fixed play frame in both LEARN and PLAY. Mode-specific board sizes and workspace row overrides must not override the shared stage/output layout.
 
 State saves automatically on this device/browser through shared/autosave.js and shared/builder-autosave.js, including independent LEARN/PLAY compositions and difficulty. Reset persists the cleared active mode. Storage failure leaves the activity usable; there is no cloud sync. Shared restore checks: `node tests/check-autosave.cjs`.
+
+The Share photo uses the shared centered Download action with a 12px photo gap and the QR modal’s download icon.
+
+Share uses fixed proportional framing in both modes; pieces beyond the photo edges crop instead of changing zoom. Verified by `node tests/check-photo-framing.cjs`.

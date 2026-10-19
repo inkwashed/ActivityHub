@@ -3,7 +3,10 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {createHash} = require('node:crypto');
 const root = path.resolve(__dirname, '..');
-for (const app of ['.', 'apps/post', 'apps/pizza', 'apps/parfait', 'apps/sandwich', 'apps/avatar', '_dev/builder']) {
+const defaults = ['.', 'apps/post', 'apps/pizza', 'apps/parfait', 'apps/sandwich', 'apps/avatar', '_dev/builder', 'apps/class-supplies'];
+const requested = process.argv.slice(2);
+for (const app of requested.length ? requested : defaults) {
+  if (!defaults.includes(app)) throw new Error(`Unknown app: ${app}`);
   const file = path.join(root, app, 'index.html');
   const html = fs.readFileSync(file, 'utf8');
   const updated = html.replace(/\b(src|href)="([^"?#]+\.(?:js|css|svg))(?:\?v=[^"#]+)?"/g, (match, attr, url) => {

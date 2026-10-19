@@ -1,0 +1,25 @@
+{
+  "tool": "built-in image_gen",
+  "images": [
+    {
+      "name": "larger-curve",
+      "prompt": "Generate ONE isolated NOSE ONLY sprite for cute chibi anime avatar matching the supplied character's simple nose style. A larger version of a cute tiny chibi nose: a single shallow upside-down U arch with broad gently rounded peak, variable ink thickness and tapered ends. Friendly soft human nose, no closed outline, no nostrils or shading. Center the nose at large inspection scale on square canvas, occupying 40% width. Smooth expressive clean contours, simple flat colors. Palette warm brown #925938, peach #F8CFA7 and coral shadow #EFA780 only if filled shape requested. Pure chroma green #00FF00 background. No eyes, face, skin patch outside nose, mouth, cheeks, text, framing, gradients, grain, realistic rendering, texture or extra marks.",
+      "path": "/Users/corinne/.codex/generated_images/01a14404-0ca3-79b0-b4c0-cb8bf460aa8c/exec-e8c138ce-4210-4779-b2ce-6105b3d31196.png"
+    },
+    {
+      "name": "round-button",
+      "prompt": "Generate ONE isolated NOSE ONLY sprite for cute chibi anime avatar matching the supplied character's simple nose style. A round button nose for a chibi anime human avatar. A small softly rounded almost circular peach shape, subtle warm brown outline around sides and lower curve, top edge understated. One simple warm coral crescent shadow on lower right. No nostril dots, no realistic bridge, not clown nose. Center nose at large inspection scale on square canvas, about 40% width. Smooth expressive clean contours, simple flat colors ONLY warm brown #925938, peach #F8CFA7 and coral shadow #EFA780. Pure chroma green #00FF00 background. No eyes, face, skin patch outside nose, mouth, cheeks, text, framing, gradients, grain, realistic rendering, texture or extra marks.",
+      "path": "/Users/corinne/.codex/generated_images/01a14404-0ca3-79b0-b4c0-cb8bf460aa8c/exec-d3500192-c747-4b5d-a168-e2eec0d5dbd7.png"
+    },
+    {
+      "name": "soft-triangle",
+      "prompt": "Generate ONE isolated NOSE ONLY sprite for cute chibi anime avatar matching supplied character style. A small soft triangular human chibi nose. Rounded three-corner wedge, peach base, subtle warm brown curved lower contour and one small coral shadow on right. Friendly minimal anime illustration. No animal nose, no black triangle, no nostrils, no realistic bridge. Center nose at large inspection scale on square canvas, about 40% width. Smooth expressive clean contours, simple flat colors ONLY warm brown #925938, peach #F8CFA7 and coral shadow #EFA780. Pure chroma green #00FF00 background. No eyes, face, skin patch outside nose, mouth, cheeks, text, framing, gradients, grain, realistic rendering, texture or extra marks.",
+      "path": "/Users/corinne/.codex/generated_images/01a14404-0ca3-79b0-b4c0-cb8bf460aa8c/exec-d113ad62-f1f9-4bc9-bb95-6315382ae063.png"
+    },
+    {
+      "name": "angled",
+      "prompt": "Generate ONE isolated NOSE ONLY sprite for cute chibi anime avatar matching supplied character style. A tiny angled chibi anime human nose: ONE delicate warm brown bent hook stroke, slight diagonal bridge leading into small rounded tip and short return stroke. Clean tapered endpoints, subtle side-facing suggestion but usable on front-view face. No nostrils, no enclosed shape, no extra lines. Center nose at large inspection scale on square canvas, about 35% width. Smooth expressive clean contours, simple flat warm brown #925938 ONLY. Pure chroma green #00FF00 background. No eyes, face, skin patch, mouth, cheeks, text, framing, gradients, grain, realistic rendering, texture or extra marks.",
+      "path": "/Users/corinne/.codex/generated_images/01a14404-0ca3-79b0-b4c0-cb8bf460aa8c/exec-a4844763-f633-4a15-b0a0-0472bc8543e6.png"
+    }
+  ]
+}

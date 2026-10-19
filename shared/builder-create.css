@@ -11,7 +11,6 @@
 
 .is-create .build-mode-controls{margin-left:0}
 .ah-builder .is-create #piece-picker{width:100%}
-.is-create .sauce-button .check{position:absolute;top:1px;right:4px}
 @media(orientation:portrait),(max-width:699px){
  .ah-builder main.is-create{grid-template-columns:minmax(0,1fr);height:auto}
  .ah-builder .is-create .kitchen{display:block}

@@ -68,7 +68,7 @@
         button.className = 'sauce-button ah-choice';
         button.dataset.sauce = sauce.id;
         button.title = sauce.label;
-        button.innerHTML = `${sauce.art || `<span class="sauce-bowl" style="--sauce-color:${sauce.color};--sauce-highlight:${sauce.highlight}" aria-hidden="true"></span>`}<span>${sauce.buttonLabel || sauce.label}</span><span class="check" aria-hidden="true">✓</span>`;
+        button.innerHTML = `${sauce.art || `<span class="sauce-bowl" style="--sauce-color:${sauce.color};--sauce-highlight:${sauce.highlight}" aria-hidden="true"></span>`}<span>${sauce.buttonLabel || sauce.label}</span>`;
         button.addEventListener('click', () => this.setSauce(sauce.id));
         sauces.append(button);
       });

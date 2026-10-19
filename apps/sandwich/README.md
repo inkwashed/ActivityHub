@@ -36,8 +36,12 @@ PLAY displays the 16 fillings in a four-by-four icon-only grid with 72px minimum
 
 PLAY selection outlines follow each ingredient SVG’s visible geometry with a small inset-space allowance, rather than its square canvas. The shared editor trims the drag target with the outline, retaining a 44px minimum; rotation, flipping and resizing are inherited, and exported artwork remains unchanged.
 
-Live LEARN and PLAY use the same full-scale SVG coordinates for the fixed bread. LEARN top bread stays at least 13 SVG units below the top to avoid clipping. The 90% scene transform is reserved for compact LEARN Share photos.
+Live LEARN and PLAY use the same full-scale SVG coordinates for the fixed bread. LEARN top bread stays at least 13 SVG units below the top to avoid clipping. The 90% scene transform is shared by LEARN and PLAY Share photos.
 
 Sandwich artwork has no plate or plate shadow, including the live scene, Share renderer and transparent logo/favicon.
 
 State saves automatically on this device/browser through shared/autosave.js and shared/builder-autosave.js, including independent LEARN/PLAY compositions and difficulty. Reset persists the cleared active mode. Storage failure leaves the activity usable; there is no cloud sync. Shared restore checks: `node tests/check-autosave.cjs`.
+
+The Share photo uses the shared centered Download action with a 12px photo gap and the QR modal’s download icon.
+
+Share uses fixed proportional framing in both modes; pieces beyond the photo edges crop instead of changing zoom. Verified by `node tests/check-photo-framing.cjs`.

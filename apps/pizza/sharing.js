@@ -1,16 +1,8 @@
 (() => {
   function pizzaSVG(builder) {
     const sauce = builder.config.sauces.find(item => item.id === builder.state.sauce);
-    // Fit the complete creative composition, including pieces beyond the crust.
-    let min=0,max=100;
-    if(builder.creative?.active) for(const p of builder.creative.items){
-      const topping=builder.config.toppings.find(t=>t.id===p.topping);
-      const angle=p.rotate*Math.PI/180;
-      const half=topping.size*.94*p.scale/2*(Math.abs(Math.cos(angle))+Math.abs(Math.sin(angle)));
-      const x=50+(p.x-50)*.94,y=50+(p.y-50)*.94;
-      min=Math.min(min,x-half-2,y-half-2);max=Math.max(max,x+half+2,y+half+2);
-    }
-    // Flat oak illustration sized to the full photo, including expanded PLAY bounds.
+    // Fixed photo framing in both modes; overflow crops at the photo edge.
+    const min=0,max=100;
     const oak=`<g id="oak-counter" transform="translate(${min} ${min}) scale(${(max-min)/100})">
       <rect width="100" height="100" fill="#d9b783"/>
       <path d="M0 0H25V100H0ZM50 0H75V100H50Z" fill="#e2c292"/>

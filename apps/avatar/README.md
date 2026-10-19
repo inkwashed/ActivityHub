@@ -2,13 +2,13 @@
 
 Open `index.html` directly, or serve the repository and visit `/apps/avatar/`.
 
-The active app uses user-authored SVG parts: Classic, Round and Slim faces; one eye expression with Basic/Eyelashes; nose, mouth, T-shirt; Tousled and Curly hair. Skin, iris, hair, clothing and background colors are editable. Hair and nose can be hidden; clothing is required. Older saves with hidden clothing restore the default T-shirt. Reset restores Classic/Tousled. English/Japanese interface and local square PNG export; no accounts; appearance and selected tab autosave locally in this browser. Not deployed or listed on the homepage.
+The active app uses user-authored SVG parts: Regular, Round and Slim faces; one eye expression with an optional Eyelashes checkbox (off by default); nose, mouth, T-shirt; Tousled, Curly, Short center part and Long with bangs hair. Skin, iris, hair, clothing and background colors are editable. Eye and hair colors each include nine presets and a circular rainbow custom color picker; validated custom eye and hair colors persist in saved avatars and homepage/blog previews. Hair and nose can be hidden; clothing is required. Older saves with hidden clothing restore the default T-shirt. Reset restores Regular/Tousled. English/Japanese interface and local square PNG export; no accounts; appearance and selected tab autosave locally in this browser. Not deployed or listed on the homepage.
 
 ## Active files
 
 - `index.html`, `styles.css`, `app.js`: interface and state, using shared controls.
 - `config.js`, `ui-ja.js`: choices, defaults, palettes and translations.
-- `svg-assets/`: original supplied SVG sources. `01-face-neck.svg` is Classic; named Round/Slim files are alternatives. `06-hair.svg` is Tousled; `hair-curly.svg` is Curly.
+- `svg-assets/`: original supplied SVG sources. `01-face-neck.svg` is Regular; named Round/Slim files are alternatives. `06-hair.svg` is Tousled; `hair-curly.svg` is Curly; `hair-short-center-part.svg` is Short center part.
 - `svg-parts.js`: embedded SVG markup used for both direct-file opening and export.
 - `svg-art.js`: layer composition and recoloring.
 - `icon.svg`: static render of `renderAvatar(AvatarConfig.defaults)` from the current catalog and SVG renderer, shared by the app header and favicon. Regenerate when the default artwork changes and refresh both icon cache hashes in `index.html`.
@@ -28,3 +28,29 @@ Long hair should have separate back and front groups: back hair → head/body �
 Browser checks have covered face/hair choices, eyelashes, skin/hair/clothing colors, removal, Reset and PNG export. Curly sizing was reviewed on all three faces. Fitted bob references were reviewed against all three SVG heads, including ear placement, eye clearance and neck overlap. Physical iPad saving remains unverified.
 
 Superseded PNG prototypes, rejected artwork, duplicate exports and older tracing references were moved out of the repository to the dated avatar archive in the Codex project workspace on 2026-10-16. The archive includes a restoration manifest.
+
+Long with bangs uses `svg-assets/hair-long-bangs-front-back.svg`: g210 is back-right, g202 back-left, and g203 front. Preserve group geometry when rebuilding the embedded parts. Rendering order is background → back hair → face/body → clothes → eyes/nose/mouth → front hair → accessories (reserved). Both hair sections share the existing hair palette.
+
+Mouth choices include Smile, Teeth smile, Closed smile, Frown, Smirk, Surprised O and Neutral. Supplied alternatives are stored as `svg-assets/mouth-*.svg`, with their original full-canvas sizing and placement preserved. Teeth smile retains the supplied full-canvas position and geometry for alignment review.
+
+Teeth smile uses the same off-white as the eye whites (`#f2f0eb`); preserve this color when refreshing the supplied mouth asset.
+
+All part choice cards show pictures only; translated names remain available to screen readers.
+
+The Face tab contains face shapes, nose choices and skin colors. Expression contains eye choices, optional eyelashes and iris colors, followed by picture-only mouth choices. Older saves on the former Mouth tab reopen Expression. Older saves on the former Nose tab reopen Face.
+
+The renderer shifts every mouth down 55 full-canvas units (about 7px in a 400px portrait). Keep supplied mouth source positions unchanged; this shared offset also applies to previews and exports.
+
+Smirk alone also shifts 55 canvas units to the right (about 7px in a 400px portrait); other mouths remain horizontally unchanged.
+
+Teeth smile also shifts 24 canvas units right (about 3px in a 400px portrait), retaining the shared vertical offset.
+
+Nose choices: original Small, Tiny wedge, Soft hook, Larger arch, Button curve, and None. New source files are `svg-assets/nose-*.svg`; preserve their original placement. Contours use the skin-derived lid-crease tone; Tiny wedge uses the skin-detail tone for its upper plane and a 15% darker tone for its lower contour.
+
+Nose menu order: Small, Larger arch, Tiny wedge, Soft hook, Button curve, None. Soft hook and Button curve have an 80-unit downward render offset (about 10px at 400px portrait size), leaving original SVG sources unchanged.
+
+Expression uses an Eyes heading with the Eyelashes checkbox on the same row. Mouth cards use isolated mouth previews in compact seven-column desktop/four-column mobile rows; artwork retains the shared placement offsets.
+
+Clothes includes clothing choices/colors followed by Accessories. Design replaces the former Colors tab and is limited to background styles, background colors and borders; currently only existing background color choices are available. Part colors stay in their own tabs. Saved Accessories/Colors tabs reopen Clothes/Design respectively.
+
+The five category tabs share one connected desktop row; small screens allow horizontal scrolling while retaining keyboard tab navigation.

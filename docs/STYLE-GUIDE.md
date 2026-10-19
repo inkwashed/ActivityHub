@@ -59,7 +59,7 @@ Actions use a thin 1px border and dark text. Secondary actions start a shade dar
 - Hover: darker shading and green border, only on devices supporting hover. Selected cards retain a distinct tinted hover state.
 - Press/tap: deeper shade and subtle 0.98 scale, without reflow. The mode switch uses an inset stroke instead of scaling.
 - Keyboard focus: 3px blue outline with 3px offset.
-- Selected: green border plus tint, `aria-pressed`, and visible checks/dots where appropriate. Do not rely on color alone.
+- Selected: green border plus tint and `aria-pressed`. Do not add selection checkmarks to choice buttons or swatches. Preserve quantity dots when they communicate an amount; selection must not add content or change button dimensions.
 - Disabled: muted shading, no hover or press response. Use native `disabled`. For links, `aria-disabled` alone does not suppress activation; prevent navigation explicitly.
 - Motion: 150ms control transitions. Reduced motion disables transitions and press scaling; activity animations also respect it.
 - Touch: minimum 44×44 CSS pixels. Hover is optional feedback, never required.
@@ -191,7 +191,7 @@ keep food geometry and app-specific menu sizing in the app layout file.
 
 In stacked phone/short-window layouts, move the same editing toolbar below the artwork and above its order sentence. Lay its 44px buttons out horizontally, centered, wrapping on narrow phones. Restore the vertical menu-side placement in landscape, aligned to the panel’s top edge rather than vertically centered. Move existing controls rather than duplicating them so state, focus order, and listeners stay consistent.
 
-Creative movement bounds belong to the activity play area, not necessarily the food silhouette. Pizza PLAY permits crust overlap within the rectangular stage; exports must include those placements. Keep LEARN’s preset placement rules independent.
+Creative movement bounds belong to the activity play area, not necessarily the food silhouette. Pizza PLAY permits crust overlap within the rectangular stage; fixed photo framing may crop placements beyond the photo edges. Keep LEARN’s preset placement rules independent.
 
 Mode help must describe the currently selected mode: update its dialog title, instructions, and info-button accessible label together. Translate these interface strings without changing lesson vocabulary or activity state.
 
@@ -316,8 +316,24 @@ App-link sharing uses a QR icon button immediately after Language in the header,
 
 QR dialog actions use the short labels “Download” and “Copy”, with a decorative download arrow or overlapping-sheets icon on the left, using the same shared button spacing as Reset/Share.
 
-The homepage header ends with a circular saved-avatar button after Language and QR. Use the shared grey profile silhouette when no valid local avatar is available. It opens a Profile dialog with the current selfie, a locally saved Name field, and an Edit Selfie action with a small Polaroid icon at the bottom linking to the avatar builder.
+The homepage header ends with a rounded-square saved-avatar button after Language and QR. The avatar fills the button’s interior with no padding and follows its shared rounded corners. The larger Profile dialog avatar also uses a rounded-square crop with the shared control radius. Both previews show the artwork at 110% scale, anchored at the top center so the top stays visible and the extra height crops at the bottom. Use the shared grey profile silhouette when no valid local avatar is available. It opens a Profile dialog with the current selfie, a locally saved Name field, and an Edit Selfie action with a small Polaroid icon at the bottom linking to the avatar builder.
 
 ## My Blog writing and snapshots
 
 Place native text inputs inline in the English sentence frames, with subtle underlines, visible focus and at least 44px touch height. Keep the right panel for photos and basic controls, including the usual Reset/Share pair. On small screens, use Post/Photos navigation. Display the saved homepage profile name beside the avatar; use “My blog” when absent. Share previews a compact webpage-style PNG with a small browser bar, profile, images and full sentences, using the shared dialog frame rather than the Builder Polaroid composition.
+
+
+## Object color controls (Class Supplies reference)
+
+For builders with individually recolorable objects, use native, keyboard-accessible scene selection and show the selected object's artwork in a dashed preview beside labelled color swatches. Fixed scene objects may also be selectable without becoming draggable. Use the shared numbered section heading and `ah-choice` swatch buttons, with accessible color names and `aria-pressed`; selection follows the shared border/tint treatment without checkmarks. Keep targets at least 44px. In narrow panels, wrap the preview above the swatches and allow heading controls to wrap rather than clipping or shrinking targets. Class Supplies uses two rows of five colors; palette size and color availability by difficulty remain app-specific.
+
+Review artwork outlines at their actual default scene size, especially after resizing individual SVGs. Use one per-item size definition for matching LEARN and newly added PLAY artwork; palette thumbnails may use the shared independent card dimensions. Keep outline and detail weights visually consistent across objects, while manual PLAY scaling naturally scales the artwork.
+
+Class Supplies is the current reference for these patterns, not a shared color-control component or a requirement to add recoloring to other builders.
+
+
+### Share photo download action
+
+Center a content-width Download button below the photo with a 12px top gap. Apply `builder-photo-preview` to the photo so shared styling removes competing bottom margins. Use `ah-button ah-button-secondary builder-photo-download` from shared/controls.css and the decorative shared/icons/download.svg icon, matching the QR modal. Put the translated “Download” label in a child span so translation preserves the icon. Keep the link hidden until the image is ready, retaining the app's filename and download behavior. Pizza, Parfait, Sandwich and Class Supplies use this pattern.
+
+Pizza, Parfait, Sandwich and Class Supplies use fixed square Share framing across modes. Preserve per-piece transforms within that frame; crop overflow rather than automatically zooming out for PLAY. Parfait export coordinates are normalized rather than measured from the current viewport.

@@ -1,0 +1,25 @@
+{
+  "tool": "built-in image_gen",
+  "images": [
+    {
+      "name": "larger-arch",
+      "prompt": "Create ONE isolated NOSE ONLY in the exact cute chibi anime drawing language of the nose in the attached character reference. A cute chibi anime nose made of a SINGLE shallow softly arched upside-down U brushstroke, wide and low, with slender tapered pointed ends and slightly thicker rounded center. Like the tiny nose in reference, only a little more pronounced. No bridge, nostrils, bulb, closed outline or fill. At large inspection scale centered on square canvas, mark about 30% canvas width. Important final avatar use is a tiny understated feature between huge eyes and small mouth. Clean smooth hand-inked tapered shape. Flat colors warm brown #925938 and coral #EFA780 only if shadow requested. Pure green #00FF00 outside the nose. NO face, eyes, cheeks, lips, mouth, realistic nose, nostril dots, skin patch, texture, grain, gradient, lighting, text or other marks.",
+      "path": "/Users/corinne/.codex/generated_images/01a14404-0ca3-79b0-b4c0-cb8bf460aa8c/exec-d8f75e5c-b7aa-4cd1-b63a-d30f332d9b34.png"
+    },
+    {
+      "name": "button-curve",
+      "prompt": "Create ONE isolated NOSE ONLY in cute chibi anime drawing language matching reference. A cute subtle chibi anime button nose suggested by ONE short shallow U-shaped lower contour, subtly asymmetric, with finely tapered ends. A tiny soft coral crescent directly above lower-right contour suggests roundness. Top entirely open to background. NO complete circle, bridge, nostrils or enclosed peach blob. At large inspection scale centered on square canvas, mark about 30% width. Final use is tiny understated feature between huge eyes and small mouth. Clean smooth hand-inked tapered shape. Flat colors warm brown #925938 and coral #EFA780 only. Pure green #00FF00 outside nose and in open interior. NO face, eyes, cheeks, lips, mouth, realistic nose, nostril dots, skin patch, peach fill, texture, grain, gradient, lighting, text or other marks.",
+      "path": "/Users/corinne/.codex/generated_images/01a14404-0ca3-79b0-b4c0-cb8bf460aa8c/exec-bb99a830-463a-436a-ac01-01129cced208.png"
+    },
+    {
+      "name": "tiny-wedge",
+      "prompt": "Create ONE isolated NOSE ONLY in cute chibi anime drawing language matching reference. A minimalist chibi anime nose suggested by a tiny soft warm-coral tapered wedge shadow, with one very short warm-brown curved accent at its lower tip. Delicate, understated, no full outline, no bridge, no nostrils, no three-dimensional bulb. Just two compact flat marks. At large inspection scale centered on square canvas, mark about 25% width. Final use is tiny understated feature between huge eyes and small mouth. Clean smooth hand-inked tapered shapes. Flat colors warm brown #925938 and coral #EFA780 only. Pure green #00FF00 outside nose. NO face, eyes, cheeks, lips, mouth, realistic nose, nostril dots, skin patch, peach fill, texture, grain, gradient, lighting, text or other marks.",
+      "path": "/Users/corinne/.codex/generated_images/01a14404-0ca3-79b0-b4c0-cb8bf460aa8c/exec-e2925f93-d62b-4422-a2ff-7b9e35de2d76.png"
+    },
+    {
+      "name": "soft-hook",
+      "prompt": "Create ONE isolated NOSE ONLY in cute chibi anime drawing language matching reference. A minimalist tiny chibi anime nose in gentle three-quarter suggestion: ONE very short softly bent warm-brown comma-like contour, rounded at bottom and tapered to fine point at top. Squat and delicate, NOT a long vertical bridge or realistic nose profile. No nostrils, no full outline, no skin fill. At large inspection scale centered on square canvas, mark about 25% width. Final use is tiny understated feature between huge eyes and small mouth. Clean smooth hand-inked tapered shape. Flat color warm brown #925938 only. Pure green #00FF00 outside nose. NO face, eyes, cheeks, lips, mouth, realistic nose, nostril dots, skin patch, texture, grain, gradient, lighting, text or other marks.",
+      "path": "/Users/corinne/.codex/generated_images/01a14404-0ca3-79b0-b4c0-cb8bf460aa8c/exec-26d1d30a-9477-4e14-832b-8040bc30a215.png"
+    }
+  ]
+}

@@ -19,7 +19,10 @@
   return '#'+rgb(skin).map((v,i)=>Math.round(v*detail[i]/base[i]).toString(16).padStart(2,'0')).join('');
  }
  function layer(key,s){
-  let art=parts[key==='face'?({slim:'faceSlim',round:'faceRound'}[s.face]||'face'):key==='hair'&&s.hair==='curly'?'hairCurly':key];
+  if(key==='hairBack')return s.hair==='longBangs'?recolor(parts.hairLongBangsBack,'#503529',s.hairColor,['#503529','#2f1a13','#8e6750']):'';
+  if(key==='accessories')return ''; // Reserved above front hair for future accessories.
+
+  let art=parts[key==='nose'?({tinyWedge:'noseTinyWedge',softHook:'noseSoftHook',largerArch:'noseLargerArch',buttonCurve:'noseButtonCurve'}[s.nose]||'nose'):key==='mouth'?({teethSmile:'mouthTeethSmile',closedSmile:'mouthClosedSmile',frown:'mouthFrown',smirk:'mouthSmirk',surprisedO:'mouthSurprisedO',neutral:'mouthNeutral'}[s.mouth]||'mouth'):key==='face'?({slim:'faceSlim',round:'faceRound'}[s.face]||'face'):key==='hair'?({curly:'hairCurly',centerPart:'hairCenterPart',longBangs:'hairLongBangsFront'}[s.hair]||'hair'):key];
   if(key==='clothes')art=recolor(art,'#5d9698',s.shirtColor,['#5d9698','#467577']);
   if(key==='face'){
    if(neutralSkinTones.has(s.skin)){
@@ -36,12 +39,23 @@
    // The original compound path shared rings with pupils; only rings follow iris.
    art=art.replace(/<path\b[^>]*data-iris-ring="true"[^>]*\/>/g,path=>path.replace('fill:#2f211d','fill:'+s.eyeColor));
   }
-  if(key==='nose')art=s.nose==='none'?'':art.replaceAll('fill:#925938','fill:'+skinDetail(s.skin));
+  if(key==='nose'){
+   if(s.nose==='tinyWedge'){
+    const plane=skinDetail(s.skin);
+    const contour='#'+rgb(plane).map(v=>Math.round(v*.85).toString(16).padStart(2,'0')).join('');
+    art=art.replaceAll('fill:#eea67f','fill:'+plane).replaceAll('fill:#915837','fill:'+contour);
+   }else art=s.nose==='none'?'':art.replace(/fill:#(?:925938|915837)/g,'fill:'+skinDetail(s.skin));
+   // About 10px lower in a 400px portrait.
+   if(s.nose==='softHook'||s.nose==='buttonCurve')art=`<g transform="translate(0 80)">${art}</g>`;
+  }
+  // 55 canvas units is about 7px in a 400px portrait; applies to every mouth.
+  if(key==='mouth')art=`<g transform="translate(${s.mouth==='smirk'?55:s.mouth==='teethSmile'?24:0} 55)">${art}</g>`;
   return art;
  }
  const svg=(body,viewBox='0 0 3184.762 3184.762')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}">${body}</svg>`;
- window.renderAvatar=s=>svg(`<rect width="3184.762" height="3184.762" fill="${s.background}"/>`+['face','clothes','eyes','nose','mouth','hair'].map(key=>layer(key,s)).join(''));
+ window.renderAvatar=s=>svg(`<rect width="3184.762" height="3184.762" fill="${s.background}"/>`+['hairBack','face','clothes','eyes','nose','mouth','hair','accessories'].map(key=>layer(key,s)).join(''));
  window.renderAvatarFacePreview=s=>svg(layer('face',s),'450 450 2300 2300');
  window.renderAvatarExpression=(eyes,eyeColor,eyeStyle,skin)=>svg(layer('eyes',{eyeColor,eyeStyle,skin}),'750 1150 1700 950');
- window.renderAvatarNosePreview=s=>svg(layer('nose',s),'1350 1900 500 500');
+ window.renderAvatarMouthPreview=s=>svg(layer('mouth',s),'1290 1900 650 650');
+ window.renderAvatarNosePreview=s=>svg(layer('nose',s),'1340 1640 500 500');
 })();

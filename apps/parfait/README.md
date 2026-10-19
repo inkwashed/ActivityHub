@@ -38,9 +38,9 @@ PLAY flavors add one editable scoop per tap, with mixed flavors supported. Scoop
 
 PLAY stacking follows the central contract in docs/WORKFLOW.md: picker order equals back-to-front drawing order, with scoops grouped before fruit and insertion order preserved within each category. Selecting an item never raises it.
 
-Share uses shared/builder-photo.js for preview/download and sharing.js for Parfait SVG rendering. It snapshots current LEARN or PLAY geometry and ordered pieces, including syrup, without changing the editable creation. Off-glass PLAY art expands the photo framing. Physical iPad preview/download validation is still required.
+Share uses shared/builder-photo.js for preview/download and sharing.js for Parfait SVG rendering. It snapshots current LEARN or PLAY geometry and ordered pieces, including syrup, without changing the editable creation. Both modes use fixed normalized photo coordinates; off-frame PLAY artwork is cropped. Physical iPad preview/download validation is still required.
 
-Share photos use an original simple SVG cafe backdrop: a warm counter, pale window, and muted greenery. The counter/shadow align with the glass pedestal and the scene adapts to expanded PLAY framing. This is export-only and requires no downloaded artwork.
+Share photos use an original simple SVG cafe backdrop: a warm counter, pale window, and muted greenery. The counter/shadow align with the glass pedestal and both modes retain the same framing. This is export-only and requires no downloaded artwork.
 
 Pronunciation: the result speaker reads the full English order; dotted-underlined ingredient phrases play individually. Vocabulary phrases (including PLAY count nouns) use the approved shared Kokoro recordings; full orders and missing/failed clips use browser speech. Recordings load only when tapped. Actual sentence voice and offline availability depend on the device; physical iPad verification of recorded playback remains pending.
 
@@ -52,6 +52,10 @@ Layout uses the final shared builder-workspace CSS/JS: tablet/desktop viewport f
 
 The glass stage is bottom-aligned within the shared play frame, with a 4% frame-height margin beneath it. Its width is 80% of the standard food footprint (73.6% of the smaller frame dimension), preserving proportions while leaving more open space above the scoops in both modes.
 
-Live glass, stem, and cream outlines scale in SVG coordinates with the stage; cream insets use percentages. Avoid fixed-pixel/non-scaling strokes in responsive live artwork. Share rendering keeps its independent export treatment.
+Live bowl, cream and stem outlines (including the stem highlight) use non-scaling strokes within their stretched SVG backgrounds to avoid uneven side/top thickness. Cream insets use matching percentages in the live view and export. Share uses normalized 400×320 scene coordinates, independent of viewport measurements.
 
 State saves automatically on this device/browser through shared/autosave.js and shared/builder-autosave.js, including independent LEARN/PLAY compositions and difficulty. Reset persists the cleared active mode. Storage failure leaves the activity usable; there is no cloud sync. Shared restore checks: `node tests/check-autosave.cjs`.
+
+The Share photo uses the shared centered Download action with a 12px photo gap and the QR modal’s download icon.
+
+Share uses fixed proportional framing in both modes; pieces beyond the photo edges crop instead of changing zoom. Verified by `node tests/check-photo-framing.cjs`.

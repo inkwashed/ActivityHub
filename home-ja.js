@@ -31,3 +31,5 @@ window.ActivityHubI18n.register({
 });
 
 window.ActivityHubI18n.register({"Write about your item and add pictures to make your own blog post.":"持ち物について書いて、画像を追加して、自分のブログをつくろう。","Make a post":"投稿をつくる","2 activities":"2つのアクティビティ"});
+
+window.ActivityHubI18n.register({"Find activities":"教材を探す","Search activities":"教材を検索","Textbook":"教科書","All textbooks":"すべての教科書","Show all":"すべて表示","No activities found. Try another word or textbook.":"教材が見つかりません。別の言葉や教科書で探してみてください。","3 activities":"教材 3つ","{count} activities found":"{count}件の教材が見つかりました","1 activity found":"1件の教材が見つかりました","Choose your classroom supplies, add colors, and ask a partner what they have.":"文房具を選んで色をつけ、友だちに何を持っているか聞いてみよう。","Choose your supplies":"文房具を選ぶ"});

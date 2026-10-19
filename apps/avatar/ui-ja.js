@@ -1,4 +1,12 @@
 window.ActivityHubI18n.register({
+ 'Design':'デザイン',
+ 'Tiny wedge':'小さなくさび形','Soft hook':'やわらかいかぎ形','Larger arch':'大きめのアーチ','Button curve':'丸いカーブ',
+ 'Closed smile':'口を閉じた笑顔','Smirk':'にやり','Surprised O':'びっくりした口','Neutral':'ふつうの口',
+ 'Teeth smile':'歯を見せた笑顔',
+ 'Custom hair color':'髪の色を自由に選ぶ','Light blonde':'明るいブロンド','Silver':'シルバー','Pink':'ピンク',
+ 'Long with bangs':'前髪ありロング',
+ 'Custom':'カスタム','Custom eye color':'目の色を自由に選ぶ','Hazel':'ヘーゼル','Amber':'琥珀色','Grey':'グレー','Teal':'青緑','Violet':'すみれ色','Rose':'ローズ',
+ 'Short center part':'センター分けショート',
  'Eye style':'目のスタイル','Basic':'シンプル','Eyelashes':'まつげ付き','Tousled':'ふんわり','Curly':'くるくる',
  'Dot':'点',
  'Soft square':'まるい四角',
@@ -10,4 +18,4 @@ window.ActivityHubI18n.register({
  'Light cream':'明るいクリーム','Peach':'ピーチ','Golden':'ゴールドベージュ','Tan':'タン','Brown':'茶色','Deep brown':'こげ茶色','Black':'黒','Dark brown':'濃い茶色','Chestnut':'栗色','Gold':'金色','Auburn':'赤茶色','Purple':'紫','Green':'緑','Blue':'青','Coral':'コーラル','Yellow':'黄','Cream':'クリーム','Mint':'ミント','Lilac':'ライラック'
 });
 
-window.ActivityHubI18n.register({Classic:"クラシック",Slim:"スリム"});
+window.ActivityHubI18n.register({Regular:"レギュラー",Slim:"スリム"});

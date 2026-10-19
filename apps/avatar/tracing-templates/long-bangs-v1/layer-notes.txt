@@ -1,0 +1,8 @@
+Long straight hair with bangs, without clips.
+Both BMPs: 1254 x 1254, matching square canvas and alignment. Do not crop or center the layers independently.
+Order: hair-back, head/ears/body, clothing, hair-front.
+The back piece is a simple shadow-colored overlap patch. Its edges are intentionally hidden beneath the head, ears, shoulders and front hair.
+Palette: outline #0D132A, base #51362A, shadow #301B14, highlight #8F6851, removable background #00FF00.
+Inkscape baseline: Multicolor / Colors; scans 5; speckles 10; smooth corners 1.0; optimize 5.0. Back contains only shadow and green, so two scans suffice for that file. Remove green after tracing. Scale both traced layers together using their common original canvas, not their individual artwork bounds.
+Placement checked against Classic, Round and Slim PNG bases. Tracing in Inkscape remains for user review. Not integrated into app.
+Generated with built-in image_gen using supplied hairstyle as reference; requested isolated long straight hair, separated straight bangs, no clips, original reference scale and ear openings, flat approved four-color palette, no grain or gradients. Generated source preserved in Codex generated_images. Layer split and bitmap palette conversion performed locally.

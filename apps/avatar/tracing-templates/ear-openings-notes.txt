@@ -1,0 +1,2 @@
+Revised long-bangs and wavy-half-up tracing BMPs made with the built-in image tool. Original files retained. Green regions are cutouts, not hair. Ear positions follow the original portrait proportions; exact fit to app SVG heads remains to be checked when importing traced SVGs.
+Prompt: preserve existing hair silhouette, scale, palette, highlights and foreground locks; add two green ear openings approximately x15–25% and x75–85%, y50–65%. Wavy correction: lower/enlarge cutouts to y635–815 on the 1254px canvas while retaining foreground tendrils.

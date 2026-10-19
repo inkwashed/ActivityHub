@@ -1,0 +1,35 @@
+{
+  "tool": "built-in image_gen",
+  "images": [
+    {
+      "name": "teeth-smile",
+      "prompt": "Generate one isolated MOUTH ONLY sprite for the same chibi anime avatar style as the supplied image. Reference is style only; do not draw the person. Small chibi anime closed-teeth grin, compact softly triangular crescent. Gently tilted shallow upper edge, rounded lower curve, tapered corners, a single white tooth band enclosed by dark brown contour. No individual tooth lines, no tongue. Draw at large inspection scale centered on square canvas, occupying 45% width. Hand-inked smooth intentional silhouette and expressive tapered contours; simple closed flat filled regions for autotracing. Colors ONLY dark brown #372B24, white #FFFFFF if teeth, coral shadow #BC6A56 and warm pink #E08B74 if open mouth. Pure green #00FF00 outside mouth. No skin, nose, cheeks, lips, face or other features. No texture, gradients, grain, gloss, text, framing, shadows or stray marks. Single mouth, not a sheet.",
+      "path": "/Users/corinne/.codex/generated_images/01a14404-0ca3-79b0-b4c0-cb8bf460aa8c/exec-a15da66e-b1ef-4542-afee-ec2c3e0b7491.png"
+    },
+    {
+      "name": "closed-smile",
+      "prompt": "Generate one isolated MOUTH ONLY sprite for the same chibi anime avatar style as the supplied image. Reference is style only; do not draw the person. Small chibi anime CLOSED-mouth smile, delicate tapered ink curve with subtle asymmetric curvature, shallow smile, slight thicker middle and fine pointed corners. No opening, no teeth, no full lips. NOT a thick uniform U or emoji smile. Draw at large inspection scale centered on square canvas, occupying 45% width. Hand-inked smooth intentional silhouette and expressive tapered contours; simple closed flat filled regions for autotracing. Colors ONLY dark brown #372B24, white #FFFFFF if teeth, coral shadow #BC6A56 and warm pink #E08B74 if open mouth. Pure green #00FF00 outside mouth. No skin, nose, cheeks, lips, face or other features. No texture, gradients, grain, gloss, text, framing, shadows or stray marks. Single mouth, not a sheet.",
+      "path": "/Users/corinne/.codex/generated_images/01a14404-0ca3-79b0-b4c0-cb8bf460aa8c/exec-fd94079a-678b-4475-a7bc-400f248403ed.png"
+    },
+    {
+      "name": "smirk",
+      "prompt": "Draw ONE isolated MOUTH ONLY for the chibi anime character style in supplied reference. Copy the specific MOUTH STYLE in supplied reference: small slightly OPEN mischievous chibi smile tilted upward toward viewer right, wedge/crescent opening with pointed corners, dark brown upper interior and outline, a warm pink tongue filling lower portion with one simple coral shadow region. Not a line smile, not a wide grin. Reference is for mouth style, exclude character entirely. Center mouth at large inspection scale on square canvas, about 45% width. Expressive clean tapered cartoon inking, smooth contour, flat colors ONLY dark brown #372B24, coral #BC6A56 and warm pink #E08B74 when open. Background pure green #00FF00. No face, skin, nose, cheeks, lips, eyes, accessories, text, grain, gradients, texture, shadows or extra marks.",
+      "path": "/Users/corinne/.codex/generated_images/01a14404-0ca3-79b0-b4c0-cb8bf460aa8c/exec-5e6830f5-e9f8-4427-ba13-bf80fa8c186a.png"
+    },
+    {
+      "name": "neutral",
+      "prompt": "Draw ONE isolated MOUTH ONLY for the chibi anime character style in supplied reference. Small chibi anime neutral closed mouth: very short fine tapered nearly horizontal subtly asymmetric stroke, slightly thicker near center with fine ends, relaxed and understated. No opening, no lips. Not a thick rounded dash or emoji. Reference is for mouth style, exclude character entirely. Center mouth at large inspection scale on square canvas, about 45% width. Expressive clean tapered cartoon inking, smooth contour, flat colors ONLY dark brown #372B24, coral #BC6A56 and warm pink #E08B74 when open. Background pure green #00FF00. No face, skin, nose, cheeks, lips, eyes, accessories, text, grain, gradients, texture, shadows or extra marks.",
+      "path": "/Users/corinne/.codex/generated_images/01a14404-0ca3-79b0-b4c0-cb8bf460aa8c/exec-12c428e7-0a9e-4e39-b78a-ae2aa5fcb231.png"
+    },
+    {
+      "name": "surprised-o",
+      "prompt": "Draw ONE isolated MOUTH ONLY for the chibi anime character style in supplied reference. Small chibi anime surprised O mouth, compact softly rounded vertical opening with subtle organic taper, dark brown contour and dark upper interior, muted coral lower interior and small warm pink lower tongue. Cute and expressive, not a tall geometric oval or outlined letter. Reference is for mouth style, exclude character entirely. Center mouth at large inspection scale on square canvas, about 40% width. Expressive clean tapered cartoon inking, smooth organic contour, flat colors ONLY dark brown #372B24, coral #BC6A56 and warm pink #E08B74 when open. Background pure green #00FF00. No face, skin, nose, cheeks, lips, eyes, accessories, text, grain, gradients, texture, shadows or extra marks.",
+      "path": "/Users/corinne/.codex/generated_images/01a14404-0ca3-79b0-b4c0-cb8bf460aa8c/exec-eaf8a7a2-9877-4377-ad88-07079c4773e8.png"
+    },
+    {
+      "name": "frown",
+      "prompt": "Draw ONE isolated MOUTH ONLY for the chibi anime character style in supplied reference. Small chibi anime closed-mouth frown, short shallow delicate downturned curve, subtly asymmetric, tapered fine corners, slightly thicker center. Understated worried/sad expression. No opening, no lips. Not a big inverted U or thick emoji line. Reference is for mouth style, exclude character entirely. Center mouth at large inspection scale on square canvas, about 40% width. Expressive clean tapered cartoon inking, smooth organic contour, flat colors ONLY dark brown #372B24, coral #BC6A56 and warm pink #E08B74 when open. Background pure green #00FF00. No face, skin, nose, cheeks, lips, eyes, accessories, text, grain, gradients, texture, shadows or extra marks.",
+      "path": "/Users/corinne/.codex/generated_images/01a14404-0ca3-79b0-b4c0-cb8bf460aa8c/exec-df759008-518d-462b-9f1c-dcc2f99dbb7c.png"
+    }
+  ]
+}

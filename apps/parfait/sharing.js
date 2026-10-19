@@ -1,9 +1,9 @@
 /* Snapshot original SVG artwork and geometry, never editor outlines or animations. */
 (() => {
  function parfaitSVG(builder){
-  const stage=document.querySelector('.parfait-stage').getBoundingClientRect();
-  const glass=document.querySelector('#parfait').getBoundingClientRect();
-  const gx=glass.left-stage.left,gy=glass.top-stage.top,w=glass.width,h=glass.height;
+  // Stable drawing coordinates, independent of viewport and editing mode.
+  const stage={width:400,height:320};
+  const gx=12,gy=0,w=376,h=249.6;
   const bowl='M5 1H95Q99 1 98 6L79 94Q78 99 73 99H27Q22 99 21 94L2 6Q1 1 5 1Z';
   const cream='M1 10C6 10 8 7 11 4Q13 2 15 5C20 13 26 11 31 5Q34 1 37 5C43 13 49 12 55 5Q58 1 61 5C67 12 74 13 80 6Q83 2 86 6C91 11 95 8 99 10L81 95Q80 100 75 100H25Q20 100 19 95Z';
   let shapeId=0;
@@ -16,12 +16,12 @@
   let lowX=0,lowY=-h*.65,highX=stage.width,highY=stage.height;
   let output=shape('M42 2H58L60 30Q63 49 84 68L95 80Q99 86 93 88H7Q1 86 5 80L16 68Q37 49 40 30Z',stage.width*.29,stage.height*.76,stage.width*.42,stage.height*.23,'#cee0d6','#97b6b0',5.5);
   output+=shape(bowl,gx,gy,w,h,'#eff6ed','none',0);
-  output+=shape(cream,gx+w*.11+14,gy+h*.5-14,w*.78-28,h*.5,'#fff5e1','#dac8aa',12,true);
+  output+=shape(cream,gx+w*.1472,gy+h*.4439,w*.7056,h*.5,'#fff5e1','#dac8aa',12,true);
   if(builder.creative?.active){
    for(const item of builder.creative.orderedItems()){
     const type=builder.creative.topping(item),size=(type.creativeSize??type.size)*item.scale*w/100;
     const x=gx+item.x*w/100,y=gy+item.y*h/100;
-    const extent=size*.708;lowX=Math.min(lowX,x-extent);highX=Math.max(highX,x+extent);lowY=Math.min(lowY,y-extent);highY=Math.max(highY,y+extent);
+
     const svg=type.category==='scoop'?builder.scoopArtwork(builder.config.bases.find(b=>b.id===type.baseId)):type.art;
     // Scoop and syrup SVGs share the same coordinate space.
     const pieces=svg.match(/<svg[\s\S]*?<\/svg>/g)||[];
