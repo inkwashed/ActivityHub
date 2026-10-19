@@ -52,10 +52,16 @@ Layout uses the final shared builder-workspace CSS/JS: tablet/desktop viewport f
 
 The glass stage is bottom-aligned within the shared play frame, with a 4% frame-height margin beneath it. Its width is 80% of the standard food footprint (73.6% of the smaller frame dimension), preserving proportions while leaving more open space above the scoops in both modes.
 
-Live bowl, cream and stem outlines (including the stem highlight) use non-scaling strokes within their stretched SVG backgrounds to avoid uneven side/top thickness. Cream insets use matching percentages in the live view and export. Share uses normalized 400×320 scene coordinates, independent of viewport measurements.
+The fixed glass, cream, stem and highlights are defined once in glass-art.js, in a 400×320 SVG coordinate system with baked path coordinates and uniformly scaling strokes. Live rendering layers this artwork behind and in front of the editable ingredients; Share reuses the exact same paths. No stretched background images or non-scaling strokes are used for the fixed glass.
 
 State saves automatically on this device/browser through shared/autosave.js and shared/builder-autosave.js, including independent LEARN/PLAY compositions and difficulty. Reset persists the cleared active mode. Storage failure leaves the activity usable; there is no cloud sync. Shared restore checks: `node tests/check-autosave.cjs`.
 
 The Share photo uses the shared centered Download action with a 12px photo gap and the QR modal’s download icon.
 
 Share uses fixed proportional framing in both modes; pieces beyond the photo edges crop instead of changing zoom. Verified by `node tests/check-photo-framing.cjs`.
+
+The fixed glass illustration uses lighter outlines and a 30% pale-green glass tint above the cream and ingredients, with the reflection on the front layer. Live and Share use the same layers.
+
+The stem’s top edge aligns with the bowl’s bottom edge in the shared SVG coordinates, avoiding a visible lip inside the translucent bowl.
+
+The stem fill uses 70% opacity, with a solid outline, in both live artwork and Share.

@@ -1,5 +1,5 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
-function renderer(file){let render;const window={BuilderPhoto:options=>render=options.render};vm.runInNewContext(fs.readFileSync(file,'utf8'),{window});return render;}
+function renderer(file){let render;const window={BuilderPhoto:options=>render=options.render};if(file.includes('parfait'))vm.runInNewContext(fs.readFileSync('apps/parfait/glass-art.js','utf8'),{window,document:{querySelector:()=>null}});vm.runInNewContext(fs.readFileSync(file,'utf8'),{window});return render;}
 const frame=svg=>svg.match(/viewBox="([^"]+)"/)[1];
 for(const app of ['pizza','parfait']){
  const render=renderer(`apps/${app}/sharing.js`);
