@@ -17,7 +17,8 @@
       "text": "apple",
       "prompt": "apple.",
       "apps": [
-        "parfait"
+        "parfait",
+        "sandwich"
       ]
     },
     {
@@ -29,11 +30,20 @@
       ]
     },
     {
+      "id": "bacon",
+      "text": "bacon",
+      "prompt": "bacon.",
+      "apps": [
+        "sandwich"
+      ]
+    },
+    {
       "id": "banana",
       "text": "banana",
       "prompt": "[banana](/bʌnˈænə/).",
       "apps": [
-        "parfait"
+        "parfait",
+        "sandwich"
       ]
     },
     {
@@ -50,6 +60,14 @@
       "prompt": "Barbecue sauce.",
       "apps": [
         "pizza"
+      ]
+    },
+    {
+      "id": "beef",
+      "text": "beef",
+      "prompt": "beef.",
+      "apps": [
+        "sandwich"
       ]
     },
     {
@@ -73,7 +91,8 @@
       "text": "cheese",
       "prompt": "cheese.",
       "apps": [
-        "pizza"
+        "pizza",
+        "sandwich"
       ]
     },
     {
@@ -90,6 +109,14 @@
       "prompt": "cherry.",
       "apps": [
         "parfait"
+      ]
+    },
+    {
+      "id": "chicken",
+      "text": "chicken",
+      "prompt": "chicken.",
+      "apps": [
+        "sandwich"
       ]
     },
     {
@@ -117,11 +144,20 @@
       ]
     },
     {
+      "id": "cucumber",
+      "text": "cucumber",
+      "prompt": "cucumber.",
+      "apps": [
+        "sandwich"
+      ]
+    },
+    {
       "id": "green-pepper",
       "text": "green pepper",
       "prompt": "green pepper.",
       "apps": [
-        "pizza"
+        "pizza",
+        "sandwich"
       ]
     },
     {
@@ -133,11 +169,20 @@
       ]
     },
     {
+      "id": "ham",
+      "text": "ham",
+      "prompt": "ham.",
+      "apps": [
+        "sandwich"
+      ]
+    },
+    {
       "id": "kiwi-fruit",
       "text": "kiwi fruit",
       "prompt": "kiwi fruit.",
       "apps": [
-        "parfait"
+        "parfait",
+        "sandwich"
       ]
     },
     {
@@ -146,6 +191,14 @@
       "prompt": "kiwi fruits.",
       "apps": [
         "parfait"
+      ]
+    },
+    {
+      "id": "lettuce",
+      "text": "lettuce",
+      "prompt": "lettuce.",
+      "apps": [
+        "sandwich"
       ]
     },
     {
@@ -241,7 +294,8 @@
       "text": "onion",
       "prompt": "onion.",
       "apps": [
-        "pizza"
+        "pizza",
+        "sandwich"
       ]
     },
     {
@@ -311,6 +365,14 @@
       ]
     },
     {
+      "id": "pork",
+      "text": "pork",
+      "prompt": "pork.",
+      "apps": [
+        "sandwich"
+      ]
+    },
+    {
       "id": "sausage",
       "text": "sausage",
       "prompt": "sausage.",
@@ -327,6 +389,14 @@
       ]
     },
     {
+      "id": "shrimp",
+      "text": "shrimp",
+      "prompt": "shrimp.",
+      "apps": [
+        "sandwich"
+      ]
+    },
+    {
       "id": "strawberries",
       "text": "strawberries",
       "prompt": "strawberries.",
@@ -339,7 +409,8 @@
       "text": "strawberry",
       "prompt": "strawberry.",
       "apps": [
-        "parfait"
+        "parfait",
+        "sandwich"
       ]
     },
     {
@@ -379,7 +450,8 @@
       "text": "tomato",
       "prompt": "tomato.",
       "apps": [
-        "pizza"
+        "pizza",
+        "sandwich"
       ]
     },
     {

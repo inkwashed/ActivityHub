@@ -2,7 +2,7 @@
  const {config,art,caseArt}=window.Supplies;
  const t=s=>window.ActivityHubI18n?.t(s)||s;
  const target=document.querySelector('#color-target'),color=document.querySelector('#item-color'),swatches=new Map();
- target.value='case';
+ target.value='' ;
  const selectColor=value=>swatches.forEach((button,name)=>button.setAttribute('aria-pressed',String(name===value)));
  const defaults=()=>Object.fromEntries([['case','blue'],...config.toppings.map(x=>[x.id,x.color])]);
  class SuppliesBuilder extends window.FoodBuilder{
@@ -84,19 +84,27 @@
    document.querySelector('#case-select').hidden=!enabled;
    this.groups.forEach(group=>group.querySelectorAll('.learn-color-hit').forEach(hit=>hit.hidden=!enabled));
    const exists=target.value==='case'||(this.creative?.active?this.creative.items.some(x=>x.topping===target.value):!!this.state.toppings[target.value]);
-   if(!exists)target.value='case';
+   if(!exists)target.value='';
    const item=config.toppings.find(x=>x.id===target.value);
-   target.innerHTML=item?art(item.id,this.selectedColor(),true):caseArt(palette.case);
-   target.setAttribute('aria-label',`${t('Color')}: ${item?.label||'pencil case'}`);
+   const question=document.querySelector('[data-pronunciation-question]');
+   if(question){
+    const noun=item?.label||(target.value==='case'?'pencil case':'');
+    question.textContent=noun?`Do you have ${/^[aeiou]/i.test(noun)?'an':'a'} ${noun}?`:'Do you have a …?';
+    question.setAttribute('aria-label',`${t('Listen')}: ${question.textContent}`);
+    if(this.pronunciation)question.disabled=!(this.pronunciation.available||this.pronunciation.recording(question.textContent));
+   }
+   target.innerHTML=item?art(item.id,this.selectedColor(),true):target.value==='case'?caseArt(palette.case):'';
+   target.setAttribute('aria-label',target.value?`${t('Color')}: ${item?.label||'pencil case'}`:t('Select a piece'));
    document.querySelector('#case-select').setAttribute('aria-label',`${t('Color')}: pencil case`);
    document.querySelector('#case-select').setAttribute('aria-pressed',String(target.value==='case'));
    this.groups.forEach((group,id)=>group.querySelectorAll('.learn-color-hit').forEach(hit=>hit.setAttribute('aria-pressed',String(target.value===id))));
    document.querySelector('#supplies-scene').setAttribute('role','group');
-   selectColor(this.selectedColor()||'blue');
+   selectColor(target.value?this.selectedColor():null);
+   swatches.forEach(button=>button.disabled=!target.value);
   }
   clear(){
    this.palettes ||= {learn:defaults(),play:defaults()};this.palettes[this.creative?.active?'play':'learn']=defaults();
-   super.clear();target.value='case';this.refreshColors();
+   super.clear();target.value='' ;this.refreshColors();
   }
  }
  for(const [name,hex] of Object.entries(window.Supplies.colors)){
@@ -104,11 +112,11 @@
   button.setAttribute('aria-label',t(name));button.setAttribute('data-i18n-aria-label',name);button.setAttribute('title',t(name));button.setAttribute('data-i18n-title',name);
   button.setAttribute('aria-pressed','false');
   const chip=document.createElement('span');chip.style.backgroundColor=hex;chip.setAttribute('aria-hidden','true');button.append(chip);
-  button.addEventListener('click',()=>{if(!b.colorsEnabled())return;const piece=b.creative?.active&&b.creative.items.find(x=>x.id===b.creative.selected);if(piece&&target.value===piece.topping)piece.color=name;else b.palette()[target.value]=name;b.updateSentence()});
+  button.addEventListener('click',()=>{if(!b.colorsEnabled()||!target.value)return;const piece=b.creative?.active&&b.creative.items.find(x=>x.id===b.creative.selected);if(piece&&target.value===piece.topping)piece.color=name;else b.palette()[target.value]=name;b.updateSentence()});
   swatches.set(name,button);color.append(button);
  }
  const b=window.suppliesBuilder=new SuppliesBuilder(document.querySelector('#builder'),config);
- b.creative=new window.CreativeBuilder(b,{scene:'#supplies-scene',workspace:'#supplies-workspace',menuBody:'.pizza-menu-body',menu:'#supplies-menu',resetMessage:'Supplies cleared.',art:item=>art(item.topping,b.pieceColor(item)),onSelect:editor=>{const selected=editor.items.find(x=>x.id===editor.selected);target.value=selected?selected.topping:'case';b.refreshColorSelection()},help:{learn:'Tap supplies to add or remove them. In HARD, tap an item in the scene to choose its color and read color words. Ask your partner what they have.',play:'Tap supplies to add them. Drag to arrange; pinch or use the tools to resize. Tap an item in the scene, then choose a color below. Each copy can have its own color. The sentence counts matching items and colors.'}});
+ b.creative=new window.CreativeBuilder(b,{scene:'#supplies-scene',workspace:'#supplies-workspace',menuBody:'.pizza-menu-body',menu:'#supplies-menu',resetMessage:'Supplies cleared.',art:item=>art(item.topping,b.pieceColor(item)),onBackgroundSelect:()=>{target.value='';b.refreshColorSelection()},onSelect:editor=>{const selected=editor.items.find(x=>x.id===editor.selected);target.value=selected?selected.topping:'';b.refreshColorSelection()},help:{learn:'Tap supplies to add or remove them. In HARD, tap an item in the scene to choose its color and read color words. Ask your partner what they have.',play:'Tap supplies to add them. Drag to arrange; pinch or use the tools to resize. Tap an item in the scene, then choose a color below. Each copy can have its own color. The sentence counts matching items and colors.'}});
  document.querySelector('#case-select').addEventListener('click',()=>{if(b.creative?.active)b.creative.select(null);target.value='case';b.refreshColorSelection()});
  document.addEventListener('activityhub:languagechange',()=>b.refreshColors());
  b.creative.updateHelp();b.updateSentence();

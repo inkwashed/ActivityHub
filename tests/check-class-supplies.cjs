@@ -18,7 +18,7 @@ for(const file of ['apps/class-supplies/config.js','shared/builder.js','shared/c
 ready.forEach(fn=>fn());const b=context.window.suppliesBuilder;
 for(const item of b.config.toppings)assert.equal(item.size,item.creativeSize*item.defaultScale);
 const colorButtons=elements['#item-color'].children;assert.equal(colorButtons.length,10);
-b.advancedMode=true;b.updateSentence();colorButtons[0].listeners.click();assert.equal(b.palette().case,'red');assert.equal(colorButtons[0].attrs['aria-pressed'],'true');assert.equal(colorButtons.filter(x=>x.attrs['aria-pressed']==='true').length,1);
+b.advancedMode=true;b.updateSentence();elements['#case-select'].listeners.click();colorButtons[0].listeners.click();assert.equal(b.palette().case,'red');assert.equal(colorButtons[0].attrs['aria-pressed'],'true');assert.equal(colorButtons.filter(x=>x.attrs['aria-pressed']==='true').length,1);
 assert.match(elements['#sentence'].textContent,/a red pencil case/);assert.equal(elements['.color-row'].hidden,false);b.advancedMode=false;b.updateSentence();assert.equal(elements['.color-row'].hidden,true);
 assert.equal(b.buttons.size,12);assert.equal(elements['#sentence'].textContent,'I have a pencil case.');
 b.chooseTopping('eraser');assert.match(elements['#sentence'].textContent,/an eraser/);b.chooseTopping('eraser');assert.equal(b.state.toppings.eraser,0);
@@ -36,3 +36,5 @@ adapter.restore({learn:{toppings:{pencil:99,unknown:1}},items:[{topping:'unknown
 b.clear();
 for(const item of b.config.toppings){b.chooseTopping(item.id);b.chooseTopping(item.id);assert.equal(b.state.toppings[item.id],0)}
 console.log('PASS: supply toggles, articles, independent modes/colors, PLAY transforms, export art, restore/reset and invalid data.');
+
+b.creative.select(null);b.creative.clearFromBackground({button:0,target:{closest:()=>null}});assert.equal(elements['#color-target'].value,'');assert.ok(colorButtons.every(button=>button.disabled));

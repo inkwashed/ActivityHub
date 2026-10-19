@@ -12,6 +12,7 @@
       document.addEventListener('builder:workspace-ready',event=>{
         if(!event.detail.contains(this.pizza))return;
         this.gestures.bindSurface(event.detail);
+        event.detail.addEventListener('pointerdown',e=>this.clearFromBackground(e));
         if('ResizeObserver' in window)new ResizeObserver(()=>this.items.forEach(item=>this.paint(item))).observe(event.detail);
       });
       this.layer = document.createElement('div');this.layer.className = 'free-layer';this.layer.hidden = true;this.pizza.append(this.layer);
@@ -40,7 +41,7 @@
       }
       this.toggle.addEventListener('change',()=>this.switchMode(this.toggle.checked));
       this.picker.addEventListener('change',()=>this.select(Number(this.picker.value)||null));
-      this.pizza.addEventListener('pointerdown',e=>{if(this.active && !this.gestures.item && !e.target.closest('.free-piece'))this.select(null)});
+      this.pizza.addEventListener('pointerdown',e=>this.clearFromBackground(e));
       document.addEventListener('activityhub:languagechange',()=>{if(this.active)this.refreshPicker();this.updateHelp()});
     }
     updateHelp() {
@@ -145,6 +146,12 @@
       const b=item.artBounds,hit=document.createElement('span');hit.className='piece-hit';hit.setAttribute('aria-hidden','true');
       hit.style.cssText=`left:${(b.x+b.width/2)*100}%;top:${(b.y+b.height/2)*100}%;width:${(b.width+.04)*100}%;height:${(b.height+.04)*100}%`;
       art.append(hit);item.node.setAttribute('data-trimmed','true');item.measuredArt=item.renderedArt;
+    }
+    clearFromBackground(event){
+      if(event.button!=null&&event.button!==0)return;
+      if(this.gestures.item||event.target.closest('.free-piece,button,a,input,select'))return;
+      if(this.active)this.select(null);
+      else this.options.onBackgroundSelect?.(this);
     }
     select(id){
       this.selected=this.items.some(x=>x.id===id)?id:null;
