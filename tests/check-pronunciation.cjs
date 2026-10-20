@@ -53,7 +53,7 @@ speech.previewButton=new Element();
 speech.speak('Feedback');assert.equal(speech.settingsStatus.textContent,'Starting audio…');assert.equal(speech.previewButton.attrs['data-playing'],'true');
 spoken.at(-1).onstart();assert.match(speech.settingsStatus.textContent,/started/);
 spoken.at(-1).onend();assert.match(speech.settingsStatus.textContent,/finished/);assert.equal(speech.previewButton.attrs['data-playing'],'false');
-speech.synth.getVoices=()=>{throw new Error('voice lookup failed');};speech.speak('Setup error');assert.match(speech.settingsStatus.textContent,/could not play/);assert.equal(speech.previewButton.attrs['data-playing'],'false');
+speech.synth.getVoices=()=>{throw new Error('voice lookup failed');};speech.speak('Setup error');assert.equal(spoken.at(-1).text,'Setup error');spoken.at(-1).onend();assert.equal(speech.previewButton.attrs['data-playing'],'false');
 console.log('Immediate tap feedback, start/end feedback, and setup exception checks passed.');
 
 // Recorded playback: exact phrase lookup, no eager audio, interruption and stale failures.
@@ -86,4 +86,51 @@ question.events.click();assert.equal(questionPlayer.audio.url,'question.mp3');
 assert.equal(question.attrs['aria-label'],'Listen: What do you want?');
 questionPlayer.stop();
 console.log('Target question uses recorded playback and an accessible button.');
+
+// Use the real library to verify exact a/an questions and hosted/file URL resolution.
+for(const base of ['https://example.test/assets/audio/library.js','file:///example/assets/audio/library.js']){
+ const libraryWindow={};
+ vm.runInNewContext(fs.readFileSync('assets/audio/library.js','utf8'),{window:libraryWindow,document:{currentScript:{src:base}},URL});
+ const library=libraryWindow.ActivityHubAudio;
+ const configWindow={};vm.runInNewContext(fs.readFileSync('apps/class-supplies/config.js','utf8'),{window:configWindow});
+ for(const noun of ['pencil case',...configWindow.Supplies.config.toppings.map(item=>item.label)]){
+  const article=/^[aeiou]/.test(noun)?'an':'a';
+  const urls=library.resolveSequence(`Do you have ${article} ${noun}?`);
+  assert.equal(urls.length,2);assert.equal(urls[0],library.resolve(`Do you have ${article}`));assert.equal(urls[1],library.resolve(noun));
+ }
+ assert.equal(library.resolveSequence('  DO YOU HAVE   A PEN?  ')[1],library.resolve('pen'));
+ for(const unsupported of ['Do you have a …?','Do you have a unicorn?','Do you have a red pen?','Do you have a eraser?','I have a pen.'])assert.equal(library.resolveSequence(unsupported),null);
+ window.ActivityHubAudio=library;
+}
+const q='Do you have an eraser?';
+const prior=audio.length;
+speech.speak(q);const sequence=audio.at(-1);
+assert.equal(audio.length,prior+1);assert.match(sequence.url,/do-you-have-an\.mp3/);
+const oldReject=sequence.reject;
+sequence.onended();assert.equal(audio.length,prior+1);assert.match(sequence.src,/eraser\.mp3/);
+const spokenBefore=spoken.length;oldReject(new Error('late prefix rejection'));await Promise.resolve();assert.equal(spoken.length,spokenBefore);
+sequence.onended();assert.equal(speech.audio,null);
+// First or second clip errors fall back to the complete question.
+speech.speak(q);audio.at(-1).onerror();assert.equal(spoken.at(-1).text,q);
+speech.speak(q);audio.at(-1).onended();audio.at(-1).reject(new Error('second play blocked'));await Promise.resolve();assert.equal(spoken.at(-1).text,q);assert.equal(speech.audio,null);
+speech.speak(q);const blocked=audio.at(-1);blocked.play=()=>{throw new Error('second play throws')};blocked.onended();assert.equal(spoken.at(-1).text,q);
+// Another tap or changed text must prevent the pending noun from playing.
+speech.speak(q);const interrupted=audio.at(-1),lateEnd=interrupted.onended;
+speech.speak('pen');const newer=speech.audio;lateEnd();assert.equal(speech.audio,newer);assert.equal(interrupted.src,undefined);assert.equal(interrupted.paused,true);
+speech.speak(q);const cancelledSequence=audio.at(-1),cancelledEnd=cancelledSequence.onended;
+speech.render('Changed inventory',[]);cancelledEnd();assert.equal(speech.audio,null);assert.equal(cancelledSequence.src,undefined);
+speech.speak(q,speech.settingsStatus,true);assert.equal(spoken.at(-1).text,q);assert.equal(speech.audio,null);
+// A composed question stays available even with no speech synthesis.
+question.textContent=q;
+const noSpeechOrder=new Element();noSpeechOrder.parentElement=new Element();
+const noSpeechQuestion=new window.BuilderPronunciation(noSpeechOrder);
+assert.equal(question.disabled,false);question.events.click();assert.match(noSpeechQuestion.audio.url,/do-you-have-an\.mp3/);noSpeechQuestion.stop();
+console.log('PASS: all Supplies question sequences, a/an, second-clip fallback, interruption and browser-only preview.');
 })().catch(error=>{console.error(error);process.exitCode=1;});
+
+const voiceProbe=Object.create(window.BuilderPronunciation.prototype);
+voiceProbe.synth={getVoices:()=>{throw new Error('Device voice service unavailable')}};
+assert.equal(voiceProbe.englishVoices().length,0);
+voiceProbe.synth.getVoices=()=>null;
+assert.equal(voiceProbe.englishVoices().length,0);
+console.log('PASS: throwing and null device voice lists fail safely.');

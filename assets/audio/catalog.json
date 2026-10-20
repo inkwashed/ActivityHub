@@ -32,7 +32,7 @@
     {
       "id": "bacon",
       "text": "bacon",
-      "prompt": "bacon.",
+      "prompt": "[bacon](/bˈAkn/).",
       "apps": [
         "sandwich"
       ]
@@ -68,6 +68,46 @@
       "prompt": "beef.",
       "apps": [
         "sandwich"
+      ]
+    },
+    {
+      "id": "black",
+      "text": "black",
+      "prompt": "black.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "blue",
+      "text": "blue",
+      "prompt": "blue.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "brown",
+      "text": "brown",
+      "prompt": "brown.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "calendar",
+      "text": "calendar",
+      "prompt": "calendar.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "calendars",
+      "text": "calendars",
+      "prompt": "calendars.",
+      "apps": [
+        "class-supplies"
       ]
     },
     {
@@ -136,6 +176,22 @@
       ]
     },
     {
+      "id": "colored-pencil",
+      "text": "colored pencil",
+      "prompt": "colored pencil.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "colored-pencils",
+      "text": "colored pencils",
+      "prompt": "colored pencils.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
       "id": "corn",
       "text": "corn",
       "prompt": "corn.",
@@ -149,6 +205,64 @@
       "prompt": "cucumber.",
       "apps": [
         "sandwich"
+      ]
+    },
+    {
+      "id": "do-you-have-a",
+      "text": "Do you have a",
+      "prompt": "Do you have a pen?",
+      "apps": [
+        "class-supplies"
+      ],
+      "endBeforeWord": "pen"
+    },
+    {
+      "id": "do-you-have-an",
+      "text": "Do you have an",
+      "prompt": "Do you have an eraser?",
+      "apps": [
+        "class-supplies"
+      ],
+      "endBeforeWord": "eraser"
+    },
+    {
+      "id": "eraser",
+      "text": "eraser",
+      "prompt": "eraser.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "erasers",
+      "text": "erasers",
+      "prompt": "erasers.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "glue-stick",
+      "text": "glue stick",
+      "prompt": "glue stick.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "glue-sticks",
+      "text": "glue sticks",
+      "prompt": "glue sticks.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "green",
+      "text": "green",
+      "prompt": "green.",
+      "apps": [
+        "class-supplies"
       ]
     },
     {
@@ -199,6 +313,38 @@
       "prompt": "lettuce.",
       "apps": [
         "sandwich"
+      ]
+    },
+    {
+      "id": "magnet",
+      "text": "magnet",
+      "prompt": "magnet.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "magnets",
+      "text": "magnets",
+      "prompt": "magnets.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "marker",
+      "text": "marker",
+      "prompt": "marker.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "markers",
+      "text": "markers",
+      "prompt": "markers.",
+      "apps": [
+        "class-supplies"
       ]
     },
     {
@@ -290,6 +436,22 @@
       ]
     },
     {
+      "id": "notebook",
+      "text": "notebook",
+      "prompt": "notebook.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "notebooks",
+      "text": "notebooks",
+      "prompt": "notebooks.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
       "id": "onion",
       "text": "onion",
       "prompt": "onion.",
@@ -311,7 +473,8 @@
       "text": "orange",
       "prompt": "orange.",
       "apps": [
-        "parfait"
+        "parfait",
+        "class-supplies"
       ]
     },
     {
@@ -336,6 +499,62 @@
       "prompt": "peaches.",
       "apps": [
         "parfait"
+      ]
+    },
+    {
+      "id": "pen",
+      "text": "pen",
+      "prompt": "pen.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "pencil",
+      "text": "pencil",
+      "prompt": "pencil.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "pencil-case",
+      "text": "pencil case",
+      "prompt": "pencil case.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "pencil-sharpener",
+      "text": "pencil sharpener",
+      "prompt": "pencil sharpener.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "pencil-sharpeners",
+      "text": "pencil sharpeners",
+      "prompt": "pencil sharpeners.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "pencils",
+      "text": "pencils",
+      "prompt": "pencils.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "pens",
+      "text": "pens",
+      "prompt": "pens.",
+      "apps": [
+        "class-supplies"
       ]
     },
     {
@@ -365,11 +584,51 @@
       ]
     },
     {
+      "id": "pink",
+      "text": "pink",
+      "prompt": "pink.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
       "id": "pork",
       "text": "pork",
       "prompt": "pork.",
       "apps": [
         "sandwich"
+      ]
+    },
+    {
+      "id": "purple",
+      "text": "purple",
+      "prompt": "purple.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "red",
+      "text": "red",
+      "prompt": "red.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "ruler",
+      "text": "ruler",
+      "prompt": "ruler.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "rulers",
+      "text": "rulers",
+      "prompt": "rulers.",
+      "apps": [
+        "class-supplies"
       ]
     },
     {
@@ -394,6 +653,22 @@
       "prompt": "shrimp.",
       "apps": [
         "sandwich"
+      ]
+    },
+    {
+      "id": "stapler",
+      "text": "stapler",
+      "prompt": "stapler.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "staplers",
+      "text": "staplers",
+      "prompt": "staplers.",
+      "apps": [
+        "class-supplies"
       ]
     },
     {
@@ -443,6 +718,14 @@
       "prompt": "strawberry syrup.",
       "apps": [
         "parfait"
+      ]
+    },
+    {
+      "id": "tell-me-about-your-sandwich",
+      "text": "Tell me about your sandwich.",
+      "prompt": "Tell me about your sandwich.",
+      "apps": [
+        "sandwich"
       ]
     },
     {
@@ -509,6 +792,22 @@
       "apps": [
         "pizza",
         "parfait"
+      ]
+    },
+    {
+      "id": "white",
+      "text": "white",
+      "prompt": "white.",
+      "apps": [
+        "class-supplies"
+      ]
+    },
+    {
+      "id": "yellow",
+      "text": "yellow",
+      "prompt": "yellow.",
+      "apps": [
+        "class-supplies"
       ]
     }
   ]

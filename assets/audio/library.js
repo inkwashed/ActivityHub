@@ -5,21 +5,45 @@
   "alfredo sauce": "en-US/heart-070/alfredo-sauce.mp3?v=b551c12a4c34",
   "apple": "en-US/heart-070/apple.mp3?v=d3f0971f03cf",
   "apples": "en-US/heart-070/apples.mp3?v=00b49a441675",
+  "bacon": "en-US/heart-070/bacon.mp3?v=4df0f57ae99e",
   "banana": "en-US/heart-070/banana.mp3?v=7f5b48db559e",
   "bananas": "en-US/heart-070/bananas.mp3?v=6c51e5b465e9",
   "bbq sauce": "en-US/heart-070/bbq-sauce.mp3?v=e226af6ed2a1",
+  "beef": "en-US/heart-070/beef.mp3?v=d4fc90fa762a",
+  "black": "en-US/heart-070/black.mp3?v=9259331e0cd0",
+  "blue": "en-US/heart-070/blue.mp3?v=b8bcd8f11069",
+  "brown": "en-US/heart-070/brown.mp3?v=8cd22b3f08ee",
+  "calendar": "en-US/heart-070/calendar.mp3?v=5a751260438b",
+  "calendars": "en-US/heart-070/calendars.mp3?v=c495b1df27c7",
   "caramel": "en-US/heart-070/caramel.mp3?v=2e0e64f7d901",
   "caramel syrup": "en-US/heart-070/caramel-syrup.mp3?v=995a11386f3b",
   "cheese": "en-US/heart-070/cheese.mp3?v=460ada9daa99",
   "cherries": "en-US/heart-070/cherries.mp3?v=31193bcb8ce6",
   "cherry": "en-US/heart-070/cherry.mp3?v=94aaa8afa7e9",
+  "chicken": "en-US/heart-070/chicken.mp3?v=144156cd0da2",
   "chocolate": "en-US/heart-070/chocolate.mp3?v=be9a665bbcc5",
   "chocolate syrup": "en-US/heart-070/chocolate-syrup.mp3?v=3f8d93d2c3d3",
+  "colored pencil": "en-US/heart-070/colored-pencil.mp3?v=afe26b2b474d",
+  "colored pencils": "en-US/heart-070/colored-pencils.mp3?v=880d0f90ec2f",
   "corn": "en-US/heart-070/corn.mp3?v=20ae25d6c8bb",
+  "cucumber": "en-US/heart-070/cucumber.mp3?v=68dfbb137aa3",
+  "do you have a": "en-US/heart-070/do-you-have-a.mp3?v=f903ebc2fa30",
+  "do you have an": "en-US/heart-070/do-you-have-an.mp3?v=3b2b1449761b",
+  "eraser": "en-US/heart-070/eraser.mp3?v=6b9e6b7d5f25",
+  "erasers": "en-US/heart-070/erasers.mp3?v=2e1d239fef36",
+  "glue stick": "en-US/heart-070/glue-stick.mp3?v=ab21f4607bca",
+  "glue sticks": "en-US/heart-070/glue-sticks.mp3?v=825aa90900b5",
+  "green": "en-US/heart-070/green.mp3?v=c9ee5eb943e4",
   "green pepper": "en-US/heart-070/green-pepper.mp3?v=246e0c45cb8f",
   "green peppers": "en-US/heart-070/green-peppers.mp3?v=dfbd1eae36b2",
+  "ham": "en-US/heart-070/ham.mp3?v=d5fbc6af71a1",
   "kiwi fruit": "en-US/heart-070/kiwi-fruit.mp3?v=e7b166d8fd99",
   "kiwi fruits": "en-US/heart-070/kiwi-fruits.mp3?v=02564c46f762",
+  "lettuce": "en-US/heart-070/lettuce.mp3?v=1d6b2c9fc787",
+  "magnet": "en-US/heart-070/magnet.mp3?v=fdb77e4944f0",
+  "magnets": "en-US/heart-070/magnets.mp3?v=8dd67859df95",
+  "marker": "en-US/heart-070/marker.mp3?v=0da7712c6b1f",
+  "markers": "en-US/heart-070/markers.mp3?v=9a4025c33c1f",
   "melon": "en-US/heart-070/melon.mp3?v=6adf97491361",
   "melons": "en-US/heart-070/melons.mp3?v=cc82a1c46e69",
   "mint chocolate chip": "en-US/heart-070/mint-chocolate-chip.mp3?v=cfbf64b40653",
@@ -31,17 +55,35 @@
   "no ice cream": "en-US/heart-070/no-ice-cream.mp3?v=861eb7c49e4d",
   "no sauce": "en-US/heart-070/no-sauce.mp3?v=62ab1be7382b",
   "no syrup": "en-US/heart-070/no-syrup.mp3?v=e6af0dbcb935",
+  "notebook": "en-US/heart-070/notebook.mp3?v=046c4d3f9c67",
+  "notebooks": "en-US/heart-070/notebooks.mp3?v=1a6b3fbb18ba",
   "onion": "en-US/heart-070/onion.mp3?v=3962f20b809d",
   "onions": "en-US/heart-070/onions.mp3?v=485c0e3b36f5",
   "orange": "en-US/heart-070/orange.mp3?v=69adaf8d8aea",
   "oranges": "en-US/heart-070/oranges.mp3?v=21da0d171b03",
   "peach": "en-US/heart-070/peach.mp3?v=cdbf149e7118",
   "peaches": "en-US/heart-070/peaches.mp3?v=5b7884909ccb",
+  "pen": "en-US/heart-070/pen.mp3?v=2c0cdf5611c5",
+  "pencil": "en-US/heart-070/pencil.mp3?v=cb5f54763344",
+  "pencil case": "en-US/heart-070/pencil-case.mp3?v=0d069d6d44cb",
+  "pencil sharpener": "en-US/heart-070/pencil-sharpener.mp3?v=56c7a7b5d8e8",
+  "pencil sharpeners": "en-US/heart-070/pencil-sharpeners.mp3?v=5603e15cf785",
+  "pencils": "en-US/heart-070/pencils.mp3?v=f4810484fc67",
+  "pens": "en-US/heart-070/pens.mp3?v=cc6d90b32833",
   "pepperoni": "en-US/heart-070/pepperoni.mp3?v=320822504b94",
   "pineapple": "en-US/heart-070/pineapple.mp3?v=5889b1ea3662",
   "pineapples": "en-US/heart-070/pineapples.mp3?v=3c20e20c80ea",
+  "pink": "en-US/heart-070/pink.mp3?v=4c385f818c2b",
+  "pork": "en-US/heart-070/pork.mp3?v=369fd4738820",
+  "purple": "en-US/heart-070/purple.mp3?v=01da17e6904e",
+  "red": "en-US/heart-070/red.mp3?v=afca6c7aa40e",
+  "ruler": "en-US/heart-070/ruler.mp3?v=943b4be08842",
+  "rulers": "en-US/heart-070/rulers.mp3?v=b1a7f0c5bc2a",
   "sausage": "en-US/heart-070/sausage.mp3?v=199d5335c8a4",
   "sausages": "en-US/heart-070/sausages.mp3?v=962b675a40e4",
+  "shrimp": "en-US/heart-070/shrimp.mp3?v=9f002218bc23",
+  "stapler": "en-US/heart-070/stapler.mp3?v=8f334b50e84a",
+  "staplers": "en-US/heart-070/staplers.mp3?v=e08238b750be",
   "strawberries": "en-US/heart-070/strawberries.mp3?v=c02be82c931f",
   "strawberry": "en-US/heart-070/strawberry.mp3?v=84988921967e",
   "strawberry ice cream": "en-US/heart-070/strawberry-ice-cream.mp3?v=23a16580c0b2",
@@ -55,10 +97,24 @@
   "vanilla ice cream": "en-US/heart-070/vanilla-ice-cream.mp3?v=d10a87fa6d69",
   "vanilla scoop": "en-US/heart-070/vanilla-scoop.mp3?v=6be56cb8975d",
   "vanilla scoops": "en-US/heart-070/vanilla-scoops.mp3?v=e3ece402ac90",
-  "what do you want?": "en-US/heart-070/what-do-you-want.mp3?v=3ad714bd5490"
+  "what do you want?": "en-US/heart-070/what-do-you-want.mp3?v=3ad714bd5490",
+  "white": "en-US/heart-070/white.mp3?v=8f41a7963d57",
+  "yellow": "en-US/heart-070/yellow.mp3?v=19fbf0b20bac"
 };
-  window.ActivityHubAudio = { resolve(text) {
-    const path = clips[text.toLowerCase().replace(/\s+/g, " ").trim()];
+  const normalize = text => text.toLowerCase().replace(/\s+/g, " ").trim();
+  const supplies = new Set(['pencil', 'colored pencil', 'pencil case', 'ruler',
+    'glue stick', 'pen', 'notebook', 'calendar', 'stapler', 'pencil sharpener',
+    'marker', 'magnet', 'eraser']);
+  const resolve = text => {
+    const path = clips[normalize(text)];
     return path ? new URL(path, base).href : null;
+  };
+  window.ActivityHubAudio = { resolve, resolveSequence(text) {
+    const match = /^do you have (a|an) (.+)\?$/.exec(normalize(text));
+    if (!match || !supplies.has(match[2])) return null;
+    const article = /^[aeiou]/.test(match[2]) ? 'an' : 'a';
+    if (match[1] !== article) return null;
+    const urls = [resolve(`Do you have ${article}`), resolve(match[2])];
+    return urls.every(Boolean) ? urls : null;
   }};
 })();

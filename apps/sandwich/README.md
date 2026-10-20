@@ -45,3 +45,5 @@ State saves automatically on this device/browser through shared/autosave.js and 
 The Share photo uses the shared centered Download action with a 12px photo gap and the QR modal’s download icon.
 
 Share uses fixed proportional framing in both modes; pieces beyond the photo edges crop instead of changing zoom. Verified by `node tests/check-photo-framing.cjs`.
+
+Shared pronunciation setup tolerates missing/throwing device voice APIs. If audio initialization/rendering fails, Builder retains plain sentence text and continues artwork initialization; Reset does not retry failed initialization or accumulate speaker buttons.

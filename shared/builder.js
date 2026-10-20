@@ -167,13 +167,22 @@
       button.setAttribute('aria-label', `${topping.label}, ${t(['none', 'light', 'regular', 'extra'][level])}. ${t(level === 3 ? 'Tap to remove.' : 'Tap to add more.')}`);
       [...button.querySelectorAll('.dots i')].forEach((dot, index) => dot.classList.toggle('filled', index < level));
     }
-    setSentence(sentence) {
+    setSentence(sentence, extraNames = []) {
       const element = this.root.querySelector('#sentence');
       if (!window.BuilderPronunciation) { element.textContent = sentence; return; }
+      if(this.pronunciationFailed){element.textContent=sentence;return;}
+      try {
       this.pronunciation ||= new window.BuilderPronunciation(element);
       const catalog = [...this.config.toppings, ...(this.config.bases || []), ...this.config.sauces, ...(this.creative?.catalog || [])];
-      const names = catalog.flatMap(item => [item.label, item.countSingular, item.countPlural]);
+      const names = [...catalog.flatMap(item => [item.label, item.countSingular, item.countPlural]), ...extraNames];
       this.pronunciation.render(sentence, names);
+      } catch(error) {
+        // Never let optional audio prevent artwork/state initialization or retry on Reset.
+        this.pronunciationFailed=true;
+        element.textContent=sentence;
+        element.parentElement?.querySelectorAll?.('.pronunciation-speaker').forEach(button=>button.remove());
+        console.warn('Pronunciation unavailable; using plain activity text.',error);
+      }
     }
     updateSentence() {
       if (this.creative?.active) {

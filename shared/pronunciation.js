@@ -10,7 +10,7 @@
   class BuilderPronunciation {
     constructor(sentence) {
       this.sentence = sentence;
-      this.synth = window.speechSynthesis;
+      try { this.synth = window.speechSynthesis; } catch { this.synth = null; }
       this.available = !!(this.synth && window.SpeechSynthesisUtterance);
       this.button = document.createElement('button');
       this.button.type = 'button';
@@ -40,10 +40,22 @@
       document.addEventListener('activityhub:languagechange', this.labels);
       window.addEventListener('pagehide', () => this.stop());
       this.labels();
-      this.mountSettings();
+      // Device voice services can fail on managed/older browsers. Audio is optional.
+      try { this.mountSettings(); } catch (error) {
+        this.available = false;
+        this.button.disabled = true;
+        if(this.previewButton)this.previewButton.disabled = true;
+        if(this.voiceSelect)this.voiceSelect.disabled = true;
+        this.labels();
+        if(this.settingsStatus)this.settingsStatus.textContent=t('Pronunciation is unavailable in this browser');
+        console.warn('Voice settings unavailable; activity remains usable.', error);
+      }
     }
     voiceKey(voice) { return JSON.stringify([voice.voiceURI || voice.name, voice.lang]); }
-    englishVoices() { return this.synth?.getVoices().filter(voice => /^en(?:[-_]|$)/i.test(voice.lang)) || []; }
+    englishVoices() {
+      try { return Array.from(this.synth?.getVoices?.() || []).filter(voice => voice && /^en(?:[-_]|$)/i.test(voice.lang)); }
+      catch { return []; }
+    }
     recommendedVoices() {
       // Exclude novelty/effect voices; keep a small, device-dependent shortlist.
       const novelty = /\b(albert|bad news|bahh|bells|boing|bubbles|cellos|deranged|good news|hysterical|jester|organ|trinoids|whisper|wobble|zarvox)\b/i;
@@ -92,7 +104,7 @@
         this.refreshVoices();
       });
       preview.addEventListener('click', () => this.speak('What do you want? I want strawberries, cheese, and vanilla ice cream.', this.settingsStatus, true));
-      this.synth?.addEventListener('voiceschanged', this.refreshVoices);
+      this.synth?.addEventListener?.('voiceschanged', this.refreshVoices);
       document.addEventListener('activityhub:languagechange', this.refreshVoices);
       document.querySelector('#language')?.addEventListener('click', this.refreshVoices);
       window.addEventListener('storage', event => {
@@ -115,7 +127,10 @@
         this.synth.cancel();
       }
     }
-    recording(text) { return window.Audio && window.ActivityHubAudio?.resolve(text); }
+    recording(text) {
+      if (!window.Audio) return null;
+      return window.ActivityHubAudio?.resolveSequence?.(text) || window.ActivityHubAudio?.resolve(text);
+    }
     speak(text, status = this.status, browserOnly = false) {
       const url = !browserOnly && this.recording(text);
       if (url) {
@@ -127,13 +142,26 @@
           this.speak(text, status, true);
         };
         try {
-          audio = new window.Audio(url);
+          const urls = Array.isArray(url) ? url : [url];
+          let index = 0;
+          audio = new window.Audio(urls[0]);
           this.audio = audio;
-          audio.onended = () => { if (this.audio === audio) this.audio = null; };
+          const play = () => {
+            // Ignore a late rejection from an earlier part of the same request.
+            const part = index;
+            try { audio.play()?.catch(() => { if (index === part) fallback(); }); }
+            catch { fallback(); }
+          };
+          audio.onended = () => {
+            if (this.audio !== audio) return;
+            if (++index === urls.length) { this.audio = null; return; }
+            // Reuse the element started by the tap. A blocked second play falls
+            // back to browser speech for the complete question.
+            try { audio.src = urls[index]; play(); } catch { fallback(); }
+          };
           audio.onerror = fallback;
           // Start directly in the tap handler for Safari; never preload the library.
-          const playing = audio.play();
-          playing?.catch(fallback);
+          play();
         } catch {
           if (audio) fallback();
           else this.speak(text, status, true);

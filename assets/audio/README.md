@@ -3,7 +3,7 @@
 This directory is the common library for all applets, not a builder-specific copy.
 
 - `catalog.json`: stable clip ids, exact displayed text, synthesis prompts, consumers, and generation defaults. Current voice: Kokoro `af_heart`, US English, speed `0.7`.
-- `en-US/heart-070/<id>.mp3`: approved recordings only. Contains the 54 approved recordings.
+- `en-US/heart-070/<id>.mp3`: approved recordings only. Contains the 98 approved recordings.
 - `work/audio/<batch>/` (ignored): source WAVs, compressed review MP3s, a generation manifest, and `review.html` for auditioning. Keep original WAVs here for later editing.
 - `work/audio/model-cache/` and `.venv/` (ignored): local generation dependencies, never student downloads.
 
@@ -31,3 +31,11 @@ Pilot-01 review: user heard an unwanted opening “eh” in target-only clips, e
 For individual pronunciation corrections, the catalog's `prompt` can use Kokoro/Misaki's phoneme override syntax, such as `[banana](/bʌnˈænə/).`; keep `text` unchanged. The approved banana/bananas replacements use a stronger “buh” vowel because Heart's dictionary schwa sounded like “bee” to the reviewer. These overrides still require listening approval; phoneme correctness alone does not guarantee natural audio. Generate corrections in a fresh batch and compare against the original before publishing.
 
 Published provenance is in `manifest.json` (source batch, prompt, phonemes, trim, voice, speed and SHA-256). `library.js` contains exact text-to-file mappings and content hashes for cache refresh. When replacing approved clips, update both files and rerun the builder asset versioning script. Never include unreviewed variants in this index.
+
+The approved bacon prompt is `[bacon](/bˈAkn/).`: the reviewer preferred no vowel between k and n over both the dictionary schwa and a stronger “uh”. Preserve this override when refreshing the catalog.
+
+Class Supplies selected-item questions reuse two approved prefixes, `do-you-have-a` and `do-you-have-an`, followed by the approved singular item clip. `library.js` resolves only the 13 supported exact questions with the correct article; the empty “Do you have a …?” prompt and unsupported questions use browser speech. The shared player starts on tap, reuses one audio element for both parts, cancels the sequence on another request or question/selection change, and falls back to the whole question if either part fails. Device voice settings still affect only browser speech. Physical iPad/Safari sequencing remains unverified.
+
+The prefixes were approved from `work/audio/question-join-01/`, using its `prefix-a.mp3` and `prefix-an.mp3` (recorded as `sourceFile` in the published manifest). They were extracted from complete carrier questions, with an 80 ms lead and the end 15 ms before the carrier noun's estimated start. Catalog `endBeforeWord` records that noun; `generate.py --lead-in` supports the same extraction for future review batches. Preserve untrimmed masters. The preassembled tighter-join experiments are not used by the site.
+
+After approval and verification of published hashes, completed batches retain only the approved trimmed/untrimmed WAV masters and generation metadata. Duplicate review MP3s, review pages, rejected audio, and superseded pilot batches can be removed. The site uses only the approved MP3s in this directory; ignored local masters, user references, and reusable generation dependencies remain outside the site. Historical batch manifests may describe rejected or superseded samples whose audio has been removed; this directory's published manifest identifies the final approved sources.

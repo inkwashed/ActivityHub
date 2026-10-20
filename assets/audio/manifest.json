@@ -1081,5 +1081,891 @@
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
     "sha256": "3ad714bd54908decac369e2d74e69cbe177eca53989c8fb7d922ccf734cc91c3"
+  },
+  {
+    "id": "beef",
+    "text": "beef",
+    "prompt": "beef.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: beef.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: bˈif."
+    ],
+    "seconds": 1.355,
+    "mp3Bytes": 11564,
+    "review": "approved by user",
+    "sourceBatch": "sandwich-ingredients-01-leadin",
+    "sha256": "d4fc90fa762a1df1f7e622381aa8e5eb1a538a290b84d8917335efa683aec14d"
+  },
+  {
+    "id": "chicken",
+    "text": "chicken",
+    "prompt": "chicken.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: chicken.",
+    "trimSeconds": 1.395,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ʧˈɪkən."
+    ],
+    "seconds": 1.43,
+    "mp3Bytes": 12140,
+    "review": "approved by user",
+    "sourceBatch": "sandwich-ingredients-01-leadin",
+    "sha256": "144156cd0da22b5edbb7f57f12a16eaca6e6531296275cbdfd697fb9e9b109a7"
+  },
+  {
+    "id": "cucumber",
+    "text": "cucumber",
+    "prompt": "cucumber.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: cucumber.",
+    "trimSeconds": 1.2325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: kjˈukˌʌmbəɹ."
+    ],
+    "seconds": 1.667,
+    "mp3Bytes": 14060,
+    "review": "approved by user",
+    "sourceBatch": "sandwich-ingredients-01-leadin",
+    "sha256": "68dfbb137aa3edcd87f4db34a190216abb51363314e26267feb7ad8ddb7346ca"
+  },
+  {
+    "id": "ham",
+    "text": "ham",
+    "prompt": "ham.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: ham.",
+    "trimSeconds": 1.3575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: hˈæm."
+    ],
+    "seconds": 1.367,
+    "mp3Bytes": 11564,
+    "review": "approved by user",
+    "sourceBatch": "sandwich-ingredients-01-leadin",
+    "sha256": "d5fbc6af71a10217b0f07d24f0075d6d77633912358abda492f2d6134b520458"
+  },
+  {
+    "id": "lettuce",
+    "text": "lettuce",
+    "prompt": "lettuce.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: lettuce.",
+    "trimSeconds": 1.4449999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: lˈɛTəs."
+    ],
+    "seconds": 1.48,
+    "mp3Bytes": 12524,
+    "review": "approved by user",
+    "sourceBatch": "sandwich-ingredients-01-leadin",
+    "sha256": "1d6b2c9fc787ec238bcaa34bb71c79fb2f7c92ceb72b595ae49589189a5886e5"
+  },
+  {
+    "id": "pork",
+    "text": "pork",
+    "prompt": "pork.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: pork.",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˈɔɹk."
+    ],
+    "seconds": 1.343,
+    "mp3Bytes": 11372,
+    "review": "approved by user",
+    "sourceBatch": "sandwich-ingredients-01-leadin",
+    "sha256": "369fd4738820735e4c8500ed9fc048b5edd67c8927d134df682e6e2c5400e652"
+  },
+  {
+    "id": "shrimp",
+    "text": "shrimp",
+    "prompt": "shrimp.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: shrimp.",
+    "trimSeconds": 1.3575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ʃɹˈɪmp."
+    ],
+    "seconds": 1.343,
+    "mp3Bytes": 11372,
+    "review": "approved by user",
+    "sourceBatch": "sandwich-ingredients-01-leadin",
+    "sha256": "9f002218bc2352e77ed7d9ba731feb914921562edda25a6a8a7335d9d5439cce"
+  },
+  {
+    "id": "bacon",
+    "text": "bacon",
+    "prompt": "[bacon](/bˈAkn/).",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: [bacon](/bˈAkn/).",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: bˈAkn."
+    ],
+    "seconds": 1.468,
+    "mp3Bytes": 12524,
+    "review": "approved by user",
+    "sourceBatch": "bacon-pronunciation-02",
+    "sha256": "4df0f57ae99e46748ec504ce38e449f138d54b80985c5d9ab25de50fb73c35e6"
+  },
+  {
+    "id": "blue",
+    "text": "blue",
+    "prompt": "blue.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: blue.",
+    "trimSeconds": 1.42,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: blˈu."
+    ],
+    "seconds": 1.355,
+    "mp3Bytes": 11564,
+    "review": "approved by user",
+    "sourceBatch": "supplies-01-leadin",
+    "sha256": "b8bcd8f11069d9a6f8411393a6f839fabb9055e6b7c89d99d79294de6cac7b0d"
+  },
+  {
+    "id": "colored-pencil",
+    "text": "colored pencil",
+    "prompt": "colored pencil.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: colored pencil.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: kˈʌləɹd pˈɛnsᵊl."
+    ],
+    "seconds": 1.992,
+    "mp3Bytes": 16748,
+    "review": "approved by user",
+    "sourceBatch": "supplies-01-leadin",
+    "sha256": "afe26b2b474df2c43660b7b1677381cf976dda63581a52d5e0229adb5d5234ba"
+  },
+  {
+    "id": "colored-pencils",
+    "text": "colored pencils",
+    "prompt": "colored pencils.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: colored pencils.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: kˈʌləɹd pˈɛnsᵊlz."
+    ],
+    "seconds": 2.042,
+    "mp3Bytes": 17132,
+    "review": "approved by user",
+    "sourceBatch": "supplies-01-leadin",
+    "sha256": "880d0f90ec2f9d54bd0b396b021e41fe1184aee7c054cb8b10709bf68314cb9b"
+  },
+  {
+    "id": "pencil",
+    "text": "pencil",
+    "prompt": "pencil.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: pencil.",
+    "trimSeconds": 1.3074999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˈɛnsᵊl."
+    ],
+    "seconds": 1.518,
+    "mp3Bytes": 12908,
+    "review": "approved by user",
+    "sourceBatch": "supplies-01-leadin",
+    "sha256": "cb5f54763344fad8a5a25d00d62e1033e276d06aa9bbf452815656b28dea315d"
+  },
+  {
+    "id": "pencil-case",
+    "text": "pencil case",
+    "prompt": "pencil case.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: pencil case.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˈɛnsᵊl kˈAs."
+    ],
+    "seconds": 1.893,
+    "mp3Bytes": 15788,
+    "review": "approved by user",
+    "sourceBatch": "supplies-01-leadin",
+    "sha256": "0d069d6d44cb33b07437a73d04c9d832facda4a58938afde4dddc5ba16040a06"
+  },
+  {
+    "id": "pencils",
+    "text": "pencils",
+    "prompt": "pencils.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: pencils.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˈɛnsᵊlz."
+    ],
+    "seconds": 1.643,
+    "mp3Bytes": 13868,
+    "review": "approved by user",
+    "sourceBatch": "supplies-01-leadin",
+    "sha256": "f4810484fc672c6b6b0258bdf143a9c624e5376942618f568b4c1fab06925cf4"
+  },
+  {
+    "id": "purple",
+    "text": "purple",
+    "prompt": "purple.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: purple.",
+    "trimSeconds": 1.3824999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˈɜɹpᵊl."
+    ],
+    "seconds": 1.518,
+    "mp3Bytes": 12908,
+    "review": "approved by user",
+    "sourceBatch": "supplies-01-leadin",
+    "sha256": "01da17e6904e07ac4d6050a9c6ed35897d60a363b4d78b957c4cfba2bec59034"
+  },
+  {
+    "id": "red",
+    "text": "red",
+    "prompt": "red.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: red.",
+    "trimSeconds": 1.42,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ɹˈɛd."
+    ],
+    "seconds": 1.33,
+    "mp3Bytes": 11372,
+    "review": "approved by user",
+    "sourceBatch": "supplies-01-leadin",
+    "sha256": "afca6c7aa40e19e00a7377a99ed361b1ee163a20ed1d185e61ccae642d212971"
+  },
+  {
+    "id": "eraser",
+    "text": "eraser",
+    "prompt": "eraser.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: eraser.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: əɹˈAsəɹ."
+    ],
+    "seconds": 1.605,
+    "mp3Bytes": 13484,
+    "review": "approved by user",
+    "sourceBatch": "supplies-02-leadin",
+    "sha256": "6b9e6b7d5f25c81a22e1fc1fda5dbab95647170edc9cb096fac62fdb6fbc1da3"
+  },
+  {
+    "id": "erasers",
+    "text": "erasers",
+    "prompt": "erasers.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: erasers.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: əɹˈAsəɹz."
+    ],
+    "seconds": 1.73,
+    "mp3Bytes": 14636,
+    "review": "approved by user",
+    "sourceBatch": "supplies-02-leadin",
+    "sha256": "2e1d239fef364289b86c3157b9ec4295b562397e5fcc5ddb1bca776f95d65da6"
+  },
+  {
+    "id": "marker",
+    "text": "marker",
+    "prompt": "marker.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: marker.",
+    "trimSeconds": 1.3325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˈɑɹkəɹ."
+    ],
+    "seconds": 1.518,
+    "mp3Bytes": 12908,
+    "review": "approved by user",
+    "sourceBatch": "supplies-02-leadin",
+    "sha256": "0da7712c6b1fbab1ca031246509e650d24ad355b8d11df0c88af1312a77b7ef1"
+  },
+  {
+    "id": "markers",
+    "text": "markers",
+    "prompt": "markers.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: markers.",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˈɑɹkəɹz."
+    ],
+    "seconds": 1.643,
+    "mp3Bytes": 13868,
+    "review": "approved by user",
+    "sourceBatch": "supplies-02-leadin",
+    "sha256": "9a4025c33c1f230a4f29f8ad80d2e245589f45dfe2166873c1fa41b5a640c887"
+  },
+  {
+    "id": "pen",
+    "text": "pen",
+    "prompt": "pen.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: pen.",
+    "trimSeconds": 1.395,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˈɛn."
+    ],
+    "seconds": 1.38,
+    "mp3Bytes": 11756,
+    "review": "approved by user",
+    "sourceBatch": "supplies-02-leadin",
+    "sha256": "2c0cdf5611c593944f3d3d035c0670bcaaf804e6d1bf99e1651449544c17c7fc"
+  },
+  {
+    "id": "pens",
+    "text": "pens",
+    "prompt": "pens.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: pens.",
+    "trimSeconds": 1.3325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˈɛnz."
+    ],
+    "seconds": 1.518,
+    "mp3Bytes": 12908,
+    "review": "approved by user",
+    "sourceBatch": "supplies-02-leadin",
+    "sha256": "cc6d90b328332d40b1c86e467461c3f7ae2d9a86d73d8591e4036f90b94cb3e1"
+  },
+  {
+    "id": "ruler",
+    "text": "ruler",
+    "prompt": "ruler.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: ruler.",
+    "trimSeconds": 1.395,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ɹˈuləɹ."
+    ],
+    "seconds": 1.455,
+    "mp3Bytes": 12332,
+    "review": "approved by user",
+    "sourceBatch": "supplies-02-leadin",
+    "sha256": "943b4be08842da2ab34992d792253dfe32cf5d2bbb617db9e4f781f430060e24"
+  },
+  {
+    "id": "rulers",
+    "text": "rulers",
+    "prompt": "rulers.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: rulers.",
+    "trimSeconds": 1.3199999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ɹˈuləɹz."
+    ],
+    "seconds": 1.58,
+    "mp3Bytes": 13292,
+    "review": "approved by user",
+    "sourceBatch": "supplies-02-leadin",
+    "sha256": "b1a7f0c5bc2ad7896838492aa8466222b97f2764f1f8431c5a4f767e7124fcf4"
+  },
+  {
+    "id": "calendar",
+    "text": "calendar",
+    "prompt": "calendar.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: calendar.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: kˈæləndəɹ."
+    ],
+    "seconds": 1.617,
+    "mp3Bytes": 13676,
+    "review": "approved by user",
+    "sourceBatch": "supplies-03-leadin",
+    "sha256": "5a751260438b0fd26b4ed1cf633b7abbe1486baec2e522118eb29ea41f5f15f8"
+  },
+  {
+    "id": "calendars",
+    "text": "calendars",
+    "prompt": "calendars.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: calendars.",
+    "trimSeconds": 1.2325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: kˈæləndəɹz."
+    ],
+    "seconds": 1.742,
+    "mp3Bytes": 14636,
+    "review": "approved by user",
+    "sourceBatch": "supplies-03-leadin",
+    "sha256": "c495b1df27c793c9df57b7f1f325a8e1b500785d39c78f1c10d8e2b37879f7c0"
+  },
+  {
+    "id": "glue-stick",
+    "text": "glue stick",
+    "prompt": "glue stick.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: glue stick.",
+    "trimSeconds": 1.1824999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ɡlˈu stˈɪk."
+    ],
+    "seconds": 1.718,
+    "mp3Bytes": 14444,
+    "review": "approved by user",
+    "sourceBatch": "supplies-03-leadin",
+    "sha256": "ab21f4607bca737687d4de2f7d88a55d96750ff0ccaab9551987220971c41ee0"
+  },
+  {
+    "id": "glue-sticks",
+    "text": "glue sticks",
+    "prompt": "glue sticks.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: glue sticks.",
+    "trimSeconds": 1.1824999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ɡlˈu stˈɪks."
+    ],
+    "seconds": 1.718,
+    "mp3Bytes": 14444,
+    "review": "approved by user",
+    "sourceBatch": "supplies-03-leadin",
+    "sha256": "825aa90900b5deba6dc603b69295f3281ad6b7d5097b8e67d25e1e45a5794db8"
+  },
+  {
+    "id": "notebook",
+    "text": "notebook",
+    "prompt": "notebook.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: notebook.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: nˈOtbˌʊk."
+    ],
+    "seconds": 1.555,
+    "mp3Bytes": 13100,
+    "review": "approved by user",
+    "sourceBatch": "supplies-03-leadin",
+    "sha256": "046c4d3f9c6728b2e164253189f86838bd08ba013b50df4342c9a8befcdea744"
+  },
+  {
+    "id": "notebooks",
+    "text": "notebooks",
+    "prompt": "notebooks.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: notebooks.",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: nˈOtbˌʊks."
+    ],
+    "seconds": 1.567,
+    "mp3Bytes": 13292,
+    "review": "approved by user",
+    "sourceBatch": "supplies-03-leadin",
+    "sha256": "1a6b3fbb18ba1734128ee8ba9228fe567e210bdbadfb8d950356c4f03945cf45"
+  },
+  {
+    "id": "stapler",
+    "text": "stapler",
+    "prompt": "stapler.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: stapler.",
+    "trimSeconds": 1.3199999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: stˈApᵊləɹ."
+    ],
+    "seconds": 1.63,
+    "mp3Bytes": 13676,
+    "review": "approved by user",
+    "sourceBatch": "supplies-03-leadin",
+    "sha256": "8f334b50e84a76f360748b68e64dd8389514e41edd49425ed2b1c3b4b722c808"
+  },
+  {
+    "id": "staplers",
+    "text": "staplers",
+    "prompt": "staplers.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: staplers.",
+    "trimSeconds": 1.27,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: stˈApᵊləɹz."
+    ],
+    "seconds": 1.755,
+    "mp3Bytes": 14828,
+    "review": "approved by user",
+    "sourceBatch": "supplies-03-leadin",
+    "sha256": "e08238b750be4730aa096e41b692797658898d71677c8b8a520994b3c79a9b4b"
+  },
+  {
+    "id": "black",
+    "text": "black",
+    "prompt": "black.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: black.",
+    "trimSeconds": 1.3325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: blˈæk."
+    ],
+    "seconds": 1.393,
+    "mp3Bytes": 11948,
+    "review": "approved by user",
+    "sourceBatch": "supplies-04-leadin",
+    "sha256": "9259331e0cd0249d11616b495f5a70f3a6f468af708ed0275c1d884a81df1d41"
+  },
+  {
+    "id": "brown",
+    "text": "brown",
+    "prompt": "brown.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: brown.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: bɹˈWn."
+    ],
+    "seconds": 1.48,
+    "mp3Bytes": 12524,
+    "review": "approved by user",
+    "sourceBatch": "supplies-04-leadin",
+    "sha256": "8cd22b3f08eeea037c0a6ac4af152179b5ab1faa7fa2705bbb8318a5dda12240"
+  },
+  {
+    "id": "green",
+    "text": "green",
+    "prompt": "green.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: green.",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ɡɹˈin."
+    ],
+    "seconds": 1.505,
+    "mp3Bytes": 12716,
+    "review": "approved by user",
+    "sourceBatch": "supplies-04-leadin",
+    "sha256": "c9ee5eb943e4bbb7ea910c5416144017d8037f9dee40f450e1c6406c15019b03"
+  },
+  {
+    "id": "magnet",
+    "text": "magnet",
+    "prompt": "magnet.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: magnet.",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˈæɡnət."
+    ],
+    "seconds": 1.53,
+    "mp3Bytes": 12908,
+    "review": "approved by user",
+    "sourceBatch": "supplies-04-leadin",
+    "sha256": "fdb77e4944f0967f5f022d0e0257943679e7e6c8f4385435953e883299f88b4b"
+  },
+  {
+    "id": "magnets",
+    "text": "magnets",
+    "prompt": "magnets.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: magnets.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˈæɡnəts."
+    ],
+    "seconds": 1.605,
+    "mp3Bytes": 13484,
+    "review": "approved by user",
+    "sourceBatch": "supplies-04-leadin",
+    "sha256": "8dd67859df9524f83b8ee84977fa3fbb277e8d1fd3e92d6be12e43c2b3dbf432"
+  },
+  {
+    "id": "pencil-sharpener",
+    "text": "pencil sharpener",
+    "prompt": "pencil sharpener.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: pencil sharpener.",
+    "trimSeconds": 1.2075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˈɛnsᵊl ʃˈɑɹpᵊnəɹ."
+    ],
+    "seconds": 2.118,
+    "mp3Bytes": 17708,
+    "review": "approved by user",
+    "sourceBatch": "supplies-04-leadin",
+    "sha256": "56c7a7b5d8e8cb7e9c26b1b1c406869288831b5c648d88741cbbf08405148f79"
+  },
+  {
+    "id": "pencil-sharpeners",
+    "text": "pencil sharpeners",
+    "prompt": "pencil sharpeners.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: pencil sharpeners.",
+    "trimSeconds": 1.1824999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˈɛnsᵊl ʃˈɑɹpᵊnəɹz."
+    ],
+    "seconds": 2.217,
+    "mp3Bytes": 18476,
+    "review": "approved by user",
+    "sourceBatch": "supplies-04-leadin",
+    "sha256": "5603e15cf785a804b1b99d1be2ff23ca1991e8145dd0aded98cb56bc27d4c26c"
+  },
+  {
+    "id": "pink",
+    "text": "pink",
+    "prompt": "pink.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: pink.",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˈɪŋk."
+    ],
+    "seconds": 1.317,
+    "mp3Bytes": 11180,
+    "review": "approved by user",
+    "sourceBatch": "supplies-04-leadin",
+    "sha256": "4c385f818c2b8d5a6afb42065f1ba5ca7fdb39c449e048008adf32d05c73ccd4"
+  },
+  {
+    "id": "white",
+    "text": "white",
+    "prompt": "white.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: white.",
+    "trimSeconds": 1.395,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: wˈIt."
+    ],
+    "seconds": 1.33,
+    "mp3Bytes": 11372,
+    "review": "approved by user",
+    "sourceBatch": "supplies-04-leadin",
+    "sha256": "8f41a7963d57b230e2e45493655ac7e3583dc983dcb2cac7cebf648ca3fa9c89"
+  },
+  {
+    "id": "yellow",
+    "text": "yellow",
+    "prompt": "yellow.",
+    "apps": [
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: yellow.",
+    "trimSeconds": 1.42,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: jˈɛlO."
+    ],
+    "seconds": 1.43,
+    "mp3Bytes": 12140,
+    "review": "approved by user",
+    "sourceBatch": "supplies-04-leadin",
+    "sha256": "19fbf0b20bacd920ddc2825199d367c73b6b6b59c3a16860774ee99fc078c003"
+  },
+  {
+    "id": "do-you-have-a",
+    "text": "Do you have a",
+    "prompt": "Do you have a pen?",
+    "apps": [
+      "class-supplies"
+    ],
+    "endBeforeWord": "pen",
+    "generationPrompt": "Listen: Do you have a pen?",
+    "trimSeconds": 1.095,
+    "trimEndSeconds": 1.7475,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: dˈu ju hæv ɐ pˈɛn?"
+    ],
+    "seconds": 0.652,
+    "mp3Bytes": 5996,
+    "review": "approved by user",
+    "sourceBatch": "question-join-01",
+    "sourceFile": "prefix-a.mp3",
+    "sha256": "f903ebc2fa30710a3a5f2990e68ab3b4788fc7075e81839dd38c5fe0f0054e15"
+  },
+  {
+    "id": "do-you-have-an",
+    "text": "Do you have an",
+    "prompt": "Do you have an eraser?",
+    "apps": [
+      "class-supplies"
+    ],
+    "endBeforeWord": "eraser",
+    "generationPrompt": "Listen: Do you have an eraser?",
+    "trimSeconds": 1.17,
+    "trimEndSeconds": 1.86,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: dˈu ju hæv ɐn əɹˈAsəɹ?"
+    ],
+    "seconds": 0.69,
+    "mp3Bytes": 6188,
+    "review": "approved by user",
+    "sourceBatch": "question-join-01",
+    "sourceFile": "prefix-an.mp3",
+    "sha256": "3b2b1449761b0b9e5fa08ac69bead434472e16c225c6d63b02b4575dfe0f1e6b"
   }
 ]

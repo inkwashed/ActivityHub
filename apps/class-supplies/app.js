@@ -7,9 +7,7 @@
  const defaults=()=>Object.fromEntries([['case','blue'],...config.toppings.map(x=>[x.id,x.color])]);
  class SuppliesBuilder extends window.FoodBuilder{
   setSentence(sentence){
-   if(!window.BuilderPronunciation){this.root.querySelector("#sentence").textContent=sentence;return}
-   this.pronunciation ||= new window.BuilderPronunciation(this.root.querySelector("#sentence"));
-   this.pronunciation.render(sentence,["pencil case",...config.toppings.flatMap(x=>[x.label,x.countPlural]),...Object.keys(window.Supplies.colors)]);
+   super.setSentence(sentence,["pencil case",...Object.keys(window.Supplies.colors)]);
   }
   palette(){this.palettes ||= {learn:defaults(),play:defaults()};return this.palettes[this.creative?.active?'play':'learn']}
   pieceColor(item){return item.color||(item.color=this.palettes.play[item.topping])}
@@ -89,7 +87,9 @@
    const question=document.querySelector('[data-pronunciation-question]');
    if(question){
     const noun=item?.label||(target.value==='case'?'pencil case':'');
-    question.textContent=noun?`Do you have ${/^[aeiou]/i.test(noun)?'an':'a'} ${noun}?`:'Do you have a …?';
+    const questionText=noun?`Do you have ${/^[aeiou]/i.test(noun)?'an':'a'} ${noun}?`:'Do you have a …?';
+    if(question.textContent!==questionText)this.pronunciation?.stop();
+    question.textContent=questionText;
     question.setAttribute('aria-label',`${t('Listen')}: ${question.textContent}`);
     if(this.pronunciation)question.disabled=!(this.pronunciation.available||this.pronunciation.recording(question.textContent));
    }

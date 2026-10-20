@@ -38,3 +38,24 @@ for(const item of b.config.toppings){b.chooseTopping(item.id);b.chooseTopping(it
 console.log('PASS: supply toggles, articles, independent modes/colors, PLAY transforms, export art, restore/reset and invalid data.');
 
 b.creative.select(null);b.creative.clearFromBackground({button:0,target:{closest:()=>null}});assert.equal(elements['#color-target'].value,'');assert.ok(colorButtons.every(button=>button.disabled));
+
+let audioAttempts=0;
+context.window.BuilderPronunciation=class{constructor(){audioAttempts++;throw new Error('Device audio unavailable')}};
+b.pronunciation=null;
+for(let i=0;i<3;i++)b.updateSentence();
+assert.equal(audioAttempts,1);assert.match(elements['#sentence'].textContent,/I have/);
+console.log('PASS: Class Supplies uses shared audio fallback without repeated initialization.');
+
+// Selecting a different question must stop queued audio even when inventory is unchanged.
+const question=new Element();elements['[data-pronunciation-question]']=question;
+let stopped=0;
+b.pronunciation={available:false,stop(){stopped++},recording:text=>text!=='Do you have a …?'};
+b.creative.active=false;b.state.toppings.pencil=1;b.state.toppings.eraser=1;
+elements['#color-target'].value='pencil';b.refreshColorSelection();
+assert.equal(question.textContent,'Do you have a pencil?');assert.equal(question.disabled,false);
+const beforeSelection=stopped;b.refreshColorSelection();assert.equal(stopped,beforeSelection);
+elements['#color-target'].value='eraser';b.refreshColorSelection();
+assert.equal(question.textContent,'Do you have an eraser?');assert.equal(stopped,beforeSelection+1);
+elements['#color-target'].value='';b.refreshColorSelection();
+assert.equal(question.textContent,'Do you have a …?');assert.equal(question.disabled,true);assert.equal(stopped,beforeSelection+2);
+console.log('PASS: question selection changes cancel queued audio; unchanged questions do not.');

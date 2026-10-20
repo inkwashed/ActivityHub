@@ -7,8 +7,20 @@ for(const app of ['pizza','parfait','sandwich']){
  const config=context.window[app.toUpperCase()+'_CONFIG'];
  for(const item of [...config.toppings,...config.sauces,...(config.bases||[])])for(const text of [item.label,item.buttonLabel,item.countSingular,item.countPlural])add(text,app);
  for(const item of config.bases||[])if(!item.empty){add(item.buttonLabel+' scoop',app);add(item.buttonLabel+' scoops',app);}
- // Sandwich set phrases are deferred; this pass covers configured ingredients.
- if(app!=='sandwich')add('What do you want?',app);
+ add(app==='sandwich'?'Tell me about your sandwich.':'What do you want?',app);
+}
+// Supplies pronounces item forms and colors separately, not every combination.
+{
+ const context={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'apps/class-supplies/config.js'),'utf8'),context);
+ const {config,colors}=context.window.Supplies;
+ for(const item of config.toppings)for(const text of [item.label,item.countSingular,item.countPlural])add(text,'class-supplies');
+ add('pencil case','class-supplies');
+ for(const color of Object.keys(colors))add(color,'class-supplies');
+ // Prefixes are generated in context and cut before the carrier noun.
+ for(const [article,noun] of [['a','pen'],['an','eraser']]){
+  add(`Do you have ${article}`,'class-supplies');
+  Object.assign(entries.get(`do-you-have-${article}`),{prompt:`Do you have ${article} ${noun}?`,endBeforeWord:noun});
+ }
 }
 const target=path.join(root,'assets/audio/catalog.json');
 const previous=fs.existsSync(target)?JSON.parse(fs.readFileSync(target,'utf8')):null;

@@ -96,3 +96,12 @@ for(const rendered of [learnBase,playBase,lesson.svg(filling,b.config)]){
 assert.ok(lesson.svg(filling,b.config).includes(lesson.bread(13)));
 assert.ok(photo.includes('translate(5 10) scale(.9)'));
 console.log('PASS: identical live bread scale across modes, safe top bread and separate Share framing.');
+
+let failedAudioAttempts=0;
+context.window.BuilderPronunciation=class{constructor(){failedAudioAttempts++;throw new Error('Unavailable voice service')}};
+b.creative=null;b.pronunciation=null;
+for(let i=0;i<4;i++)b.clear();
+assert.equal(failedAudioAttempts,1);
+assert.ok(elements['#sentence'].textContent);
+assert.ok(elements['#pieces'].html.includes('<svg'));
+console.log('PASS: audio setup failure preserves sentence/artwork and is not retried by Reset.');
