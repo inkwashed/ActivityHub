@@ -13,6 +13,8 @@ if Path(a.batch).name != a.batch: p.error('batch must be a directory name')
 catalog=json.loads((ROOT/'assets/audio/catalog.json').read_text())
 clips=[c for c in catalog['clips'] if not a.ids or c['id'] in a.ids]
 if a.ids and set(a.ids)-{c['id'] for c in clips}: p.error('Unknown clip id')
+if any(c.get('endBeforeWord') for c in clips) and not a.lead_in:
+    p.error('Contextual question prefixes require --lead-in for word-timed extraction')
 import numpy as np
 import soundfile as sf
 import imageio_ffmpeg
@@ -32,6 +34,7 @@ for clip in clips:
     audio=np.concatenate([r.audio.numpy() for r in results])
     if not len(audio) or not np.isfinite(audio).all(): raise RuntimeError(f'Invalid audio: {clip["id"]}')
     trim_seconds = 0
+    trim_end_seconds = None
     if a.lead_in:
         if len(results) != 1: raise RuntimeError('Lead-in must be generated with the target in one segment')
         tokens = results[0].tokens
@@ -40,10 +43,16 @@ for clip in clips:
         # Keep a short safety margin before the first target consonant.
         trim_seconds = max(0, target.start_ts - .08)
         sf.write(out/(clip['id']+'-untrimmed.wav'),audio,catalog['sampleRate'],subtype='PCM_16')
-        audio=audio[round(trim_seconds*catalog['sampleRate']):]
+        if clip.get('endBeforeWord'):
+            boundary = next(token for token in tokens[colon+1:] if token.text.lower() == clip['endBeforeWord'].lower() and token.start_ts is not None)
+            trim_end_seconds = boundary.start_ts - .015
+            if trim_end_seconds <= trim_seconds: raise RuntimeError('Invalid prefix boundary')
+        end_sample = round(trim_end_seconds*catalog['sampleRate']) if trim_end_seconds is not None else None
+        audio=audio[round(trim_seconds*catalog['sampleRate']):end_sample]
     sf.write(wav,audio,catalog['sampleRate'],subtype='PCM_16')
     subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(),'-v','error','-i',str(wav),'-ac','1','-ar','24000','-codec:a','libmp3lame','-b:a','64k',str(mp3)],check=True)
     record={**clip,'generationPrompt':prompt,'trimSeconds':trim_seconds,'voice':catalog['voice'],'speed':catalog['speed'],'phonemes':[r.phonemes for r in results],'seconds':round(len(audio)/24000,3),'mp3Bytes':mp3.stat().st_size,'review':'pending'}
+    if trim_end_seconds is not None: record['trimEndSeconds'] = trim_end_seconds
     records.append(record)
     (out/'manifest.json').write_text(json.dumps(records,indent=2)+'\n')
     print(f'{clip["id"]}: {record["seconds"]}s, {record["mp3Bytes"]} bytes',flush=True)
