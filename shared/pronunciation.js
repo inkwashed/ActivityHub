@@ -30,7 +30,9 @@
       }
       this.labels = () => {
         this.question?.setAttribute('aria-label', `${t('Listen')}: ${this.question.textContent}`);
-        const label = this.available ? 'Listen to your order' : 'Pronunciation is unavailable in this browser';
+        const canPlay = this.available || !!this.recording(this.sentence.textContent);
+        this.button.disabled = !canPlay;
+        const label = canPlay ? 'Listen to your order' : 'Pronunciation is unavailable in this browser';
         this.button.setAttribute('aria-label', t(label));
         this.button.title = t(label);
         sentence.querySelectorAll('.pronunciation-word').forEach(button => {
@@ -76,7 +78,7 @@
       if (!dialog) return;
       const section = document.createElement('div');
       section.className = 'pronunciation-settings';
-      section.innerHTML = '<label for="pronunciation-voice" data-i18n="Default voice">Default voice</label><div class="pronunciation-settings-row"><select id="pronunciation-voice"></select><button type="button" class="ah-button" data-i18n="Try voice">Try voice</button></div><p class="pronunciation-note" data-i18n="Words use recorded audio. This voice is for full sentences and words without recordings. Online voices may need an internet connection.">Words use recorded audio. This voice is for full sentences and words without recordings. Online voices may need an internet connection.</p><p class="pronunciation-note" data-i18n="No sound on iPad? Turn off Silent Mode in Control Center.">No sound on iPad? Turn off Silent Mode in Control Center.</p><p class="pronunciation-note" role="status"></p>';
+      section.innerHTML = '<label for="pronunciation-voice" data-i18n="Default voice">Default voice</label><div class="pronunciation-settings-row"><select id="pronunciation-voice"></select><button type="button" class="ah-button" data-i18n="Try voice">Try voice</button></div><p class="pronunciation-note" data-i18n="Recorded audio is used when available. This voice is the fallback when recordings are missing or cannot play. Online voices may need an internet connection.">Recorded audio is used when available. This voice is the fallback when recordings are missing or cannot play. Online voices may need an internet connection.</p><p class="pronunciation-note" data-i18n="No sound on iPad? Turn off Silent Mode in Control Center.">No sound on iPad? Turn off Silent Mode in Control Center.</p><p class="pronunciation-note" role="status"></p>';
       dialog.append(section);
       this.voiceSelect = section.querySelector('select');
       const preview = section.querySelector('button');
@@ -156,7 +158,7 @@
             if (this.audio !== audio) return;
             if (++index === urls.length) { this.audio = null; return; }
             // Reuse the element started by the tap. A blocked second play falls
-            // back to browser speech for the complete question.
+            // back to browser speech for the complete sentence.
             try { audio.src = urls[index]; play(); } catch { fallback(); }
           };
           audio.onerror = fallback;

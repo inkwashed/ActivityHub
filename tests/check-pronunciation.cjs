@@ -99,7 +99,8 @@ for(const base of ['https://example.test/assets/audio/library.js','file:///examp
   assert.equal(urls.length,2);assert.equal(urls[0],library.resolve(`Do you have ${article}`));assert.equal(urls[1],library.resolve(noun));
  }
  assert.equal(library.resolveSequence('  DO YOU HAVE   A PEN?  ')[1],library.resolve('pen'));
- for(const unsupported of ['Do you have a …?','Do you have a unicorn?','Do you have a red pen?','Do you have a eraser?','I have a pen.'])assert.equal(library.resolveSequence(unsupported),null);
+ assert.equal(library.resolveSequence('Do you have a …?')[0],library.resolve('Do you have a'));
+ for(const unsupported of ['Do you have a unicorn?','Do you have a red pen?','Do you have a eraser?','I have a unicorn.'])assert.equal(library.resolveSequence(unsupported),null);
  window.ActivityHubAudio=library;
 }
 const q='Do you have an eraser?';
@@ -126,6 +127,24 @@ const noSpeechOrder=new Element();noSpeechOrder.parentElement=new Element();
 const noSpeechQuestion=new window.BuilderPronunciation(noSpeechOrder);
 assert.equal(question.disabled,false);question.events.click();assert.match(noSpeechQuestion.audio.url,/do-you-have-an\.mp3/);noSpeechQuestion.stop();
 console.log('PASS: all Supplies question sequences, a/an, second-clip fallback, interruption and browser-only preview.');
+
+// Long sentences stay recorded without device synthesis. A failure late in the
+// sequence falls back to the entire original text, never just its remaining part.
+const inventory='I have 1 blue pencil case, 2 red colored pencils and 1 blue colored pencil.';
+const noSpeech=new Element();noSpeech.parentElement=new Element();
+const recordedOnly=new window.BuilderPronunciation(noSpeech);
+recordedOnly.render(inventory,['pencil case','colored pencils','colored pencil']);
+assert.equal(recordedOnly.button.disabled,false);
+recordedOnly.button.events.click();const inventoryAudio=recordedOnly.audio;
+for(let i=1;i<window.ActivityHubAudio.resolveSequence(inventory).length;i++)inventoryAudio.onended();
+inventoryAudio.onended();assert.equal(recordedOnly.audio,null);
+recordedOnly.render('I have an unknown thing.',[]);assert.equal(recordedOnly.button.disabled,true);
+speech.speak(inventory);const lateFailure=audio.at(-1);
+lateFailure.onended();lateFailure.onended();lateFailure.onerror();
+assert.equal(spoken.at(-1).text,inventory);assert.equal(speech.audio,null);
+speech.speak('I have a unicorn.');assert.equal(spoken.at(-1).text,'I have a unicorn.');assert.equal(speech.audio,null);
+speech.speak(inventory,speech.settingsStatus,true);assert.equal(spoken.at(-1).text,inventory);assert.equal(speech.audio,null);
+console.log('PASS: complete recorded inventories without device speech, late-clip failure and explicit browser preview.');
 })().catch(error=>{console.error(error);process.exitCode=1;});
 
 const voiceProbe=Object.create(window.BuilderPronunciation.prototype);

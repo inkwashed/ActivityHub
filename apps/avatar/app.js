@@ -18,7 +18,7 @@
    button.setAttribute('aria-pressed',state[button.dataset.part]===button.dataset.value);
    const preview=button.querySelector('.part-preview');
    if(preview){
-    preview.innerHTML=button.dataset.part==='eyes' ? window.renderAvatarExpression(button.dataset.value,state.eyeColor,state.eyeStyle,state.skin) : button.dataset.part==='face' ? window.renderAvatarFacePreview({...state,face:button.dataset.value}) : button.dataset.part==='nose' ? window.renderAvatarNosePreview({...state,nose:button.dataset.value}) : button.dataset.part==='mouth' ? window.renderAvatarMouthPreview({...state,mouth:button.dataset.value}) : window.renderAvatar({...state,[button.dataset.part]:button.dataset.value});
+    preview.innerHTML=button.dataset.part==='eyes' ? window.renderAvatarExpression(button.dataset.value,state.eyeColor,state.eyeStyle,state.skin,state.hairColor) : button.dataset.part==='face' ? window.renderAvatarFacePreview({...state,face:button.dataset.value}) : button.dataset.part==='nose' ? window.renderAvatarNosePreview({...state,nose:button.dataset.value}) : button.dataset.part==='mouth' ? window.renderAvatarMouthPreview({...state,mouth:button.dataset.value}) : window.renderAvatar({...state,[button.dataset.part]:button.dataset.value});
    }
   });
  }
@@ -45,7 +45,7 @@
  }
  function partChoices(key){
    const choices=document.createElement('div');choices.className=key==='eyes'?'options expression-options':'options';
-   for(const value of config.parts[key]){
+   for(const value of config.optionsFor(key)){
     const button=document.createElement('button');button.type='button';button.className='ah-choice part-choice';button.dataset.part=key;button.dataset.value=value;
     const preview=document.createElement('span');preview.className='part-preview';preview.setAttribute('aria-hidden','true');
     const text=document.createElement('span');translated(text,label(value));text.className='sr-only';button.append(preview,text);button.addEventListener('click',()=>choose(key,value));choices.append(button);
@@ -99,7 +99,7 @@
   restore:saved=>{
    const clean={...config.defaults};
    for(const key of Object.keys(clean)){
-    const options=config.parts[key]||config.palettes[key]||(key==='eyeStyle'?config.eyeStyles:[]);
+    const options=config.optionsFor(key);
     if(options.includes(saved?.state?.[key])||config.isCustomColor(key,saved?.state?.[key]))clean[key]=saved.state[key];
    }
    state=clean;const restoredTab=({mouth:'eyes',nose:'face',accessories:'clothes',colors:'design'})[saved?.active]||saved?.active;selectTab(categories.includes(restoredTab)?restoredTab:'face');update();

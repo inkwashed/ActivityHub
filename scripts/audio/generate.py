@@ -7,10 +7,11 @@ os.environ.setdefault('HF_HUB_DISABLE_TELEMETRY','1')
 p=argparse.ArgumentParser()
 p.add_argument('--ids',nargs='*',help='Clip ids; omit for the full catalogue')
 p.add_argument('--batch',default='heart-070')
+p.add_argument('--catalog',type=Path,default=ROOT/'assets/audio/catalog.json',help='Optional review-only catalog; does not modify the approved library')
 p.add_argument('--lead-in', action='store_true', help='Generate Listen: before the target and trim at model word timestamps')
 a=p.parse_args()
 if Path(a.batch).name != a.batch: p.error('batch must be a directory name')
-catalog=json.loads((ROOT/'assets/audio/catalog.json').read_text())
+catalog=json.loads(a.catalog.read_text())
 clips=[c for c in catalog['clips'] if not a.ids or c['id'] in a.ids]
 if a.ids and set(a.ids)-{c['id'] for c in clips}: p.error('Unknown clip id')
 if any(c.get('endBeforeWord') for c in clips) and not a.lead_in:

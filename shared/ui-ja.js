@@ -5,7 +5,7 @@ window.ActivityHubI18n.register({
   "Browser reports audio playback finished.": "ブラウザから音声再生終了の通知が届きました。",
   "Device default (English)": "端末の標準音声（英語）",
   "Speech did not start. Try Device default (English) in language settings.": "読み上げが始まりませんでした。言語設定で「端末の標準音声（英語）」をお試しください。",
-  "Words use recorded audio. This voice is for full sentences and words without recordings. Online voices may need an internet connection.": "単語には録音音声を使います。この設定は文全体と録音のない単語の読み上げに使われます。オンライン音声にはインターネット接続が必要な場合があります。",
+  "Recorded audio is used when available. This voice is the fallback when recordings are missing or cannot play. Online voices may need an internet connection.": "録音がある場合は録音音声を使います。この設定は録音がない場合や再生できない場合の読み上げに使われます。オンライン音声にはインターネット接続が必要な場合があります。",
   "Default voice": "読み上げ音声",
   "Try voice": "試聴",
   "Automatic (English)": "自動（英語）",

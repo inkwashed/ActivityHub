@@ -1967,5 +1967,2050 @@
     "sourceBatch": "question-join-01",
     "sourceFile": "prefix-an.mp3",
     "sha256": "3b2b1449761b0b9e5fa08ac69bead434472e16c225c6d63b02b4575dfe0f1e6b"
+  },
+  {
+    "id": "i-have",
+    "text": "I have",
+    "prompt": "I have apples.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "endBeforeWord": "apples",
+    "generationPrompt": "Listen: I have apples.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˌI hæv ˈæpᵊlz."
+    ],
+    "seconds": 0.515,
+    "mp3Bytes": 4844,
+    "review": "approved by user",
+    "trimEndSeconds": 1.6475000000000002,
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "3b9ee28bc5d5b92487f3811dc96964c4234b85c55a42df8d7cfa9fbc809235ea"
+  },
+  {
+    "id": "i-want",
+    "text": "I want",
+    "prompt": "I want apples.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "endBeforeWord": "apples",
+    "generationPrompt": "Listen: I want apples.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˌI wˈɑnt ˈæpᵊlz."
+    ],
+    "seconds": 0.54,
+    "mp3Bytes": 5036,
+    "review": "approved by user",
+    "trimEndSeconds": 1.6475000000000002,
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "cd454ffa189a005ba9480ac4824b2205cb17bfd0ae534a7b012384863a29ce6e"
+  },
+  {
+    "id": "a",
+    "text": "a",
+    "prompt": "a pen.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "endBeforeWord": "pen",
+    "generationPrompt": "Listen: a pen.",
+    "trimSeconds": 1.3824999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ɐ pˈɛn."
+    ],
+    "seconds": 0.228,
+    "mp3Bytes": 2540,
+    "review": "approved by user",
+    "trimEndSeconds": 1.61,
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "e2d47409dc724efa6fe83655c13ff548887c92d170c92b72e5a7b82aec08ad26"
+  },
+  {
+    "id": "an",
+    "text": "an",
+    "prompt": "[an](/ɐn/).",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: [an](/ɐn/).",
+    "trimSeconds": 1.5325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ɐn."
+    ],
+    "seconds": 1.117,
+    "mp3Bytes": 9644,
+    "review": "approved by user",
+    "role": "sentence-part",
+    "sourceBatch": "sentence-corrections-01",
+    "sha256": "5f6efc407f84e6e8c50f561a78f9f29055bd3ff03588c2a1d67cb0f3a508ae1b"
+  },
+  {
+    "id": "and",
+    "text": "and",
+    "prompt": "and cheese.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "endBeforeWord": "cheese",
+    "generationPrompt": "Listen: and cheese.",
+    "trimSeconds": 1.3074999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ænd ʧˈiz."
+    ],
+    "seconds": 0.278,
+    "mp3Bytes": 2924,
+    "review": "approved by user",
+    "trimEndSeconds": 1.5850000000000002,
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "7b2e9072356dc3b09eb4c7a9c388c3a370c5eb7f4e757db789c6bce8eb7f9bdb"
+  },
+  {
+    "id": "with",
+    "text": "with",
+    "prompt": "with cheese.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "endBeforeWord": "cheese",
+    "generationPrompt": "Listen: with cheese.",
+    "trimSeconds": 1.2075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: wɪð ʧˈiz."
+    ],
+    "seconds": 0.352,
+    "mp3Bytes": 3500,
+    "review": "approved by user",
+    "trimEndSeconds": 1.56,
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "95ccdada9d86399a9cc484813ae43b40e6fe433bd202125c679fa2d167d012ed"
+  },
+  {
+    "id": "a-little-bit-of",
+    "text": "a little bit of",
+    "prompt": "a little bit of cheese.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "endBeforeWord": "cheese",
+    "generationPrompt": "Listen: a little bit of cheese.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ɐ lˈɪTᵊl bˈɪt ʌv ʧˈiz."
+    ],
+    "seconds": 0.677,
+    "mp3Bytes": 6188,
+    "review": "approved by user",
+    "trimEndSeconds": 1.8350000000000002,
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "ef21922427e5bdd319664c1f0bfaf4c064b9b5e244b0a5656d87845656370543"
+  },
+  {
+    "id": "some",
+    "text": "some",
+    "prompt": "some cheese.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "endBeforeWord": "cheese",
+    "generationPrompt": "Listen: some cheese.",
+    "trimSeconds": 1.2325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: sˌʌm ʧˈiz."
+    ],
+    "seconds": 0.403,
+    "mp3Bytes": 3884,
+    "review": "approved by user",
+    "trimEndSeconds": 1.635,
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "bde600f480c923d6123041ec4180f6112ac86eb0c9c45cedfc3abc879e95a061"
+  },
+  {
+    "id": "a-lot-of",
+    "text": "a lot of",
+    "prompt": "a lot of cheese.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "endBeforeWord": "cheese",
+    "generationPrompt": "Listen: a lot of cheese.",
+    "trimSeconds": 1.0574999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ɐ lˈɑt ʌv ʧˈiz."
+    ],
+    "seconds": 0.578,
+    "mp3Bytes": 5420,
+    "review": "approved by user",
+    "trimEndSeconds": 1.635,
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "d3da9e795fdac324a859c58fd53a020af26d1740b0451a1cb4ccc082e9162132"
+  },
+  {
+    "id": "some-of",
+    "text": "some of",
+    "prompt": "some of everything.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "endBeforeWord": "everything",
+    "generationPrompt": "Listen: some of everything.",
+    "trimSeconds": 1.2449999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: sˌʌm ʌv ˈɛvəɹiθˌɪŋ."
+    ],
+    "seconds": 0.427,
+    "mp3Bytes": 4076,
+    "review": "approved by user",
+    "trimEndSeconds": 1.6725,
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "b4db2b06c147c9ef2c88795b3051459082cdeff816ebb3c91e0ad39b62965aa9"
+  },
+  {
+    "id": "my-sandwich-is",
+    "text": "My sandwich is",
+    "prompt": "My sandwich is delicious.",
+    "apps": [
+      "sandwich"
+    ],
+    "endBeforeWord": "delicious",
+    "generationPrompt": "Listen: My sandwich is delicious.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˌI sˈændwˌɪʧ ɪz dəlˈɪʃəs."
+    ],
+    "seconds": 1.19,
+    "mp3Bytes": 10220,
+    "review": "approved by user",
+    "trimEndSeconds": 2.3474999999999997,
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "cdb8c0be7bd0bce80e50749334552cc2d0207bc2c046e2bddcf215393900fd08"
+  },
+  {
+    "id": "my-sandwich-is-a",
+    "text": "My sandwich is a",
+    "prompt": "My sandwich is a BLT.",
+    "apps": [
+      "sandwich"
+    ],
+    "endBeforeWord": "BLT",
+    "generationPrompt": "Listen: My sandwich is a BLT.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˌI sˈændwˌɪʧ ɪz ɐ bˌiˌɛltˈi."
+    ],
+    "seconds": 1.29,
+    "mp3Bytes": 10988,
+    "review": "approved by user",
+    "trimEndSeconds": 2.4225,
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "f71cfdadca44172b70ad12b01f2feff57ae80e60feff313a1671530974323e67"
+  },
+  {
+    "id": "my-sandwich-is-an",
+    "text": "My sandwich is an",
+    "prompt": "My sandwich is [an](/ɐn/).",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: My sandwich is [an](/ɐn/).",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˌI sˈændwˌɪʧ ɪz ɐn."
+    ],
+    "seconds": 2.143,
+    "mp3Bytes": 17900,
+    "review": "approved by user",
+    "role": "sentence-part",
+    "sourceBatch": "sentence-corrections-01",
+    "sha256": "a6a4c520d388d1ff0c7a97f0455ef07825e66aa392f627a162b9000f2951834d"
+  },
+  {
+    "id": "is-for",
+    "text": "is for",
+    "prompt": "is for cheese.",
+    "apps": [
+      "sandwich"
+    ],
+    "endBeforeWord": "cheese",
+    "generationPrompt": "Listen: is for cheese.",
+    "trimSeconds": 1.2075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ɪz fɔɹ ʧˈiz."
+    ],
+    "seconds": 0.477,
+    "mp3Bytes": 4460,
+    "review": "approved by user",
+    "trimEndSeconds": 1.685,
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "c27d3f48bd609aee3b376ea88874c3c1710764ae488d634c9e4f63d13974d42f"
+  },
+  {
+    "id": "it-s-from",
+    "text": "It's from",
+    "prompt": "It's from Italy.",
+    "apps": [
+      "sandwich"
+    ],
+    "endBeforeWord": "Italy",
+    "generationPrompt": "Listen: It's from Italy.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˌɪts fɹʌm ˈɪTəli."
+    ],
+    "seconds": 0.59,
+    "mp3Bytes": 5420,
+    "review": "approved by user",
+    "trimEndSeconds": 1.7225000000000001,
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "b6e6e38e06263f99c9eb9e6414b41d1648b319e9b607753aae6b0a2ad7e2ff81"
+  },
+  {
+    "id": "small",
+    "text": "small",
+    "prompt": "small.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: small.",
+    "trimSeconds": 1.3575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: smˈɔl."
+    ],
+    "seconds": 1.417,
+    "mp3Bytes": 12140,
+    "review": "approved by user",
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "07398cbdd907fc5278192ab028103b6c2f42704ade33a9846ed13af926d06f92"
+  },
+  {
+    "id": "medium",
+    "text": "medium",
+    "prompt": "medium.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: medium.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˈidiəm."
+    ],
+    "seconds": 1.555,
+    "mp3Bytes": 13100,
+    "review": "approved by user",
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "b3242e15868d4390ed0105603480679cd195013e724d673834c679b65382b684"
+  },
+  {
+    "id": "big",
+    "text": "big",
+    "prompt": "big.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: big.",
+    "trimSeconds": 1.3575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: bˈɪɡ."
+    ],
+    "seconds": 1.317,
+    "mp3Bytes": 11180,
+    "review": "approved by user",
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "75febf9125efb73006a20cca3d1e01bb3f57f49380e1085816477dcafd45b6b8"
+  },
+  {
+    "id": "everything",
+    "text": "everything",
+    "prompt": "everything.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: everything.",
+    "trimSeconds": 1.2075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈɛvəɹiθˌɪŋ."
+    ],
+    "seconds": 1.593,
+    "mp3Bytes": 13484,
+    "review": "approved by user",
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "040eadb65d5e3a88067a9de5ee8f09a21362664a9fa605a196a82eeb58e90360"
+  },
+  {
+    "id": "pizza",
+    "text": "pizza",
+    "prompt": "pizza.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: pizza.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˈitsə."
+    ],
+    "seconds": 1.518,
+    "mp3Bytes": 12908,
+    "review": "approved by user",
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "cf2799596b13c2ad72024d861259e219299a52d124106d75041b85f14aac6c78"
+  },
+  {
+    "id": "bread",
+    "text": "bread",
+    "prompt": "bread.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: bread.",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: bɹˈɛd."
+    ],
+    "seconds": 1.405,
+    "mp3Bytes": 11948,
+    "review": "approved by user",
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "79f1e3af19995e36d71e23b01a5b4a47549e2234f9aa03b63212d492c666f655"
+  },
+  {
+    "id": "bread-slice",
+    "text": "bread slice",
+    "prompt": "bread slice.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: bread slice.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: bɹˈɛd slˈIs."
+    ],
+    "seconds": 1.792,
+    "mp3Bytes": 15020,
+    "review": "approved by user",
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "39172b1491996a472d1ba035ca8ecfbb75773bad874c04f1c746f87ad94ca716"
+  },
+  {
+    "id": "bread-slices",
+    "text": "bread slices",
+    "prompt": "bread slices.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: bread slices.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: bɹˈɛd slˈIsᵻz."
+    ],
+    "seconds": 1.968,
+    "mp3Bytes": 16364,
+    "review": "approved by user",
+    "role": "sentence-part",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "54d9142f62a8328a4bc20349689d583839cd51c26c6a4f18af5d5f3a5679a4d6"
+  },
+  {
+    "id": "number-0",
+    "text": "0",
+    "prompt": "zero.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: zero.",
+    "trimSeconds": 1.4575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: zˈɪɹO."
+    ],
+    "seconds": 1.468,
+    "mp3Bytes": 12524,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "ef05ea1b75e21736cf5866b5b1800e389bca0949bb2901dde05e6bd1e933bb0d"
+  },
+  {
+    "id": "number-1",
+    "text": "1",
+    "prompt": "one.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: one.",
+    "trimSeconds": 1.42,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: wˈʌn."
+    ],
+    "seconds": 1.305,
+    "mp3Bytes": 11180,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "69889f387f29f811d81be33e16db21fd07b4541ea55122e66a3d9e0c195c3298"
+  },
+  {
+    "id": "number-2",
+    "text": "2",
+    "prompt": "two.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: two.",
+    "trimSeconds": 1.395,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: tˈu."
+    ],
+    "seconds": 1.305,
+    "mp3Bytes": 11180,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "3f72aa870d2e9360605480279658c6eb744fcb45599c10e074831e690176bff0"
+  },
+  {
+    "id": "number-3",
+    "text": "3",
+    "prompt": "three.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: three.",
+    "trimSeconds": 1.3325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: θɹˈi."
+    ],
+    "seconds": 1.393,
+    "mp3Bytes": 11948,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "05b8617d8888079d542c61bd3eba106309bbd64c0fd9a445de7a8c800c24f95a"
+  },
+  {
+    "id": "number-4",
+    "text": "4",
+    "prompt": "four.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: four.",
+    "trimSeconds": 1.3824999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: fˈɔɹ."
+    ],
+    "seconds": 1.367,
+    "mp3Bytes": 11564,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "a544c8ff334d8156bbb03bd2b2cb870366ef1e73017c6d21dabe86fb943e22ea"
+  },
+  {
+    "id": "number-5",
+    "text": "5",
+    "prompt": "five.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: five.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: fˈIv."
+    ],
+    "seconds": 1.405,
+    "mp3Bytes": 11948,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "d1c4a555c517514e8d40a9360add80013831d9972f85555c901d34bc0ddca5b8"
+  },
+  {
+    "id": "number-6",
+    "text": "6",
+    "prompt": "six.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: six.",
+    "trimSeconds": 1.3575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: sˈɪks."
+    ],
+    "seconds": 1.367,
+    "mp3Bytes": 11564,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "80c516253841e48403b2b79ffbca5f206da3e33d0cd0f5343f46c58cd5ffddd4"
+  },
+  {
+    "id": "number-7",
+    "text": "7",
+    "prompt": "seven.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: seven.",
+    "trimSeconds": 1.3824999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: sˈɛvən."
+    ],
+    "seconds": 1.417,
+    "mp3Bytes": 12140,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "aa1ae800e90571ef0083d736da848424723a9ea178404e5a43d98ee868158482"
+  },
+  {
+    "id": "number-8",
+    "text": "8",
+    "prompt": "eight.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: eight.",
+    "trimSeconds": 1.395,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈAt."
+    ],
+    "seconds": 1.255,
+    "mp3Bytes": 10796,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "c7e0edeaa101702eb796c75c2bae981f8e6ae06ecf7f6b023ebbb3723f1c3dd1"
+  },
+  {
+    "id": "number-9",
+    "text": "9",
+    "prompt": "nine.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: nine.",
+    "trimSeconds": 1.47,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: nˈIn."
+    ],
+    "seconds": 1.38,
+    "mp3Bytes": 11756,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "8268671e7e98c9d4e32c871d854205f78472e64ca6c760ac0abdcb18053ce86e"
+  },
+  {
+    "id": "number-10",
+    "text": "10",
+    "prompt": "ten.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: ten.",
+    "trimSeconds": 1.395,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: tˈɛn."
+    ],
+    "seconds": 1.355,
+    "mp3Bytes": 11564,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "eff1bd7edc5d40e40dbd582b02d06ac9b7def30285f81d9ca0a7eca3918524f3"
+  },
+  {
+    "id": "number-11",
+    "text": "11",
+    "prompt": "eleven.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: eleven.",
+    "trimSeconds": 1.395,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: əlˈɛvᵊn."
+    ],
+    "seconds": 1.505,
+    "mp3Bytes": 12716,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "a9f853cddafd9d3fbec29c629fd6bc41b27df7fe6e4d4cdc3afd2563b064f8a4"
+  },
+  {
+    "id": "number-12",
+    "text": "12",
+    "prompt": "twelve.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: twelve.",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: twˈɛlv."
+    ],
+    "seconds": 1.505,
+    "mp3Bytes": 12716,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "0406c9dd0e6f258a803c6ceae25a8bcf9c2f0e4ddd57a0db4f489f755b84b06d"
+  },
+  {
+    "id": "number-13",
+    "text": "13",
+    "prompt": "thirteen.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: thirteen.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: θˌɜɹtˈin."
+    ],
+    "seconds": 1.643,
+    "mp3Bytes": 13868,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "9272b57fffe70ec30620d133fc707aaf80b45e5048abfabd0031988ae3aa7043"
+  },
+  {
+    "id": "number-14",
+    "text": "14",
+    "prompt": "fourteen.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: fourteen.",
+    "trimSeconds": 1.3074999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: fˌɔɹtˈin."
+    ],
+    "seconds": 1.667,
+    "mp3Bytes": 14060,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "20b946a5bcc1ffb796604204487b5e6848209c701bb263000751a8fa76b27d54"
+  },
+  {
+    "id": "number-15",
+    "text": "15",
+    "prompt": "fifteen.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: fifteen.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: fˌɪftˈin."
+    ],
+    "seconds": 1.617,
+    "mp3Bytes": 13676,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "d0ebc772d3406e0a6d1b1b6b9a6977e5f32d32b848680228405dda7b60043965"
+  },
+  {
+    "id": "number-16",
+    "text": "16",
+    "prompt": "sixteen.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: sixteen.",
+    "trimSeconds": 1.295,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: sˌɪkstˈin."
+    ],
+    "seconds": 1.705,
+    "mp3Bytes": 14444,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "0bef4eac3adfd7c52571c2aa55b7d9a36d8e78d647d5cebdb177de07fd8d4e64"
+  },
+  {
+    "id": "number-17",
+    "text": "17",
+    "prompt": "seventeen.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: seventeen.",
+    "trimSeconds": 1.295,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: sˌɛvəntˈin."
+    ],
+    "seconds": 1.755,
+    "mp3Bytes": 14828,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "67dc65de51aa538a8682d455974f7bf841384c4ca5530cfdb68f49c0db1f41c8"
+  },
+  {
+    "id": "number-18",
+    "text": "18",
+    "prompt": "eighteen.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: eighteen.",
+    "trimSeconds": 1.3575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˌAtˈin."
+    ],
+    "seconds": 1.643,
+    "mp3Bytes": 13868,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "5e46815aa2d768342cf98b1790d80478ecdd561822676ea3c3635985a0197ba8"
+  },
+  {
+    "id": "number-19",
+    "text": "19",
+    "prompt": "nineteen.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: nineteen.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: nˌIntˈin."
+    ],
+    "seconds": 1.667,
+    "mp3Bytes": 14060,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "26049ceb2e47fc2d5e56c69fee73bc1683bad94b7a87aff532c4dbd5a541e705"
+  },
+  {
+    "id": "number-20",
+    "text": "20",
+    "prompt": "twenty.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: twenty.",
+    "trimSeconds": 1.3325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: twˈɛnti."
+    ],
+    "seconds": 1.518,
+    "mp3Bytes": 12908,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "41f9b97f3d5478ef0893784358bcfc8bfdae87e0061a227f21bb1b944f00ca8c"
+  },
+  {
+    "id": "number-30",
+    "text": "30",
+    "prompt": "thirty.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: thirty.",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: θˈɜɹTi."
+    ],
+    "seconds": 1.48,
+    "mp3Bytes": 12524,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "6fb698933ba0743bc3e0a892348332f7a75a0b86323f3931021dcbe246e158fa"
+  },
+  {
+    "id": "number-40",
+    "text": "40",
+    "prompt": "forty.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: forty.",
+    "trimSeconds": 1.395,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: fˈɔɹTi."
+    ],
+    "seconds": 1.48,
+    "mp3Bytes": 12524,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "e21ab5a0a600f6e3119b5ac2d8659fc51ac8335ae9e37e1ea2dff69371e8cd06"
+  },
+  {
+    "id": "number-50",
+    "text": "50",
+    "prompt": "fifty.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: fifty.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: fˈɪfti."
+    ],
+    "seconds": 1.53,
+    "mp3Bytes": 12908,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "1862b166672c9f1e2079ab5d6164585fb857581816ce38d04451df3bc9b9bf66"
+  },
+  {
+    "id": "number-60",
+    "text": "60",
+    "prompt": "sixty.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: sixty.",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: sˈɪksti."
+    ],
+    "seconds": 1.555,
+    "mp3Bytes": 13100,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "27e769b59b5253a2873a06bf32d1723278c63bd10aa251b9ef4f9d621c0e24c2"
+  },
+  {
+    "id": "number-70",
+    "text": "70",
+    "prompt": "seventy.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: seventy.",
+    "trimSeconds": 1.3199999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: sˈɛvənti."
+    ],
+    "seconds": 1.655,
+    "mp3Bytes": 13868,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "18556ce4a4476b503cc436ed180685d0d08a3af5377c19c284dd343dfa6a4313"
+  },
+  {
+    "id": "number-80",
+    "text": "80",
+    "prompt": "eighty.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: eighty.",
+    "trimSeconds": 1.42,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈATi."
+    ],
+    "seconds": 1.38,
+    "mp3Bytes": 11756,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "adcbe2994c05ed15c026c83679f1d3e299fafd4e31ca14e4a1d9abb0c6121aa3"
+  },
+  {
+    "id": "number-90",
+    "text": "90",
+    "prompt": "ninety.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: ninety.",
+    "trimSeconds": 1.3325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: nˈIndi."
+    ],
+    "seconds": 1.492,
+    "mp3Bytes": 12716,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "0400fc0524db946aaf883b81b991eec42b8adb4b4f581ae97de3b39584580d5c"
+  },
+  {
+    "id": "number-100",
+    "text": "100",
+    "prompt": "one hundred.",
+    "apps": [
+      "pizza",
+      "parfait",
+      "class-supplies"
+    ],
+    "generationPrompt": "Listen: one hundred.",
+    "trimSeconds": 1.1949999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: wˈʌn hˈʌndɹəd."
+    ],
+    "seconds": 1.68,
+    "mp3Bytes": 14060,
+    "review": "approved by user",
+    "role": "number",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "a9317bcbc9618e57fcfbb480e3ea7233945cd4042529c6aade62696991dc07d6"
+  },
+  {
+    "id": "letter-a",
+    "text": "A",
+    "prompt": "[A](/ˈA/).",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: [A](/ˈA/).",
+    "trimSeconds": 1.6199999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈA"
+    ],
+    "seconds": 1.105,
+    "mp3Bytes": 9644,
+    "review": "approved by user",
+    "role": "letter",
+    "sourceBatch": "sentence-corrections-01",
+    "sha256": "6253951fb7359045ed99a3334f0bd360395031f48fe009dad1818c2baba49279"
+  },
+  {
+    "id": "letter-b",
+    "text": "B",
+    "prompt": "Bee.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Bee.",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: bˈi."
+    ],
+    "seconds": 1.33,
+    "mp3Bytes": 11372,
+    "review": "approved by user",
+    "role": "letter",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "87c791ebb643467e2cb96d7995c1640692593338f6c6982ab27939a285ddf77a"
+  },
+  {
+    "id": "letter-c",
+    "text": "C",
+    "prompt": "See.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: See.",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: sˈi."
+    ],
+    "seconds": 1.305,
+    "mp3Bytes": 11180,
+    "review": "approved by user",
+    "role": "letter",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "3535d42fbcb230e8c08b74f4e3c06717ba086973f08ef54089fc39471c6b8795"
+  },
+  {
+    "id": "letter-g",
+    "text": "G",
+    "prompt": "Gee.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Gee.",
+    "trimSeconds": 1.3575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ʤˈi."
+    ],
+    "seconds": 1.343,
+    "mp3Bytes": 11372,
+    "review": "approved by user",
+    "role": "letter",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "e4a3988d8fef1bb8b9cf6e1d40dfd3f0f133e5e0ae2c3b33908f066ffa146190"
+  },
+  {
+    "id": "letter-h",
+    "text": "H",
+    "prompt": "Aitch.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Aitch.",
+    "trimSeconds": 1.395,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈAʧ."
+    ],
+    "seconds": 1.305,
+    "mp3Bytes": 11180,
+    "review": "approved by user",
+    "role": "letter",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "596874e50a761eb13d02b7d757f5b0b40d3d86b8038c4b138ec24c4fe4ba2c3b"
+  },
+  {
+    "id": "letter-k",
+    "text": "K",
+    "prompt": "Kay.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Kay.",
+    "trimSeconds": 1.395,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: kˈA."
+    ],
+    "seconds": 1.355,
+    "mp3Bytes": 11564,
+    "review": "approved by user",
+    "role": "letter",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "d76415d5f6bfe970ecb3b5a94b4ac1c44907e8f9332400258a608933094acf18"
+  },
+  {
+    "id": "letter-l",
+    "text": "L",
+    "prompt": "El.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: El.",
+    "trimSeconds": 1.3575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˌɛl."
+    ],
+    "seconds": 1.218,
+    "mp3Bytes": 10412,
+    "review": "approved by user",
+    "role": "letter",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "edd8c34d6d93a10058f3c1a1421ceab62583980158e5bc8a430a20cadf104e05"
+  },
+  {
+    "id": "letter-o",
+    "text": "O",
+    "prompt": "Oh.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Oh.",
+    "trimSeconds": 1.545,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈO."
+    ],
+    "seconds": 1.23,
+    "mp3Bytes": 10604,
+    "review": "approved by user",
+    "role": "letter",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "a1d789c50bac429bc82d0f276337a1a0f5cc5b2e086b6c25f3394d918be155d0"
+  },
+  {
+    "id": "letter-p",
+    "text": "P",
+    "prompt": "Pee.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Pee.",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: pˈi."
+    ],
+    "seconds": 1.355,
+    "mp3Bytes": 11564,
+    "review": "approved by user",
+    "role": "letter",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "214c2a4a26299642b6999771be2bc66daaf581ee690b6aa213471d0ea2c21bee"
+  },
+  {
+    "id": "letter-s",
+    "text": "S",
+    "prompt": "Ess.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Ess.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈɛs."
+    ],
+    "seconds": 1.255,
+    "mp3Bytes": 10796,
+    "review": "approved by user",
+    "role": "letter",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "b9ae018f3cb62436d7960f31a49c4205e1d2539b6246da2a8f07446c2780233b"
+  },
+  {
+    "id": "letter-t",
+    "text": "T",
+    "prompt": "Tee.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Tee.",
+    "trimSeconds": 1.295,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: tˈi."
+    ],
+    "seconds": 1.305,
+    "mp3Bytes": 11180,
+    "review": "approved by user",
+    "role": "letter",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "0350387c00b21875aa427f2eab3d7ea354e9163c7ec5ac8accf463bb086bfc59"
+  },
+  {
+    "id": "source-aichi",
+    "text": "Aichi",
+    "prompt": "[Aichi](/ˈIʧi/).",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: [Aichi](/ˈIʧi/).",
+    "trimSeconds": 1.42,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈIʧi."
+    ],
+    "seconds": 1.53,
+    "mp3Bytes": 12908,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-corrections-01",
+    "sha256": "f62376911ed4e0569e8a22ee194b6942d75257cce56b5567b311f331ca1060bf"
+  },
+  {
+    "id": "source-america",
+    "text": "America",
+    "prompt": "America.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: America.",
+    "trimSeconds": 1.3325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: əmˈɛɹəkə."
+    ],
+    "seconds": 1.667,
+    "mp3Bytes": 14060,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "d8a058fc61d4c4d1fbd40d811aa040a41e2cccce1ed15d9348fdab43d8685583"
+  },
+  {
+    "id": "source-aomori",
+    "text": "Aomori",
+    "prompt": "[Aomori](/ˈWmɔɹi/).",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: [Aomori](/ˈWmɔɹi/).",
+    "trimSeconds": 1.3199999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈWmɔɹi."
+    ],
+    "seconds": 1.53,
+    "mp3Bytes": 12908,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-corrections-01",
+    "sha256": "ca4a5ea7592867f5fb532260f56c0f8bff24b7986c4a768ed29f21a124f8cd80"
+  },
+  {
+    "id": "source-australia",
+    "text": "Australia",
+    "prompt": "Australia.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Australia.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ɔstɹˈAljə."
+    ],
+    "seconds": 1.73,
+    "mp3Bytes": 14636,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "6b62822d6b9c6d73fb2a03be3d4f5f3d0f4d7fea5bc3e2dd077e76ccf279570a"
+  },
+  {
+    "id": "source-chile",
+    "text": "Chile",
+    "prompt": "Chile.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Chile.",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ʧˈɪli."
+    ],
+    "seconds": 1.43,
+    "mp3Bytes": 12140,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "863cca5950c94e5536e4b9292fbbba366f9857b85a96d173ae86765590a2e70e"
+  },
+  {
+    "id": "source-ecuador",
+    "text": "Ecuador",
+    "prompt": "Ecuador.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Ecuador.",
+    "trimSeconds": 1.3074999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈɛkwədˌɔɹ."
+    ],
+    "seconds": 1.593,
+    "mp3Bytes": 13484,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "abbe588aeb6a6ddf1a13dd36b6db8a69137bba65778263d9f88fc60485498783"
+  },
+  {
+    "id": "source-fukuoka",
+    "text": "Fukuoka",
+    "prompt": "Fukuoka.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Fukuoka.",
+    "trimSeconds": 1.295,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: fˌukuˈOkə."
+    ],
+    "seconds": 1.755,
+    "mp3Bytes": 14828,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "5d9c32177b35dcf56c792ce40830347003729a65810b3410f753446f1a5f3347"
+  },
+  {
+    "id": "source-gunma",
+    "text": "Gunma",
+    "prompt": "[Gunma](/ɡˈunmə/).",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: [Gunma](/ɡˈunmə/).",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ɡˈunmə."
+    ],
+    "seconds": 1.48,
+    "mp3Bytes": 12524,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-corrections-01",
+    "sha256": "c3b5d901e49eac5daeb578843c073236d98d808c3d89ee5d539205d92dc851ef"
+  },
+  {
+    "id": "source-hokkaido",
+    "text": "Hokkaido",
+    "prompt": "[Hokkaido](/hˌOkˈIdO/).",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: [Hokkaido](/hˌOkˈIdO/).",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: hˌOkˈIdO."
+    ],
+    "seconds": 1.718,
+    "mp3Bytes": 14444,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-corrections-01",
+    "sha256": "b9a7f569e03b5919d3379c765b9e6b45040956bbc9fa699c8439f943ab71132c"
+  },
+  {
+    "id": "source-hyogo",
+    "text": "Hyogo",
+    "prompt": "[Hyogo](/hˌijˈOɡO/).",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: [Hyogo](/hˌijˈOɡO/).",
+    "trimSeconds": 1.2075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: hˌijˈOɡO."
+    ],
+    "seconds": 1.692,
+    "mp3Bytes": 14252,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-corrections-01",
+    "sha256": "30f3131421b2ff5bb07ebb62e2e1be7aeffffa4fa900f4197552de2c8345f4e3"
+  },
+  {
+    "id": "source-ibaraki",
+    "text": "Ibaraki",
+    "prompt": "[Ibaraki](/ˌibɑɹˈɑki/).",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: [Ibaraki](/ˌibɑɹˈɑki/).",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˌibɑɹˈɑki."
+    ],
+    "seconds": 1.843,
+    "mp3Bytes": 15404,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-corrections-01",
+    "sha256": "ba07cab52ad1dfc30f173f8d22bdb56983fecde90b96a177d1c768fb2c977c6f"
+  },
+  {
+    "id": "source-india",
+    "text": "India",
+    "prompt": "India.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: India.",
+    "trimSeconds": 1.3824999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈɪndiə."
+    ],
+    "seconds": 1.492,
+    "mp3Bytes": 12716,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "56f5b6ec44ce30c51576f2e91690c1b7f811bb3fc65d82324a0b936f961a40f3"
+  },
+  {
+    "id": "source-indonesia",
+    "text": "Indonesia",
+    "prompt": "Indonesia.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Indonesia.",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˌɪndənˈiʒə."
+    ],
+    "seconds": 1.768,
+    "mp3Bytes": 14828,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "5a4a8e30fd0affff4469a7bed4d1065156c8d820b1b145f4c149ad4427c4fd33"
+  },
+  {
+    "id": "source-italy",
+    "text": "Italy",
+    "prompt": "Italy.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Italy.",
+    "trimSeconds": 1.3824999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˈɪTəli."
+    ],
+    "seconds": 1.468,
+    "mp3Bytes": 12524,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "c5b29371d8dabee7cc54304d8ba25beb5644c7206fe87e7c857ba2ce7e02b1b7"
+  },
+  {
+    "id": "source-iwate",
+    "text": "Iwate",
+    "prompt": "[Iwate](/ˌiwˈɑtA/).",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: [Iwate](/ˌiwˈɑtA/).",
+    "trimSeconds": 1.3325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ˌiwˈɑtA."
+    ],
+    "seconds": 1.667,
+    "mp3Bytes": 14060,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-corrections-01",
+    "sha256": "e37d2e0f9c5bd45bae79757c35f3f68608ca1e3685e0595b0221669907aded2d"
+  },
+  {
+    "id": "source-kagoshima",
+    "text": "Kagoshima",
+    "prompt": "Kagoshima.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Kagoshima.",
+    "trimSeconds": 1.1824999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: kˌɑɡəʃˈimə."
+    ],
+    "seconds": 1.792,
+    "mp3Bytes": 15020,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "100b5a2b006d759e8e40018e16703012a6c3ecfb58553d6b576ccc84a8a13c23"
+  },
+  {
+    "id": "source-kochi",
+    "text": "Kochi",
+    "prompt": "Kochi.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Kochi.",
+    "trimSeconds": 1.2075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: kOʧˈi."
+    ],
+    "seconds": 1.567,
+    "mp3Bytes": 13292,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "06277b35150c4abd21a43d5068da61ca39ff51d86a08f14d5018b10a00cfd99f"
+  },
+  {
+    "id": "source-kumamoto",
+    "text": "Kumamoto",
+    "prompt": "Kumamoto.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Kumamoto.",
+    "trimSeconds": 1.2075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: kˌuməmˈOTO."
+    ],
+    "seconds": 1.692,
+    "mp3Bytes": 14252,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "6c3e4138cdb5194283cba3e200fcb6888a1d37e06a389d6aa0486a06ec4c8f6f"
+  },
+  {
+    "id": "source-mexico",
+    "text": "Mexico",
+    "prompt": "Mexico.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Mexico.",
+    "trimSeconds": 1.3074999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˈɛksəkO."
+    ],
+    "seconds": 1.667,
+    "mp3Bytes": 14060,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "a3f042bda8af99f945a497475dd82b5a0a9d1c54d9a03548ebf44bc0f3dd34fb"
+  },
+  {
+    "id": "source-miyazaki",
+    "text": "Miyazaki",
+    "prompt": "Miyazaki.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Miyazaki.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: mˌɪjəzˈæki."
+    ],
+    "seconds": 1.742,
+    "mp3Bytes": 14636,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "d84b1025f24ce60a84f968e4cf52e2f8a5fd9dfce38132a02242cb1d30a2a85d"
+  },
+  {
+    "id": "source-nagano",
+    "text": "Nagano",
+    "prompt": "Nagano.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Nagano.",
+    "trimSeconds": 1.4324999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: nɑɡˈɑnO."
+    ],
+    "seconds": 1.692,
+    "mp3Bytes": 14252,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "3057409c400f01b204d4fd3677710ace4644a81ee7671f966cf7ebee05412252"
+  },
+  {
+    "id": "source-new-zealand",
+    "text": "New Zealand",
+    "prompt": "New Zealand.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: New Zealand.",
+    "trimSeconds": 1.27,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: nˈu zˈilənd."
+    ],
+    "seconds": 1.755,
+    "mp3Bytes": 14828,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "591e7dcba62f4d19280ac050548d76c0ccfbf205a3e205031c3399f2d17a0842"
+  },
+  {
+    "id": "source-saga",
+    "text": "Saga",
+    "prompt": "Saga.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Saga.",
+    "trimSeconds": 1.4324999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: sˈɑɡə."
+    ],
+    "seconds": 1.468,
+    "mp3Bytes": 12524,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "e21965ddbc791854265219604f45883eb518445a70499d97fd5af502f00e6e6e"
+  },
+  {
+    "id": "source-saitama",
+    "text": "Saitama",
+    "prompt": "[Saitama](/sIˈtɑmə/).",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: [Saitama](/sIˈtɑmə/).",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: sIˈtɑmə."
+    ],
+    "seconds": 1.655,
+    "mp3Bytes": 13868,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-corrections-01",
+    "sha256": "eabc5dfd83f3b3194f8f4364bd6ee897b580f9d42e4e8fd9d3f30b781a98b37d"
+  },
+  {
+    "id": "source-thailand",
+    "text": "Thailand",
+    "prompt": "Thailand.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Thailand.",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: tˈIlˌænd."
+    ],
+    "seconds": 1.593,
+    "mp3Bytes": 13484,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "de57766f7eabd8f98d295b5da54b676cc08a26f067406026290f7c55ee844bb4"
+  },
+  {
+    "id": "source-tochigi",
+    "text": "Tochigi",
+    "prompt": "[Tochigi](/tˌOʧˈiɡi/).",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: [Tochigi](/tˌOʧˈiɡi/).",
+    "trimSeconds": 1.2325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: tˌOʧˈiɡi."
+    ],
+    "seconds": 1.667,
+    "mp3Bytes": 14060,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-corrections-01",
+    "sha256": "da97aa374e7f96d7c33ac6a5cd42b604ce8e58475afc56f11c3b35660deb3108"
+  },
+  {
+    "id": "source-vietnam",
+    "text": "Vietnam",
+    "prompt": "Vietnam.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Vietnam.",
+    "trimSeconds": 1.3199999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: vˌiɛtnˈɑm."
+    ],
+    "seconds": 1.655,
+    "mp3Bytes": 13868,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "dd8f46359f75ec1339de8fd7bc3c61ff97ae8f2c86674650980d8031df8e2232"
+  },
+  {
+    "id": "source-the-philippines",
+    "text": "the Philippines",
+    "prompt": "the Philippines.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: the Philippines.",
+    "trimSeconds": 1.1824999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: ðə fˈɪləpˌinz."
+    ],
+    "seconds": 1.867,
+    "mp3Bytes": 15596,
+    "review": "approved by user",
+    "role": "source",
+    "sourceBatch": "sentence-pieces-01",
+    "sha256": "d480e4788c580a4f1cb38bf60b86a725e1c9e30ce9bd1a3033e6da669664e2c9"
+  },
+  {
+    "id": "tell-me-about-your-sandwich",
+    "text": "Tell me about your sandwich.",
+    "prompt": "Tell me about your sandwich.",
+    "apps": [
+      "sandwich"
+    ],
+    "generationPrompt": "Listen: Tell me about your sandwich.",
+    "trimSeconds": 1.22,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "lˈɪsᵊn: tˈɛl mˌi əbˈWt jʊɹ sˈændwˌɪʧ."
+    ],
+    "seconds": 2.405,
+    "mp3Bytes": 20012,
+    "review": "approved by user",
+    "sourceBatch": "questions-01-leadin",
+    "sha256": "d9ed8577534444589f5fe74d82772030442a6e63108a62f0c6ec1707a97aac20"
   }
 ]

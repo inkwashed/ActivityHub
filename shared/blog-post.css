@@ -14,7 +14,7 @@ body.ah-blog{margin:0;height:100vh;height:100svh;display:grid;grid-template-rows
 .blog-panel h1{font-size:clamp(24px,3vw,34px);margin:0 0 20px}.blog-panel h2{font-size:18px;line-height:1.3;margin:0 0 12px}
 .blog-author{display:flex;align-items:center;gap:12px;margin-bottom:20px}
 #blog-avatar{display:block;width:64px;height:64px;flex:0 0 64px;border-radius:50%;overflow:hidden;background:#eee}
-#blog-avatar svg,#blog-avatar img{width:100%;height:100%}
+#blog-avatar>svg,#blog-avatar>img{width:100%;height:100%}
 #blog-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:8px}
 #blog-gallery img{width:100%;height:clamp(120px,28svh,260px);object-fit:contain;background:var(--ah-play-surface);border-radius:12px}
 #blog-sentences{font-size:clamp(20px,2.2vw,26px);line-height:1.65}#blog-sentences p{margin:12px 0}

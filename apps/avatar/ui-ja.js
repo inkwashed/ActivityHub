@@ -19,3 +19,11 @@ window.ActivityHubI18n.register({
 });
 
 window.ActivityHubI18n.register({Regular:"レギュラー",Slim:"スリム"});
+
+window.ActivityHubI18n.register({'Choose eyes separately':'左右の目を別々に選ぶ','Left':'左','Right':'右'});
+
+window.ActivityHubI18n.register({'Worried':'しんぱい'});
+
+window.ActivityHubI18n.register({'Heart':'ハート'});
+
+window.ActivityHubI18n.register({'Mixed':'ミックス'});

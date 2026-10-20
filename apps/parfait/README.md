@@ -42,7 +42,7 @@ Share uses shared/builder-photo.js for preview/download and sharing.js for Parfa
 
 Share photos use an original simple SVG cafe backdrop: a warm counter, pale window, and muted greenery. The counter/shadow align with the glass pedestal and both modes retain the same framing. This is export-only and requires no downloaded artwork.
 
-Pronunciation: the result speaker reads the full English order; dotted-underlined ingredient phrases play individually. Vocabulary phrases (including PLAY count nouns) use the approved shared Kokoro recordings; full orders and missing/failed clips use browser speech. Recordings load only when tapped. Actual sentence voice and offline availability depend on the device; physical iPad verification of recorded playback remains pending.
+Pronunciation: the result speaker reads the full English order; dotted-underlined ingredient phrases play individually. Vocabulary phrases and supported full orders (including PLAY counts and sizes) use the approved shared Kokoro recordings. Unsupported text or a failed clip falls back to browser speech for the complete order. Recordings load only when tapped. Device voices are used only for fallback/voice preview; physical iPad verification of recorded sequences remains pending.
 
 LEARN order text wraps naturally within the available width; fruit, flavor, and syrup phrases have no forced line breaks.
 

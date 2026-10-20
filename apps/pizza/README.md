@@ -1,5 +1,5 @@
 
-Pronunciation: the result speaker reads the full English order; dotted-underlined ingredient phrases play individually. Vocabulary phrases (including PLAY count nouns) use the approved shared Kokoro recordings; full orders and missing/failed clips use browser speech. Recordings load only when tapped. Actual sentence voice and offline availability depend on the device; physical iPad verification of recorded playback remains pending.
+Pronunciation: the result speaker reads the full English order; dotted-underlined ingredient phrases play individually. Vocabulary phrases and supported full orders (including PLAY counts and sizes) use the approved shared Kokoro recordings. Unsupported text or a failed clip falls back to browser speech for the complete order. Recordings load only when tapped. Device voices are used only for fallback/voice preview; physical iPad verification of recorded sequences remains pending.
 
 Layout uses the final shared builder-workspace CSS/JS: tablet/desktop viewport fit, a stable food frame, and a reserved sentence box with limited text fitting. Long/enlarged content retains accessible overflow. Physical iPad layout verification remains necessary.
 

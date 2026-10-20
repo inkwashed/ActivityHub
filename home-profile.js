@@ -27,7 +27,7 @@
    if(!saved?.state||typeof saved.state!=='object'||Array.isArray(saved.state)||!config||typeof window.renderAvatar!=='function'){fallback();return;}
    const clean={...config.defaults};let valid=0;
    for(const key of Object.keys(clean)){
-    const options=config.parts[key]||config.palettes[key]||(key==='eyeStyle'?config.eyeStyles:[]);
+    const options=config.optionsFor(key);
     if(options.includes(saved.state[key])||config.isCustomColor(key,saved.state[key])){clean[key]=saved.state[key];valid++;}
    }
    if(!valid){fallback();return;}

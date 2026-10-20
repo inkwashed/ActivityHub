@@ -5,12 +5,71 @@
   "sampleRate": 24000,
   "clips": [
     {
+      "id": "a",
+      "text": "a",
+      "prompt": "a pen.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "sentence-part",
+      "endBeforeWord": "pen"
+    },
+    {
+      "id": "a-little-bit-of",
+      "text": "a little bit of",
+      "prompt": "a little bit of cheese.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "sentence-part",
+      "endBeforeWord": "cheese"
+    },
+    {
+      "id": "a-lot-of",
+      "text": "a lot of",
+      "prompt": "a lot of cheese.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "sentence-part",
+      "endBeforeWord": "cheese"
+    },
+    {
       "id": "alfredo-sauce",
       "text": "alfredo sauce",
       "prompt": "alfredo sauce.",
       "apps": [
         "pizza"
       ]
+    },
+    {
+      "id": "an",
+      "text": "an",
+      "prompt": "[an](/ɐn/).",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "sentence-part"
+    },
+    {
+      "id": "and",
+      "text": "and",
+      "prompt": "and cheese.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "sentence-part",
+      "endBeforeWord": "cheese"
     },
     {
       "id": "apple",
@@ -71,6 +130,17 @@
       ]
     },
     {
+      "id": "big",
+      "text": "big",
+      "prompt": "big.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "sentence-part"
+    },
+    {
       "id": "black",
       "text": "black",
       "prompt": "black.",
@@ -85,6 +155,33 @@
       "apps": [
         "class-supplies"
       ]
+    },
+    {
+      "id": "bread",
+      "text": "bread",
+      "prompt": "bread.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "sentence-part"
+    },
+    {
+      "id": "bread-slice",
+      "text": "bread slice",
+      "prompt": "bread slice.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "sentence-part"
+    },
+    {
+      "id": "bread-slices",
+      "text": "bread slices",
+      "prompt": "bread slices.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "sentence-part"
     },
     {
       "id": "brown",
@@ -242,6 +339,17 @@
       ]
     },
     {
+      "id": "everything",
+      "text": "everything",
+      "prompt": "everything.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "sentence-part"
+    },
+    {
       "id": "glue-stick",
       "text": "glue stick",
       "prompt": "glue stick.",
@@ -291,6 +399,50 @@
       ]
     },
     {
+      "id": "i-have",
+      "text": "I have",
+      "prompt": "I have apples.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "sentence-part",
+      "endBeforeWord": "apples"
+    },
+    {
+      "id": "i-want",
+      "text": "I want",
+      "prompt": "I want apples.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "sentence-part",
+      "endBeforeWord": "apples"
+    },
+    {
+      "id": "is-for",
+      "text": "is for",
+      "prompt": "is for cheese.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "sentence-part",
+      "endBeforeWord": "cheese"
+    },
+    {
+      "id": "it-s-from",
+      "text": "It's from",
+      "prompt": "It's from Italy.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "sentence-part",
+      "endBeforeWord": "Italy"
+    },
+    {
       "id": "kiwi-fruit",
       "text": "kiwi fruit",
       "prompt": "kiwi fruit.",
@@ -306,6 +458,105 @@
       "apps": [
         "parfait"
       ]
+    },
+    {
+      "id": "letter-a",
+      "text": "A",
+      "prompt": "[A](/ˈA/).",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-b",
+      "text": "B",
+      "prompt": "Bee.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-c",
+      "text": "C",
+      "prompt": "See.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-g",
+      "text": "G",
+      "prompt": "Gee.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-h",
+      "text": "H",
+      "prompt": "Aitch.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-k",
+      "text": "K",
+      "prompt": "Kay.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-l",
+      "text": "L",
+      "prompt": "El.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-o",
+      "text": "O",
+      "prompt": "Oh.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-p",
+      "text": "P",
+      "prompt": "Pee.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-s",
+      "text": "S",
+      "prompt": "Ess.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-t",
+      "text": "T",
+      "prompt": "Tee.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "letter"
     },
     {
       "id": "lettuce",
@@ -346,6 +597,17 @@
       "apps": [
         "class-supplies"
       ]
+    },
+    {
+      "id": "medium",
+      "text": "medium",
+      "prompt": "medium.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "sentence-part"
     },
     {
       "id": "melon",
@@ -412,6 +674,35 @@
       ]
     },
     {
+      "id": "my-sandwich-is",
+      "text": "My sandwich is",
+      "prompt": "My sandwich is delicious.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "sentence-part",
+      "endBeforeWord": "delicious"
+    },
+    {
+      "id": "my-sandwich-is-a",
+      "text": "My sandwich is a",
+      "prompt": "My sandwich is a BLT.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "sentence-part",
+      "endBeforeWord": "BLT"
+    },
+    {
+      "id": "my-sandwich-is-an",
+      "text": "My sandwich is an",
+      "prompt": "My sandwich is [an](/ɐn/).",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "sentence-part"
+    },
+    {
       "id": "no-ice-cream",
       "text": "no ice cream",
       "prompt": "no ice cream.",
@@ -450,6 +741,325 @@
       "apps": [
         "class-supplies"
       ]
+    },
+    {
+      "id": "number-0",
+      "text": "0",
+      "prompt": "zero.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-1",
+      "text": "1",
+      "prompt": "one.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-10",
+      "text": "10",
+      "prompt": "ten.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-100",
+      "text": "100",
+      "prompt": "one hundred.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-11",
+      "text": "11",
+      "prompt": "eleven.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-12",
+      "text": "12",
+      "prompt": "twelve.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-13",
+      "text": "13",
+      "prompt": "thirteen.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-14",
+      "text": "14",
+      "prompt": "fourteen.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-15",
+      "text": "15",
+      "prompt": "fifteen.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-16",
+      "text": "16",
+      "prompt": "sixteen.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-17",
+      "text": "17",
+      "prompt": "seventeen.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-18",
+      "text": "18",
+      "prompt": "eighteen.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-19",
+      "text": "19",
+      "prompt": "nineteen.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-2",
+      "text": "2",
+      "prompt": "two.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-20",
+      "text": "20",
+      "prompt": "twenty.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-3",
+      "text": "3",
+      "prompt": "three.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-30",
+      "text": "30",
+      "prompt": "thirty.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-4",
+      "text": "4",
+      "prompt": "four.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-40",
+      "text": "40",
+      "prompt": "forty.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-5",
+      "text": "5",
+      "prompt": "five.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-50",
+      "text": "50",
+      "prompt": "fifty.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-6",
+      "text": "6",
+      "prompt": "six.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-60",
+      "text": "60",
+      "prompt": "sixty.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-7",
+      "text": "7",
+      "prompt": "seven.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-70",
+      "text": "70",
+      "prompt": "seventy.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-8",
+      "text": "8",
+      "prompt": "eight.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-80",
+      "text": "80",
+      "prompt": "eighty.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-9",
+      "text": "9",
+      "prompt": "nine.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
+    },
+    {
+      "id": "number-90",
+      "text": "90",
+      "prompt": "ninety.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "number"
     },
     {
       "id": "onion",
@@ -592,6 +1202,17 @@
       ]
     },
     {
+      "id": "pizza",
+      "text": "pizza",
+      "prompt": "pizza.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "sentence-part"
+    },
+    {
       "id": "pork",
       "text": "pork",
       "prompt": "pork.",
@@ -654,6 +1275,293 @@
       "apps": [
         "sandwich"
       ]
+    },
+    {
+      "id": "small",
+      "text": "small",
+      "prompt": "small.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "sentence-part"
+    },
+    {
+      "id": "some",
+      "text": "some",
+      "prompt": "some cheese.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "sentence-part",
+      "endBeforeWord": "cheese"
+    },
+    {
+      "id": "some-of",
+      "text": "some of",
+      "prompt": "some of everything.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "sentence-part",
+      "endBeforeWord": "everything"
+    },
+    {
+      "id": "source-aichi",
+      "text": "Aichi",
+      "prompt": "[Aichi](/ˈIʧi/).",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-america",
+      "text": "America",
+      "prompt": "America.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-aomori",
+      "text": "Aomori",
+      "prompt": "[Aomori](/ˈWmɔɹi/).",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-australia",
+      "text": "Australia",
+      "prompt": "Australia.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-chile",
+      "text": "Chile",
+      "prompt": "Chile.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-ecuador",
+      "text": "Ecuador",
+      "prompt": "Ecuador.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-fukuoka",
+      "text": "Fukuoka",
+      "prompt": "Fukuoka.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-gunma",
+      "text": "Gunma",
+      "prompt": "[Gunma](/ɡˈunmə/).",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-hokkaido",
+      "text": "Hokkaido",
+      "prompt": "[Hokkaido](/hˌOkˈIdO/).",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-hyogo",
+      "text": "Hyogo",
+      "prompt": "[Hyogo](/hˌijˈOɡO/).",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-ibaraki",
+      "text": "Ibaraki",
+      "prompt": "[Ibaraki](/ˌibɑɹˈɑki/).",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-india",
+      "text": "India",
+      "prompt": "India.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-indonesia",
+      "text": "Indonesia",
+      "prompt": "Indonesia.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-italy",
+      "text": "Italy",
+      "prompt": "Italy.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-iwate",
+      "text": "Iwate",
+      "prompt": "[Iwate](/ˌiwˈɑtA/).",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-kagoshima",
+      "text": "Kagoshima",
+      "prompt": "Kagoshima.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-kochi",
+      "text": "Kochi",
+      "prompt": "Kochi.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-kumamoto",
+      "text": "Kumamoto",
+      "prompt": "Kumamoto.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-mexico",
+      "text": "Mexico",
+      "prompt": "Mexico.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-miyazaki",
+      "text": "Miyazaki",
+      "prompt": "Miyazaki.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-nagano",
+      "text": "Nagano",
+      "prompt": "Nagano.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-new-zealand",
+      "text": "New Zealand",
+      "prompt": "New Zealand.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-saga",
+      "text": "Saga",
+      "prompt": "Saga.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-saitama",
+      "text": "Saitama",
+      "prompt": "[Saitama](/sIˈtɑmə/).",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-thailand",
+      "text": "Thailand",
+      "prompt": "Thailand.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-the-philippines",
+      "text": "the Philippines",
+      "prompt": "the Philippines.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-tochigi",
+      "text": "Tochigi",
+      "prompt": "[Tochigi](/tˌOʧˈiɡi/).",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
+    },
+    {
+      "id": "source-vietnam",
+      "text": "Vietnam",
+      "prompt": "Vietnam.",
+      "apps": [
+        "sandwich"
+      ],
+      "role": "source"
     },
     {
       "id": "stapler",
@@ -801,6 +1709,18 @@
       "apps": [
         "class-supplies"
       ]
+    },
+    {
+      "id": "with",
+      "text": "with",
+      "prompt": "with cheese.",
+      "apps": [
+        "pizza",
+        "parfait",
+        "class-supplies"
+      ],
+      "role": "sentence-part",
+      "endBeforeWord": "cheese"
     },
     {
       "id": "yellow",
