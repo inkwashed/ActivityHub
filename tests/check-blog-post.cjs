@@ -1,11 +1,11 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),context={window:{}};vm.createContext(context);
-for(const file of ['shared/blog-layout.js','shared/blog-post.js','myblog/NH6-5/config.js'])vm.runInContext(fs.readFileSync(path.join(root,file),'utf8'),context);
+for(const file of ['shared/blog-ink.js','shared/blog-layout.js','shared/blog-post.js','myblog/NH6-5/config.js'])vm.runInContext(fs.readFileSync(path.join(root,file),'utf8'),context);
 const {BlogPost:b,WorldBlogConfig:c}=context.window;
 assert.equal(b.sentences(c,b.normalize(c,c.example)).join(' '),"This is my cap. It's from Vietnam. Vietnam is in Asia. Vietnam is a nice country.");
 assert.equal(b.normalize(c).fields.item,'');
 const custom=b.normalize(c,{fields:{item:'handmade scarf',country:'Peru',continent:'South America',description:'beautiful'}});
-assert.equal(b.sentences(c,custom)[2],'Peru is in South America.');
+assert.equal(b.sentences(c,custom)[2],'Peru ________ South America.');
 assert.equal(b.normalize(c,{fields:{item:'x'.repeat(100)}}).fields.item.length,80);
 const bad=b.normalize(c,{fields:{item:42,country:{}},images:[{src:'javascript:alert(1)'},{src:'data:image/svg+xml,<svg>'}]});assert.equal(bad.fields.item,'');assert.equal(bad.images.length,0);
 assert.equal(b.normalize(c,{fields:{item:'a\nb'}}).fields.item,'a b');
@@ -32,3 +32,9 @@ assert.equal(oldJunior.fields.body,'Saved writing');assert.equal(oldJunior.layou
 const removed=b.normalize(junior,{...oldJunior,layout:[]});assert.equal(removed.layout.length,2);
 const customLayout=b.normalize(junior,{...oldJunior,layout:[{key:'photo:legacy-0',col:1,row:2,w:2,h:3},{key:'text',col:0,row:0,w:3,h:1}]});assert.equal(customLayout.layout[0].key,'photo:legacy-0');assert.equal(customLayout.layout[0].h,3);
 console.log('PASS: draft migration, stable photo identity and automatic source inclusion and custom designs.');
+const es=b.normalize(c);assert.equal(es.showHelp,true);assert.equal(es.fields.body,'\n\n\n');assert.ok(!b.sentences(c,es).join('').includes('sweater'));
+const independent=b.normalize(c,{showHelp:true,fields:{country:'Japan'}});assert.equal(independent.fields.country2,'');assert.equal(independent.fields.country3,'');
+const noHelp=b.normalize(c,{showHelp:false,fields:{start:'Here is my',item:'hat'}});assert.equal(b.sentences(c,noHelp)[0],'Here is my hat.');assert.equal(noHelp.fields.start,'Here is my');
+console.log('PASS ES placeholders are not answers, independent countries, help persistence and authored frames.');
+
+const helped=b.normalize(c,{showHelp:true,fields:{item:'a toy'}});const unhelped=b.normalize(c,{...helped,showHelp:false});assert.equal(b.sentences(c,helped)[0],'________ a toy.');assert.equal(b.sentences(c,helped).join('\n'),b.sentences(c,unhelped).join('\n'));

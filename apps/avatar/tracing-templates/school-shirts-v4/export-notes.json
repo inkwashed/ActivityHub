@@ -1,0 +1,38 @@
+{
+  "source_files": [
+    "exec-8077de8b-2b68-48b5-8c0e-85079da222e2.png",
+    "exec-e09aa1a9-9791-406d-9033-8ef18477f196.png"
+  ],
+  "translation_pixels": [
+    0,
+    363
+  ],
+  "canvas": [
+    1254,
+    1254
+  ],
+  "scaling": false,
+  "palette": [
+    [
+      21,
+      30,
+      49
+    ],
+    [
+      238,
+      241,
+      245
+    ],
+    [
+      198,
+      208,
+      222
+    ],
+    [
+      255,
+      255,
+      255
+    ]
+  ],
+  "full_art": "Unshifted source framing included for manual placement."
+}

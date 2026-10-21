@@ -3,13 +3,14 @@
  const width=816,gap=12,rowHeight=120,column=(width-2*gap)/3;
  const integer=(value,fallback,min,max)=>Number.isInteger(value)?Math.max(min,Math.min(max,value)):fallback;
  const keyOf=image=>'photo:'+image.uid;
+ const isInk=key=>/^ink:\d+$/.test(key);
  const isText=key=>key==='text'||/^text:\d+$/.test(key);
  const textIndex=key=>key==='text'?0:Number(key.slice(5));
  function sections(text=''){const parts=String(text).split(/\r\n?|\n/).map(part=>part.trim()).filter(Boolean);return parts.length?parts:[''];}
- function defaults(images,text=''){return [...images.map((image,i)=>({key:keyOf(image),col:i,row:0,w:1,h:2})),...sections(text).map((_,i)=>({key:i?`text:${i}`:'text',col:0,row:(images.length?2:0)+i,w:3,h:1}))];}
- function normalize(raw,images,text=''){
+ function defaults(images,text='',ink=null){if(ink)return [...images.map((image,i)=>({key:keyOf(image),col:i,row:0,w:1,h:2})),...ink.map((_,i)=>({key:`ink:${i}`,col:0,row:(images.length?2:0)+i,w:3,h:1}))];return [...images.map((image,i)=>({key:keyOf(image),col:i,row:0,w:1,h:2})),...sections(text).map((_,i)=>({key:i?`text:${i}`:'text',col:0,row:(images.length?2:0)+i,w:3,h:1}))];}
+ function normalize(raw,images,text='',ink=null){
   if(!Array.isArray(raw))return null;
-  const initial=defaults(images,text),allowed=new Set(initial.map(b=>b.key)),seen=new Set();
+  const initial=defaults(images,text,ink),allowed=new Set(initial.map(b=>b.key)),seen=new Set();
   const blocks=raw.filter(block=>block&&allowed.has(block.key)&&!seen.has(block.key)&&seen.add(block.key)).map(block=>{
    const w=integer(block.w,1,1,3);return {key:block.key,col:integer(block.col,0,0,3-w),row:integer(block.row,0,0,1000),w,h:integer(block.h,2,1,3),cropX:integer(block.cropX,50,0,100),cropY:integer(block.cropY,50,0,100)};
   });
@@ -29,14 +30,14 @@
   return result;
  }
  const overlap=(a,b)=>a.col<b.col+b.w&&a.col+a.w>b.col&&a.row<b.row+b.rows&&a.row+a.rows>b.row;
- function plan(layout,images,text,measure,priority){
-  const blocks=normalize(layout,images,text)??defaults(images,text),placed=[],parts=sections(text);
+ function plan(layout,images,text,measure,priority,ink=null){
+  const blocks=normalize(layout,images,text,ink)??defaults(images,text,ink),placed=[],parts=sections(text);
   const ordered=priority?[...blocks.filter(b=>b.key===priority),...blocks.filter(b=>b.key!==priority)]:blocks;
   for(const block of ordered){
    const pixelWidth=column*block.w+gap*(block.w-1);
    const lines=isText(block.key)?wrap(parts[textIndex(block.key)],pixelWidth-24,measure):[];
-   const rows=isText(block.key)?Math.max(1,Math.ceil((lines.length*38+24+gap)/(rowHeight+gap))):block.h;
-   const item={...block,rows,lines};
+   const rows=isInk(block.key)?1:isText(block.key)?Math.max(1,Math.ceil((lines.length*38+24+gap)/(rowHeight+gap))):block.h;
+   const item={...block,rows,lines,...(isInk(block.key)?{ink:ink[Number(block.key.slice(4))]}:{})};
    while(placed.some(other=>overlap(item,other)))item.row++;
    placed.push(item);
   }
@@ -79,5 +80,5 @@
   return positions({blocks});
  }
  const positions=plan=>plan.blocks.map(({key,col,row,w,h,cropX=50,cropY=50})=>({key,col,row,w,h,cropX,cropY}));
- window.BlogLayout={width,gap,rowHeight,keyOf,isText,textIndex,sections,defaults,normalize,wrap,plan,positions,overlap,moveVertical,moveHorizontal};
+ window.BlogLayout={width,gap,rowHeight,keyOf,isInk,isText,textIndex,sections,defaults,normalize,wrap,plan,positions,overlap,moveVertical,moveHorizontal};
 })();

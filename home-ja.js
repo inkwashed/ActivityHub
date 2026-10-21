@@ -35,3 +35,7 @@ window.ActivityHubI18n.register({"Write about your item and add pictures to make
 window.ActivityHubI18n.register({"Find activities":"教材を探す","Search activities":"教材を検索","Textbook":"教科書","All textbooks":"すべての教科書","Show all":"すべて表示","No activities found. Try another word or textbook.":"教材が見つかりません。別の言葉や教科書で探してみてください。","3 activities":"教材 3つ","{count} activities found":"{count}件の教材が見つかりました","1 activity found":"1件の教材が見つかりました","Choose your classroom supplies, add colors, and ask a partner what they have.":"文房具を選んで色をつけ、友だちに何を持っているか聞いてみよう。","Choose your supplies":"文房具を選ぶ"});
 
 window.ActivityHubI18n.register({'Write your blog':'ブログを書く','Write about a place you have been to or want to visit. Add photos, arrange your post, and save your blog snapshot.':'行ったことのある場所や行ってみたい場所について書こう。写真を追加し、レイアウトを整えて、ブログの画像を保存できます。'});
+
+window.ActivityHubI18n.register({'Give advice to students coming to Japan for a homestay. Write your post, add photos, and arrange your blog.':'日本へホームステイに来る生徒にアドバイスしよう。文章を書き、写真を追加して、ブログを作ろう。'});
+
+window.ActivityHubI18n.register({'Unit 4':'Unit 4'});

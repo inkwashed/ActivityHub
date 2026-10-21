@@ -70,3 +70,38 @@
 .blog-three .blog-switch [role=tab][aria-selected=true]::before{content:"";position:absolute;top:0;left:12px;right:12px;height:3px;border-radius:0 0 3px 3px;background:var(--ah-selected-border)}
 @media(hover:hover){.blog-three .blog-switch [role=tab]:not([aria-selected=true]):hover{background:var(--ah-hover);color:var(--ah-ink)}}
 .blog-three .blog-switch [role=tab]:focus-visible{outline-offset:-4px;z-index:1}
+
+.blog-guided .help-toggle{display:flex;align-items:center;gap:8px;min-height:44px}.blog-guided .help-toggle input{width:22px;height:22px;accent-color:var(--ah-selected-border)}
+.blog-guided #blog-sentences input{border:1px solid var(--ah-divider);border-radius:var(--ah-radius-control);padding:6px 8px;background:var(--ah-canvas);margin:3px 0}.blog-guided #blog-sentences input::placeholder{color:var(--ah-muted);opacity:.7}.blog-guided #blog-sentences input[hidden]{display:none}
+.blog-guided #blog-sentences p{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:10px 0}
+
+/* ES handwriting guides repeat on wrapped rows; only the baseline uses the theme accent. */
+.blog-guided #blog-sentences{font-family:"Comic Sans MS","Chalkboard SE","Chalkboard",cursive;font-size:34px;font-weight:400;line-height:64px;color:#000}
+.blog-guided #blog-sentences p{gap:0 8px;align-items:center;margin:12px 0;line-height:64px;background-image:linear-gradient(to bottom,transparent 46px,var(--ah-selected-border) 46px,var(--ah-selected-border) 48px,transparent 48px),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='64'%3E%3Cpath d='M0 16H8M0 57H8' fill='none' stroke='black' stroke-width='1'/%3E%3Cpath d='M0 30H8' fill='none' stroke='black' stroke-width='1' stroke-dasharray='2 2'/%3E%3C/svg%3E");background-size:100% 64px,8px 64px;background-repeat:repeat-y,repeat}
+.blog-guided #blog-sentences input{font:inherit;line-height:64px;height:64px;min-height:64px;padding:0 5px;margin:0;border:0;border-radius:0;background:transparent;vertical-align:baseline;box-shadow:none}
+.blog-guided #blog-sentences input::placeholder{color:var(--ah-muted);opacity:.65}
+.blog-guided #blog-sentences input.sentence-answer::placeholder{color:var(--ah-selected-border);opacity:.65}
+.blog-guided #blog-sentences input:focus-visible{outline:2px solid var(--ah-focus);outline-offset:-2px;border-radius:4px}
+.blog-guided #blog-sentences p>span{line-height:64px}
+
+/* Fields follow their measured text width; the last field and period wrap together. */
+.blog-guided #blog-sentences .sentence-group{display:flex;align-items:center;gap:0;flex:0 1 auto;min-width:0;max-width:100%;line-height:64px}
+.blog-guided #blog-sentences input.sentence-frame,.blog-guided #blog-sentences input.sentence-answer{flex:0 1 auto;min-width:44px;max-width:100%;padding-left:2px;padding-right:2px}
+.blog-guided #blog-sentences .sentence-period{flex:0 0 auto;line-height:64px}
+.blog-guided #blog-sentences p{column-gap:4px}
+
+.es-byline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 0;flex-wrap:wrap}.es-byline .blog-author{margin:0}.ink-mode-toggle .switch-track{width:132px}.ink-mode-toggle input:checked+.switch-track .switch-knob{transform:translateX(88px)}
+#blog-handwriting[hidden],#blog-sentences[hidden]{display:none!important}.ink-tools{display:flex;gap:8px;flex-wrap:wrap}.ink-pad{margin:12px 0 20px}.ink-pad-heading{display:flex;align-items:center;justify-content:space-between;gap:8px}.ink-pad-heading h3{font-size:16px;margin:0;color:var(--ah-muted)}
+.ink-canvas{display:block;width:100%;height:64px;touch-action:none;user-select:none;-webkit-user-select:none;cursor:crosshair}.ink-canvas[hidden]{display:none}.design-ink{display:block;width:100%;height:100%;object-fit:contain}
+/* Keep ES help and input-mode controls outside the sentence scroller. */
+.blog-guided #blog-preview{display:flex;flex-direction:column;overflow:hidden;scrollbar-gutter:auto}
+.blog-guided #blog-preview>article{display:flex;flex-direction:column;flex:1;min-height:0}
+.blog-guided #blog-preview>.blog-heading,.blog-guided #blog-preview>.blog-hint,.blog-guided .es-byline{flex-shrink:0}
+.blog-guided #blog-handwriting,.blog-guided #blog-sentences{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding-inline-end:6px}
+@media(max-height:599px){
+ .blog-guided #blog-preview{padding:8px 12px}
+ .blog-guided #blog-preview>.blog-hint{display:none}
+ .blog-guided #blog-preview .blog-heading h1{margin:0;font-size:20px}
+ .blog-guided .es-byline{margin:4px 0;gap:4px}
+ .blog-guided #blog-avatar{width:44px;height:44px;flex-basis:44px}
+}

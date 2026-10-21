@@ -7,9 +7,9 @@ This is the implementation reference for the My Blog family. Project process rem
 | Variant | Reference | Contract |
 | --- | --- | --- |
 | JHS | `myblog/NH1-5/` | Free title/body writing, Write/Photos/Design tabs, read-only Sample, three-column composition, layout-only reset |
-| ES | `myblog/NH6-5/` | Inline sentence frames, synchronized repeated blanks, Post/Photos responsive shell, example and whole-post Reset |
+| ES | `myblog/NH6-5/` | Guided or independent sentence-frame writing, independent answers, Post/Photos/Design and layout-only reset |
 
-New JHS lessons should follow NH1-5's structure with different prompts and samples. Keep ES-specific behavior intact; its broader standardization is deferred. NH1-5 is listed under NEW HORIZON 1 on the homepage; NH6-5 remains unlisted. There is no separate JHS Lab yet: any future lab must have its own draft ID, remain unlisted, and preserve shared relative paths.
+New JHS lessons should follow NH1-5's structure with different prompts and samples. ES shares Photos/Design/Share with JHS while keeping its guided Post editor. NH1-5 is listed under NEW HORIZON 1 on the homepage; NH6-5 remains unlisted. There is no separate JHS Lab yet: any future lab must have its own draft ID, remain unlisted, and preserve shared relative paths.
 
 ## Ownership
 
@@ -27,7 +27,7 @@ Copy the NH1-5 lesson shell into `myblog/<textbook-unit>/`, update its manifest,
 
 Configuration requires a unique `id`, `mode: 'free'`, `design: true`, an activity `title`, `images: []`, and `fields` named `title` and `body`. Use `multiline: true` on body. Current limits are 120 title characters and 2,000 body characters. Each field supplies a label, maximum length and default. `sample` supplies title, author and paragraphs; its portrait is a local asset. The NH1-5 portrait generator uses `config.sample.avatar`; other lessons should provide their own sample asset rather than overwriting Fumiya.
 
-The entry script mounts its configuration through `BlogPost.mount`. Preserve the reference shell's IDs: `blog-title`, `blog-body`, `blog-avatar`, `blog-author-name`, `blog-upload`, `blog-images`, `blog-gallery`, `blog-status`; tab buttons and `data-blog-view` / panel attributes; Design grid, picker, toolbar, crop and help controls; Sample and Share dialogs. `blog-reset` is optional and absent in JHS. The renderer is DOM-coupled: configuration alone is not a replacement for this shell.
+The entry script mounts its configuration through `BlogPost.mount`. Preserve the reference shell's IDs: `blog-title`, `blog-body`, `blog-avatar`, `blog-author-name`, `blog-upload`, `blog-images`, `blog-gallery`, `blog-status`; tab buttons and `data-blog-view` / panel attributes; Design grid, picker, toolbar, crop and help controls; Sample and Share dialogs. `blog-reset` is optional and absent in both current three-tab variants. The renderer is DOM-coupled: configuration alone is not a replacement for this shell.
 
 Load tokens, blog base styles, shared controls and the scoped JHS styles. Load layout/design before mounting the app, and load avatar config/art plus the shared services used by the reference. Interface labels and accessible names translate; authored content and lesson English remain English.
 
@@ -73,3 +73,17 @@ Browser checks do not substitute for physical iPad/Safari, onscreen keyboard, ha
 Run `node scripts/version-builder-assets.cjs myblog/NH1-5 myblog/NH6-5` after shared asset changes. Publish consumers and shared files together only when requested. Review both variants for shared behavior changes; do not migrate ES to the JHS UI implicitly.
 
 The shared QR button follows Language in both variants. `page-qr.js` accepts `/myblog/<lesson>/` routes and shares only the public lesson URL, never draft contents. Textbook labels use the shared muted color and textbook/unit wording without a school-level suffix.
+
+JHS consumer NH2-4 (Welcome to Japan) follows NH1-5 with a separate draft ID, a simple homestay-advice prompt and an original starter sample. It is listed under NEW HORIZON Junior High 2 after Junior High 1.
+
+## Journal prototype
+
+`myblog/journal/` is an unlisted, read-only collection of the latest draft per catalogued lesson. It reuses validation/layout/snapshot rendering and supplies blank pages for unfilled slots. See its README for catalog extension and the explicit distinction between a current-draft collection and a future durable, versioned archive.
+
+JHS photo progress/errors stay in Photos; successful uploads clear their progress message. The shared action footer has no routine status text. A save failure remains an explicit global alert until a successful save.
+
+ES guided mode uses configurable rows of field IDs, `help` placeholder text for sentence frames and `placeholder` examples for answers. `showHelp` defaults true and persists; authored frame text remains stored separately. Help only changes placeholder visibility, never field sizing or output. The typed sentence output derives `fields.body` for Design and Journal. Old repeated-country data migrates once; new answer fields never synchronize. See NH6-5 README and `tests/check-blog-es-browser.cjs`.
+
+## ES handwriting
+
+`shared/blog-ink.js` owns bounded stroke validation, pad input and rendering. Load it before BlogPost wherever guided configurations are normalized, including Journal. Guided state has separate `ink` and `inkLayout` data plus an `inputMode` defaulting to type. The shared layout planner accepts an optional ink array and produces `ink:<sentence-index>` blocks; Design and Snapshot use the same stroke renderer. Typed and handwritten layouts are preserved independently. Journal checks strokes when determining written status and renders the active mode. No recognition or external service is used. See NH6-5 README for responsive line mapping, limits and device caveats.

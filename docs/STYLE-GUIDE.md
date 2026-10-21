@@ -320,7 +320,7 @@ The homepage header ends with a rounded-square saved-avatar button after Languag
 
 ## My Blog writing and snapshots
 
-Place native text inputs inline in the English sentence frames, with subtle underlines, visible focus and at least 44px touch height. Keep the right panel for photos and basic controls, including the usual Reset/Share pair. On small screens, use Post/Photos navigation. Display the saved homepage profile name beside the avatar; use “My blog” when absent. Share previews a compact webpage-style PNG with a small browser bar, profile, images and full sentences, using the shared dialog frame rather than the Builder Polaroid composition.
+ES My Blog uses Post/Photos/Design like the JHS shell. Post has segmented sentence rows, rounded input fields with muted example placeholders, and a labelled Show Help? checkbox at the upper right. Help displays grey placeholders in all fields; disabling it hides those suggestions without changing fields, sizes or typed answers. Photos/Design/Share follow the shared My Blog conventions. Keep the saved profile beside the writing and use layout-only reset.
 
 
 ## Object color controls (Class Supplies reference)
@@ -343,3 +343,5 @@ Junior-high My Blog lessons use a full-width title field and multiline body inst
 JHS My Blog Share keeps variable-height webpage artwork. Use a focusable scrolling preview region inside the shared dialog; keep the heading/status and centered shared Download action outside that region. Do not force square framing. My Blog keeps textbook/unit labels visible at all breakpoints.
 
 JHS My Blog navigation uses a tab strip, not pill action buttons: rounded upper corners, a baseline, muted inactive tabs and a surface-filled active tab with a green top indicator. Retain native tab semantics, arrow-key navigation and inset visible focus.
+
+ES My Blog offers TYPE/WRITE via a shared-style pill opposite the author/avatar. WRITE pads use theme-green baseline and black guide rules, one or two writing lines per sentence according to available width. Keep help as a faint overlay, omit automatic periods, and expose Pen/Eraser and per-sentence Undo as labelled 44px controls. Restrict touch drawing behavior to pads so the surrounding Post panel can still scroll.

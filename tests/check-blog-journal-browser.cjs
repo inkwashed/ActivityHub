@@ -1,0 +1,13 @@
+const {chromium}=require('playwright'),assert=require('node:assert/strict');
+(async()=>{const browser=await chromium.launch({headless:true,...(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{})});try{
+ const page=await browser.newPage({viewport:{width:1024,height:768}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto((process.env.BLOG_BASE_URL||'http://127.0.0.1:8776')+'/myblog/journal/');
+ assert.equal(await page.locator('#journal-list button').count(),3);assert.ok(await page.locator('#empty-page').isVisible());assert.ok(await page.locator('#previous-entry').isDisabled());
+ await page.evaluate(()=>{ActivityAutosave.write('letseigo.app.myblog-nh1-5',1,{fields:{title:'My Kyoto Visit',body:'I visited Kyoto.\nIt was wonderful.'},images:[],layout:null});ActivityAutosave.write('letseigo.app.myblog-nh2-4',1,{fields:{title:'Japan advice',body:'Ask your host family questions.'},images:[],layout:null});});
+ const before=await page.evaluate(()=>JSON.stringify(localStorage));await page.click('#next-entry');await page.waitForFunction(()=>document.querySelector('#entry-image').naturalWidth>0);assert.equal(await page.locator('#entry-image').getAttribute('alt'),'My Kyoto Visit');assert.match(await page.locator('#edit-entry').getAttribute('href'),/NH1-5/);
+ await page.locator('#entry-text summary').click();assert.match(await page.locator('#entry-paragraphs').textContent(),/I visited Kyoto/);
+ await page.click('#next-entry');await page.waitForFunction(()=>document.querySelector('#entry-image').naturalWidth>0);assert.equal(await page.locator('#entry-image').getAttribute('alt'),'Japan advice');assert.ok(await page.locator('#next-entry').isDisabled());assert.equal(await page.evaluate(()=>JSON.stringify(localStorage)),before);
+ await page.evaluate(()=>{ActivityAutosave.write('letseigo.app.myblog-nh2-4',1,{fields:{title:'Updated advice',body:'More advice.'},images:[],layout:null});window.dispatchEvent(new Event('storage'));});await page.waitForFunction(()=>document.querySelector('#entry-image').alt==='Updated advice'&&!document.querySelector('#entry-image').hidden);
+ for(const [width,height] of [[1366,768],[768,1024],[390,844],[320,568],[844,390]]){await page.setViewportSize({width,height});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1&&document.documentElement.scrollHeight<=innerHeight+1));}
+ await page.screenshot({path:'work/journal-prototype.png'});assert.deepEqual(errors,[]);console.log('PASS journal blank slots, textbook order, saved posts, navigation, live refresh, read-only storage and five viewport sizes.');
+}finally{await browser.close()}})().catch(e=>{console.error(e);process.exit(1)});

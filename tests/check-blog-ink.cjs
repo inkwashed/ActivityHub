@@ -1,0 +1,9 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');const context={window:{}};vm.createContext(context);for(const f of ['shared/blog-ink.js','shared/blog-layout.js','shared/blog-post.js','myblog/NH6-5/config.js'])vm.runInContext(fs.readFileSync(f,'utf8'),context);
+const {BlogInk:I,BlogLayout:L,BlogPost:P,WorldBlogConfig:C}=context.window;
+const clean=I.normalize([[[[-5,500],[50,40],[NaN,4],'bad']],null]);assert.equal(clean.length,4);assert.deepEqual(Array.from(clean[0][0][0]),[0,120]);assert.equal(clean[0][0].length,2);assert.equal(I.normalize(null)[0].length,0);
+const ink=[[[[10,20],[100,70]],[[450,20],[500,70]]],[],[],[]];
+const raw={inputMode:'write',showHelp:false,fields:{item:'my hat'},ink,inkLayout:[{key:'ink:0',col:0,row:2,w:2,h:1}],layout:[{key:'text',col:0,row:0,w:2,h:1}]};const state=P.normalize(C,raw);assert.equal(state.inputMode,'write');assert.equal(state.fields.item,'my hat');assert.equal(state.ink[0][1][0][0],450);assert.equal(state.inkLayout.length,4);assert.equal(state.layout[0].key,'text');
+const plan=L.plan(state.inkLayout,[],state.fields.body,s=>s.length*14,undefined,state.ink);assert.equal(plan.blocks.length,4);assert.ok(plan.blocks.every(b=>b.key.startsWith('ink:')));assert.equal(plan.blocks.find(b=>b.key==='ink:0').ink.length,2);
+const restored=P.normalize(C,{...state,inputMode:'type'});assert.equal(restored.ink[0].length,2);assert.equal(restored.layout[0].w,2);assert.equal(restored.inkLayout[0].w,2);
+const calls=[];const ctx={save(){},restore(){},translate(){},scale(){},beginPath(){},moveTo(x,y){calls.push([x,y])},lineTo(x,y){calls.push([x,y])},stroke(){},arc(){},fill(){}};I.paint(ctx,ink[0],0,0,816,120);assert.ok(calls.some(p=>p[0]===450));
+console.log('PASS ink validation, bounded coordinates, separate typed/written layouts, preserved line offsets, and export stroke rendering.');

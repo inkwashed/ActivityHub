@@ -4,6 +4,13 @@
  function normalize(config,raw={}){
   const fields={};
   for(const field of config.fields) fields[field.id]=typeof raw?.fields?.[field.id]==='string'?(field.multiline?raw.fields[field.id].replace(/\r\n?/g,'\n'):raw.fields[field.id].replace(/[\r\n\t]/g,' ')).slice(0,field.maxLength||80):field.default;
+  if(config.mode==='guided'&&raw?.fields&&!Object.hasOwn(raw,'showHelp')){
+   // One-time migration: preserve old repeated country answers, then edit independently.
+   for(const key of ['country2','country3'])if(raw.fields[key]===undefined)fields[key]=fields.country;
+  }
+  const showHelp=raw?.showHelp!==false;
+  const ink=config.mode==='guided'?window.BlogInk.normalize(raw?.ink,config.rows.length):null;
+  if(config.mode==='guided')fields.body=sentences(config,{fields,showHelp}).join('\n');
   const images=(Array.isArray(raw?.images)?raw.images:[]).filter(x=>x && (config.images.some(y=>y.id===x.id)||safePhoto(x.src))).slice(0,3).map(x=>config.images.some(y=>y.id===x.id)?{id:x.id}:{src:x.src});
   if(config.design){
    const used=new Set();images.forEach((image,i)=>{
@@ -11,25 +18,47 @@
     let uid=typeof rawImage?.uid==='string'&&/^[a-zA-Z0-9_-]{1,50}$/.test(rawImage.uid)?rawImage.uid:`legacy-${i}`;
     while(used.has(uid))uid+='-x';used.add(uid);image.uid=uid;
    });
-   return {fields,images,layout:window.BlogLayout.normalize(raw?.layout,images,fields.body)};
+   return {fields,images,...(config.mode==='guided'?{showHelp,inputMode:raw?.inputMode==='write'?'write':'type',ink,inkLayout:window.BlogLayout.normalize(raw?.inkLayout,images,'',ink)}:{}),layout:window.BlogLayout.normalize(raw?.layout,images,fields.body)};
   }
   return {fields,images};
  }
- function sentences(config,state){if(config.mode==='free')return state.fields.body.replace(/\n{3,}/g,'\n\n').split('\n');const values={...state.fields,...(config.derive?.(state.fields)||{})};return config.sentences.map(line=>line.replace(/\{(\w+)\}/g,(_,key)=>values[key]||'________'));}
+ function sentences(config,state){
+  if(config.mode==='guided')return config.rows.map(row=>{
+   if(!row.some(key=>state.fields[key]?.trim()))return '';
+   return row.map(key=>state.fields[key]?.trim()||'________').join(' ')+'.';
+  });
+  if(config.mode==='free')return state.fields.body.replace(/\n{3,}/g,'\n\n').split('\n');const values={...state.fields,...(config.derive?.(state.fields)||{})};return config.sentences.map(line=>line.replace(/\{(\w+)\}/g,(_,key)=>values[key]||'________'));}
  window.BlogPost={normalize,sentences,safePhoto,mount(config){
   const $=id=>document.getElementById(id),t=value=>window.ActivityHubI18n.t(value);
   let state=normalize(config),busy=false,generation=0;
   const controls=new Map();
-  let saveTimer,designer;
+  let saveTimer,designer,inkEditor;
   const label=(node,value)=>{node.dataset.i18n=value;node.textContent=t(value);};
-  const status=value=>{label($('blog-status'),value);};
-  function persist(){clearTimeout(saveTimer);if(!window.ActivityAutosave.write(`letseigo.app.${config.id}`,1,state))status('This browser could not save your post. Keep this tab open.');}
+  const status=value=>{label($('blog-status'),config.design&&value==='Images added.'?'':value);};
+  function persist(){clearTimeout(saveTimer);const saved=window.ActivityAutosave.write(`letseigo.app.${config.id}`,1,state);
+   if($('blog-save-error')){const node=$('blog-save-error');node.hidden=saved;label(node,saved?'':'This browser could not save your post. Keep this tab open.');}
+   else if(!saved)status('This browser could not save your post. Keep this tab open.');}
   const scheduleSave=()=>{clearTimeout(saveTimer);saveTimer=setTimeout(persist,250);};
   window.addEventListener('pagehide',persist);
   document.addEventListener('visibilitychange',()=>{if(document.hidden)persist();});
-  function sizeInput(input){if(config.mode==='free')return;input.style.width=`${Math.max(7,Math.min(32,Array.from(input.value).length+1))}ch`;}
+  const writingMeasure=document.createElement('canvas').getContext('2d');
+  function sizeInput(input){if(config.mode==='guided'){
+   const field=config.fields.find(f=>f.id===input.dataset.field);
+   const style=getComputedStyle(input);writingMeasure.font=`${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+   const text=input.value||field?.help||field?.placeholder||'';
+   input.style.width=`${Math.max(44,Math.ceil(writingMeasure.measureText(text).width)+8)}px`;
+   return;
+  }if(config.mode==='free')return;input.style.width=`${Math.max(7,Math.min(32,Array.from(input.value||input.placeholder).length+1))}ch`;}
   function source(item){return item.src||config.images.find(x=>x.id===item.id).src;}
   function render(){
+   if(config.mode==='guided'){
+    $('show-help').checked=state.showHelp;
+    if($('writing-mode')){$('writing-mode').checked=state.inputMode==='write';$('blog-sentences').hidden=state.inputMode==='write';}
+    inkEditor?.refresh();
+    for(const field of config.fields){
+     const input=controls.get(field.id)?.[0];if(input)input.placeholder=state.showHelp?(field.help||field.placeholder||''):'';
+    }
+   }
    for(const [id,inputs] of controls)for(const input of inputs){if(input.value!==state.fields[id])input.value=state.fields[id];sizeInput(input);}
    $('blog-gallery').replaceChildren(...state.images.map((item,index)=>{const img=document.createElement('img');img.src=source(item);img.alt=item.id?config.images.find(x=>x.id===item.id).alt:`${t('Post image')} ${index+1}`;return img;}));
    $('blog-images').replaceChildren(...state.images.map((item,index)=>{
@@ -63,6 +92,24 @@
     const input=$(`blog-${field.id}`);input.maxLength=field.maxLength;controls.set(field.id,[input]);
     input.addEventListener('input',()=>{state.fields[field.id]=input.value;scheduleSave();});
    }
+  }
+  if(config.mode==='guided'){
+   for(const row of config.rows){
+    const line=document.createElement('p');
+    let group;
+    for(const key of row){
+     const field=config.fields.find(f=>f.id===key);
+     const input=document.createElement('input');input.type='text';input.lang='en';input.maxLength=field.maxLength||80;input.autocomplete='off';input.spellcheck=false;
+     input.dataset.field=key;input.placeholder=field.placeholder||'';input.setAttribute('aria-label',t(field.label));input.dataset.i18nAriaLabel=field.label;
+     group=document.createElement('span');group.className='sentence-group';line.append(group);
+     input.className=field.help?'sentence-frame':'sentence-answer';
+     controls.set(key,[input]);input.oninput=()=>{state.fields[key]=input.value;state.fields.body=sentences(config,state).join('\n');sizeInput(input);scheduleSave();};
+     group.append(input);
+    }
+    const period=document.createElement('span');period.className='sentence-period';period.textContent='.';group.append(period);$('blog-sentences').append(line);
+   }
+   $('writing-mode').onchange=()=>{inkEditor?.finish();state.inputMode=$('writing-mode').checked?'write':'type';render();persist();};
+   $('show-help').onchange=()=>{state.showHelp=$('show-help').checked;state.fields.body=sentences(config,state).join('\n');render();persist();};
   }
   for(const template of config.sentences||[]){
    const paragraph=document.createElement('p');
@@ -121,6 +168,7 @@
   if($('blog-example'))$('blog-example').onclick=()=>{state=normalize(config,config.example);render();persist();status('Example loaded.');};
   const viewButtons=[...document.querySelectorAll('[data-blog-view]')];
   function setView(button){
+   inkEditor?.finish();
    document.querySelector('.blog-workspace').dataset.view=button.dataset.blogView;
    for(const other of viewButtons){
     other.setAttribute('aria-pressed',String(other===button));
@@ -138,6 +186,7 @@
     if(next!==undefined){event.preventDefault();viewButtons[next].focus();setView(viewButtons[next]);}
    };
   });
+  if(config.mode==='guided')inkEditor=window.BlogInk.mount({host:$('blog-handwriting'),getState:()=>state,save:persist,config});
   document.addEventListener('activityhub:languagechange',()=>{render();avatar();});avatar();render();
   if(config.design){designer=window.BlogDesign({getState:()=>state,save:persist,source});designer.refresh();setView(viewButtons[0]);}
   function snapshotAvatar(){

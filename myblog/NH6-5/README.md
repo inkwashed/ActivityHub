@@ -1,40 +1,45 @@
 # My Blog: Where is it from?
 
-Shared implementation reference: [My Blog engine](../../docs/MY-BLOG-ENGINE.md). Internal variant: ES.
+NEW HORIZON Elementary 6 Unit 5. Entry `myblog/NH6-5/`; unlisted on the homepage. Shared implementation reference: [My Blog engine](../../docs/MY-BLOG-ENGINE.md).
 
+## ES Post editor
 
-Entry: `myblog/NH6-5/index.html` (direct URL only; intentionally unlisted on the homepage during development).
+`mode: 'guided'`, `design: true` uses Post/Photos/Design. Photos, Design and Share use the same shell and shared behavior as JHS. Only Post differs: four segmented sentence rows with Show Help? enabled by default. Help shows grey placeholders for standard phrases and faded theme-green placeholders for variable answers in both TYPE and WRITE modes. Entered text and handwriting remain dark. Turning it off hides all placeholders. The same fields remain editable and identically sized in both modes; all typed text survives toggling and reloading. Punctuation stays supplied.
 
-First reusable BlogPost consumer: NEW HORIZON Elementary 6 Unit 5. The optional example post is “This is my cap. It's from Vietnam. Vietnam is in Asia. Vietnam is a nice country.” The question is “Where is it from?” New posts and Reset start with blank inline text fields. Students type an item, country, continent, and description; repeated country blanks stay synchronized. All four sentence frames remain fixed. Native text inputs also accept device-provided handwriting input. The example corresponds to Deepa's lesson text without identifying student posts as Deepa.
+Answer placeholders are my sweater, New Zealand, Oceania and beautiful. They are green hints only: never saved as answers or included in exports. All three country fields are independently editable. Fields allow 80 characters each. Untouched rows do not create written content; partially completed rows display underscores for missing answers in Design/Share. Only typed content contributes to the output; help never supplies words automatically. The computed body produces one movable text block per nonempty row.
 
-Organization: `myblog/<textbook-unit>/` groups the family by lesson. This lesson retains the existing `world-blog` storage ID so hosted drafts survive the path change; future lessons need distinct IDs.
+`config.rows` lists field IDs per sentence. Fields with `help` provide the guided frame; fields with `placeholder` are answer fields. No automatic country synchronization or correction is performed. Reset layout only resets the arrangement/crop, preserving writing and photos. No whole-post Reset or example-fill button is provided.
 
-## Engine contract
+## Compatibility
 
-`shared/blog-post.js` owns validated state, inline text fields, sentence interpolation, zero-to-three images, local persistence, preview/edit navigation, and avatar loading. `config.js` supplies a unique storage ID, fields with labels/length limits/defaults, sentence templates, built-in image IDs/paths/alt text, and example state. Another app can reuse the shell and engine with its own configuration. No food Builder engine changes are required.
+Keep draft ID `world-blog` and version 1. On first migration only, old country values populate the separate country fields to preserve existing writing. A saved `showHelp` flag distinguishes new drafts; subsequent input never copies across fields. Photos receive stable UIDs through the shared normalization path. `fields.body` is derived from the active help mode for the shared designer and journal. Old uploaded photos and answers survive; the obsolete cap placeholder remains discarded.
 
-`shared/blog-post.css` owns a viewport-height grid, bounded header/footer, independently scrollable editor and preview, and Post/Photos switching below 740px width or 600px height. Keyboard users can focus both scrolling regions. Unlike the food Builder phone stack, this requested type keeps page scrolling disabled at all sizes, while retaining controls inside scrollable regions. No whole-interface scale or text-fitting script is used.
+The shared profile adapter, QR dialog, photo rotation/cropping, three-image limit, natural-height Share preview, and local PNG download are inherited. No changes to the homepage profile occur.
 
-Uses shared tokens, controls, icons, language menu, fullscreen, QR, local links, copyright, and autosave read/write helpers. Explicit writes report storage failure. Interface language is English/Japanese; lesson words remain English. No account, separate name field, external upload or publishing is added.
+## Checks
 
-## Pictures and saved data
+- `node tests/check-blog-post.cjs`: ES/JHS validation, legacy migration, independent country answers, non-answer placeholders and authored frames.
+- `node tests/check-blog-es-browser.cjs`: help toggle, preserved inputs/reload, shared tabs/photos/design/export and responsive page bounds. Uses the same Playwright / CHROME_PATH / BLOG_BASE_URL setup as the JHS suite.
+- Physical iPad handwriting, virtual keyboard and Safari checks remain pending.
 
-Posts start without pictures and allow up to three optional images. Every image can be removed, including the last. Old saved cap placeholders are discarded while uploaded pictures and writing are preserved. JPG/PNG/WebP input is capped at 15 MB per file, decoded and resized to at most 960px, and re-encoded locally as JPEG. The saved snapshot contains compressed image data (a necessary exception to the Builder data-only save rule), never original files or their metadata. Storage may fail or be cleared; this is a browser draft, not permanent storage. Reset clears the writing and all images. Use example fills the sample answers. Changing the item text does not change uploaded pictures.
+The first frame is “This is” so students supply their own determiner/possessive with the item. Input fields flex to use available row width, with extra room for the item description; narrow screens wrap fields without horizontal page overflow.
 
-The avatar adapter reads version 1 of `letseigo.app.avatar`, validates parts and colors against `AvatarConfig`, then reuses the existing avatar SVG renderer. No avatar UI/bootstrap is loaded. Missing, corrupt or unavailable saves use `shared/icons/profile-default.svg`. Updates in another same-origin tab refresh on focus/storage events. Direct `file:` storage sharing depends on the browser; hosted applets must share an origin. Existing avatar source files are reused without changes.
+Post uses transparent fields over repeating handwriting guides: black outer rules and dashed midline, with the writing baseline from the theme’s green `--ah-selected-border`. The writing area prefers locally installed Comic Sans MS, then Chalkboard SE/Chalkboard and a cursive fallback, for single-storey letterforms. No proprietary font is bundled; appearance depends on installed fonts. Focus outlines remain visible. JHS and exported typography remain unchanged.
 
-## Verification
+Field widths now follow measured typed text, growing and shrinking during input. Empty fields reserve their help/example width even when hints are hidden. Each field can wrap independently; the period stays with the final field. Width is capped to the row so very long single-field text scrolls inside its input.
 
-- `node tests/check-blog-post.cjs`: example grammar, free answers and length limits, invalid saved fields/images, missing state, image bounds.
-- Real headless Chrome: 1366×768, 1024×768, 768×1024, 744×1133, 390×844, 320×568, 844×390; Edit/Preview and page-overflow checks. Choice/reload, avatar/fallback, upload/remove/three-image limit/reload, Japanese, reset/reload, doubled interface text passed. No JavaScript page errors.
-- Physical iPad, virtual keyboard, touch image picker and Safari remain unverified. No student publishing. Free answers are preserved without vocabulary correction; blanks remain visible in snapshots.
+## TYPE / WRITE
 
-## Profile and Share
+The profile row has a shared-style pill switch. TYPE retains the existing editable fields. WRITE uses `shared/blog-ink.js`: one pad per sentence, Pen, whole-stroke Eraser, and per-pad Undo (last 20 actions during the session). Help overlays faint example words with no supplied periods. Guides and help are never exported as handwriting. Switching modes preserves both forms of work; Share and Journal show the active mode.
 
-The author name reads version 1 of `letseigo.profile`, matching the homepage's Name field. Empty/missing names use a translated “My blog” fallback. Names render as text, never HTML; Reset leaves the homepage profile untouched. Storage/focus/visibility events refresh both name and avatar.
+Below 600px pad width, each sentence presents two consecutive writing lines. Strokes use one canonical 816×120 sentence coordinate space: the second line maps to x=408–816. Returning to a wide view joins the two segments, and Design/Share/Journal render them as one sentence strip. This is geometric composition, not handwriting recognition. Four handwriting blocks remain available in Design, with separate placement from typed text.
 
-Share uses the existing `shared/builder-photo.js` modal/download lifecycle with its optional `canvas` renderer. `shared/blog-snapshot.js` captures the current title, name, avatar, up to 3 images, and full sentences in a compact webpage-style PNG. It wraps long text and expands image height as needed, independent of the scrolling editor. It does not publish the post. The food Builders retain their existing Polaroid export path.
+Version-1 state now also includes `inputMode`, `ink` (four arrays of strokes/points), and `inkLayout`. Legacy drafts default to TYPE with empty ink. Points are finite, clamped and rounded; each pad allows at most 256 strokes and each stroke 512 points, with long active strokes resampled. Undo history is transient. Completed strokes, erasures and undos persist locally. A canceled pointer rolls back its action. Drawing captures one pointer; scrolling remains available outside pads. Basic stylus palm rejection cannot be guaranteed.
 
-Inline update verification: real Chrome at six desktop/tablet/phone/short-window sizes; typing/caret retention, repeated fields, reload/reset/example, homepage name and cross-tab refresh, Japanese, three images, long answers, PNG download and dialog URL cleanup passed. Model and existing Builder export regression checks passed. Physical iPad handwriting/Safari remain unverified.
+Checks: `tests/check-blog-ink.cjs` and `tests/check-blog-ink-browser.cjs`, plus the existing ES/JHS browser suites. Browser mouse-driven checks do not prove physical iPad stylus or palm behavior; school-device testing remains required.
 
-Text-only posts and snapshots omit the image area. Use example supplies sentence answers without adding a picture.
+Handwriting rows now stay 64 CSS pixels tall, matching TYPE guide positions (16/30/47/57px) and 34px help text. Existing 816×120 stroke coordinates remain intact; only their on-screen mapping changes.
+
+Writing controls use accessible pen, eraser, and undo icon buttons beside each sentence heading. Pen/eraser selection stays synchronized across all pads; undo applies only to its sentence.
+
+The Post panel keeps its heading, Show Help toggle, and avatar/TYPE–WRITE row fixed. Only the sentence area scrolls in either mode.
