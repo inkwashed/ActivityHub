@@ -312,3 +312,7 @@ Pronunciation is optional: shared Builder sentence rendering must preserve plain
 My Blog supports `mode: 'free'` for junior-high writing: a title and multiline body with independent lesson storage, preserving paragraph breaks. NH1-5 is NEW HORIZON 1 (Junior High Year 1), ordered after NEW HORIZON Elementary 6. Its optional read-only sample modal uses configured author/title/paragraphs and never populates the student draft. Keep new blog lessons unlisted while under development unless rollout is requested.
 
 NH1-5 opts into the three-step blog designer with `design: true`. Shared `blog-layout.js` owns positions/collision resolution and text wrapping; both Design and Share consume its computed arrangement. Save stable photo UIDs and validated layout data, migrate older drafts, and automatically include every source element. Keep NH6-5 inline editing unchanged. Run `tests/check-blog-layout.cjs` and `tests/check-blog-post.cjs` for changes, plus browser checks for source deletion, automatic inclusion, reset, layout restore, tabs and export parity.
+
+## My Blog engine reference
+
+Use [MY-BLOG-ENGINE.md](MY-BLOG-ENGINE.md) for the JHS/ES variant contracts, ownership, configuration, persistence and current checks. JHS uses NH1-5 as its reference; ES retains NH6-5-specific behavior pending a separate review.

@@ -1,5 +1,8 @@
 # My Blog: A Place I Like
 
+Shared implementation reference: [My Blog engine](../../docs/MY-BLOG-ENGINE.md). Internal variant: JHS.
+
+
 Entry: `myblog/NH1-5/index.html`. NEW HORIZON 1 Unit 5 is Junior High Year 1, after NEW HORIZON Elementary 6 in textbook order. This app is intentionally unlisted on the homepage during development. The back button returns to the homepage because no public junior-high section is listed yet.
 
 Students write about a place they have visited or want to visit. They supply a title (120 characters) and multiline body (2,000 characters), with no sentence frames or automatic wording. Paragraph breaks survive saving and Share. Photos are optional: zero to three, using the shared upload/remove controls. This lesson has no whole-post Reset button; Reset layout preserves writing and photos.
@@ -14,7 +17,7 @@ Uses `shared/blog-post.js` with `mode: 'free'` and `design: true`, fields named 
 
 Model checks: `node tests/check-blog-post.cjs` covers free text, paragraph preservation, length bounds and separate lesson IDs, plus NH6-5 regression checks.
 
-Real Chrome checks passed at 1024×768, 1366×768, 768×1024, 390×844, 320×568 and 844×390: title/body editing, paragraph restore, sample opening/Escape/focus return/draft preservation, PNG download, Japanese UI, reset, and lesson isolation. Desktop editor, sample modal and exported snapshot were visually inspected. Physical iPad/Safari handwriting and image-picker behavior remain unverified. No deployment is part of this change.
+Real Chrome checks passed at 1024×768, 1366×768, 768×1024, 390×844, 320×568 and 844×390: title/body editing, paragraph restore, sample opening/Escape/focus return/draft preservation, PNG download, Japanese UI and lesson isolation. Desktop editor, sample modal and exported snapshot were visually inspected. Physical iPad/Safari handwriting and image-picker behavior remain unverified. No deployment is part of this change.
 
 Write places the title field to the right of the author/avatar on wider screens, stacking below it on narrow screens. The sample and Share snapshot place the author/avatar before the post title. Free-composition snapshots use the shared renderer’s `authorFirst` option; NH6-5 retains its existing question-first layout.
 

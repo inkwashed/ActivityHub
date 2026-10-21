@@ -1,5 +1,8 @@
 # My Blog: Where is it from?
 
+Shared implementation reference: [My Blog engine](../../docs/MY-BLOG-ENGINE.md). Internal variant: ES.
+
+
 Entry: `myblog/NH6-5/index.html` (direct URL only; intentionally unlisted on the homepage during development).
 
 First reusable BlogPost consumer: NEW HORIZON Elementary 6 Unit 5. The optional example post is “This is my cap. It's from Vietnam. Vietnam is in Asia. Vietnam is a nice country.” The question is “Where is it from?” New posts and Reset start with blank inline text fields. Students type an item, country, continent, and description; repeated country blanks stay synchronized. All four sentence frames remain fixed. Native text inputs also accept device-provided handwriting input. The example corresponds to Deepa's lesson text without identifying student posts as Deepa.

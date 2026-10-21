@@ -20,3 +20,5 @@ window.ActivityHubI18n.register({'Reset layout':'配置をリセット','Layout 
 window.ActivityHubI18n.register({'Rotate image':'画像を回転','Could not rotate this image.':'画像を回転できませんでした。'});
 
 window.ActivityHubI18n.register({'Adjust photo crop':'写真の表示位置','Left / right':'左／右','Up / down':'上／下'});
+
+window.ActivityHubI18n.register({'Blog preview':'ブログのプレビュー'});

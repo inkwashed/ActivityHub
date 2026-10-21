@@ -55,3 +55,11 @@
 .design-heading{display:flex;align-items:center;gap:8px}.design-heading h2{flex:1;margin:0}.design-heading .ah-button{flex-shrink:0}
 
 #design-crop h3{font-size:16px;margin:12px 0 0}#design-crop input{width:100%;min-height:44px;accent-color:var(--ah-ink)}
+
+/* JHS Share keeps its controls outside the independently scrolling, natural-height image. */
+.blog-three #share-dialog[open]{display:flex;flex-direction:column;overflow:hidden;max-height:calc(100dvh - 28px)}
+.blog-three #share-dialog>.dialog-heading,.blog-three #share-dialog>#share-status,.blog-three #share-dialog>#download-photo{flex-shrink:0}
+.blog-share-scroll{min-height:0;overflow:auto;overscroll-behavior:contain}
+.blog-three #share-dialog #blog-snapshot{width:100%;height:auto;max-height:none;margin:0}
+.blog-share-scroll:focus-visible{outline:3px solid var(--ah-focus);outline-offset:-3px}
+.blog-three .edition{display:inline}
