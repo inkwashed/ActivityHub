@@ -43,3 +43,5 @@ Handwriting rows now stay 64 CSS pixels tall, matching TYPE guide positions (16/
 Writing controls use accessible pen, eraser, and undo icon buttons beside each sentence heading. Pen/eraser selection stays synchronized across all pads; undo applies only to its sentence.
 
 The Post panel keeps its heading, Show Help toggle, and avatar/TYPE–WRITE row fixed. Only the sentence area scrolls in either mode.
+
+Handwriting autosave waits for two seconds after the last stroke/undo. Starting another stroke cancels the pending save until the pen lifts again. Leaving or hiding the page flushes pending handwriting. The writing area disables native text selection and touch callouts.
