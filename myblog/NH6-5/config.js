@@ -9,6 +9,6 @@ window.WorldBlogConfig={
   {id:'description',label:'Describe the country',maxLength:80,default:''}
  ],
  sentences:['This is my {item}.',"It's from {country}.",'{country} is in {continent}.','{country} is a {description} country.'],
- images:[{id:'cap',src:'cap.svg',alt:'A green cap'}],
- example:{fields:{item:'cap',country:'Vietnam',continent:'Asia',description:'nice'},images:[{id:'cap'}]}
+ images:[],
+ example:{fields:{item:'cap',country:'Vietnam',continent:'Asia',description:'nice'},images:[]}
 };

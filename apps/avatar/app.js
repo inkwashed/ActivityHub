@@ -33,8 +33,8 @@
    const swatch=document.createElement('span');swatch.style.backgroundColor=color;swatch.setAttribute('aria-hidden','true');button.append(swatch);
    button.addEventListener('click',()=>{state[key]=color;update();document.querySelector('#announcement').textContent=`${t(label(key))}: ${t(name)}`});row.append(button);
   });
-  if(key==='eyeColor'||key==='hairColor'){
-   const customLabel=key==='eyeColor'?'Custom eye color':'Custom hair color';
+  if(['eyeColor','hairColor','shirtColor'].includes(key)){
+   const customLabel={eyeColor:'Custom eye color',hairColor:'Custom hair color',shirtColor:'Custom clothing color'}[key];
    const custom=document.createElement('label');custom.className='custom-color';custom.title=t(customLabel);custom.dataset.i18nTitle=customLabel;
    const input=document.createElement('input');input.type='color';input.dataset.customColor=key;input.value=state[key];input.dataset.i18nAriaLabel=customLabel;input.setAttribute('aria-label',t(customLabel));
    const rainbow=document.createElement('span');rainbow.className='custom-color-rainbow';rainbow.setAttribute('aria-hidden','true');custom.append(input,rainbow);row.append(custom);

@@ -1,0 +1,18 @@
+{
+  "name": "My Blog: A Place I Like",
+  "short_name": "My Blog",
+  "start_url": "./",
+  "display": "browser",
+  "icons": [
+    {
+      "src": "../../shared/icons/home-screen-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "../../shared/icons/home-screen-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

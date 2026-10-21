@@ -27,3 +27,5 @@ window.ActivityHubI18n.register({'Worried':'しんぱい'});
 window.ActivityHubI18n.register({'Heart':'ハート'});
 
 window.ActivityHubI18n.register({'Mixed':'ミックス'});
+
+window.ActivityHubI18n.register({'Custom clothing color':'服の色を自由に選ぶ'});
