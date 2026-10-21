@@ -15,8 +15,6 @@
   host.append(notice);
   function labels(){for(const {pen,erase} of toolButtons){pen.setAttribute('aria-pressed',String(!eraser));erase.setAttribute('aria-pressed',String(eraser));}for(const button of host.querySelectorAll('button[data-label]')){button.setAttribute('aria-label',t(button.dataset.label));button.title=t(button.dataset.label);}for(const pad of pads){pad.title.textContent=`${t('Sentence')} ${pad.index+1}`;pad.undo.disabled=!pad.history.length;pad.canvases.forEach((c,i)=>c.setAttribute('aria-label',`${t('Sentence')} ${pad.index+1}, ${t('Writing line')} ${i+1}`));}}
   function selectPad(pad){finish();selected=pad;window.getSelection()?.removeAllRanges();for(const item of pads){const chosen=item===pad;item.section.classList.toggle('is-active',chosen);item.heading.hidden=!chosen;item.select.hidden=chosen;}labels();pads.forEach(redraw);}
-  document.addEventListener('pointerdown',event=>{if(selected&&!selected.section.contains(event.target))selectPad(null);},true);
-  host.addEventListener('keydown',event=>{if(event.key==='Escape'&&selected){const button=selected.select;selectPad(null);button.focus();}});
   function guide(ctx,start,segment,index){
    ctx.strokeStyle='#000';ctx.lineWidth=1;for(const y of [16,57]){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(segment,y);ctx.stroke();}
    ctx.setLineDash([2,2]);ctx.beginPath();ctx.moveTo(0,30);ctx.lineTo(segment,30);ctx.stroke();ctx.setLineDash([]);
@@ -40,8 +38,8 @@
   config.rows.forEach((_,index)=>{
    const section=document.createElement('section');section.className='ink-pad';const heading=document.createElement('div');heading.className='ink-pad-heading';const title=document.createElement('h3'),undo=iconButton('Undo','undo'),toolbar=document.createElement('div');toolbar.className='ink-tools';addTools(toolbar);toolbar.append(undo);heading.append(title,toolbar);section.append(heading);
    const select=document.createElement('button');select.type='button';select.className='ink-select';select.setAttribute('aria-label',`${t('Sentence')} ${index+1}`);select.title=t('Tap a sentence to write.');section.append(select);heading.hidden=true;
-   const done=document.createElement('button');done.type='button';done.className='ah-button';done.textContent=t('Done');toolbar.append(done);
-   const pad={index,title,undo,section,heading,select,canvases:[],history:[]};pads.push(pad);select.onclick=()=>selectPad(pad);done.onclick=()=>{selectPad(null);select.focus();};
+   const done=document.createElement('button');done.type='button';done.className='ah-button ink-done';done.textContent=t('Done');heading.append(done);
+   const pad={index,title,undo,section,heading,select,canvases:[],history:[]};pads.push(pad);select.onclick=()=>{if(!selected)selectPad(pad);};done.onclick=()=>{selectPad(null);select.focus();};
    undo.onclick=()=>{finish();if(pad.history.length){getState().ink[index]=pad.history.pop();scheduleSave();redraw(pad);}};
    for(let i=0;i<2;i++){
     const canvas=document.createElement('canvas');canvas.className='ink-canvas';canvas.setAttribute('role','img');pad.canvases.push(canvas);section.append(canvas);

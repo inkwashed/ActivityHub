@@ -1,6 +1,13 @@
 const {chromium}=require('playwright'),assert=require('node:assert/strict');
 (async()=>{const browser=await chromium.launch({headless:true,...(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{})});try{
 const p=await browser.newPage({viewport:{width:1024,height:768}}),errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto((process.env.BLOG_BASE_URL||'http://127.0.0.1:8776')+'/myblog/NH6-5/');await p.fill('[data-field=item]','my hat');await p.check('#writing-mode');assert.equal(await p.locator('.ink-pad').count(),4);assert.equal(await p.locator('.ink-canvas:visible').count(),4);
+await p.locator('.ink-select').first().click();
+await p.locator('.blog-heading h1').click();
+assert.equal(await p.locator('.ink-pad.is-active').count(),1);
+await p.locator('.ink-select').nth(1).click();
+assert.ok(await p.locator('.ink-pad').first().evaluate(el=>el.classList.contains('is-active')));
+await p.locator('.ink-done').first().click();
+assert.equal(await p.locator('.ink-pad.is-active').count(),0);
 for(const viewport of [{width:1024,height:768},{width:390,height:844},{width:844,height:390}]){
  await p.setViewportSize(viewport);
  const check=await p.evaluate(()=>{
