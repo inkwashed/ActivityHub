@@ -26,3 +26,5 @@ window.ActivityHubI18n.register({'Blog preview':'ブログのプレビュー'});
 window.ActivityHubI18n.register({'Post':'書く','Show Help?':'ヒントを表示','Pick something you like and write about where it is from.':'好きなものを選んで、それがどこから来たのかを書こう。','Sentence 1 beginning':'1文目のはじめ','Sentence 2 beginning':'2文目のはじめ','Country in sentence 2':'2文目の国','Country in sentence 3':'3文目の国','Sentence 3 middle':'3文目のつなぎ','Country in sentence 4':'4文目の国','Sentence 4 middle':'4文目のつなぎ','Sentence 4 ending':'4文目のおわり','My item':'持ち物','Continent':'大陸','Describe the country':'国の特徴'});
 
 window.ActivityHubI18n.register({'TYPE':'入力','WRITE':'手書き','Handwriting mode':'手書きモード','Pen':'ペン','Eraser':'消しゴム','Undo':'元に戻す','Sentence':'文','Writing line':'書く行','Handwriting':'手書き','Sentence strip':'手書きの文','This pad is full. Erase or undo a stroke to keep writing.':'この欄はいっぱいです。線を消すか元に戻してから書いてください。'});
+
+window.ActivityHubI18n.register({'Tap a sentence to write.':'文をタップして書こう。','Done':'完了'});

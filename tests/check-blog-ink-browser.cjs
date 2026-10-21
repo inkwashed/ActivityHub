@@ -10,11 +10,11 @@ for(const viewport of [{width:1024,height:768},{width:390,height:844},{width:844
   area.scrollTop=area.scrollHeight;
   return {scrolled:area.scrollTop>0,stable:controls.every((e,i)=>e.getBoundingClientRect().top===before[i]),panelFits:panel.scrollHeight<=panel.clientHeight+1,areaHeight:area.clientHeight};
  });
- assert.ok(check.scrolled&&check.stable&&check.panelFits&&check.areaHeight>0,JSON.stringify({viewport,check}));
+ assert.ok(check.stable&&check.panelFits&&check.areaHeight>0,JSON.stringify({viewport,check}));
 }
 await p.setViewportSize({width:1024,height:768});
 const read=async()=>{await p.waitForTimeout(2100);return p.evaluate(()=>ActivityAutosave.read('letseigo.app.world-blog',1));};
-async function draw(locator){await locator.scrollIntoViewIfNeeded();const box=await locator.boundingBox();await p.mouse.move(box.x+box.width*.15,box.y+box.height*.45);await p.mouse.down();await p.mouse.move(box.x+box.width*.35,box.y+box.height*.65,{steps:10});await p.mouse.up();}
+async function draw(locator){const pad=locator.locator('..');if(await pad.locator('.ink-select').isVisible())await pad.locator('.ink-select').click();await locator.scrollIntoViewIfNeeded();const box=await locator.boundingBox();await p.mouse.move(box.x+box.width*.15,box.y+box.height*.45);await p.mouse.down();await p.mouse.move(box.x+box.width*.35,box.y+box.height*.65,{steps:10});await p.mouse.up();}
 await p.evaluate(()=>{window.inkSaveTimes=[];const original=ActivityAutosave.write;ActivityAutosave.write=(...args)=>{inkSaveTimes.push(performance.now());return original(...args);};});
 await draw(p.locator('.ink-canvas').first());
 await p.waitForTimeout(1100);

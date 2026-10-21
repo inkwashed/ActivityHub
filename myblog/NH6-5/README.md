@@ -45,3 +45,5 @@ Writing controls use accessible pen, eraser, and undo icon buttons beside each s
 The Post panel keeps its heading, Show Help toggle, and avatar/TYPE–WRITE row fixed. Only the sentence area scrolls in either mode.
 
 Handwriting autosave waits for two seconds after the last stroke/undo. Starting another stroke cancels the pending save until the pen lifts again. Leaving or hiding the page flushes pending handwriting. The writing area disables native text selection and touch callouts.
+
+WRITE pads start unselected with sentence headings/tools hidden. Tap a pad to activate it; only that pad accepts strokes and displays tools plus Done. Done, Escape, or tapping outside deselects it. Inactive pads support scrolling. Active canvases cancel native touch gestures, and WRITE mode suppresses page text selection to avoid iPad selection between strokes.

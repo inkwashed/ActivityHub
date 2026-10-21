@@ -108,3 +108,11 @@
 
 /* Prevent iPad long-press selection between handwriting strokes. */
 #blog-handwriting{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+
+.ink-pad{position:relative}
+.ink-pad-heading[hidden],.ink-select[hidden]{display:none!important}
+.ink-select{position:absolute;inset:0;z-index:1;width:100%;border:0;background:transparent;cursor:pointer;border-radius:4px;touch-action:pan-y}
+.ink-select:focus-visible{outline:2px solid var(--ah-focus);outline-offset:-2px}
+.ink-pad.is-active{box-shadow:inset 3px 0 var(--ah-selected-border)}
+.blog-writing,.blog-writing *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.ink-pad:not(.is-active) .ink-canvas{touch-action:pan-y}
