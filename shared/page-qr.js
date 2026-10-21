@@ -25,7 +25,7 @@
   ctx.restore();return canvas;
  }
  window.PageQR={canvasFor};
- if(!path||!/^\/(?:apps\/[a-z-]+\/)?$/.test(path))return;
+ if(!path||!/^\/(?:(?:apps\/[a-z-]+|myblog\/[A-Za-z0-9-]+)\/)?$/.test(path))return;
  const url='https://letseigo.com'+path;
  const language=document.querySelector('#language'),header=document.querySelector('header');if(!header)return;
  const trigger=document.createElement('button');trigger.type='button';trigger.className='ah-button ah-button-icon page-qr-trigger';trigger.setAttribute('aria-haspopup','dialog');

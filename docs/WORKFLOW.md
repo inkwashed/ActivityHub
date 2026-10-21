@@ -80,7 +80,7 @@ Use checks proportional to the change; do not add tests that merely restate CSS 
 | Applet | Entry point | Behavior checks | Current limitations |
 | --- | --- | --- | --- |
 | ほんの手紙 POST (featured) | `apps/post/index.html` | `node tests/check-post.cjs` | Independent styling by request; English UI with paired Japanese card fonts. Static links contain card text; no server inbox. Physical-device verification outstanding. |
-| My Blog: A Place I Like | `myblog/NH1-5/index.html` | `node tests/check-blog-post.cjs`; Chrome writing/sample/snapshot checks | Junior High Year 1 Unit 5, after Elementary 6; unlisted during development; physical iPad/Safari pending. |
+| My Blog: A Place I Like | `myblog/NH1-5/index.html` | `node tests/check-blog-post.cjs`; Chrome writing/sample/snapshot checks | Junior High Year 1 Unit 5, listed after Elementary 6; physical iPad/Safari pending. |
 | My Blog: Where is it from? | `myblog/NH6-5/index.html` | `node tests/check-blog-post.cjs`; Chrome responsive/state/image checks | NEW HORIZON Elementary 6 Unit 5; intentionally unlisted on homepage during development; local PNG snapshot; physical iPad/Safari review pending. |
 | Profile Pic (prototype) | `apps/avatar/index.html` | Browser: tabs, selections, reset, square PNG preview; shared photo regression checks | User-authored SVG parts; no unit assigned or homepage listing. Physical iPad saving unverified. |
 | Class Supplies | `apps/class-supplies/index.html` | `node tests/check-class-supplies.cjs`; in-app browser landscape/portrait/phone checks | Let’s Try! 2 Unit 5; listed on homepage. Independent LEARN/PLAY, per-type colors, local saves and PNG export. Physical iPad checks pending. |

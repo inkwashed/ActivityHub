@@ -15,3 +15,9 @@ for(const name of ['pizza','parfait','sandwich','avatar','post']){
  const html=fs.readFileSync(`apps/${name}/index.html`,'utf8');assert(html.includes(`data-app-path="/apps/${name}/"`));assert.equal((html.match(/shared\/qr.js/g)||[]).length,1);
 }
 assert(fs.readFileSync('_dev/builder/index.html','utf8').includes('data-demo="true"'));
+for(const path of ['/myblog/NH1-5/','/myblog/NH6-5/']){
+ ctx.document.currentScript.dataset.appPath=path;
+ vm.runInContext(fs.readFileSync('shared/page-qr.js','utf8'),ctx);
+ language.afterNode.listeners.click();
+ const latest=body.children.at(-1);assert.equal(latest.children.find(x=>x.tag==='input').value,'https://letseigo.com'+path);
+}

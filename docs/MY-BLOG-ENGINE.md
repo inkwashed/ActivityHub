@@ -9,7 +9,7 @@ This is the implementation reference for the My Blog family. Project process rem
 | JHS | `myblog/NH1-5/` | Free title/body writing, Write/Photos/Design tabs, read-only Sample, three-column composition, layout-only reset |
 | ES | `myblog/NH6-5/` | Inline sentence frames, synchronized repeated blanks, Post/Photos responsive shell, example and whole-post Reset |
 
-New JHS lessons should follow NH1-5's structure with different prompts and samples. Keep ES-specific behavior intact; its broader standardization is deferred. Both are unlisted during development. There is no separate JHS Lab yet: any future lab must have its own draft ID, remain unlisted, and preserve shared relative paths.
+New JHS lessons should follow NH1-5's structure with different prompts and samples. Keep ES-specific behavior intact; its broader standardization is deferred. NH1-5 is listed under NEW HORIZON 1 on the homepage; NH6-5 remains unlisted. There is no separate JHS Lab yet: any future lab must have its own draft ID, remain unlisted, and preserve shared relative paths.
 
 ## Ownership
 
@@ -71,3 +71,5 @@ The browser check needs Playwright available to Node and a local HTTP server. `B
 Browser checks do not substitute for physical iPad/Safari, onscreen keyboard, handwriting, image-picker, screen-reader or actual browser-zoom testing. Keep those limitations explicit.
 
 Run `node scripts/version-builder-assets.cjs myblog/NH1-5 myblog/NH6-5` after shared asset changes. Publish consumers and shared files together only when requested. Review both variants for shared behavior changes; do not migrate ES to the JHS UI implicitly.
+
+The shared QR button follows Language in both variants. `page-qr.js` accepts `/myblog/<lesson>/` routes and shares only the public lesson URL, never draft contents. Textbook labels use the shared muted color and textbook/unit wording without a school-level suffix.

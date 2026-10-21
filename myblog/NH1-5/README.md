@@ -3,7 +3,7 @@
 Shared implementation reference: [My Blog engine](../../docs/MY-BLOG-ENGINE.md). Internal variant: JHS.
 
 
-Entry: `myblog/NH1-5/index.html`. NEW HORIZON 1 Unit 5 is Junior High Year 1, after NEW HORIZON Elementary 6 in textbook order. This app is intentionally unlisted on the homepage during development. The back button returns to the homepage because no public junior-high section is listed yet.
+Entry: `myblog/NH1-5/index.html`. NEW HORIZON 1 Unit 5 is Junior High Year 1, after NEW HORIZON Elementary 6 in textbook order. Listed on the homepage under NEW HORIZON 1, immediately after NEW HORIZON Elementary 6. The back button returns to that section.
 
 Students write about a place they have visited or want to visit. They supply a title (120 characters) and multiline body (2,000 characters), with no sentence frames or automatic wording. Paragraph breaks survive saving and Share. Photos are optional: zero to three, using the shared upload/remove controls. This lesson has no whole-post Reset button; Reset layout preserves writing and photos.
 

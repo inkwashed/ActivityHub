@@ -2,10 +2,10 @@
 html{height:100%;overflow:hidden}
 body.ah-blog{margin:0;height:100vh;height:100svh;display:grid;grid-template-rows:minmax(0,auto) minmax(0,1fr) auto;overflow:hidden;font:16px var(--ah-font);background:var(--ah-canvas);color:var(--ah-ink)}
 .ah-blog *{box-sizing:border-box}
-.ah-blog header{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:6px 16px;max-height:30svh;overflow:auto;overscroll-behavior:contain}
+.ah-blog header{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:6px 16px;min-height:56px;border-bottom:1px solid var(--ah-divider);max-height:30svh;overflow:auto;overscroll-behavior:contain}
 .ah-blog .brand,.ah-blog .header-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;min-width:0}
-.ah-blog .brand{font-weight:bold}.ah-blog .brand>img{width:30px;height:30px}
-.ah-blog .edition{font-size:14px}.ah-blog button img,.ah-blog a.ah-button img{width:24px;height:24px}
+.ah-blog .brand{font-size:14px;font-weight:900;letter-spacing:1px}.ah-blog .brand>img{width:30px;height:30px}
+.ah-blog .edition{font-size:14px;color:var(--ah-muted);font-weight:normal}.ah-blog button img,.ah-blog a.ah-button img{width:24px;height:24px}
 .blog-workspace{display:grid;grid-template-rows:minmax(0,1fr);min-height:0;padding:10px 16px;gap:8px}
 .blog-switch{display:none;gap:8px}
 .blog-columns{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,40%);gap:16px;min-height:0}
@@ -48,3 +48,9 @@ body.ah-blog{margin:0;height:100vh;height:100svh;display:grid;grid-template-rows
 .blog-free #blog-preview>article{display:flex;flex-direction:column;flex:1;min-height:0}
 .blog-free #blog-preview>article>*{flex-shrink:0}
 .blog-free #blog-preview #blog-body{flex:1 1 160px}
+
+@media(max-width:950px){.ah-blog .edition{font-size:12px}}
+
+.ah-blog .header-actions{justify-content:flex-end;margin-left:auto;max-width:100%}
+@media(max-width:950px){.ah-blog .brand{font-size:12px}}
+@media(max-width:620px){.ah-blog .brand{letter-spacing:.6px}}

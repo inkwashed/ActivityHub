@@ -63,3 +63,10 @@
 .blog-three #share-dialog #blog-snapshot{width:100%;height:auto;max-height:none;margin:0}
 .blog-share-scroll:focus-visible{outline:3px solid var(--ah-focus);outline-offset:-3px}
 .blog-three .edition{display:inline}
+/* JHS navigation is a tab strip, distinct from action buttons. */
+.blog-three .blog-switch{gap:4px;border-bottom:1px solid var(--ah-border);padding:0 4px;align-items:end}
+.blog-three .blog-switch [role=tab]{position:relative;flex:1;border:1px solid transparent;border-bottom:0;border-radius:var(--ah-radius-control) var(--ah-radius-control) 0 0;background:transparent;color:var(--ah-muted);margin-bottom:-1px;min-height:44px;padding:10px 16px;transform:none}
+.blog-three .blog-switch [role=tab][aria-selected=true]{background:var(--ah-surface);border-color:var(--ah-border);color:var(--ah-ink);font-weight:bold;border-bottom:1px solid var(--ah-surface)}
+.blog-three .blog-switch [role=tab][aria-selected=true]::before{content:"";position:absolute;top:0;left:12px;right:12px;height:3px;border-radius:0 0 3px 3px;background:var(--ah-selected-border)}
+@media(hover:hover){.blog-three .blog-switch [role=tab]:not([aria-selected=true]):hover{background:var(--ah-hover);color:var(--ah-ink)}}
+.blog-three .blog-switch [role=tab]:focus-visible{outline-offset:-4px;z-index:1}
