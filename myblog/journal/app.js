@@ -2,8 +2,8 @@
  const $=id=>document.getElementById(id),t=s=>ActivityHubI18n.t(s),catalog=BlogJournalCatalog;
  let selected=0,generation=0,url;
  const ctx=document.createElement('canvas').getContext('2d');ctx.font='26px Arial';
- const draft=entry=>BlogPost.normalize(entry.config,ActivityAutosave.read('letseigo.app.'+entry.config.id,1)||{});
- const hasContent=state=>state.ink?.some(strokes=>strokes.length)||state.images.length>0||Object.values(state.fields).some(value=>value.trim());
+ const draft=entry=>{const state=BlogPost.normalize(entry.config,ActivityAutosave.read('letseigo.app.'+entry.config.id,1)||{});window.ActivityAchievements?.recordBlog(entry.config,state);return state;};
+ const hasContent=state=>state.ink?.some(strokes=>strokes.length)||state.images.length>0||(state.typedRows||Object.values(state.fields)).some(value=>value.trim());
  function portrait(){
   const saved=ActivityAutosave.read('letseigo.app.avatar',1),c=window.AvatarConfig;
   if(!saved?.state||!c||!window.renderAvatar)return '../../shared/icons/profile-default.svg';

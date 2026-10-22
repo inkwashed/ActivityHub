@@ -4,15 +4,13 @@ NEW HORIZON Elementary 6 Unit 5. Entry `myblog/NH6-5/`; unlisted on the homepage
 
 ## ES Post editor
 
-`mode: 'guided'`, `design: true` uses Post/Photos/Design. Photos, Design and Share use the same shell and shared behavior as JHS. Only Post differs: four segmented sentence rows with Show Help? enabled by default. Help shows grey placeholders for standard phrases and faded theme-green placeholders for variable answers in both TYPE and WRITE modes. Entered text and handwriting remain dark. Turning it off hides all placeholders. The same fields remain editable and identically sized in both modes; all typed text survives toggling and reloading. Punctuation stays supplied.
+`mode: 'guided'`, `design: true` uses Post/Photos/Design. Photos, Design and Share use the same shell and shared behavior as JHS. Only Post differs: TYPE has one continuous textarea per sentence, with Show Help? enabled by default. Samples show standard phrases in grey and variable answers in faded theme green. While focused, actual text replaces sample characters from the start, leaving the remaining sample suffix visible. On blur, nonempty sentences show only entered text; empty sentences retain the full sample. Turning help off hides all samples without changing answers. Students enter punctuation themselves. Capitalization, autocorrect, and spellcheck are disabled.
 
-Answer placeholders are my sweater, New Zealand, Oceania and beautiful. They are green hints only: never saved as answers or included in exports. All three country fields are independently editable. Fields allow 80 characters each. Untouched rows do not create written content; partially completed rows display underscores for missing answers in Design/Share. Only typed content contributes to the output; help never supplies words automatically. The computed body produces one movable text block per nonempty row.
-
-`config.rows` lists field IDs per sentence. Fields with `help` provide the guided frame; fields with `placeholder` are answer fields. No automatic country synchronization or correction is performed. Reset layout only resets the arrangement/crop, preserving writing and photos. No whole-post Reset or example-fill button is provided.
+Each sentence allows 320 characters and wraps along the existing 64px writing guides. Enter advances to the next sentence; IME composition is left intact. Help is visual only and never saved or exported. The computed body produces one movable text block per nonempty row.
 
 ## Compatibility
 
-Keep draft ID `world-blog` and version 1. On first migration only, old country values populate the separate country fields to preserve existing writing. A saved `showHelp` flag distinguishes new drafts; subsequent input never copies across fields. Photos receive stable UIDs through the shared normalization path. `fields.body` is derived from the active help mode for the shared designer and journal. Old uploaded photos and answers survive; the obsolete cap placeholder remains discarded.
+Keep draft ID `world-blog` and version 1. `typedRows` stores four complete sentences, and `fields.body` derives from these for Design and Journal. Existing segmented drafts migrate once using their previous rendered sentences, preserving typed text and missing-field underscores. Once `typedRows` exists, clearing a sentence never restores old field data. Legacy fields remain for compatibility; photo and handwriting data stay intact.
 
 The shared profile adapter, QR dialog, photo rotation/cropping, three-image limit, natural-height Share preview, and local PNG download are inherited. No changes to the homepage profile occur.
 
@@ -22,11 +20,7 @@ The shared profile adapter, QR dialog, photo rotation/cropping, three-image limi
 - `node tests/check-blog-es-browser.cjs`: help toggle, preserved inputs/reload, shared tabs/photos/design/export and responsive page bounds. Uses the same Playwright / CHROME_PATH / BLOG_BASE_URL setup as the JHS suite.
 - Physical iPad handwriting, virtual keyboard and Safari checks remain pending.
 
-The first frame is “This is” so students supply their own determiner/possessive with the item. Input fields flex to use available row width, with extra room for the item description; narrow screens wrap fields without horizontal page overflow.
-
 Post uses transparent fields over repeating handwriting guides: black outer rules and dashed midline, with the writing baseline from the theme’s green `--ah-selected-border`. The writing area prefers locally installed Comic Sans MS, then Chalkboard SE/Chalkboard and a cursive fallback, for single-storey letterforms. No proprietary font is bundled; appearance depends on installed fonts. Focus outlines remain visible. JHS and exported typography remain unchanged.
-
-Field widths now follow measured typed text, growing and shrinking during input. Empty fields reserve their help/example width even when hints are hidden. Each field can wrap independently; the period stays with the final field. Width is capped to the row so very long single-field text scrolls inside its input.
 
 ## TYPE / WRITE
 
@@ -47,3 +41,13 @@ The Post panel keeps its heading, Show Help toggle, and avatar/TYPE–WRITE row 
 Handwriting autosave waits for two seconds after the last stroke/undo. Starting another stroke cancels the pending save until the pen lifts again. Leaving or hiding the page flushes pending handwriting. The writing area disables native text selection and touch callouts.
 
 WRITE pads start unselected with sentence headings/tools hidden. Tap a pad to activate it; only that pad accepts strokes and displays tools plus Done. Selection stays locked until Done is pressed (or the user leaves WRITE mode); outside taps and taps on other sentences do not switch or close it. Pen, eraser, and undo sit beside the sentence title; Done stays at the right. A small inset separates content from the selection border. Inactive pads support scrolling. Active canvases cancel native touch gestures, and WRITE mode suppresses page text selection to avoid iPad selection between strokes.
+
+Country hints use the editable starter countryNames list in config and fields marked country: true. A recognized country followed by whitespace or punctuation aligns the sample suffix to the next phrase without inserting any text. Matching is case-insensitive and supports multiword names/aliases. With Show Help on, an unrecognized completed name gets a muted squiggle; partial matches (such as “New ”) wait. The list is classroom vocabulary, not an exhaustive country or spelling authority. Hints never affect saved/exported answers.
+
+Variable sample words now yield to original vocabulary: a differing in-progress word suppresses only that sample word, preserving the following space and words. A typed space consumes that separator and advances to the next sample word. Matching prefixes retain their remaining letters. Country alignment and squiggles are preserved; only the visible hint changes.
+
+With Show Help on, completed misspelled standard words receive the same muted squiggle. In-progress words wait until a separator or blur. Comparison ignores capitalization and accepts curly apostrophes. Country boundaries anchor following phrases; unconstrained item/description words are not spellchecked.
+
+Country and continent sample words use the same mismatch skipping as other variables. The configurable continentNames list checks the continent after “is in”; unknown completed names get a squiggle, while partial multiword names wait. This validates names only, not country–continent associations.
+
+Recognized country/continent names use a double underline on lowercase letters that should be capitalized according to their configured spelling (including initials in multiword names and acronyms). Lowercase articles such as “the” remain allowed. This visual hint follows Show Help and is never exported.

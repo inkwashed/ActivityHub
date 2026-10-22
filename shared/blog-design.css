@@ -117,3 +117,17 @@
 .ink-done{margin-inline-start:auto}
 .blog-writing,.blog-writing *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .ink-pad:not(.is-active) .ink-canvas{touch-action:pan-y}
+
+/* A real sentence field above a non-editable, character-by-character sample. */
+.blog-guided #blog-sentences p.sentence-editor{display:block;position:relative}
+.sentence-editor .sentence-input,.sentence-editor .sentence-ghost{box-sizing:border-box;width:100%;margin:0;padding:0 2px;border:0;font:inherit;line-height:64px;letter-spacing:normal;white-space:pre-wrap;overflow-wrap:break-word;word-break:normal}
+.sentence-editor .sentence-input{display:block;position:relative;z-index:1;resize:none;min-height:64px;background:transparent;color:#000;overflow:hidden;border-radius:0}
+.sentence-editor .sentence-ghost{position:absolute;inset:0 0 auto;pointer-events:none}
+.sentence-entered{color:transparent}
+.sample-frame{color:var(--ah-muted);opacity:.65}
+.sample-variable{color:var(--ah-selected-border);opacity:.65}
+.sentence-editor .sentence-input:focus-visible{outline:2px solid var(--ah-focus);outline-offset:-2px}
+
+.country-unrecognized,.phrase-unrecognized{text-decoration-line:underline;text-decoration-style:wavy;text-decoration-color:var(--ah-muted);text-decoration-thickness:1.5px;text-underline-offset:4px}
+
+.name-capitalization{text-decoration-line:underline;text-decoration-style:double;text-decoration-color:var(--ah-muted);text-decoration-thickness:1px;text-underline-offset:4px}

@@ -17,3 +17,5 @@ Shared engine reference: [MY-BLOG-ENGINE.md](../../docs/MY-BLOG-ENGINE.md). Keep
 Browser check: `node tests/check-blog-journal-browser.cjs` with Playwright, optional `CHROME_PATH`, and `BLOG_BASE_URL` (default http://127.0.0.1:8776). Checks blank pages, seeded drafts, order, navigation, refreshed data, layouts, source preservation and viewport overflow. Physical iPad/Safari checks remain pending.
 
 Contents use left-aligned checked-circle indicators: muted for blank pages and green filled for written pages. Accessible button names retain the textual status.
+
+Opening Journal now checks its existing drafts for permanent writing-achievement credit using the shared rules in `docs/MY-BLOG-ENGINE.md`. This writes only the separate achievement ledger; draft content remains read-only.

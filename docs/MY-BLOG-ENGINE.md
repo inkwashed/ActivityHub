@@ -82,8 +82,16 @@ JHS consumer NH2-4 (Welcome to Japan) follows NH1-5 with a separate draft ID, a 
 
 JHS photo progress/errors stay in Photos; successful uploads clear their progress message. The shared action footer has no routine status text. A save failure remains an explicit global alert until a successful save.
 
-ES guided mode uses configurable rows of field IDs, `help` placeholder text for sentence frames and `placeholder` examples for answers. `showHelp` defaults true and persists; authored frame text remains stored separately. Help only changes placeholder visibility, never field sizing or output. The typed sentence output derives `fields.body` for Design and Journal. Old repeated-country data migrates once; new answer fields never synchronize. See NH6-5 README and `tests/check-blog-es-browser.cjs`.
+ES guided mode uses configurable sample rows with grey standard phrases and green variable hints. TYPE uses one textarea per sentence, stored in validated `typedRows`; legacy segmented drafts migrate to complete strings. Focused sentences show the untyped sample suffix, which disappears on blur for nonempty answers. Help never contributes to saved/exported text. `fields.body` derives from typed rows for Design and Journal. See NH6-5 README and `tests/check-blog-es-browser.cjs`.
 
 ## ES handwriting
 
 `shared/blog-ink.js` owns bounded stroke validation, pad input and rendering. Load it before BlogPost wherever guided configurations are normalized, including Journal. Guided state has separate `ink` and `inkLayout` data plus an `inputMode` defaulting to type. The shared layout planner accepts an optional ink array and produces `ink:<sentence-index>` blocks; Design and Snapshot use the same stroke renderer. Typed and handwritten layouts are preserved independently. Journal checks strokes when determining written status and renders the active mode. No recognition or external service is used. See NH6-5 README for responsive line mapping, limits and device caveats.
+
+## Writing achievements
+
+Load `shared/achievements.js` before BlogPost. On draft restore and persistence, BlogPost checks JHS body text for at least 100 non-whitespace Unicode characters (title excluded), or every ES configured sentence row for at least one nonblank typed field OR a valid handwriting stroke. Input modes may be mixed; help, images and design are irrelevant. Journal also checks its catalogued drafts when opened. Existing work receives credit when its lesson or Journal is opened.
+
+`letseigo.achievements` version 1 stores completion booleans by stable lesson ID separately from drafts. Each lesson counts once forever within this browser storage; erasing or deleting a draft cannot revoke credit. Ranks derive from the growing completed set: green 1, bronze 5, silver 10, gold 15, diamond 20. There are currently only three distinct lessons; higher ranks require future lessons. Clearing site data still clears the ledger. No account or cloud synchronization is introduced. New lessons must use unique permanent IDs and include the shared script. Failed ledger writes do not announce success and are retried on later saves/opens.
+
+Checks: `node tests/check-achievements.cjs` and `node tests/check-achievements-browser.cjs` (same browser environment as the other suites). Browser coverage includes real typed completion, deletion/reload, ES row attempts, profile details, rank rendering, Japanese and narrow layout; pure checks additionally cover mixed handwriting/typing and all thresholds. Physical iPad/Safari verification remains outstanding.

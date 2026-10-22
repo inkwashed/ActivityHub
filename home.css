@@ -46,3 +46,12 @@
 /* A closer portrait crop in both homepage profile previews. */
 #home-profile-picture>svg,#home-profile-picture>img,
 #profile-selfie>svg,#profile-selfie>img{transform:scale(1.1);transform-origin:center top}
+
+.profile-badges {margin:20px 0;}
+.profile-badges h3 {font-size:1rem;margin:0 0 8px;}
+.profile-badge-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:12px;}
+.profile-badge {display:grid;place-items:center;justify-self:center;width:44px;height:44px;padding:7px;border:0;background:transparent;box-shadow:none;color:inherit;cursor:pointer;}
+.profile-badge img {display:block;width:30px;height:30px;}
+.profile-badge:focus-visible {outline:3px solid var(--ah-focus);outline-offset:2px;border-radius:4px;}
+.badge-detail p {margin:6px 0 0;}
+.badge-detail {background:var(--ah-secondary);border:1px solid var(--ah-divider);border-radius:var(--ah-control-radius,12px);padding:12px;line-height:1.5;}

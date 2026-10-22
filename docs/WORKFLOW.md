@@ -318,3 +318,9 @@ NH1-5 opts into the three-step blog designer with `design: true`. Shared `blog-l
 ## My Blog engine reference
 
 Use [MY-BLOG-ENGINE.md](MY-BLOG-ENGINE.md) for the JHS/ES variant contracts, ownership, configuration, persistence and current checks. JHS uses NH1-5 as its reference; ES retains NH6-5-specific behavior pending a separate review.
+
+## Local achievements and app visits
+
+Writing completion rules and ledger ownership live in `MY-BLOG-ENGINE.md`; Profile presentation lives in the style guide. Shared achievement state is independent of app drafts, and future award families should extend that shared system rather than store badges inside app saves.
+
+`shared/app-usage.js` counts local app visits for future practice levels. All current `apps/*` and `myblog/*` entry pages load it with a stable `data-app-id`; the homepage and development Lab do not count. Add it to new student applets. `letseigo.usage` version 1 stores each app's visit count and most recent counted visit timestamp, with a 30-minute per-app cooldown to avoid counting reloads and quick returns. It measures access, not engagement time or completed learning, and has no visible level UI yet. Counts stay in this browser and fail harmlessly if storage is unavailable. They are not analytics sent to a server. Shared browser users share counts; clearing site data removes them. Tests live in `tests/check-achievements.cjs`.

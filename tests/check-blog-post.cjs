@@ -38,3 +38,59 @@ const noHelp=b.normalize(c,{showHelp:false,fields:{start:'Here is my',item:'hat'
 console.log('PASS ES placeholders are not answers, independent countries, help persistence and authored frames.');
 
 const helped=b.normalize(c,{showHelp:true,fields:{item:'a toy'}});const unhelped=b.normalize(c,{...helped,showHelp:false});assert.equal(b.sentences(c,helped)[0],'________ a toy.');assert.equal(b.sentences(c,helped).join('\n'),b.sentences(c,unhelped).join('\n'));
+
+const continuous=b.normalize(c,{typedRows:['This is my hat.', '', 'x'.repeat(400), 42]});
+assert.equal(continuous.fields.body.split('\n')[0],'This is my hat.');
+assert.equal(continuous.typedRows[2].length,320);
+assert.equal(continuous.typedRows[3],'');
+assert.equal(b.normalize(c,{...continuous,typedRows:['','','','']}).fields.body,'\n\n\n');
+
+const countryRow=c.rows[2];
+assert.equal(b.countryHint(c,countryRow,'Japan ').consumed,'New Zealand '.length);
+assert.equal(b.countryHint(c,countryRow,'Japan is ').consumed,'New Zealand is '.length);
+assert.ok(!b.countryHint(c,countryRow,'New ').warning);
+assert.ok(b.countryHint(c,countryRow,'Jappan ').warning);
+assert.ok(b.countryHint(c,countryRow,'Jappan',true).warning);
+assert.ok(!b.countryHint(c,countryRow,'the United States ').warning);
+assert.equal(b.countryHint(c,c.rows[1],"It's from Japan.").consumed,"It's from New Zealand.".length);
+
+for(const ending of [" is", " is in ", " is in Oceania."]){
+ const hint=b.countryHint(c,countryRow,"New Hampshire"+ending);
+ assert.equal(hint.consumed,"New Zealand".length+ending.length);
+ assert.equal(hint.warning.end,"New Hampshire".length);
+}
+assert.equal(b.countryHint(c,c.rows[1],"It\'s from New Hampshire.").consumed,"It\'s from New Zealand.".length);
+
+const wordSample=[{text:'This is ',variable:false},{text:'my sweater.',variable:true}];
+const suffix=text=>wordSample.map(x=>x.text).join('').slice(b.wordHint(wordSample,text).consumed);
+assert.equal(suffix('This is a'),' sweater.');
+assert.equal(suffix('This is an'),' sweater.');
+assert.equal(suffix('This is a '),'sweater.');
+assert.equal(suffix('This is a h'),'');
+assert.equal(suffix('This is a hat.'),'');
+assert.equal(suffix('This is my sw'),'eater.');
+assert.equal(suffix('This is my '),'sweater.');
+
+assert.equal(b.phraseWarnings(c,c.rows[0],'Thes is a hat.')[0].end,4);
+assert.equal(b.phraseWarnings(c,c.rows[0],'Thi').length,0);
+assert.equal(b.phraseWarnings(c,c.rows[0],'Thi',true).length,1);
+assert.equal(b.phraseWarnings(c,c.rows[0],'This is a Paddington Bear toy.').length,0);
+assert.equal(b.phraseWarnings(c,c.rows[2],'Japan iz in Asia.')[0].start,6);
+assert.equal(b.phraseWarnings(c,c.rows[3],'New Zealand is a very beautiful country.').length,0);
+assert.equal(b.phraseWarnings(c,c.rows[1],"It’s from Japan.").length,0);
+
+const geographySample=[{text:'New Zealand',variable:true},{text:' is in',variable:false},{text:' Oceania.',variable:true}];
+assert.equal(geographySample.map(p=>p.text).join('').slice(b.wordHint(geographySample,'New Y').consumed),' is in Oceania.');
+assert.equal(geographySample.map(p=>p.text).join('').slice(b.wordHint(geographySample,'New Zealand is in A').consumed),'');
+assert.ok(!b.continentHint(c,c.rows[2],'Japan is in Asia.').warning);
+assert.ok(!b.continentHint(c,c.rows[2],'Japan is in North ').warning);
+assert.ok(!b.continentHint(c,c.rows[2],'Japan is in South America.').warning);
+assert.ok(b.continentHint(c,c.rows[2],'Japan is in Asai.').warning);
+assert.ok(b.continentHint(c,c.rows[2],'Japan is in Asai',true).warning);
+assert.ok(!b.continentHint(c,c.rows[2],'Japan is in A').warning);
+
+assert.equal(b.capitalizationWarnings(c,c.rows[2],'new zealand is in north america.').map(w=>w.start).join(','),'0,4,18,24');
+assert.equal(b.capitalizationWarnings(c,c.rows[2],'New Zealand is in North America.').length,0);
+assert.equal(b.capitalizationWarnings(c,c.rows[2],'the United States is in Asia.').length,0);
+assert.equal(b.capitalizationWarnings(c,c.rows[2],'usa is in asia.').length,4);
+assert.equal(b.capitalizationWarnings(c,c.rows[2],'jappan is in Asai.').length,0);
