@@ -77,3 +77,7 @@ Happy uses eyes-happy.svg at its supplied placement. Path3 is hair-colored brows
 Heart and Starry use eyes-heart.svg and eyes-starry.svg at their supplied placement. Preserve pink hearts and gold stars independently of the iris picker. Hidden original iris paths are omitted from embedded artwork. Path47 is hair-colored brows, path57 optional lashes, and path46 skin-toned creases.
 
 Mixed is a paired preset with picture-left Cheerful and picture-right Worried. Nested SVG viewports preserve each source expression’s positioning, including the Worried offset. Brows, creases and optional lashes follow the shared settings.
+
+Pointed-collar shirt uses clothes-pointed-collar.svg. Preserve its group transform and bottom overhang. Base #edf0f4 and shadow #c5cfdd follow clothing color; dark outlines/buttons remain fixed.
+
+Rounded-collar shirt uses clothes-rounded-collar.svg. Both collared shirts retain their source placement/overhang and share the clothing palette. Derived artwork overlays the first two closed subpaths of path4 in outline-dark #141d30 for the inner collar behind the neck; originals stay unchanged.

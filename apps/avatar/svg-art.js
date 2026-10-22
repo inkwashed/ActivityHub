@@ -26,8 +26,8 @@
   if(key==='hairBack')return s.hair==='longBangs'?recolor(parts.hairLongBangsBack,'#503529',s.hairColor,['#503529','#2f1a13','#8e6750']):'';
   if(key==='accessories')return ''; // Reserved above front hair for future accessories.
 
-  let art=parts[key==='eyes'?({angry:'eyesAngry',worried:'eyesWorried',sleepy:'eyesSleepy',happy:'eyesHappy',heart:'eyesHeart',starry:'eyesStarry'}[s.eyes]||'eyes'):key==='nose'?({tinyWedge:'noseTinyWedge',softHook:'noseSoftHook',largerArch:'noseLargerArch',buttonCurve:'noseButtonCurve'}[s.nose]||'nose'):key==='mouth'?({teethSmile:'mouthTeethSmile',closedSmile:'mouthClosedSmile',frown:'mouthFrown',smirk:'mouthSmirk',surprisedO:'mouthSurprisedO',neutral:'mouthNeutral'}[s.mouth]||'mouth'):key==='face'?({slim:'faceSlim',round:'faceRound'}[s.face]||'face'):key==='hair'?({curly:'hairCurly',centerPart:'hairCenterPart',longBangs:'hairLongBangsFront'}[s.hair]||'hair'):key];
-  if(key==='clothes')art=recolor(art,'#5d9698',s.shirtColor,['#5d9698','#467577']);
+  let art=parts[key==='clothes'?({pointedCollar:'clothesPointedCollar',roundedCollar:'clothesRoundedCollar'}[s.clothes]||'clothes'):key==='eyes'?({angry:'eyesAngry',worried:'eyesWorried',sleepy:'eyesSleepy',happy:'eyesHappy',heart:'eyesHeart',starry:'eyesStarry'}[s.eyes]||'eyes'):key==='nose'?({tinyWedge:'noseTinyWedge',softHook:'noseSoftHook',largerArch:'noseLargerArch',buttonCurve:'noseButtonCurve'}[s.nose]||'nose'):key==='mouth'?({teethSmile:'mouthTeethSmile',closedSmile:'mouthClosedSmile',frown:'mouthFrown',smirk:'mouthSmirk',surprisedO:'mouthSurprisedO',neutral:'mouthNeutral'}[s.mouth]||'mouth'):key==='face'?({slim:'faceSlim',round:'faceRound'}[s.face]||'face'):key==='hair'?({curly:'hairCurly',centerPart:'hairCenterPart',longBangs:'hairLongBangsFront'}[s.hair]||'hair'):key];
+  if(key==='clothes')art=['pointedCollar','roundedCollar'].includes(s.clothes)?recolor(art,'#edf0f4',s.shirtColor,['#edf0f4','#c5cfdd']):recolor(art,'#5d9698',s.shirtColor,['#5d9698','#467577']);
   if(key==='face'){
    if(neutralSkinTones.has(s.skin)){
     const palette={'#f8cfa9':s.skin,'#efac85':shadeSkin(s.skin,.85),'#af755b':shadeSkin(s.skin,.63)};

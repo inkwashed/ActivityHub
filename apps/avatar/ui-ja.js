@@ -29,3 +29,7 @@ window.ActivityHubI18n.register({'Heart':'ハート'});
 window.ActivityHubI18n.register({'Mixed':'ミックス'});
 
 window.ActivityHubI18n.register({'Custom clothing color':'服の色を自由に選ぶ'});
+
+window.ActivityHubI18n.register({'Pointed-collar shirt':'えり付きシャツ'});
+
+window.ActivityHubI18n.register({'Rounded-collar shirt':'丸えりシャツ'});
