@@ -9,7 +9,7 @@ This is the implementation reference for the My Blog family. Project process rem
 | JHS | `myblog/NH1-5/` | Free title/body writing, Write/Photos/Design tabs, read-only Sample, three-column composition, layout-only reset |
 | ES | `myblog/NH6-5/` | Guided or independent sentence-frame writing, independent answers, Post/Photos/Design and layout-only reset |
 
-New JHS lessons should follow NH1-5's structure with different prompts and samples. ES shares Photos/Design/Share with JHS while keeping its guided Post editor. NH1-5 is listed under NEW HORIZON 1 on the homepage; NH6-5 remains unlisted. There is no separate JHS Lab yet: any future lab must have its own draft ID, remain unlisted, and preserve shared relative paths.
+New JHS lessons should follow NH1-5's structure with different prompts and samples. ES shares Photos/Design/Share with JHS while keeping its guided Post editor. NH1-5 is listed under NEW HORIZON 1 on the homepage; NH6-5 is listed under NEW HORIZON Elementary 6. There is no separate JHS Lab yet: any future lab must have its own draft ID, remain unlisted, and preserve shared relative paths.
 
 ## Ownership
 

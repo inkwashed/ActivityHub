@@ -1,6 +1,6 @@
 # My Blog: Where is it from?
 
-NEW HORIZON Elementary 6 Unit 5. Entry `myblog/NH6-5/`; unlisted on the homepage. Shared implementation reference: [My Blog engine](../../docs/MY-BLOG-ENGINE.md).
+NEW HORIZON Elementary 6 Unit 5. Entry `myblog/NH6-5/`; listed under NEW HORIZON Elementary 6 on the homepage. Shared implementation reference: [My Blog engine](../../docs/MY-BLOG-ENGINE.md).
 
 ## ES Post editor
 

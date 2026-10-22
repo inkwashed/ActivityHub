@@ -121,7 +121,7 @@
 /* A real sentence field above a non-editable, character-by-character sample. */
 .blog-guided #blog-sentences p.sentence-editor{display:block;position:relative}
 .sentence-editor .sentence-input,.sentence-editor .sentence-ghost{box-sizing:border-box;width:100%;margin:0;padding:0 2px;border:0;font:inherit;line-height:64px;letter-spacing:normal;white-space:pre-wrap;overflow-wrap:break-word;word-break:normal}
-.sentence-editor .sentence-input{display:block;position:relative;z-index:1;resize:none;min-height:64px;background:transparent;color:#000;overflow:hidden;border-radius:0}
+.sentence-editor .sentence-input{display:block;position:relative;z-index:1;resize:none;min-height:64px;background:transparent;color:#000;overflow:hidden;border-radius:var(--ah-radius-control)}
 .sentence-editor .sentence-ghost{position:absolute;inset:0 0 auto;pointer-events:none}
 .sentence-entered{color:transparent}
 .sample-frame{color:var(--ah-muted);opacity:.65}

@@ -39,3 +39,5 @@ window.ActivityHubI18n.register({'Write your blog':'ブログを書く','Write a
 window.ActivityHubI18n.register({'Give advice to students coming to Japan for a homestay. Write your post, add photos, and arrange your blog.':'日本へホームステイに来る生徒にアドバイスしよう。文章を書き、写真を追加して、ブログを作ろう。'});
 
 window.ActivityHubI18n.register({'Unit 4':'Unit 4'});
+
+window.ActivityHubI18n.register({'Pick something you like and write about where it is from. Type or handwrite your sentences, add photos, and arrange your blog.':'好きなものを選んで、どこから来たのかを書こう。文字入力や手書きで文を書き、写真を追加してブログを作ろう。','2 activities':'2つのアクティビティ'});
