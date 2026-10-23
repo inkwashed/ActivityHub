@@ -116,6 +116,9 @@
       this.refreshVoices();
     }
     stop() {
+      this.sequenceRequest=(this.sequenceRequest||0)+1;
+      for(const source of this.sequenceSources||[]){try{source.stop();}catch{}}
+      this.sequenceSources=[];
       if (this.audio) {
         const audio = this.audio;
         this.audio = null;
@@ -133,8 +136,54 @@
       if (!window.Audio) return null;
       return window.ActivityHubAudio?.resolveSequence?.(text) || window.ActivityHubAudio?.resolve(text);
     }
+    async playJoined(urls, text, status) {
+      this.stop();
+      const request=this.sequenceRequest;
+      try {
+        const Context=window.AudioContext||window.webkitAudioContext;
+        this.audioContext ||= new Context();
+        // Resume during the original tap, before waiting for downloads.
+        const resumed=this.audioContext.resume();
+        this.decodedClips ||= new Map();
+        const buffers=await Promise.all(urls.map(url=>{
+          if(!this.decodedClips.has(url)){
+            const pending=window.fetch(url).then(response=>{
+              if(!response.ok)throw new Error('Audio download failed');
+              return response.arrayBuffer();
+            }).then(bytes=>this.audioContext.decodeAudioData(bytes));
+            this.decodedClips.set(url,pending);
+            pending.catch(()=>this.decodedClips.delete(url));
+            if(this.decodedClips.size>64)this.decodedClips.delete(this.decodedClips.keys().next().value);
+          }
+          return this.decodedClips.get(url);
+        }));
+        await resumed;
+        if(request!==this.sequenceRequest)return;
+        let when=this.audioContext.currentTime+.04;
+        buffers.forEach(buffer=>{
+          // Skip quiet synthesis/MP3 tails below -60 dB, retaining 60 ms around speech.
+          // Approved recordings themselves are never modified.
+          const data=buffer.getChannelData(0),margin=Math.ceil(buffer.sampleRate*.06);
+          let first=0,last=data.length-1;
+          while(first<last&&Math.abs(data[first])<.001)first++;
+          while(last>first&&Math.abs(data[last])<.001)last--;
+          const start=Math.max(0,first-margin)/buffer.sampleRate;
+          const end=Math.min(data.length,last+margin+1)/buffer.sampleRate;
+          const source=this.audioContext.createBufferSource();source.buffer=buffer;
+          source.connect(this.audioContext.destination);
+          this.sequenceSources.push(source);
+          source.onended=()=>{source.disconnect();this.sequenceSources=this.sequenceSources.filter(s=>s!==source)};
+          source.start(when,start,end-start);when+=end-start;
+        });
+      }catch(error){
+        if(request===this.sequenceRequest)this.speak(text,status,true);
+      }
+    }
     speak(text, status = this.status, browserOnly = false) {
       const url = !browserOnly && this.recording(text);
+      if(Array.isArray(url)&&url.length>1&&window.fetch&&(window.AudioContext||window.webkitAudioContext)&&window.location?.protocol!=='file:'){
+        this.playJoined(url,text,status);return;
+      }
       if (url) {
         this.stop();
         let audio;

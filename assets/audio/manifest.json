@@ -13,11 +13,24 @@
     "phonemes": [
       "lˈɪsᵊn: ælfɹˈɛdO sˈɔs."
     ],
-    "seconds": 1.942,
-    "mp3Bytes": 16172,
+    "seconds": 1.398,
+    "mp3Bytes": 11948,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "b551c12a4c3494172b5ff95cbf156eb401ca2b460095532add0cb141637dd8ec"
+    "sha256": "b784abcdf77b652eef9f801a9167413641e1cfbe99e0f9ea7bc3f64b1e9552ba",
+    "boundaryTrim": {
+      "id": "alfredo-sauce",
+      "originalSeconds": 1.9425,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.5445,
+      "changed": true,
+      "originalSha256": "b551c12a4c3494172b5ff95cbf156eb401ca2b460095532add0cb141637dd8ec",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "apple",
@@ -33,11 +46,24 @@
     "phonemes": [
       "lˈɪsᵊn: ˈæpᵊl."
     ],
-    "seconds": 1.405,
-    "mp3Bytes": 11948,
+    "seconds": 0.748,
+    "mp3Bytes": 6764,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "d3f0971f03cf05eff9632597d3f6f3300ece73054855fa857f91aceb546881c9"
+    "sha256": "52fc30d361b9a4963bc02f29e6516be5cc94057844bbe6c284745b4d4de261fb",
+    "boundaryTrim": {
+      "id": "apple",
+      "originalSeconds": 1.405,
+      "startRemovedSeconds": 0.083,
+      "endRemovedSeconds": 0.5741666666666667,
+      "changed": true,
+      "originalSha256": "d3f0971f03cf05eff9632597d3f6f3300ece73054855fa857f91aceb546881c9",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "apples",
@@ -53,11 +79,24 @@
     "phonemes": [
       "lˈɪsᵊn: ˈæpᵊlz."
     ],
-    "seconds": 1.505,
-    "mp3Bytes": 12716,
+    "seconds": 0.823,
+    "mp3Bytes": 7340,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "00b49a441675f0c9ca2062843740bac398ef91bdd8f45056cea426b1e2910aba"
+    "sha256": "ce17ff093b3df1363be052c053c9203660640e846243edc0cfda757eb75ecd94",
+    "boundaryTrim": {
+      "id": "apples",
+      "originalSeconds": 1.505,
+      "startRemovedSeconds": 0.09608333333333334,
+      "endRemovedSeconds": 0.5860416666666667,
+      "changed": true,
+      "originalSha256": "00b49a441675f0c9ca2062843740bac398ef91bdd8f45056cea426b1e2910aba",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "banana",
@@ -73,11 +112,24 @@
     "phonemes": [
       "lˈɪsᵊn: bʌnˈænə."
     ],
-    "seconds": 1.542,
-    "mp3Bytes": 13100,
+    "seconds": 0.93,
+    "mp3Bytes": 8108,
     "review": "approved by user",
     "sourceBatch": "banana-pronunciation-01",
-    "sha256": "7f5b48db559ed139127be4000e734b605298a47be7ed51dce40eec439b17ca22"
+    "sha256": "0d0af9ea1b9ea77bf625216356b53afb264c909479e12239b2ebf46ca4aed2c3",
+    "boundaryTrim": {
+      "id": "banana",
+      "originalSeconds": 1.5425,
+      "startRemovedSeconds": 0.080125,
+      "endRemovedSeconds": 0.5324166666666666,
+      "changed": true,
+      "originalSha256": "7f5b48db559ed139127be4000e734b605298a47be7ed51dce40eec439b17ca22",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "bananas",
@@ -93,11 +145,24 @@
     "phonemes": [
       "lˈɪsᵊn: bʌnˈænəz."
     ],
-    "seconds": 1.617,
-    "mp3Bytes": 13676,
+    "seconds": 0.952,
+    "mp3Bytes": 8300,
     "review": "approved by user",
     "sourceBatch": "banana-pronunciation-01",
-    "sha256": "6c51e5b465e94583b48fd05381dae52c612667cc76b886a4a5db82b86ac01204"
+    "sha256": "fd3eda5b682b3356f13d665b2a711db8468560bab9da61bfd41c39e7c6d4fab7",
+    "boundaryTrim": {
+      "id": "bananas",
+      "originalSeconds": 1.6175,
+      "startRemovedSeconds": 0.08,
+      "endRemovedSeconds": 0.5859166666666666,
+      "changed": true,
+      "originalSha256": "6c51e5b465e94583b48fd05381dae52c612667cc76b886a4a5db82b86ac01204",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "bbq-sauce",
@@ -113,11 +178,24 @@
     "phonemes": [
       "lˈɪsᵊn: bˈɑɹbəkjˌu sˈɔs."
     ],
-    "seconds": 1.992,
-    "mp3Bytes": 16748,
+    "seconds": 1.45,
+    "mp3Bytes": 12332,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "e226af6ed2a12db52fd2590e5b834ee1f8578cc2338fd458906f4e8b6172db12"
+    "sha256": "9a070d6754b1c33cae1bb3c17c45b67ea9b0da71a25c9ca3a714749d0d148a00",
+    "boundaryTrim": {
+      "id": "bbq-sauce",
+      "originalSeconds": 1.9939583333333333,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.5441666666666667,
+      "changed": true,
+      "originalSha256": "e226af6ed2a12db52fd2590e5b834ee1f8578cc2338fd458906f4e8b6172db12",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "caramel",
@@ -133,11 +211,24 @@
     "phonemes": [
       "lˈɪsᵊn: kˈɑɹməl."
     ],
-    "seconds": 1.442,
-    "mp3Bytes": 12332,
+    "seconds": 0.81,
+    "mp3Bytes": 7148,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "2e0e64f7d9010de05e413306eec94ac6330dd8099dc06bb19acd01a41629ac35"
+    "sha256": "91170a87dd652e6339de21d6e831b1d5fee7a11bdb13a37b534c1b24a208a88f",
+    "boundaryTrim": {
+      "id": "caramel",
+      "originalSeconds": 1.4425,
+      "startRemovedSeconds": 0.09695833333333333,
+      "endRemovedSeconds": 0.535125,
+      "changed": true,
+      "originalSha256": "2e0e64f7d9010de05e413306eec94ac6330dd8099dc06bb19acd01a41629ac35",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "caramel-syrup",
@@ -153,11 +244,24 @@
     "phonemes": [
       "lˈɪsᵊn: kˈɑɹməl sˈɪɹəp."
     ],
-    "seconds": 1.893,
-    "mp3Bytes": 15788,
+    "seconds": 1.389,
+    "mp3Bytes": 11756,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "995a11386f3ba7d14a7bfe4662f81b8e820c955c0990935f7a79b335b0ab3edc"
+    "sha256": "8a307fb627c3b1c9023b21c73541e82335ad3cc86633a69fcf4afabf608124df",
+    "boundaryTrim": {
+      "id": "caramel-syrup",
+      "originalSeconds": 1.8925,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.5037083333333333,
+      "changed": true,
+      "originalSha256": "995a11386f3ba7d14a7bfe4662f81b8e820c955c0990935f7a79b335b0ab3edc",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "cheese",
@@ -173,11 +277,24 @@
     "phonemes": [
       "lˈɪsᵊn: ʧˈiz."
     ],
-    "seconds": 1.468,
-    "mp3Bytes": 12524,
+    "seconds": 0.762,
+    "mp3Bytes": 6764,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "460ada9daa99e347db7fc8ef65c1c40f33c8786dba0c2921c6a6f92433baed45"
+    "sha256": "ca84343d59dcb71b183ac283cc6f3a8b904d9165aae08f5b16a55728702ec5d1",
+    "boundaryTrim": {
+      "id": "cheese",
+      "originalSeconds": 1.4675,
+      "startRemovedSeconds": 0.081625,
+      "endRemovedSeconds": 0.623625,
+      "changed": true,
+      "originalSha256": "460ada9daa99e347db7fc8ef65c1c40f33c8786dba0c2921c6a6f92433baed45",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "cherries",
@@ -193,11 +310,24 @@
     "phonemes": [
       "lˈɪsᵊn: ʧˈɛɹiz."
     ],
-    "seconds": 1.555,
-    "mp3Bytes": 13100,
+    "seconds": 0.861,
+    "mp3Bytes": 7532,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "31193bcb8ce611fea6374a7753ce145abd3147ceea4941e017c59a8c752d0959"
+    "sha256": "e0aa1c5e24320efb1fbd6c801c0cb91cfbe1e43bea3551b63ff974b58f49a9ea",
+    "boundaryTrim": {
+      "id": "cherries",
+      "originalSeconds": 1.555,
+      "startRemovedSeconds": 0.083,
+      "endRemovedSeconds": 0.6109166666666667,
+      "changed": true,
+      "originalSha256": "31193bcb8ce611fea6374a7753ce145abd3147ceea4941e017c59a8c752d0959",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "cherry",
@@ -213,11 +343,24 @@
     "phonemes": [
       "lˈɪsᵊn: ʧˈɛɹi."
     ],
-    "seconds": 1.455,
-    "mp3Bytes": 12332,
+    "seconds": 0.801,
+    "mp3Bytes": 7148,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "94aaa8afa7e984eba07fe877b1a0281993b4545b40c44935084ddb201c969779"
+    "sha256": "d115e19a161b4ffd3b1165dd05bdec2a1c0754bc85e372b33d267b105b36bd1a",
+    "boundaryTrim": {
+      "id": "cherry",
+      "originalSeconds": 1.455,
+      "startRemovedSeconds": 0.08316666666666667,
+      "endRemovedSeconds": 0.5709583333333333,
+      "changed": true,
+      "originalSha256": "94aaa8afa7e984eba07fe877b1a0281993b4545b40c44935084ddb201c969779",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "chocolate",
@@ -233,11 +376,24 @@
     "phonemes": [
       "lˈɪsᵊn: ʧˈɑkᵊlət."
     ],
-    "seconds": 1.555,
-    "mp3Bytes": 13100,
+    "seconds": 0.947,
+    "mp3Bytes": 8300,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "be9a665bbcc51ec65eb8b5bc87f43858d7d9a1fab23552e08d93ab21d7ee78ac"
+    "sha256": "e06388adc2133c768001bb0ebf1cf2afbe4045503fddfc1bea8209ec0b2f4312",
+    "boundaryTrim": {
+      "id": "chocolate",
+      "originalSeconds": 1.555,
+      "startRemovedSeconds": 0.083,
+      "endRemovedSeconds": 0.5245416666666667,
+      "changed": true,
+      "originalSha256": "be9a665bbcc51ec65eb8b5bc87f43858d7d9a1fab23552e08d93ab21d7ee78ac",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "chocolate-syrup",
@@ -253,11 +409,24 @@
     "phonemes": [
       "lˈɪsᵊn: ʧˈɑkᵊlət sˈɪɹəp."
     ],
-    "seconds": 1.955,
-    "mp3Bytes": 16364,
+    "seconds": 1.464,
+    "mp3Bytes": 12332,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "3f8d93d2c3d3c6e0242bf4fb683ef5437fb06571dda82f42399e4615d0b5e7ae"
+    "sha256": "febdc749340f55182108c24da7338c98484dd64c18a5d8b30805dc0ed6bdc698",
+    "boundaryTrim": {
+      "id": "chocolate-syrup",
+      "originalSeconds": 1.955,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.49104166666666665,
+      "changed": true,
+      "originalSha256": "3f8d93d2c3d3c6e0242bf4fb683ef5437fb06571dda82f42399e4615d0b5e7ae",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "corn",
@@ -273,11 +442,24 @@
     "phonemes": [
       "lˈɪsᵊn: kˈɔɹn."
     ],
-    "seconds": 1.43,
-    "mp3Bytes": 12140,
+    "seconds": 0.771,
+    "mp3Bytes": 6956,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "20ae25d6c8bb4aae61ab883fba3e2d1b37ebccd830cf1d6744c84fa6de5113a7"
+    "sha256": "d9c6294c13ef705ebd04fcf3174cf9dd0874d39e4ec2f6777edb3592182e285f",
+    "boundaryTrim": {
+      "id": "corn",
+      "originalSeconds": 1.43,
+      "startRemovedSeconds": 0.10133333333333333,
+      "endRemovedSeconds": 0.5575416666666667,
+      "changed": true,
+      "originalSha256": "20ae25d6c8bb4aae61ab883fba3e2d1b37ebccd830cf1d6744c84fa6de5113a7",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "green-pepper",
@@ -293,11 +475,24 @@
     "phonemes": [
       "lˈɪsᵊn: ɡɹˈin pˈɛpəɹ."
     ],
-    "seconds": 1.805,
-    "mp3Bytes": 15212,
+    "seconds": 1.238,
+    "mp3Bytes": 10604,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "246e0c45cb8f3e06d629ff3c1cb37c328ede11f88eb58a564b005c5d250aa9f7"
+    "sha256": "df4402c198e9a5fc17e83cbafcb1b2eb626fbdd2eccbe61a1e1264435327ef08",
+    "boundaryTrim": {
+      "id": "green-pepper",
+      "originalSeconds": 1.805,
+      "startRemovedSeconds": 0.06429166666666666,
+      "endRemovedSeconds": 0.5025416666666667,
+      "changed": true,
+      "originalSha256": "246e0c45cb8f3e06d629ff3c1cb37c328ede11f88eb58a564b005c5d250aa9f7",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "green-peppers",
@@ -313,11 +508,24 @@
     "phonemes": [
       "lˈɪsᵊn: ɡɹˈin pˈɛpəɹz."
     ],
-    "seconds": 1.98,
-    "mp3Bytes": 16556,
+    "seconds": 1.376,
+    "mp3Bytes": 11756,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "dfbd1eae36b258e5c75d7147f6194e8331f34a71f7f7f6cfc56870399b0e4e86"
+    "sha256": "eb0bc0886648744ae8f78fc95bb79fc6938b519d846a71a5438ff9c66f436104",
+    "boundaryTrim": {
+      "id": "green-peppers",
+      "originalSeconds": 1.98,
+      "startRemovedSeconds": 0.068375,
+      "endRemovedSeconds": 0.5359166666666667,
+      "changed": true,
+      "originalSha256": "dfbd1eae36b258e5c75d7147f6194e8331f34a71f7f7f6cfc56870399b0e4e86",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "kiwi-fruit",
@@ -333,11 +541,24 @@
     "phonemes": [
       "lˈɪsᵊn: kˈiwi fɹˈut."
     ],
-    "seconds": 1.768,
-    "mp3Bytes": 14828,
+    "seconds": 1.218,
+    "mp3Bytes": 10412,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "e7b166d8fd99f8bd1d8d2e6f5bee30a89612ccc8017ce94a3d43b150336de0df"
+    "sha256": "2bf80883a44e6067d7bef4644a631d775c5f6c31186eadc63cbfaed01e7e363d",
+    "boundaryTrim": {
+      "id": "kiwi-fruit",
+      "originalSeconds": 1.7675,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.54925,
+      "changed": true,
+      "originalSha256": "e7b166d8fd99f8bd1d8d2e6f5bee30a89612ccc8017ce94a3d43b150336de0df",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "kiwi-fruits",
@@ -353,11 +574,24 @@
     "phonemes": [
       "lˈɪsᵊn: kˈiwi fɹˈuts."
     ],
-    "seconds": 1.83,
-    "mp3Bytes": 15404,
+    "seconds": 1.294,
+    "mp3Bytes": 10988,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "02564c46f762126b92a2c1561eb8706f7760b7977783e81b1369fd582c3919bf"
+    "sha256": "7d4b1c59db6293cb3c66c8df47937ec905d9be2334420e92171303a5bf708be4",
+    "boundaryTrim": {
+      "id": "kiwi-fruits",
+      "originalSeconds": 1.83,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.5359166666666667,
+      "changed": true,
+      "originalSha256": "02564c46f762126b92a2c1561eb8706f7760b7977783e81b1369fd582c3919bf",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "melon",
@@ -373,11 +607,24 @@
     "phonemes": [
       "lˈɪsᵊn: mˈɛlən."
     ],
-    "seconds": 1.405,
-    "mp3Bytes": 11948,
+    "seconds": 0.786,
+    "mp3Bytes": 6956,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "6adf97491361a7e838310f866d4a85bb3e33ca8bf62e9cae5fcb063bc887a24b"
+    "sha256": "c1dc7529bdcf209f738ee09d420b3dc97e7e25dadd62b76979f528fe1101402a",
+    "boundaryTrim": {
+      "id": "melon",
+      "originalSeconds": 1.405,
+      "startRemovedSeconds": 0.06195833333333333,
+      "endRemovedSeconds": 0.5575,
+      "changed": true,
+      "originalSha256": "6adf97491361a7e838310f866d4a85bb3e33ca8bf62e9cae5fcb063bc887a24b",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "melons",
@@ -393,11 +640,24 @@
     "phonemes": [
       "lˈɪsᵊn: mˈɛlənz."
     ],
-    "seconds": 1.53,
-    "mp3Bytes": 12908,
+    "seconds": 0.859,
+    "mp3Bytes": 7532,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "cc82a1c46e693a13bab4a8dba2d3e0b25cc1fba9e860357ba6e4f0717a9ff0c1"
+    "sha256": "012a50bb7ede24009260fbe31aaf626fcd10d40ee48c696ef30ace967aa0bcd3",
+    "boundaryTrim": {
+      "id": "melons",
+      "originalSeconds": 1.53,
+      "startRemovedSeconds": 0.06191666666666667,
+      "endRemovedSeconds": 0.6095833333333334,
+      "changed": true,
+      "originalSha256": "cc82a1c46e693a13bab4a8dba2d3e0b25cc1fba9e860357ba6e4f0717a9ff0c1",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "mint-chocolate-chip",
@@ -413,11 +673,24 @@
     "phonemes": [
       "lˈɪsᵊn: mˈɪnt ʧˈɑkᵊlət ʧˈɪp."
     ],
-    "seconds": 2.205,
-    "mp3Bytes": 18284,
+    "seconds": 1.682,
+    "mp3Bytes": 14252,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "cfbf64b40653f9e75e1e55b44c1c8c0efdec2ae358beba6f86a8ee2ef3ae6d3d"
+    "sha256": "94457b33c3a00f9fec8ea16a5519c3ccc2b2a5f6cbc6d24a0b26c97c6e745832",
+    "boundaryTrim": {
+      "id": "mint-chocolate-chip",
+      "originalSeconds": 2.205,
+      "startRemovedSeconds": 0.028458333333333332,
+      "endRemovedSeconds": 0.49416666666666664,
+      "changed": true,
+      "originalSha256": "cfbf64b40653f9e75e1e55b44c1c8c0efdec2ae358beba6f86a8ee2ef3ae6d3d",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "mint-chocolate-chip-ice-cream",
@@ -433,11 +706,24 @@
     "phonemes": [
       "lˈɪsᵊn: mˈɪnt ʧˈɑkᵊlət ʧˈɪp ˈIs kɹˈim."
     ],
-    "seconds": 2.855,
-    "mp3Bytes": 23468,
+    "seconds": 2.282,
+    "mp3Bytes": 19052,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "6137b6ba5adde899418901ed0b3d4884845f1f8d7b7ff74fd48b5547cdbdf07e"
+    "sha256": "361da97aec4495d0a70da6e6bbe27de5c53a7e85ddf7e5a0091c84984a2715b2",
+    "boundaryTrim": {
+      "id": "mint-chocolate-chip-ice-cream",
+      "originalSeconds": 2.855,
+      "startRemovedSeconds": 0.04525,
+      "endRemovedSeconds": 0.529625,
+      "changed": true,
+      "originalSha256": "6137b6ba5adde899418901ed0b3d4884845f1f8d7b7ff74fd48b5547cdbdf07e",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "mint-chocolate-chip-scoop",
@@ -453,11 +739,24 @@
     "phonemes": [
       "lˈɪsᵊn: mˈɪnt ʧˈɑkᵊlət ʧˈɪp skˈup."
     ],
-    "seconds": 2.455,
-    "mp3Bytes": 20396,
+    "seconds": 1.961,
+    "mp3Bytes": 16364,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "b20d77d4d8a1f2907e952c1a765371e3d0f6ae551d4254b9f474977ec3609cbb"
+    "sha256": "9ca3ba53a8f79ec32ac23efad188534e2bbed3ff144d9d78d363949fc8c7f80f",
+    "boundaryTrim": {
+      "id": "mint-chocolate-chip-scoop",
+      "originalSeconds": 2.455,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.49404166666666666,
+      "changed": true,
+      "originalSha256": "b20d77d4d8a1f2907e952c1a765371e3d0f6ae551d4254b9f474977ec3609cbb",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "mint-chocolate-chip-scoops",
@@ -473,11 +772,24 @@
     "phonemes": [
       "lˈɪsᵊn: mˈɪnt ʧˈɑkᵊlət ʧˈɪp skˈups."
     ],
-    "seconds": 2.605,
-    "mp3Bytes": 21548,
+    "seconds": 2.081,
+    "mp3Bytes": 17324,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "c51b2ed653eb4875048d6f9610dd4fd3503c0c52614bf6f838951c0b4b548470"
+    "sha256": "94a5df44086f6cae7dda4ee3e83ba501a4f0d88da2f2feb9f57d4592b131ac87",
+    "boundaryTrim": {
+      "id": "mint-chocolate-chip-scoops",
+      "originalSeconds": 2.605,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.5236666666666666,
+      "changed": true,
+      "originalSha256": "c51b2ed653eb4875048d6f9610dd4fd3503c0c52614bf6f838951c0b4b548470",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "mushroom",
@@ -493,11 +805,24 @@
     "phonemes": [
       "lˈɪsᵊn: mˈʌʃɹˌum."
     ],
-    "seconds": 1.617,
-    "mp3Bytes": 13676,
+    "seconds": 0.986,
+    "mp3Bytes": 8684,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "4a728da200a9359aa3307b9db6bf19094acc37f4f7a6a077fcf9fc6eda1180f4"
+    "sha256": "9249935a55327e812c59fe9bcc8ee8cf7524551000209c0fbde1b860cc23c3bc",
+    "boundaryTrim": {
+      "id": "mushroom",
+      "originalSeconds": 1.6175,
+      "startRemovedSeconds": 0.05775,
+      "endRemovedSeconds": 0.5742916666666666,
+      "changed": true,
+      "originalSha256": "4a728da200a9359aa3307b9db6bf19094acc37f4f7a6a077fcf9fc6eda1180f4",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "mushrooms",
@@ -513,11 +838,24 @@
     "phonemes": [
       "lˈɪsᵊn: mˈʌʃɹˌumz."
     ],
-    "seconds": 1.718,
-    "mp3Bytes": 14444,
+    "seconds": 1.035,
+    "mp3Bytes": 9068,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "7aba78f100000c3d38130476b48e821358525cbf345de43b25c2377f7efabcb9"
+    "sha256": "5114e5ff19b62b3f73ed6754fd15225a4fe21fde9326e5f93b0735d7f59c1c56",
+    "boundaryTrim": {
+      "id": "mushrooms",
+      "originalSeconds": 1.7175,
+      "startRemovedSeconds": 0.057666666666666665,
+      "endRemovedSeconds": 0.6245416666666667,
+      "changed": true,
+      "originalSha256": "7aba78f100000c3d38130476b48e821358525cbf345de43b25c2377f7efabcb9",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "no-ice-cream",
@@ -533,11 +871,24 @@
     "phonemes": [
       "lˈɪsᵊn: nˈO ˈIs kɹˈim."
     ],
-    "seconds": 1.893,
-    "mp3Bytes": 15788,
+    "seconds": 1.318,
+    "mp3Bytes": 11180,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "861eb7c49e4d6f5278500dfb19588e83cca4a16ae078ab5249ac9e9c6a4140d7"
+    "sha256": "443570f34c292c53a4ffbff2bae5277f958e864b73768d544f6867f843f85377",
+    "boundaryTrim": {
+      "id": "no-ice-cream",
+      "originalSeconds": 1.8925,
+      "startRemovedSeconds": 0.04679166666666667,
+      "endRemovedSeconds": 0.5274583333333334,
+      "changed": true,
+      "originalSha256": "861eb7c49e4d6f5278500dfb19588e83cca4a16ae078ab5249ac9e9c6a4140d7",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "no-sauce",
@@ -553,11 +904,24 @@
     "phonemes": [
       "lˈɪsᵊn: nˈO sˈɔs."
     ],
-    "seconds": 1.643,
-    "mp3Bytes": 13868,
+    "seconds": 1.01,
+    "mp3Bytes": 8876,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "62ab1be7382ba291f7304e06975485437c7af60d467964598e7b1b4f1d0720d6"
+    "sha256": "41dd2cc3cb346cdce0e10a183c8098a52a4396503ea5582377c5f72175479d64",
+    "boundaryTrim": {
+      "id": "no-sauce",
+      "originalSeconds": 1.6425,
+      "startRemovedSeconds": 0.057625,
+      "endRemovedSeconds": 0.574625,
+      "changed": true,
+      "originalSha256": "62ab1be7382ba291f7304e06975485437c7af60d467964598e7b1b4f1d0720d6",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "no-syrup",
@@ -573,11 +937,24 @@
     "phonemes": [
       "lˈɪsᵊn: nˈO sˈɪɹəp."
     ],
-    "seconds": 1.643,
-    "mp3Bytes": 13868,
+    "seconds": 1.014,
+    "mp3Bytes": 8876,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "e6af0dbcb935d91a1f571883e4d1847b01a1f7d90f57b4773a62213547f83f8e"
+    "sha256": "eadcfad50f74e50187b5951def73623b75ac02a141d49ce91bc7ad8bc0cc78b7",
+    "boundaryTrim": {
+      "id": "no-syrup",
+      "originalSeconds": 1.6425,
+      "startRemovedSeconds": 0.05479166666666667,
+      "endRemovedSeconds": 0.5741666666666667,
+      "changed": true,
+      "originalSha256": "e6af0dbcb935d91a1f571883e4d1847b01a1f7d90f57b4773a62213547f83f8e",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "onion",
@@ -593,11 +970,24 @@
     "phonemes": [
       "lˈɪsᵊn: ˈʌnjᵊn."
     ],
-    "seconds": 1.442,
-    "mp3Bytes": 12332,
+    "seconds": 0.764,
+    "mp3Bytes": 6764,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "3962f20b809d6d185057246cb8800edc5a8e8f4c86df4d4133ed301152d772a2"
+    "sha256": "a6ac431698b32330f01e14b1f29c04571258279d8fd38cba9010cd49fb7de131",
+    "boundaryTrim": {
+      "id": "onion",
+      "originalSeconds": 1.4425,
+      "startRemovedSeconds": 0.103875,
+      "endRemovedSeconds": 0.5741666666666667,
+      "changed": true,
+      "originalSha256": "3962f20b809d6d185057246cb8800edc5a8e8f4c86df4d4133ed301152d772a2",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "onions",
@@ -613,11 +1003,24 @@
     "phonemes": [
       "lˈɪsᵊn: ˈʌnjᵊnz."
     ],
-    "seconds": 1.567,
-    "mp3Bytes": 13292,
+    "seconds": 0.848,
+    "mp3Bytes": 7532,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "485c0e3b36f50ad3ce5f548e603878872ccc75f1776a5f786356b14c2d177116"
+    "sha256": "bc5940dc65cd202ea4887426c6564b116a004329fe28ca1d15f3871d3b926c78",
+    "boundaryTrim": {
+      "id": "onions",
+      "originalSeconds": 1.5675,
+      "startRemovedSeconds": 0.095375,
+      "endRemovedSeconds": 0.623875,
+      "changed": true,
+      "originalSha256": "485c0e3b36f50ad3ce5f548e603878872ccc75f1776a5f786356b14c2d177116",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "orange",
@@ -633,11 +1036,24 @@
     "phonemes": [
       "lˈɪsᵊn: ˈɔɹᵊnʤ."
     ],
-    "seconds": 1.555,
-    "mp3Bytes": 13100,
+    "seconds": 0.853,
+    "mp3Bytes": 7532,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "69adaf8d8aea4cd8817ba370592bfc8de13d7b9628caaf4c219d647293fbf22d"
+    "sha256": "8992cdff9b639c9592cf23d6e703da58cd2f6888afaaef777238c881ae9b2ec0",
+    "boundaryTrim": {
+      "id": "orange",
+      "originalSeconds": 1.555,
+      "startRemovedSeconds": 0.10591666666666667,
+      "endRemovedSeconds": 0.5959583333333334,
+      "changed": true,
+      "originalSha256": "69adaf8d8aea4cd8817ba370592bfc8de13d7b9628caaf4c219d647293fbf22d",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "oranges",
@@ -653,11 +1069,24 @@
     "phonemes": [
       "lˈɪsᵊn: ˈɔɹᵊnʤᵻz."
     ],
-    "seconds": 1.643,
-    "mp3Bytes": 13868,
+    "seconds": 0.933,
+    "mp3Bytes": 8108,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "21da0d171b0323a944bf68f5ebafeebce8fc57e99cb61e7a934b10cb712b9d77"
+    "sha256": "41ccbfd772d823a01246806964ae679fbd2cb5bad4bc930916c5b2ef8ea78c4c",
+    "boundaryTrim": {
+      "id": "oranges",
+      "originalSeconds": 1.6425,
+      "startRemovedSeconds": 0.11025,
+      "endRemovedSeconds": 0.5995,
+      "changed": true,
+      "originalSha256": "21da0d171b0323a944bf68f5ebafeebce8fc57e99cb61e7a934b10cb712b9d77",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "peach",
@@ -673,11 +1102,24 @@
     "phonemes": [
       "lˈɪsᵊn: pˈiʧ."
     ],
-    "seconds": 1.405,
-    "mp3Bytes": 11948,
+    "seconds": 0.709,
+    "mp3Bytes": 6380,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "cdbf149e7118f089cf023b3def5d83221fb0414366959063260d679d538345b0"
+    "sha256": "b838e3ddf2955507fda1eb6493c96dbc12b258a0309ff5d5bb119cd7b24e8c63",
+    "boundaryTrim": {
+      "id": "peach",
+      "originalSeconds": 1.405,
+      "startRemovedSeconds": 0.12566666666666668,
+      "endRemovedSeconds": 0.5703333333333334,
+      "changed": true,
+      "originalSha256": "cdbf149e7118f089cf023b3def5d83221fb0414366959063260d679d538345b0",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "peaches",
@@ -693,11 +1135,24 @@
     "phonemes": [
       "lˈɪsᵊn: pˈiʧᵻz."
     ],
-    "seconds": 1.643,
-    "mp3Bytes": 13868,
+    "seconds": 0.897,
+    "mp3Bytes": 7916,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "5b7884909ccb73d79f5a0ec8c7c10c3ae78146437cbfe1036d1f8c04d168f8a8"
+    "sha256": "5d9ac11b412430f1aa63cf8a15c0ef736940edb2c802bb2cf5c75aa2d8d85335",
+    "boundaryTrim": {
+      "id": "peaches",
+      "originalSeconds": 1.6425,
+      "startRemovedSeconds": 0.12058333333333333,
+      "endRemovedSeconds": 0.6244166666666666,
+      "changed": true,
+      "originalSha256": "5b7884909ccb73d79f5a0ec8c7c10c3ae78146437cbfe1036d1f8c04d168f8a8",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "pepperoni",
@@ -713,11 +1168,24 @@
     "phonemes": [
       "lˈɪsᵊn: pˌɛpəɹˈOni."
     ],
-    "seconds": 1.742,
-    "mp3Bytes": 14636,
+    "seconds": 1.106,
+    "mp3Bytes": 9644,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "320822504b947f45323fb2af84a045914443fb4717256f615eb82693a2ecdea8"
+    "sha256": "cf4f09fba42e2d43ddc3aa605d9371514ffc095dee1df0a8572c53d4046377e3",
+    "boundaryTrim": {
+      "id": "pepperoni",
+      "originalSeconds": 1.7425,
+      "startRemovedSeconds": 0.11416666666666667,
+      "endRemovedSeconds": 0.5242083333333334,
+      "changed": true,
+      "originalSha256": "320822504b947f45323fb2af84a045914443fb4717256f615eb82693a2ecdea8",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "pineapple",
@@ -734,11 +1202,24 @@
     "phonemes": [
       "lˈɪsᵊn: pˈInˌæpᵊl."
     ],
-    "seconds": 1.617,
-    "mp3Bytes": 13676,
+    "seconds": 0.986,
+    "mp3Bytes": 8684,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "5889b1ea36622140304c659c7c2fd9693a818e3e2b33eea80d716fc3d08352d6"
+    "sha256": "e2687d2fa4563f2ccca9d7efcfa4e47dfe697036bd3dcb158b733915ace2b393",
+    "boundaryTrim": {
+      "id": "pineapple",
+      "originalSeconds": 1.6175,
+      "startRemovedSeconds": 0.107625,
+      "endRemovedSeconds": 0.524375,
+      "changed": true,
+      "originalSha256": "5889b1ea36622140304c659c7c2fd9693a818e3e2b33eea80d716fc3d08352d6",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "pineapples",
@@ -755,11 +1236,24 @@
     "phonemes": [
       "lˈɪsᵊn: pˈInˌæpᵊlz."
     ],
-    "seconds": 1.692,
-    "mp3Bytes": 14252,
+    "seconds": 1.024,
+    "mp3Bytes": 8876,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "3c20e20c80eac55ef396c77d15f530f3a926af18b2f1e62b4348d380682db9a3"
+    "sha256": "d2a811530faaff301f4a357b890a6ee7e68aa59396db3d5019341696dcb76a02",
+    "boundaryTrim": {
+      "id": "pineapples",
+      "originalSeconds": 1.6925,
+      "startRemovedSeconds": 0.10808333333333334,
+      "endRemovedSeconds": 0.56,
+      "changed": true,
+      "originalSha256": "3c20e20c80eac55ef396c77d15f530f3a926af18b2f1e62b4348d380682db9a3",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "sausage",
@@ -775,11 +1269,24 @@
     "phonemes": [
       "lˈɪsᵊn: sˈɔsɪʤ."
     ],
-    "seconds": 1.605,
-    "mp3Bytes": 13484,
+    "seconds": 0.97,
+    "mp3Bytes": 8492,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "199d5335c8a4b2de09f552450b3e3042d9d7c8ab3a76fca55655e54ceeec04b7"
+    "sha256": "34fb462539707f72dce65694fd38945d85d79d76fa0b82591417b3c928b55d49",
+    "boundaryTrim": {
+      "id": "sausage",
+      "originalSeconds": 1.605,
+      "startRemovedSeconds": 0.05533333333333333,
+      "endRemovedSeconds": 0.5792916666666666,
+      "changed": true,
+      "originalSha256": "199d5335c8a4b2de09f552450b3e3042d9d7c8ab3a76fca55655e54ceeec04b7",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "sausages",
@@ -795,11 +1302,24 @@
     "phonemes": [
       "lˈɪsᵊn: sˈɔsɪʤᵻz."
     ],
-    "seconds": 1.755,
-    "mp3Bytes": 14828,
+    "seconds": 1.082,
+    "mp3Bytes": 9452,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "962b675a40e483250d7ead9138abafd7e7d13d3e9dcd88fbfbe859cbaf47739e"
+    "sha256": "54ec8b84de1a416bb9228f0391588f4b1a6302c762e99c5af52d509c3172f1f3",
+    "boundaryTrim": {
+      "id": "sausages",
+      "originalSeconds": 1.755,
+      "startRemovedSeconds": 0.05491666666666667,
+      "endRemovedSeconds": 0.617625,
+      "changed": true,
+      "originalSha256": "962b675a40e483250d7ead9138abafd7e7d13d3e9dcd88fbfbe859cbaf47739e",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "strawberries",
@@ -815,11 +1335,24 @@
     "phonemes": [
       "lˈɪsᵊn: stɹˈɔbˌɛɹiz."
     ],
-    "seconds": 1.805,
-    "mp3Bytes": 15212,
+    "seconds": 1.174,
+    "mp3Bytes": 10028,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "c02be82c931f379997a8a739b61ededf06cb8bc7050748e0f2e39ebd43823fd2"
+    "sha256": "c09af2693fd5d221f1713886ec5c6325ef3d8aac50a5cd574f84d8dd9f42d569",
+    "boundaryTrim": {
+      "id": "strawberries",
+      "originalSeconds": 1.805,
+      "startRemovedSeconds": 0.05470833333333333,
+      "endRemovedSeconds": 0.5760416666666667,
+      "changed": true,
+      "originalSha256": "c02be82c931f379997a8a739b61ededf06cb8bc7050748e0f2e39ebd43823fd2",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "strawberry",
@@ -835,11 +1368,24 @@
     "phonemes": [
       "lˈɪsᵊn: stɹˈɔbˌɛɹi."
     ],
-    "seconds": 1.73,
-    "mp3Bytes": 14636,
+    "seconds": 1.14,
+    "mp3Bytes": 9836,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "84988921967e5aa8b797a426ca24756c0d53a1f07d8796f9ba1146962ba14949"
+    "sha256": "17ade453f0e767c0d2ecfd70a678667bb58731eac01efea7420f1be351f574e7",
+    "boundaryTrim": {
+      "id": "strawberry",
+      "originalSeconds": 1.73,
+      "startRemovedSeconds": 0.051875,
+      "endRemovedSeconds": 0.5377916666666667,
+      "changed": true,
+      "originalSha256": "84988921967e5aa8b797a426ca24756c0d53a1f07d8796f9ba1146962ba14949",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "strawberry-ice-cream",
@@ -855,11 +1401,24 @@
     "phonemes": [
       "lˈɪsᵊn: stɹˈɔbˌɛɹi ˈIs kɹˈim."
     ],
-    "seconds": 2.38,
-    "mp3Bytes": 19820,
+    "seconds": 1.783,
+    "mp3Bytes": 15020,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "23a16580c0b297456ef3a25d9b80d8daf15c0e5f5b0769adc13cf24676bad017"
+    "sha256": "d7ae67fb9e4f9b48adfb7359b1eaf9f451d06758d6b12671cbf19919d937a411",
+    "boundaryTrim": {
+      "id": "strawberry-ice-cream",
+      "originalSeconds": 2.38,
+      "startRemovedSeconds": 0.047625,
+      "endRemovedSeconds": 0.5491666666666667,
+      "changed": true,
+      "originalSha256": "23a16580c0b297456ef3a25d9b80d8daf15c0e5f5b0769adc13cf24676bad017",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "strawberry-scoop",
@@ -875,11 +1434,24 @@
     "phonemes": [
       "lˈɪsᵊn: stɹˈɔbˌɛɹi skˈup."
     ],
-    "seconds": 1.942,
-    "mp3Bytes": 16172,
+    "seconds": 1.427,
+    "mp3Bytes": 12140,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "2c0f4d56faad6760349fa0b37a91b3f4bd22d6a66f0f77fdaa93ad3545e50635"
+    "sha256": "2b30a2491ea1fa06186a5a994047c4967faa13935769250a7aa0c48e0cd9e25c",
+    "boundaryTrim": {
+      "id": "strawberry-scoop",
+      "originalSeconds": 1.9425,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.5157083333333333,
+      "changed": true,
+      "originalSha256": "2c0f4d56faad6760349fa0b37a91b3f4bd22d6a66f0f77fdaa93ad3545e50635",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "strawberry-scoops",
@@ -895,11 +1467,24 @@
     "phonemes": [
       "lˈɪsᵊn: stɹˈɔbˌɛɹi skˈups."
     ],
-    "seconds": 2.067,
-    "mp3Bytes": 17324,
+    "seconds": 1.535,
+    "mp3Bytes": 12908,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "bd79fd2544cc801d4f78d11ba7433a53442fe60e3bf8595dcdf5a893db70e9aa"
+    "sha256": "8bd5790b697ce25624be8ee84dd6146b6af6221f9dbf114a6df71b7b42164934",
+    "boundaryTrim": {
+      "id": "strawberry-scoops",
+      "originalSeconds": 2.0675,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.5325416666666667,
+      "changed": true,
+      "originalSha256": "bd79fd2544cc801d4f78d11ba7433a53442fe60e3bf8595dcdf5a893db70e9aa",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "strawberry-syrup",
@@ -915,11 +1500,24 @@
     "phonemes": [
       "lˈɪsᵊn: stɹˈɔbˌɛɹi sˈɪɹəp."
     ],
-    "seconds": 2.08,
-    "mp3Bytes": 17324,
+    "seconds": 1.515,
+    "mp3Bytes": 12908,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "6fb66815a443de3d0d6ff118f5d35cec2b5531694a3eeb95c031e7792ebc81ab"
+    "sha256": "ede777eaa172c695ce236640110e8a5bd55bfa06a7d4b2febb3183bfe0ea084a",
+    "boundaryTrim": {
+      "id": "strawberry-syrup",
+      "originalSeconds": 2.08,
+      "startRemovedSeconds": 0.04525,
+      "endRemovedSeconds": 0.5198333333333334,
+      "changed": true,
+      "originalSha256": "6fb66815a443de3d0d6ff118f5d35cec2b5531694a3eeb95c031e7792ebc81ab",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "tomato",
@@ -935,11 +1533,24 @@
     "phonemes": [
       "lˈɪsᵊn: təmˈATO."
     ],
-    "seconds": 1.667,
-    "mp3Bytes": 14060,
+    "seconds": 1.058,
+    "mp3Bytes": 9260,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "18f1bb0ebb16b016641890f58bd445cf16d1c50c8456b6801ca006024a016354"
+    "sha256": "d6dd4f7fdedd7d986d89b949202a6a040bbe71c736492f7dceffd3600a5a46cc",
+    "boundaryTrim": {
+      "id": "tomato",
+      "originalSeconds": 1.6675,
+      "startRemovedSeconds": 0.09629166666666666,
+      "endRemovedSeconds": 0.51275,
+      "changed": true,
+      "originalSha256": "18f1bb0ebb16b016641890f58bd445cf16d1c50c8456b6801ca006024a016354",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "tomato-sauce",
@@ -955,11 +1566,24 @@
     "phonemes": [
       "lˈɪsᵊn: təmˈATO sˈɔs."
     ],
-    "seconds": 1.942,
-    "mp3Bytes": 16172,
+    "seconds": 1.296,
+    "mp3Bytes": 10988,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "0fd0f725927b41e7dfc96bc7c3cbb3104e1bf6cf188860c4ad7b7b82d2ce2063"
+    "sha256": "fb3be29ddf9c11985664eaa98d9eba7e1653d2e5cb099ac5d8789ea7760475fe",
+    "boundaryTrim": {
+      "id": "tomato-sauce",
+      "originalSeconds": 1.9425,
+      "startRemovedSeconds": 0.09725,
+      "endRemovedSeconds": 0.5496666666666666,
+      "changed": true,
+      "originalSha256": "0fd0f725927b41e7dfc96bc7c3cbb3104e1bf6cf188860c4ad7b7b82d2ce2063",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "tomatoes",
@@ -975,11 +1599,24 @@
     "phonemes": [
       "lˈɪsᵊn: təmˈATOz."
     ],
-    "seconds": 1.643,
-    "mp3Bytes": 13868,
+    "seconds": 0.944,
+    "mp3Bytes": 8300,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "b10983160a0ff99749c9f37a3f35e23fdae96cdff5fc0dd6fa2318a2cc471421"
+    "sha256": "992b8a455216cb35d8de8330b7980a792e16cae50de5111d3941ba85eb2a0102",
+    "boundaryTrim": {
+      "id": "tomatoes",
+      "originalSeconds": 1.6425,
+      "startRemovedSeconds": 0.09975,
+      "endRemovedSeconds": 0.5985833333333334,
+      "changed": true,
+      "originalSha256": "b10983160a0ff99749c9f37a3f35e23fdae96cdff5fc0dd6fa2318a2cc471421",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "vanilla",
@@ -995,11 +1632,24 @@
     "phonemes": [
       "lˈɪsᵊn: vənˈɪlə."
     ],
-    "seconds": 1.53,
-    "mp3Bytes": 12908,
+    "seconds": 0.96,
+    "mp3Bytes": 8300,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "649263e5d9402821b7a7fe1fd13a43748bad7ab2b10dc9d4c7caa3a5bfc98908"
+    "sha256": "a6f4ac743c0034831a4fc251b65c4b11b0d2ea1570ffd16b4741cb2212092317",
+    "boundaryTrim": {
+      "id": "vanilla",
+      "originalSeconds": 1.53,
+      "startRemovedSeconds": 0.05720833333333333,
+      "endRemovedSeconds": 0.5128333333333334,
+      "changed": true,
+      "originalSha256": "649263e5d9402821b7a7fe1fd13a43748bad7ab2b10dc9d4c7caa3a5bfc98908",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "vanilla-ice-cream",
@@ -1015,11 +1665,24 @@
     "phonemes": [
       "lˈɪsᵊn: vənˈɪlə ˈIs kɹˈim."
     ],
-    "seconds": 2.205,
-    "mp3Bytes": 18284,
+    "seconds": 1.61,
+    "mp3Bytes": 13676,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "d10a87fa6d69de35e616aea3a4cf039ad97e8348709942990ec49e038e8dc4f1"
+    "sha256": "f9c354a85754b18c7743d1312db36d03beddb17b1555864a9329bcf571960014",
+    "boundaryTrim": {
+      "id": "vanilla-ice-cream",
+      "originalSeconds": 2.205,
+      "startRemovedSeconds": 0.04541666666666667,
+      "endRemovedSeconds": 0.54925,
+      "changed": true,
+      "originalSha256": "d10a87fa6d69de35e616aea3a4cf039ad97e8348709942990ec49e038e8dc4f1",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "vanilla-scoop",
@@ -1035,11 +1698,24 @@
     "phonemes": [
       "lˈɪsᵊn: vənˈɪlə skˈup."
     ],
-    "seconds": 1.893,
-    "mp3Bytes": 15788,
+    "seconds": 1.313,
+    "mp3Bytes": 11180,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "6be56cb8975d72ebdee51efc735a3e3ba8eaefa4c1358b8981f8361e20d7b69a"
+    "sha256": "e84f3bffb88f13a15da78ea73a41e777fba20f27a359c241acfaf7c8f162dbe4",
+    "boundaryTrim": {
+      "id": "vanilla-scoop",
+      "originalSeconds": 1.8925,
+      "startRemovedSeconds": 0.04525,
+      "endRemovedSeconds": 0.5345833333333333,
+      "changed": true,
+      "originalSha256": "6be56cb8975d72ebdee51efc735a3e3ba8eaefa4c1358b8981f8361e20d7b69a",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "vanilla-scoops",
@@ -1055,11 +1731,24 @@
     "phonemes": [
       "lˈɪsᵊn: vənˈɪlə skˈups."
     ],
-    "seconds": 1.917,
-    "mp3Bytes": 15980,
+    "seconds": 1.348,
+    "mp3Bytes": 11564,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "e3ece402ac900e60e1b265a6fa12ab83d31356f6c73009fcf949612ecac11418"
+    "sha256": "1e6271189df8c155ab9a9154a197ee501692eb6bc7fb7c3aeb838b3bc18d2879",
+    "boundaryTrim": {
+      "id": "vanilla-scoops",
+      "originalSeconds": 1.9175,
+      "startRemovedSeconds": 0.04525,
+      "endRemovedSeconds": 0.5244166666666666,
+      "changed": true,
+      "originalSha256": "e3ece402ac900e60e1b265a6fa12ab83d31356f6c73009fcf949612ecac11418",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "what-do-you-want",
@@ -1076,11 +1765,24 @@
     "phonemes": [
       "lˈɪsᵊn: wˌʌt dˈu ju wˈɑnt?"
     ],
-    "seconds": 1.593,
-    "mp3Bytes": 13484,
+    "seconds": 1.119,
+    "mp3Bytes": 9644,
     "review": "approved by user",
     "sourceBatch": "vocabulary-01-leadin",
-    "sha256": "3ad714bd54908decac369e2d74e69cbe177eca53989c8fb7d922ccf734cc91c3"
+    "sha256": "6b17d363cbb83cc7e9253e64205b27c8df9b817bdd917369ed582dd0f6063ecd",
+    "boundaryTrim": {
+      "id": "what-do-you-want",
+      "originalSeconds": 1.5925,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.4739583333333333,
+      "changed": true,
+      "originalSha256": "3ad714bd54908decac369e2d74e69cbe177eca53989c8fb7d922ccf734cc91c3",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "beef",
@@ -1096,11 +1798,24 @@
     "phonemes": [
       "lˈɪsᵊn: bˈif."
     ],
-    "seconds": 1.355,
-    "mp3Bytes": 11564,
+    "seconds": 0.705,
+    "mp3Bytes": 6380,
     "review": "approved by user",
     "sourceBatch": "sandwich-ingredients-01-leadin",
-    "sha256": "d4fc90fa762a1df1f7e622381aa8e5eb1a538a290b84d8917335efa683aec14d"
+    "sha256": "a7c542053c479115453fe1aca7cc83a59a7612c56561de0d59f667dbb496008e",
+    "boundaryTrim": {
+      "id": "beef",
+      "originalSeconds": 1.355,
+      "startRemovedSeconds": 0.06779166666666667,
+      "endRemovedSeconds": 0.5826666666666667,
+      "changed": true,
+      "originalSha256": "d4fc90fa762a1df1f7e622381aa8e5eb1a538a290b84d8917335efa683aec14d",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "chicken",
@@ -1116,11 +1831,24 @@
     "phonemes": [
       "lˈɪsᵊn: ʧˈɪkən."
     ],
-    "seconds": 1.43,
-    "mp3Bytes": 12140,
+    "seconds": 0.781,
+    "mp3Bytes": 6956,
     "review": "approved by user",
     "sourceBatch": "sandwich-ingredients-01-leadin",
-    "sha256": "144156cd0da22b5edbb7f57f12a16eaca6e6531296275cbdfd697fb9e9b109a7"
+    "sha256": "c3e141a3044da7b876a29a36e47918123ada41969020ab4a1e7c37d15de0ed55",
+    "boundaryTrim": {
+      "id": "chicken",
+      "originalSeconds": 1.43,
+      "startRemovedSeconds": 0.08295833333333333,
+      "endRemovedSeconds": 0.5664583333333333,
+      "changed": true,
+      "originalSha256": "144156cd0da22b5edbb7f57f12a16eaca6e6531296275cbdfd697fb9e9b109a7",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "cucumber",
@@ -1136,11 +1864,24 @@
     "phonemes": [
       "lˈɪsᵊn: kjˈukˌʌmbəɹ."
     ],
-    "seconds": 1.667,
-    "mp3Bytes": 14060,
+    "seconds": 1.082,
+    "mp3Bytes": 9452,
     "review": "approved by user",
     "sourceBatch": "sandwich-ingredients-01-leadin",
-    "sha256": "68dfbb137aa3edcd87f4db34a190216abb51363314e26267feb7ad8ddb7346ca"
+    "sha256": "2be2fd7452a4ea2fe5a0d12990f8a450b2f557efb5b6d5e0fe43c5c378958e80",
+    "boundaryTrim": {
+      "id": "cucumber",
+      "originalSeconds": 1.6675,
+      "startRemovedSeconds": 0.10229166666666667,
+      "endRemovedSeconds": 0.4845833333333333,
+      "changed": true,
+      "originalSha256": "68dfbb137aa3edcd87f4db34a190216abb51363314e26267feb7ad8ddb7346ca",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "ham",
@@ -1156,11 +1897,24 @@
     "phonemes": [
       "lˈɪsᵊn: hˈæm."
     ],
-    "seconds": 1.367,
-    "mp3Bytes": 11564,
+    "seconds": 0.71,
+    "mp3Bytes": 6380,
     "review": "approved by user",
     "sourceBatch": "sandwich-ingredients-01-leadin",
-    "sha256": "d5fbc6af71a10217b0f07d24f0075d6d77633912358abda492f2d6134b520458"
+    "sha256": "d5709182202833db8e2ee7bdfee4e2ff81e5f6465489dd4cc6109ff20ef607f3",
+    "boundaryTrim": {
+      "id": "ham",
+      "originalSeconds": 1.3675,
+      "startRemovedSeconds": 0.08270833333333333,
+      "endRemovedSeconds": 0.5744166666666667,
+      "changed": true,
+      "originalSha256": "d5fbc6af71a10217b0f07d24f0075d6d77633912358abda492f2d6134b520458",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "lettuce",
@@ -1176,11 +1930,24 @@
     "phonemes": [
       "lˈɪsᵊn: lˈɛTəs."
     ],
-    "seconds": 1.48,
-    "mp3Bytes": 12524,
+    "seconds": 0.813,
+    "mp3Bytes": 7148,
     "review": "approved by user",
     "sourceBatch": "sandwich-ingredients-01-leadin",
-    "sha256": "1d6b2c9fc787ec238bcaa34bb71c79fb2f7c92ceb72b595ae49589189a5886e5"
+    "sha256": "d11e796526706ee6df65c18bed7fd5ee7d73327154fda0fc9913efde48623630",
+    "boundaryTrim": {
+      "id": "lettuce",
+      "originalSeconds": 1.48,
+      "startRemovedSeconds": 0.058958333333333335,
+      "endRemovedSeconds": 0.60775,
+      "changed": true,
+      "originalSha256": "1d6b2c9fc787ec238bcaa34bb71c79fb2f7c92ceb72b595ae49589189a5886e5",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "pork",
@@ -1196,11 +1963,24 @@
     "phonemes": [
       "lˈɪsᵊn: pˈɔɹk."
     ],
-    "seconds": 1.343,
-    "mp3Bytes": 11372,
+    "seconds": 0.75,
+    "mp3Bytes": 6764,
     "review": "approved by user",
     "sourceBatch": "sandwich-ingredients-01-leadin",
-    "sha256": "369fd4738820735e4c8500ed9fc048b5edd67c8927d134df682e6e2c5400e652"
+    "sha256": "a9c6d6bf85c28c2a91b5328a0d4293242ca4b905827a9e9cf62a1e8e2fd5ab56",
+    "boundaryTrim": {
+      "id": "pork",
+      "originalSeconds": 1.3425,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.5924583333333333,
+      "changed": true,
+      "originalSha256": "369fd4738820735e4c8500ed9fc048b5edd67c8927d134df682e6e2c5400e652",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "shrimp",
@@ -1216,11 +1996,24 @@
     "phonemes": [
       "lˈɪsᵊn: ʃɹˈɪmp."
     ],
-    "seconds": 1.343,
-    "mp3Bytes": 11372,
+    "seconds": 0.757,
+    "mp3Bytes": 6764,
     "review": "approved by user",
     "sourceBatch": "sandwich-ingredients-01-leadin",
-    "sha256": "9f002218bc2352e77ed7d9ba731feb914921562edda25a6a8a7335d9d5439cce"
+    "sha256": "3edbd094dad888dbb8ae9d13266637a636cbc4aaf8c472de76f32bed77637bd1",
+    "boundaryTrim": {
+      "id": "shrimp",
+      "originalSeconds": 1.3425,
+      "startRemovedSeconds": 0.035833333333333335,
+      "endRemovedSeconds": 0.5492083333333333,
+      "changed": true,
+      "originalSha256": "9f002218bc2352e77ed7d9ba731feb914921562edda25a6a8a7335d9d5439cce",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "bacon",
@@ -1236,11 +2029,24 @@
     "phonemes": [
       "lˈɪsᵊn: bˈAkn."
     ],
-    "seconds": 1.468,
-    "mp3Bytes": 12524,
+    "seconds": 0.813,
+    "mp3Bytes": 7148,
     "review": "approved by user",
     "sourceBatch": "bacon-pronunciation-02",
-    "sha256": "4df0f57ae99e46748ec504ce38e449f138d54b80985c5d9ab25de50fb73c35e6"
+    "sha256": "964b917a6f15c2b8365f95981a7886100e4e360f9ea9d1a8d93618faf45e45b5",
+    "boundaryTrim": {
+      "id": "bacon",
+      "originalSeconds": 1.4675,
+      "startRemovedSeconds": 0.079625,
+      "endRemovedSeconds": 0.5744166666666667,
+      "changed": true,
+      "originalSha256": "4df0f57ae99e46748ec504ce38e449f138d54b80985c5d9ab25de50fb73c35e6",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "blue",
@@ -1256,11 +2062,24 @@
     "phonemes": [
       "lˈɪsᵊn: blˈu."
     ],
-    "seconds": 1.355,
-    "mp3Bytes": 11564,
+    "seconds": 0.731,
+    "mp3Bytes": 6572,
     "review": "approved by user",
     "sourceBatch": "supplies-01-leadin",
-    "sha256": "b8bcd8f11069d9a6f8411393a6f839fabb9055e6b7c89d99d79294de6cac7b0d"
+    "sha256": "b1c20a73a5ea5f9c102deccacbd3df7cbe451abc2a983b9445ced94f5b3aacf3",
+    "boundaryTrim": {
+      "id": "blue",
+      "originalSeconds": 1.355,
+      "startRemovedSeconds": 0.07683333333333334,
+      "endRemovedSeconds": 0.5476666666666666,
+      "changed": true,
+      "originalSha256": "b8bcd8f11069d9a6f8411393a6f839fabb9055e6b7c89d99d79294de6cac7b0d",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "colored-pencil",
@@ -1276,11 +2095,24 @@
     "phonemes": [
       "lˈɪsᵊn: kˈʌləɹd pˈɛnsᵊl."
     ],
-    "seconds": 1.992,
-    "mp3Bytes": 16748,
+    "seconds": 1.391,
+    "mp3Bytes": 11756,
     "review": "approved by user",
     "sourceBatch": "supplies-01-leadin",
-    "sha256": "afe26b2b474df2c43660b7b1677381cf976dda63581a52d5e0229adb5d5234ba"
+    "sha256": "6e654e62a7b4f188e3274697d7cb334f2bd29edcc29f4462a19510c38cdc6dc5",
+    "boundaryTrim": {
+      "id": "colored-pencil",
+      "originalSeconds": 1.9939583333333333,
+      "startRemovedSeconds": 0.10270833333333333,
+      "endRemovedSeconds": 0.5006666666666667,
+      "changed": true,
+      "originalSha256": "afe26b2b474df2c43660b7b1677381cf976dda63581a52d5e0229adb5d5234ba",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "colored-pencils",
@@ -1296,11 +2128,24 @@
     "phonemes": [
       "lˈɪsᵊn: kˈʌləɹd pˈɛnsᵊlz."
     ],
-    "seconds": 2.042,
-    "mp3Bytes": 17132,
+    "seconds": 1.404,
+    "mp3Bytes": 11948,
     "review": "approved by user",
     "sourceBatch": "supplies-01-leadin",
-    "sha256": "880d0f90ec2f9d54bd0b396b021e41fe1184aee7c054cb8b10709bf68314cb9b"
+    "sha256": "d5c8804444910afebe148ab4b9672e543f67d97605e602a4507b05104868267c",
+    "boundaryTrim": {
+      "id": "colored-pencils",
+      "originalSeconds": 2.0425,
+      "startRemovedSeconds": 0.10270833333333333,
+      "endRemovedSeconds": 0.5359166666666667,
+      "changed": true,
+      "originalSha256": "880d0f90ec2f9d54bd0b396b021e41fe1184aee7c054cb8b10709bf68314cb9b",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "pencil",
@@ -1316,11 +2161,24 @@
     "phonemes": [
       "lˈɪsᵊn: pˈɛnsᵊl."
     ],
-    "seconds": 1.518,
-    "mp3Bytes": 12908,
+    "seconds": 0.868,
+    "mp3Bytes": 7724,
     "review": "approved by user",
     "sourceBatch": "supplies-01-leadin",
-    "sha256": "cb5f54763344fad8a5a25d00d62e1033e276d06aa9bbf452815656b28dea315d"
+    "sha256": "1b5d64928b546b8ab48ad5007e69b39d554acf46ba31bd3ff1d5fde10bc6097d",
+    "boundaryTrim": {
+      "id": "pencil",
+      "originalSeconds": 1.5175,
+      "startRemovedSeconds": 0.1085,
+      "endRemovedSeconds": 0.5414166666666667,
+      "changed": true,
+      "originalSha256": "cb5f54763344fad8a5a25d00d62e1033e276d06aa9bbf452815656b28dea315d",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "pencil-case",
@@ -1336,11 +2194,24 @@
     "phonemes": [
       "lˈɪsᵊn: pˈɛnsᵊl kˈAs."
     ],
-    "seconds": 1.893,
-    "mp3Bytes": 15788,
+    "seconds": 1.347,
+    "mp3Bytes": 11564,
     "review": "approved by user",
     "sourceBatch": "supplies-01-leadin",
-    "sha256": "0d069d6d44cb33b07437a73d04c9d832facda4a58938afde4dddc5ba16040a06"
+    "sha256": "9f57456c307d4e9c6a9157457033690b4ac127a3f703c5e310608ba73a28eca4",
+    "boundaryTrim": {
+      "id": "pencil-case",
+      "originalSeconds": 1.8925,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.5454583333333334,
+      "changed": true,
+      "originalSha256": "0d069d6d44cb33b07437a73d04c9d832facda4a58938afde4dddc5ba16040a06",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "pencils",
@@ -1356,11 +2227,24 @@
     "phonemes": [
       "lˈɪsᵊn: pˈɛnsᵊlz."
     ],
-    "seconds": 1.643,
-    "mp3Bytes": 13868,
+    "seconds": 0.943,
+    "mp3Bytes": 8300,
     "review": "approved by user",
     "sourceBatch": "supplies-01-leadin",
-    "sha256": "f4810484fc672c6b6b0258bdf143a9c624e5376942618f568b4c1fab06925cf4"
+    "sha256": "0291fa84620575131a126e5c68ab1333602b4ca2d2ca891769431f38876031ba",
+    "boundaryTrim": {
+      "id": "pencils",
+      "originalSeconds": 1.6425,
+      "startRemovedSeconds": 0.11316666666666667,
+      "endRemovedSeconds": 0.5859166666666666,
+      "changed": true,
+      "originalSha256": "f4810484fc672c6b6b0258bdf143a9c624e5376942618f568b4c1fab06925cf4",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "purple",
@@ -1376,11 +2260,24 @@
     "phonemes": [
       "lˈɪsᵊn: pˈɜɹpᵊl."
     ],
-    "seconds": 1.518,
-    "mp3Bytes": 12908,
+    "seconds": 0.879,
+    "mp3Bytes": 7724,
     "review": "approved by user",
     "sourceBatch": "supplies-01-leadin",
-    "sha256": "01da17e6904e07ac4d6050a9c6ed35897d60a363b4d78b957c4cfba2bec59034"
+    "sha256": "4d304d232c6b04356979b2f300217605d0df8d78a447e7fa58c4e12468416050",
+    "boundaryTrim": {
+      "id": "purple",
+      "originalSeconds": 1.5175,
+      "startRemovedSeconds": 0.11358333333333333,
+      "endRemovedSeconds": 0.5245416666666667,
+      "changed": true,
+      "originalSha256": "01da17e6904e07ac4d6050a9c6ed35897d60a363b4d78b957c4cfba2bec59034",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "red",
@@ -1396,11 +2293,24 @@
     "phonemes": [
       "lˈɪsᵊn: ɹˈɛd."
     ],
-    "seconds": 1.33,
-    "mp3Bytes": 11372,
+    "seconds": 0.635,
+    "mp3Bytes": 5804,
     "review": "approved by user",
     "sourceBatch": "supplies-01-leadin",
-    "sha256": "afca6c7aa40e19e00a7377a99ed361b1ee163a20ed1d185e61ccae642d212971"
+    "sha256": "cacfd119fea5c8053e5feb462b2a93a4d7378426a82b0b8a61d2a69243a580a1",
+    "boundaryTrim": {
+      "id": "red",
+      "originalSeconds": 1.33,
+      "startRemovedSeconds": 0.067375,
+      "endRemovedSeconds": 0.6277916666666666,
+      "changed": true,
+      "originalSha256": "afca6c7aa40e19e00a7377a99ed361b1ee163a20ed1d185e61ccae642d212971",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "eraser",
@@ -1416,11 +2326,24 @@
     "phonemes": [
       "lˈɪsᵊn: əɹˈAsəɹ."
     ],
-    "seconds": 1.605,
-    "mp3Bytes": 13484,
+    "seconds": 0.932,
+    "mp3Bytes": 8108,
     "review": "approved by user",
     "sourceBatch": "supplies-02-leadin",
-    "sha256": "6b9e6b7d5f25c81a22e1fc1fda5dbab95647170edc9cb096fac62fdb6fbc1da3"
+    "sha256": "035002d4eec7b8b047a80c4c0ea2cb3a710bad368fcc3d7b3a6f57adad13a2e6",
+    "boundaryTrim": {
+      "id": "eraser",
+      "originalSeconds": 1.605,
+      "startRemovedSeconds": 0.08283333333333333,
+      "endRemovedSeconds": 0.5905833333333333,
+      "changed": true,
+      "originalSha256": "6b9e6b7d5f25c81a22e1fc1fda5dbab95647170edc9cb096fac62fdb6fbc1da3",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "erasers",
@@ -1436,11 +2359,24 @@
     "phonemes": [
       "lˈɪsᵊn: əɹˈAsəɹz."
     ],
-    "seconds": 1.73,
-    "mp3Bytes": 14636,
+    "seconds": 1.034,
+    "mp3Bytes": 9068,
     "review": "approved by user",
     "sourceBatch": "supplies-02-leadin",
-    "sha256": "2e1d239fef364289b86c3157b9ec4295b562397e5fcc5ddb1bca776f95d65da6"
+    "sha256": "3a34f99dec2fe7c3e8de09331cd5d3dc4e85bff063037342649c5c32ac07134c",
+    "boundaryTrim": {
+      "id": "erasers",
+      "originalSeconds": 1.73,
+      "startRemovedSeconds": 0.08275,
+      "endRemovedSeconds": 0.61375,
+      "changed": true,
+      "originalSha256": "2e1d239fef364289b86c3157b9ec4295b562397e5fcc5ddb1bca776f95d65da6",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "marker",
@@ -1456,11 +2392,24 @@
     "phonemes": [
       "lˈɪsᵊn: mˈɑɹkəɹ."
     ],
-    "seconds": 1.518,
-    "mp3Bytes": 12908,
+    "seconds": 0.92,
+    "mp3Bytes": 8108,
     "review": "approved by user",
     "sourceBatch": "supplies-02-leadin",
-    "sha256": "0da7712c6b1fbab1ca031246509e650d24ad355b8d11df0c88af1312a77b7ef1"
+    "sha256": "fe48caac215d0bb7bd185274726db131b25ee4d4aae2a1ec605142874bbda0a6",
+    "boundaryTrim": {
+      "id": "marker",
+      "originalSeconds": 1.5175,
+      "startRemovedSeconds": 0.057916666666666665,
+      "endRemovedSeconds": 0.539625,
+      "changed": true,
+      "originalSha256": "0da7712c6b1fbab1ca031246509e650d24ad355b8d11df0c88af1312a77b7ef1",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "markers",
@@ -1476,11 +2425,24 @@
     "phonemes": [
       "lˈɪsᵊn: mˈɑɹkəɹz."
     ],
-    "seconds": 1.643,
-    "mp3Bytes": 13868,
+    "seconds": 0.986,
+    "mp3Bytes": 8684,
     "review": "approved by user",
     "sourceBatch": "supplies-02-leadin",
-    "sha256": "9a4025c33c1f230a4f29f8ad80d2e245589f45dfe2166873c1fa41b5a640c887"
+    "sha256": "acf7ac63fe9d94a8cf481e244dd5bca58a1f3407fae80064bc2955491a3f46b2",
+    "boundaryTrim": {
+      "id": "markers",
+      "originalSeconds": 1.6425,
+      "startRemovedSeconds": 0.057625,
+      "endRemovedSeconds": 0.5994583333333333,
+      "changed": true,
+      "originalSha256": "9a4025c33c1f230a4f29f8ad80d2e245589f45dfe2166873c1fa41b5a640c887",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "pen",
@@ -1496,11 +2458,24 @@
     "phonemes": [
       "lˈɪsᵊn: pˈɛn."
     ],
-    "seconds": 1.38,
-    "mp3Bytes": 11756,
+    "seconds": 0.69,
+    "mp3Bytes": 6188,
     "review": "approved by user",
     "sourceBatch": "supplies-02-leadin",
-    "sha256": "2c0cdf5611c593944f3d3d035c0670bcaaf804e6d1bf99e1651449544c17c7fc"
+    "sha256": "fb4629dbd83d2935cb4eda96b0d76ddf597f4e3f913e740bbf29f4b393730c9c",
+    "boundaryTrim": {
+      "id": "pen",
+      "originalSeconds": 1.38,
+      "startRemovedSeconds": 0.116125,
+      "endRemovedSeconds": 0.5742083333333333,
+      "changed": true,
+      "originalSha256": "2c0cdf5611c593944f3d3d035c0670bcaaf804e6d1bf99e1651449544c17c7fc",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "pens",
@@ -1516,11 +2491,24 @@
     "phonemes": [
       "lˈɪsᵊn: pˈɛnz."
     ],
-    "seconds": 1.518,
-    "mp3Bytes": 12908,
+    "seconds": 0.771,
+    "mp3Bytes": 6956,
     "review": "approved by user",
     "sourceBatch": "supplies-02-leadin",
-    "sha256": "cc6d90b328332d40b1c86e467461c3f7ae2d9a86d73d8591e4036f90b94cb3e1"
+    "sha256": "ff69599740c84adf733f75b923a1278c3bc81c185ddc060e5842bf6922f4e7f0",
+    "boundaryTrim": {
+      "id": "pens",
+      "originalSeconds": 1.5175,
+      "startRemovedSeconds": 0.11383333333333333,
+      "endRemovedSeconds": 0.6327083333333333,
+      "changed": true,
+      "originalSha256": "cc6d90b328332d40b1c86e467461c3f7ae2d9a86d73d8591e4036f90b94cb3e1",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "ruler",
@@ -1536,11 +2524,24 @@
     "phonemes": [
       "lˈɪsᵊn: ɹˈuləɹ."
     ],
-    "seconds": 1.455,
-    "mp3Bytes": 12332,
+    "seconds": 0.835,
+    "mp3Bytes": 7340,
     "review": "approved by user",
     "sourceBatch": "supplies-02-leadin",
-    "sha256": "943b4be08842da2ab34992d792253dfe32cf5d2bbb617db9e4f781f430060e24"
+    "sha256": "f13d373d9cd4967276928789ff6b1d058548f0b6a4fe3219eee716976284549a",
+    "boundaryTrim": {
+      "id": "ruler",
+      "originalSeconds": 1.455,
+      "startRemovedSeconds": 0.07033333333333333,
+      "endRemovedSeconds": 0.5494166666666667,
+      "changed": true,
+      "originalSha256": "943b4be08842da2ab34992d792253dfe32cf5d2bbb617db9e4f781f430060e24",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "rulers",
@@ -1556,11 +2557,24 @@
     "phonemes": [
       "lˈɪsᵊn: ɹˈuləɹz."
     ],
-    "seconds": 1.58,
-    "mp3Bytes": 13292,
+    "seconds": 0.885,
+    "mp3Bytes": 7724,
     "review": "approved by user",
     "sourceBatch": "supplies-02-leadin",
-    "sha256": "b1a7f0c5bc2ad7896838492aa8466222b97f2764f1f8431c5a4f767e7124fcf4"
+    "sha256": "0d2f23ced03afa5bc5da7d00175511a3687a0f1b1be4639221a740e592029720",
+    "boundaryTrim": {
+      "id": "rulers",
+      "originalSeconds": 1.58,
+      "startRemovedSeconds": 0.07020833333333333,
+      "endRemovedSeconds": 0.6244583333333333,
+      "changed": true,
+      "originalSha256": "b1a7f0c5bc2ad7896838492aa8466222b97f2764f1f8431c5a4f767e7124fcf4",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "calendar",
@@ -1576,11 +2590,24 @@
     "phonemes": [
       "lˈɪsᵊn: kˈæləndəɹ."
     ],
-    "seconds": 1.617,
-    "mp3Bytes": 13676,
+    "seconds": 0.994,
+    "mp3Bytes": 8684,
     "review": "approved by user",
     "sourceBatch": "supplies-03-leadin",
-    "sha256": "5a751260438b0fd26b4ed1cf633b7abbe1486baec2e522118eb29ea41f5f15f8"
+    "sha256": "7ab6fcba191950ba96b3806393ed1ceaa52bc08a0684698f5c4c9cb2ac6c9e87",
+    "boundaryTrim": {
+      "id": "calendar",
+      "originalSeconds": 1.6175,
+      "startRemovedSeconds": 0.095875,
+      "endRemovedSeconds": 0.5277916666666667,
+      "changed": true,
+      "originalSha256": "5a751260438b0fd26b4ed1cf633b7abbe1486baec2e522118eb29ea41f5f15f8",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "calendars",
@@ -1596,11 +2623,24 @@
     "phonemes": [
       "lˈɪsᵊn: kˈæləndəɹz."
     ],
-    "seconds": 1.742,
-    "mp3Bytes": 14636,
+    "seconds": 1.065,
+    "mp3Bytes": 9260,
     "review": "approved by user",
     "sourceBatch": "supplies-03-leadin",
-    "sha256": "c495b1df27c793c9df57b7f1f325a8e1b500785d39c78f1c10d8e2b37879f7c0"
+    "sha256": "f63041cf7b0bd96784f66b154067dbd876fc01761798a7119ee0ff316975964e",
+    "boundaryTrim": {
+      "id": "calendars",
+      "originalSeconds": 1.7425,
+      "startRemovedSeconds": 0.09475,
+      "endRemovedSeconds": 0.582375,
+      "changed": true,
+      "originalSha256": "c495b1df27c793c9df57b7f1f325a8e1b500785d39c78f1c10d8e2b37879f7c0",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "glue-stick",
@@ -1616,11 +2656,24 @@
     "phonemes": [
       "lˈɪsᵊn: ɡlˈu stˈɪk."
     ],
-    "seconds": 1.718,
-    "mp3Bytes": 14444,
+    "seconds": 1.168,
+    "mp3Bytes": 10028,
     "review": "approved by user",
     "sourceBatch": "supplies-03-leadin",
-    "sha256": "ab21f4607bca737687d4de2f7d88a55d96750ff0ccaab9551987220971c41ee0"
+    "sha256": "8aa8c2761ce7a6e71f8aa30034f33c5dc25322ea7f93c9e6fe64f66583626595",
+    "boundaryTrim": {
+      "id": "glue-stick",
+      "originalSeconds": 1.7175,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.5492083333333333,
+      "changed": true,
+      "originalSha256": "ab21f4607bca737687d4de2f7d88a55d96750ff0ccaab9551987220971c41ee0",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "glue-sticks",
@@ -1636,11 +2689,24 @@
     "phonemes": [
       "lˈɪsᵊn: ɡlˈu stˈɪks."
     ],
-    "seconds": 1.718,
-    "mp3Bytes": 14444,
+    "seconds": 1.188,
+    "mp3Bytes": 10220,
     "review": "approved by user",
     "sourceBatch": "supplies-03-leadin",
-    "sha256": "825aa90900b5deba6dc603b69295f3281ad6b7d5097b8e67d25e1e45a5794db8"
+    "sha256": "1d2903b8802163cbc48a32777c29a8ab923185874ae86d6bb4a6efabcc0840fe",
+    "boundaryTrim": {
+      "id": "glue-sticks",
+      "originalSeconds": 1.7175,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.5296666666666666,
+      "changed": true,
+      "originalSha256": "825aa90900b5deba6dc603b69295f3281ad6b7d5097b8e67d25e1e45a5794db8",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "notebook",
@@ -1656,11 +2722,24 @@
     "phonemes": [
       "lˈɪsᵊn: nˈOtbˌʊk."
     ],
-    "seconds": 1.555,
-    "mp3Bytes": 13100,
+    "seconds": 0.952,
+    "mp3Bytes": 8300,
     "review": "approved by user",
     "sourceBatch": "supplies-03-leadin",
-    "sha256": "046c4d3f9c6728b2e164253189f86838bd08ba013b50df4342c9a8befcdea744"
+    "sha256": "c5abb6cdaaddea93aa8ed79f188aa791ddff8457d6be83824a2116f9c866e91a",
+    "boundaryTrim": {
+      "id": "notebook",
+      "originalSeconds": 1.555,
+      "startRemovedSeconds": 0.04475,
+      "endRemovedSeconds": 0.5577916666666667,
+      "changed": true,
+      "originalSha256": "046c4d3f9c6728b2e164253189f86838bd08ba013b50df4342c9a8befcdea744",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "notebooks",
@@ -1676,11 +2755,24 @@
     "phonemes": [
       "lˈɪsᵊn: nˈOtbˌʊks."
     ],
-    "seconds": 1.567,
-    "mp3Bytes": 13292,
+    "seconds": 0.998,
+    "mp3Bytes": 8684,
     "review": "approved by user",
     "sourceBatch": "supplies-03-leadin",
-    "sha256": "1a6b3fbb18ba1734128ee8ba9228fe567e210bdbadfb8d950356c4f03945cf45"
+    "sha256": "7827b3d3f2ed76c4ed3057b6b1d2adfdd86c319794477fc4b6c8b8b1f8bf0d5a",
+    "boundaryTrim": {
+      "id": "notebooks",
+      "originalSeconds": 1.5675,
+      "startRemovedSeconds": 0.042291666666666665,
+      "endRemovedSeconds": 0.5269583333333333,
+      "changed": true,
+      "originalSha256": "1a6b3fbb18ba1734128ee8ba9228fe567e210bdbadfb8d950356c4f03945cf45",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "stapler",
@@ -1696,11 +2788,24 @@
     "phonemes": [
       "lˈɪsᵊn: stˈApᵊləɹ."
     ],
-    "seconds": 1.63,
-    "mp3Bytes": 13676,
+    "seconds": 1.066,
+    "mp3Bytes": 9260,
     "review": "approved by user",
     "sourceBatch": "supplies-03-leadin",
-    "sha256": "8f334b50e84a76f360748b68e64dd8389514e41edd49425ed2b1c3b4b722c808"
+    "sha256": "38c5fdd6ffa3c3c7ef6ac2474211902eb6de8053a24a8f973882c866973fbf8e",
+    "boundaryTrim": {
+      "id": "stapler",
+      "originalSeconds": 1.63,
+      "startRemovedSeconds": 0.054875,
+      "endRemovedSeconds": 0.5095833333333334,
+      "changed": true,
+      "originalSha256": "8f334b50e84a76f360748b68e64dd8389514e41edd49425ed2b1c3b4b722c808",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "staplers",
@@ -1716,11 +2821,24 @@
     "phonemes": [
       "lˈɪsᵊn: stˈApᵊləɹz."
     ],
-    "seconds": 1.755,
-    "mp3Bytes": 14828,
+    "seconds": 1.114,
+    "mp3Bytes": 9644,
     "review": "approved by user",
     "sourceBatch": "supplies-03-leadin",
-    "sha256": "e08238b750be4730aa096e41b692797658898d71677c8b8a520994b3c79a9b4b"
+    "sha256": "ad8582cde0d403e4753b8200a59120e4be74ce74d1db05b43ae6ae4c50070d9e",
+    "boundaryTrim": {
+      "id": "staplers",
+      "originalSeconds": 1.755,
+      "startRemovedSeconds": 0.05491666666666667,
+      "endRemovedSeconds": 0.5859166666666666,
+      "changed": true,
+      "originalSha256": "e08238b750be4730aa096e41b692797658898d71677c8b8a520994b3c79a9b4b",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "black",
@@ -1736,11 +2854,24 @@
     "phonemes": [
       "lˈɪsᵊn: blˈæk."
     ],
-    "seconds": 1.393,
-    "mp3Bytes": 11948,
+    "seconds": 0.692,
+    "mp3Bytes": 6188,
     "review": "approved by user",
     "sourceBatch": "supplies-04-leadin",
-    "sha256": "9259331e0cd0249d11616b495f5a70f3a6f468af708ed0275c1d884a81df1d41"
+    "sha256": "51d1f5b6c8ac4beb7158bd1f6346aa46274c44d7736028901bbb468124fbf4ce",
+    "boundaryTrim": {
+      "id": "black",
+      "originalSeconds": 1.3939583333333334,
+      "startRemovedSeconds": 0.122375,
+      "endRemovedSeconds": 0.5800416666666667,
+      "changed": true,
+      "originalSha256": "9259331e0cd0249d11616b495f5a70f3a6f468af708ed0275c1d884a81df1d41",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "brown",
@@ -1756,11 +2887,24 @@
     "phonemes": [
       "lˈɪsᵊn: bɹˈWn."
     ],
-    "seconds": 1.48,
-    "mp3Bytes": 12524,
+    "seconds": 0.824,
+    "mp3Bytes": 7340,
     "review": "approved by user",
     "sourceBatch": "supplies-04-leadin",
-    "sha256": "8cd22b3f08eeea037c0a6ac4af152179b5ab1faa7fa2705bbb8318a5dda12240"
+    "sha256": "526e016864eeff7cdf8d06017fed0b8740502c639410b9f8f44057d6e5d72941",
+    "boundaryTrim": {
+      "id": "brown",
+      "originalSeconds": 1.48,
+      "startRemovedSeconds": 0.08195833333333333,
+      "endRemovedSeconds": 0.5744166666666667,
+      "changed": true,
+      "originalSha256": "8cd22b3f08eeea037c0a6ac4af152179b5ab1faa7fa2705bbb8318a5dda12240",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "green",
@@ -1776,11 +2920,24 @@
     "phonemes": [
       "lˈɪsᵊn: ɡɹˈin."
     ],
-    "seconds": 1.505,
-    "mp3Bytes": 12716,
+    "seconds": 0.827,
+    "mp3Bytes": 7340,
     "review": "approved by user",
     "sourceBatch": "supplies-04-leadin",
-    "sha256": "c9ee5eb943e4bbb7ea910c5416144017d8037f9dee40f450e1c6406c15019b03"
+    "sha256": "14d1a5d1330cf05acd3910d23933b3c01de6c1865e1add32a2805e87b8e13d01",
+    "boundaryTrim": {
+      "id": "green",
+      "originalSeconds": 1.505,
+      "startRemovedSeconds": 0.07904166666666666,
+      "endRemovedSeconds": 0.5994166666666667,
+      "changed": true,
+      "originalSha256": "c9ee5eb943e4bbb7ea910c5416144017d8037f9dee40f450e1c6406c15019b03",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "magnet",
@@ -1796,11 +2953,24 @@
     "phonemes": [
       "lˈɪsᵊn: mˈæɡnət."
     ],
-    "seconds": 1.53,
-    "mp3Bytes": 12908,
+    "seconds": 0.89,
+    "mp3Bytes": 7916,
     "review": "approved by user",
     "sourceBatch": "supplies-04-leadin",
-    "sha256": "fdb77e4944f0967f5f022d0e0257943679e7e6c8f4385435953e883299f88b4b"
+    "sha256": "f85898372d72f449f94ee4295237e89cb4fba96695cf0a92703c571f64463544",
+    "boundaryTrim": {
+      "id": "magnet",
+      "originalSeconds": 1.53,
+      "startRemovedSeconds": 0.06620833333333333,
+      "endRemovedSeconds": 0.5743333333333334,
+      "changed": true,
+      "originalSha256": "fdb77e4944f0967f5f022d0e0257943679e7e6c8f4385435953e883299f88b4b",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "magnets",
@@ -1816,11 +2986,24 @@
     "phonemes": [
       "lˈɪsᵊn: mˈæɡnəts."
     ],
-    "seconds": 1.605,
-    "mp3Bytes": 13484,
+    "seconds": 0.982,
+    "mp3Bytes": 8492,
     "review": "approved by user",
     "sourceBatch": "supplies-04-leadin",
-    "sha256": "8dd67859df9524f83b8ee84977fa3fbb277e8d1fd3e92d6be12e43c2b3dbf432"
+    "sha256": "628a443623583076708d65793cf8b8345e689b11eb6c98e47bc0bbc14041ec6c",
+    "boundaryTrim": {
+      "id": "magnets",
+      "originalSeconds": 1.605,
+      "startRemovedSeconds": 0.06195833333333333,
+      "endRemovedSeconds": 0.5609166666666666,
+      "changed": true,
+      "originalSha256": "8dd67859df9524f83b8ee84977fa3fbb277e8d1fd3e92d6be12e43c2b3dbf432",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "pencil-sharpener",
@@ -1836,11 +3019,24 @@
     "phonemes": [
       "lˈɪsᵊn: pˈɛnsᵊl ʃˈɑɹpᵊnəɹ."
     ],
-    "seconds": 2.118,
-    "mp3Bytes": 17708,
+    "seconds": 1.501,
+    "mp3Bytes": 12716,
     "review": "approved by user",
     "sourceBatch": "supplies-04-leadin",
-    "sha256": "56c7a7b5d8e8cb7e9c26b1b1c406869288831b5c648d88741cbbf08405148f79"
+    "sha256": "63397c4445ed226b5d70e41db591a45311d32099b8e6e2d22aeaf7d0ff270c17",
+    "boundaryTrim": {
+      "id": "pencil-sharpener",
+      "originalSeconds": 2.1175,
+      "startRemovedSeconds": 0.11316666666666667,
+      "endRemovedSeconds": 0.5036666666666667,
+      "changed": true,
+      "originalSha256": "56c7a7b5d8e8cb7e9c26b1b1c406869288831b5c648d88741cbbf08405148f79",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "pencil-sharpeners",
@@ -1856,11 +3052,24 @@
     "phonemes": [
       "lˈɪsᵊn: pˈɛnsᵊl ʃˈɑɹpᵊnəɹz."
     ],
-    "seconds": 2.217,
-    "mp3Bytes": 18476,
+    "seconds": 1.568,
+    "mp3Bytes": 13292,
     "review": "approved by user",
     "sourceBatch": "supplies-04-leadin",
-    "sha256": "5603e15cf785a804b1b99d1be2ff23ca1991e8145dd0aded98cb56bc27d4c26c"
+    "sha256": "c1f44d6578a850090734a69a0952e823a0eb4d432d40af413e9ba7f679864a18",
+    "boundaryTrim": {
+      "id": "pencil-sharpeners",
+      "originalSeconds": 2.2175,
+      "startRemovedSeconds": 0.11316666666666667,
+      "endRemovedSeconds": 0.5359166666666667,
+      "changed": true,
+      "originalSha256": "5603e15cf785a804b1b99d1be2ff23ca1991e8145dd0aded98cb56bc27d4c26c",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "pink",
@@ -1876,11 +3085,24 @@
     "phonemes": [
       "lˈɪsᵊn: pˈɪŋk."
     ],
-    "seconds": 1.317,
-    "mp3Bytes": 11180,
+    "seconds": 0.636,
+    "mp3Bytes": 5804,
     "review": "approved by user",
     "sourceBatch": "supplies-04-leadin",
-    "sha256": "4c385f818c2b8d5a6afb42065f1ba5ca7fdb39c449e048008adf32d05c73ccd4"
+    "sha256": "0b4f96d1d77ab4929e62036f3641f319beeb6eb4862666bb7a039e921a62a0d0",
+    "boundaryTrim": {
+      "id": "pink",
+      "originalSeconds": 1.3175,
+      "startRemovedSeconds": 0.11191666666666666,
+      "endRemovedSeconds": 0.5692083333333333,
+      "changed": true,
+      "originalSha256": "4c385f818c2b8d5a6afb42065f1ba5ca7fdb39c449e048008adf32d05c73ccd4",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "white",
@@ -1896,11 +3118,24 @@
     "phonemes": [
       "lˈɪsᵊn: wˈIt."
     ],
-    "seconds": 1.33,
-    "mp3Bytes": 11372,
+    "seconds": 0.694,
+    "mp3Bytes": 6188,
     "review": "approved by user",
     "sourceBatch": "supplies-04-leadin",
-    "sha256": "8f41a7963d57b230e2e45493655ac7e3583dc983dcb2cac7cebf648ca3fa9c89"
+    "sha256": "e68f715dfae7fb9690b3843896baadc72bd4655d7f9def8479cfaf21fc1dcb4c",
+    "boundaryTrim": {
+      "id": "white",
+      "originalSeconds": 1.33,
+      "startRemovedSeconds": 0.070375,
+      "endRemovedSeconds": 0.5657083333333334,
+      "changed": true,
+      "originalSha256": "8f41a7963d57b230e2e45493655ac7e3583dc983dcb2cac7cebf648ca3fa9c89",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "yellow",
@@ -1916,11 +3151,24 @@
     "phonemes": [
       "lˈɪsᵊn: jˈɛlO."
     ],
-    "seconds": 1.43,
-    "mp3Bytes": 12140,
+    "seconds": 0.824,
+    "mp3Bytes": 7340,
     "review": "approved by user",
     "sourceBatch": "supplies-04-leadin",
-    "sha256": "19fbf0b20bacd920ddc2825199d367c73b6b6b59c3a16860774ee99fc078c003"
+    "sha256": "52f58b0c406c651f5b2f1af5c7b8fe45b0a54c0a55c4d0922e401009467a3be9",
+    "boundaryTrim": {
+      "id": "yellow",
+      "originalSeconds": 1.43,
+      "startRemovedSeconds": 0.07179166666666667,
+      "endRemovedSeconds": 0.5345833333333333,
+      "changed": true,
+      "originalSha256": "19fbf0b20bacd920ddc2825199d367c73b6b6b59c3a16860774ee99fc078c003",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "do-you-have-a",
@@ -1961,12 +3209,25 @@
     "phonemes": [
       "lˈɪsᵊn: dˈu ju hæv ɐn əɹˈAsəɹ?"
     ],
-    "seconds": 0.69,
-    "mp3Bytes": 6188,
+    "seconds": 0.574,
+    "mp3Bytes": 5228,
     "review": "approved by user",
     "sourceBatch": "question-join-01",
     "sourceFile": "prefix-an.mp3",
-    "sha256": "3b2b1449761b0b9e5fa08ac69bead434472e16c225c6d63b02b4575dfe0f1e6b"
+    "sha256": "9deb67257b2f9f208de22cc162eec3c5a788cd25fe10c015aa3ab7e320959d43",
+    "boundaryTrim": {
+      "id": "do-you-have-an",
+      "originalSeconds": 0.69,
+      "startRemovedSeconds": 0.11620833333333333,
+      "endRemovedSeconds": 0.0,
+      "changed": true,
+      "originalSha256": "3b2b1449761b0b9e5fa08ac69bead434472e16c225c6d63b02b4575dfe0f1e6b",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "i-have",
@@ -2035,13 +3296,26 @@
     "phonemes": [
       "lˈɪsᵊn: ɐ pˈɛn."
     ],
-    "seconds": 0.228,
-    "mp3Bytes": 2540,
+    "seconds": 0.142,
+    "mp3Bytes": 1772,
     "review": "approved by user",
     "trimEndSeconds": 1.61,
     "role": "sentence-part",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "e2d47409dc724efa6fe83655c13ff548887c92d170c92b72e5a7b82aec08ad26"
+    "sha256": "0e7c81b151a8962489c999caa1c25db151b5a35f7afcd604e775a8f4ece35aae",
+    "boundaryTrim": {
+      "id": "a",
+      "originalSeconds": 0.2275,
+      "startRemovedSeconds": 0.08520833333333333,
+      "endRemovedSeconds": 0.0,
+      "changed": true,
+      "originalSha256": "e2d47409dc724efa6fe83655c13ff548887c92d170c92b72e5a7b82aec08ad26",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "an",
@@ -2059,12 +3333,25 @@
     "phonemes": [
       "lˈɪsᵊn: ɐn."
     ],
-    "seconds": 1.117,
-    "mp3Bytes": 9644,
+    "seconds": 0.507,
+    "mp3Bytes": 4844,
     "review": "approved by user",
     "role": "sentence-part",
     "sourceBatch": "sentence-corrections-01",
-    "sha256": "5f6efc407f84e6e8c50f561a78f9f29055bd3ff03588c2a1d67cb0f3a508ae1b"
+    "sha256": "7ac36865e7099aaf4ab943f3941736002691e06ce41bca6ab7daf497343b18e5",
+    "boundaryTrim": {
+      "id": "an",
+      "originalSeconds": 1.1175,
+      "startRemovedSeconds": 0.06433333333333334,
+      "endRemovedSeconds": 0.5459166666666667,
+      "changed": true,
+      "originalSha256": "5f6efc407f84e6e8c50f561a78f9f29055bd3ff03588c2a1d67cb0f3a508ae1b",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "and",
@@ -2083,13 +3370,26 @@
     "phonemes": [
       "lˈɪsᵊn: ænd ʧˈiz."
     ],
-    "seconds": 0.278,
-    "mp3Bytes": 2924,
+    "seconds": 0.195,
+    "mp3Bytes": 2348,
     "review": "approved by user",
     "trimEndSeconds": 1.5850000000000002,
     "role": "sentence-part",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "7b2e9072356dc3b09eb4c7a9c388c3a370c5eb7f4e757db789c6bce8eb7f9bdb"
+    "sha256": "d29197ad02c432ddedf7cde53b1500fe2cd086f65ddfc3db15b2e88f1231cf28",
+    "boundaryTrim": {
+      "id": "and",
+      "originalSeconds": 0.2775,
+      "startRemovedSeconds": 0.08266666666666667,
+      "endRemovedSeconds": 0.0,
+      "changed": true,
+      "originalSha256": "7b2e9072356dc3b09eb4c7a9c388c3a370c5eb7f4e757db789c6bce8eb7f9bdb",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "with",
@@ -2231,13 +3531,26 @@
     "phonemes": [
       "lˈɪsᵊn: mˌI sˈændwˌɪʧ ɪz dəlˈɪʃəs."
     ],
-    "seconds": 1.19,
-    "mp3Bytes": 10220,
+    "seconds": 1.124,
+    "mp3Bytes": 9644,
     "review": "approved by user",
     "trimEndSeconds": 2.3474999999999997,
     "role": "sentence-part",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "cdb8c0be7bd0bce80e50749334552cc2d0207bc2c046e2bddcf215393900fd08"
+    "sha256": "0f0cbf6442b6939d57daf1cf2ba75da0ae0b2e70dd60e3d6702d5ec2e9d269cc",
+    "boundaryTrim": {
+      "id": "my-sandwich-is",
+      "originalSeconds": 1.19,
+      "startRemovedSeconds": 0.06579166666666666,
+      "endRemovedSeconds": 0.0,
+      "changed": true,
+      "originalSha256": "cdb8c0be7bd0bce80e50749334552cc2d0207bc2c046e2bddcf215393900fd08",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "my-sandwich-is-a",
@@ -2276,12 +3589,25 @@
     "phonemes": [
       "lˈɪsᵊn: mˌI sˈændwˌɪʧ ɪz ɐn."
     ],
-    "seconds": 2.143,
-    "mp3Bytes": 17900,
+    "seconds": 1.557,
+    "mp3Bytes": 13100,
     "review": "approved by user",
     "role": "sentence-part",
     "sourceBatch": "sentence-corrections-01",
-    "sha256": "a6a4c520d388d1ff0c7a97f0455ef07825e66aa392f627a162b9000f2951834d"
+    "sha256": "9d4010b364fba1c1fb43a61db53ccc9f4cb4435a5c1cf7f763728b83f4966552",
+    "boundaryTrim": {
+      "id": "my-sandwich-is-an",
+      "originalSeconds": 2.1425,
+      "startRemovedSeconds": 0.057666666666666665,
+      "endRemovedSeconds": 0.5277916666666667,
+      "changed": true,
+      "originalSha256": "a6a4c520d388d1ff0c7a97f0455ef07825e66aa392f627a162b9000f2951834d",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "is-for",
@@ -2298,13 +3624,26 @@
     "phonemes": [
       "lˈɪsᵊn: ɪz fɔɹ ʧˈiz."
     ],
-    "seconds": 0.477,
-    "mp3Bytes": 4460,
+    "seconds": 0.396,
+    "mp3Bytes": 3884,
     "review": "approved by user",
     "trimEndSeconds": 1.685,
     "role": "sentence-part",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "c27d3f48bd609aee3b376ea88874c3c1710764ae488d634c9e4f63d13974d42f"
+    "sha256": "02e363f2ccb9bd12dd5e1b2af628e32498be37b10dd5a4838fb683086b2b6b57",
+    "boundaryTrim": {
+      "id": "is-for",
+      "originalSeconds": 0.4775,
+      "startRemovedSeconds": 0.08175,
+      "endRemovedSeconds": 0.0,
+      "changed": true,
+      "originalSha256": "c27d3f48bd609aee3b376ea88874c3c1710764ae488d634c9e4f63d13974d42f",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "it-s-from",
@@ -2345,12 +3684,25 @@
     "phonemes": [
       "lˈɪsᵊn: smˈɔl."
     ],
-    "seconds": 1.417,
-    "mp3Bytes": 12140,
+    "seconds": 0.764,
+    "mp3Bytes": 6764,
     "review": "approved by user",
     "role": "sentence-part",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "07398cbdd907fc5278192ab028103b6c2f42704ade33a9846ed13af926d06f92"
+    "sha256": "bfa0b59b1115c89d0d5adbd5c00b709af25e9dad6cd7f27121ee4861a98b23c4",
+    "boundaryTrim": {
+      "id": "small",
+      "originalSeconds": 1.4179583333333334,
+      "startRemovedSeconds": 0.042416666666666665,
+      "endRemovedSeconds": 0.611375,
+      "changed": true,
+      "originalSha256": "07398cbdd907fc5278192ab028103b6c2f42704ade33a9846ed13af926d06f92",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "medium",
@@ -2368,12 +3720,25 @@
     "phonemes": [
       "lˈɪsᵊn: mˈidiəm."
     ],
-    "seconds": 1.555,
-    "mp3Bytes": 13100,
+    "seconds": 0.934,
+    "mp3Bytes": 8108,
     "review": "approved by user",
     "role": "sentence-part",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "b3242e15868d4390ed0105603480679cd195013e724d673834c679b65382b684"
+    "sha256": "9b76ac10d8aa8c7a46b5e0ed314441f84f734f49c7e91fd753776c05e32263a4",
+    "boundaryTrim": {
+      "id": "medium",
+      "originalSeconds": 1.555,
+      "startRemovedSeconds": 0.068375,
+      "endRemovedSeconds": 0.5527916666666667,
+      "changed": true,
+      "originalSha256": "b3242e15868d4390ed0105603480679cd195013e724d673834c679b65382b684",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "big",
@@ -2391,12 +3756,25 @@
     "phonemes": [
       "lˈɪsᵊn: bˈɪɡ."
     ],
-    "seconds": 1.317,
-    "mp3Bytes": 11180,
+    "seconds": 0.579,
+    "mp3Bytes": 5420,
     "review": "approved by user",
     "role": "sentence-part",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "75febf9125efb73006a20cca3d1e01bb3f57f49380e1085816477dcafd45b6b8"
+    "sha256": "87b70c614e74a1b32ea0ae300e56ae7262555f709b05c7ea4f82d93fa6bab42e",
+    "boundaryTrim": {
+      "id": "big",
+      "originalSeconds": 1.3175,
+      "startRemovedSeconds": 0.13354166666666667,
+      "endRemovedSeconds": 0.60525,
+      "changed": true,
+      "originalSha256": "75febf9125efb73006a20cca3d1e01bb3f57f49380e1085816477dcafd45b6b8",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "everything",
@@ -2414,12 +3792,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˈɛvəɹiθˌɪŋ."
     ],
-    "seconds": 1.593,
-    "mp3Bytes": 13484,
+    "seconds": 0.979,
+    "mp3Bytes": 8492,
     "review": "approved by user",
     "role": "sentence-part",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "040eadb65d5e3a88067a9de5ee8f09a21362664a9fa605a196a82eeb58e90360"
+    "sha256": "a1638c000808d6715244a58361c37a42ed6f571421809a5553050f671f43d305",
+    "boundaryTrim": {
+      "id": "everything",
+      "originalSeconds": 1.5925,
+      "startRemovedSeconds": 0.09533333333333334,
+      "endRemovedSeconds": 0.5178333333333334,
+      "changed": true,
+      "originalSha256": "040eadb65d5e3a88067a9de5ee8f09a21362664a9fa605a196a82eeb58e90360",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "pizza",
@@ -2437,12 +3828,25 @@
     "phonemes": [
       "lˈɪsᵊn: pˈitsə."
     ],
-    "seconds": 1.518,
-    "mp3Bytes": 12908,
+    "seconds": 0.97,
+    "mp3Bytes": 8492,
     "review": "approved by user",
     "role": "sentence-part",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "cf2799596b13c2ad72024d861259e219299a52d124106d75041b85f14aac6c78"
+    "sha256": "8cca153f9f417cc9c8fc50d4a75a92a24d1bc00ef330136db8861f31b56fec96",
+    "boundaryTrim": {
+      "id": "pizza",
+      "originalSeconds": 1.5175,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.547625,
+      "changed": true,
+      "originalSha256": "cf2799596b13c2ad72024d861259e219299a52d124106d75041b85f14aac6c78",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "bread",
@@ -2458,12 +3862,25 @@
     "phonemes": [
       "lˈɪsᵊn: bɹˈɛd."
     ],
-    "seconds": 1.405,
-    "mp3Bytes": 11948,
+    "seconds": 0.698,
+    "mp3Bytes": 6380,
     "review": "approved by user",
     "role": "sentence-part",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "79f1e3af19995e36d71e23b01a5b4a47549e2234f9aa03b63212d492c666f655"
+    "sha256": "afbd9ed1b28f2aa45d71b2a367bc317ed240ba91b1a886d387aef2b4c6bc98e7",
+    "boundaryTrim": {
+      "id": "bread",
+      "originalSeconds": 1.405,
+      "startRemovedSeconds": 0.08016666666666666,
+      "endRemovedSeconds": 0.6285833333333334,
+      "changed": true,
+      "originalSha256": "79f1e3af19995e36d71e23b01a5b4a47549e2234f9aa03b63212d492c666f655",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "bread-slice",
@@ -2479,12 +3896,25 @@
     "phonemes": [
       "lˈɪsᵊn: bɹˈɛd slˈIs."
     ],
-    "seconds": 1.792,
-    "mp3Bytes": 15020,
+    "seconds": 1.227,
+    "mp3Bytes": 10604,
     "review": "approved by user",
     "role": "sentence-part",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "39172b1491996a472d1ba035ca8ecfbb75773bad874c04f1c746f87ad94ca716"
+    "sha256": "924a3e1bd62eef003a3cdfc873a78fec0ec3d7d73b0b0a86d1d14b098689d604",
+    "boundaryTrim": {
+      "id": "bread-slice",
+      "originalSeconds": 1.7925,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.565375,
+      "changed": true,
+      "originalSha256": "39172b1491996a472d1ba035ca8ecfbb75773bad874c04f1c746f87ad94ca716",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "bread-slices",
@@ -2500,12 +3930,25 @@
     "phonemes": [
       "lˈɪsᵊn: bɹˈɛd slˈIsᵻz."
     ],
-    "seconds": 1.968,
-    "mp3Bytes": 16364,
+    "seconds": 1.327,
+    "mp3Bytes": 11372,
     "review": "approved by user",
     "role": "sentence-part",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "54d9142f62a8328a4bc20349689d583839cd51c26c6a4f18af5d5f3a5679a4d6"
+    "sha256": "6008929b9cf97d2e403579775a9f26e2b555bf737e8426c8dc357fb62d74a390",
+    "boundaryTrim": {
+      "id": "bread-slices",
+      "originalSeconds": 1.9675,
+      "startRemovedSeconds": 0.09095833333333334,
+      "endRemovedSeconds": 0.5494166666666667,
+      "changed": true,
+      "originalSha256": "54d9142f62a8328a4bc20349689d583839cd51c26c6a4f18af5d5f3a5679a4d6",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-0",
@@ -2523,12 +3966,25 @@
     "phonemes": [
       "lˈɪsᵊn: zˈɪɹO."
     ],
-    "seconds": 1.468,
-    "mp3Bytes": 12524,
+    "seconds": 0.854,
+    "mp3Bytes": 7532,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "ef05ea1b75e21736cf5866b5b1800e389bca0949bb2901dde05e6bd1e933bb0d"
+    "sha256": "27012f3ccc473d8fc21e066e2a5c4a07f3ba1045fc52d57e484d74f6d2037505",
+    "boundaryTrim": {
+      "id": "number-0",
+      "originalSeconds": 1.4675,
+      "startRemovedSeconds": 0.05383333333333333,
+      "endRemovedSeconds": 0.5595833333333333,
+      "changed": true,
+      "originalSha256": "ef05ea1b75e21736cf5866b5b1800e389bca0949bb2901dde05e6bd1e933bb0d",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-1",
@@ -2546,12 +4002,25 @@
     "phonemes": [
       "lˈɪsᵊn: wˈʌn."
     ],
-    "seconds": 1.305,
-    "mp3Bytes": 11180,
+    "seconds": 0.637,
+    "mp3Bytes": 5804,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "69889f387f29f811d81be33e16db21fd07b4541ea55122e66a3d9e0c195c3298"
+    "sha256": "beb686edd76df2c1a1240c535ccdf61174b34a17207663393d60d6b00c4c6cf4",
+    "boundaryTrim": {
+      "id": "number-1",
+      "originalSeconds": 1.305,
+      "startRemovedSeconds": 0.07658333333333334,
+      "endRemovedSeconds": 0.5914583333333333,
+      "changed": true,
+      "originalSha256": "69889f387f29f811d81be33e16db21fd07b4541ea55122e66a3d9e0c195c3298",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-2",
@@ -2569,12 +4038,25 @@
     "phonemes": [
       "lˈɪsᵊn: tˈu."
     ],
-    "seconds": 1.305,
-    "mp3Bytes": 11180,
+    "seconds": 0.677,
+    "mp3Bytes": 6188,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "3f72aa870d2e9360605480279658c6eb744fcb45599c10e074831e690176bff0"
+    "sha256": "99a066de4b7a5c181ed85ab569a3ca744daf0db01a455bcbf58dcbe8c7730938",
+    "boundaryTrim": {
+      "id": "number-2",
+      "originalSeconds": 1.305,
+      "startRemovedSeconds": 0.09383333333333334,
+      "endRemovedSeconds": 0.5345416666666667,
+      "changed": true,
+      "originalSha256": "3f72aa870d2e9360605480279658c6eb744fcb45599c10e074831e690176bff0",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-3",
@@ -2592,12 +4074,25 @@
     "phonemes": [
       "lˈɪsᵊn: θɹˈi."
     ],
-    "seconds": 1.393,
-    "mp3Bytes": 11948,
+    "seconds": 0.739,
+    "mp3Bytes": 6572,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "05b8617d8888079d542c61bd3eba106309bbd64c0fd9a445de7a8c800c24f95a"
+    "sha256": "e748b36b5a6f5ed4d82d2f5dfe7e7eeecfcfcf0df04ead9fa63c23dd6971f255",
+    "boundaryTrim": {
+      "id": "number-3",
+      "originalSeconds": 1.3939583333333334,
+      "startRemovedSeconds": 0.032875,
+      "endRemovedSeconds": 0.622375,
+      "changed": true,
+      "originalSha256": "05b8617d8888079d542c61bd3eba106309bbd64c0fd9a445de7a8c800c24f95a",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-4",
@@ -2615,12 +4110,25 @@
     "phonemes": [
       "lˈɪsᵊn: fˈɔɹ."
     ],
-    "seconds": 1.367,
-    "mp3Bytes": 11564,
+    "seconds": 0.707,
+    "mp3Bytes": 6380,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "a544c8ff334d8156bbb03bd2b2cb870366ef1e73017c6d21dabe86fb943e22ea"
+    "sha256": "756a66507dcc29cf64d32d4864b9312031040882ffed5f9f47babef435d00416",
+    "boundaryTrim": {
+      "id": "number-4",
+      "originalSeconds": 1.3675,
+      "startRemovedSeconds": 0.03941666666666667,
+      "endRemovedSeconds": 0.6206666666666667,
+      "changed": true,
+      "originalSha256": "a544c8ff334d8156bbb03bd2b2cb870366ef1e73017c6d21dabe86fb943e22ea",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-5",
@@ -2638,12 +4146,25 @@
     "phonemes": [
       "lˈɪsᵊn: fˈIv."
     ],
-    "seconds": 1.405,
-    "mp3Bytes": 11948,
+    "seconds": 0.747,
+    "mp3Bytes": 6764,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "d1c4a555c517514e8d40a9360add80013831d9972f85555c901d34bc0ddca5b8"
+    "sha256": "291a3cde0c16de928e29712b8214ff2bd5a76442671b2ab12c2ad6ab8bf74465",
+    "boundaryTrim": {
+      "id": "number-5",
+      "originalSeconds": 1.405,
+      "startRemovedSeconds": 0.04541666666666667,
+      "endRemovedSeconds": 0.6125416666666667,
+      "changed": true,
+      "originalSha256": "d1c4a555c517514e8d40a9360add80013831d9972f85555c901d34bc0ddca5b8",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-6",
@@ -2661,12 +4182,25 @@
     "phonemes": [
       "lˈɪsᵊn: sˈɪks."
     ],
-    "seconds": 1.367,
-    "mp3Bytes": 11564,
+    "seconds": 0.763,
+    "mp3Bytes": 6764,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "80c516253841e48403b2b79ffbca5f206da3e33d0cd0f5343f46c58cd5ffddd4"
+    "sha256": "75598d647624863550d930abebecd6e07091fa6a0fd2b5b67899d42543ffd136",
+    "boundaryTrim": {
+      "id": "number-6",
+      "originalSeconds": 1.3675,
+      "startRemovedSeconds": 0.042958333333333334,
+      "endRemovedSeconds": 0.5610416666666667,
+      "changed": true,
+      "originalSha256": "80c516253841e48403b2b79ffbca5f206da3e33d0cd0f5343f46c58cd5ffddd4",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-7",
@@ -2684,12 +4218,25 @@
     "phonemes": [
       "lˈɪsᵊn: sˈɛvən."
     ],
-    "seconds": 1.417,
-    "mp3Bytes": 12140,
+    "seconds": 0.854,
+    "mp3Bytes": 7532,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "aa1ae800e90571ef0083d736da848424723a9ea178404e5a43d98ee868158482"
+    "sha256": "4bbf84bc6c3298eb007568c4b05cff5f5cb45baac9390429fe53c6d4d59bb475",
+    "boundaryTrim": {
+      "id": "number-7",
+      "originalSeconds": 1.4179583333333334,
+      "startRemovedSeconds": 0.039,
+      "endRemovedSeconds": 0.5249166666666667,
+      "changed": true,
+      "originalSha256": "aa1ae800e90571ef0083d736da848424723a9ea178404e5a43d98ee868158482",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-8",
@@ -2707,12 +4254,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˈAt."
     ],
-    "seconds": 1.255,
-    "mp3Bytes": 10796,
+    "seconds": 0.614,
+    "mp3Bytes": 5612,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "c7e0edeaa101702eb796c75c2bae981f8e6ae06ecf7f6b023ebbb3723f1c3dd1"
+    "sha256": "33b1843b55cf439ffd5ebe8f475a5f48954e0a9b092095cb4ff98acdee71ffa0",
+    "boundaryTrim": {
+      "id": "number-8",
+      "originalSeconds": 1.255,
+      "startRemovedSeconds": 0.08333333333333333,
+      "endRemovedSeconds": 0.5575833333333333,
+      "changed": true,
+      "originalSha256": "c7e0edeaa101702eb796c75c2bae981f8e6ae06ecf7f6b023ebbb3723f1c3dd1",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-9",
@@ -2730,12 +4290,25 @@
     "phonemes": [
       "lˈɪsᵊn: nˈIn."
     ],
-    "seconds": 1.38,
-    "mp3Bytes": 11756,
+    "seconds": 0.726,
+    "mp3Bytes": 6572,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "8268671e7e98c9d4e32c871d854205f78472e64ca6c760ac0abdcb18053ce86e"
+    "sha256": "1e32acd8cb1901da7e2fef57ce884db91a7229cb9c08e9164b2c7de21b66da2c",
+    "boundaryTrim": {
+      "id": "number-9",
+      "originalSeconds": 1.38,
+      "startRemovedSeconds": 0.05533333333333333,
+      "endRemovedSeconds": 0.5991666666666666,
+      "changed": true,
+      "originalSha256": "8268671e7e98c9d4e32c871d854205f78472e64ca6c760ac0abdcb18053ce86e",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-10",
@@ -2753,12 +4326,25 @@
     "phonemes": [
       "lˈɪsᵊn: tˈɛn."
     ],
-    "seconds": 1.355,
-    "mp3Bytes": 11564,
+    "seconds": 0.707,
+    "mp3Bytes": 6380,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "eff1bd7edc5d40e40dbd582b02d06ac9b7def30285f81d9ca0a7eca3918524f3"
+    "sha256": "114ce153df65e5adaf34c3e722cc7ee00832ca82a52311c6a3e07e9b9e2be05d",
+    "boundaryTrim": {
+      "id": "number-10",
+      "originalSeconds": 1.355,
+      "startRemovedSeconds": 0.09854166666666667,
+      "endRemovedSeconds": 0.5494166666666667,
+      "changed": true,
+      "originalSha256": "eff1bd7edc5d40e40dbd582b02d06ac9b7def30285f81d9ca0a7eca3918524f3",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-11",
@@ -2776,12 +4362,25 @@
     "phonemes": [
       "lˈɪsᵊn: əlˈɛvᵊn."
     ],
-    "seconds": 1.505,
-    "mp3Bytes": 12716,
+    "seconds": 0.848,
+    "mp3Bytes": 7532,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "a9f853cddafd9d3fbec29c629fd6bc41b27df7fe6e4d4cdc3afd2563b064f8a4"
+    "sha256": "cd67e09c6d036b0175b009e5bb07e1d05730ae3a1cd905052af52ad13ef41cb3",
+    "boundaryTrim": {
+      "id": "number-11",
+      "originalSeconds": 1.505,
+      "startRemovedSeconds": 0.08270833333333333,
+      "endRemovedSeconds": 0.574125,
+      "changed": true,
+      "originalSha256": "a9f853cddafd9d3fbec29c629fd6bc41b27df7fe6e4d4cdc3afd2563b064f8a4",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-12",
@@ -2799,12 +4398,25 @@
     "phonemes": [
       "lˈɪsᵊn: twˈɛlv."
     ],
-    "seconds": 1.505,
-    "mp3Bytes": 12716,
+    "seconds": 0.805,
+    "mp3Bytes": 7148,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "0406c9dd0e6f258a803c6ceae25a8bcf9c2f0e4ddd57a0db4f489f755b84b06d"
+    "sha256": "283363e6515e78b36c239196062748b40985228ea6c9a141256b79b56ad05462",
+    "boundaryTrim": {
+      "id": "number-12",
+      "originalSeconds": 1.505,
+      "startRemovedSeconds": 0.10516666666666667,
+      "endRemovedSeconds": 0.5946666666666667,
+      "changed": true,
+      "originalSha256": "0406c9dd0e6f258a803c6ceae25a8bcf9c2f0e4ddd57a0db4f489f755b84b06d",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-13",
@@ -2822,12 +4434,25 @@
     "phonemes": [
       "lˈɪsᵊn: θˌɜɹtˈin."
     ],
-    "seconds": 1.643,
-    "mp3Bytes": 13868,
+    "seconds": 1.016,
+    "mp3Bytes": 8876,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "9272b57fffe70ec30620d133fc707aaf80b45e5048abfabd0031988ae3aa7043"
+    "sha256": "9f70d17531392f95ec922e9965eecea1cafb197bcb9e52b8a4fe4c7377fd764b",
+    "boundaryTrim": {
+      "id": "number-13",
+      "originalSeconds": 1.6425,
+      "startRemovedSeconds": 0.042208333333333334,
+      "endRemovedSeconds": 0.5845416666666666,
+      "changed": true,
+      "originalSha256": "9272b57fffe70ec30620d133fc707aaf80b45e5048abfabd0031988ae3aa7043",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-14",
@@ -2845,12 +4470,25 @@
     "phonemes": [
       "lˈɪsᵊn: fˌɔɹtˈin."
     ],
-    "seconds": 1.667,
-    "mp3Bytes": 14060,
+    "seconds": 1.026,
+    "mp3Bytes": 8876,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "20b946a5bcc1ffb796604204487b5e6848209c701bb263000751a8fa76b27d54"
+    "sha256": "53862b2b5d4a59fd8a2b3ab46bfd346dcd48ee32cb121e25ad01790b64189a58",
+    "boundaryTrim": {
+      "id": "number-14",
+      "originalSeconds": 1.6675,
+      "startRemovedSeconds": 0.042291666666666665,
+      "endRemovedSeconds": 0.5992916666666667,
+      "changed": true,
+      "originalSha256": "20b946a5bcc1ffb796604204487b5e6848209c701bb263000751a8fa76b27d54",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-15",
@@ -2868,12 +4506,25 @@
     "phonemes": [
       "lˈɪsᵊn: fˌɪftˈin."
     ],
-    "seconds": 1.617,
-    "mp3Bytes": 13676,
+    "seconds": 1.022,
+    "mp3Bytes": 8876,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "d0ebc772d3406e0a6d1b1b6b9a6977e5f32d32b848680228405dda7b60043965"
+    "sha256": "a823bb24d507791853ffe8c11dac25a70f60163e27d5eb131c94cb7ae17f4879",
+    "boundaryTrim": {
+      "id": "number-15",
+      "originalSeconds": 1.6175,
+      "startRemovedSeconds": 0.042208333333333334,
+      "endRemovedSeconds": 0.5527916666666667,
+      "changed": true,
+      "originalSha256": "d0ebc772d3406e0a6d1b1b6b9a6977e5f32d32b848680228405dda7b60043965",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-16",
@@ -2891,12 +4542,25 @@
     "phonemes": [
       "lˈɪsᵊn: sˌɪkstˈin."
     ],
-    "seconds": 1.705,
-    "mp3Bytes": 14444,
+    "seconds": 1.109,
+    "mp3Bytes": 9644,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "0bef4eac3adfd7c52571c2aa55b7d9a36d8e78d647d5cebdb177de07fd8d4e64"
+    "sha256": "0004369af68473b7d45865916335a0d43b7f1041055919323019c107b38e2a56",
+    "boundaryTrim": {
+      "id": "number-16",
+      "originalSeconds": 1.7059583333333332,
+      "startRemovedSeconds": 0.048666666666666664,
+      "endRemovedSeconds": 0.548625,
+      "changed": true,
+      "originalSha256": "0bef4eac3adfd7c52571c2aa55b7d9a36d8e78d647d5cebdb177de07fd8d4e64",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-17",
@@ -2914,12 +4578,25 @@
     "phonemes": [
       "lˈɪsᵊn: sˌɛvəntˈin."
     ],
-    "seconds": 1.755,
-    "mp3Bytes": 14828,
+    "seconds": 1.132,
+    "mp3Bytes": 9836,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "67dc65de51aa538a8682d455974f7bf841384c4ca5530cfdb68f49c0db1f41c8"
+    "sha256": "2cb29e55ec1e257f8eabf6fc012cdfbf8d824489067d43b4e7700ebb5493b769",
+    "boundaryTrim": {
+      "id": "number-17",
+      "originalSeconds": 1.755,
+      "startRemovedSeconds": 0.043375,
+      "endRemovedSeconds": 0.5796666666666667,
+      "changed": true,
+      "originalSha256": "67dc65de51aa538a8682d455974f7bf841384c4ca5530cfdb68f49c0db1f41c8",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-18",
@@ -2937,12 +4614,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˌAtˈin."
     ],
-    "seconds": 1.643,
-    "mp3Bytes": 13868,
+    "seconds": 0.974,
+    "mp3Bytes": 8492,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "5e46815aa2d768342cf98b1790d80478ecdd561822676ea3c3635985a0197ba8"
+    "sha256": "5902a43859972585fc305e80f60ed6267794be1daa5a5074831be38c781315a6",
+    "boundaryTrim": {
+      "id": "number-18",
+      "originalSeconds": 1.6425,
+      "startRemovedSeconds": 0.09583333333333334,
+      "endRemovedSeconds": 0.5726666666666667,
+      "changed": true,
+      "originalSha256": "5e46815aa2d768342cf98b1790d80478ecdd561822676ea3c3635985a0197ba8",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-19",
@@ -2960,12 +4650,25 @@
     "phonemes": [
       "lˈɪsᵊn: nˌIntˈin."
     ],
-    "seconds": 1.667,
-    "mp3Bytes": 14060,
+    "seconds": 1.007,
+    "mp3Bytes": 8684,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "26049ceb2e47fc2d5e56c69fee73bc1683bad94b7a87aff532c4dbd5a541e705"
+    "sha256": "ec9258e26da822e80297c0f1a199f8ad85e55147fed35ba343c864b695d7d5e8",
+    "boundaryTrim": {
+      "id": "number-19",
+      "originalSeconds": 1.6675,
+      "startRemovedSeconds": 0.057666666666666665,
+      "endRemovedSeconds": 0.6027916666666666,
+      "changed": true,
+      "originalSha256": "26049ceb2e47fc2d5e56c69fee73bc1683bad94b7a87aff532c4dbd5a541e705",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-20",
@@ -2983,12 +4686,25 @@
     "phonemes": [
       "lˈɪsᵊn: twˈɛnti."
     ],
-    "seconds": 1.518,
-    "mp3Bytes": 12908,
+    "seconds": 0.879,
+    "mp3Bytes": 7724,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "41f9b97f3d5478ef0893784358bcfc8bfdae87e0061a227f21bb1b944f00ca8c"
+    "sha256": "b71b81e10187b61965b701a4fb20023f596a288a687dd7c659ff3ce383c32247",
+    "boundaryTrim": {
+      "id": "number-20",
+      "originalSeconds": 1.5175,
+      "startRemovedSeconds": 0.1035,
+      "endRemovedSeconds": 0.5345833333333333,
+      "changed": true,
+      "originalSha256": "41f9b97f3d5478ef0893784358bcfc8bfdae87e0061a227f21bb1b944f00ca8c",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-30",
@@ -3006,12 +4722,25 @@
     "phonemes": [
       "lˈɪsᵊn: θˈɜɹTi."
     ],
-    "seconds": 1.48,
-    "mp3Bytes": 12524,
+    "seconds": 0.881,
+    "mp3Bytes": 7724,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "6fb698933ba0743bc3e0a892348332f7a75a0b86323f3931021dcbe246e158fa"
+    "sha256": "7a967303f69c341513b9ae2f42c39cc9294d86ecae8710aff89a69a981f58039",
+    "boundaryTrim": {
+      "id": "number-30",
+      "originalSeconds": 1.48,
+      "startRemovedSeconds": 0.04525,
+      "endRemovedSeconds": 0.5536666666666666,
+      "changed": true,
+      "originalSha256": "6fb698933ba0743bc3e0a892348332f7a75a0b86323f3931021dcbe246e158fa",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-40",
@@ -3029,12 +4758,25 @@
     "phonemes": [
       "lˈɪsᵊn: fˈɔɹTi."
     ],
-    "seconds": 1.48,
-    "mp3Bytes": 12524,
+    "seconds": 0.885,
+    "mp3Bytes": 7724,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "e21ab5a0a600f6e3119b5ac2d8659fc51ac8335ae9e37e1ea2dff69371e8cd06"
+    "sha256": "3edfdefc18e40a0da80acba5849b64aa529952a6a419614c1733ec855a209014",
+    "boundaryTrim": {
+      "id": "number-40",
+      "originalSeconds": 1.48,
+      "startRemovedSeconds": 0.04770833333333333,
+      "endRemovedSeconds": 0.5477083333333334,
+      "changed": true,
+      "originalSha256": "e21ab5a0a600f6e3119b5ac2d8659fc51ac8335ae9e37e1ea2dff69371e8cd06",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-50",
@@ -3052,12 +4794,25 @@
     "phonemes": [
       "lˈɪsᵊn: fˈɪfti."
     ],
-    "seconds": 1.53,
-    "mp3Bytes": 12908,
+    "seconds": 0.938,
+    "mp3Bytes": 8300,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "1862b166672c9f1e2079ab5d6164585fb857581816ce38d04451df3bc9b9bf66"
+    "sha256": "ea2e82e7fac7199d8479879e27eb427d6918037ad262ddc5afc566f31ede9ce5",
+    "boundaryTrim": {
+      "id": "number-50",
+      "originalSeconds": 1.53,
+      "startRemovedSeconds": 0.029791666666666668,
+      "endRemovedSeconds": 0.5628333333333333,
+      "changed": true,
+      "originalSha256": "1862b166672c9f1e2079ab5d6164585fb857581816ce38d04451df3bc9b9bf66",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-60",
@@ -3075,12 +4830,25 @@
     "phonemes": [
       "lˈɪsᵊn: sˈɪksti."
     ],
-    "seconds": 1.555,
-    "mp3Bytes": 13100,
+    "seconds": 0.955,
+    "mp3Bytes": 8300,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "27e769b59b5253a2873a06bf32d1723278c63bd10aa251b9ef4f9d621c0e24c2"
+    "sha256": "5abe3fc3086e7aea4c217c7e4b46fcda78a2490127621a19c5aa965fed0aafb8",
+    "boundaryTrim": {
+      "id": "number-60",
+      "originalSeconds": 1.555,
+      "startRemovedSeconds": 0.05491666666666667,
+      "endRemovedSeconds": 0.5449583333333333,
+      "changed": true,
+      "originalSha256": "27e769b59b5253a2873a06bf32d1723278c63bd10aa251b9ef4f9d621c0e24c2",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-70",
@@ -3098,12 +4866,25 @@
     "phonemes": [
       "lˈɪsᵊn: sˈɛvənti."
     ],
-    "seconds": 1.655,
-    "mp3Bytes": 13868,
+    "seconds": 1.056,
+    "mp3Bytes": 9068,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "18556ce4a4476b503cc436ed180685d0d08a3af5377c19c284dd343dfa6a4313"
+    "sha256": "9bc88d767581810705d2bfb1ce71f51cb06f456e28e11c4fa9944290bf68f6f3",
+    "boundaryTrim": {
+      "id": "number-70",
+      "originalSeconds": 1.655,
+      "startRemovedSeconds": 0.04554166666666667,
+      "endRemovedSeconds": 0.553625,
+      "changed": true,
+      "originalSha256": "18556ce4a4476b503cc436ed180685d0d08a3af5377c19c284dd343dfa6a4313",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-80",
@@ -3121,12 +4902,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˈATi."
     ],
-    "seconds": 1.38,
-    "mp3Bytes": 11756,
+    "seconds": 0.712,
+    "mp3Bytes": 6380,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "adcbe2994c05ed15c026c83679f1d3e299fafd4e31ca14e4a1d9abb0c6121aa3"
+    "sha256": "2d7e9748c8bca49e7000f9a3a6ffa2e49e9509882c0a163b2c4d533498fb05cc",
+    "boundaryTrim": {
+      "id": "number-80",
+      "originalSeconds": 1.38,
+      "startRemovedSeconds": 0.105375,
+      "endRemovedSeconds": 0.5627916666666667,
+      "changed": true,
+      "originalSha256": "adcbe2994c05ed15c026c83679f1d3e299fafd4e31ca14e4a1d9abb0c6121aa3",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-90",
@@ -3144,12 +4938,25 @@
     "phonemes": [
       "lˈɪsᵊn: nˈIndi."
     ],
-    "seconds": 1.492,
-    "mp3Bytes": 12716,
+    "seconds": 0.877,
+    "mp3Bytes": 7724,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "0400fc0524db946aaf883b81b991eec42b8adb4b4f581ae97de3b39584580d5c"
+    "sha256": "d3ce71a6de2099ae0324c55224a5741c95f58db45ddd162f7c31fe5d2cb78480",
+    "boundaryTrim": {
+      "id": "number-90",
+      "originalSeconds": 1.4925,
+      "startRemovedSeconds": 0.058125,
+      "endRemovedSeconds": 0.5575,
+      "changed": true,
+      "originalSha256": "0400fc0524db946aaf883b81b991eec42b8adb4b4f581ae97de3b39584580d5c",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "number-100",
@@ -3167,12 +4974,25 @@
     "phonemes": [
       "lˈɪsᵊn: wˈʌn hˈʌndɹəd."
     ],
-    "seconds": 1.68,
-    "mp3Bytes": 14060,
+    "seconds": 1.13,
+    "mp3Bytes": 9836,
     "review": "approved by user",
     "role": "number",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "a9317bcbc9618e57fcfbb480e3ea7233945cd4042529c6aade62696991dc07d6"
+    "sha256": "d62a2f070fec0c0fdfe00e7dc328484981ba1c5966894d583b53391d7c443a2d",
+    "boundaryTrim": {
+      "id": "number-100",
+      "originalSeconds": 1.68,
+      "startRemovedSeconds": 0.051875,
+      "endRemovedSeconds": 0.4992083333333333,
+      "changed": true,
+      "originalSha256": "a9317bcbc9618e57fcfbb480e3ea7233945cd4042529c6aade62696991dc07d6",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "letter-a",
@@ -3188,12 +5008,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˈA"
     ],
-    "seconds": 1.105,
-    "mp3Bytes": 9644,
+    "seconds": 0.489,
+    "mp3Bytes": 4652,
     "review": "approved by user",
     "role": "letter",
     "sourceBatch": "sentence-corrections-01",
-    "sha256": "6253951fb7359045ed99a3334f0bd360395031f48fe009dad1818c2baba49279"
+    "sha256": "17d9dee72eea4b19508b323e790004b93a557a4aa9548cb42c1adab624115584",
+    "boundaryTrim": {
+      "id": "letter-a",
+      "originalSeconds": 1.1059583333333334,
+      "startRemovedSeconds": 0.09854166666666667,
+      "endRemovedSeconds": 0.5187916666666667,
+      "changed": true,
+      "originalSha256": "6253951fb7359045ed99a3334f0bd360395031f48fe009dad1818c2baba49279",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "letter-b",
@@ -3209,12 +5042,25 @@
     "phonemes": [
       "lˈɪsᵊn: bˈi."
     ],
-    "seconds": 1.33,
-    "mp3Bytes": 11372,
+    "seconds": 0.678,
+    "mp3Bytes": 6188,
     "review": "approved by user",
     "role": "letter",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "87c791ebb643467e2cb96d7995c1640692593338f6c6982ab27939a285ddf77a"
+    "sha256": "6933e9bcc25050fe64f83ca32be574412ba9ef271b00324b16c8ac8dc4745e74",
+    "boundaryTrim": {
+      "id": "letter-b",
+      "originalSeconds": 1.33,
+      "startRemovedSeconds": 0.077625,
+      "endRemovedSeconds": 0.5741666666666667,
+      "changed": true,
+      "originalSha256": "87c791ebb643467e2cb96d7995c1640692593338f6c6982ab27939a285ddf77a",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "letter-c",
@@ -3230,12 +5076,25 @@
     "phonemes": [
       "lˈɪsᵊn: sˈi."
     ],
-    "seconds": 1.305,
-    "mp3Bytes": 11180,
+    "seconds": 0.671,
+    "mp3Bytes": 5996,
     "review": "approved by user",
     "role": "letter",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "3535d42fbcb230e8c08b74f4e3c06717ba086973f08ef54089fc39471c6b8795"
+    "sha256": "d3a4e3b56de374b38e5e8d302bdc6a5285bd452c8578c0d64d9c41c3282c53da",
+    "boundaryTrim": {
+      "id": "letter-c",
+      "originalSeconds": 1.305,
+      "startRemovedSeconds": 0.03775,
+      "endRemovedSeconds": 0.5959583333333334,
+      "changed": true,
+      "originalSha256": "3535d42fbcb230e8c08b74f4e3c06717ba086973f08ef54089fc39471c6b8795",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "letter-g",
@@ -3251,12 +5110,25 @@
     "phonemes": [
       "lˈɪsᵊn: ʤˈi."
     ],
-    "seconds": 1.343,
-    "mp3Bytes": 11372,
+    "seconds": 0.671,
+    "mp3Bytes": 5996,
     "review": "approved by user",
     "role": "letter",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "e4a3988d8fef1bb8b9cf6e1d40dfd3f0f133e5e0ae2c3b33908f066ffa146190"
+    "sha256": "2e88b55d2e7fbe271fe0799ac64be613473d994fabba9bf7872bd7404ae5bf5a",
+    "boundaryTrim": {
+      "id": "letter-g",
+      "originalSeconds": 1.3425,
+      "startRemovedSeconds": 0.063875,
+      "endRemovedSeconds": 0.6075,
+      "changed": true,
+      "originalSha256": "e4a3988d8fef1bb8b9cf6e1d40dfd3f0f133e5e0ae2c3b33908f066ffa146190",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "letter-h",
@@ -3272,12 +5144,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˈAʧ."
     ],
-    "seconds": 1.305,
-    "mp3Bytes": 11180,
+    "seconds": 0.664,
+    "mp3Bytes": 5996,
     "review": "approved by user",
     "role": "letter",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "596874e50a761eb13d02b7d757f5b0b40d3d86b8038c4b138ec24c4fe4ba2c3b"
+    "sha256": "7ce27eb86cc2e987e17e96b304feb931eccbbe5e3c9a2a03ce980728f2ad6642",
+    "boundaryTrim": {
+      "id": "letter-h",
+      "originalSeconds": 1.305,
+      "startRemovedSeconds": 0.096,
+      "endRemovedSeconds": 0.5449583333333333,
+      "changed": true,
+      "originalSha256": "596874e50a761eb13d02b7d757f5b0b40d3d86b8038c4b138ec24c4fe4ba2c3b",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "letter-k",
@@ -3293,12 +5178,25 @@
     "phonemes": [
       "lˈɪsᵊn: kˈA."
     ],
-    "seconds": 1.355,
-    "mp3Bytes": 11564,
+    "seconds": 0.699,
+    "mp3Bytes": 6380,
     "review": "approved by user",
     "role": "letter",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "d76415d5f6bfe970ecb3b5a94b4ac1c44907e8f9332400258a608933094acf18"
+    "sha256": "5ea053ba262fd039518b1b85d07b78e67731bcb5d530994cbb8f07b42f629f07",
+    "boundaryTrim": {
+      "id": "letter-k",
+      "originalSeconds": 1.355,
+      "startRemovedSeconds": 0.10358333333333333,
+      "endRemovedSeconds": 0.5527916666666667,
+      "changed": true,
+      "originalSha256": "d76415d5f6bfe970ecb3b5a94b4ac1c44907e8f9332400258a608933094acf18",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "letter-l",
@@ -3314,12 +5212,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˌɛl."
     ],
-    "seconds": 1.218,
-    "mp3Bytes": 10412,
+    "seconds": 0.559,
+    "mp3Bytes": 5228,
     "review": "approved by user",
     "role": "letter",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "edd8c34d6d93a10058f3c1a1421ceab62583980158e5bc8a430a20cadf104e05"
+    "sha256": "913be3a77f2b77a03f6f7a8cf1829885a836c8552212b86a89abdbdf252653d5",
+    "boundaryTrim": {
+      "id": "letter-l",
+      "originalSeconds": 1.2175,
+      "startRemovedSeconds": 0.09525,
+      "endRemovedSeconds": 0.56275,
+      "changed": true,
+      "originalSha256": "edd8c34d6d93a10058f3c1a1421ceab62583980158e5bc8a430a20cadf104e05",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "letter-o",
@@ -3335,12 +5246,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˈO."
     ],
-    "seconds": 1.23,
-    "mp3Bytes": 10604,
+    "seconds": 0.626,
+    "mp3Bytes": 5804,
     "review": "approved by user",
     "role": "letter",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "a1d789c50bac429bc82d0f276337a1a0f5cc5b2e086b6c25f3394d918be155d0"
+    "sha256": "e6cbffdc60ab643cd1b44faa549d137088b594ca12f6a4a7c1d50af7ddea28ca",
+    "boundaryTrim": {
+      "id": "letter-o",
+      "originalSeconds": 1.23,
+      "startRemovedSeconds": 0.082875,
+      "endRemovedSeconds": 0.5206666666666667,
+      "changed": true,
+      "originalSha256": "a1d789c50bac429bc82d0f276337a1a0f5cc5b2e086b6c25f3394d918be155d0",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "letter-p",
@@ -3356,12 +5280,25 @@
     "phonemes": [
       "lˈɪsᵊn: pˈi."
     ],
-    "seconds": 1.355,
-    "mp3Bytes": 11564,
+    "seconds": 0.664,
+    "mp3Bytes": 5996,
     "review": "approved by user",
     "role": "letter",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "214c2a4a26299642b6999771be2bc66daaf581ee690b6aa213471d0ea2c21bee"
+    "sha256": "678d9e082a68cacc143d28eff98b47145c47e05a36d8a7d1ac5f274117c7724c",
+    "boundaryTrim": {
+      "id": "letter-p",
+      "originalSeconds": 1.355,
+      "startRemovedSeconds": 0.125625,
+      "endRemovedSeconds": 0.5650416666666667,
+      "changed": true,
+      "originalSha256": "214c2a4a26299642b6999771be2bc66daaf581ee690b6aa213471d0ea2c21bee",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "letter-s",
@@ -3377,12 +5314,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˈɛs."
     ],
-    "seconds": 1.255,
-    "mp3Bytes": 10796,
+    "seconds": 0.615,
+    "mp3Bytes": 5612,
     "review": "approved by user",
     "role": "letter",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "b9ae018f3cb62436d7960f31a49c4205e1d2539b6246da2a8f07446c2780233b"
+    "sha256": "d091ca7faf2f2813c3ec1f3bba3bd8d93de2b11c829ed6d4d35ba6a40273520a",
+    "boundaryTrim": {
+      "id": "letter-s",
+      "originalSeconds": 1.255,
+      "startRemovedSeconds": 0.08258333333333333,
+      "endRemovedSeconds": 0.5575,
+      "changed": true,
+      "originalSha256": "b9ae018f3cb62436d7960f31a49c4205e1d2539b6246da2a8f07446c2780233b",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "letter-t",
@@ -3398,12 +5348,25 @@
     "phonemes": [
       "lˈɪsᵊn: tˈi."
     ],
-    "seconds": 1.305,
-    "mp3Bytes": 11180,
+    "seconds": 0.634,
+    "mp3Bytes": 5804,
     "review": "approved by user",
     "role": "letter",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "0350387c00b21875aa427f2eab3d7ea354e9163c7ec5ac8accf463bb086bfc59"
+    "sha256": "4f389b084610c70e5547f60f9e76d9ce88b33b2be8a8a163e278560dd4f8db4e",
+    "boundaryTrim": {
+      "id": "letter-t",
+      "originalSeconds": 1.305,
+      "startRemovedSeconds": 0.09670833333333333,
+      "endRemovedSeconds": 0.5745833333333333,
+      "changed": true,
+      "originalSha256": "0350387c00b21875aa427f2eab3d7ea354e9163c7ec5ac8accf463bb086bfc59",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-aichi",
@@ -3419,12 +5382,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˈIʧi."
     ],
-    "seconds": 1.53,
-    "mp3Bytes": 12908,
+    "seconds": 0.849,
+    "mp3Bytes": 7532,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-corrections-01",
-    "sha256": "f62376911ed4e0569e8a22ee194b6942d75257cce56b5567b311f331ca1060bf"
+    "sha256": "7f12a3922a2754a3e17822fbf3cd97cdc3956c93c6413dfae63bf141e486ee61",
+    "boundaryTrim": {
+      "id": "source-aichi",
+      "originalSeconds": 1.53,
+      "startRemovedSeconds": 0.09825,
+      "endRemovedSeconds": 0.5825,
+      "changed": true,
+      "originalSha256": "f62376911ed4e0569e8a22ee194b6942d75257cce56b5567b311f331ca1060bf",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-america",
@@ -3440,12 +5416,25 @@
     "phonemes": [
       "lˈɪsᵊn: əmˈɛɹəkə."
     ],
-    "seconds": 1.667,
-    "mp3Bytes": 14060,
+    "seconds": 1.062,
+    "mp3Bytes": 9260,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "d8a058fc61d4c4d1fbd40d811aa040a41e2cccce1ed15d9348fdab43d8685583"
+    "sha256": "3610d67faafe737c330231c6c4dd5b570f0e6d167949cefbb1446a8f2da13eec",
+    "boundaryTrim": {
+      "id": "source-america",
+      "originalSeconds": 1.6675,
+      "startRemovedSeconds": 0.08266666666666667,
+      "endRemovedSeconds": 0.5226666666666666,
+      "changed": true,
+      "originalSha256": "d8a058fc61d4c4d1fbd40d811aa040a41e2cccce1ed15d9348fdab43d8685583",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-aomori",
@@ -3461,12 +5450,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˈWmɔɹi."
     ],
-    "seconds": 1.53,
-    "mp3Bytes": 12908,
+    "seconds": 0.882,
+    "mp3Bytes": 7724,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-corrections-01",
-    "sha256": "ca4a5ea7592867f5fb532260f56c0f8bff24b7986c4a768ed29f21a124f8cd80"
+    "sha256": "55c7c7d904831276410fe0e87ed410b837ad1452cf14aec58ac77e24df1b9467",
+    "boundaryTrim": {
+      "id": "source-aomori",
+      "originalSeconds": 1.53,
+      "startRemovedSeconds": 0.09854166666666667,
+      "endRemovedSeconds": 0.54925,
+      "changed": true,
+      "originalSha256": "ca4a5ea7592867f5fb532260f56c0f8bff24b7986c4a768ed29f21a124f8cd80",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-australia",
@@ -3482,12 +5484,25 @@
     "phonemes": [
       "lˈɪsᵊn: ɔstɹˈAljə."
     ],
-    "seconds": 1.73,
-    "mp3Bytes": 14636,
+    "seconds": 1.126,
+    "mp3Bytes": 9644,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "6b62822d6b9c6d73fb2a03be3d4f5f3d0f4d7fea5bc3e2dd077e76ccf279570a"
+    "sha256": "68a7fad9df45f463d67bb3a2c8a46aa2904da16b9467557bbac67e48767f1323",
+    "boundaryTrim": {
+      "id": "source-australia",
+      "originalSeconds": 1.73,
+      "startRemovedSeconds": 0.081375,
+      "endRemovedSeconds": 0.5226666666666666,
+      "changed": true,
+      "originalSha256": "6b62822d6b9c6d73fb2a03be3d4f5f3d0f4d7fea5bc3e2dd077e76ccf279570a",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-chile",
@@ -3503,12 +5518,25 @@
     "phonemes": [
       "lˈɪsᵊn: ʧˈɪli."
     ],
-    "seconds": 1.43,
-    "mp3Bytes": 12140,
+    "seconds": 0.779,
+    "mp3Bytes": 6956,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "863cca5950c94e5536e4b9292fbbba366f9857b85a96d173ae86765590a2e70e"
+    "sha256": "cfc8489d4a9c4f46595b02ed43732fedbc49a6ddd768487d7d1d105a95a1b886",
+    "boundaryTrim": {
+      "id": "source-chile",
+      "originalSeconds": 1.43,
+      "startRemovedSeconds": 0.08345833333333333,
+      "endRemovedSeconds": 0.5678333333333333,
+      "changed": true,
+      "originalSha256": "863cca5950c94e5536e4b9292fbbba366f9857b85a96d173ae86765590a2e70e",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-ecuador",
@@ -3524,12 +5552,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˈɛkwədˌɔɹ."
     ],
-    "seconds": 1.593,
-    "mp3Bytes": 13484,
+    "seconds": 0.979,
+    "mp3Bytes": 8492,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "abbe588aeb6a6ddf1a13dd36b6db8a69137bba65778263d9f88fc60485498783"
+    "sha256": "bd6e92dd590eb5a562cd1e5b4070e3d2697a3219b92cf501b4f92000989662ea",
+    "boundaryTrim": {
+      "id": "source-ecuador",
+      "originalSeconds": 1.5925,
+      "startRemovedSeconds": 0.10366666666666667,
+      "endRemovedSeconds": 0.5095833333333334,
+      "changed": true,
+      "originalSha256": "abbe588aeb6a6ddf1a13dd36b6db8a69137bba65778263d9f88fc60485498783",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-fukuoka",
@@ -3545,12 +5586,25 @@
     "phonemes": [
       "lˈɪsᵊn: fˌukuˈOkə."
     ],
-    "seconds": 1.755,
-    "mp3Bytes": 14828,
+    "seconds": 1.193,
+    "mp3Bytes": 10220,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "5d9c32177b35dcf56c792ce40830347003729a65810b3410f753446f1a5f3347"
+    "sha256": "22a4abc16cdc651913cf3b542fed16b270efed55249a64ac461b545fb080e09d",
+    "boundaryTrim": {
+      "id": "source-fukuoka",
+      "originalSeconds": 1.755,
+      "startRemovedSeconds": 0.0455,
+      "endRemovedSeconds": 0.5167916666666666,
+      "changed": true,
+      "originalSha256": "5d9c32177b35dcf56c792ce40830347003729a65810b3410f753446f1a5f3347",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-gunma",
@@ -3566,12 +5620,25 @@
     "phonemes": [
       "lˈɪsᵊn: ɡˈunmə."
     ],
-    "seconds": 1.48,
-    "mp3Bytes": 12524,
+    "seconds": 0.874,
+    "mp3Bytes": 7724,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-corrections-01",
-    "sha256": "c3b5d901e49eac5daeb578843c073236d98d808c3d89ee5d539205d92dc851ef"
+    "sha256": "d771a64df7258f39ef8bbf74e1d8997d116b42f3384dd867b56bc6770863024c",
+    "boundaryTrim": {
+      "id": "source-gunma",
+      "originalSeconds": 1.48,
+      "startRemovedSeconds": 0.073125,
+      "endRemovedSeconds": 0.5325833333333333,
+      "changed": true,
+      "originalSha256": "c3b5d901e49eac5daeb578843c073236d98d808c3d89ee5d539205d92dc851ef",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-hokkaido",
@@ -3587,12 +5654,25 @@
     "phonemes": [
       "lˈɪsᵊn: hˌOkˈIdO."
     ],
-    "seconds": 1.718,
-    "mp3Bytes": 14444,
+    "seconds": 1.09,
+    "mp3Bytes": 9452,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-corrections-01",
-    "sha256": "b9a7f569e03b5919d3379c765b9e6b45040956bbc9fa699c8439f943ab71132c"
+    "sha256": "e1cf264309a59f46f13a205281f864f4503a4d3d936d799e3473a596480d97c6",
+    "boundaryTrim": {
+      "id": "source-hokkaido",
+      "originalSeconds": 1.7175,
+      "startRemovedSeconds": 0.08091666666666666,
+      "endRemovedSeconds": 0.5465833333333333,
+      "changed": true,
+      "originalSha256": "b9a7f569e03b5919d3379c765b9e6b45040956bbc9fa699c8439f943ab71132c",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-hyogo",
@@ -3608,12 +5688,25 @@
     "phonemes": [
       "lˈɪsᵊn: hˌijˈOɡO."
     ],
-    "seconds": 1.692,
-    "mp3Bytes": 14252,
+    "seconds": 1.072,
+    "mp3Bytes": 9260,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-corrections-01",
-    "sha256": "30f3131421b2ff5bb07ebb62e2e1be7aeffffa4fa900f4197552de2c8345f4e3"
+    "sha256": "23e324da6579480d4787cab9c1c26f74273b69d65b638116c946e6d03ce8c73a",
+    "boundaryTrim": {
+      "id": "source-hyogo",
+      "originalSeconds": 1.6925,
+      "startRemovedSeconds": 0.07420833333333333,
+      "endRemovedSeconds": 0.5465416666666667,
+      "changed": true,
+      "originalSha256": "30f3131421b2ff5bb07ebb62e2e1be7aeffffa4fa900f4197552de2c8345f4e3",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-ibaraki",
@@ -3629,12 +5722,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˌibɑɹˈɑki."
     ],
-    "seconds": 1.843,
-    "mp3Bytes": 15404,
+    "seconds": 1.191,
+    "mp3Bytes": 10220,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-corrections-01",
-    "sha256": "ba07cab52ad1dfc30f173f8d22bdb56983fecde90b96a177d1c768fb2c977c6f"
+    "sha256": "843663a61b7cc5de8537ec885778ad7cd5757dbbf78da4f80331f387b702c893",
+    "boundaryTrim": {
+      "id": "source-ibaraki",
+      "originalSeconds": 1.8425,
+      "startRemovedSeconds": 0.1055,
+      "endRemovedSeconds": 0.546,
+      "changed": true,
+      "originalSha256": "ba07cab52ad1dfc30f173f8d22bdb56983fecde90b96a177d1c768fb2c977c6f",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-india",
@@ -3650,12 +5756,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˈɪndiə."
     ],
-    "seconds": 1.492,
-    "mp3Bytes": 12716,
+    "seconds": 0.852,
+    "mp3Bytes": 7532,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "56f5b6ec44ce30c51576f2e91690c1b7f811bb3fc65d82324a0b936f961a40f3"
+    "sha256": "3a59ba1e11939b5ff5baff7230bc60fbdea074aae5c480970f13a764a32c24af",
+    "boundaryTrim": {
+      "id": "source-india",
+      "originalSeconds": 1.4925,
+      "startRemovedSeconds": 0.10770833333333334,
+      "endRemovedSeconds": 0.5325833333333333,
+      "changed": true,
+      "originalSha256": "56f5b6ec44ce30c51576f2e91690c1b7f811bb3fc65d82324a0b936f961a40f3",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-indonesia",
@@ -3671,12 +5790,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˌɪndənˈiʒə."
     ],
-    "seconds": 1.768,
-    "mp3Bytes": 14828,
+    "seconds": 1.145,
+    "mp3Bytes": 9836,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "5a4a8e30fd0affff4469a7bed4d1065156c8d820b1b145f4c149ad4427c4fd33"
+    "sha256": "e7f43c4038ade76599cab80bb6e10fbdda100a71279ae59f3c9ee145b1f6bac9",
+    "boundaryTrim": {
+      "id": "source-indonesia",
+      "originalSeconds": 1.7675,
+      "startRemovedSeconds": 0.10541666666666667,
+      "endRemovedSeconds": 0.5167916666666666,
+      "changed": true,
+      "originalSha256": "5a4a8e30fd0affff4469a7bed4d1065156c8d820b1b145f4c149ad4427c4fd33",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-italy",
@@ -3692,12 +5824,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˈɪTəli."
     ],
-    "seconds": 1.468,
-    "mp3Bytes": 12524,
+    "seconds": 0.821,
+    "mp3Bytes": 7340,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "c5b29371d8dabee7cc54304d8ba25beb5644c7206fe87e7c857ba2ce7e02b1b7"
+    "sha256": "882b0fe1d9da084bd6168efb365572ef0d34954cfde8276e65185d3221fb0b70",
+    "boundaryTrim": {
+      "id": "source-italy",
+      "originalSeconds": 1.4675,
+      "startRemovedSeconds": 0.108875,
+      "endRemovedSeconds": 0.53775,
+      "changed": true,
+      "originalSha256": "c5b29371d8dabee7cc54304d8ba25beb5644c7206fe87e7c857ba2ce7e02b1b7",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-iwate",
@@ -3713,12 +5858,25 @@
     "phonemes": [
       "lˈɪsᵊn: ˌiwˈɑtA."
     ],
-    "seconds": 1.667,
-    "mp3Bytes": 14060,
+    "seconds": 1.015,
+    "mp3Bytes": 8876,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-corrections-01",
-    "sha256": "e37d2e0f9c5bd45bae79757c35f3f68608ca1e3685e0595b0221669907aded2d"
+    "sha256": "1bb4a139207b4442636cb6a69b68877729fa7e86d5c9bae664250d73d73a8927",
+    "boundaryTrim": {
+      "id": "source-iwate",
+      "originalSeconds": 1.6675,
+      "startRemovedSeconds": 0.103375,
+      "endRemovedSeconds": 0.5494166666666667,
+      "changed": true,
+      "originalSha256": "e37d2e0f9c5bd45bae79757c35f3f68608ca1e3685e0595b0221669907aded2d",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-kagoshima",
@@ -3734,12 +5892,25 @@
     "phonemes": [
       "lˈɪsᵊn: kˌɑɡəʃˈimə."
     ],
-    "seconds": 1.792,
-    "mp3Bytes": 15020,
+    "seconds": 1.159,
+    "mp3Bytes": 10028,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "100b5a2b006d759e8e40018e16703012a6c3ecfb58553d6b576ccc84a8a13c23"
+    "sha256": "3a051ff8adf8774736cb7c159ee5badbcd1614991ea29126d4489a4e969aa02e",
+    "boundaryTrim": {
+      "id": "source-kagoshima",
+      "originalSeconds": 1.7925,
+      "startRemovedSeconds": 0.10541666666666667,
+      "endRemovedSeconds": 0.5277916666666667,
+      "changed": true,
+      "originalSha256": "100b5a2b006d759e8e40018e16703012a6c3ecfb58553d6b576ccc84a8a13c23",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-kochi",
@@ -3755,12 +5926,25 @@
     "phonemes": [
       "lˈɪsᵊn: kOʧˈi."
     ],
-    "seconds": 1.567,
-    "mp3Bytes": 13292,
+    "seconds": 0.866,
+    "mp3Bytes": 7724,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "06277b35150c4abd21a43d5068da61ca39ff51d86a08f14d5018b10a00cfd99f"
+    "sha256": "0ac05e105da10b505e16f68b57a7ed609bae2203fd2fb201d1a78e7581135e87",
+    "boundaryTrim": {
+      "id": "source-kochi",
+      "originalSeconds": 1.5675,
+      "startRemovedSeconds": 0.10620833333333334,
+      "endRemovedSeconds": 0.5959583333333334,
+      "changed": true,
+      "originalSha256": "06277b35150c4abd21a43d5068da61ca39ff51d86a08f14d5018b10a00cfd99f",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-kumamoto",
@@ -3776,12 +5960,25 @@
     "phonemes": [
       "lˈɪsᵊn: kˌuməmˈOTO."
     ],
-    "seconds": 1.692,
-    "mp3Bytes": 14252,
+    "seconds": 1.101,
+    "mp3Bytes": 9452,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "6c3e4138cdb5194283cba3e200fcb6888a1d37e06a389d6aa0486a06ec4c8f6f"
+    "sha256": "5b623b18838ec4acb448bd42b8aeadac580d2f15a842a51aa6346348c969c2cc",
+    "boundaryTrim": {
+      "id": "source-kumamoto",
+      "originalSeconds": 1.6925,
+      "startRemovedSeconds": 0.10375,
+      "endRemovedSeconds": 0.48783333333333334,
+      "changed": true,
+      "originalSha256": "6c3e4138cdb5194283cba3e200fcb6888a1d37e06a389d6aa0486a06ec4c8f6f",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-mexico",
@@ -3797,12 +5994,25 @@
     "phonemes": [
       "lˈɪsᵊn: mˈɛksəkO."
     ],
-    "seconds": 1.667,
-    "mp3Bytes": 14060,
+    "seconds": 1.097,
+    "mp3Bytes": 9452,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "a3f042bda8af99f945a497475dd82b5a0a9d1c54d9a03548ebf44bc0f3dd34fb"
+    "sha256": "613f95bdf46937b636eaa24025a039f9ac7fc0f641f61aed4ebdde6fce6e3c15",
+    "boundaryTrim": {
+      "id": "source-mexico",
+      "originalSeconds": 1.6675,
+      "startRemovedSeconds": 0.05775,
+      "endRemovedSeconds": 0.51275,
+      "changed": true,
+      "originalSha256": "a3f042bda8af99f945a497475dd82b5a0a9d1c54d9a03548ebf44bc0f3dd34fb",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-miyazaki",
@@ -3818,12 +6028,25 @@
     "phonemes": [
       "lˈɪsᵊn: mˌɪjəzˈæki."
     ],
-    "seconds": 1.742,
-    "mp3Bytes": 14636,
+    "seconds": 1.144,
+    "mp3Bytes": 9836,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "d84b1025f24ce60a84f968e4cf52e2f8a5fd9dfce38132a02242cb1d30a2a85d"
+    "sha256": "d8de4e60c20f1ace767de60bde2f21e4896715b383681624bb683207db885028",
+    "boundaryTrim": {
+      "id": "source-miyazaki",
+      "originalSeconds": 1.7425,
+      "startRemovedSeconds": 0.07454166666666667,
+      "endRemovedSeconds": 0.524125,
+      "changed": true,
+      "originalSha256": "d84b1025f24ce60a84f968e4cf52e2f8a5fd9dfce38132a02242cb1d30a2a85d",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-nagano",
@@ -3839,12 +6062,25 @@
     "phonemes": [
       "lˈɪsᵊn: nɑɡˈɑnO."
     ],
-    "seconds": 1.692,
-    "mp3Bytes": 14252,
+    "seconds": 1.036,
+    "mp3Bytes": 9068,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "3057409c400f01b204d4fd3677710ace4644a81ee7671f966cf7ebee05412252"
+    "sha256": "89ca34fc5224d0fba1d8f39cb3429363355e60aeba5e1637ded8c29adc738cfa",
+    "boundaryTrim": {
+      "id": "source-nagano",
+      "originalSeconds": 1.6925,
+      "startRemovedSeconds": 0.08295833333333333,
+      "endRemovedSeconds": 0.573125,
+      "changed": true,
+      "originalSha256": "3057409c400f01b204d4fd3677710ace4644a81ee7671f966cf7ebee05412252",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-new-zealand",
@@ -3860,12 +6096,25 @@
     "phonemes": [
       "lˈɪsᵊn: nˈu zˈilənd."
     ],
-    "seconds": 1.755,
-    "mp3Bytes": 14828,
+    "seconds": 1.1,
+    "mp3Bytes": 9452,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "591e7dcba62f4d19280ac050548d76c0ccfbf205a3e205031c3399f2d17a0842"
+    "sha256": "fb6825b949118e8e6e145497bac683094bbaba42fb4e8b0685f8bd7126ab4c6a",
+    "boundaryTrim": {
+      "id": "source-new-zealand",
+      "originalSeconds": 1.755,
+      "startRemovedSeconds": 0.06016666666666667,
+      "endRemovedSeconds": 0.595125,
+      "changed": true,
+      "originalSha256": "591e7dcba62f4d19280ac050548d76c0ccfbf205a3e205031c3399f2d17a0842",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-saga",
@@ -3881,12 +6130,25 @@
     "phonemes": [
       "lˈɪsᵊn: sˈɑɡə."
     ],
-    "seconds": 1.468,
-    "mp3Bytes": 12524,
+    "seconds": 0.856,
+    "mp3Bytes": 7532,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "e21965ddbc791854265219604f45883eb518445a70499d97fd5af502f00e6e6e"
+    "sha256": "aa93bf48ea6eade03828930275fcb2a98077e2aa895c69f025e717afc2c1ab16",
+    "boundaryTrim": {
+      "id": "source-saga",
+      "originalSeconds": 1.4675,
+      "startRemovedSeconds": 0.057916666666666665,
+      "endRemovedSeconds": 0.5537083333333334,
+      "changed": true,
+      "originalSha256": "e21965ddbc791854265219604f45883eb518445a70499d97fd5af502f00e6e6e",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-saitama",
@@ -3902,12 +6164,25 @@
     "phonemes": [
       "lˈɪsᵊn: sIˈtɑmə."
     ],
-    "seconds": 1.655,
-    "mp3Bytes": 13868,
+    "seconds": 1.072,
+    "mp3Bytes": 9260,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-corrections-01",
-    "sha256": "eabc5dfd83f3b3194f8f4364bd6ee897b580f9d42e4e8fd9d3f30b781a98b37d"
+    "sha256": "a9c9c174a2ac2cfd6a4abb57a1214fc8c962edf62c132a8fda993f82990b8710",
+    "boundaryTrim": {
+      "id": "source-saitama",
+      "originalSeconds": 1.655,
+      "startRemovedSeconds": 0.06625,
+      "endRemovedSeconds": 0.5164583333333334,
+      "changed": true,
+      "originalSha256": "eabc5dfd83f3b3194f8f4364bd6ee897b580f9d42e4e8fd9d3f30b781a98b37d",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-thailand",
@@ -3923,12 +6198,25 @@
     "phonemes": [
       "lˈɪsᵊn: tˈIlˌænd."
     ],
-    "seconds": 1.593,
-    "mp3Bytes": 13484,
+    "seconds": 0.874,
+    "mp3Bytes": 7724,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "de57766f7eabd8f98d295b5da54b676cc08a26f067406026290f7c55ee844bb4"
+    "sha256": "aa83262d4c2b8788d3b3487b94f755e43d28164cb5c5a5b2bcd31ad83a71aa46",
+    "boundaryTrim": {
+      "id": "source-thailand",
+      "originalSeconds": 1.5925,
+      "startRemovedSeconds": 0.10158333333333333,
+      "endRemovedSeconds": 0.6174166666666666,
+      "changed": true,
+      "originalSha256": "de57766f7eabd8f98d295b5da54b676cc08a26f067406026290f7c55ee844bb4",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-tochigi",
@@ -3944,12 +6232,25 @@
     "phonemes": [
       "lˈɪsᵊn: tˌOʧˈiɡi."
     ],
-    "seconds": 1.667,
-    "mp3Bytes": 14060,
+    "seconds": 1.026,
+    "mp3Bytes": 8876,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-corrections-01",
-    "sha256": "da97aa374e7f96d7c33ac6a5cd42b604ce8e58475afc56f11c3b35660deb3108"
+    "sha256": "506373ce2a4683b093f8e8e2b33bdbc763411a705825285350935989fad9180a",
+    "boundaryTrim": {
+      "id": "source-tochigi",
+      "originalSeconds": 1.6675,
+      "startRemovedSeconds": 0.10341666666666667,
+      "endRemovedSeconds": 0.5378333333333334,
+      "changed": true,
+      "originalSha256": "da97aa374e7f96d7c33ac6a5cd42b604ce8e58475afc56f11c3b35660deb3108",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-vietnam",
@@ -3965,12 +6266,25 @@
     "phonemes": [
       "lˈɪsᵊn: vˌiɛtnˈɑm."
     ],
-    "seconds": 1.655,
-    "mp3Bytes": 13868,
+    "seconds": 1.051,
+    "mp3Bytes": 9068,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "dd8f46359f75ec1339de8fd7bc3c61ff97ae8f2c86674650980d8031df8e2232"
+    "sha256": "83f8d47d5f985fbf563494c928cb4dfcfac757c1288d1b29ce1b4b4992be738c",
+    "boundaryTrim": {
+      "id": "source-vietnam",
+      "originalSeconds": 1.655,
+      "startRemovedSeconds": 0.05720833333333333,
+      "endRemovedSeconds": 0.5465833333333333,
+      "changed": true,
+      "originalSha256": "dd8f46359f75ec1339de8fd7bc3c61ff97ae8f2c86674650980d8031df8e2232",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "source-the-philippines",
@@ -3986,12 +6300,25 @@
     "phonemes": [
       "lˈɪsᵊn: ðə fˈɪləpˌinz."
     ],
-    "seconds": 1.867,
-    "mp3Bytes": 15596,
+    "seconds": 1.311,
+    "mp3Bytes": 11180,
     "review": "approved by user",
     "role": "source",
     "sourceBatch": "sentence-pieces-01",
-    "sha256": "d480e4788c580a4f1cb38bf60b86a725e1c9e30ce9bd1a3033e6da669664e2c9"
+    "sha256": "a44d0ee537ba49073595a3ade979ee9391a71fb30c20ff886aca6345630f55e1",
+    "boundaryTrim": {
+      "id": "source-the-philippines",
+      "originalSeconds": 1.8675,
+      "startRemovedSeconds": 0.0,
+      "endRemovedSeconds": 0.5569583333333333,
+      "changed": true,
+      "originalSha256": "d480e4788c580a4f1cb38bf60b86a725e1c9e30ce9bd1a3033e6da669664e2c9",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   },
   {
     "id": "tell-me-about-your-sandwich",
@@ -4007,10 +6334,23 @@
     "phonemes": [
       "lˈɪsᵊn: tˈɛl mˌi əbˈWt jʊɹ sˈændwˌɪʧ."
     ],
-    "seconds": 2.405,
-    "mp3Bytes": 20012,
+    "seconds": 1.779,
+    "mp3Bytes": 15020,
     "review": "approved by user",
     "sourceBatch": "questions-01-leadin",
-    "sha256": "d9ed8577534444589f5fe74d82772030442a6e63108a62f0c6ec1707a97aac20"
+    "sha256": "8b8c411278d1bfc44ace258900b2acffa777f29b3409722bd2baaa803bb226f1",
+    "boundaryTrim": {
+      "id": "tell-me-about-your-sandwich",
+      "originalSeconds": 2.405,
+      "startRemovedSeconds": 0.10191666666666667,
+      "endRemovedSeconds": 0.5241666666666667,
+      "changed": true,
+      "originalSha256": "d9ed8577534444589f5fe74d82772030442a6e63108a62f0c6ec1707a97aac20",
+      "thresholdAmplitude": 0.0005,
+      "leadingMarginSeconds": 0.035,
+      "trailingMarginSeconds": 0.05,
+      "backupBatch": "boundary-trim-2026-10-23",
+      "review": "Automated boundary audit; listening review pending"
+    }
   }
 ]
