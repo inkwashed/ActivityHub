@@ -7,7 +7,7 @@ class Element{
 }
 const kitchen=new Element(),scene=new Element(),order=new Element(),source=new Element();
 kitchen.append(scene);kitchen.append(order);kitchen.append(source);
-kitchen.querySelector=s=>s==='.order'?order:s==='#source-sentence'?source:scene;
+kitchen.querySelector=s=>{if(s==='.order')return order;if(s==='#source-sentence')return source;assert.ok(s.includes('[data-builder-scene]'));return scene;};
 const root={querySelector:()=>kitchen},queue=[];let changed,resized;
 vm.runInNewContext(fs.readFileSync('shared/builder-workspace.js','utf8'),{
  document:{querySelector:()=>root,createElement:()=>new Element()},window:{ResizeObserver:true,addEventListener(){}},

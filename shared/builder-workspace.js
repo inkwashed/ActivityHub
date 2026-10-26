@@ -2,7 +2,7 @@
 (() => {
  const root=document.querySelector('#builder');
  const kitchen=root?.querySelector('.kitchen');
- const scene=kitchen?.querySelector('.pizza-stage,.parfait-stage,#sandwich');
+ const scene=kitchen?.querySelector('[data-builder-scene],.pizza-stage,.parfait-stage,#sandwich');
  const order=kitchen?.querySelector('.order');
  if(!scene||!order)return;
  const frame=document.createElement('div');frame.className='builder-play-area';

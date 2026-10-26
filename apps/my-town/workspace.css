@@ -1,0 +1,23 @@
+/* Map-only adapter; common heading/output/panel styling comes from shared workspace. */
+.ah-builder.my-town #builder{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+.ah-builder.my-town #builder .builder-play-area{display:flex;overflow:auto;overscroll-behavior:contain}
+.ah-builder.my-town #builder #town-map{width:max(360px,min(100cqw,calc(100cqh * var(--town-ratio,1))));max-width:none;margin:auto;flex-shrink:0}
+.ah-builder.my-town #builder .town-menu .heading{margin:0 0 8px}
+.ah-builder.my-town #builder .town-menu h1{font-size:26px;letter-spacing:-.6px;margin:4px 0}
+.ah-builder.my-town #builder .mode-row{gap:8px;margin-bottom:10px}
+.ah-builder.my-town #builder .mode-row h2{margin:0}
+.ah-builder.my-town #builder #selection,.ah-builder.my-town #builder #route-status{margin:8px 0;line-height:1.4}
+.ah-builder.my-town #builder #place-options{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;max-height:310px;min-height:0;overflow:auto;align-content:start;margin:0 0 8px}
+.ah-builder.my-town #builder #place-options button{justify-content:center;min-width:0;min-height:68px;padding:6px 2px;gap:3px;font-size:14px;line-height:1.25;overflow-wrap:anywhere}
+.ah-builder.my-town #builder #place-options svg{width:36px;height:36px;flex-shrink:0}
+.ah-builder.my-town #builder .builder-actions{gap:8px;flex-wrap:nowrap;margin-top:8px}
+.ah-builder.my-town #builder .builder-actions>.ah-button{flex:1;min-width:0;justify-content:center}
+@media(min-width:740px) and (min-height:600px){
+ .ah-builder.my-town #builder{grid-template-columns:minmax(0,1fr) minmax(350px,42%);gap:16px;padding:10px 16px}
+ .ah-builder.my-town #builder .town-menu{display:flex;flex-direction:column;overflow:auto}
+ .ah-builder.my-town #builder .pantry{display:flex;flex-direction:column;flex:1;min-height:0}
+ .ah-builder.my-town #builder #build-tools{display:flex;flex-direction:column;flex:1;min-height:0}
+ .ah-builder.my-town #builder #place-options{max-height:none;flex:1;min-height:68px}
+ .ah-builder.my-town #builder #route-tools{flex:1;overflow:auto;min-height:0}
+ .ah-builder.my-town #builder .mode-row,.ah-builder.my-town #builder .builder-actions,.ah-builder.my-town #builder #remove{flex-shrink:0}
+}
