@@ -91,5 +91,5 @@
   return s;
  }
 
- window.TownModel={places,initial,movePlace,extend,side,directions,inventory,restore,xy,bridge,point,blockRect,railRows,railNode,track,railSpacing,activeNode,mapHeight,shift,nodeCount:40};
+ window.TownModel={heading,places,initial,movePlace,extend,side,directions,inventory,restore,xy,bridge,point,blockRect,railRows,railNode,track,railSpacing,activeNode,mapHeight,shift,nodeCount:40};
 })();

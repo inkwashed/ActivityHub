@@ -9,11 +9,10 @@
   $('#map-art').innerHTML=A.map(state,routeMode);
   const height=M.mapHeight(state.blocks);$('#town-map').style.aspectRatio=`720 / ${height}`;$('#town-map').style.setProperty('--town-ratio',720/height);
   [...$('#blocks').children].forEach((b,i)=>{const r=M.blockRect(i,state.blocks);b.style.cssText=`left:${r.x/7.2}%;top:${r.y/height*100}%;width:${r.width/7.2}%;height:${r.height/height*100}%`;});
-  [...$('#nodes').children].forEach((b,n)=>{const [x,y]=M.point(n,state.blocks);b.hidden=!M.activeNode(n,state.blocks);b.style.left=`${x/7.2}%`;b.style.top=`${y/height*100}%`;});
+  [...$('#nodes').children].forEach((b,n)=>{const [x,y]=M.point(n,state.blocks);b.hidden=!M.activeNode(n,state.blocks);b.classList.toggle('car-node',n===state.route.at(-1));b.style.left=`${x/7.2}%`;b.style.top=`${y/height*100}%`;});
   $('#question').textContent=routeMode?`Where is the ${state.destination===null?'…':state.blocks[state.destination]}?`:'What do you have in your town?';
   [...$('#blocks').children].forEach((b,i)=>{b.disabled=routeMode&&!state.blocks[i];b.setAttribute('aria-pressed',String(i===(routeMode?state.destination:selected)));b.setAttribute('aria-label',`${blockName(i)}: ${state.blocks[i]||t('Empty block')}`);b.style.touchAction=!routeMode&&state.blocks[i]?'none':'auto'});
   $('#nodes').hidden=!routeMode;$('#build-tools').hidden=routeMode;$('#route-tools').hidden=!routeMode;
-  $('#selection').textContent=selected===null?t('Select a block.'):blockName(selected)+': '+(state.blocks[selected]||t('Empty block'));
   [...$('#place-options').children].forEach((b,i)=>{b.disabled=selected===null;b.setAttribute('aria-pressed',String(selected!==null&&state.blocks[selected]===M.places[i]));});
   $('#remove').disabled=selected===null||!state.blocks[selected];
   $('#destination').innerHTML='<option value="">…</option>'+state.blocks.map((name,i)=>name?`<option value="${i}">${name} · ${blockName(i)}</option>`:'').join('');$('#destination').value=state.destination??'';

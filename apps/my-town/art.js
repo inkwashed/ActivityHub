@@ -124,9 +124,19 @@
   out+='</g>';
  }
  if(routeMode&&state.destination!==null){const i=state.destination,{x,y}=window.TownModel.blockRect(i,state.blocks);out+=`<rect x="${x}" y="${y}" width="98" height="98" rx="10" fill="none" stroke="#417655" stroke-width="3"/>`;}
- if(routeMode&&state.route.length>1)out+=`<polyline points="${state.route.map(n=>point(n).join(',')).join(' ')}" fill="none" stroke="#d87839" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>`;
- if(routeMode&&state.route.at(-1)>=25){const [ex,ey]=point(state.route.at(-1));out+=`<circle cx="${ex}" cy="${ey}" r="7" fill="#d87839" stroke="#fffefa" stroke-width="2"/>`;}
- const [x,y]=point(state.route[0]);out+=`<circle cx="${x}" cy="${y}" r="17" fill="#417655"/><path d="M0 -10L-7 5H7Z" transform="translate(${x} ${y}) rotate(${state.facing*90})" fill="#fffefa"/><text x="${x}" y="${y+33}" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#fffefa" stroke="#707977" stroke-width="3" paint-order="stroke">START</text><text x="360" y="${height-25}" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#31483f" stroke="#e7edda" stroke-width="4" paint-order="stroke">MY TOWN</text>`;
+ if(routeMode&&state.route.length>1)out+=`<polyline points="${state.route.map(n=>point(n).join(',')).join(' ')}" fill="none" stroke="#ffe581" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>`;
+ const carNode=routeMode?state.route.at(-1):state.route[0];
+ const carHeading=routeMode&&state.route.length>1?window.TownModel.heading(state.route.at(-2),carNode):state.facing;
+ const [x,y]=point(carNode);
+ out+=`<g data-town-car transform="translate(${x} ${y}) rotate(${carHeading*90})" stroke="#31483f" stroke-width="1.5" stroke-linejoin="round">
+ <path d="M-12-10V-4M12-10V-4M-12 7V13M12 7V13" stroke-width="4" stroke-linecap="round"/>
+ <rect x="-11" y="-19" width="22" height="38" rx="7" fill="#83b9d8"/>
+ <path d="M-7-8Q0-11 7-8L6-2H-6Z" fill="#e4f2f3"/>
+ <rect x="-6" y="0" width="12" height="10" rx="2" fill="#a6cde3"/>
+ <path d="M-6 12H6L7 15H-7Z" fill="#e4f2f3"/>
+ <path d="M-7-15H-4M4-15H7" stroke="#fff4c8" stroke-width="2.5" stroke-linecap="round"/>
+ <path d="M-7 17H-4M4 17H7" stroke="#c66b65" stroke-width="2"/>
+ </g><text x="360" y="${height-25}" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#31483f" stroke="#e7edda" stroke-width="4" paint-order="stroke">MY TOWN</text>`;
  return `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 720 ${height}"><defs><clipPath id="town-map-crop"><rect width="720" height="${height}"/></clipPath></defs><g clip-path="url(#town-map-crop)">${out}</g></svg>`;
  }
  window.TownArt={icon,map,point};
