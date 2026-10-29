@@ -128,7 +128,7 @@
  const carNode=routeMode?state.route.at(-1):state.route[0];
  const carHeading=routeMode&&state.route.length>1?window.TownModel.heading(state.route.at(-2),carNode):state.facing;
  const [x,y]=point(carNode);
- out+=`<g data-town-car transform="translate(${x} ${y}) rotate(${carHeading*90})" stroke="#31483f" stroke-width="1.5" stroke-linejoin="round">
+ out+=`<g data-town-car="" transform="translate(${x} ${y}) rotate(${carHeading*90})" stroke="#31483f" stroke-width="1.5" stroke-linejoin="round">
  <path d="M-12-10V-4M12-10V-4M-12 7V13M12 7V13" stroke-width="4" stroke-linecap="round"/>
  <rect x="-11" y="-19" width="22" height="38" rx="7" fill="#83b9d8"/>
  <path d="M-7-8Q0-11 7-8L6-2H-6Z" fill="#e4f2f3"/>

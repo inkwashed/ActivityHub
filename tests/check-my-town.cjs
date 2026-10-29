@@ -86,8 +86,8 @@ assert.equal((A.map(M.initial(),false).match(/data-sidewalk=/g)||[]).length,12);
 // The car tracks the route endpoint and heading, including undo/reset states.
 for(const [route,angle] of [[[17],0],[[17,12],0],[[17,18],90],[[17,12,17],180],[[17,16],270]]){
  const state={...M.initial(),route};const [x,y]=M.point(route.at(-1),state.blocks);
- assert.ok(A.map(state,true).includes(`data-town-car transform="translate(${x} ${y}) rotate(${angle})"`));
+ assert.ok(A.map(state,true).includes(`data-town-car="" transform="translate(${x} ${y}) rotate(${angle})"`));
  const [sx,sy]=M.point(17,state.blocks);
- assert.ok(A.map(state,false).includes(`data-town-car transform="translate(${sx} ${sy}) rotate(0)"`));
+ assert.ok(A.map(state,false).includes(`data-town-car="" transform="translate(${sx} ${sy}) rotate(0)"`));
 }
 console.log('Car: route endpoint, four headings, undo/reset positions and BUILD start passed.');
