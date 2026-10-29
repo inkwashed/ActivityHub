@@ -1,5 +1,5 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
-const context={window:{}};vm.createContext(context);for(const f of ['model','art'])vm.runInContext(fs.readFileSync(`apps/my-town/${f}.js`,'utf8'),context);
+const context={window:{}};vm.createContext(context);for(const f of ['model','art'])vm.runInContext(fs.readFileSync(`apps/mytown/${f}.js`,'utf8'),context);
 const M=context.window.TownModel,A=context.window.TownArt;
 assert.equal(M.places.length,24);
 assert.equal(M.inventory(['aquarium','park','park']),'We have an aquarium and 2 parks.');

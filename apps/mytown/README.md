@@ -1,6 +1,6 @@
 # My Town — prototype
 
-NEW HORIZON Elementary 5, Unit 5: “Let’s go to the zoo.” Open `apps/my-town/index.html` with the repository structure intact, or serve the repository and visit `/apps/my-town/`. Not listed on the homepage or deployed yet.
+NEW HORIZON Elementary 5, Unit 5: “Let’s go to the zoo.” Open `apps/mytown/index.html` with the repository structure intact, or serve the repository and visit `/apps/mytown/`. Not listed on the homepage or deployed yet.
 
 BUILD: select one of 12 lots, then choose from the 24 textbook places. Selecting another place replaces that lot; Clear block removes it. Clicking outside a lot clears selection. The sentence groups repeated places: “We have a park and 2 libraries.”
 
@@ -10,7 +10,7 @@ Directions count one street segment as one block. Turns follow the traveller's h
 
 `model.js` owns vocabulary, validated saved state and route language. `art.js` owns original SVG landmarks and shared 720-wide coordinates (height expands for railway streets), used in both live modes and Share; exports omit editing controls but retain the chosen destination and route. `app.js` owns map interactions and uses shared sentence/audio, autosave and photo helpers. New town phrases use the shared browser-speech fallback when recordings are unavailable; new recordings have not been produced.
 
-Check: `node tests/check-my-town.cjs` verifies inventory grammar, relative turns/arrival sides, invalid routes, undo, restore validation and consistent framing. Browser checks cover placement, mode switching, a three-edge route, reload restoration and PNG preview. A 390px viewport check found no horizontal overflow. The shared QR control points to https://letseigo.com/apps/my-town/; that destination requires publication before students can use it. Physical iPad/Safari and classroom audio review remain outstanding.
+Check: `node tests/check-my-town.cjs` verifies inventory grammar, relative turns/arrival sides, invalid routes, undo, restore validation and consistent framing. Browser checks cover placement, mode switching, a three-edge route, reload restoration and PNG preview. A 390px viewport check found no horizontal overflow. The shared QR control points to https://letseigo.com/apps/mytown/; that destination requires publication before students can use it. Physical iPad/Safari and classroom audio review remain outstanding.
 
 ## Station railways
 
@@ -48,3 +48,5 @@ The app uses the shared workspace via `data-builder-scene`, with the compact tit
 Validation: model/route suite and shared workspace fitting tests pass. Browser review covered desktop, 768×1024 portrait and 390×844 stacked layout, QR destination, and scrolling choices. Physical iPad/Safari and classroom audio review are still pending. No publication was performed.
 
 The overhead blue car follows the current route endpoint and faces the last travelled direction; Undo and Reset update it too. BUILD shows it at the starting point. Bright yellow street dots retain their touch targets; the current dot is hidden beneath the car. Block selection uses highlighting without an extra status line.
+
+The canonical URL is `/apps/mytown/`. The former `/apps/my-town/` address redirects here. Internal autosave and usage identifiers remain unchanged to preserve existing towns and history.

@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {createHash} = require('node:crypto');
 const root = path.resolve(__dirname, '..');
-const defaults = ['.', 'apps/post', 'apps/pizza', 'apps/parfait', 'apps/sandwich', 'apps/avatar', '_dev/builder', 'apps/class-supplies', 'apps/my-town', 'myblog/NH1-5', 'myblog/NH6-5', 'myblog/NH2-4', 'myblog/journal'];
+const defaults = ['.', 'apps/post', 'apps/pizza', 'apps/parfait', 'apps/sandwich', 'apps/avatar', '_dev/builder', 'apps/class-supplies', 'apps/mytown', 'myblog/NH1-5', 'myblog/NH6-5', 'myblog/NH2-4', 'myblog/journal'];
 const requested = process.argv.slice(2);
 for (const app of requested.length ? requested : defaults) {
   if (!defaults.includes(app)) throw new Error(`Unknown app: ${app}`);
