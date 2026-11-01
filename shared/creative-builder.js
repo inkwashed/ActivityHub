@@ -17,16 +17,8 @@
       });
       this.layer = document.createElement('div');this.layer.className = 'free-layer';this.layer.hidden = true;this.pizza.append(this.layer);
       this.tools = document.querySelector('#free-tools');this.picker = document.querySelector('#piece-picker');
-      // Move the same controls, preserving listeners, state, and keyboard order.
-      if(window.matchMedia){
-        const stacked=window.matchMedia('(max-width:739px), (max-height:599px)');
-        const placeTools=()=>{
-          const host=document.querySelector(stacked.matches?(options.workspace||'#pizza-workspace'):(options.menuBody||'.pizza-menu-body'));
-          const before=document.querySelector(stacked.matches?'.builder-output, .order':(options.menu||'#pizza-menu'));
-          host.insertBefore(this.tools,before);
-        };
-        stacked.addEventListener('change',placeTools);placeTools();
-      }
+      // Tool gestures must not reach the editing surface beneath the overlay.
+      this.tools.addEventListener('pointerdown',event=>event.stopPropagation());
       this.toggle = document.querySelector('#free-mode');this.difficulty = document.querySelector('#advanced-mode');
       this.actions = new Map();
       this.pickerWrap = document.querySelector('#piece-picker-wrap');

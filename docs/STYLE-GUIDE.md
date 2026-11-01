@@ -102,7 +102,7 @@ Copyright uses the shared compact footer (`shared/copyright.js`) with a 12px tex
 
 Pizza Builder adds a LEARN/PLAY pill beside the first (sauce) heading, using the shared switch shape. PLAY disables the EASY/HARD switch in EASY state and explains this in its instructions. Editing actions reuse shared buttons; the piece picker provides access to overlapped pieces. The selection outline uses the focus-color token.
 
-Pizza PLAY editing uses a vertical icon toolbar within the menu column, below the shared menu heading and to the left of the input panel, with a dedicated 44px lane and 12px separation. Order the vertical actions from top to bottom: larger (+), smaller (−), rotate left, rotate right, flip, duplicate, TOP, delete. Reuse the shared size, rotation, flip, duplicate, and delete SVGs with translated accessible labels/tooltips. Put the compact piece picker beside the PLAY topping heading, using the remaining row width and expose instructions through the info button beside LEARN/PLAY. Header controls may wrap on narrower screens.
+Builder PLAY editing uses the shared inset quick-tools toolbar inside the play frame, following the responsive placement policy below. It does not reserve a lane in the choices panel. Order the vertical actions from top to bottom: larger (+), smaller (−), rotate left, rotate right, flip, duplicate, TOP, delete. Reuse the shared size, rotation, flip, duplicate, and delete SVGs with translated accessible labels/tooltips. Put the compact piece picker beside the PLAY topping heading, using the remaining row width and expose instructions through the info button beside LEARN/PLAY. Header controls may wrap on narrower screens.
 
 The text-only footer attribution is `Let’s EiGo! © 2026 letseigo.com · All rights reserved.`; Japanese retains `Let’s EiGo!` and `letseigo.com` and translates the rights notice. Keep the domain as plain text in applet footers.
 
@@ -164,7 +164,7 @@ Reserve approximately three spoken-text lines in the output box. Fit sentence te
 
 The bordered output box provides visual separation: do not add decorative quotation marks around builder results. Keep ordinary sentence punctuation, pronunciation controls, and Sandwich initials intact. This applies to the Lab and all production builders.
 
-Below either threshold, stack activity above controls with a stable 404px play frame and the same reserved output box. Keep `data-jump-section` hooks and `shared/builder-jump.js` for keyboard-accessible section navigation. Move the existing PLAY toolbar horizontally above the output in stacked layouts; keep it vertically beside the choices in tablet/desktop layouts. Never duplicate controls. Test landscape 1024×768/1133×744, portrait 744×1133/768×1024, desktop 1366×768, phones, enlarged text, and long content in all three builders.
+Below either threshold, stack activity above controls with a stable 404px play frame and the same reserved output box. Keep `data-jump-section` hooks and `shared/builder-jump.js` for keyboard-accessible section navigation. Nest the existing PLAY toolbar inside the play frame: centered on the right in landscape, or centered at the bottom in portrait/compact layouts. Never duplicate controls. Test landscape 1024×768/1133×744, portrait 744×1133/768×1024, desktop 1366×768, phones, enlarged text, and long content in all three builders.
 
 ## Numbered section headings
 
@@ -189,7 +189,7 @@ more overrides. Check both modes at identical viewport sizes and inspect the
 winning CSS rule when only one mode changes. Use shared controls unchanged;
 keep food geometry and app-specific menu sizing in the app layout file.
 
-In stacked phone/short-window layouts, move the same editing toolbar below the artwork and above its order sentence. Lay its 44px buttons out horizontally, centered, wrapping on narrow phones. Restore the vertical menu-side placement in landscape, aligned to the panel’s top edge rather than vertically centered. Move existing controls rather than duplicating them so state, focus order, and listeners stay consistent.
+PLAY quick tools sit 10px inside the visible play frame, centered vertically on the right in landscape and horizontally at the bottom in portrait/compact views. Keep 44px buttons and 6px gaps; narrow or short frames use two rows of four. Short frames switch to the bottom arrangement so tools stay accessible. Overlay the same controls without resizing artwork or including them in Share. Toolbar pointer events must not clear selection or reach editing gestures beneath it.
 
 Creative movement bounds belong to the activity play area, not necessarily the food silhouette. Pizza PLAY permits crust overlap within the rectangular stage; fixed photo framing may crop placements beyond the photo edges. Keep LEARN’s preset placement rules independent.
 
@@ -268,7 +268,7 @@ Sandwich prototype uses three icon-only editable filling slots with adjacent swa
 
 ### Builder choices-column alignment
 
-The direct `#builder > [data-jump-section="choices"]` column is top-aligned using shared/builder-layout.css in LEARN and PLAY. Do not vertically center it to match the artwork or changing order text. Stacked layouts use horizontal auto margins only, not vertical auto margins. Keep the menu heading 12px above the panel; the vertical PLAY toolbar aligns with the top edge of the adjacent panel in landscape. Every builder, including Sandwich, loads shared/builder-card-sizing.css and declares its visible LEARN/PLAY row counts instead of setting separate card-height rules. Sandwich uses four LEARN rows and four PLAY rows, with editable bread beside the piece picker. Final workspace padding and toolbar spacing follow the responsive policy above.
+The direct `#builder > [data-jump-section="choices"]` column is top-aligned using shared/builder-layout.css in LEARN and PLAY. Do not vertically center it to match the artwork or changing order text. Stacked layouts use horizontal auto margins only, not vertical auto margins. Keep the menu heading 12px above the panel; the PLAY toolbar overlays the play frame according to the responsive policy. Every builder, including Sandwich, loads shared/builder-card-sizing.css and declares its visible LEARN/PLAY row counts instead of setting separate card-height rules. Sandwich uses four LEARN rows and four PLAY rows, with editable bread beside the piece picker. Final workspace padding and toolbar spacing follow the responsive policy above.
 
 Compact PLAY palettes must not inherit LEARN-sized whitespace. Use shared/builder-card-sizing.css for both modes. Default PLAY padding is 6px with 52–84px card growth; dense palettes may opt into `--play-choice-padding` and `--play-choice-max` while retaining the shared 52px minimum and 44px touch targets. Sandwich’s PLAY palette has 16 fillings in four columns and four rows, with bread separately beside the piece picker. Its icon-only cards use 72px minimum height, 4px padding, and artwork up to 64px wide, larger than LEARN. This app-specific layout is pending review before generalization. Check compact and tall landscape screens as well as stacked layouts when adding a builder.
 

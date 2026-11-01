@@ -119,7 +119,7 @@ Use `shared/i18n.js` for interface language and `shared/ui-ja.js` for common Jap
 
 Include `shared/copyright.js` in applets, before viewport layout measurement and after shared translations. Include the root `LICENSE.txt` in deployments and packages. Reserve the visible footer height instead of overlaying the activity. The shared English/Japanese footer is text only, with no button or terms dialog. Keep the visible full-terms link on the root home page; do not duplicate license text into each app. Preserve the permission for built-in completed-photo exports. Update the root terms and shared notice together when the owner changes the usage policy.
 
-Creative interaction modes should preserve their own compositions and keep learning modes unambiguous. Pizza Builder PLAY forces EASY, restores LEARN difficulty on return, and keeps photo export faithful to manual transforms. Shared `piece-gestures.js` supports one-finger dragging and two-finger pinch resizing in Pizza PLAY. Keep gesture rotation disabled; rotation and flipping remain toolbar actions. Apply app-specific size and placement limits through the gesture callbacks, and update size-based language during resizing. Verify pointer transitions, second-finger starts on the canvas outside the selected piece, and cancellation whenever changing gesture handling. Responsive toolbar placement moves the existing controls between the landscape menu and stacked artwork; do not create duplicate controls.
+Creative interaction modes should preserve their own compositions and keep learning modes unambiguous. Pizza Builder PLAY forces EASY, restores LEARN difficulty on return, and keeps photo export faithful to manual transforms. Shared `piece-gestures.js` supports one-finger dragging and two-finger pinch resizing in Pizza PLAY. Keep gesture rotation disabled; rotation and flipping remain toolbar actions. Apply app-specific size and placement limits through the gesture callbacks, and update size-based language during resizing. Verify pointer transitions, second-finger starts on the canvas outside the selected piece, and cancellation whenever changing gesture handling. The shared workspace moves the existing PLAY tools into the play frame once; responsive CSS handles inset placement. Do not duplicate controls or reparent them into the menu on resize. Preserve tool selection and prevent toolbar pointer events from reaching background deselection or editing gestures. STYLE-GUIDE.md owns the placement and dimensions.
 
 ## Public identity and domain
 
@@ -177,7 +177,7 @@ Reuse standards by reference, not by copying Pizza files. Current ownership:
 | Two-slot fruit layers and dialogue | shared/layer-builder.js | Parfait |
 | Pointer drag/pinch primitives | shared/piece-gestures.js | Pizza; reusable callbacks for app bounds/size limits |
 | Compact choice presentation | shared/builder-create.css | Pizza opt-in; some selectors still assume sauce/topping markup |
-| Stable toolbar/menu arrangement | apps/pizza/layout.css and markup | Pizza-specific until another consumer needs extraction |
+| Inset PLAY quick tools | shared/builder-workspace.js, shared/builder-workspace.css, shared/creative-builder.js | Shared by Pizza, Parfait, Sandwich, Class Supplies and the Builder Lab; visual policy in STYLE-GUIDE.md |
 | Creative composition and photo export | apps/pizza/creative.js, sharing.js | Pizza only; not a complete shared editor |
 
 For the upcoming Parfait pass:

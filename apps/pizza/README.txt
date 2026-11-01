@@ -144,8 +144,8 @@ food names, question, order, and photo caption remain English.
 
 LAYOUT OWNERSHIP
 layout.css loads after shared responsive CSS. Both landscape modes use the same
-420–444px menu column and canvas geometry. PLAY reserves 44px + 12px inside the
-menu column for the toolbar; the title spans toolbar and panel. Both modes show
+420–444px menu column and canvas geometry. PLAY uses the shared inset toolbar inside the play frame, without a menu-column
+lane. Both modes show
 the title/eyebrow, with Reset/Share beneath choices. LEARN's first heading is
 “Choose a sauce”. Portrait and small screens stack artwork above choices with
 the shared quick-jump control. Long content may scroll instead of clipping.
@@ -158,7 +158,7 @@ Run tests/check-creative.cjs, check-choice-pager.cjs, check-builder-jump.cjs,
 and check-sharing.cjs with Node. These are mocked behavior checks, not browser
 layout checks. Physical iPad pinch/drag, layout, and photo saving remain to test.
 
-In stacked layouts the editing toolbar moves below the pizza and above the order, with centered horizontal buttons that wrap on phones. Landscape keeps the vertical toolbar beside the menu. Pinch changes need renewed physical iPad verification.
+PLAY quick tools follow the inset layout in docs/STYLE-GUIDE.md: right-centered in landscape, bottom-centered in portrait/compact views, with two rows on narrow or short frames. Shared workspace code owns placement. Physical iPad verification remains pending.
 
 PLAY placement uses the entire rectangular artwork stage, not a circular crust boundary. Rotated artwork stays within that stage while allowing crust overlap. Share expands its framing to include off-crust pieces. LEARN scatter is unchanged.
 

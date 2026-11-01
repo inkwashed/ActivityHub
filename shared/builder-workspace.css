@@ -56,9 +56,25 @@
 /* Panels use their border for separation, without a raised lower edge. */
 .ah-builder #builder .pantry{box-shadow:none}
 
-/* Landscape editing tools start at the top edge of the adjacent choices panel. */
+/* Editing tools overlay the visible frame without changing artwork dimensions. */
+.ah-builder #builder .builder-play-area{position:relative}
+.ah-builder #builder.is-create .pizza-menu-body,
+.ah-builder #builder.is-create .parfait-menu-body,
+.ah-builder #builder.is-create .sandwich-menu-body{grid-template-columns:minmax(0,1fr)}
+.ah-builder #builder .builder-play-area #free-tools{position:absolute;z-index:20;left:50%;bottom:10px;top:auto;right:auto;transform:translateX(-50%);width:max-content;max-width:calc(100% - 20px);margin:0;align-self:auto}
+.ah-builder #builder .builder-play-area .free-toolbar{display:grid;grid-template-columns:repeat(8,44px);gap:6px;justify-content:center}
+.ah-builder #builder .builder-play-area .free-toolbar .ah-button{width:44px;height:44px;min-width:44px;padding:0}
+@container (max-width:414px){
+ .ah-builder #builder .builder-play-area .free-toolbar{grid-template-columns:repeat(4,44px)}
+}
 @media(orientation:landscape) and (min-width:740px) and (min-height:600px){
- .ah-builder #builder.is-create #free-tools{align-self:start}
+ .ah-builder #builder .builder-play-area #free-tools{left:auto;right:10px;top:50%;bottom:auto;transform:translateY(-50%)}
+ .ah-builder #builder .builder-play-area .free-toolbar{grid-template-columns:44px}
+}
+/* Short play frames retain full-size targets in the compact bottom layout. */
+@container (max-height:413px){
+ .ah-builder #builder .builder-play-area #free-tools{left:50%;right:auto;top:auto;bottom:10px;transform:translateX(-50%)}
+ .ah-builder #builder .builder-play-area .free-toolbar{grid-template-columns:repeat(4,44px)}
 }
 
 /* Pizza uses the full available square in both modes (formerly PLAY-only). */

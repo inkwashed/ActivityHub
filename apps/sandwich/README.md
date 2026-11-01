@@ -14,7 +14,7 @@ Validation: `node tests/check-sandwich.cjs`; shared creative and pronunciation s
 
 Artwork uses gently angled bread with a visible crust, simple flat-color filling slices, and limited highlights. Tomatoes have radial seed chambers; cucumbers have green peel and pale seeded centers; onions use purple-edged concentric rings. LEARN framing leaves room around the top crust; ingredient icons, PLAY pieces, and exports reuse the same configured SVGs.
 
-Layout follows the shared top-aligned choices-column rule and shared card sizing (four LEARN rows, four PLAY rows). Menu heading gap is 12px, panel padding 14px in both modes, and the landscape toolbar stays 44px wide with a 12px gutter.
+Layout follows the shared top-aligned choices-column rule and shared card sizing (four LEARN rows, four PLAY rows). Menu heading gap is 12px, panel padding 14px in both modes, and PLAY quick tools use the shared inset play-frame placement defined in docs/STYLE-GUIDE.md.
 
 The opening sandwich abbreviation is displayed as individual outlined letter circles. These contain ordinary letters, preserving plain-text pronunciation, copying, and photo captions (which remain unadorned text). Ingredient explanations retain standard text.
 

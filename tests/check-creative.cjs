@@ -16,7 +16,6 @@ vm.runInContext(fs.readFileSync('shared/piece-gestures.js','utf8'),context);
 vm.runInContext(fs.readFileSync('shared/creative-builder.js','utf8'),context);
 vm.runInContext(fs.readFileSync('apps/pizza/creative.js','utf8'),context);
 const free=app.creative;free.updateHelp();assert.equal(elements['#free-info-title'].textContent,'About LEARN mode');assert(elements['#mode-help-text'].textContent.includes('Three dots'));free.switchMode(true);assert.equal(elements['#free-info-title'].textContent,'About PLAY mode');assert(elements['#mode-help-text'].textContent.includes('Pinch'));
-assert.equal(free.tools.parent,elements['.pizza-menu-body']);layoutMedia.matches=true;layoutChange();assert.equal(free.tools.parent,elements['#pizza-workspace']);layoutMedia.matches=false;layoutChange();assert.equal(free.tools.parent,elements['.pizza-menu-body']);
 assert.equal(elements['#pizza-actions'].parent,elements['#pizza-menu']);
 assert.equal(app.advancedMode,false);assert.equal(toggle.disabled,true);assert.equal(app.state.sauce,null);
 app.buttons.get('corn').listeners.click();assert.equal(free.items.length,1);assert.equal(sentence(),'I want 1 medium corn.');

@@ -7,6 +7,7 @@
  if(!scene||!order)return;
  const frame=document.createElement('div');frame.className='builder-play-area';
  scene.before(frame);frame.append(scene);
+ const tools=root.querySelector('#free-tools');if(tools)frame.append(tools);
  if(typeof CustomEvent!=='undefined')document.dispatchEvent(new CustomEvent('builder:workspace-ready',{detail:frame}));
  const output=document.createElement('div');output.className='builder-output';
  order.before(output);output.append(order);
