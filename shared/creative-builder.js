@@ -64,19 +64,21 @@
     }
     topping(item){return this.catalog.find(x=>x.id===item.topping)}
     constrain(item){
-      const frame=this.pizza.closest?.('.builder-play-area');
+      const frame=this.pizza.closest?.('.builder-art-area, .builder-play-area');
       if(frame){
         item.scale=Math.max(this.sizes.min,Math.min(this.sizes.max,item.scale));
         const scene=this.pizza.getBoundingClientRect(),area=frame.getBoundingClientRect();
-        // Keep the visible-art center reachable, while allowing overlap at the edges.
+        // Bound the rotated visible artwork to the usable canvas, excluding tools.
         const size=(this.topping(item).creativeSize ?? this.topping(item).size)*item.scale;
         const box=item.artBounds||{x:0,y:0,width:1,height:1};
         const angle=(item.rotate||0)*Math.PI/180;
         const dx=(box.x+box.width/2-.5)*size*(item.flip?-1:1),dy=(box.y+box.height/2-.5)*size;
         const ox=dx*Math.cos(angle)-dy*Math.sin(angle),oy=(dx*Math.sin(angle)+dy*Math.cos(angle))*scene.width/(scene.height||scene.width);
-        const inset=Math.min(22,area.width/2,area.height/2);
-        const left=(area.left-scene.left+inset)/scene.width*100-ox,right=(area.right-scene.left-inset)/scene.width*100-ox;
-        const top=(area.top-scene.top+inset)/scene.height*100-oy,bottom=(area.bottom-scene.top-inset)/scene.height*100-oy;
+        const halfWidth=size*(Math.abs(Math.cos(angle))*box.width+Math.abs(Math.sin(angle))*box.height)*scene.width/200;
+        const halfHeight=size*(Math.abs(Math.sin(angle))*box.width+Math.abs(Math.cos(angle))*box.height)*scene.width/200;
+        const insetX=Math.min(area.width/2,Math.max(22,halfWidth)),insetY=Math.min(area.height/2,Math.max(22,halfHeight));
+        const left=(area.left-scene.left+insetX)/scene.width*100-ox,right=(area.right-scene.left-insetX)/scene.width*100-ox;
+        const top=(area.top-scene.top+insetY)/scene.height*100-oy,bottom=(area.bottom-scene.top-insetY)/scene.height*100-oy;
         item.x=Math.max(left,Math.min(right,item.x));item.y=Math.max(top,Math.min(bottom,item.y));return;
       }
       if(this.options.constrain){this.options.constrain(item,this);return;}
@@ -123,7 +125,7 @@
         if(art!==item.renderedArt){item.node.innerHTML=`<span class="free-art">${art}</span>`;item.renderedArt=art;}
       }
       this.trimArtwork(item);
-      if(this.pizza.closest?.('.builder-play-area'))this.constrain(item);
+      if(this.pizza.closest?.('.builder-art-area, .builder-play-area'))this.constrain(item);
       const size=(this.topping(item).creativeSize ?? this.topping(item).size)*item.scale;
       item.node.setAttribute('aria-label',`${window.FoodBuilder.sizeBand(item.scale,this.sizes)} ${this.topping(item).countSingular||this.topping(item).label}`);
       item.node.style.cssText=`left:${item.x}%;top:${item.y}%;z-index:${this.orderedItems().indexOf(item)+1};--food-size:${size};--angle:${item.rotate}deg;--flip:${item.flip?-1:1}`;

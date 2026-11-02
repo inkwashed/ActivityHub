@@ -1,6 +1,6 @@
 /* Final shared builder geometry. Food internals retain their own proportions. */
 .ah-builder #builder .builder-play-area{container-type:size;display:grid;place-items:center;min-width:0;min-height:0;height:404px}
-.ah-builder #builder .builder-output{height:140px;min-height:0;box-sizing:border-box;padding:10px 12px;background:var(--ah-surface);border:1px solid var(--ah-divider);border-radius:var(--ah-radius-panel);overflow:auto;overscroll-behavior:contain;width:100%;font-size:var(--output-font-size,21px)}
+.ah-builder #builder .builder-output{height:var(--builder-output-height,140px);min-height:0;box-sizing:border-box;padding:10px 12px;background:var(--ah-surface);border:1px solid var(--ah-divider);border-radius:var(--ah-radius-panel);overflow:auto;overscroll-behavior:contain;width:100%;font-size:var(--output-font-size,21px)}
 .ah-builder #builder .builder-output .order{display:flex;width:100%;max-width:none;min-height:0;margin:0;gap:6px;align-items:flex-start;font-size:inherit}
 .ah-builder #builder .builder-output #sentence{font-size:inherit;line-height:1.4;min-width:0;margin:0;flex:1}
 .ah-builder #builder .builder-output #source-sentence{font-size:inherit;line-height:1.4;margin:4px 0 0}
@@ -9,12 +9,12 @@
 .ah-builder #builder .builder-play-area #sandwich{width:min(92cqw,92cqh);height:min(92cqw,92cqh);max-width:none;max-height:none;margin:0;aspect-ratio:1}
 .ah-builder #builder .builder-play-area .parfait-stage{width:min(73.6cqw,73.6cqh);height:auto;aspect-ratio:1.25;align-self:end;margin:0 0 4cqh;transform:none}
 /* Includes portrait iPads; phones keep the activity-first stack. */
-@media(min-width:740px) and (min-height:600px){
+@media(min-width:740px){
  .ah-builder{padding-bottom:0}
  .ah-builder header{padding:6px 16px;gap:8px}
  .ah-builder .edition{display:inline}
  .ah-builder #builder,.ah-builder #builder.is-create{height:calc(100svh - var(--header-height,56px) - var(--footer-height,26px));min-height:0;grid-template-columns:minmax(0,1fr) minmax(350px,42%);gap:16px;padding:10px 16px;align-items:start}
- .ah-builder #builder .kitchen,.ah-builder #builder.is-create .kitchen{display:grid;grid-template-rows:44px minmax(0,1fr) 140px;gap:8px;height:100%;min-height:0;align-self:stretch}
+ .ah-builder #builder .kitchen,.ah-builder #builder.is-create .kitchen{display:grid;grid-template-rows:minmax(44px,auto) minmax(240px,1fr) var(--builder-output-height,140px);gap:8px;height:100%;min-height:0;align-self:stretch;overflow:auto;overscroll-behavior:contain}
  .ah-builder #builder .kitchen>.heading{margin:0;min-height:0}
  .ah-builder #builder .heading .question{font-size:21px;margin:0}
  .ah-builder #builder .builder-play-area{height:100%}
@@ -56,26 +56,51 @@
 /* Panels use their border for separation, without a raised lower edge. */
 .ah-builder #builder .pantry{box-shadow:none}
 
-/* Editing tools overlay the visible frame without changing artwork dimensions. */
-.ah-builder #builder .builder-play-area{position:relative}
+/* The frame owns tool layout; its inner size container owns artwork and gestures. */
+.ah-builder #builder .builder-play-area{position:relative;container-name:builder-frame}
+.ah-builder #builder .builder-art-area{position:absolute;inset:0;container-type:size;display:grid;place-items:center;min-width:0;min-height:0;overflow:clip}
 .ah-builder #builder.is-create .pizza-menu-body,
 .ah-builder #builder.is-create .parfait-menu-body,
 .ah-builder #builder.is-create .sandwich-menu-body{grid-template-columns:minmax(0,1fr)}
+.ah-builder #builder.is-create .builder-art-area{bottom:114px}
 .ah-builder #builder .builder-play-area #free-tools{position:absolute;z-index:20;left:50%;bottom:10px;top:auto;right:auto;transform:translateX(-50%);width:max-content;max-width:calc(100% - 20px);margin:0;align-self:auto}
-.ah-builder #builder .builder-play-area .free-toolbar{display:grid;grid-template-columns:repeat(8,44px);gap:6px;justify-content:center}
+.ah-builder #builder .builder-play-area .free-toolbar{display:grid;grid-template-columns:repeat(4,44px);gap:6px;justify-content:center}
 .ah-builder #builder .builder-play-area .free-toolbar .ah-button{width:44px;height:44px;min-width:44px;padding:0}
-@container (max-width:414px){
- .ah-builder #builder .builder-play-area .free-toolbar{grid-template-columns:repeat(4,44px)}
+@container builder-frame (min-width:414px){
+ .ah-builder #builder.is-create .builder-art-area{bottom:64px}
+ .ah-builder #builder .builder-play-area .free-toolbar{grid-template-columns:repeat(8,44px)}
 }
-@media(orientation:landscape) and (min-width:740px) and (min-height:600px){
- .ah-builder #builder .builder-play-area #free-tools{left:auto;right:10px;top:50%;bottom:auto;transform:translateY(-50%)}
- .ah-builder #builder .builder-play-area .free-toolbar{grid-template-columns:44px}
+@media(orientation:landscape) and (min-width:740px){
+ /* Require 280px of usable artwork width beside the compact 94px rail. */
+ @container builder-frame (min-width:394px) and (min-height:214px){
+  .ah-builder #builder.is-create .builder-art-area{right:114px;bottom:0}
+  .ah-builder #builder .builder-play-area #free-tools{left:auto;right:10px;top:50%;bottom:auto;transform:translateY(-50%)}
+  .ah-builder #builder .builder-play-area .free-toolbar{grid-template-columns:repeat(2,44px)}
+ }
+ @container builder-frame (min-width:344px) and (min-height:414px){
+  .ah-builder #builder.is-create .builder-art-area{right:64px;bottom:0}
+  .ah-builder #builder .builder-play-area #free-tools{left:auto;right:10px;top:50%;bottom:auto;transform:translateY(-50%)}
+  .ah-builder #builder .builder-play-area .free-toolbar{grid-template-columns:44px}
+ }
 }
-/* Short play frames retain full-size targets in the compact bottom layout. */
-@container (max-height:413px){
- .ah-builder #builder .builder-play-area #free-tools{left:50%;right:auto;top:auto;bottom:10px;transform:translateX(-50%)}
- .ah-builder #builder .builder-play-area .free-toolbar{grid-template-columns:repeat(4,44px)}
+/* Height changes spacing, never the number of workspace columns. */
+@media(min-width:740px){
+ .ah-builder:has(.builder-art-area){height:100svh;overflow:hidden}
+ .ah-builder #builder{--builder-output-height:clamp(76px,14svh,140px);--learn-card-height:68px}
+ .ah-builder #builder .kitchen>.heading{overflow:auto}
+ .ah-builder #builder .pizza-menu-column,.ah-builder #builder .parfait-menu-column,.ah-builder #builder .sandwich-menu-column{max-width:none;margin:0}
+}
+@media(min-width:740px) and (max-height:700px){
+ .ah-builder #builder,.ah-builder #builder.is-create{gap:12px;padding:6px 12px}
+ .ah-builder #builder .kitchen,.ah-builder #builder.is-create .kitchen{gap:6px}
+ .ah-builder #builder .pantry{padding:8px}
 }
 
 /* Pizza uses the full available square in both modes (formerly PLAY-only). */
 .ah-builder #builder #pizza-workspace .builder-play-area .board{width:min(100cqw,100cqh);height:min(100cqw,100cqh);max-width:none;max-height:none}
+
+/* A narrow two-panel workspace needs room for art above its two-row tool strip.
+   At very short heights the activity section scrolls instead of compressing it. */
+@media(min-width:740px) and (max-width:840px){
+ .ah-builder #builder .kitchen,.ah-builder #builder.is-create .kitchen{grid-template-rows:minmax(44px,auto) minmax(354px,1fr) var(--builder-output-height,140px)}
+}

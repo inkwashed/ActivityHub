@@ -8,17 +8,18 @@ class Element{
 const kitchen=new Element(),scene=new Element(),order=new Element(),source=new Element();
 kitchen.append(scene);kitchen.append(order);kitchen.append(source);
 kitchen.querySelector=s=>{if(s==='.order')return order;if(s==='#source-sentence')return source;assert.ok(s.includes('[data-builder-scene]'));return scene;};
-const tools=new Element();const root={querySelector:s=>s==='#free-tools'?tools:kitchen},queue=[];let changed,resized;
+const tools=new Element();const root={querySelector:s=>s==='#free-tools'?tools:kitchen},queue=[];let changed,resized,ready;
 vm.runInNewContext(fs.readFileSync('shared/builder-workspace.js','utf8'),{
- document:{querySelector:()=>root,createElement:()=>new Element()},window:{ResizeObserver:true,addEventListener(){}},
+ CustomEvent:class{constructor(type,options){this.detail=options.detail}},
+ document:{querySelector:()=>root,createElement:()=>new Element(),dispatchEvent:event=>{ready=event.detail}},window:{ResizeObserver:true,addEventListener(){}},
  requestAnimationFrame:fn=>queue.push(fn),MutationObserver:class{constructor(fn){changed=fn}observe(){}},ResizeObserver:class{constructor(fn){resized=fn}observe(){}}
 });
 const [frame,output]=kitchen.children;
-assert.equal(frame.className,'builder-play-area');assert.equal(frame.children[0],scene);assert.equal(frame.children[1],tools);
+assert.equal(frame.className,'builder-play-area');assert.equal(frame.children[0].className,'builder-art-area');assert.equal(frame.children[0].children[0],scene);assert.equal(frame.children[1],tools);assert.equal(ready,frame.children[0]);
 assert.deepEqual(output.children,[order,source]);queue.shift()();
 assert.equal(output.props['--output-font-size'],'21px');
 output.long=true;changed();resized();assert.equal(queue.length,1);queue.shift()();
-assert.equal(output.props['--output-font-size'],'17px');assert.equal(frame.children[0],scene);
+assert.equal(output.props['--output-font-size'],'17px');assert.equal(frame.children[0].className,'builder-art-area');assert.equal(frame.children[0].children[0],scene);
 output.long=false;changed();queue.shift()();assert.equal(output.props['--output-font-size'],'21px');
 Object.defineProperty(output,'scrollHeight',{get:()=>300});changed();queue.shift()();
 assert.equal(output.props['--output-font-size'],'16px');assert.equal(output.tabIndex,0);

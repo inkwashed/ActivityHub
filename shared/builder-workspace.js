@@ -6,9 +6,13 @@
  const order=kitchen?.querySelector('.order');
  if(!scene||!order)return;
  const frame=document.createElement('div');frame.className='builder-play-area';
- scene.before(frame);frame.append(scene);
- const tools=root.querySelector('#free-tools');if(tools)frame.append(tools);
- if(typeof CustomEvent!=='undefined')document.dispatchEvent(new CustomEvent('builder:workspace-ready',{detail:frame}));
+ scene.before(frame);
+ const tools=root.querySelector('#free-tools');
+ // A separate size container keeps art sizing and drag bounds outside the tool strip.
+ let surface=frame;
+ if(tools){surface=document.createElement('div');surface.className='builder-art-area';frame.append(surface);}
+ surface.append(scene);if(tools)frame.append(tools);
+ if(typeof CustomEvent!=='undefined')document.dispatchEvent(new CustomEvent('builder:workspace-ready',{detail:surface}));
  const output=document.createElement('div');output.className='builder-output';
  order.before(output);output.append(order);
  const sources=kitchen.querySelector('#source-sentence');if(sources)output.append(sources);

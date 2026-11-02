@@ -73,4 +73,15 @@ assert.deepEqual(free.orderedItems().map(item=>item.topping),['mushrooms','chees
 free.items.forEach((item,i)=>assert.equal(item.node.style.zIndex,i+1));
 const first=free.items[0];free.select(first.id);free.edit('top');assert.equal(free.orderedItems().at(-1),first);assert.equal(first.node.style.zIndex,3);assert.equal(free.selected,first.id);
 console.log('PASS: PLAY count/size groups, plural forms, resizing, duplication, deletion, sauce suffix, and thresholds.');
+// Tool strips reduce the canvas without changing scene-relative drag units.
+const usable={getBoundingClientRect:()=>({left:0,top:0,right:300,bottom:200,width:300,height:200})};
+free.pizza.closest=selector=>selector.includes('builder-art-area')?usable:null;
+free.pizza.getBoundingClientRect=()=>({left:0,top:0,right:400,bottom:400,width:400,height:400});
+const bounded=free.items[0];bounded.artBounds={x:0,y:0,width:1,height:1};bounded.x=999;bounded.y=999;bounded.rotate=45;bounded.scale=free.sizes.min;
+free.constrain(bounded);
+const radius=free.topping(bounded).size*bounded.scale*4*Math.SQRT2/2;
+assert(bounded.x*4+radius<=300.001);assert(bounded.y*4+radius<=200.001);
+bounded.x=-999;bounded.y=-999;free.constrain(bounded);
+assert(bounded.x*4-radius>=-.001);assert(bounded.y*4-radius>=-.001);
+console.log('PASS: rotated pieces remain outside the reserved toolbar strip.');
 `,{require,console});
