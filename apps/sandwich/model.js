@@ -18,6 +18,6 @@ window.SandwichLesson={
    const size=creative?t.size*p.scale:82,x=creative?p.x:50,y=creative?p.y:64-i*(photo?9:17);
    return `<g transform="translate(${x} ${y}) rotate(${p.rotate||0}) scale(${p.flip?-1:1} 1)">${t.art.replace('<svg ',`<svg x="${-size/2}" y="${-size/2}" width="${size}" height="${size}" `)}</g>`;
   }).join('');
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${left} ${top} ${side} ${side}" width="900" height="900">${photo?`<g transform="translate(${left} ${top}) scale(${side/100})">${this.photoBackground()}</g>`:'<rect width="100" height="100" fill="#eee6d2"/>'}${compactPhoto?'<g transform="translate(5 10) scale(.9)">':''}${this.bread(70)}${art}${creative?'':this.bread(Math.max(photo?5:13,57-items.length*(photo?9:17)))}${compactPhoto?'</g>':''}</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${left} ${top} ${side} ${side}" width="900" height="900">${photo?`<g transform="translate(${left} ${top}) scale(${side/100})">${this.photoBackground()}</g>`:''}${compactPhoto?'<g transform="translate(5 10) scale(.9)">':''}${this.bread(70)}${art}${creative?'':this.bread(Math.max(photo?5:13,57-items.length*(photo?9:17)))}${compactPhoto?'</g>':''}</svg>`;
  }
 };

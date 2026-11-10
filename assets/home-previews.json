@@ -10,7 +10,7 @@
     "apps/pizza/config.js": "e1ba6ba4c13d892680fe035a11daee7864d589f15b0763ded48448548c216414",
     "apps/pizza/sharing.js": "b360d12a2f1b45624fc4e8c906b0839d439db093af517aa724d8fb1fa8309e7a",
     "apps/sandwich/config.js": "ff74bf2e503d601c00013a0db6ffc3ca7d7c0589a95cd63d2b0c4c25b84f3b5d",
-    "apps/sandwich/model.js": "3fb66a60708f829c769d48814ba2ced088a64cf57c17485f8757421e253b21a9",
+    "apps/sandwich/model.js": "e95d09bf43a08fa710db96178707ef3d16abb8de735657baf1931ada19366d90",
     "apps/sandwich/sharing.js": "a6a3c7af266bb4314f23123d0f0553e7113648540563dcd5e0648efe9a963210",
     "scripts/generate-home-previews.cjs": "1b299eca221b50788039c01ef07354d88611a8d8f4c196f9a3815c7b59678d6b",
     "scripts/home-preview-frames.json": "483318b72ab02ad57a15ce5a7b700462fc756de098c4ea35e498aa9072b63894",

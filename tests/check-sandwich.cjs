@@ -69,6 +69,7 @@ const filling=[{topping:'bacon'},{topping:'lettuce'},{topping:'tomato'}];
 const before=JSON.stringify(filling),lesson=context.window.SandwichLesson;
 const live=lesson.svg(filling,b.config),photo=lesson.svg(filling,b.config,false,true);
 assert.ok(live.includes('translate(50 30)'));assert.ok(photo.includes('translate(50 46)'));
+for(const play of [false,true])assert.ok(!lesson.svg(filling,b.config,play).includes('fill="#eee6d2"'),'live scene has no fixed tan backing');
 assert.ok(!live.includes('picnic-background'));assert.ok(photo.includes('picnic-background'));
 assert.equal(JSON.stringify(filling),before);
 const placed=[{topping:'tomato',x:26,y:38,scale:1.3,rotate:25,flip:true}];
