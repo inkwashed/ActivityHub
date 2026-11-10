@@ -1,0 +1,26 @@
+{
+  "policy": "LEARN 1133x678 reference square Save artwork, without polaroid caption; see docs/HOME-PREVIEWS.md",
+  "sources": {
+    "apps/class-supplies/config.js": "61167766741c6a67993c10a6e69a140b2c1711374e3003edaf93a991feaf4b3f",
+    "apps/class-supplies/sharing.js": "973738262e6f16b77fdb3740dad522a1d0bad670b793c123e657634b481a45c1",
+    "apps/parfait/builder.js": "367132db7468f0c94afc0bc11e350fea6430b9605bad948d7bd262c3e4dd54e5",
+    "apps/parfait/config.js": "3c41c829060fa3ac6c80d76792f14cad1380e72ab68fe10a0cfe2f7f55d680d0",
+    "apps/parfait/glass-art.js": "e8143fb57ee445d5169d5cc2e8f7f9908bc4c77416b3073ab389772915716d3f",
+    "apps/parfait/sharing.js": "11704e01d456b84e949990754a445578da80df084bb8c4c48dec8a42f5f06719",
+    "apps/pizza/config.js": "e1ba6ba4c13d892680fe035a11daee7864d589f15b0763ded48448548c216414",
+    "apps/pizza/sharing.js": "b360d12a2f1b45624fc4e8c906b0839d439db093af517aa724d8fb1fa8309e7a",
+    "apps/sandwich/config.js": "ff74bf2e503d601c00013a0db6ffc3ca7d7c0589a95cd63d2b0c4c25b84f3b5d",
+    "apps/sandwich/model.js": "3fb66a60708f829c769d48814ba2ced088a64cf57c17485f8757421e253b21a9",
+    "apps/sandwich/sharing.js": "a6a3c7af266bb4314f23123d0f0553e7113648540563dcd5e0648efe9a963210",
+    "scripts/generate-home-previews.cjs": "1b299eca221b50788039c01ef07354d88611a8d8f4c196f9a3815c7b59678d6b",
+    "scripts/home-preview-frames.json": "483318b72ab02ad57a15ce5a7b700462fc756de098c4ea35e498aa9072b63894",
+    "shared/builder-panel-workspace.js": "356a5636436cf38a0a1dd7f5fac05061c7bacc4d3e03515de94fc7365f81599d",
+    "shared/builder.js": "d2ed171a2bc142b1a5c1709b36591f6fc850be593aa1791586219dc196e01ad4"
+  },
+  "outputs": {
+    "pizza-preview.svg": "b9920351f1bb399e9387d468b345158603476995969f5e47cec127b8781b00c8",
+    "parfait-preview.svg": "e2fa4a721e8e8a77a0ba2ea799f583c9b22b61d1a651f7adb5c65c793dc1e5d2",
+    "sandwich-preview.svg": "ceff360d619ec669c16a1940a122d276325cb73302c217e040f932aba0bd2c5f",
+    "class-supplies-preview.svg": "7869b31b5b13e1dca1b98f81fcc7629093bbfa58d52f1d99150f7a678765ad43"
+  }
+}

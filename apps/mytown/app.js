@@ -1,15 +1,17 @@
 /* Map editing deliberately stays independent of the free-position food editor. */
 (() => {
  const M=window.TownModel,A=window.TownArt,$=s=>document.querySelector(s),t=s=>window.ActivityHubI18n?.t(s)||s;
- let state=M.initial(),routeMode=false,selected=null,dragging=false,save;
+ let state=M.initial(),routeMode=false,selected=null,dragging=false,save,recovery;
  const voice={root:document,config:{toppings:M.places.map(label=>({label})),sauces:[]}};
+ const announce=message=>{$('#announcement').textContent=t(message)};
+ const nodeLabel=n=>n>=25?`${t('North side of tracks')}: ${Math.floor((n-25)/5)+1}, ${(n-25)%5+1}`:`${t('Street')} ${M.xy(n)[0]+1}, ${M.xy(n)[1]+1}`;
  const blockName=i=>`${String.fromCharCode(65+i%4)}${1+Math.floor(i/4)}`;
  function sentence(){const text=routeMode?(M.directions(state)||'Go straight for … blocks.'):M.inventory(state.blocks);window.FoodBuilder.prototype.setSentence.call(voice,text);}
  function render(){
   $('#map-art').innerHTML=A.map(state,routeMode);
   const height=M.mapHeight(state.blocks);$('#town-map').style.aspectRatio=`720 / ${height}`;$('#town-map').style.setProperty('--town-ratio',720/height);
   [...$('#blocks').children].forEach((b,i)=>{const r=M.blockRect(i,state.blocks);b.style.cssText=`left:${r.x/7.2}%;top:${r.y/height*100}%;width:${r.width/7.2}%;height:${r.height/height*100}%`;});
-  [...$('#nodes').children].forEach((b,n)=>{const [x,y]=M.point(n,state.blocks);b.hidden=!M.activeNode(n,state.blocks);b.classList.toggle('car-node',n===state.route.at(-1));b.style.left=`${x/7.2}%`;b.style.top=`${y/height*100}%`;});
+  [...$('#nodes').children].forEach((b,n)=>{const [x,y]=M.point(n,state.blocks);b.hidden=!M.activeNode(n,state.blocks);b.setAttribute('aria-label',nodeLabel(n));if(n===state.route.at(-1))b.setAttribute('aria-current','location');else b.removeAttribute('aria-current');b.classList.toggle('car-node',n===state.route.at(-1));b.style.left=`${x/7.2}%`;b.style.top=`${y/height*100}%`;});
   $('#question').textContent=routeMode?`Where is the ${state.destination===null?'…':state.blocks[state.destination]}?`:'What do you have in your town?';
   [...$('#blocks').children].forEach((b,i)=>{b.disabled=routeMode&&!state.blocks[i];b.setAttribute('aria-pressed',String(i===(routeMode?state.destination:selected)));b.setAttribute('aria-label',`${blockName(i)}: ${state.blocks[i]||t('Empty block')}`);b.style.touchAction=!routeMode&&state.blocks[i]?'none':'auto'});
   $('#nodes').hidden=!routeMode;$('#build-tools').hidden=routeMode;$('#route-tools').hidden=!routeMode;
@@ -44,7 +46,7 @@
   if(!p.active&&Math.hypot(e.clientX-p.x,e.clientY-p.y)<6)return;
   e.preventDefault();
   if(!p.active){p.active=true;p.ghost=document.createElement('div');p.ghost.className='town-drag-ghost';p.ghost.innerHTML=A.icon(state.blocks[p.from]);document.body.append(p.ghost);$('#blocks').children[p.from].classList.add('picked-up');}
-  const box=$('#town-map').getBoundingClientRect(),scale=box.width/720;
+  const box=$('#town-map').getBoundingClientRect();if(!Number.isFinite(box.width)||box.width<=0)return;const scale=box.width/720;
   p.ghost.style.cssText=`left:${e.clientX}px;top:${e.clientY}px;width:${98*scale}px;height:${98*scale}px`;
   const x=(e.clientX-box.left)/scale,y=(e.clientY-box.top)/scale;
   p.target=null;let best=Infinity;
@@ -72,12 +74,20 @@
  map.addEventListener('pointermove',e=>{if(!dragging)return;const r=map.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*720,y=(e.clientY-r.top)/r.height*M.mapHeight(state.blocks);let closest=-1,d=25;for(let n=0;n<M.nodeCount;n++){if(!M.activeNode(n,state.blocks))continue;const p=M.point(n,state.blocks),distance=Math.hypot(x-p[0],y-p[1]);if(distance<d){closest=n;d=distance}}if(closest>=0)visit(closest)});
  for(const event of ['pointerup','pointercancel','lostpointercapture'])map.addEventListener(event,()=>dragging=false);
  map.addEventListener('click',e=>{if(!routeMode&&!e.target.closest('button')){selected=null;render()}});
- $('#route-mode').onchange=e=>{routeMode=e.target.checked;dragging=false;voice.pronunciation?.stop();render()};
+ $('#mode-info').onclick=()=>$('#mode-help').showModal();
+ $('#mode-help-close').onclick=()=>$('#mode-help').close();
+ $('#mode-help').addEventListener('close',()=>$('#mode-info').focus());
+ $('#route-mode').onchange=e=>{finishPickup(false);routeMode=e.target.checked;dragging=false;voice.pronunciation?.stop();render()};
  $('#destination').onchange=e=>{state.destination=e.target.value===''?null:Number(e.target.value);resetRoute();render()};
  $('#undo').onclick=()=>{if(state.route.length>1)state.route.pop();render()};
  $('#remove').onclick=()=>{if(selected!==null){state.blocks[selected]=null;state.destination=null;resetRoute();render()}};
  $('#clear').onclick=()=>{if(routeMode)resetRoute();else{state=M.initial();selected=null;}render()};
- render();save=window.ActivityAutosave.connect('my-town',{capture:()=>state,restore:raw=>{state=M.restore(raw);render()}});
+ render();save=window.ActivityAutosave.connect('my-town',{canSave:()=>recovery?.canSave()!==false,onRestoreError:()=>announce('Saved creation could not be opened. Reload to try again.'),capture:()=>state,restore:raw=>{state=M.restore(raw);render()}});
+ recovery=window.BuilderReset.connect({button:$('#clear'),onError:()=>announce('Could not restore the creation. Please try Restore again.'),mode:()=>routeMode?'route':'build',capture:()=>({state,selected}),
+  hasCreation:value=>routeMode?value.state.route.length>1:value.state.blocks.some(Boolean),
+  signature:value=>JSON.stringify(routeMode?value.state:value.state.blocks),
+  clear:()=>{finishPickup(false);dragging=false;if(routeMode)resetRoute();else{state=M.initial();selected=null;}render()},
+  restore:(value,key)=>{if(key==='route'){state.route=value.state.route;state.facing=value.state.facing;state.destination=value.state.destination;}else{state=value.state;selected=value.selected;}render()},after:()=>save?.flush()});
  window.BuilderPhoto({builder:()=>state,imageSelector:'#town-photo',render:()=>A.map(state,routeMode),caption:'My town!'});
  document.addEventListener('activityhub:languagechange',render);
 })();

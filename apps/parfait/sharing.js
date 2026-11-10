@@ -25,8 +25,9 @@
   }
   if(!builder.creative?.active)output+='</g>';
   output+=window.ParfaitGlass.front;
-  const edge=16,side=Math.max(highX-lowX,highY-lowY)+edge*2,cx=(lowX+highX)/2,cy=(lowY+highY)/2;
-  const vx=cx-side/2,vy=cy-side/2;
+  const edge=16,originalSide=Math.max(highX-lowX,highY-lowY)+edge*2,cx=(lowX+highX)/2,cy=(lowY+highY)/2;
+  const original={left:cx-originalSide/2,top:cy-originalSide/2,side:originalSide};
+  const {left:vx,top:vy,side}=builder.exportFrame?.({x:gx,y:gy,width:w,height:h},original)||original;
   const footY=stage.height*(.76+.23*.88);
   const horizon=(footY-vy)/side*100-10;
   const windowBottom=horizon-4;

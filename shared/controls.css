@@ -24,11 +24,11 @@ button.ah-choice{background:var(--ah-surface);color:var(--ah-ink);border:2px sol
 :is(button,a).ah-button:disabled,:is(button,a).ah-button[aria-disabled="true"],button.ah-choice:disabled{background:var(--ah-disabled);color:var(--ah-muted);border-color:var(--ah-divider);cursor:default;transform:none}
 :is(button,a).ah-button[hidden]{display:none}
 /* Shared EASY/HARD switch; checked means HARD. */
-.ah-mode-toggle{position:relative;display:flex;align-items:center;min-height:44px;cursor:pointer;white-space:nowrap;flex-shrink:0}
+.ah-mode-toggle{position:relative;display:flex;align-items:center;min-height:var(--ah-control-size);cursor:pointer;white-space:nowrap;flex-shrink:0}
 .ah-mode-toggle input{position:absolute;inset:0;z-index:1;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
-.switch-track{position:relative;display:block;width:116px;height:44px;flex-shrink:0;border-radius:var(--ah-radius-pill);background:var(--ah-secondary);color:var(--ah-ink);border:1px solid var(--ah-selected-border);transition:background var(--ah-fast),color var(--ah-fast)}
+.switch-track{position:relative;display:block;width:116px;height:var(--ah-control-size);flex-shrink:0;border-radius:var(--ah-radius-pill);background:var(--ah-secondary);color:var(--ah-ink);border:1px solid var(--ah-selected-border);transition:background var(--ah-fast),color var(--ah-fast)}
 .switch-knob{display:grid;place-items:center;font-family:Arial,sans-serif;font-size:24px;font-weight:bold;color:var(--ah-strong);position:absolute;top:4px;left:4px;width:34px;height:34px;border-radius:50%;background:var(--ah-surface);box-shadow:0 2px 4px #20322426;transition:transform var(--ah-fast)}
-.switch-knob>img{display:block;width:24px;height:24px}
+.switch-knob>img{display:block;width:var(--ah-icon-size);height:var(--ah-icon-size)}
 .mode-easy,.mode-hard{position:absolute;top:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;letter-spacing:1px;line-height:1}
 .mode-easy{left:42px;right:5px}.mode-hard{display:none;left:5px;right:42px}
 .ah-mode-toggle input:checked+.switch-track{background:var(--ah-strong);color:var(--ah-surface);border-color:var(--ah-strong)}
@@ -53,10 +53,10 @@ dialog.ah-dialog::backdrop{background:#17291ecc}
 .ah-dialog p{line-height:1.6}
 
 /* Quiet modal/help actions: link appearance with native button semantics. */
-button.ah-text-action{appearance:none;background:none;border:0;border-radius:0;padding:12px 0;min-height:44px;font:inherit;color:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer;touch-action:manipulation}
-button.ah-text-action:focus-visible{outline:3px solid var(--ah-focus);outline-offset:3px}
-@media(hover:hover){button.ah-text-action:hover{color:var(--ah-ink)}}
-button.ah-text-action:active{color:var(--ah-strong)}
+:is(button,a).ah-text-action{appearance:none;background:none;border:0;border-radius:0;padding:12px 0;display:inline-flex;align-items:center;min-height:var(--ah-control-size);font:inherit;color:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer;touch-action:manipulation}
+:is(button,a).ah-text-action:focus-visible{outline:3px solid var(--ah-focus);outline-offset:3px}
+@media(hover:hover){:is(button,a).ah-text-action:hover{color:var(--ah-ink)}}
+:is(button,a).ah-text-action:active{color:var(--ah-strong)}
 
 /* Shared paper-airplane brand mark; dimensions are set by each header. */
 .site-logo{display:block;flex-shrink:0;object-fit:contain}
@@ -75,7 +75,7 @@ button.ah-text-action:active{color:var(--ah-strong)}
 .ah-builder .ah-button.slot-clear {
   position:absolute; top:-8px; right:-8px;
   display:flex; align-items:center; justify-content:center;
-  width:44px; height:44px; min-width:44px; min-height:44px;
+  width:var(--ah-control-size); height:var(--ah-control-size); min-width:var(--ah-control-size); min-height:var(--ah-control-size);
   padding:0; border:0; background:transparent; color:var(--ah-strong);
   font-family:var(--ah-font); font-size:22px; line-height:1;
 }
@@ -87,3 +87,27 @@ a.ah-button.builder-photo-download{display:flex;width:fit-content;margin:12px au
 a.ah-button.builder-photo-download[hidden]{display:none}
 #share-dialog img.builder-photo-preview{display:block;margin-left:auto;margin-right:auto;margin-bottom:0}
 #share-dialog img.builder-photo-preview[hidden]{display:none}
+
+/* Shared accessibility utility; labels remain available to assistive technology. */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0}
+/* Fullscreen state is owned by fullscreen.js, not duplicated in app styles. */
+#fullscreen .collapse-icon{display:none}
+#fullscreen[aria-pressed="true"] .expand-icon{display:none}
+#fullscreen[aria-pressed="true"] .collapse-icon{display:block}
+
+/* Shared preference radio group: quiet 22px dots inside native 44px targets. */
+.ah-theme-picker{border:0;padding:0;margin:20px 0;min-width:0}
+.ah-theme-picker legend{font-weight:700;padding:0;margin-bottom:6px;font-size:16px}
+.ah-theme-options{display:flex;flex-wrap:wrap;gap:4px}
+.ah-theme-option{position:relative;display:grid;place-items:center;width:44px;height:44px;margin:0;padding:0;cursor:pointer;flex:0 0 44px}
+.ah-theme-option input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.ah-theme-dot{width:22px;height:22px;border-radius:50%;background:var(--theme-dot);pointer-events:none}
+.ah-theme-option input:checked+.ah-theme-dot{box-shadow:0 0 0 3px var(--ah-surface),0 0 0 5px var(--ah-ink)}
+.ah-theme-option input:focus-visible+.ah-theme-dot{outline:3px solid var(--ah-focus);outline-offset:8px}
+.ah-theme-status:not(.sr-only){font-size:14px;line-height:1.5;color:var(--ah-muted);margin:8px 0 0}
+:is(input,select,textarea):focus-visible{outline:3px solid var(--ah-focus);outline-offset:3px}
+@media(forced-colors:active){
+ .ah-theme-dot{forced-color-adjust:none}
+ .ah-theme-option input:checked+.ah-theme-dot{border:3px solid Highlight;box-shadow:0 0 0 3px Canvas,0 0 0 5px CanvasText}
+ .ah-theme-option input:focus-visible+.ah-theme-dot{outline-color:Highlight}
+}

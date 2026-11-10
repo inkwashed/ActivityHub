@@ -40,24 +40,25 @@ b.chooseTopping('bacon');const learn=b.state;
 b.creative.switchMode(true);b.chooseTopping('tomato');
 assert.equal(b.selectedPiece().topping,'tomato');
 elements['#source-choice'].listeners.change({target:{value:'Aichi'}});
-assert.equal(b.selectedPiece().source,undefined);assert.equal(elements['#source-section'].hidden,true);
-b.creative.edit('duplicate');assert.equal(b.selectedPiece().source,undefined);assert.equal(elements['#source-section'].hidden,true);
+assert.equal(b.selectedPiece().source,undefined);assert.equal(elements['#source-section'].hidden,false);assert.equal(b.state.origins.tomato,'Aichi');assert.equal(elements['#source-choice'].disabled,false);
+b.creative.edit('duplicate');assert.equal(b.selectedPiece().source,undefined);assert.equal(elements['#source-section'].hidden,false);
+b.advancedMode=true;b.updateSentence();assert.equal(elements['#sentence'].textContent,"My sandwich is a T. T is for tomato. It's from Aichi.");elements['#source-choice'].listeners.change({target:{value:'Kumamoto'}});assert.equal(b.state.origins.tomato,'Kumamoto');
 b.chooseTopping('lettuce');assert.equal(b.selectedPiece().topping,'lettuce');
-assert.equal(elements['#source-section'].hidden,true);assert.equal(elements['#source-sentence'].textContent,'');
+assert.equal(elements['#source-section'].hidden,false);assert.equal(elements['#source-sentence'].textContent,'');
 b.creative.edit('delete');assert.equal(b.selectedPiece().topping,'tomato');
 b.creative.switchMode(false);assert.equal(b.state,learn);assert.equal(b.state.slots[0].topping,'bacon');
-b.creative.switchMode(true);assert.equal(b.creative.items.length,2);b.clear();assert.equal(b.creative.items.length,0);assert.equal(elements['#source-section'].hidden,true);
+b.creative.switchMode(true);assert.equal(b.creative.items.length,2);b.clear();assert.equal(b.creative.items.length,0);assert.equal(elements['#source-section'].hidden,false);assert.equal(elements['#source-choice'].disabled,true);
 b.creative.switchMode(false);assert.equal(b.state.slots[0].topping,'bacon');
-console.log('PASS: PLAY hides/ignores source selection, duplication, deletion fallback, independent mode state/reset.');
+console.log('PASS: PLAY retains per-type source selection, duplication, deletion fallback, independent mode state/reset.');
 
-// Returning from PLAY restores the selected LEARN difficulty.
+// Build-mode changes preserve the independently chosen difficulty.
 b.advancedMode=true;b.updateSentence();b.creative.switchMode(true);
-assert.equal(b.advancedMode,false);assert.equal(elements['#advanced-mode'].disabled,true);
+assert.equal(b.advancedMode,true);assert.equal(elements['#advanced-mode'].disabled,false);
 b.creative.switchMode(false);assert.equal(b.advancedMode,true);assert.equal(elements['#advanced-mode'].disabled,false);
 console.log('PASS: EASY omits locations, HARD interleaves sources, missing-source prompt, PLAY difficulty restoration.');
 
 b.creative.switchMode(true);b.creative.add('bread');
-assert.equal(b.selectedPiece().topping,'bread');assert.equal(elements['#source-section'].hidden,true);
+assert.equal(b.selectedPiece().topping,'bread');assert.equal(elements['#source-section'].hidden,false);assert.equal(elements['#source-choice'].disabled,true);
 assert.ok(!elements['#sentence'].textContent.includes('B is for bread'));
 const breadPhoto=context.window.SandwichLesson.svg(b.creative.orderedItems(),b.config,true);
 assert.ok(!breadPhoto.includes('NaN'));assert.ok(breadPhoto.includes('translate(0 45)'));
@@ -105,3 +106,11 @@ assert.equal(failedAudioAttempts,1);
 assert.ok(elements['#sentence'].textContent);
 assert.ok(elements['#pieces'].html.includes('<svg'));
 console.log('PASS: audio setup failure preserves sentence/artwork and is not retried by Reset.');
+
+// Old slot metadata migrates deterministically; new selections use one type source.
+b.clear();b.state.slots=[{topping:'tomato',source:'Aichi'},{topping:'tomato',source:'Kumamoto'},null];b.updateSentence();
+assert.equal(b.state.origins.tomato,'Aichi');b.activeSlot=1;
+elements['#source-choice'].listeners.change({target:{value:'Hokkaido'}});
+assert(b.state.slots.filter(Boolean).every(x=>x.source==='Hokkaido'));
+b.activeSlot=2;b.chooseTopping('tomato');assert.equal(b.state.slots[2].source,'Hokkaido');
+console.log('PASS: legacy origin migration and shared country across repeated LEARN fillings.');

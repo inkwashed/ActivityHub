@@ -3,6 +3,8 @@ window.SANDWICH_CONFIG={
   "sceneSelector": "#sandwich",
   "interaction": "layers",
   "easyOnly": false,
+  "independentDifficulty": true,
+  "sourcesByType": true,
   "defaultSauce": null,
   "sauces": [],
   "toppings": [

@@ -1,0 +1,35 @@
+/* Class Supplies and local Builder Lab only. Load after workspace/card styles. */
+.ah-builder #builder.reference-builder .pantry{
+ --panel-gap:8px;--panel-inset:10px;--card-pad:6px;
+ --learn-card-height:68px;--play-choice-size:76px;--play-food-size:64px;
+ display:flex;flex-direction:column;gap:var(--panel-gap);padding:var(--panel-inset);
+}
+@media(min-width:740px){
+ .ah-builder #builder.reference-builder>[data-jump-section="choices"]{container-type:size;container-name:reference-choices}
+ .ah-builder #builder.reference-builder .ah-section-number{width:26px;height:26px;font-size:15px}
+}
+@container reference-choices (max-height:650px){
+ .ah-builder #builder.reference-builder .pantry{--panel-gap:6px;--panel-inset:8px;--card-pad:4px;--play-choice-size:68px;--play-food-size:56px}
+}
+.ah-builder #builder.reference-builder .pantry :is(.first-heading,#piece-picker-wrap,.builder-actions,.color-row,.quantity-title,.lab-dropdown,.builder-slots,.choice-pager){margin:0;gap:6px}
+.ah-builder #builder.reference-builder .pantry :is(h2,.ah-section-heading){margin:0;min-width:0;max-width:100%}
+.ah-builder #builder.reference-builder .first-heading{flex-wrap:wrap}
+.ah-builder #builder.reference-builder .pantry #topping-options .topping-button{padding-block:var(--card-pad);overflow-wrap:anywhere}
+.ah-builder #builder.reference-builder.is-create .pantry #topping-options .topping-button{padding:4px}
+.ah-builder #builder.reference-builder .pantry .ingredient-name{line-height:1.25}
+.ah-builder #builder.reference-builder .pantry :is(button,select,.ah-mode-toggle){min-width:44px;min-height:44px}
+.ah-builder #builder.reference-builder .pantry .color-swatches{gap:6px}
+.ah-builder #builder.reference-builder .color-row{grid-template-columns:64px minmax(0,1fr)}
+.ah-builder #builder.reference-builder .color-preview{width:64px;height:64px}
+.ah-builder #builder.reference-builder #lab-menu>div.learn-only:not(.lab-dropdown){display:grid;gap:var(--panel-gap)}
+.ah-builder #builder.reference-builder.is-create #lab-menu>div.learn-only:not(.lab-dropdown){display:none}
+/* Four paged choices still exist; at narrow widths put paging controls below
+   the full-width row rather than squeezing the four targets between arrows. */
+@media(max-width:420px){
+ .ah-builder #builder.reference-builder .choice-pager:not([data-expanded="true"]){grid-template-columns:44px minmax(0,1fr) 44px}
+ .ah-builder #builder.reference-builder .choice-pager:not([data-expanded="true"]) #topping-options{grid-column:1/-1;grid-row:1}
+ .ah-builder #builder.reference-builder .choice-pager [data-choice-previous]{grid-column:1;grid-row:2}
+ .ah-builder #builder.reference-builder .choice-pager [data-choice-next]{grid-column:3;grid-row:2}
+ .ah-builder #builder.reference-builder .choice-pager [data-choice-status]{grid-column:2;grid-row:2}
+ .ah-builder #builder.reference-builder .pantry{--play-food-size:48px;--play-choice-size:60px}
+}

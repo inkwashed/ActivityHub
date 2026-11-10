@@ -44,7 +44,7 @@
  <rect x="44" y="78" width="12" height="4" rx="1" fill="#d2d9d5"/>
  <circle cx="50" cy="80" r=".6" fill="#31483f" stroke="none"/>
  </g></svg>`;
- window.Supplies={colors,art,caseArt,config:{seed:5,interaction:'layers',defaultSauce:null,sauces:[],sceneSelector:'#supplies-scene',resetMessage:'Supplies cleared.',creativeSizes:{initial:1,min:.5,max:2,step:.15,smallBelow:.8,bigFrom:1.4},toppings:entries.map(([id,x,y,size,color,learnRotation])=>{
+ window.Supplies={colors,art,caseArt,config:{independentDifficulty:true,seed:5,interaction:'layers',defaultSauce:null,sauces:[],sceneSelector:'#supplies-scene',resetMessage:'Supplies cleared.',creativeSizes:{initial:1,min:.5,max:2,step:.15,smallBelow:.8,bigFrom:1.4},toppings:entries.map(([id,x,y,size,color,learnRotation])=>{
   const creativeSize=baseSizes[id];
   const defaultScale=defaultScaleFor(id);
   return {id,label:id.replaceAll('-',' '),countSingular:id.replaceAll('-',' '),countPlural:id.replaceAll('-',' ')+'s',rotation:horizontalItems.includes(id)?90:0,x,y,size:creativeSize*defaultScale,learnRotation,creativeSize,defaultScale,color,art:art(id,color),counts:[0,1,1,1]};

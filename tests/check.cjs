@@ -40,9 +40,9 @@ app.setSauce('tomato');assert.equal(elements['#sauce'].hidden,false);assert(elem
 const surface=elements['#sauce'];
 const step=t=>{const pending=[...frames.values()];frames.clear();pending.forEach(fn=>fn(t))};
 step(0);assert.equal(surface.reveal.attrs['stroke-width'],'0');
-step(200);const early=surface.reveal.attrs.d;assert(early.startsWith('M50.00 50.00 L'));assert.equal((early.match(/M/g)||[]).length,1);
-step(900);assert(surface.reveal.attrs.d.startsWith(early));
-step(1900);assert.equal(surface.reveal.attrs['stroke-width'],'19');assert.equal(frames.size,0);
+step(200);const early=Number(surface.reveal.attrs['stroke-dashoffset']);assert(early>0);
+step(900);assert(Number(surface.reveal.attrs['stroke-dashoffset'])<early);assert.equal(surface.reveal.attrs.d,undefined,'animation never rewrites path geometry');
+step(1900);assert.equal(surface.reveal.attrs['stroke-dashoffset'],'0');assert(surface.html.includes('clip-path=')&&surface.html.includes('stroke-dasharray='));assert.equal(surface.reveal.attrs['stroke-width'],'19');assert.equal(frames.size,0);
 app.setSauce('bbq');assert.equal(frames.size,1);
 app.setSauce('none');assert.equal(frames.size,0);assert.equal(elements['#sauce'].hidden,true);
 reduce=true;app.setSauce('alfredo');assert.equal(frames.size,0);assert.equal(surface.reveal.attrs['stroke-width'],'19');reduce=false;

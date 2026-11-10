@@ -5,7 +5,7 @@ body.ah-blog{margin:0;height:100vh;height:100svh;display:grid;grid-template-rows
 .ah-blog header{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:6px 16px;min-height:56px;border-bottom:1px solid var(--ah-divider);max-height:30svh;overflow:auto;overscroll-behavior:contain}
 .ah-blog .brand,.ah-blog .header-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;min-width:0}
 .ah-blog .brand{font-size:14px;font-weight:900;letter-spacing:1px}.ah-blog .brand>img{width:30px;height:30px}
-.ah-blog .edition{font-size:14px;color:var(--ah-muted);font-weight:normal}.ah-blog button img,.ah-blog a.ah-button img{width:24px;height:24px}
+.ah-blog .edition{font-size:14px;color:var(--ah-muted);font-weight:normal}.ah-blog button img,.ah-blog a.ah-button img{width:var(--ah-icon-size);height:var(--ah-icon-size)}
 .blog-workspace{display:grid;grid-template-rows:minmax(0,1fr);min-height:0;padding:10px 16px;gap:8px}
 .blog-switch{display:none;gap:8px}
 .blog-columns{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,40%);gap:16px;min-height:0}
@@ -28,8 +28,6 @@ body.ah-blog{margin:0;height:100vh;height:100svh;display:grid;grid-template-rows
 .blog-hint,#blog-status{font-size:14px;line-height:1.5}.blog-hint{color:var(--ah-muted)}
 .ah-blog .ah-copyright{position:static;margin:0;max-height:15svh;overflow:auto}
 @media(max-width:739px),(max-height:599px){.blog-workspace{grid-template-rows:auto minmax(0,1fr)}.blog-switch{display:flex}.blog-switch button{flex:1}.blog-columns{grid-template-columns:minmax(0,1fr)}.blog-workspace[data-view=edit] #blog-preview,.blog-workspace[data-view=preview] #blog-editor{display:none}.blog-workspace{padding:8px}.blog-panel{padding:16px}}
-
-.ah-blog .collapse-icon{display:none}.ah-blog #fullscreen[aria-pressed=true] .expand-icon{display:none}.ah-blog #fullscreen[aria-pressed=true] .collapse-icon{display:block}
 
 .blog-example{margin-top:12px}#blog-snapshot{display:block;width:100%;height:auto;margin:12px 0}#blog-snapshot[hidden]{display:none}#share-dialog{width:min(720px,94vw)}
 

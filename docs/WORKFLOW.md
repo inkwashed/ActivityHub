@@ -17,6 +17,7 @@ Keep the collection maintainable: shared styles and behaviors should have one im
 | What are our goals and how do we work? | This file: `docs/WORKFLOW.md` |
 | What should the interface look and feel like? | `docs/STYLE-GUIDE.md` |
 | Which colors, dimensions, and control behaviors actually render? | `shared/tokens.css` and `shared/controls.css` |
+| Who owns theme restore and the local preference? | `shared/theme.js`; visual contract in STYLE-GUIDE.md |
 | Which common icons should we use? | `shared/icons/` |
 | Where can we try the shared controls? | `docs/style-guide.html`; full Builder experiments use local `_dev/builder/index.html` |
 | What is specific to an applet? | Its configuration, source, README, and scoped `AGENTS.md` under `apps/<name>/` |
@@ -77,19 +78,21 @@ Use checks proportional to the change; do not add tests that merely restate CSS 
 
 ## Applet inventory and current shared coverage
 
+Listing refers to the local homepage, not proof of deployment. Verification limitations are dated evidence in [BUILDER-WORKSPACE-VERIFICATION.md](BUILDER-WORKSPACE-VERIFICATION.md) and app notes; re-run checks for the change being made.
+
 | Applet | Entry point | Behavior checks | Current limitations |
 | --- | --- | --- | --- |
 | ほんの手紙 POST (featured) | `apps/post/index.html` | `node tests/check-post.cjs` | Independent styling by request; English UI with paired Japanese card fonts. Static links contain card text; no server inbox. Physical-device verification outstanding. |
 | My Blog Journal (prototype) | `myblog/journal/index.html` | `node tests/check-blog-journal-browser.cjs` | Unlisted; latest local draft per configured lesson, not version history or backup; physical iPad/Safari pending. |
 | My Blog: Welcome to Japan | `myblog/NH2-4/index.html` | JHS browser suite with `BLOG_LESSON_PATH=/myblog/NH2-4/` | Junior High Year 2 Unit 4; original starter sample; physical iPad/Safari pending. |
 | My Blog: A Place I Like | `myblog/NH1-5/index.html` | `node tests/check-blog-post.cjs`; Chrome writing/sample/snapshot checks | Junior High Year 1 Unit 5, listed after Elementary 6; physical iPad/Safari pending. |
-| My Blog: Where is it from? | `myblog/NH6-5/index.html` | `node tests/check-blog-post.cjs`; Chrome responsive/state/image checks | NEW HORIZON Elementary 6 Unit 5; intentionally unlisted on homepage during development; local PNG snapshot; physical iPad/Safari review pending. |
-| Profile Pic (prototype) | `apps/avatar/index.html` | Browser: tabs, selections, reset, square PNG preview; shared photo regression checks | User-authored SVG parts; no unit assigned or homepage listing. Physical iPad saving unverified. |
+| My Blog: Where is it from? | `myblog/NH6-5/index.html` | `node tests/check-blog-post.cjs`; Chrome responsive/state/image checks | NEW HORIZON Elementary 6 Unit 5; listed on homepage; local PNG snapshot; physical iPad/Safari review pending. |
+| My Selfie (prototype) | `apps/avatar/index.html` | Browser: tabs, selections, reset, square PNG preview; shared photo regression checks | User-authored SVG parts; no unit assigned or homepage listing. Physical iPad saving unverified. |
 | My Town (prototype) | `apps/mytown/index.html` | `node tests/check-my-town.cjs`; browser placement, route and Share checks | NEW HORIZON 5 Unit 5; unlisted. 12 fixed lots, street-snapped routes; physical iPad review pending. |
-| Class Supplies | `apps/class-supplies/index.html` | `node tests/check-class-supplies.cjs`; in-app browser landscape/portrait/phone checks | Let’s Try! 2 Unit 5; listed on homepage. Independent LEARN/PLAY, per-type colors, local saves and PNG export. Physical iPad checks pending. |
+| Class Supplies | `apps/class-supplies/index.html` | `node tests/check-class-supplies.cjs`; in-app browser landscape/portrait/phone checks | Let’s Try! 2 Unit 5; listed on homepage. Independent LEARN/PLAY, mode-scoped palettes and per-piece PLAY colors, local saves and PNG export. Physical iPad checks pending. |
 | Builder Lab (local only) | `_dev/builder/index.html` | `node tests/check-builder-lab.cjs`, `node tests/check-builder-workspace.cjs` | Non-live candidate; sample Share only; browser/device review pending. |
 | Sandwich Builder | `apps/sandwich/index.html` | `node tests/check-sandwich.cjs` | Three filling slots and source choices; shared PLAY editor; local browser/device review pending. Listed under NEW HORIZON Elementary 6. |
-| Parfait Builder | `apps/parfait/index.html` | `node tests/check-parfait.cjs` | LEARN/PLAY; EASY only; local photo export; iPad download check pending. Mock checks; device visuals outstanding. Listed on homepage. |
+| Parfait Builder | `apps/parfait/index.html` | `node tests/check-parfait.cjs` | Independent LEARN/PLAY and EASY/HARD; local photo export; iPad download check pending. Mock checks; device visuals outstanding. Listed on homepage. |
 | Pizza Builder | `apps/pizza/index.html` | `node tests/check.cjs`, `node tests/check-fullscreen.cjs`, `node tests/check-sharing.cjs`, `node tests/check-creative.cjs` from repository root | Mock-based checks; physical iPad visual/download checks outstanding. Textbook back link returns to the home page’s Let’s Try! 2 section; English/Japanese interface language is supported. |
 
 Shared today: builder quantity/selection/sentence/reset logic (`shared/builder.js`), fullscreen and viewport measurement, design tokens, control and dialog CSS, common action/editing icons and the paper-airplane mark, interface translation helpers/dictionary, language-dialog open/close behavior, and the copyright footer. The visual guide consumes those actual shared files.
@@ -119,7 +122,11 @@ Use `shared/i18n.js` for interface language and `shared/ui-ja.js` for common Jap
 
 Include `shared/copyright.js` in applets, before viewport layout measurement and after shared translations. Include the root `LICENSE.txt` in deployments and packages. Reserve the visible footer height instead of overlaying the activity. The shared English/Japanese footer is text only, with no button or terms dialog. Keep the visible full-terms link on the root home page; do not duplicate license text into each app. Preserve the permission for built-in completed-photo exports. Update the root terms and shared notice together when the owner changes the usage policy.
 
-Creative interaction modes should preserve their own compositions and keep learning modes unambiguous. Pizza Builder PLAY forces EASY, restores LEARN difficulty on return, and keeps photo export faithful to manual transforms. Shared `piece-gestures.js` supports one-finger dragging and two-finger pinch resizing in Pizza PLAY. Keep gesture rotation disabled; rotation and flipping remain toolbar actions. Apply app-specific size and placement limits through the gesture callbacks, and update size-based language during resizing. Verify pointer transitions, second-finger starts on the canvas outside the selected piece, and cancellation whenever changing gesture handling. The shared workspace moves the existing PLAY tools into the play frame once; responsive CSS handles reserved inset strips. Artwork and drag/pinch bounds use the inner artwork surface, excluding controls. Do not duplicate controls or reparent them into the menu on resize. Preserve tool selection and prevent toolbar pointer events from reaching background deselection or editing gestures. STYLE-GUIDE.md owns the placement and dimensions.
+## Builder modes and difficulty
+
+Pizza, Parfait, Sandwich and Class Supplies opt into `config.independentDifficulty`: LEARN/PLAY and EASY/HARD are independent. Preserve the chosen difficulty across mode changes, reload and temporary Restore; retain separate creations per build mode. Difficulty changes language, not saved placement. Pizza uses names/amount bands, Parfait names/counts and sizes, Sandwich initials/origins, and Class Supplies names/colors; app READMEs own those lesson rules. Builder Lab deliberately retains legacy mode-coupled difficulty; do not copy that exception into a new independent-difficulty app. A difficulty control is optional.
+
+Creative interaction modes preserve their own compositions and keep photo export faithful to manual transforms. Shared `piece-gestures.js` supports one-finger dragging and two-finger pinch resizing in Pizza PLAY. Keep gesture rotation disabled; rotation and flipping remain toolbar actions. Apply app-specific size and placement limits through the gesture callbacks, and update size-based language during resizing. Verify pointer transitions, second-finger starts on the canvas outside the selected piece, and cancellation whenever changing gesture handling. The shared workspace moves the existing PLAY tools into the play frame once; responsive CSS handles reserved inset strips. Approved panel-workspace consumers fit bases to the inner toolbar-safe surface, while individual item movement uses the outer play frame. Legacy consumers retain their existing bounds until reviewed. Do not duplicate controls or reparent them into the menu on resize. Preserve tool selection and prevent toolbar pointer events from reaching background deselection or editing gestures. STYLE-GUIDE.md owns the placement and dimensions.
 
 ## Public identity and domain
 
@@ -135,7 +142,7 @@ Use relative trailing-slash directory URLs for home and applet navigation (for e
 
 ## Builder engine ownership
 
-Before every pizza or parfait functional change, explicitly evaluate whether it benefits both builders. Shared quantity cycles, retained placements, accessible selection state, EASY/HARD order language, and reset live in `shared/builder.js`; both applets load that engine. Subclasses own visual geometry/rendering (pizza sauce animation, parfait glass placement). Ingredients, counts, artwork, and nouns live in app configuration. Preserve existing pizza behavior and run both builders' checks after engine changes. Avoid copying functional fixes between applets. Creative editing and photo-export plumbing use shared implementations; food-specific renderers remain local.
+Before a Builder functional change, inspect all consumers of the affected shared engine (Pizza, Parfait, Sandwich, Class Supplies and Lab). Shared quantity cycles, retained placements, accessible selection state, EASY/HARD order language, and reset live in `shared/builder.js`; the four reviewed lesson Builders and Lab load that engine. Subclasses own visual geometry/rendering (pizza sauce animation, parfait glass placement). Ingredients, counts, artwork, and nouns live in app configuration. Preserve each app's behavior and run affected consumers' checks after engine changes. Avoid copying functional fixes between applets. Creative editing and photo-export plumbing use shared implementations; food-specific renderers remain local.
 
 The builder engine supports optional `bases` and `sauces` configuration, validated selection, reset defaults, and base-aware order sentences. App subclasses provide `renderBase`/`renderSauce` for visual treatment. Parfait scoops and drizzle remain local; pizza keeps its spiral sauce renderer.
 
@@ -143,60 +150,34 @@ The builder engine supports optional `bases` and `sauces` configuration, validat
 
 ほんの手紙 POST lives at `apps/post/index.html` and is featured separately from textbook activities on the home page. Its home-page link opens a new tab. By user request, it retains its own branding, styles, fonts, controls, and layout rather than adopting the shared app shell for now. The home-page feature uses the site design and English/Japanese translations. `apps/post/` is the canonical working copy; the earlier postcard-applet folder is the import source, not the site working copy. No deployment is implied by local integration.
 
-Builder navigation/heading spacing is owned by `shared/builder-layout.css`, loaded by both builders after their app layout CSS and before shared controls. Check both consumers whenever changing it; food-stage proportions remain local.
+Builder navigation/heading spacing is owned by `shared/builder-layout.css`, loaded by Builder consumers after app base CSS and before shared controls. Check affected consumers whenever changing it; food-stage proportions remain local.
 
-Option paging is a shared opt-in builder feature (`builder-panes.js`/`.css`), independent of ingredient state. Both builders currently show all sections in one panel; Parfait whole-section paging was removed for a layout review. Never rebuild ingredient controls when changing pages.
+Option paging is a shared opt-in builder feature (`builder-panes.js`/`.css`), independent of ingredient state. The food Builders show their sections together; whole-section paging is a retained optional component, not the current Parfait layout. Never rebuild ingredient controls when changing pages.
 
-Builder placement strategies: the default remains cached circular scatter for Pizza. `placement.mode: ordered-rows` enables selection-order tracking, row reflow, and per-ingredient orientation in the shared engine. Parfait supplies the glass-specific row coordinates and fruit size in config. Amount changes redistribute the existing row evenly without recreating pieces; removal closes gaps, re-addition appends a new top layer, and reset clears the order. Run both builders’ tests for placement changes.
+Builder placement strategies: the default remains cached circular scatter for Pizza. `placement.mode: ordered-rows` enables selection-order tracking, row reflow, and per-ingredient orientation in the shared engine. This is a retained optional quantity-placement strategy, not Parfait’s current paired-slot interaction. Amount changes redistribute the existing row evenly without recreating pieces; removal closes gaps, re-addition appends a new top layer, and reset clears the order. Run affected placement and app suites for changes.
 
-Paired-layer interaction is implemented by `shared/layer-builder.js`, extending FoodBuilder. Parfait opts into one two-slot row: identical choices produce a uniform row, mixed choices alternate; EASY is direct editing and HARD provides dialogue. Quantity mode remains Pizza’s interaction. Parfait no longer uses the earlier click-order quantity-row prototype. Run `tests/check-parfait.cjs` and pizza checks for shared changes.
+Paired-layer interaction is implemented by `shared/layer-builder.js`, extending FoodBuilder. Parfait opts into one two-slot row: identical choices produce a uniform row, mixed choices alternate; both difficulties retain direct editing. Parfait overrides sentence rendering: EASY names ingredients and HARD adds counts/sizes. The older slot-dialogue capability is not its active language policy. Quantity mode remains Pizza’s interaction. Parfait no longer uses the earlier click-order quantity-row prototype. Run `tests/check-parfait.cjs` and pizza checks for shared changes.
 
-Pizza’s creative mode is labelled PLAY (formerly FREE/CREATE). Its compact palette layout lives in `shared/builder-create.css` for future builder reuse; behavior and internal free-mode IDs remain unchanged.
+Pizza’s creative mode is labelled PLAY (formerly FREE/CREATE). Its legacy palette-specific rules remain in `shared/builder-create.css`, not a template for new Builders; behavior and internal free-mode IDs remain unchanged.
 
-Shared `choice-pager.js` pages existing controls within a section without replacing them or changing builder state. Pizza uses six topping choices per page while all sections remain visible. This complements whole-section `builder-panes.js`; use the appropriate pattern for the activity. Run `tests/check-choice-pager.cjs` for pager changes.
+Shared `choice-pager.js` pages existing controls within a section without replacing them or changing builder state. Pizza and Parfait now show all nine choices in 3×3 grids and Sandwich shows all 16 in 4×4; Lab exercises paging. This complements whole-section `builder-panes.js`; use the appropriate pattern for the activity. Run `tests/check-choice-pager.cjs` for pager changes.
 
-Builder workspace policy: use `shared/builder-workspace.css` last and `shared/builder-workspace.js` after initialization. Tablet/desktop builders, including portrait iPads, use a viewport-bounded two-column layout with a stable play frame and reserved output box. Fit text without changing artwork size. Phones stack; exceptional long/enlarged content remains accessible through bounded overflow. STYLE-GUIDE.md owns the exact thresholds, dimensions, and output-box styling. Verify short/long sentences, mode changes, portrait/landscape toolbar arrangements, pronunciation, and all three builder consumers after shared workspace changes.
+Builder workspace policy: follow the stylesheet order in STYLE-GUIDE.md and initialize the shared workspace/panel adapter before autosave restoration. Approved panel-workspace consumers use a stable creation frame beside one scrolling choices-and-sentence column. Output grows naturally; there is no old sentence-height reservation below the creation. Phones stack, and extremely short windows deliberately use page flow. My Selfie and My Town retain their separately scoped layouts. STYLE-GUIDE.md owns the exact thresholds, dimensions, and output-box styling. Verify short/long sentences, mode changes, portrait/landscape toolbar arrangements, pronunciation, and all affected Builder consumers after shared workspace changes.
 
 Numbered activity sections use the shared `ah-section-number` component and style-guide heading convention. Keep section numbering stable when switching panes, layers, language, or modes.
 
-PLAY order summaries use actual creative pieces grouped by ingredient and size band. Shared FoodBuilder owns count/size wording and band classification; each app config supplies countable labels and size policy. Pizza starts at scale 2, ranges 1.25–4 in .25 steps, with small below 1.75 and big at 2.75 or above. Resizing must update the sentence, picker, accessible labels, export, and containment. LEARN language remains unchanged.
+The shared engine supports count/size grouping for PLAY summaries; app-specific difficulty rules decide whether to use it. Pizza uses quantity bands rather than spoken sizes; Parfait HARD uses counts/sizes; Sandwich and Class Supplies use their own rules. Shared FoodBuilder owns count/size wording and band classification; each app config supplies countable labels and size policy. Pizza starts at scale 2, ranges 1.25–4 in .25 steps, with small below 1.75 and big at 2.75 or above. Resizing must update the sentence, picker, accessible labels, export, and containment. LEARN language remains unchanged.
 
 
-## Builder adoption checklist: Parfait and future applets
+## Builder adoption checklist
 
-Reuse standards by reference, not by copying Pizza files. Current ownership:
+Reuse shared standards by reference, not by copying a production app. [STYLE-ARCHITECTURE.md](STYLE-ARCHITECTURE.md) maps stylesheet ownership and load order; the app inventory above identifies consumers.
 
-| Concern | Implementation | Adoption status |
-| --- | --- | --- |
-| Tokens, buttons, switches, numbered headings, dialogs | shared/tokens.css, controls.css, icons/ | Both builders |
-| Header/title spacing | shared/builder-layout.css | Both builders |
-| Landscape/stacked layout and quick jump | shared/builder-responsive.css, builder-jump.js | Both builders; device verification pending |
-| Paging choices within a section | shared/choice-pager.js and .css | Pizza (six per page), Parfait fruit (three per page) |
-| Paging whole sections | shared/builder-panes.js and .css | Available; Parfait currently shows all sections together |
-| Quantity and count/size sentences | shared/builder.js plus app config | Pizza; Parfait uses paired layers |
-| Two-slot fruit layers and dialogue | shared/layer-builder.js | Parfait |
-| Pointer drag/pinch primitives | shared/piece-gestures.js | Pizza; reusable callbacks for app bounds/size limits |
-| Compact choice presentation | shared/builder-create.css | Pizza opt-in; some selectors still assume sauce/topping markup |
-| Inset PLAY quick tools | shared/builder-workspace.js, shared/builder-workspace.css, shared/creative-builder.js | Shared by Pizza, Parfait, Sandwich, Class Supplies and the Builder Lab; visual policy in STYLE-GUIDE.md |
-| Creative composition and photo export | apps/pizza/creative.js, sharing.js | Pizza only; not a complete shared editor |
-
-For the upcoming Parfait pass:
-1. Apply shared visual standards while retaining the glass geometry, paired fruit
-   layers, English dialogue, and current optional ice cream/syrup behavior.
-2. Decide which paging model suits each section; do not replace paired-slot
-   behavior with Pizza quantity cycling just to reuse its layout.
-3. If adding PLAY, extract common composition/editing responsibilities first.
-   Supply Parfait-specific placement, containment, and export rendering; do not
-   copy Pizza’s rectangular play-area bounds or baked-photo treatment.
-4. Keep LEARN/PLAY columns stable and title above all menu tools. Use the shared
-   touch, translation, accessibility, and size-language contracts.
-5. Check both builders after shared changes. Compare identical landscape sizes
-   (1024×768, 1133×744, desktop), portrait 768×1024, narrow phones, Japanese,
-   long orders, and enlarged text. Verify drag/pinch and saving on an actual iPad.
-
-A passing mock suite does not establish visual fit. Keep browser/device checks
-explicitly outstanding until performed. No Parfait release or homepage listing
-is implied by this documentation or by adopting shared styles.
+1. Define the lesson's mode and difficulty rules explicitly. Enable independent difficulty where appropriate; keep configuration optional for activities without it.
+2. Reuse `builder.js` for common controls/sentences, `layer-builder.js` for paired slots where appropriate, and `creative-builder.js`/`piece-gestures.js` for free composition. Do not replace slot interaction with quantity cycling just to share code.
+3. Use the approved panel workspace for applicable new Builders: one scrolling choices/output column, nested tools, independent safe-base fitting and full-frame item bounds. Keep geometry and art local; see the style guide for thresholds and exceptions.
+4. Use `builder-autosave.js` for separate creations and temporary recovery; supply validated adapters for app-specific data. Use `builder-photo.js` for preview/download lifecycle and an app renderer for artwork/framing. Lab's Save dialog is intentionally not an exporter.
+5. Verify modes, difficulties, languages, long/enlarged text, actual rendered geometry, rapid transitions, reload, Restore, picker recovery and export. Run affected app tests, not only Lab fixtures. Browser checks do not establish physical iPad behavior.
 
 Base and sauce options may supply `buttonLabel` for a shorter choice label while retaining `label` for complete order sentences. Parfait uses flavor-only buttons and full ice-cream names in orders.
 
@@ -204,7 +185,7 @@ Paired-layer ingredients may override the default `layerLayout.pieceSize` with `
 
 Paired-layer draw order follows row then piece position: each successive fruit overlaps the previous one regardless of ingredient type. Keep ingredient wrappers free of stacking contexts so per-piece depth can interleave; upper rows remain above lower rows. This belongs to layer-builder.js, not Pizza’s ingredient stacking.
 
-Creative editing now uses shared/creative-builder.js in both builders; Pizza has a bootstrap and Parfait supplies local bounds, help, and EASY-only policy. Test both check-creative.cjs and check-parfait-creative.cjs after editing it. Photo workflow is shared; dessert/pizza rendering stays app-specific. Parfait HARD is disabled pending redesign.
+Creative editing uses shared/creative-builder.js in Pizza, Parfait, Sandwich, Class Supplies and Lab. App adapters own catalogs, help and geometry; the shared engine owns mode transitions, editing and ordering. Run affected creative, recovery, autosave and export checks. Independent difficulty follows the policy above.
 
 ## Multiple-item selector contract
 
@@ -219,7 +200,7 @@ Apply this contract to builders with two or more explicit item slots. Visual spe
 
 Current implementations are Parfait’s two-slot interaction in `shared/layer-builder.js` and Sandwich’s three-slot interaction in `apps/sandwich/builder.js`. This is a common behavior contract, not a claim that both already use one generic slot component. Reuse the existing shared implementation where it fits; keep app-specific source data and grammar local.
 
-Shared card sizing is owned by builder-card-sizing.css and loaded by both applets after choice-row.css. App configuration via CSS row-count variables accounts for different menu contents while retaining identical sizing limits. Check both applets when changing this file.
+Shared card-sizing defaults live in builder-card-sizing.css; food/reference panel adapters own final density. App row-count variables describe different menus. Follow STYLE-ARCHITECTURE.md for load order and inspect every consumer before changing shared defaults.
 
 CreativeBuilder supports an optional item catalog, artwork callback, and synchronization callback for app-specific editable categories. Parfait adds scoops to this catalog without adding them to LEARN fruit choices; category layer plus insertion order determines both picker order and drawing depth. Syrup artwork remains Parfait-owned.
 
@@ -231,24 +212,24 @@ This is the default for every current and future builder using CreativeBuilder.
 - Preserve insertion order within each category. Do not sort by ingredient name, ingredient catalog position, size, or current selection. Selecting, dragging, resizing, rotating, or flipping must not bring a piece to the front.
 - An app may explicitly define category `layer` values when needed (Parfait scoops before fruit). Missing values default to zero. Within each category, new pieces and duplicates append after existing pieces; TOP explicitly moves the selected piece to the end of its category, keeping selection and transforms intact; do not regroup individual flavors or fruits.
 - After adding/removing items, synchronize drawing depth and picker order. Delete selects the previous displayed item, or the first remaining item if the first was removed; empty lists clear selection.
-- Any preview/export must consume the same ordered list. Do not reconstruct PLAY order by looping through ingredient definitions. Pizza Share already follows this rule; future Parfait export must too.
+- Any preview/export must consume the same ordered list. Do not reconstruct PLAY order by looping through ingredient definitions. All CreativeBuilder exports must follow this rule, including Parfait’s scoop/fruit categories.
 - LEARN owns its separate composition rules: Pizza uses configured topping order; Parfait alternates its fruit pair. This contract does not change LEARN placement.
 
 When modifying ordering, verify mixed repeated ingredients, duplicates, deletion, selection without reordering, category boundaries, and export parity. Run both creative-editor suites and the affected export checks. Any future user-controlled reorder feature must update this same ordered list rather than introducing a second visual order.
 
 Creative artwork callbacks are cached per piece: transforms update position/scale only, preserving artwork nodes and in-progress animations. Replace artwork only when its content changes (for example syrup flavor). Verify transform operations do not restart decoration animations.
 
-Both builders now share builder-photo.js for asynchronous image generation, local PNG preview/download, error handling, and object-URL cleanup. App sharing.js supplies SVG composition and caption; Parfait preserves its dessert appearance and PLAY order, while Pizza retains baked-photo artwork. Run check-sharing.cjs and check-parfait-creative.cjs after export changes.
+The four reviewed lesson Builders share builder-photo.js for asynchronous image generation, local PNG preview/download, error handling, and object-URL cleanup. App sharing.js supplies SVG composition and caption; Parfait preserves its dessert appearance and PLAY order, while Pizza retains baked-photo artwork. Run check-sharing.cjs and check-parfait-creative.cjs after export changes.
 
-Parfait export must reproduce the bowl/cream interior masks, not just their stroke widths: the live masks clip the outer half of those outlines. The pedestal retains its full outline.
+Parfait live/export artwork uses `apps/parfait/glass-art.js` as the authoritative back/front SVG layers with uniformly scaling strokes. Do not restore the superseded non-scaling-stroke/mask implementation. Preserve LEARN ingredient clipping and above-rim content separately from glass drawing.
 
 ## Builder pronunciation
 
-Both builders use optional `shared/pronunciation.js` through `FoodBuilder.setSentence` (including paired-fruit and PLAY output). Keep result text unchanged: vocabulary buttons contain only the original phrase, so copying and photo exports continue to use `textContent`. Match configured labels and count nouns longest-first; do not split multiword ingredients. Use approved recordings through `assets/audio/library.js` for exact vocabulary phrases, with complete recorded sequences for supported orders and browser speech for unsupported text or missing/failed clips. Resolve audio relative to the library script for hosted and local use; start on the tap without awaiting a manifest fetch. Stop both audio and speech when another request begins, the sentence changes, or the page is left; ignore failures from interrupted clips. Use an English browser voice regardless of interface language; prefer Google US English when exposed by the browser, then a standard US-English voice, then another standard English voice. Playback starts only on a user tap, replaces previous playback, and stops when the sentence changes or the page is left. Do not speak on ingredient selection. No speech service, API key, or audio upload is added. Device voices and offline availability vary. Verify with `tests/check-pronunciation.cjs` plus both builders' checks; physical iPad audio testing remains necessary.
+FoodBuilder consumers use optional `shared/pronunciation.js` through `FoodBuilder.setSentence` (including paired-fruit and PLAY output). Keep result text unchanged: vocabulary buttons contain only the original phrase, so copying and photo exports continue to use `textContent`. Match configured labels and count nouns longest-first; do not split multiword ingredients. Use approved recordings through `assets/audio/library.js` for exact vocabulary phrases, with complete recorded sequences for supported orders and browser speech for unsupported text or missing/failed clips. Resolve audio relative to the library script for hosted and local use; start on the tap without awaiting a manifest fetch. Stop both audio and speech when another request begins, the sentence changes, or the page is left; ignore failures from interrupted clips. Use an English browser voice regardless of interface language; prefer Google US English when exposed by the browser, then a standard US-English voice, then another standard English voice. Playback starts only on a user tap, replaces previous playback, and stops when the sentence changes or the page is left. Do not speak on ingredient selection. No speech service, API key, or audio upload is added. Device voices and offline availability vary. Verify with `tests/check-pronunciation.cjs` plus affected app checks; physical iPad audio testing remains necessary.
 
 Pronunciation settings are mounted by the shared pronunciation component inside each builder's language dialog. Offer Google US English plus at most two standard English alternatives (first US-English match, then default/other English), excluding novelty voices. Automatic uses the first shortlisted voice; explicit saved choices are honored only within that shortlist. Refresh on `voiceschanged` and dialog opening, and offer explicit preview playback. Save the voice URI/name plus language in `letseigo.englishVoice` local storage (shared by applets on the same origin); blocked storage falls back to the current session. Missing or excluded saved voices temporarily use automatic English without discarding the preference. Voice quality must be judged on actual devices; names and online/local metadata are not quality rankings.
 
-Before publishing builder updates, run `node scripts/version-builder-assets.cjs` and commit its updated app entry pages together with changed assets. Both builders use content-versioned script/style/icon URLs so returning browsers fetch the matching release rather than mixing cached shared engines with new markup. This does not replace a reload of an already open page, and does not deploy anything. For tablet regressions, distinguish browser-sized desktop verification from physical iPad gesture/audio checks; inspect published assets before assuming a responsive-layout problem.
+Before an authorized publication, run `node scripts/version-builder-assets.cjs` and include updated entry pages with their changed assets. Commit or deploy only when requested. Builder consumers use content-versioned script/style/icon URLs so returning browsers fetch the matching release rather than mixing cached shared engines with new markup. This does not replace a reload of an already open page, and does not deploy anything. For tablet regressions, distinguish browser-sized desktop verification from physical iPad gesture/audio checks; inspect published assets before assuming a responsive-layout problem.
 
 Speech troubleshooting: Device default (English) explicitly sets en-US without binding a voice object, letting the browser resolve its English default. Keep it available even before voice enumeration completes. Resume a paused speech engine within the tap handler. Cancel a request that has not fired a start/end/error event after ten seconds and show a diagnostic in language settings; clear the timer on stop/start/end/error so older requests cannot interrupt new ones. Do not assume ordinary audio playback proves browser speech synthesis works. This is a compatibility option, not a confirmed fix for every iPad speech failure.
 
@@ -258,27 +239,27 @@ Speech feedback must cover the entire request, including voice enumeration and u
 
 Approved multi-clip questions and output sentences use the shared library resolver and pronunciation player. Resolve the full sequence before playing; unsupported text or any failed clip falls back to speech for the entire sentence. Preserve display/copy/export text, stop the whole sequence when text or selection changes, and load recordings only on a tap. Pizza, Parfait, Sandwich and Class Supplies share this behavior; the Lab retains fallback for unsupported fixtures. Recording coverage, number/initial handling and provenance belong in `assets/audio/README.md`.
 
-The site-wide audio library belongs in `assets/audio/`; its README owns generation/review/format guidance and `catalog.json` owns vocabulary ids and prompts. Applets must reuse approved clips rather than maintain per-app recordings. Generation tools live in `scripts/audio/`. Keep local models, WAV masters, and unreviewed batches in ignored `work/audio/`; only reviewed web audio belongs in published assets. Heart (`af_heart`) at 0.7× is the initial voice target. Do not replace browser playback until clips are reviewed and the shared playback integration is verified.
+The site-wide audio library belongs in `assets/audio/`; its README owns generation/review/format guidance and `catalog.json` owns vocabulary ids and prompts. Applets must reuse approved clips rather than maintain per-app recordings. Generation tools live in `scripts/audio/`. Keep local models, WAV masters, and unreviewed batches in ignored `work/audio/`; only reviewed web audio belongs in published assets. Heart (`af_heart`) at 0.7× is the initial voice target. New clips require review and shared playback verification before entering the production library.
 
-The approved vocabulary library now contains 190 Heart recordings, including corrected banana/bananas. Both builders load the shared library before pronunciation.js. Publish assets/audio along with shared files and app entry pages. The voice setting controls browser-synthesized sentences/fallbacks, not recorded vocabulary. Retain approved provenance in assets/audio/manifest.json.
+The approved vocabulary library now contains 190 Heart recordings, including corrected banana/bananas. The lesson Builders load the shared library before pronunciation.js. Publish assets/audio along with shared files and app entry pages. The voice setting controls browser-synthesized sentences/fallbacks, not recorded vocabulary. Retain approved provenance in assets/audio/manifest.json.
 
-Homepage builder examples are generated by `node scripts/generate-home-previews.cjs` using each app’s Share renderer and configured artwork/background. Regenerate after relevant artwork/export changes and refresh preview image hashes in index.html. Keep example ingredients consistent with their homepage captions.
+Homepage builder examples (Pizza, Parfait, Sandwich and Class Supplies) are generated by `node scripts/generate-home-previews.cjs` using production Save renderers. Follow [HOME-PREVIEWS.md](HOME-PREVIEWS.md) for sample compositions, measured framing, dependencies and checks. Artwork/export changes require regeneration, `--check`, `tests/check-home-previews.cjs`, and asset hash refresh. Workspace-fitting changes also require reviewing the measured framing fixture. Decorative icons are separate.
 
-CreativeBuilder supports an optional `onSelect(editor)` callback for contextual controls. Sandwich uses it to keep LEARN-only source controls hidden during PLAY. It follows selection without changing stacking or requiring app-local replacement of editor methods. Source-choice mappings and initials grammar remain sandwich-specific.
+CreativeBuilder supports an optional `onSelect(editor)` callback for contextual controls. Sandwich uses it to update the source dropdown for the selected filling in PLAY as well as LEARN; bread has no source. It follows selection without changing stacking or requiring app-local replacement of editor methods. Source-choice mappings and initials grammar remain sandwich-specific.
 
 ChoicePager supports `data-choice-play-only="true"` options: exclude them from LEARN page counts and reveal them only when expanded for PLAY. Sandwich uses this for editable bread; its fixed bottom bread remains part of the scene.
 
-Builder results use the shared output box without decorative quotation spans. Keep speech/copy/export text and normal sentence punctuation unmodified. Workspace fitting observes text and output bounds, restores preferred font size when content shortens, and never mutates builder state or scene transforms.
+Builder results use the shared output box without decorative quotation spans. Keep speech/copy/export text and normal sentence punctuation unmodified. Legacy fixed-height output fitting observes text and output bounds and restores preferred font size when content shortens. Approved panel workspaces disconnect that fitting loop and grow naturally. Sentence fitting never mutates builder state or scene transforms.
 
 ## Builder Lab staging and rollout
 
-Use `_dev/builder/index.html` as the non-live layout/feature review surface before future Builder rollouts. It consumes shared implementations, with candidate-only fixtures clearly identified in its README. `_dev` is excluded from GitHub Pages/Jekyll in `_config.yml`; any replacement deployment pipeline must exclude it too. Do not add a homepage link or publish the lab.
+Use `_dev/builder/index.html` as the non-live layout/feature review surface before future Builder rollouts. It consumes shared implementations, with candidate-only fixtures clearly identified in its README. `_dev` is excluded from GitHub Pages/Jekyll in `_config.yml`; any replacement deployment pipeline must exclude it too. Do not add a homepage link or publish the lab. Dated verification belongs in BUILDER-WORKSPACE-VERIFICATION.md; do not append superseded layout instructions to this process reference.
 
 Stage unapproved changes in lab-scoped code, review representative sizes and states, then update the owning guide and shared implementation. Migrate every affected production builder explicitly and run its checks before publishing. Passing lab checks alone does not verify app-specific layout, state, artwork or exports. The current slot component is opt-in and has not replaced the existing Parfait/Sandwich implementations. Pending standards decisions and the device review matrix live in `_dev/builder/README.md`.
 
-Profile Pic uses the shared photo lifecycle with opt-in `square: true`: an 800×800 image without a food caption or border. Existing builder exports retain their default layout. Its catalog and original vector artwork live under `apps/avatar/`.
+My Selfie uses the shared photo lifecycle with opt-in `square: true`: an 800×800 image without a food caption or border. Existing builder exports retain their default layout. Its catalog and original vector artwork live under `apps/avatar/`.
 
-Shared PLAY geometry is owned by CreativeBuilder and builder-workspace: use the inner artwork region (excluding reserved tools) for limits, measured SVG geometry for hit regions, and preserve scene coordinates for exporters. Run creative tests for Pizza, Parfait, Sandwich and Lab plus `tests/check-play-bounds.cjs` when changing this contract. Verify narrow/large rotated art, duplication, art changes, resize, touch targets and usable-region edge containment; mock geometry checks do not replace physical touch review.
+Shared PLAY geometry is owned by CreativeBuilder and builder-workspace: use the inner toolbar-safe region for base fitting and the outer play frame for individual movement in approved panel-workspace consumers. Use measured SVG geometry for hit regions and preserve scene coordinates for exporters. Legacy consumers retain their documented bounds. Run creative tests for Pizza, Parfait, Sandwich and Lab plus `tests/check-play-bounds.cjs` when changing this contract. Verify narrow/large rotated art, duplication, art changes, resize, touch targets and usable-region edge containment; mock geometry checks do not replace physical touch review.
 
 
 ## Automatic local saves
@@ -314,7 +295,7 @@ Pronunciation is optional: shared Builder sentence rendering must preserve plain
 
 My Blog supports `mode: 'free'` for junior-high writing: a title and multiline body with independent lesson storage, preserving paragraph breaks. NH1-5 is NEW HORIZON 1 (Junior High Year 1), ordered after NEW HORIZON Elementary 6. Its optional read-only sample modal uses configured author/title/paragraphs and never populates the student draft. Keep new blog lessons unlisted while under development unless rollout is requested.
 
-NH1-5 opts into the three-step blog designer with `design: true`. Shared `blog-layout.js` owns positions/collision resolution and text wrapping; both Design and Share consume its computed arrangement. Save stable photo UIDs and validated layout data, migrate older drafts, and automatically include every source element. Keep NH6-5 inline editing unchanged. Run `tests/check-blog-layout.cjs` and `tests/check-blog-post.cjs` for changes, plus browser checks for source deletion, automatic inclusion, reset, layout restore, tabs and export parity.
+NH1-5 opts into the three-step blog designer with `design: true`. Shared `blog-layout.js` owns positions/collision resolution and text wrapping; both Design and Share consume its computed arrangement. Save stable photo UIDs and validated layout data, migrate older drafts, and automatically include every source element. Keep NH6-5 guided TYPE/WRITE behavior unchanged. Run `tests/check-blog-layout.cjs` and `tests/check-blog-post.cjs` for changes, plus browser checks for source deletion, automatic inclusion, reset, layout restore, tabs and export parity.
 
 ## My Blog engine reference
 
@@ -329,8 +310,50 @@ Writing completion rules and ledger ownership live in `MY-BLOG-ENGINE.md`; Profi
 Recorded sentence playback prepares only the requested clips on tap and schedules decoded audio continuously where Web Audio is available, avoiding a new media load at each word boundary. Preserve cancellation, whole-sentence fallback, bounded clip caching, and approved source files. Run tests/check-joined-audio.cjs alongside pronunciation/library checks; real-device listening remains necessary to assess pacing.
 
 
-### Responsive Builder verification — 2026-11-02
+### Temporary Builder reset recovery
 
-Local in-app browser review covered Pizza, Parfait and Sandwich at 1133×716/715/714/678/656/655/600/599, 768×800, 740/739/738×800, portrait 744×1133, 1024×768, 1366×768, 1440×900, phones 390×844/375×667/320×568 and short landscape 844×390/740×360. Additional boundary checks at 741/742×716, 779/780×599 and 811/812×1100 verified the rail eligibility and bottom-strip thresholds. All checked tool buttons retained 44px targets and were separate from the artwork region. The 600/599 transition stays side by side; below 740px width the intentional page stack remains. Very short wide views scroll activity/choices internally.
+Use `BuilderReset` in shared/builder-autosave.js for whole-creation recovery. Keep one in-memory snapshot per app/mode; the same Reset action becomes Restore. Restoring must preserve other-mode edits, selections, transforms, order and app-specific data. Adding new content discards that mode’s snapshot; empty resets must not replace it. Do not serialize recovery or add individual-deletion history. Flush the actual cleared/restored creation through autosave immediately after success; failure handling below protects persisted data and pending recovery. Trusted temporary restoration must not apply the persisted-save item-count cap. Grid-map adapters supply their own capture/restore and content signature. Run check-reset-recovery, check-class-supplies, check-autosave and app-specific export checks; verify mode isolation and reload behavior in the browser.
 
-Browser checks included populated compositions, long output, English/Japanese, mode switches, fullscreen entry/exit, toolbar editing, a Sandwich drag toward the tool strip, and successful Share previews in all three. Workspace, creative editing (including rotated bounds), play bounds, Parfait base behavior, Sandwich, sharing, section-jump and Builder Lab checks passed. The pre-existing Parfait creative export fixture still fails because it does not load ParfaitGlass; this is separate from the successful browser export check. Physical iPad Safari with tabs/browser controls shown and hidden, touch/pinch, and enlarged system text remain release checks.
+
+### Approved panel-workspace rollout — 2026-11-05
+
+Class Supplies' reviewed layout is now a shared opt-in (`builder-panel-workspace.css/js`) consumed by Pizza, Parfait, Sandwich and Builder Lab as well. STYLE-GUIDE.md owns its visual/geometry contract. Keep app export coordinate mappings local; use the shared square frame union instead of copying another app's drawing geometry. Preserve normalized saved state, per-mode Reset/Restore, and existing pronunciation nodes when relocating output. My Selfie/My Town are not opted in.
+
+For future integration, test base fitting separately from outer-frame placement; move large/rotated pieces to all edges and beneath tools, recover through the picker, reload, Restore, and export. Picker recovery intentionally changes stored coordinates. Include full-frame export margins in visual review. Run `check-panel-workspace.cjs`, `check-photo-framing.cjs`, workspace/base-fit/creative/bounds, recovery/autosave and each affected app's suites. Browser results and outstanding physical-device checks belong in the rollout verification note, not a second set of style rules.
+
+Local rollout measurements, interaction results and remaining device checks: [Builder workspace verification](BUILDER-WORKSPACE-VERIFICATION.md).
+
+## Shared styling maintenance
+
+Use the ownership map in [STYLE-ARCHITECTURE.md](STYLE-ARCHITECTURE.md) alongside the style guide. Before removing an override, inspect every consumer, generated state and responsive condition; compare rendered results before and after. Preserve intentional artwork and family-specific geometry. Record exceptions with their owner and reason rather than adding more-specific patches.
+
+Run `node tests/check-style-ownership.cjs` after styling changes. Refresh hashes with `node scripts/version-builder-assets.cjs`, then verify with its read-only `--check` option. Include newly referenced stylesheets in the eventual publication together with their consumers; an HTML hash does not ensure a new file was committed. Keep browser/device verification honest and separate from static checks.
+
+### Mode restore visibility regression
+
+Verify rendered geometry as well as state using the [Restore safety contract](#restore-geometry-and-failure-safety) below. Regression fixtures must retain the real editor: the Sandwich fixture’s deliberate audio-failure check temporarily nulls it, so autosave coverage must restore that editor before testing PLAY. Include rapid switches, pending autosave, mode-specific origins and reload in either mode.
+
+### Builder update ownership and performance checks
+
+- `builder-workspace.js` owns geometry observation and schedules one animation-frame transaction for related surface, frame, preferred-frame and mode-class notifications. Fit first, then invoke the editor's repaint callback. Panel adapters register additional measured boxes through `surface.observeLayout`; do not install competing fitting observers. Explicit synchronous mode/geometry operations may still use `surface.fitArtwork()` when coordinates are needed immediately.
+- `creative-builder.js` owns active PLAY repainting and stacking. Inactive pieces are retained without resize paints and are painted when activated. A sync transaction sorts once, assigns stack indices, and shares that order with sentence/picker consumers. Do not sort the full list from each piece's paint method.
+- App artwork adapters invalidate appearance only when its inputs change. Class Supplies caches the rendered color of the case, palette icons and pieces; geometry-only gestures must not rebuild every SVG.
+- `LayerBuilder.updateSlotControls()` updates slot UI independently of language. A custom sentence renderer (currently Parfait) calls it as needed and renders its own sentence once; do not call the parent's sentence renderer first.
+- `BuilderReset` restores the active creation, not global language preferences. `independentDifficulty` apps retain the current EASY/HARD setting even if it changed since Reset. Legacy mode-coupled consumers retain their previous recovery semantics. Recovery stays temporary and mode-scoped; adding a new item invalidates it. This changes no saved-data format.
+- Run `tests/check-builder-update-work.cjs`, `check-reset-recovery.cjs`, `check-class-supplies.cjs`, workspace/fitting, autosave, audio and export checks for changes to these paths. Operation counts from fixtures are not browser frame-rate measurements. Include real-browser resize, scroll/focus and activation checks, and identify physical iPad testing separately.
+
+### Restore geometry and failure safety
+
+`CreativeBuilder.switchMode()` owns user mode/state changes; `renderMode()` applies the already-selected final state to the interface. The autosave adapter hydrates LEARN and PLAY data, calls `renderMode()` once, then mounts pieces with saved coordinates preserved. Do not simulate user mode toggles to rebuild hidden creations. Inactive artwork remains mounted but invisible, inert and aria-hidden; resize callbacks still skip its JavaScript paints. Visual opacity is coalesced to the final mode in a microtask; state, inertness and accessibility update synchronously. This trades a retained layout subtree for reliable sizing without forced layout flushes.
+
+Geometry-dependent fitting, bounds and pointer movement must reject zero/non-finite dimensions before division or coordinate assignment. Keep last valid positions/fit; normal resize notification or mode activation resumes work. Existing invalid saved axes recover independently to the validated default (50), retaining the item and valid other axes. Save format is unchanged.
+
+Reset/Restore retains its retry snapshot on failure, attempts to roll back the pre-restore state, announces failure in the existing status region, logs the local error, and inhibits autosave until a successful retry. If initial page-load restore throws, protect the existing saved record for the rest of that session and announce a reload retry; do not silently overwrite it with partial/default data. These diagnostics send no telemetry or saved snapshots.
+
+Use `_dev/builder/restore-check.html` on an isolated local origin for real rendered-bounds regressions (not just state fixtures). It backs up/restores each tested app save key. It checks empty LEARN/PLAY, the full reported Parfait sequence, both populated, difficulties, repeat/add, visible SVG and hit boxes, keyboard selection/movement, reload, rapid mode changes, resize, language and Save preview. The fixture uses synthetic DOM clicks; separately verify actual pointer drag and physical iPad touch. Run `check-restore-failures.cjs`, autosave/recovery, geometry/bounds, gestures and Pizza reload-animation suites alongside it.
+
+Reset captures recovery **before** clearing starts. Autosave is blocked during the operation and after a failed clear/restore until every failed mode has recovered successfully. A failed mode retains its original retry snapshot even if partial rendering or subsequent edits trigger refresh; unlike a successful Reset, adding content cannot discard this safety snapshot. Custom `BuilderReset.connect` consumers must forward `recovery.canSave()` to their autosave adapter. Fault injection should cover before mutation, partial mutation, rendering/post-clear capture, failed retry, cross-mode recovery and pagehide.
+
+## Site theme rollout
+
+All maintained suite entry pages, including POST, Blog, Lab and the interactive guide, load shared/theme.js synchronously before CSS. Use the shared tokens and picker; do not duplicate palette definitions or fold theme preferences into app state. Include the bootstrap when creating a new entrypoint. After theme changes run check-themes.cjs, check-themes-browser.cjs and check-style-ownership.cjs, inspect representative applets and refresh/check asset hashes. Preserve documented POST/artwork exceptions. Local-file behavior and already-loaded-page offline selection do not imply offline HTTP reload support: this project has no service-worker offline shell. Report storage, browser and physical-device limits separately.

@@ -4,7 +4,6 @@ window.ActivityHubI18n.register({
   "Choose a sauce": "ソースを選ぼう",
   "Add your toppings": "トッピングをのせよう",
   "Tap for more. Tap again after ● ● ● to remove.": "タップすると量が増えます。● ● ● のあと、もう一度タップすると取り除けます。",
-  "A little of this. A little of that. Your pizza!": "好きなものをのせて、自分だけのピザを作ろう！",
   "Your pizza!": "できあがり！",
   "Making your photo…": "写真を作っています…",
   "Ready to save!": "写真を保存できます！",
@@ -50,3 +49,5 @@ window.ActivityHubI18n.register({"Previous toppings":"前のトッピング","Ne
 window.ActivityHubI18n.register({"Add one piece, then drag it. Pinch with two fingers or use + and − to change its size. PLAY counts small, medium, and big pieces.":"材料を追加して動かそう。2本の指で広げたり縮めたり、＋と−で大きさを変えられます。PLAYではsmall・medium・bigごとに数を数えます。"});
 
 window.ActivityHubI18n.register({"About LEARN mode":"LEARNモードの使い方","Choose a sauce, then tap toppings to add more. Three dots means extra; tap once more to remove. Read your order aloud. Try HARD for more detailed sentences.":"ソースを選んで、トッピングをタップすると量が増えます。点が3つになったら、もう一度タップすると取り除けます。注文を声に出して読んでみよう。HARDでは、量も伝える文に挑戦できます。"});
+
+window.ActivityHubI18n.register({"Play mode.": "PLAYモード。", "About difficulty": "難しさについて", "Choose a sauce, then tap toppings to add more. Three dots means extra; tap again to remove.": "ソースを選んで、トッピングをタップすると量が増えます。点が3つで多めになり、もう一度タップすると取り除けます。", "Tap toppings to add pieces. Drag to arrange; pinch or use the tools to resize. Use the item menu to bring hidden pieces into view.": "トッピングをタップして追加します。ドラッグで移動し、ピンチやボタンで大きさを変えます。隠れた材料は選択メニューから選ぶと見える場所に移動します。", "EASY names toppings. HARD adds a little bit of, some, or a lot of. In PLAY, amounts follow piece counts, not piece size.": "EASYではトッピングの名前を伝えます。HARDでは a little bit of、some、a lot of で量も伝えます。PLAYの量は、大きさではなく材料の個数で決まります。"});

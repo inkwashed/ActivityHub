@@ -3,7 +3,7 @@ Repository for English textbook-based activities and games for use in and out of
 
 ## Home page
 
-Open `index.html` locally for the textbook activity directory. It links to Pizza Builder and the usage terms, supports English/Japanese interface text, and uses shared controls. Pizza Builder’s back arrow returns to its textbook section. Publish the repository root through GitHub Pages to include the home page.
+Open `index.html` locally for the textbook activity directory. It lists the released activity links by textbook, with name search and textbook filtering, English/Japanese interface text, shared controls and usage terms. Builder back arrows return to their textbook sections. Homepage feedback and bug-report links open their configured external surveys. Publish the repository root through GitHub Pages to include the home page.
 
 ## Shared design system
 
@@ -29,4 +29,4 @@ Keep internal links relative and use trailing-slash directory URLs. The HTML ent
 
 Homepage usage terms open in a native, scrollable dialog with a close button and Escape dismissal; closing returns focus to the opener. Applet footers remain text only. `LICENSE.txt` is authoritative: after editing it, run `node scripts/sync-license.cjs` to update the embedded homepage text. Embedding allows direct local opening without a network request. The license wording remains English; dialog controls support English/Japanese.
 
-The homepage pizza preview uses the applet’s original topping artwork and placement engine: regular cheese and corn with tomato sauce. Rebuild after relevant artwork changes with `node scripts/build-pizza-preview.cjs`.
+Homepage export previews for Pizza, Parfait, Sandwich and Class Supplies reuse their production Save renderers. Rebuild with `node scripts/generate-home-previews.cjs`; see [samples, framing and freshness checks](docs/HOME-PREVIEWS.md).

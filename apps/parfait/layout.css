@@ -1,8 +1,7 @@
+.ah-builder #builder{--learn-card-rows:5;--play-card-rows:5}
 /* App geometry after shared responsive rules; controls keep shared styling. */
-.ah-builder #builder{--builder-panel-padding:14px;--learn-card-rows:5;--play-card-rows:5}
 .parfait-menu-column{min-width:0;align-self:start}
 .parfait-menu-heading{text-align:center;margin-bottom:12px}
-.ah-builder #builder #parfait-menu{padding:var(--builder-panel-padding);gap:8px;}
 .ah-builder #parfait-menu .builder-actions{grid-column:1/-1;display:flex;gap:8px;margin-top:16px}
 .ah-builder #parfait-menu .builder-actions .ah-button{flex:1;min-width:0;min-height:44px}
 .ah-builder #parfait-menu #clear-slot{min-height:44px;font-size:14px}
@@ -13,16 +12,7 @@
 .ah-builder #parfait-menu .layer-navigation{margin:16px 0 8px}
 .ah-builder #parfait-menu fieldset{margin-bottom:12px}
 .ah-builder #parfait-menu .syrup-section{margin-top:16px}
-@media(orientation:landscape) and (min-width:900px) and (min-height:600px){
- .ah-builder #parfait-workspace .parfait-stage{width:min(100%,400px, max(280px,calc((100svh - 390px)*1.25)))}
- .ah-builder #builder{grid-template-columns:minmax(0,1fr) clamp(420px,42svh,444px)}
- .ah-builder #builder .parfait-menu-heading h1{font-size:32px;letter-spacing:-1px}
- .ah-builder #builder #parfait-workspace{min-height:calc(100svh - var(--header-height,56px) - var(--footer-height,26px) - 2 * clamp(12px,2vh,24px))}
- .ah-builder #parfait-workspace .heading{margin-bottom:64px}
- .ah-builder #parfait-workspace .order{font-size:21px;margin:10px auto 0}
-}
 @media(orientation:portrait),(max-width:899px),(max-height:599px){
- .ah-builder #builder #parfait-workspace{min-height:0}
  .parfait-menu-column{width:100%}
 }
 
@@ -42,26 +32,17 @@
 
 /* Creative composition shares the engine; glass geometry remains local. */
 .parfait-menu-body{display:grid;grid-template-columns:minmax(0,1fr);align-items:start}
-.is-create .parfait-menu-body{grid-template-columns:44px minmax(0,1fr);gap:12px}
 .flavor-heading{width:100%;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .build-mode-controls{display:flex;align-items:center;gap:6px;margin-left:auto}
-#free-tools{width:44px;align-self:center}.free-toolbar{display:flex;flex-direction:column;gap:6px}
 #free-tools[hidden],#piece-picker-wrap[hidden],.free-layer[hidden]{display:none}
 #piece-picker{width:100%;min-height:44px;font:inherit;color:var(--ah-ink);background:var(--ah-surface);border:1px solid var(--ah-border);border-radius:12px;padding:6px}
 #piece-picker-wrap{margin-bottom:10px}
 .is-create .layer-slots,.is-create .ingredient-name{display:none}
 .is-create #topping-options .ah-choice{min-height:64px}
-.free-layer{position:absolute;inset:0;container-type:size;pointer-events:none;z-index:25}
-.free-piece{position:absolute;width:max(44px,calc(var(--food-size)*1cqw));height:max(44px,calc(var(--food-size)*1cqw));padding:0;border:0;background:transparent;transform:translate(-50%,-50%);pointer-events:auto;touch-action:none;cursor:grab}
-.free-art{position:absolute;left:50%;top:50%;width:calc(var(--food-size)*1cqw);aspect-ratio:1;transform:translate(-50%,-50%) rotate(var(--angle)) scaleX(var(--flip));pointer-events:none}
-.free-art>svg{display:block;width:100%;height:100%}
+.free-layer{z-index:25}
+.free-art>svg{display:block}
 .free-piece.selected .free-art{outline:2px dashed var(--ah-focus);border-radius:8px}
-.free-piece:focus-visible{outline:3px solid var(--ah-focus)}
 .is-create #parfait{touch-action:none}
-@media(orientation:portrait),(max-width:899px),(max-height:599px){
- .is-create .parfait-menu-body{grid-template-columns:minmax(0,1fr)}
- #free-tools{width:100%;margin:12px auto}.free-toolbar{flex-direction:row;justify-content:center;flex-wrap:wrap;gap:8px}
-}
 
 /* LEARN fruit pair shares the section-heading row. */
 .ah-builder #parfait-menu .layer-navigation{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -91,3 +72,9 @@
 
 #parfait-photo{display:block;max-width:100%;max-height:60svh;width:auto;height:auto;margin:18px auto;box-shadow:0 4px 16px #0002}
 #parfait-photo[hidden],#download-photo[hidden]{display:none}
+
+/* Difficulty belongs to syrup's heading so the fruit slots keep their room. */
+.ah-builder #builder #parfait-menu .syrup-section legend{display:flex;align-items:center;flex-wrap:wrap;gap:6px;width:100%}
+.ah-builder #builder #parfait-menu .parfait-difficulty-controls{display:flex;align-items:center;gap:6px;margin-left:auto;flex-shrink:0}
+.ah-builder #builder:has(#parfait-menu) .order{align-items:flex-start}
+.ah-builder #builder:has(#parfait-menu) .order .pronunciation-speaker{align-self:flex-start;position:sticky;top:8px;min-width:44px;min-height:44px;flex:0 0 44px;z-index:1}

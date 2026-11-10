@@ -12,7 +12,7 @@
 @media(min-width:740px){
  .ah-builder{padding-bottom:0}
  .ah-builder header{padding:6px 16px;gap:8px}
- .ah-builder .edition{display:inline}
+
  .ah-builder #builder,.ah-builder #builder.is-create{height:calc(100svh - var(--header-height,56px) - var(--footer-height,26px));min-height:0;grid-template-columns:minmax(0,1fr) minmax(350px,42%);gap:16px;padding:10px 16px;align-items:start}
  .ah-builder #builder .kitchen,.ah-builder #builder.is-create .kitchen{display:grid;grid-template-rows:minmax(44px,auto) minmax(240px,1fr) var(--builder-output-height,140px);gap:8px;height:100%;min-height:0;align-self:stretch;overflow:auto;overscroll-behavior:contain}
  .ah-builder #builder .kitchen>.heading{margin:0;min-height:0}
@@ -104,3 +104,11 @@
 @media(min-width:740px) and (max-width:840px){
  .ah-builder #builder .kitchen,.ah-builder #builder.is-create .kitchen{grid-template-rows:minmax(44px,auto) minmax(354px,1fr) var(--builder-output-height,140px)}
 }
+
+/* Selected slots use an inset edge; keyboard focus remains an outer outline. */
+.ah-builder #builder :is(button[data-layer-slot],#slots .slot,.builder-slot>.ah-choice)[aria-pressed="true"]{box-shadow:inset 0 0 0 3px var(--ah-ink);background:var(--ah-selected,#e1ead9)}
+.ah-builder #builder :is(button[data-layer-slot],#slots .slot,.builder-slot>.ah-choice):focus-visible{outline:3px solid var(--ah-focus);outline-offset:3px}
+
+/* Full-frame food coordinates can extend through transparent margins; the
+   parent still clips all visible editing to the toolbar-free region. */
+.ah-builder #builder .builder-composition{position:absolute;container-type:size;display:grid;place-items:center;min-width:0;min-height:0}

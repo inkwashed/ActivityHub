@@ -9,7 +9,7 @@ Students write about a place they have visited or want to visit. They supply a t
 
 ## Reusable engine
 
-Uses `shared/blog-post.js` with `mode: 'free'` and `design: true`, fields named `title` and `body`, and `multiline: true` on the body. The HTML supplies labelled `blog-title` and `blog-body` controls. Inline mode remains available for NH6-5. Draft ID `myblog-nh1-5` is separate from NH6-5's legacy `world-blog` ID. Both use the existing homepage name/avatar and shared local snapshot lifecycle.
+Uses `shared/blog-post.js` with `mode: 'free'` and `design: true`, fields named `title` and `body`, and `multiline: true` on the body. The HTML supplies labelled `blog-title` and `blog-body` controls. NH6-5 uses the separate guided TYPE/WRITE editor; its older segmented fields are supported for save migration. Draft ID `myblog-nh1-5` is separate from NH6-5's legacy `world-blog` ID. Both use the existing homepage name/avatar and shared local snapshot lifecycle.
 
 `config.sample` supplies the read-only sample title, author and paragraphs. Sample opens a native, viewport-constrained dialog beside the activity heading. Its webpage-style article uses semantic, selectable text and shared styling; it never replaces or saves over student work. The user supplied the Cafe Maria passage, attributed to Fumiya; no textbook illustration or cafe photograph is included. No web claims about the cafe are made beyond the supplied sample.
 

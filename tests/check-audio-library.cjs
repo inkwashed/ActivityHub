@@ -32,7 +32,7 @@ for(const sauce of config.sauces){
  }
 }
 const parfaitConfig=w.PARFAIT_CONFIG;
-const parfait={config:parfaitConfig,root,activeLayer:0,activeSlot:0,state:{layers:[[null,null]]},setSentence:capture,updateButton(){}};
+const parfait={updateSlotControls:w.LayerBuilder.prototype.updateSlotControls,config:parfaitConfig,root,activeLayer:0,activeSlot:0,state:{layers:[[null,null]]},setSentence:capture,updateButton(){}};
 for(const base of parfaitConfig.bases)for(const sauce of parfaitConfig.sauces)for(const fruit of [null,...parfaitConfig.toppings]){
  parfait.state.base=base.id;parfait.state.sauce=sauce.id;parfait.state.layers=[[fruit?.id||null,null]];
  w.LayerBuilder.prototype.updateSentence.call(parfait);

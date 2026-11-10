@@ -1,0 +1,26 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>My Town layout checks</title><button id="run">Run checks</button><pre id="results"></pre><iframe title="My Town test" id="app"></iframe><script>
+run.onclick=async()=>{
+ const out=document.querySelector('#results'),frame=document.querySelector('#app');out.textContent='Running…';let count=0;
+ const wait=()=>new Promise(r=>setTimeout(r,100));
+ try{
+ frame.src='../../apps/mytown/';await new Promise(r=>frame.onload=r);
+ const w=frame.contentWindow,d=w.document;
+ const style=d.createElement('style');style.textContent='html.enlarged button,html.enlarged select,html.enlarged .hint,html.enlarged h2{font-size:200%!important}html.enlarged .builder-output{font-size:42px!important}';d.head.append(style);
+ for(const [width,height] of [[1133,678],[1133,599],[1133,380],[768,1024],[390,844]])for(const lang of ['en','ja'])for(const large of [false,true])for(const route of [false,true]){
+ frame.style.width=width+'px';frame.style.height=height+'px';w.ActivityHubI18n.setLanguage(lang,false);d.documentElement.classList.toggle('enlarged',large);
+ const mode=d.querySelector('#route-mode');mode.checked=route;mode.dispatchEvent(new w.Event('change'));
+ if(large)d.querySelector('#sentence').append(d.createTextNode(' Go straight for two blocks. Turn right. Cross the bridge. Continue three blocks. You can see it on your left.'.repeat(8)));
+ await wait();const menu=d.querySelector('.town-menu'),panel=d.querySelector('.pantry'),output=d.querySelector('.builder-output');
+ const p=panel.getBoundingClientRect(),o=output.getBoundingClientRect();
+ if(p.bottom>o.top+1)throw Error('Panels overlap');
+ if(d.documentElement.scrollWidth>width+1)throw Error('Horizontal page overflow');
+ if(width>=740&&d.documentElement.scrollHeight>height+2)throw Error('Desktop page overflow');
+ if(output.clientHeight<40)throw Error('Output inaccessible');
+ const last=d.querySelector('#share');last.scrollIntoView({block:'nearest'});await wait();const r=last.getBoundingClientRect(),pr=panel.getBoundingClientRect();if(r.bottom>pr.bottom+1||r.top<pr.top-1)throw Error('Last action unreachable');
+ if(!route){const item=d.querySelector('#place-options').lastElementChild;item.scrollIntoView({block:'nearest'});await wait();const ir=item.getBoundingClientRect(),area=panel.classList.contains('town-tight')?panel:d.querySelector('#place-options'),ar=area.getBoundingClientRect();if(ir.bottom>ar.bottom+1||ir.top<ar.top-1)throw Error('Last choice unreachable');}
+ count++;
+ }
+ out.textContent='PASS '+count+' combinations: languages, modes, sizes, 200% text, panel separation and last action reachability.';
+ }catch(e){out.textContent='FAIL after '+count+': '+e.message}
+};
+</script></html>

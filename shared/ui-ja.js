@@ -1,4 +1,5 @@
 window.ActivityHubI18n.register({
+  'Restore':'復元', 'Save':'保存',
   "No sound on iPad? Turn off Silent Mode in Control Center.": "iPadで音が出ない場合は、コントロールセンターで消音モードをオフにしてください。",
   "Starting audio…": "音声を開始しています…",
   "Browser reports audio playback started.": "ブラウザから音声再生開始の通知が届きました。",
@@ -25,8 +26,8 @@ window.ActivityHubI18n.register({
   "Close language settings": "言語設定を閉じる",
   "Close pizza preview": "写真を閉じる",
   "Hard mode": "むずかしいモード",
-  "EASY": "かんたん",
-  "HARD": "むずかしい",
+  "EASY": "EASY",
+  "HARD": "HARD",
   "Enter fullscreen": "全画面にする",
   "Exit fullscreen": "全画面を終了",
   "Textbook resources — coming soon": "教科書の教材一覧（準備中）",
@@ -70,3 +71,5 @@ window.ActivityHubI18n.register({
 });
 
 window.ActivityHubI18n.register({'Download':'ダウンロード','Copy':'コピー'});
+
+window.ActivityHubI18n.register({'Could not restore the creation. Please try Restore again.':'作品を復元できませんでした。もう一度「復元」を押してください。','Saved creation could not be opened. Reload to try again.':'保存した作品を開けませんでした。ページを再読み込みしてお試しください。'});

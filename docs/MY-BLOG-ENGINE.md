@@ -16,7 +16,7 @@ New JHS lessons should follow NH1-5's structure with different prompts and sampl
 - `shared/blog-post.js`: state validation, writing controls, uploads/rotation/deletion, autosave, profile/avatar adapter, tabs, Sample, and Share capture.
 - `shared/blog-post.css`: base shell, inline/free writing, photo rows and sample article.
 - `shared/blog-layout.js`: pure layout model, text splitting/wrapping, source inclusion, collision resolution, swaps, crop offsets.
-- `shared/blog-design.js` / `.css`: JHS selection, toolbar, crop sliders, preview fitting and three-tab geometry.
+- `shared/blog-design.js` / `.css`: shared three-tab Design selection, toolbar, crop sliders, preview fitting and three-tab geometry.
 - `shared/blog-snapshot.js`: variable-height webpage PNG, including header, profile, composition and activity credit.
 - `shared/builder-photo.js`: existing shared async preview/download lifecycle, cancellation and object-URL cleanup. Food renderers remain independent.
 - Shared tokens, controls, icons, translations, autosave, fullscreen, local links, QR and copyright provide suite-wide behavior. Do not copy these into lesson code.
@@ -33,7 +33,7 @@ Load tokens, blog base styles, shared controls and the scoped JHS styles. Load l
 
 ## State and persistence
 
-Drafts use `letseigo.app.<id>`, version 1. NH6-5 retains `world-blog`; NH1-5 uses `myblog-nh1-5`. State contains `fields`, up to three `images`, and JHS `layout`. Never reuse an existing lesson's ID for another lesson or lab.
+Drafts use `letseigo.app.<id>`, version 1. NH6-5 retains `world-blog`; NH1-5 uses `myblog-nh1-5`. State contains `fields`, up to three `images`, and design `layout`; guided ES also retains `typedRows`, `inputMode`, `ink` and `inkLayout` as described below. Never reuse an existing lesson's ID for another lesson or lab.
 
 Photos are decoded locally from JPG/PNG/WebP, limited to 15 MB input, resized to a maximum dimension of 960px and saved as validated JPEG data URLs. Rotation re-encodes the photo clockwise by 90 degrees. Uploaded photo UIDs stay stable through layout changes and rotation. Older photos receive deterministic legacy UIDs. Storage failure is reported; local drafts are not permanent backups. No external upload occurs.
 
@@ -70,7 +70,7 @@ The browser check needs Playwright available to Node and a local HTTP server. `B
 
 Browser checks do not substitute for physical iPad/Safari, onscreen keyboard, handwriting, image-picker, screen-reader or actual browser-zoom testing. Keep those limitations explicit.
 
-Run `node scripts/version-builder-assets.cjs myblog/NH1-5 myblog/NH6-5` after shared asset changes. Publish consumers and shared files together only when requested. Review both variants for shared behavior changes; do not migrate ES to the JHS UI implicitly.
+Run `node scripts/version-builder-assets.cjs` after shared asset changes. Publish consumers and shared files together only when requested. Review both variants for shared behavior changes; do not migrate ES to the JHS UI implicitly.
 
 The shared QR button follows Language in both variants. `page-qr.js` accepts `/myblog/<lesson>/` routes and shares only the public lesson URL, never draft contents. Textbook labels use the shared muted color and textbook/unit wording without a school-level suffix.
 

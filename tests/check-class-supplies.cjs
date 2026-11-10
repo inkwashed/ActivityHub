@@ -14,17 +14,17 @@ const elements=Object.fromEntries(ids.map(id=>['#'+id,new Element()]));elements[
 const root={querySelector:s=>elements[s],querySelectorAll:()=>[],classList:{toggle(){}}};
 const ready=[];let adapter;
 const context=vm.createContext({Option:class extends Element{constructor(text,value){super();this.textContent=text;this.value=value}},window:{PieceGestures:class{bindSurface(){}bind(){}cancel(){}},BuilderPhoto(){},ActivityAutosave:{connect(id,a){assert.equal(id,'class-supplies');adapter=a}}},document:{querySelector:s=>s==='#builder'?root:elements[s],getElementById:()=>null,querySelectorAll:()=>[],createElement:()=>new Element(),addEventListener:(name,fn)=>{if(name==='DOMContentLoaded')ready.push(fn)}}});
-for(const file of ['apps/class-supplies/config.js','shared/builder.js','shared/creative-builder.js','apps/class-supplies/app.js','shared/builder-autosave.js','apps/class-supplies/saving.js'])vm.runInContext(fs.readFileSync(file,'utf8'),context);
+for(const file of ['apps/class-supplies/config.js','shared/builder.js','shared/creative-builder.js','apps/class-supplies/app.js','apps/class-supplies/sharing.js','shared/builder-autosave.js','apps/class-supplies/saving.js'])vm.runInContext(fs.readFileSync(file,'utf8'),context);
 ready.forEach(fn=>fn());const b=context.window.suppliesBuilder;
 for(const item of b.config.toppings)assert.equal(item.size,item.creativeSize*item.defaultScale);
 const colorButtons=elements['#item-color'].children;assert.equal(colorButtons.length,10);
 b.advancedMode=true;b.updateSentence();elements['#case-select'].listeners.click();colorButtons[0].listeners.click();assert.equal(b.palette().case,'red');assert.equal(colorButtons[0].attrs['aria-pressed'],'true');assert.equal(colorButtons.filter(x=>x.attrs['aria-pressed']==='true').length,1);
-assert.match(elements['#sentence'].textContent,/a red pencil case/);assert.equal(elements['.color-row'].hidden,false);b.advancedMode=false;b.updateSentence();assert.equal(elements['.color-row'].hidden,true);
+assert.match(elements['#sentence'].textContent,/a red pencil case/);assert.equal(elements['.color-row'].hidden,false);b.advancedMode=false;b.updateSentence();assert.equal(elements['.color-row'].hidden,false);
 assert.equal(b.buttons.size,12);assert.equal(elements['#sentence'].textContent,'I have a pencil case.');
 b.chooseTopping('eraser');assert.match(elements['#sentence'].textContent,/an eraser/);b.chooseTopping('eraser');assert.equal(b.state.toppings.eraser,0);
 b.chooseTopping('pencil');const penHit=b.groups.get('pencil').children[0].querySelector('.learn-color-hit');penHit.listeners.click({stopPropagation(){}});assert.equal(elements['#color-target'].value,'pencil');assert.equal(b.state.toppings.pencil,1);elements['#case-select'].listeners.click();assert.equal(elements['#color-target'].value,'case');
 b.palette().pencil='purple';b.refreshColors();const learn=b.state;
-b.creative.switchMode(true);assert.equal(b.creative.items.length,0);b.chooseTopping('pen');assert.equal(b.creative.items.at(-1).scale,1.3);b.creative.edit('duplicate');b.creative.edit('right');b.creative.edit('flip');colorButtons[3].listeners.click();assert.equal(b.creative.items[0].color,'blue');assert.equal(b.creative.items[1].color,'green');assert.match(elements['#sentence'].textContent,/1 blue pen and 1 green pen/);
+b.advancedMode=true;b.creative.switchMode(true);assert.equal(b.creative.items.length,0);b.chooseTopping('pen');assert.equal(b.creative.items.at(-1).scale,1.3);b.creative.edit('duplicate');b.creative.edit('right');b.creative.edit('flip');colorButtons[3].listeners.click();assert.equal(b.creative.items[0].color,'blue');assert.equal(b.creative.items[1].color,'green');assert.match(elements['#sentence'].textContent,/a blue pen and a green pen/);
 assert.equal(b.creative.items.length,2);assert.equal(b.creative.items[1].rotate,105);assert.equal(b.creative.items[1].flip,true);
 const saved=JSON.parse(JSON.stringify(adapter.capture()));b.clear();assert.equal(b.creative.items.length,0);b.creative.switchMode(false);assert.equal(b.state,learn);assert.equal(b.state.toppings.pencil,1);assert.equal(b.palette().pencil,'purple');
 adapter.restore(saved);assert.equal(b.creative.active,true);assert.equal(b.creative.items.length,2);assert.equal(b.creative.items[1].rotate,105);assert.equal(b.creative.items[1].color,'green');
@@ -59,3 +59,58 @@ assert.equal(question.textContent,'Do you have an eraser?');assert.equal(stopped
 elements['#color-target'].value='';b.refreshColorSelection();
 assert.equal(question.textContent,'Do you have a …?');assert.equal(question.disabled,true);assert.equal(stopped,beforeSelection+2);
 console.log('PASS: question selection changes cancel queued audio; unchanged questions do not.');
+
+for(const play of [false,true]){
+ b.creative.switchMode(play);b.clear();b.resetRecovery.refresh();b.chooseTopping('pen');
+ if(play){b.creative.items[0].color='brown';b.creative.items[0].rotate=105;b.creative.items[0].flip=true;}
+ b.palette().case='pink';const before=JSON.parse(JSON.stringify(adapter.capture()));
+ b.resetRecovery.press();b.creative.switchMode(!play);b.resetRecovery.refresh();b.creative.switchMode(play);b.resetRecovery.refresh();b.resetRecovery.press();
+ const after=JSON.parse(JSON.stringify(adapter.capture()));
+ assert.deepEqual(after.palettes,before.palettes);assert.equal(after.play,play);
+ if(play)assert.deepEqual(after.items.map(({id,...item})=>item),before.items.map(({id,...item})=>item));else assert.deepEqual(after.learn,before.learn);
+ b.resetRecovery.press();b.chooseTopping('pencil');b.resetRecovery.refresh();
+ const comparable=()=>{const value=JSON.parse(JSON.stringify(adapter.capture()));value.selected=value.items.findIndex(x=>x.id===value.selected);value.items.forEach(x=>delete x.id);return JSON.stringify(value)};const current=comparable();b.resetRecovery.press();b.resetRecovery.press();assert.equal(comparable(),current);
+}
+for(const play of [false,true])for(const point of ['before','after']){
+ b.creative.switchMode(play);b.clear();b.resetRecovery.refresh();b.chooseTopping('pen');
+ const before=JSON.parse(JSON.stringify(adapter.capture())),clear=b.clear;
+ b.clear=function(){if(point==='after')clear.call(this);throw Error('injected clear')};
+ b.resetRecovery.press();b.clear=clear;
+ assert.equal(adapter.canSave(),false);b.resetRecovery.refresh();b.resetRecovery.press();assert.equal(adapter.canSave(),true);
+ const after=JSON.parse(JSON.stringify(adapter.capture()));
+ if(play)assert.deepEqual(after.items.map(({id,...x})=>x),before.items.map(({id,...x})=>x));else assert.deepEqual(after.learn,before.learn);
+}
+console.log('PASS: Class Supplies whole-creation recovery in both modes, per-item colors/transforms, palettes and new-item invalidation.');
+
+// Prototype exports the full editable extent without bringing toolbar markup.
+b.exportFrame=()=>({left:-30,top:-12,side:160});
+const expandedPhoto=context.window.renderSupplies(b);
+assert.match(expandedPhoto,/viewBox="-30 -12 160 160"/);
+assert.match(expandedPhoto,/<clipPath id="desk-frame"><rect x="-30" y="-12" width="160" height="160"/);
+assert(!expandedPhoto.includes('free-tools'));
+delete b.exportFrame;
+console.log('PASS: prototype expanded export frame and clipping exclude toolbar.');
+// Independent difficulty uses one language policy and survives both mode switches
+// and the same adapter used by reload/Restore. Existing builders remain opt-out.
+for(const play of [false,true])for(const hard of [false,true]){
+ b.creative.switchMode(play);elements['#advanced-mode'].checked=hard;elements['#advanced-mode'].listeners.change();
+ assert.equal(b.advancedMode,hard);assert.equal(elements['#advanced-mode'].disabled,false);
+ const captured=adapter.capture();assert.equal(captured.hard,hard);
+ b.creative.switchMode(!play);assert.equal(b.advancedMode,hard);b.creative.switchMode(play);
+ adapter.restore(JSON.parse(JSON.stringify(captured)));assert.equal(b.advancedMode,hard);assert.equal(b.creative.active,play);
+ assert.equal(elements['.color-row'].hidden,false);
+}
+b.creative.switchMode(true);b.clear();b.chooseTopping('pen');b.creative.items[0].color='red';b.chooseTopping('pen');b.creative.items[1].color='blue';
+elements['#advanced-mode'].checked=false;elements['#advanced-mode'].listeners.change();assert.match(elements['#sentence'].textContent,/2 pens/);assert.doesNotMatch(elements['#sentence'].textContent,/red|blue/);
+elements['#advanced-mode'].checked=true;elements['#advanced-mode'].listeners.change();assert.match(elements['#sentence'].textContent,/a red pen and a blue pen/);
+const toggle=b.creative.difficulty;b.creative.difficulty=null;b.creative.switchMode(false);b.creative.switchMode(true);b.creative.difficulty=toggle;
+console.log('PASS: all four build/difficulty combinations, language grouping, autosave round trips and optional difficulty control.');
+
+for(const play of [false,true])for(const hard of [false,true]){
+ b.creative.switchMode(play);b.advancedMode=hard;b.clear();b.resetRecovery.refresh();b.chooseTopping('pen');
+ b.resetRecovery.press();b.creative.switchMode(!play);b.advancedMode=!hard;b.chooseTopping('pencil');
+ b.creative.switchMode(play);b.resetRecovery.refresh();b.resetRecovery.press();
+ assert.equal(b.advancedMode,!hard,'Supplies Restore keeps current difficulty');
+ assert(play?b.creative.items.some(x=>x.topping==='pen'):b.state.toppings.pen);
+ b.resetRecovery.press();b.chooseTopping('marker');b.resetRecovery.refresh();
+}

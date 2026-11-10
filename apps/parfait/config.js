@@ -172,4 +172,4 @@ for(const item of window.PARFAIT_CONFIG.toppings){
  item.countPlural=item.label;item.countSingular=({strawberries:'strawberry',cherries:'cherry',peaches:'peach'})[item.id]||item.label.replace(/s$/,'');
 }
 
-window.PARFAIT_CONFIG.easyOnly=true;
+window.PARFAIT_CONFIG.independentDifficulty=true;

@@ -6,16 +6,18 @@ let layoutChange;const layoutMedia={matches:false,addEventListener(type,handler)
 context.window.matchMedia=()=>layoutMedia;
 Element.prototype.replaceChildren=function(){this.children=[]};
 Element.prototype.focus=function(){};
-Element.prototype.getBoundingClientRect=function(){return {width:400}};
+Element.prototype.getBoundingClientRect=function(){return {width:400,height:400,left:0,top:0}};
 Element.prototype.setPointerCapture=function(){};
 root.classList={toggle(){}};
 elements['#pizza-menu'].append(elements['#pizza-actions']);
+// Exercise the legacy default contract before Pizza's opt-in policy below.
+app.config.independentDifficulty=false;app.config.creativeQuantityLevels=false;
 app.clear();advanced(true);app.setLevel('mushrooms',2);app.setSauce('tomato');
 const tapState=app.state,tapNodes=app.groups.get('mushrooms').children.slice();
 vm.runInContext(fs.readFileSync('shared/piece-gestures.js','utf8'),context);
 vm.runInContext(fs.readFileSync('shared/creative-builder.js','utf8'),context);
 vm.runInContext(fs.readFileSync('apps/pizza/creative.js','utf8'),context);
-const free=app.creative;free.updateHelp();assert.equal(elements['#free-info-title'].textContent,'About LEARN mode');assert(elements['#mode-help-text'].textContent.includes('Three dots'));free.switchMode(true);assert.equal(elements['#free-info-title'].textContent,'About PLAY mode');assert(elements['#mode-help-text'].textContent.includes('Pinch'));
+const free=app.creative;free.updateHelp();assert.equal(elements['#free-info-title'].textContent,'About LEARN mode');assert(elements['#mode-help-text'].textContent.includes('Three dots'));free.switchMode(true);assert.equal(elements['#free-info-title'].textContent,'About PLAY mode');assert(elements['#mode-help-text'].textContent.includes('pinch'));
 assert.equal(elements['#pizza-actions'].parent,elements['#pizza-menu']);
 assert.equal(app.advancedMode,false);assert.equal(toggle.disabled,true);assert.equal(app.state.sauce,null);
 app.buttons.get('corn').listeners.click();assert.equal(free.items.length,1);assert.equal(sentence(),'I want 1 medium corn.');
@@ -74,6 +76,7 @@ free.items.forEach((item,i)=>assert.equal(item.node.style.zIndex,i+1));
 const first=free.items[0];free.select(first.id);free.edit('top');assert.equal(free.orderedItems().at(-1),first);assert.equal(first.node.style.zIndex,3);assert.equal(free.selected,first.id);
 console.log('PASS: PLAY count/size groups, plural forms, resizing, duplication, deletion, sauce suffix, and thresholds.');
 // Tool strips reduce the canvas without changing scene-relative drag units.
+const originalClosest=free.pizza.closest,originalRect=free.pizza.getBoundingClientRect;
 const usable={getBoundingClientRect:()=>({left:0,top:0,right:300,bottom:200,width:300,height:200})};
 free.pizza.closest=selector=>selector.includes('builder-art-area')?usable:null;
 free.pizza.getBoundingClientRect=()=>({left:0,top:0,right:400,bottom:400,width:400,height:400});
@@ -83,5 +86,54 @@ const radius=free.topping(bounded).size*bounded.scale*4*Math.SQRT2/2;
 assert(bounded.x*4+radius<=300.001);assert(bounded.y*4+radius<=200.001);
 bounded.x=-999;bounded.y=-999;free.constrain(bounded);
 assert(bounded.x*4-radius>=-.001);assert(bounded.y*4-radius>=-.001);
+usable.fitArtwork=()=>{};bounded.x=999;bounded.y=999;free.constrain(bounded);
+const hitRadius=Math.max(44,free.topping(bounded).size*bounded.scale*4*1.04)*Math.SQRT2/2+6;
+assert(bounded.x*4+hitRadius<=300.001);assert(bounded.y*4+hitRadius<=200.001);
+// Class Supplies opt-in: movement uses the actual frame, not the base-fit strip.
+free.options.placementBounds=()=>({getBoundingClientRect:()=>({left:0,top:0,right:400,bottom:400,width:400,height:400})});
+for(const sign of [-1,1]){
+ bounded.x=sign*999;bounded.y=sign*999;free.constrain(bounded);
+ const half=hitRadius-6;
+ assert(bounded.x*4-half>=-.001&&bounded.x*4+half<=400.001);
+ assert(bounded.y*4-half>=-.001&&bounded.y*4+half<=400.001);
+ if(sign===1)assert(bounded.x*4+half>300,'items may occupy the toolbar strip');
+}
+delete free.options.placementBounds;
+free.pizza.closest=originalClosest;free.pizza.getBoundingClientRect=originalRect;
 console.log('PASS: rotated pieces remain outside the reserved toolbar strip.');
+// Pizza opts in without changing the generic editor contract above.
+app.config.independentDifficulty=true;app.config.creativeQuantityLevels=true;
+for(const play of [false,true])for(const hard of [false,true]){
+ free.switchMode(play);toggle.checked=hard;toggle.listeners.change();
+ assert.equal(app.advancedMode,hard);assert.equal(toggle.disabled,false);
+ free.switchMode(!play);assert.equal(app.advancedMode,hard);free.switchMode(play);
+}
+free.switchMode(true);free.clear();app.setSauce('tomato');
+for(let i=0;i<4;i++)free.add('pepperoni');
+advanced(true);assert.equal(sentence(),'I want some pepperoni with tomato sauce.');
+free.items[0].scale=4;app.updateSentence();assert.equal(sentence(),'I want some pepperoni with tomato sauce.');
+advanced(false);assert.equal(sentence(),'I want pepperoni with tomato sauce.');
+for(let i=0;i<3;i++)free.add('pepperoni');advanced(true);assert.equal(sentence(),'I want a lot of pepperoni with tomato sauce.');
+free.clear();for(const t of app.config.toppings)free.add(t.id);advanced(true);assert.equal(sentence(),'I want a little bit of everything.');advanced(false);assert.equal(sentence(),'I want everything.');
+// Dragging through a transient zero-size frame preserves finite positions.
+const dragItem=free.items[0],validGeometry=free.pizza.getBoundingClientRect;
+free.gestures.cancel();dragItem.x=50;dragItem.y=50;
+dragItem.node.listeners.pointerdown(event);free.pizza.getBoundingClientRect=()=>({width:0,height:0});
+dragItem.node.listeners.pointermove({...event,clientX:120});assert.equal(dragItem.x,50);assert.equal(dragItem.y,50);
+free.pizza.getBoundingClientRect=validGeometry;dragItem.node.listeners.pointermove({...event,clientX:140});assert(dragItem.x>50);free.gestures.cancel();
+console.log('PASS: Pizza independent difficulty, shared amount phrases, count thresholds, size independence and everything.');
+for(const language of ['en','ja']){
+ context.window.ActivityHubI18n?.setLanguage?.(language);
+ free.select(free.items[0].id);
+ for(const piece of free.items)assert.equal(piece.node.attrs['aria-pressed'],String(piece.id===free.selected));
+ const label=free.items[0].node.attrs['aria-label'];free.select(null);
+ for(const piece of free.items)assert.equal(piece.node.attrs['aria-pressed'],'false');
+ assert.equal(free.items[0].node.attrs['aria-label'],label);
+ free.select(free.items[0].id);free.edit('duplicate');
+ for(const piece of free.items)assert.equal(piece.node.attrs['aria-pressed'],String(piece.id===free.selected));
+ free.edit('delete');
+ for(const piece of free.items)assert.equal(piece.node.attrs['aria-pressed'],String(piece.id===free.selected));
+}
+context.window.ActivityHubI18n.setLanguage('en');
+console.log('PASS: PLAY button pressed state follows selection, clearing, duplication and deletion without changing labels.');
 `,{require,console});

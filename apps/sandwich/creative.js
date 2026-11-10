@@ -8,8 +8,12 @@
  button.addEventListener('click',()=>{if(b.creative.active)b.creative.add('bread');});
  b.root.querySelector('#piece-picker-wrap').append(button);
  b.creative=new window.CreativeBuilder(b,{catalog:[...b.config.toppings,bread],scene:'#sandwich',workspace:'#sandwich-workspace',menuBody:'.sandwich-menu-body',menu:'#sandwich-menu',easyOnly:false,
-  onSelect:()=>b.updateSource(),resetMessage:'Sandwich reset.',help:{learn:'Select one of three filling slots, then choose an ingredient and its source. Select another slot to add the next filling.',play:'Add ingredients and drag them into your sandwich. Pinch to resize or use the editing tools.'},
+  onSelect:()=>b.updateSource(),resetMessage:'Sandwich reset.',help:{learn:'Select a filling slot, then choose an ingredient. Use the arrows to swap fillings.',play:'Add fillings or bread, then drag to arrange. Pinch or use the tools to resize. Select a hidden piece in the item menu to bring it into view.'},
   constrain(item,editor){item.scale=Math.max(editor.sizes.min,Math.min(editor.sizes.max,item.scale));item.x=Math.max(5,Math.min(95,item.x));item.y=Math.max(5,Math.min(95,item.y));}
  });
  b.creative.updateHelp();
 })();
+
+const sandwichDifficultyHelp=document.querySelector('#difficulty-info-dialog');
+document.querySelector('#difficulty-info')?.addEventListener('click',()=>sandwichDifficultyHelp.showModal());
+document.querySelector('#difficulty-info-close')?.addEventListener('click',()=>sandwichDifficultyHelp.close());

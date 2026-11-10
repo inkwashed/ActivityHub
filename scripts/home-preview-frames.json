@@ -1,0 +1,65 @@
+{
+  "viewport": {
+    "width": 1133,
+    "height": 678
+  },
+  "mode": "LEARN",
+  "frames": {
+    "parfait": {
+      "frame": {
+        "height": 534.203125,
+        "left": 12,
+        "top": 113,
+        "width": 631.2265625
+      },
+      "scene": {
+        "height": 245.328125,
+        "left": 142.8125,
+        "top": 311.3046875,
+        "width": 369.578125
+      }
+    },
+    "pizza": {
+      "frame": {
+        "height": 534.203125,
+        "left": 12,
+        "top": 113,
+        "width": 631.2265625
+      },
+      "scene": {
+        "height": 480.78125,
+        "left": 87.21875,
+        "top": 139.7109375,
+        "width": 480.78125
+      }
+    },
+    "sandwich": {
+      "frame": {
+        "height": 534.203125,
+        "left": 12,
+        "top": 113,
+        "width": 631.2265625
+      },
+      "scene": {
+        "height": 491.4609375,
+        "left": 81.8828125,
+        "top": 134.3671875,
+        "width": 491.4609375
+      }
+    },
+    "class-supplies": {
+      "frame": {
+        "height": 534.203125,
+        "left": 12,
+        "top": 113,
+        "width": 631.2265625
+      },
+      "scene": {
+        "height": 491.4609375,
+        "left": 81.8828125,
+        "top": 134.3671875,
+        "width": 491.4609375
+      }
+    }
+  }
+}

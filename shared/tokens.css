@@ -1,12 +1,13 @@
 /* Let’s EiGo! visual tokens. Change these centrally, not per applet. */
 :root {
+  color-scheme: light;
   --ah-font: ui-rounded, "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif;
   --ah-canvas: #f8f6ed;
   --ah-play-surface: #eee6d2;
   --ah-surface: #fffefa;
   --ah-ink: #263f36;
-  --ah-muted: #627067;
-  --ah-border: #9cae9b;
+  --ah-muted: #4b594f;
+  --ah-border: #697a68;
   --ah-divider: #dcded0;
   --ah-hover: #e8eddf;
   --ah-pressed: #d5e1cc;
@@ -31,4 +32,105 @@
   --ah-space-3: 12px;
   --ah-space-4: 16px;
   --ah-space-6: 24px;
+}
+
+/* Curated blue UI; activity artwork keeps its own colors. */
+:root[data-ah-theme="blue"] {
+  --ah-canvas: #f3f7fb;
+  --ah-play-surface: #e2ebf3;
+  --ah-surface: #fdfefe;
+  --ah-ink: #253e50;
+  --ah-muted: #475c6a;
+  --ah-border: #637e91;
+  --ah-divider: #d6e1e9;
+  --ah-hover: #e6eff6;
+  --ah-pressed: #d4e4f0;
+  --ah-secondary: #deecf7;
+  --ah-secondary-hover: #ccdfef;
+  --ah-secondary-pressed: #bdd4e6;
+  --ah-selected: #ecf4fb;
+  --ah-selected-border: #346a94;
+  --ah-strong: #294f70;
+  --ah-strong-hover: #203e59;
+  --ah-accent: #c46b3e;
+  --ah-focus: #245eb3;
+  --ah-disabled: #e9eff3;
+}
+
+/* Curated maroon UI; activity artwork keeps its own colors. */
+:root[data-ah-theme="maroon"] {
+  --ah-canvas: #fcf5ef;
+  --ah-play-surface: #f1e3d8;
+  --ah-surface: #fffdfa;
+  --ah-ink: #49342c;
+  --ah-muted: #695047;
+  --ah-border: #947168;
+  --ah-divider: #e4d1c4;
+  --ah-hover: #f4e7e1;
+  --ah-pressed: #ebd6ce;
+  --ah-secondary: #f2e1dc;
+  --ah-secondary-hover: #e9d2cb;
+  --ah-secondary-pressed: #e1c5be;
+  --ah-selected: #f9eeea;
+  --ah-selected-border: #963f4c;
+  --ah-strong: #74323e;
+  --ah-strong-hover: #5f2933;
+  --ah-accent: #963f4c;
+  --ah-focus: #326c68;
+  --ah-disabled: #f2ebe6;
+}
+
+/* Curated gold UI; activity artwork keeps its own colors. */
+:root[data-ah-theme="gold"] {
+  --ah-canvas: #fbf7ed;
+  --ah-play-surface: #efe5c9;
+  --ah-surface: #fffefa;
+  --ah-ink: #493c24;
+  --ah-muted: #625339;
+  --ah-border: #8d7951;
+  --ah-divider: #e5dcc7;
+  --ah-hover: #f4ecd6;
+  --ah-pressed: #eadebd;
+  --ah-secondary: #f1e5c6;
+  --ah-secondary-hover: #e9dab1;
+  --ah-secondary-pressed: #e0cea0;
+  --ah-selected: #faf1db;
+  --ah-selected-border: #846321;
+  --ah-strong: #70521d;
+  --ah-strong-hover: #594117;
+  --ah-accent: #a96c20;
+  --ah-focus: #245a8e;
+  --ah-disabled: #f1ede2;
+}
+
+/* Curated purple UI; activity artwork keeps its own colors. */
+:root[data-ah-theme="purple"] {
+  --ah-canvas: #f8f5fa;
+  --ah-play-surface: #eae2ef;
+  --ah-surface: #fffdff;
+  --ah-ink: #41354d;
+  --ah-muted: #5b4d65;
+  --ah-border: #897294;
+  --ah-divider: #e1d7e6;
+  --ah-hover: #efe7f4;
+  --ah-pressed: #e2d5eb;
+  --ah-secondary: #eadef1;
+  --ah-secondary-hover: #ddcee7;
+  --ah-secondary-pressed: #d3bfdf;
+  --ah-selected: #f4edf8;
+  --ah-selected-border: #78538e;
+  --ah-strong: #624275;
+  --ah-strong-hover: #503660;
+  --ah-accent: #a95867;
+  --ah-focus: #315e9b;
+  --ah-disabled: #efebf2;
+}
+
+/* Stable swatch identities, independent of the currently active palette. */
+:root {
+  --ah-theme-green: #417655;
+  --ah-theme-blue: #346a94;
+  --ah-theme-maroon: #963f4c;
+  --ah-theme-gold: #846321;
+  --ah-theme-purple: #78538e;
 }

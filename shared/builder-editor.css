@@ -1,0 +1,11 @@
+/* CreativeBuilder's coordinate contract. Shared by food, supplies and Lab.
+   Load after app geometry, before workspace. Keep illustration shadows, layer
+   order and shape-specific decoration in the app, not copies of these rules. */
+.ah-builder .free-layer{position:absolute;inset:0;container-type:size;pointer-events:none}
+.ah-builder .free-piece{position:absolute;width:max(var(--ah-control-size),calc(var(--food-size)*1cqw));height:max(var(--ah-control-size),calc(var(--food-size)*1cqw));padding:0;border:0;background:transparent;transform:translate(-50%,-50%);pointer-events:auto;touch-action:none;cursor:grab}
+.ah-builder .free-art{position:absolute;left:50%;top:50%;width:calc(var(--food-size)*1cqw);aspect-ratio:1;transform:translate(-50%,-50%) rotate(var(--angle)) scaleX(var(--flip));pointer-events:none}
+.ah-builder .free-art>svg{width:100%;height:100%}
+.ah-builder .free-piece:focus-visible{outline:3px solid var(--ah-focus)}
+
+/* Inactive mode artwork keeps its sizing box, but cannot be seen or focused. */
+.ah-builder .builder-inactive-layer{pointer-events:none!important}

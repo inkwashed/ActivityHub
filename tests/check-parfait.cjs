@@ -46,6 +46,7 @@ app.activeSlot=0;app.chooseTopping('strawberries');
 assert.equal(app.groups.get('strawberries').children.length,6);
 assert.equal(app.groups.get('apples').children.length,0);
 assert.equal(clears[0].hidden,false);clears[0].listeners.click();assert.equal(app.state.layers[0][0],null);assert.equal(clears[0].hidden,true);assert.equal(app.state.layers[0][1],'strawberries');assert.equal(app.activeSlot,0);
+assert(elements['#sentence'].textContent.includes('6 medium strawberries'));app.advancedMode=false;
 app.setBase('mint');app.setSauce('chocolate');assert(elements['#sentence'].textContent.includes('mint chocolate chip ice cream'));
 assert.equal(elements['#sentence'].textContent,'I want mint chocolate chip ice cream with strawberries and chocolate syrup.');
 assert.equal((elements['#ice-cream'].html.match(/class="scoop-syrup"/g)||[]).length,2);
@@ -66,3 +67,7 @@ app.setSauce('none');
 assert.equal(elements['#sentence'].textContent,'I want strawberries and bananas with no syrup.');
 app.clear();
 console.log('PASS: paired layers, repeated fruit, mixed-row counts, summary, editing, mode preservation, ice cream/syrup, and reset.');
+
+app.setBase('vanilla');app.chooseTopping('bananas');app.advancedMode=true;app.updateSentence();
+assert.equal(elements['#sentence'].textContent,'I want 2 medium vanilla scoops with 6 medium bananas with no syrup.');
+app.advancedMode=false;app.updateSentence();assert.equal(elements['#sentence'].textContent,'I want vanilla ice cream with bananas with no syrup.');app.clear();

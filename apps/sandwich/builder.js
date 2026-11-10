@@ -18,10 +18,12 @@
     }
    }
    this.root.querySelector('#source-choice').addEventListener('change',e=>{
-    if(this.creative?.active)return;
     const piece=this.selectedPiece();if(!piece)return;
     const type=this.config.toppings.find(x=>x.id===piece.topping);
-    piece.source=type.sources.includes(e.target.value)?e.target.value:null;this.updateSentence();
+    if(!type)return;
+    this.state.origins??={};this.state.origins[type.id]=type.sources.includes(e.target.value)?e.target.value:null;
+    if(!this.creative?.active)this.state.slots.filter(x=>x?.topping===type.id).forEach(x=>x.source=this.state.origins[type.id]);
+    this.updateSentence();
    });
    super.mount();
    document.addEventListener('activityhub:languagechange',()=>this.updateSentence());
@@ -35,22 +37,25 @@
   selectedPiece(){return this.creative?.active?this.creative.items.find(x=>x.id===this.creative.selected):this.state.slots[this.activeSlot];}
   chooseTopping(id){
    if(this.creative?.active){this.creative.add(id);return;}
-   this.state.slots[this.activeSlot]={topping:id,source:null};this.updateSentence();
+   this.state.slots[this.activeSlot]={topping:id,source:this.state.origins?.[id]||null};this.updateSentence();
   }
   updateButton(item){
    const selected=this.creative?.active?this.creative.items.some(x=>x.topping===item.id):this.state.slots?.some(x=>x?.topping===item.id);
    this.buttons.get(item.id)?.setAttribute('aria-pressed',String(!!selected));
   }
   updateSource(){
-   const piece=this.selectedPiece(),section=this.root.querySelector('#source-section');section.hidden=!!this.creative?.active||!piece;
-   if(section.hidden)return;
-   const type=this.config.toppings.find(x=>x.id===piece.topping);
-   if(!type){section.hidden=true;return;}
+   const piece=this.selectedPiece(),section=this.root.querySelector('#source-section');
+   const play=!!this.creative?.active,type=this.config.toppings.find(x=>x.id===piece?.topping);
+   section.hidden=!play&&!type;
    const select=this.root.querySelector('#source-choice');
-   this.root.querySelector('#source-label').textContent=type.label;
+   select.disabled=!type;
+   this.root.querySelector('#source-label').textContent=type?.label||t('Source');
+   if(!type){
+    select.replaceChildren();const option=document.createElement('option');option.value='';option.textContent=t('Select a filling first');select.append(option);return;
+   }
    select.replaceChildren();
    for(const value of ['',...type.sources]){const o=document.createElement('option');o.value=value;o.textContent=value||t('Choose a source');select.append(o);}
-   select.value=piece.source||'';
+   select.value=this.state.origins?.[type.id]||'';
   }
   decorateInitials(){
    const sentence=this.root.querySelector('#sentence');
@@ -68,7 +73,11 @@
   }
   updateSentence(){
    const play=this.creative?.active,items=play?this.creative.orderedItems():this.state.slots.filter(Boolean);
-   const output=window.SandwichLesson.describe(items,this.config,!play&&this.advancedMode);this.setSentence(output.sentence);this.decorateInitials();
+   // Migrate old slot-specific countries once; use the earliest explicit choice.
+   this.state.origins??={};
+   for(const piece of items){const type=this.config.toppings.find(x=>x.id===piece.topping);if(type&&!(type.id in this.state.origins)&&type.sources.includes(piece.source))this.state.origins[type.id]=piece.source;}
+   const described=items.map(piece=>({...piece,source:this.state.origins[piece.topping]||null}));
+   const output=window.SandwichLesson.describe(described,this.config,this.advancedMode);this.setSentence(output.sentence);this.decorateInitials();
    this.root.querySelector('#source-sentence').textContent='';
    this.root.querySelector('#sandwich').setAttribute('aria-label',output.sentence);
    const slots=this.root.querySelector('#slots');slots.hidden=!!play;
@@ -88,7 +97,7 @@
    this.root.querySelector('#sandwich').style.backgroundImage=play?`url("data:image/svg+xml,${encodeURIComponent(window.SandwichLesson.svg([],this.config,true))}")`:'';
    this.config.toppings.forEach(x=>this.updateButton(x));this.updateSource();
   }
-  clear(){if(this.creative?.active){this.creative.clear();return;}this.state.slots=[null,null,null];this.activeSlot=0;this.updateSentence();this.announce(t('Sandwich reset.'));}
+  clear(){this.state.origins={};if(this.creative?.active){this.creative.clear();return;}this.state.slots=[null,null,null];this.activeSlot=0;this.updateSentence();this.announce(t('Sandwich reset.'));}
  }
  window.sandwichBuilder=new SandwichBuilder(document.querySelector('#builder'),window.SANDWICH_CONFIG);
 })();

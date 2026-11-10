@@ -13,3 +13,14 @@ proto.trimArtwork.call(editor,item);assert.equal(item.artBounds.height,.35);asse
 const hit=art.hit;proto.trimArtwork.call(editor,item);assert.equal(hit,art.hit);
 item.renderedArt='changed';proto.trimArtwork.call(editor,item);assert.notEqual(hit,art.hit);
 console.log('PASS: usable-region reach, large-item containment, non-square SVG bounds and art-change measurement.');
+// Transient hidden/zero/non-finite boxes must not poison saved coordinates.
+const realRect=editor.pizza.getBoundingClientRect,realFrame=frame.getBoundingClientRect;
+for(const bad of [0,NaN,Infinity])for(const axis of ['width','height']){
+ item={x:43,y:62,scale:1,rotate:45,flip:false};
+ editor.pizza.getBoundingClientRect=()=>({...realRect(),[axis]:bad});proto.constrain.call(editor,item);
+ assert.equal(item.x,43);assert.equal(item.y,62);assert(!JSON.stringify(item).includes('null'));
+ editor.pizza.getBoundingClientRect=realRect;frame.getBoundingClientRect=()=>({...realFrame(),[axis]:bad});proto.constrain.call(editor,item);assert.equal(item.x,43);assert.equal(item.y,62);
+ frame.getBoundingClientRect=realFrame;
+}
+item.x=999;proto.constrain.call(editor,item);assert(item.x<999,'bounds resume once measurable');
+console.log('PASS: unavailable geometry preserves coordinates and resumes on valid bounds.');

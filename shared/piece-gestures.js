@@ -38,6 +38,7 @@
      item.scale=origin.scale*distance/origin.distance;
     }else{
      const rect=this.options.bounds();
+     if(![rect.width,rect.height].every(n=>Number.isFinite(n)&&n>0)){this.rebase();return;}
      item.x=origin.x+(points[0].x-origin.point.x)/rect.width*100;
      item.y=origin.y+(points[0].y-origin.point.y)/(rect.height||rect.width)*100;
     }

@@ -55,8 +55,8 @@
     mount() {
       if (document.addEventListener) document.addEventListener('activityhub:languagechange', () => this.config.toppings.forEach(item => this.updateButton(item)));
       const advancedToggle = document.querySelector('#advanced-mode');
-      advancedToggle.addEventListener('change', () => {
-        this.advancedMode = this.creative?.active || this.config.easyOnly ? false : advancedToggle.checked;
+      advancedToggle?.addEventListener('change', () => {
+        this.advancedMode = (this.creative?.active && !this.config.independentDifficulty) || this.config.easyOnly ? false : advancedToggle.checked;
         advancedToggle.checked = this.advancedMode;
         this.updateSentence();
         this.announce(`${t(this.advancedMode ? 'Hard mode.' : 'Easy mode.')} ${this.root.querySelector('#sentence').textContent}`);
@@ -123,7 +123,7 @@
       this.updateSentence();
       if (announce && sauce) this.announce(`${sauce.label}: ${t('selected.')}`);
     }
-    setLevel(id, level, announce = true) {
+    setLevel(id, level, announce = true, {animate=true} = {}) {
       const topping = this.config.toppings.find(item => item.id === id);
       if (!topping || !Number.isInteger(level) || level < 0 || level > 3) return;
       const previous = this.state.toppings[id];
@@ -138,7 +138,7 @@
       for (let i = start; i < count; i++) {
         const point = points[i];
         const piece = document.createElement('span');
-        piece.className = 'piece';
+        piece.className = animate?'piece':'piece restored-piece';
         piece.style.cssText = `left:${point.x}%;top:${point.y}%;width:${point.size || topping.size}%;--rotation:${point.rotate}deg;--scale:${point.scale};--delay:${(i-start)*22}ms`;
         piece.innerHTML = topping.art;
         group.append(piece);
@@ -185,7 +185,7 @@
       }
     }
     updateSentence() {
-      if (this.creative?.active) {
+      if (this.creative?.active && !this.config.creativeQuantityLevels) {
         const words=[];
         for(const topping of this.creative.catalog) {
           for(const band of ['small','medium','big']) {
@@ -202,8 +202,12 @@
         this.root.querySelector(this.config.sceneSelector||'#pizza').setAttribute('aria-label',sentence);
         return;
       }
+      // Opt-in lesson amounts: PLAY counts map to the same configured bands as LEARN.
+      const levels=this.creative?.active&&this.config.creativeQuantityLevels
+        ? Object.fromEntries(this.config.toppings.map(item=>{const count=this.creative.items.filter(p=>p.topping===item.id).length;return [item.id,!count?0:count<=item.counts[1]?1:count<=item.counts[2]?2:3]}))
+        : this.state.toppings;
       const sauce = this.config.sauces.find(item => item.id === this.state.sauce);
-      const chosen = this.config.toppings.filter(item => this.state.toppings[item.id] > 0);
+      const chosen = this.config.toppings.filter(item => levels[item.id] > 0);
       const joinList = words => words.length < 2 ? (words[0] || '')
         : words.length === 2 ? words.join(' and ')
         : `${words.slice(0, -1).join(', ')}, and ${words[words.length - 1]}`;
@@ -211,7 +215,7 @@
       if (this.advancedMode) {
         const quantityWords = { 1: 'a little bit of ', 2: 'some ', 3: 'a lot of ' };
         const groups = [1, 2, 3].map(level => {
-          const names = chosen.filter(item => this.state.toppings[item.id] === level).map(item => item.label);
+          const names = chosen.filter(item => levels[item.id] === level).map(item => item.label);
           return names.length ? quantityWords[level] + joinList(names) : null;
         }).filter(Boolean);
         list = joinList(groups);
@@ -221,8 +225,8 @@
       }
       // "Everything" means every configured topping, not merely the selected ones.
       if (this.advancedMode && chosen.length === this.config.toppings.length && chosen.length) {
-        const level = this.state.toppings[chosen[0].id];
-        if (chosen.every(item => this.state.toppings[item.id] === level)) {
+        const level = levels[chosen[0].id];
+        if (chosen.every(item => levels[item.id] === level)) {
           list = { 1: 'a little bit of everything', 2: 'some of everything', 3: 'a lot of everything' }[level];
         }
       }

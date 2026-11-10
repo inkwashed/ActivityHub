@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 class Element{
- constructor(){this.children=[];this.props={};this.style={setProperty:(k,v)=>this.props[k]=v};this.clientHeight=140;this.long=false;}
+ constructor(){this.children=[];this.props={};this.style={setProperty:(k,v)=>this.props[k]=v,removeProperty:k=>delete this.props[k]};this.clientHeight=140;this.long=false;}
  append(node){if(node.parent)node.parent.children.splice(node.parent.children.indexOf(node),1);node.parent=this;this.children.push(node);}
  before(node){const p=this.parent;node.parent=p;p.children.splice(p.children.indexOf(this),0,node);}
  get scrollHeight(){return this.long?(parseInt(this.props['--output-font-size'])>17?170:136):100;}
@@ -8,11 +8,11 @@ class Element{
 const kitchen=new Element(),scene=new Element(),order=new Element(),source=new Element();
 kitchen.append(scene);kitchen.append(order);kitchen.append(source);
 kitchen.querySelector=s=>{if(s==='.order')return order;if(s==='#source-sentence')return source;assert.ok(s.includes('[data-builder-scene]'));return scene;};
-const tools=new Element();const root={querySelector:s=>s==='#free-tools'?tools:kitchen},queue=[];let changed,resized,ready;
+const tools=new Element();const root={classList:{contains:()=>panel},querySelector:s=>s==='#free-tools'?tools:kitchen},queue=[];let changed,resized,ready,stopped=0,panel=false;
 vm.runInNewContext(fs.readFileSync('shared/builder-workspace.js','utf8'),{
  CustomEvent:class{constructor(type,options){this.detail=options.detail}},
- document:{querySelector:()=>root,createElement:()=>new Element(),dispatchEvent:event=>{ready=event.detail}},window:{ResizeObserver:true,addEventListener(){}},
- requestAnimationFrame:fn=>queue.push(fn),MutationObserver:class{constructor(fn){changed=fn}observe(){}},ResizeObserver:class{constructor(fn){resized=fn}observe(){}}
+ document:{querySelector:()=>root,createElement:()=>new Element(),dispatchEvent:event=>{ready=event.detail}},window:{ResizeObserver:true,addEventListener(){},removeEventListener(){}},
+ cancelAnimationFrame(){},requestAnimationFrame:fn=>queue.push(fn),MutationObserver:class{constructor(fn){changed=fn}observe(){}disconnect(){stopped++}},ResizeObserver:class{constructor(fn){resized=fn}observe(){}disconnect(){stopped++}}
 });
 const [frame,output]=kitchen.children;
 assert.equal(frame.className,'builder-play-area');assert.equal(frame.children[0].className,'builder-art-area');assert.equal(frame.children[0].children[0],scene);assert.equal(frame.children[1],tools);assert.equal(ready,frame.children[0]);
@@ -24,3 +24,6 @@ output.long=false;changed();queue.shift()();assert.equal(output.props['--output-
 Object.defineProperty(output,'scrollHeight',{get:()=>300});changed();queue.shift()();
 assert.equal(output.props['--output-font-size'],'16px');assert.equal(output.tabIndex,0);
 console.log('PASS: stable scene, source placement, bounded fitting, font restoration and accessible long-text fallback.');
+
+panel=true;output.stopFitting();assert.equal(stopped,2);assert.equal(output.props['--output-font-size'],undefined);changed();queue.shift()();assert.equal(output.props['--output-font-size'],undefined);assert.equal(output.tabIndex,-1);
+console.log('PASS: panel output stops legacy observers; pending text fit cannot shrink growing output.');

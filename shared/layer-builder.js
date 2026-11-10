@@ -82,6 +82,9 @@
    const sentence=order?`I want ${order}.`:'I want ….';
    this.setSentence(sentence);
    this.root.querySelector(this.config.sceneSelector).setAttribute('aria-label',`Parfait with whipped cream. ${sentence.replace(/\n/g,' ')}`);
+   this.updateSlotControls();
+  }
+  updateSlotControls(){
    const number=this.root.querySelector('#layer-number');
    if(number)number.textContent=`${t('Layer')} ${this.activeLayer+1} / ${this.state.layers.length}`;
    this.root.querySelectorAll('[data-layer-slot]').forEach(button=>{

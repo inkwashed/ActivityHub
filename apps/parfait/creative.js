@@ -11,8 +11,8 @@
     button.setAttribute('aria-pressed',String(button.dataset.base==='none'?!editor.items.some(item=>editor.topping(item).category==='scoop'):present));
    });
   },
-  scene:'#parfait',workspace:'#parfait-workspace',menuBody:'.parfait-menu-body',menu:'#parfait-menu',easyOnly:true,
-  help:{learn:'Choose a flavor, pick two fruits, and add syrup. Swap the fruit choices to change their order.',play:'Tap a flavor to add a scoop, or a fruit to add one piece. Drag to move it, or pinch to resize. Use the tools to rotate, flip, copy, or delete it.'},
+  scene:'#parfait',workspace:'#parfait-workspace',menuBody:'.parfait-menu-body',menu:'#parfait-menu',
+  help:{learn:'Choose a flavor, pick two fruits, and add syrup. Swap the fruit choices to change their order.',play:'Tap flavors or fruit to add pieces. Drag to arrange; pinch or use the tools to resize. Use the item menu to bring hidden pieces into view.'},
   resetMessage:'Parfait reset. Choose your fruit.',
   constrain(item,editor){
    item.scale=Math.max(editor.sizes.min,Math.min(editor.sizes.max,item.scale));
@@ -22,3 +22,7 @@
  });
  builder.creative.updateHelp();
 })();
+
+const parfaitDifficultyHelp=document.querySelector('#difficulty-info-dialog');
+document.querySelector('#difficulty-info')?.addEventListener('click',()=>parfaitDifficultyHelp.showModal());
+document.querySelector('#difficulty-info-close')?.addEventListener('click',()=>parfaitDifficultyHelp.close());

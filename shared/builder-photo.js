@@ -72,6 +72,11 @@ window.BuilderPhoto = options => {
       lines.forEach((line, i) => context.fillText(line, 500, 1060 + i * 40));
       }
       }
+      // Review-only URL flag; ordinary exports remain unchanged until approved.
+      if(!options.canvas&&!options.square&&window.location?.search&&new URLSearchParams(window.location.search).get('export-tagline')==='preview'){
+        const context=canvas.getContext('2d');context.save();context.textAlign='left';context.textBaseline='alphabetic';context.fillStyle='#627067';context.font='14px Arial';
+        context.fillText(`Let's EiGo! ・${options.appName||document.title.split('·')[0].trim()}`,50,30);context.restore();
+      }
       const blob = await new Promise((resolve, reject) => canvas.toBlob(value => value ? resolve(value) : reject(new Error('Export failed')), 'image/png'));
       if (token !== generation || !shareDialog.open) return;
       photoURL = URL.createObjectURL(blob);

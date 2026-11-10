@@ -26,3 +26,5 @@ window.ActivityHubI18n.register({"Flavor":"フレーバー","Fruit":"フルー�
 window.ActivityHubI18n.register({"Tap a flavor to add a scoop, or a fruit to add one piece. Drag to move it, or pinch to resize. Use the tools to rotate, flip, copy, or delete it.":"フレーバーでアイスを1つ、フルーツで材料を1つ追加できます。ドラッグで移動、2本指で大きさを変え、ツールで回転・反転・コピー・削除できます。"});
 
 window.ActivityHubI18n.register({"Your parfait!":"あなたのパフェ！","Your parfait in a white photo frame":"白いフレームに入ったパフェの写真"});
+
+window.ActivityHubI18n.register({"Play mode.": "PLAYモード。", "About difficulty": "難しさについて", "EASY names ingredients. HARD adds counts and small, medium, or big sizes. LEARN describes the preset pieces; PLAY describes your edited pieces.": "EASYでは材料の名前、HARDでは個数と small・medium・big の大きさも伝えます。LEARNは決まった配置、PLAYは自分で編集した材料を文にします。", "Tap flavors or fruit to add pieces. Drag to arrange; pinch or use the tools to resize. Use the item menu to bring hidden pieces into view.": "味や果物をタップして追加します。ドラッグで移動し、ピンチやボタンで大きさを変えます。隠れた材料は選択メニューから選ぶと見える場所に移動します。"});

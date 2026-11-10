@@ -1,9 +1,23 @@
 (() => {
+  // Keep the drawing's pizza center (50,50), enclosing the full editing frame
+  // and conservative rotated SVG bounds. Do not move stored item coordinates.
+  function balancedFrame(builder){
+    const frame=builder.exportFrame?.({x:3,y:3,width:94,height:94},{left:0,top:0,side:100,center:{x:50,y:50}})||{left:0,top:0,side:100};
+    let radius=Math.max(50,Math.abs(frame.left-50),Math.abs(frame.top-50),Math.abs(frame.left+frame.side-50),Math.abs(frame.top+frame.side-50));
+    if(builder.creative?.active)for(const p of builder.creative.items){
+      const type=builder.config.toppings.find(t=>t.id===p.topping);if(!type)continue;
+      const angle=(p.rotate||0)*Math.PI/180;
+      const half=type.size*.94*p.scale/2*(Math.abs(Math.cos(angle))+Math.abs(Math.sin(angle)))+1;
+      radius=Math.max(radius,Math.abs((p.x-50)*.94)+half,Math.abs((p.y-50)*.94)+half);
+    }
+    return {left:50-radius,top:50-radius,side:radius*2};
+  }
+  window.PizzaPhotoFrame=balancedFrame;
   function pizzaSVG(builder) {
     const sauce = builder.config.sauces.find(item => item.id === builder.state.sauce);
-    // Fixed photo framing in both modes; overflow crops at the photo edge.
-    const min=0,max=100;
-    const oak=`<g id="oak-counter" transform="translate(${min} ${min}) scale(${(max-min)/100})">
+    // Preserve the baked-photo inset while enclosing the full editable frame.
+    const {left,top,side}=balancedFrame(builder);
+    const oak=`<g id="oak-counter" transform="translate(${left} ${top}) scale(${side/100})">
       <rect width="100" height="100" fill="#d9b783"/>
       <path d="M0 0H25V100H0ZM50 0H75V100H50Z" fill="#e2c292"/>
       <path d="M25 0V100M50 0V100M75 0V100" stroke="#b78e58" stroke-width=".35" opacity=".5"/>
@@ -12,7 +26,7 @@
       </g>
       <path d="M11 5Q8 16 11 28M37 70Q40 82 37 94M88 6Q85 18 88 32" fill="none" stroke="#f1d8af" stroke-width=".5" opacity=".65"/>
     </g>`;
-    let art = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="${min} ${min} ${max-min} ${max-min}"><defs><radialGradient id="crust"><stop offset="0.78" stop-color="#edba60"/><stop offset="0.9" stop-color="#db963b"/><stop offset="0.97" stop-color="#ad6426"/><stop offset="1" stop-color="#e6ae54"/></radialGradient></defs>${oak}<circle cx="50" cy="51" r="48" fill="#543318" opacity=".15"/><circle cx="50" cy="50" r="47" fill="url(#crust)"/>`;
+    let art = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="${left} ${top} ${side} ${side}"><defs><radialGradient id="crust"><stop offset="0.78" stop-color="#edba60"/><stop offset="0.9" stop-color="#db963b"/><stop offset="0.97" stop-color="#ad6426"/><stop offset="1" stop-color="#e6ae54"/></radialGradient></defs>${oak}<circle cx="50" cy="51" r="48" fill="#543318" opacity=".15"/><circle cx="50" cy="50" r="47" fill="url(#crust)"/>`;
     if (sauce && !sauce.empty) art += `<circle cx="50" cy="50" r="40" fill="${sauce.color}"/>`;
     // Toasted rim freckles only in the finished photo; the builder stays uncooked.
     for (let i = 0; i < 38; i++) {

@@ -1,0 +1,42 @@
+/* Food-only panel rhythm. Load after workspace/card styles. Other builders opt
+   in only after reviewing their own controls and content. */
+.ah-builder #builder.food-builder :is(#pizza-menu,#parfait-menu,#sandwich-menu){
+ --food-density:0;--learn-card-height:68px;
+ --food-section-gap:calc(8px - 2px * var(--food-density));--food-learn-padding:calc(6px - 2px * var(--food-density));
+ --play-choice-size:calc(76px - 8px * var(--food-density));--play-food-size:calc(64px - 8px * var(--food-density));
+ display:flex;flex-direction:column;gap:var(--food-section-gap);padding:calc(10px - 2px * var(--food-density));
+}
+/* The bounded choices column supplies actual available height, including the
+   effects of wrapped browser/app chrome. Phones keep their natural page flow. */
+@media(min-width:740px){
+ .ah-builder #builder.food-builder>[data-jump-section="choices"]{container-type:size;container-name:food-choices}
+}
+/* Available-column density budgets remain stable as the sentence grows. The taller Parfait
+   panel stays compact longer; Pizza can retain its larger previews sooner. */
+@container food-choices (max-height:600px){.ah-builder #builder.food-builder #pizza-menu{--food-density:1}}
+@container food-choices (max-height:640px){.ah-builder #builder.food-builder #sandwich-menu{--food-density:1}}
+@container food-choices (max-height:700px){.ah-builder #builder.food-builder #parfait-menu{--food-density:1}}
+.ah-builder #builder.food-builder :is(#pizza-menu,#parfait-menu,#sandwich-menu) :is(.pane-content,.fruit-section){display:flex;flex-direction:column;gap:var(--food-section-gap)}
+.ah-builder #builder.food-builder :is(#pizza-menu,#parfait-menu,#sandwich-menu) :is(fieldset,.topping-section,.syrup-section,.layer-navigation,.choice-pager,.first-heading,#slots,#piece-picker-wrap,#source-section,.builder-actions,.pizza-actions){margin:0}
+.ah-builder #builder.food-builder :is(#pizza-menu,#parfait-menu,#sandwich-menu) :is(legend,.ah-section-heading,h2){margin:0 0 var(--food-section-gap);padding:0}
+.ah-builder #builder.food-builder :is(#pizza-menu,#parfait-menu,#sandwich-menu) :is(.layer-navigation,.first-heading) h2{margin:0}
+.ah-builder #builder.food-builder :is(#pizza-menu,#parfait-menu,#sandwich-menu) .hint{margin:0 0 var(--food-section-gap)}
+.ah-builder #builder.food-builder :is(#pizza-menu,#parfait-menu,#sandwich-menu) :is(.four-choice-row,.layer-slots,.layer-navigation,.build-mode-controls,.builder-actions,.pizza-actions,#slots,#piece-picker-wrap,#source-section,.first-heading){gap:6px}
+.ah-builder #builder.food-builder :is(#pizza-menu,#parfait-menu,#sandwich-menu) #topping-options .topping-button,
+.ah-builder #builder.food-builder :is(#pizza-menu,#parfait-menu,#sandwich-menu) .four-choice-row .ah-choice{padding-block:var(--food-learn-padding)}
+.ah-builder #builder.food-builder.is-create :is(#pizza-menu,#parfait-menu,#sandwich-menu) #topping-options .topping-button,
+.ah-builder #builder.food-builder.is-create :is(#pizza-menu,#parfait-menu,#sandwich-menu) .four-choice-row .ah-choice{padding:4px;min-height:var(--play-choice-size)}
+.ah-builder #builder.food-builder #sandwich-menu #slots .slot{height:auto;min-height:48px}
+.ah-builder #builder.food-builder :is(#pizza-menu,#parfait-menu,#sandwich-menu) :is(button:not(.ah-choice):not(.topping-button):not(.slot):not([data-layer-slot]),select,.ah-mode-toggle){min-width:44px;min-height:44px}
+.ah-builder #builder.food-builder #sandwich-menu .bread-choice .ingredient-art{width:var(--play-food-size);height:calc(var(--play-food-size)*.8125)}
+/* Native fieldset legends own only their following gap; grid/flex parents own
+   section separation. Labels, dots and enlarged text can increase card height. */
+@media(min-width:740px){
+ .ah-builder #builder.food-builder .ah-section-number{width:26px;height:26px;font-size:15px}
+}
+.ah-builder #builder.food-builder .pantry .ingredient-name{line-height:1.25}
+.ah-builder #builder.food-builder #sandwich-menu #source-section>h2{margin:0}
+/* Enlarged Japanese headings may take another line without widening a panel. */
+.ah-builder #builder.food-builder :is(#pizza-menu,#parfait-menu,#sandwich-menu) :is(fieldset,legend,.layer-navigation h2){min-width:0;max-width:100%;box-sizing:border-box}
+.ah-builder #builder.food-builder #parfait-menu .layer-navigation h2{flex-shrink:1}
+.ah-builder #builder.food-builder .four-choice-row .ah-choice>span:nth-child(2){max-width:100%;overflow-wrap:anywhere}
