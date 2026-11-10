@@ -2,7 +2,7 @@
 
 NEW HORIZON Elementary 5, Unit 5: “Let’s go to the zoo.” Open `apps/mytown/index.html` with the repository structure intact, or serve the repository and visit `/apps/mytown/`. Not listed on the homepage or deployed yet.
 
-BUILD: select one of 12 lots, then choose from the 24 textbook places. Selecting another place replaces that lot; Clear block removes it. Clicking outside a lot clears selection. The sentence groups repeated places: “We have a park and 2 libraries.”
+BUILD: the upper-left lot (A1) is selected on page open, so a place can be inserted immediately. Select any of the 12 lots, then choose from the 24 textbook places. Selecting another place replaces that lot; Clear block removes it. Clicking outside a lot clears selection. The sentence groups repeated places: “We have a park and 2 libraries.”
 
 ROUTE: buildings are locked. Select an occupied lot or use Destination, trace/tap adjacent street intersections from the blue car. Its starting point is always the south-center intersection, facing north; routes may begin with a left or right turn. Undo removes an edge; Reset clears only the route. Returning to BUILD preserves the town. BUILD Reset clears the whole town. State saves locally using shared autosave. The same Reset button offers temporary Restore independently for BUILD and ROUTE; new edits invalidate that mode’s recovery. This uses the map-specific BuilderReset adapter, not CreativeBuilder’s state schema.
 

@@ -1,7 +1,7 @@
 /* Map editing deliberately stays independent of the free-position food editor. */
 (() => {
  const M=window.TownModel,A=window.TownArt,$=s=>document.querySelector(s),t=s=>window.ActivityHubI18n?.t(s)||s;
- let state=M.initial(),routeMode=false,selected=null,dragging=false,save,recovery;
+ let state=M.initial(),routeMode=false,selected=0,dragging=false,save,recovery;
  const voice={root:document,config:{toppings:M.places.map(label=>({label})),sauces:[]}};
  const announce=message=>{$('#announcement').textContent=t(message)};
  const nodeLabel=n=>n>=25?`${t('North side of tracks')}: ${Math.floor((n-25)/5)+1}, ${(n-25)%5+1}`:`${t('Street')} ${M.xy(n)[0]+1}, ${M.xy(n)[1]+1}`;

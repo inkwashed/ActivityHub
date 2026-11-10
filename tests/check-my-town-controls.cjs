@@ -9,7 +9,9 @@ const context={window:{addEventListener(){},ActivityHubI18n:{t:s=>lang==='ja'?({
 context.window.FoodBuilder={prototype:{setSentence(text){get('#sentence').textContent=text}}};context.window.BuilderPhoto=()=>{};
 context.window.ActivityAutosave={connect(id,adapter){session=adapter;return {flush(){if(adapter.canSave()){stored=JSON.stringify(adapter.capture());writes++}}}}};
 vm.createContext(context);for(const f of ['apps/mytown/model.js','apps/mytown/art.js','shared/builder-autosave.js','apps/mytown/app.js'])vm.runInContext(fs.readFileSync(f,'utf8'),context);
-get('#blocks').children[0].onclick();get('#place-options').children[0].onclick();assert.match(get('#sentence').textContent,/house/);
+assert.equal(get('#blocks').children[0].attrs['aria-pressed'],'true');
+assert.equal(get('#place-options').children[0].disabled,false);
+get('#place-options').children[0].onclick();assert.equal(JSON.parse(stored).blocks[0],'house');assert.match(get('#sentence').textContent,/house/);
 const reset=()=>get('#clear').listeners.click({preventDefault(){},stopImmediatePropagation(){}});
 const original=stored;reset();assert(!get('#sentence').textContent.includes('house'));reset();assert.equal(stored,original);
 get('#route-mode').onchange({target:{checked:true}});assert.equal(get('#nodes').children[17].attrs['aria-current'],'location');
