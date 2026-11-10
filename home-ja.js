@@ -108,3 +108,8 @@ window.ActivityHubI18n.register({
   "Gold — warm honey and cream": "ゴールド：暖かな蜂蜜色とクリーム",
   "Purple — soft lilac and plum": "パープル：柔らかなライラックとプラム",
   "Theme changed for this visit. It could not be saved on this device.": "テーマを変更しました。この端末には保存できませんでした。",'Report a bug':'不具合を報告'});
+
+window.ActivityHubI18n.register({
+  "Build your town, trace a route, and give a partner directions to your favorite places.": "自分の町を作り、道順をたどって、お気に入りの場所まで友達を案内しよう。",
+  "Build your town": "町を作ろう"
+});

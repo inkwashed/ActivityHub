@@ -91,5 +91,17 @@
   return s;
  }
 
- window.TownModel={heading,places,initial,movePlace,extend,side,directions,inventory,restore,xy,bridge,point,blockRect,railRows,railNode,track,railSpacing,activeNode,mapHeight,shift,nodeCount:40};
+ // Resolve overlapping 44px hit squares by distance in rendered CSS pixels.
+ function hitNode(x,y,width,height,blocks=[]){
+  if(![x,y,width,height].every(Number.isFinite)||width<=0||height<=0)return -1;
+  let best=-1,distance=Infinity;
+  for(let n=0;n<40;n++){
+   if(!activeNode(n,blocks))continue;
+   const p=point(n,blocks),dx=x-p[0]*width/720,dy=y-p[1]*height/mapHeight(blocks);
+   if(Math.abs(dx)<=22&&Math.abs(dy)<=22&&Math.hypot(dx,dy)<distance){best=n;distance=Math.hypot(dx,dy);}
+  }
+  return best;
+ }
+
+ window.TownModel={hitNode,heading,places,initial,movePlace,extend,side,directions,inventory,restore,xy,bridge,point,blockRect,railRows,railNode,track,railSpacing,activeNode,mapHeight,shift,nodeCount:40};
 })();

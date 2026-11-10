@@ -42,9 +42,18 @@ function generate(){
   const palette=Object.fromEntries([['case','blue'],...config.toppings.map(t=>[t.id,t.id==='pen'?'red':t.color])]);
   outputs['class-supplies']=e.render({config,creative:{active:false},state:{toppings:Object.fromEntries(config.toppings.map(t=>[t.id,1]))},palette:()=>palette});
  }
+ {
+  const window={},context=vm.createContext({window});
+  for(const file of ['apps/my-town/model.js','apps/my-town/art.js']){
+   const source=fs.readFileSync(path.join(root,file),'utf8');sources.set(file,hash(source));vm.runInContext(source,context,{filename:file});
+  }
+  const state=window.TownModel.initial();
+  state.blocks=['house','park','library','zoo','hospital','station','museum','restaurant','post office','supermarket','elementary school','bus stop'];
+  outputs['my-town']=window.TownArt.map(state,false)+'\n';
+ }
  for(const [name,svg] of Object.entries(outputs))if(/NaN|undefined/.test(svg))throw Error(`${name}: invalid export geometry`);
  sources.set('scripts/generate-home-previews.cjs',hash(fs.readFileSync(__filename)));
- const manifest={policy:'LEARN 1133x678 reference square Save artwork, without polaroid caption; see docs/HOME-PREVIEWS.md',sources:Object.fromEntries([...sources].sort()),outputs:Object.fromEntries(Object.entries(outputs).map(([name,svg])=>[`${name}-preview.svg`,hash(svg)]))};
+ const manifest={policy:'Food/supplies: LEARN 1133x678 reference; My Town: fixed BUILD map. Square Save artwork, without polaroid caption; see docs/HOME-PREVIEWS.md',sources:Object.fromEntries([...sources].sort()),outputs:Object.fromEntries(Object.entries(outputs).map(([name,svg])=>[`${name}-preview.svg`,hash(svg)]))};
  return {outputs,manifest};
 }
 function run(check=false){
@@ -57,7 +66,7 @@ function run(check=false){
   else fs.writeFileSync(path.join(root,file),content);
  }
  if(stale)process.exitCode=1;
- else console.log(check?'Homepage previews and source fingerprints are current.':'Updated four homepage previews from production Save renderers.');
+ else console.log(check?'Homepage previews and source fingerprints are current.':'Updated five homepage previews from production Save renderers.');
 }
 module.exports={generate,run};
 if(require.main===module)run(process.argv.includes('--check'));

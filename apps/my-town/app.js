@@ -6,6 +6,12 @@
  const announce=message=>{$('#announcement').textContent=t(message)};
  const nodeLabel=n=>n>=25?`${t('North side of tracks')}: ${Math.floor((n-25)/5)+1}, ${(n-25)%5+1}`:`${t('Street')} ${M.xy(n)[0]+1}, ${M.xy(n)[1]+1}`;
  const blockName=i=>`${String.fromCharCode(65+i%4)}${1+Math.floor(i/4)}`;
+ const moves={up:-4,down:4,left:-1,right:1};
+ function moveTarget(from,direction){
+  if(from===null||!state.blocks[from])return null;
+  const delta=moves[direction],to=from+delta;
+  return to<0||to>=12||(Math.abs(delta)===1&&Math.floor(from/4)!==Math.floor(to/4))?null:to;
+ }
  function sentence(){const text=routeMode?(M.directions(state)||'Go straight for … blocks.'):M.inventory(state.blocks);window.FoodBuilder.prototype.setSentence.call(voice,text);}
  function render(){
   $('#map-art').innerHTML=A.map(state,routeMode);
@@ -14,16 +20,18 @@
   [...$('#nodes').children].forEach((b,n)=>{const [x,y]=M.point(n,state.blocks);b.hidden=!M.activeNode(n,state.blocks);b.setAttribute('aria-label',nodeLabel(n));if(n===state.route.at(-1))b.setAttribute('aria-current','location');else b.removeAttribute('aria-current');b.classList.toggle('car-node',n===state.route.at(-1));b.style.left=`${x/7.2}%`;b.style.top=`${y/height*100}%`;});
   $('#question').textContent=routeMode?`Where is the ${state.destination===null?'…':state.blocks[state.destination]}?`:'What do you have in your town?';
   [...$('#blocks').children].forEach((b,i)=>{b.disabled=routeMode&&!state.blocks[i];b.setAttribute('aria-pressed',String(i===(routeMode?state.destination:selected)));b.setAttribute('aria-label',`${blockName(i)}: ${state.blocks[i]||t('Empty block')}`);b.style.touchAction=!routeMode&&state.blocks[i]?'none':'auto'});
-  $('#nodes').hidden=!routeMode;$('#build-tools').hidden=routeMode;$('#route-tools').hidden=!routeMode;
+  $('#town-tools').hidden=routeMode;$('#nodes').hidden=!routeMode;$('#build-tools').hidden=routeMode;$('#route-tools').hidden=!routeMode;
   [...$('#place-options').children].forEach((b,i)=>{b.disabled=selected===null;b.setAttribute('aria-pressed',String(selected!==null&&state.blocks[selected]===M.places[i]));});
   $('#remove').disabled=selected===null||!state.blocks[selected];
+  for(const direction of Object.keys(moves))$('#move-'+direction).disabled=moveTarget(selected,direction)===null;
+  $('#duplicate').disabled=selected===null||!state.blocks[selected]||!state.blocks.includes(null);
   $('#destination').innerHTML='<option value="">…</option>'+state.blocks.map((name,i)=>name?`<option value="${i}">${name} · ${blockName(i)}</option>`:'').join('');$('#destination').value=state.destination??'';
   $('#undo').disabled=state.route.length<2;
   $('#route-status').textContent=t(state.destination===null?'Add places in BUILD, then choose a destination.':M.side(state.route,state.destination,state.facing,state.blocks)?'Destination reached!':'Follow the dots to a street beside your destination.');
   sentence();save?.flush();
  }
  function resetRoute(){state.route=[17];state.facing=0;}
- M.places.forEach(name=>{const b=document.createElement('button');b.type='button';b.className='ah-choice';b.innerHTML=A.icon(name)+`<span>${name}</span>`;b.onclick=()=>{if(selected===null)return;state.blocks[selected]=name;state.destination=null;resetRoute();render()};$('#place-options').append(b)});
+ M.places.forEach(name=>{const b=document.createElement('button');b.type='button';b.className='ah-choice';b.innerHTML=A.icon(name)+`<span>${name}</span>`;b.onclick=()=>{if(selected===null)return;state.blocks[selected]=name;selected=Math.min(selected+1,state.blocks.length-1);state.destination=null;resetRoute();render()};$('#place-options').append(b)});
  for(let i=0;i<12;i++){const b=document.createElement('button'),r=M.blockRect(i);b.type='button';b.dataset.block=i;b.style.cssText=`left:${r.x/7.2}%;top:${r.y/7.2}%;width:${98/7.2}%;height:${98/7.2}%`;b.onclick=()=>{if(routeMode){state.destination=i;resetRoute();}else selected=i;render()};$('#blocks').append(b)}
  // BUILD drag keeps the town unchanged until the drop, including station geometry.
  let pickup=null,suppressClick=false;
@@ -70,7 +78,7 @@
  $('#town-map').addEventListener('click',e=>{if(suppressClick&&e.detail!==0){suppressClick=false;e.preventDefault();e.stopImmediatePropagation();}},true);
  function visit(n){if(state.destination===null||!M.activeNode(n,state.blocks))return;const next=M.extend(state.route,n,state.facing,state.blocks);if(next!==state.route){state.route=next;if(M.side(next,state.destination,state.facing,state.blocks))dragging=false;render();}}
  for(let n=0;n<M.nodeCount;n++){const b=document.createElement('button'),[x,y]=A.point(n);b.type='button';b.style.cssText=`left:${x/7.2}%;top:${y/7.2}%`;b.setAttribute('aria-label',n>=25?`North side of tracks, row ${Math.floor((n-25)/5)+1}, crossing ${(n-25)%5+1}`:`Street ${M.xy(n)[0]+1}, ${M.xy(n)[1]+1}`);b.dataset.node=n;b.onclick=e=>{if(e.detail===0)visit(n)};$('#nodes').append(b)}
- const map=$('#town-map');map.addEventListener('pointerdown',e=>{const node=e.target.closest('[data-node]');if(!routeMode||!node)return;e.preventDefault();dragging=true;map.setPointerCapture(e.pointerId);visit(Number(node.dataset.node));});
+ const map=$('#town-map');map.addEventListener('pointerdown',e=>{if(!routeMode)return;const r=map.getBoundingClientRect(),node=M.hitNode(e.clientX-r.left,e.clientY-r.top,r.width,r.height,state.blocks);if(node<0)return;e.preventDefault();dragging=true;map.setPointerCapture(e.pointerId);visit(node);});
  map.addEventListener('pointermove',e=>{if(!dragging)return;const r=map.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*720,y=(e.clientY-r.top)/r.height*M.mapHeight(state.blocks);let closest=-1,d=25;for(let n=0;n<M.nodeCount;n++){if(!M.activeNode(n,state.blocks))continue;const p=M.point(n,state.blocks),distance=Math.hypot(x-p[0],y-p[1]);if(distance<d){closest=n;d=distance}}if(closest>=0)visit(closest)});
  for(const event of ['pointerup','pointercancel','lostpointercapture'])map.addEventListener(event,()=>dragging=false);
  map.addEventListener('click',e=>{if(!routeMode&&!e.target.closest('button')){selected=null;render()}});
@@ -80,7 +88,27 @@
  $('#route-mode').onchange=e=>{finishPickup(false);routeMode=e.target.checked;dragging=false;voice.pronunciation?.stop();render()};
  $('#destination').onchange=e=>{state.destination=e.target.value===''?null:Number(e.target.value);resetRoute();render()};
  $('#undo').onclick=()=>{if(state.route.length>1)state.route.pop();render()};
- $('#remove').onclick=()=>{if(selected!==null){state.blocks[selected]=null;state.destination=null;resetRoute();render()}};
+ for(const direction of Object.keys(moves))$('#move-'+direction).onclick=()=>{if(routeMode)return;const target=moveTarget(selected,direction);if(target!==null)movePlace(selected,target)};
+ $('#duplicate').onclick=()=>{
+  if(routeMode||selected===null||!state.blocks[selected])return;
+  const target=state.blocks.indexOf(null);if(target<0)return;
+  state.blocks[target]=state.blocks[selected];selected=target;state.destination=null;resetRoute();render();
+ };
+ $('#remove').onclick=()=>{if(routeMode||selected===null||!state.blocks[selected])return;
+  state.blocks[selected]=null;
+  for(let i=selected-1;i>=0;i--)if(state.blocks[i]){selected=i;break;}
+  state.destination=null;resetRoute();render();
+ };
+ // Scope deletion to the workspace; native editing and modified shortcuts win.
+ $('#builder').addEventListener('keydown',e=>{
+  if(!['Delete','Backspace'].includes(e.key)||e.defaultPrevented||e.isComposing||e.ctrlKey||e.metaKey||e.altKey)return;
+  if(e.target.isContentEditable||e.target.closest('input,textarea,select,[contenteditable],dialog'))return;
+  if(routeMode||selected===null||!state.blocks[selected])return;
+  e.preventDefault();if(e.repeat||pickup)return;
+  const mapFocused=!!e.target.closest('[data-block]');
+  $('#remove').onclick();
+  if(mapFocused)$('#blocks').children[selected].focus({preventScroll:true});
+ });
  $('#clear').onclick=()=>{if(routeMode)resetRoute();else{state=M.initial();selected=null;}render()};
  render();save=window.ActivityAutosave.connect('my-town',{canSave:()=>recovery?.canSave()!==false,onRestoreError:()=>announce('Saved creation could not be opened. Reload to try again.'),capture:()=>state,restore:raw=>{state=M.restore(raw);render()}});
  recovery=window.BuilderReset.connect({button:$('#clear'),onError:()=>announce('Could not restore the creation. Please try Restore again.'),mode:()=>routeMode?'route':'build',capture:()=>({state,selected}),

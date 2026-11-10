@@ -1,5 +1,5 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
-const context={window:{}};vm.createContext(context);for(const f of ['model','art'])vm.runInContext(fs.readFileSync(`apps/mytown/${f}.js`,'utf8'),context);
+const context={window:{}};vm.createContext(context);for(const f of ['model','art'])vm.runInContext(fs.readFileSync(`apps/my-town/${f}.js`,'utf8'),context);
 const M=context.window.TownModel,A=context.window.TownArt;
 assert.equal(M.places.length,24);
 assert.equal(M.inventory(['aquarium','park','park']),'We have an aquarium and 2 parks.');
@@ -91,3 +91,33 @@ for(const [route,angle] of [[[17],0],[[17,12],0],[[17,18],90],[[17,12,17],180],[
  assert.ok(A.map(state,false).includes(`data-town-car="" transform="translate(${sx} ${sy}) rotate(0)"`));
 }
 console.log('Car: route endpoint, four headings, undo/reset positions and BUILD start passed.');
+
+for(const blocks of [Array(12).fill(null),Array(12).fill('station')])for(const route of [false,true]){
+ const svg=A.map({...M.initial(),blocks},route);
+ for(let col=0;col<4;col++){const r=M.blockRect(col,blocks);assert(svg.includes(`<text x="${r.x+49}" y="29">${String.fromCharCode(65+col)}</text>`));}
+ for(let row=0;row<3;row++){const r=M.blockRect(row*4,blocks);assert(svg.includes(`<text x="60" y="${r.y+49}">${row+1}</text>`));}
+ assert(svg.includes('paint-order="stroke fill"'));
+}
+console.log('Coordinate guides: A–D and 1–3 align with lots in both modes and expanded railway rows.');
+
+assert(A.icon('station').includes('station-track'),'palette retains standalone railway cue');
+for(const routeMode of [false,true]){
+ const blocks=Array(12).fill(null);blocks[0]='station';blocks[7]='station';blocks[11]='station';
+ const svg=A.map({...M.initial(),blocks},routeMode);
+ assert(!svg.includes('station-track'),'map station omits redundant track');
+ assert.equal((svg.match(/data-station-train=/g)||[]).length,3);
+ for(const i of [0,7,11]){const r=M.blockRect(i,blocks);assert(svg.includes(`data-station-train="${i}" transform="translate(${r.x+49} `));}
+ blocks[7]='park';assert.equal((A.map({...M.initial(),blocks},routeMode).match(/data-station-train=/g)||[]).length,2);
+}
+console.log('Station artwork: map-only track removal and one carriage per station, following placement/removal in both modes.');
+
+for(const width of [360,390,540,720]){
+ const blocks=Array(12).fill(null);blocks[0]=blocks[4]=blocks[8]='station';
+ const height=width*M.mapHeight(blocks)/720;
+ for(let n=0;n<M.nodeCount;n++){
+  const [x,y]=M.point(n,blocks);
+  assert.equal(M.hitNode(x*width/720,y*height/M.mapHeight(blocks),width,height,blocks),n,'Every visible node center wins over overlapping neighbours');
+ }
+}
+assert.equal(M.hitNode(0,0,0,0,[]),-1);
+console.log('PASS: railway and street node centers resolve independently at 360–720px map widths; invalid geometry ignored.');

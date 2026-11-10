@@ -14,11 +14,11 @@ for(const app of editors){
   }
  }
 }
-for(const app of ['.',...editors,'apps/avatar','apps/mytown','apps/post','myblog/NH1-5','myblog/NH2-4','myblog/NH6-5','myblog/journal']){
+for(const app of ['.',...editors,'apps/avatar','apps/my-town','apps/post','myblog/NH1-5','myblog/NH2-4','myblog/NH6-5','myblog/journal']){
  const styles=links(fs.readFileSync(path.join(root,app,'index.html'),'utf8'));
  checkOrder(styles,['tokens.css','controls.css']);
 }
-for(const file of ['home.css','shared/blog-post.css',...editors.map(a=>a+'/'+(a==='_dev/builder'?'lab.css':'styles.css')),'apps/avatar/styles.css','apps/mytown/styles.css']){
+for(const file of ['home.css','shared/blog-post.css',...editors.map(a=>a+'/'+(a==='_dev/builder'?'lab.css':'styles.css')),'apps/avatar/styles.css','apps/my-town/styles.css']){
  const css=fs.readFileSync(path.join(root,file),'utf8');
  assert.ok(!/(?:^|})\s*\.sr-only\s*\{/.test(css),`${file}: use controls.css sr-only`);
  assert.ok(!/[^{}]*(?:expand-icon|collapse-icon)[^{}]*\{/.test(css),`${file}: fullscreen state belongs in controls.css`);
@@ -28,7 +28,7 @@ assert.throws(()=>checkOrder(['tokens.css'],['tokens.css','controls.css']));
 console.log('PASS: editor ownership, shared utilities and stylesheet dependency order (including negative fixtures).');
 
 // The Builder header has one lesson-label owner; Blog keeps its own policy.
-for(const dir of ['apps/pizza','apps/parfait','apps/sandwich','apps/class-supplies','apps/avatar','apps/mytown','_dev/builder'])for(const file of fs.readdirSync(path.join(root,dir)).filter(f=>f.endsWith('.css'))){
+for(const dir of ['apps/pizza','apps/parfait','apps/sandwich','apps/class-supplies','apps/avatar','apps/my-town','_dev/builder'])for(const file of fs.readdirSync(path.join(root,dir)).filter(f=>f.endsWith('.css'))){
  const css=fs.readFileSync(path.join(root,dir,file),'utf8');
  assert.ok(!/[^{}]*\.edition[^{}]*\{/.test(css),`${dir}/${file}: Builder lesson label belongs in builder-layout.css`);
 }

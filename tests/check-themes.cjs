@@ -31,7 +31,7 @@ for(const [name,overrides] of Object.entries(palettes)){
  for(const bg of ['strong','strong-hover'])assert.ok(ratio(t.surface,t[bg])>=4.5,`${name} inverse text`);
  for(const dot of ['theme-green','theme-blue','theme-maroon','theme-gold','theme-purple'])assert.ok(ratio(base[dot],t.surface)>=3,`${name} ${dot}`);
 }
-for(const app of ['index.html','apps/post/index.html','apps/pizza/index.html','apps/parfait/index.html','apps/sandwich/index.html','apps/class-supplies/index.html','apps/avatar/index.html','apps/mytown/index.html','myblog/NH1-5/index.html','myblog/NH2-4/index.html','myblog/NH6-5/index.html','myblog/journal/index.html','_dev/builder/index.html','docs/style-guide.html']){
+for(const app of ['index.html','apps/post/index.html','apps/pizza/index.html','apps/parfait/index.html','apps/sandwich/index.html','apps/class-supplies/index.html','apps/avatar/index.html','apps/my-town/index.html','myblog/NH1-5/index.html','myblog/NH2-4/index.html','myblog/NH6-5/index.html','myblog/journal/index.html','_dev/builder/index.html','docs/style-guide.html']){
  const html=fs.readFileSync(path.join(root,app),'utf8');assert.ok(html.indexOf('theme.js')<html.indexOf('tokens.css')&&html.indexOf('theme.js')>=0,app+' must bootstrap before CSS');assert.ok(!/<script[^>]*(?:async|defer)[^>]*theme\.js/.test(html));
 }
 console.log(`PASS themes: early restore, validation, no startup writes, isolated saves, unavailable storage, cross-tab/BFCache refresh, all entrypoints; minimum text contrast ${minimum.toFixed(2)}:1.`);

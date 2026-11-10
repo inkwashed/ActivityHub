@@ -21,7 +21,7 @@ const root=path.resolve(__dirname,'..'),themes=['green','blue','maroon','gold','
   await page.keyboard.press('Escape');assert.equal(await page.locator('#home-profile').evaluate(el=>el===document.activeElement),true);
   let paints=0;await page.route('**/shared/tokens.css*',async route=>{await page.waitForFunction(()=>document.documentElement.dataset.ahTheme==='purple');paints++;await route.continue();});await page.reload();await page.unroute('**/shared/tokens.css*');assert.ok(paints>0);
   const peer=await context.newPage();await peer.goto(base+'/apps/pizza/');await page.evaluate(()=>ActivityTheme.set('gold'));await peer.waitForFunction(()=>ActivityTheme.current==='gold');await peer.close();
-  const paths=['/','/apps/pizza/','/apps/parfait/','/apps/class-supplies/','/apps/avatar/','/apps/mytown/','/myblog/NH1-5/','/myblog/NH6-5/','/apps/post/'];
+  const paths=['/','/apps/pizza/','/apps/parfait/','/apps/class-supplies/','/apps/avatar/','/apps/my-town/','/myblog/NH1-5/','/myblog/NH6-5/','/apps/post/'];
   let cases=0;
   for(const theme of themes){
    await page.goto(base+'/');await page.click('#home-profile');await page.locator(`input[name=color-theme][value=${theme}]`).check();assert.equal(await page.evaluate(()=>localStorage.getItem('letseigo.theme')),theme);await page.reload();assert.equal(await page.evaluate(()=>ActivityTheme.current),theme);

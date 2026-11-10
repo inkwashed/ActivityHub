@@ -1,7 +1,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const {generate}=require('../scripts/generate-home-previews.cjs');
 const first=generate(),second=generate();assert.deepEqual(first,second,'Generation must be deterministic');
-assert.deepEqual(Object.keys(first.outputs),['pizza','parfait','sandwich','class-supplies']);
+assert.deepEqual(Object.keys(first.outputs),['pizza','parfait','sandwich','class-supplies','my-town']);
 const mounted=[];const context={window:{},document:{querySelector:()=>({insertAdjacentHTML:(where,html)=>mounted.push([where,html])})}};
 vm.runInNewContext(fs.readFileSync('apps/parfait/glass-art.js','utf8'),context);
 const {back,front}=context.window.ParfaitGlass,svg=first.outputs.parfait;
@@ -16,4 +16,4 @@ for(const [name,art] of Object.entries(first.outputs)){
 assert.deepEqual(first.manifest,JSON.parse(fs.readFileSync('assets/home-previews.json','utf8')),'Sources changed: regenerate previews');
 assert.match(fs.readFileSync('apps/class-supplies/index.html','utf8'),/src="sharing.js/);
 assert.match(fs.readFileSync('scripts/build-pizza-preview.cjs','utf8'),/require\('\.\/generate-home-previews.cjs'\)/);
-console.log('PASS: four current, deterministic production previews; glass mounting/layering, bounded static assets and one generation path.');
+console.log('PASS: five current, deterministic production previews; glass mounting/layering, bounded static assets and one generation path.');

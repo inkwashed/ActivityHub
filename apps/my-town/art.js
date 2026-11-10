@@ -1,7 +1,7 @@
 /* Original schematic landmarks; no textbook artwork is embedded. */
 (() => {
  const symbols=['⌂','tree','book','columns','H','BUS','rail','P','F','〒','book','fork','cart','castle','gate','temple','cross','fish','ball','paw','wheel','24','school','school'];
- function icon(name){const i=window.TownModel.places.indexOf(name),symbol=symbols[i],color=['#d98770','#85ab86','#759fb6','#b29bc1','#e3bb6a'][i%5];let detail='';
+ function icon(name,{map=false}={}){const i=window.TownModel.places.indexOf(name),symbol=symbols[i],color=['#d98770','#85ab86','#759fb6','#b29bc1','#e3bb6a'][i%5];let detail='';
  // House silhouette stays readable in the small map and palette thumbnails.
  if(name==='house')return wrap('<path d="M67 31V14h12v29" fill="#c68b6b"/><path d="M20 43v43h60V43L50 19Z" fill="#f1dfb4"/><path d="M10 44L50 12l40 32-6 7-34-27-34 27Z" fill="#c66b57"/><rect x="28" y="49" width="17" height="17" rx="1.5" fill="#b7dce0"/><path d="M36.5 49v17M28 57.5h17" stroke-width="1.7"/><rect x="56" y="49" width="15" height="37" rx="2" fill="#a77c5d"/><circle cx="60" cy="68" r="1.6" fill="#fff4cf" stroke="none"/><path d="M52 87h23M16 87h32"/><path d="M23 70h25" stroke="#85ab86" stroke-width="4"/>');
  // A small landscape rather than a building: open lawn, path and seating.
@@ -9,13 +9,13 @@
  // Library: broad wings, raised central entrance and an open-book sign.
  if(name==='library')return wrap('<path d="M10 36h80v47H10Z" fill="#a7c3cc"/><path d="M8 31h84v7H8Z" fill="#759fb6"/><path d="M31 24h38v59H31Z" fill="#f1dfb4"/><path d="M27 24L50 12l23 12v5H27Z" fill="#759fb6"/><path d="M37 35q7-3 13 1 6-4 13-1v16q-7-3-13 1-6-4-13-1Z" fill="#fffefa"/><path d="M50 36v16" stroke-width="1.7"/><rect x="17" y="46" width="8" height="25" rx="2" fill="#dceef0"/><rect x="75" y="46" width="8" height="25" rx="2" fill="#dceef0"/><path d="M17 58h8M75 58h8" stroke-width="1.7"/><path d="M40 82V61h20v21" fill="#759fb6"/><path d="M50 61v21M46 70v4M54 70v4" stroke-width="1.7"/><path d="M35 83h30v5H35Z" fill="#d9d6c6"/><path d="M29 89h42"/>');
  // Classical museum portico: the columns form the building itself.
- if(name==='museum')return wrap('<path d="M17 34h66v43H17Z" fill="#c6b393"/><path d="M44 76V56a6 6 0 0 1 12 0v20" fill="#807562"/><path d="M10 29L50 10l40 19v6H10Z" fill="#e3d3b3"/><path d="M29 26l21-10 21 10Z" fill="#c6b393" stroke-width="1.7"/><path d="M14 35h72v6H14Z" fill="#f2e5ca"/><g fill="#f2e5ca"><path d="M20 41h9v32h-9Z M37 41h9v32h-9Z M54 41h9v32h-9Z M71 41h9v32h-9Z"/></g><path d="M18 73h13M35 73h13M52 73h13M69 73h13"/><path d="M14 77h72v6H14Z" fill="#e3d3b3"/><path d="M9 83h82v6H9Z" fill="#d3c2a2"/>');
+ if(name==='museum')return wrap('<path d="M17 34h66v43H17Z" fill="#c6b393"/><path d="M44 76V56a6 6 0 0 1 12 0v20" fill="#807562"/><path d="M10 29L50 10l40 19v6H10Z" fill="#e3d3b3"/><path d="M29 26l21-10 21 10Z" fill="#c6b393" stroke-width="1.7"/><path d="M14 35h72v6H14Z" fill="#f2e5ca"/><g fill="#f2e5ca"><path d="M20 41h9v36h-9Z M37 41h9v36h-9Z M54 41h9v36h-9Z M71 41h9v36h-9Z"/></g><path d="M18 77h13M35 77h13M52 77h13M69 77h13"/><path d="M14 77h72v6H14Z" fill="#e3d3b3"/><path d="M9 83h82v6H9Z" fill="#d3c2a2"/>');
  // Hospital: three floors, white facade and a prominent medical sign.
  if(name==='hospital')return wrap('<rect x="14" y="13" width="72" height="74" rx="2" fill="#fffefa"/><path d="M12 13h76"/><path d="M46 18h8v6h6v8h-6v6h-8v-6h-6v-8h6Z" fill="#cf615c" stroke="none"/><g fill="#b7dce0" stroke-width="1.7"><rect x="23" y="22" width="10" height="12" rx="1"/><rect x="67" y="22" width="10" height="12" rx="1"/><rect x="23" y="45" width="10" height="12" rx="1"/><rect x="45" y="45" width="10" height="12" rx="1"/><rect x="67" y="45" width="10" height="12" rx="1"/><rect x="23" y="68" width="10" height="12" rx="1"/><rect x="67" y="68" width="10" height="12" rx="1"/></g><path d="M40 87V70h20v17" fill="#b7dce0"/><path d="M50 71v16" stroke-width="1.7"/><path d="M37 65h26v5H37Z" fill="#759fb6"/><path d="M11 88h78"/>');
  // Bus stop: shaded seating with a separate sign and timetable.
  if(name==='bus stop')return wrap('<path d="M12 35h48v47H12Z" fill="#dceef0"/><path d="M10 84V34M62 84V34"/><path d="M7 34l7-13h44l8 13Z" fill="#759fb6"/><path d="M16 58h40v9H16Z" fill="#c68b6b"/><path d="M15 72h42M20 67v15M52 67v15"/><path d="M79 37v48M70 87h18"/><rect x="68" y="12" width="23" height="28" rx="5" fill="#f1dfb4"/><rect x="73" y="17" width="13" height="16" rx="3" fill="#fffefa" stroke-width="1.7"/><path d="M73 25h13M75 33v3M84 33v3" stroke-width="1.7"/><circle cx="76" cy="29" r="1" fill="#31483f" stroke="none"/><circle cx="83" cy="29" r="1" fill="#31483f" stroke="none"/><rect x="71" y="45" width="17" height="24" rx="2" fill="#fffefa" stroke-width="1.7"/><path d="M75 51h9M75 56h9M75 61h9" stroke-width="1.7"/><path d="M7 87h58"/>');
- // Station platform and straight track are separate groups for future street extensions.
- if(name==='station')return wrap('<g data-part="station-building"><path d="M15 32h70v38H15Z" fill="#e8d9ba"/><path d="M10 32l9-12h62l9 12Z" fill="#759b87"/><path d="M36 16h28v54H36Z" fill="#f4e9cf"/><path d="M32 17L50 8l18 9Z" fill="#759b87"/><circle cx="50" cy="27" r="7" fill="#fffefa"/><path d="M50 23v4h4" stroke-width="1.7"/><path d="M43 69V48a7 7 0 0 1 14 0v21" fill="#759fb6"/><path d="M50 49v20" stroke-width="1.7"/><g fill="#b7dce0" stroke-width="1.7"><rect x="21" y="41" width="9" height="15" rx="1"/><rect x="70" y="41" width="9" height="15" rx="1"/></g><path d="M10 70h80v5H10Z" fill="#c7c7b7"/></g><g data-part="station-track"><path d="M16 79v13M29 79v13M42 79v13M55 79v13M68 79v13M81 79v13" stroke="#9e8063" stroke-width="4"/><path d="M7 82h86M7 89h86" stroke-width="2.5"/></g>');
+ // Map stations sit on the same ground line as other buildings; palette tracks keep their cue.
+ if(name==='station')return wrap('<g data-part="station-building"'+(map?' transform="translate(0 12)"':'')+'><path d="M15 32h70v38H15Z" fill="#e8d9ba"/><path d="M10 32l9-12h62l9 12Z" fill="#759b87"/><path d="M36 16h28v54H36Z" fill="#f4e9cf"/><path d="M32 17L50 8l18 9Z" fill="#759b87"/><circle cx="50" cy="27" r="7" fill="#fffefa"/><path d="M50 23v4h4" stroke-width="1.7"/><path d="M43 69V48a7 7 0 0 1 14 0v21" fill="#759fb6"/><path d="M50 49v20" stroke-width="1.7"/><g fill="#b7dce0" stroke-width="1.7"><rect x="21" y="41" width="9" height="15" rx="1"/><rect x="70" y="41" width="9" height="15" rx="1"/></g><path d="M10 70h80v5H10Z" fill="#c7c7b7"/></g>'+(map?'':'<g data-part="station-track"><path d="M16 79v13M29 79v13M42 79v13M55 79v13M68 79v13M81 79v13" stroke="#9e8063" stroke-width="4"/><path d="M7 82h86M7 89h86" stroke-width="2.5"/></g>')+'');
  // Familiar Japanese neighborhood police box, readable at map scale.
  if(name==='police station')return wrap('<rect x="17" y="28" width="66" height="58" rx="2" fill="#fffefa"/><path d="M12 24h76v8H12Z" fill="#759fb6"/><path d="M44 23v-6a6 6 0 0 1 12 0v6" fill="#cf615c"/><path d="M41 24h18"/><path d="M50 36l3 5 6 1-4 5 1 6-6-3-6 3 1-6-4-5 6-1Z" fill="#e3bb6a" stroke-width="1.7"/><text x="50" y="64" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="bold" letter-spacing="1" fill="#31483f" stroke="none">KOBAN</text><rect x="24" y="69" width="20" height="13" rx="1" fill="#b7dce0" stroke-width="1.7"/><path d="M34 69v13" stroke-width="1.7"/><path d="M55 86V69h18v17" fill="#b7dce0"/><path d="M64 70v16" stroke-width="1.7"/><path d="M14 88h72"/>');
  // Fire station: open garage frames a front-facing engine.
@@ -107,7 +107,7 @@
   }
   out+='</g>';
  }
- state.blocks.forEach((name,i)=>{const {x,y}=M.blockRect(i,state.blocks);out+=`<rect x="${x}" y="${y}" width="98" height="98" fill="#707977"/><rect data-sidewalk="${i}" x="${x+4}" y="${y+4}" width="90" height="90" rx="5" fill="#d6e2cb" stroke="#cbd0cc" stroke-width="8"/>`;if(!name)out+=`<text x="${x+49}" y="${y+55}" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#627067">${String.fromCharCode(65+i%4)}${1+Math.floor(i/4)}</text>`;if(name)out+=icon(name).replace('<svg ',`<svg x="${x+8}" y="${y+8}" width="82" height="82" `);});
+ state.blocks.forEach((name,i)=>{const {x,y}=M.blockRect(i,state.blocks);out+=`<rect x="${x}" y="${y}" width="98" height="98" fill="#707977"/><rect data-sidewalk="${i}" x="${x+4}" y="${y+4}" width="90" height="90" rx="5" fill="#d6e2cb" stroke="#cbd0cc" stroke-width="8"/>`;if(!name)out+=`<text x="${x+49}" y="${y+55}" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#627067">${String.fromCharCode(65+i%4)}${1+Math.floor(i/4)}</text>`;if(name)out+=icon(name,{map:true}).replace('<svg ',`<svg x="${x+8}" y="${y+8}" width="82" height="82" `);});
  // Shared railway for each row containing one or more stations.
  for(const r of window.TownModel.railRows(state.blocks)){
   const base=[200,430,560][r],south=base+shift(base),y=south-32;
@@ -120,7 +120,12 @@
   out+=`</g><path d="M0 ${y-9}H720v18H0Z" fill="#d9d6c6"/>`;
   for(let x=8;x<720;x+=14)out+=`<path d="M${x} ${y-8}v16" stroke="#a18b71" stroke-width="3"/>`;
   out+=`<path d="M0 ${y-5}H720M0 ${y+5}H720" stroke="#627067" stroke-width="2.5"/>`;
-  for(let c=0;c<5;c++){const x=100+c*130;out+=`<path d="M${x-12} ${y-8}h24v16h-24Z" fill="#eee6d2" opacity=".8"/><path d="M${x-21} ${y-13}v26M${x+21} ${y-13}v26" stroke="#e3bb6a" stroke-width="4"/><path d="M${x-21} ${y-13}v5m0 5v5m0 5v6M${x+21} ${y-13}v5m0 5v5m0 5v6" stroke="#31483f" stroke-width="4"/>`;}
+  for(let c=0;c<5;c++){const x=100+c*130;out+=`<path d="M${x-21} ${y-13}v26M${x+21} ${y-13}v26" stroke="#e3bb6a" stroke-width="4"/><path d="M${x-21} ${y-13}v5m0 5v5m0 5v6M${x+21} ${y-13}v5m0 5v5m0 5v6" stroke="#31483f" stroke-width="4"/>`;}
+  // One parked carriage per station, centered between crossings on its actual railway.
+  for(let col=0;col<4;col++)if(state.blocks[r*4+col]==='station'){
+   const lot=M.blockRect(r*4+col,state.blocks),cx=lot.x+lot.width/2;
+   out+=`<g data-station-train="${r*4+col}" transform="translate(${cx} ${y})" stroke="#31483f" stroke-width="1.6" stroke-linejoin="round"><circle cx="-22" cy="5" r="3.5" fill="#627067"/><circle cx="22" cy="5" r="3.5" fill="#627067"/><rect x="-34" y="-15" width="68" height="20" rx="5" fill="#e5e5d9"/><path d="M-33 0h66" stroke="#759fb6" stroke-width="4"/><g fill="#b7dce0"><rect x="-27" y="-11" width="10" height="7" rx="1"/><rect x="-12" y="-11" width="10" height="7" rx="1"/><rect x="3" y="-11" width="10" height="7" rx="1"/><rect x="20" y="-11" width="8" height="14" rx="1"/></g><path d="M-25 -15h46" stroke="#a7b5b1" stroke-width="2"/></g>`;
+  }
   out+='</g>';
  }
  if(routeMode&&state.destination!==null){const i=state.destination,{x,y}=window.TownModel.blockRect(i,state.blocks);out+=`<rect x="${x}" y="${y}" width="98" height="98" rx="10" fill="none" stroke="#417655" stroke-width="3"/>`;}
@@ -136,7 +141,12 @@
  <path d="M-6 12H6L7 15H-7Z" fill="#e4f2f3"/>
  <path d="M-7-15H-4M4-15H7" stroke="#fff4c8" stroke-width="2.5" stroke-linecap="round"/>
  <path d="M-7 17H-4M4 17H7" stroke="#c66b65" stroke-width="2"/>
- </g><text x="360" y="${height-25}" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#31483f" stroke="#e7edda" stroke-width="4" paint-order="stroke">MY TOWN</text>`;
+ </g>`;
+ // Coordinate guides occupy the unused north/west margins and follow railway row shifts.
+ out+='<g data-map-coordinates="true" font-family="Arial,sans-serif" font-size="26" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#ffe581" stroke="#111" stroke-width="4" stroke-linejoin="round" paint-order="stroke fill">';
+ for(let col=0;col<4;col++){const r=M.blockRect(col,state.blocks);out+=`<text x="${r.x+r.width/2}" y="29">${String.fromCharCode(65+col)}</text>`;}
+ for(let row=0;row<3;row++){const r=M.blockRect(row*4,state.blocks);out+=`<text x="60" y="${r.y+r.height/2}">${row+1}</text>`;}
+ out+='</g>';
  return `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 720 ${height}"><defs><clipPath id="town-map-crop"><rect width="720" height="${height}"/></clipPath></defs><g clip-path="url(#town-map-crop)">${out}</g></svg>`;
  }
  window.TownArt={icon,map,point};

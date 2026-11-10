@@ -10,14 +10,17 @@ node scripts/version-builder-assets.cjs
 node scripts/version-builder-assets.cjs --check
 ```
 
-The four `assets/*-preview.svg` files are static exports, not independent drawings. The homepage loads only images; it never initializes the apps to make previews. The older `build-pizza-preview.cjs` is a compatibility redirect to the complete generator, including `--check`. Do not add a second renderer there.
+The five `assets/*-preview.svg` files are static exports, not independent drawings. The homepage loads only images; it never initializes the apps to make previews. The older `build-pizza-preview.cjs` is a compatibility redirect to the complete generator, including `--check`. Do not add a second renderer there.
 
 | Preview | Sample | Authoritative sources |
 | --- | --- | --- |
 | Pizza | LEARN, tomato sauce, regular (level 2) cheese and corn, configured deterministic seed | Pizza config, FoodBuilder placements, Pizza sharing.js baked-photo renderer |
 | Parfait | LEARN, vanilla, chocolate syrup, strawberries in both fruit slots | Parfait config, builder scoopArtwork, glass-art.js and sharing.js |
 | Sandwich | LEARN, slots bacon → lettuce → tomato, no origin labels | Sandwich config, model.js through the actual sharing.js registration |
+| My Town | BUILD, twelve landmarks including a station, park and zoo; no selection or traced route | TownModel and TownArt.map, the same renderer used by Save; fixed proportional 720-wide map in a square image |
 | Class Supplies | LEARN, one of every supply; configured colors except red pen; blue case | Supplies config/art and sharing.js |
+
+My Town uses its fixed map viewBox rather than the viewport framing fixture; its full map is proportionally contained in the square preview. Its sample landmark order is defined in the generator.
 
 The generator captures each production `BuilderPhoto` render callback. Class Supplies' unchanged export function is separated from editor initialization in `sharing.js` so both consumers can use it. Parfait loads `glass-art.js`; in this export-only environment there is no DOM stage to mount. The glass still supplies the same back/front artwork around the ingredients. The test also exercises its live mounting hook. Unexpected DOM dependencies fail explicitly rather than silently returning arbitrary fake elements.
 

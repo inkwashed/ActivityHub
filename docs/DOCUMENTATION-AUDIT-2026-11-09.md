@@ -23,7 +23,7 @@ Reviewed all 25 existing maintained Markdown files discovered outside ignored wo
 | `apps/parfait/AGENTS.md`, `apps/parfait/README.md` | Independent HARD counts/sizes, current panel density/title, authoritative uniformly scaling glass paths, no fixed-crop export instruction. |
 | `apps/sandwich/README.md` | Per-type origins survive slot replacement as agreed; remove obsolete browser blocker/no-recordings claims; current Save and grid descriptions. |
 | `apps/class-supplies/README.md` | All four combinations permit colors, base fitting separated from item bounds, current full-frame export, approved workspace scope, historical sizing evidence and resolved fixture note. |
-| `apps/mytown/README.md` | Existing BUILD/ROUTE recovery, fixed initial heading and Save action; preserve separate grid-map layout. |
+| `apps/my-town/README.md` | Existing BUILD/ROUTE recovery, fixed initial heading and Save action; preserve separate grid-map layout. |
 | `apps/avatar/README.md` | Catalog overview and existing homepage Profile access distinguished from textbook-directory listing. |
 | `myblog/NH1-5/README.md` | NH6-5 now uses guided TYPE/WRITE; segmented fields are save-migration history. |
 | `assets/audio/README.md` | Continuous Web Audio versus media fallback; runtime trimming distinguished from the separate published MP3 boundary cleanup. |
