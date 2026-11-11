@@ -40,7 +40,7 @@
  }
  $('previous-entry').onclick=()=>{if(selected>0){selected--;render();}};
  $('next-entry').onclick=()=>{if(selected<catalog.length-1){selected++;render();}};
- window.addEventListener('storage',render);window.addEventListener('focus',render);
+ window.addEventListener('storage',render);window.addEventListener('focus',render);window.addEventListener('letseigo:profilechange',render);
  document.addEventListener('visibilitychange',()=>{if(!document.hidden)render();});document.addEventListener('activityhub:languagechange',render);
  window.addEventListener('pagehide',()=>{generation++;if(url)URL.revokeObjectURL(url);});render();
 })();

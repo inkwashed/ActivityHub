@@ -85,3 +85,6 @@ Directions use a content-height sentence row with a top-right, 44px sticky Liste
 Route pointer taps resolve the nearest active node within the existing 44px square targets using rendered pixel distances. This avoids DOM stacking choosing the wrong side of close railway crossings. Keyboard activation still selects the focused node; route adjacency and tracing rules are unchanged. Physical touch accuracy and VoiceOver remain device checks.
 
 Verification: the local browser layout harness passed 40 combinations at 1133×678, 1133×599, 1133×380, 768×1024 and 390×844, both languages, BUILD/ROUTE and normal/200% text. Route fixtures render long model-generated directions through pronunciation and check sticky Listen geometry, 44px size, text clearance and focus after scrolling. Model checks cover every node center at map widths 360, 390, 540 and 720px, including all three railway rows. These are browser geometry and automated model/control checks, not physical touch or VoiceOver results.
+
+### Practice badges
+Creation edits now earn a local first-builder badge, with higher ranks after 5/10/15/20 qualifying sessions, at most once per 30 minutes. Opening/restoring alone does not award credit. Reset does not remove earned badges. See docs/WORKFLOW.md → Local achievements and app visits for shared ownership and checks.

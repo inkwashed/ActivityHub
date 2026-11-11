@@ -6,6 +6,7 @@ This is an ownership map and a record of the conservative cleanup, not a replace
 
 | Source | Owns | Keep elsewhere |
 | --- | --- | --- |
+| `shared/profile.js`, `shared/profile.css` | Shared Profile markup, translations, ID-card layout, name editing, avatar preview and badge presentation for homepage/My Blog/Journal | Theme definitions/persistence and lesson draft state |
 | `shared/theme.js` | Validated site theme key, before-style restore, radio selection and cross-tab/page restore | Profile data and creations |
 | `shared/tokens.css` | Five curated site palettes, type, radii, spacing, control and icon sizes | SVG dimensions and illustrated colors |
 | `shared/controls.css` | Shared buttons, choices, focus/pressed/disabled states, mode switches, dialogs, visually hidden utility, fullscreen icon state | Activity geometry and specialized editing layouts |
@@ -17,7 +18,7 @@ This is an ownership map and a record of the conservative cleanup, not a replace
 | `shared/builder-reference-panels.css` | Class Supplies and Lab density | Other app families |
 | `shared/builder-panel-workspace.css` | Approved right-column sentence/scrolling pattern | My Town/My Selfie layouts |
 | `shared/blog-post.css`, `shared/blog-design.css` | Blog shell and optional design editor | Builder layout conventions |
-| `home.css` | Homepage cards, filters and page composition | Copies of shared control states |
+| `home.css` | Homepage cards, filters and page composition | Profile modal layout and copies of shared control states |
 | App CSS and documented geometry adapters | Artwork, vocabulary-specific controls and deliberate exceptions | Copies of the editor coordinate contract |
 
 Every maintained suite entrypoint first loads blocking `shared/theme.js`, before CSS. Builder style order is tokens → app base → builder chrome → controls → optional components/responsive baseline → app geometry → editor → workspace → family panel density → panel-workspace → explicit app adapter. The editor sheet is required by Pizza, Parfait, Sandwich, Class Supplies and Lab. Avatar and My Town do not use that coordinate contract.
@@ -104,3 +105,13 @@ Existing non-browser checks passed: `check-style-ownership`, `check-autosave` (i
 Reviewed screenshots of all five Profile palettes and the landscape Pizza, JHS Blog and POST pages. The panel/surface hierarchy stays pale, selected rings remain distinct, and food, avatar and postcard art retain their colors. POST deliberately retains its independently specified identity; only shared utility controls/dialogs follow suite colors. Gold uses dark ochre for meaningful borders/dots rather than low-contrast bright yellow. Green's muted text and control borders are darker than the original, while its other palette roles remain unchanged.
 
 Still required on a physical iPad/Safari: portrait/landscape touch selection, native focus with an external keyboard, Profile scrolling with the on-screen keyboard and enlarged text, persistence across Safari restarts/back navigation/private browsing, and local-file behavior where supported. VoiceOver must confirm the fieldset label, descriptive color names, checked announcements, swipe order, focus ring usability and storage-failure announcement in English/Japanese. Forced-colors support is defined in CSS but has not been visually reviewed on an OS using that mode. Browser-sized desktop tests do not establish these device/accessibility results.
+
+## Profile ID card verification November 11 2026
+
+Historical initial homepage-only implementation: index.html, home.css, home-profile.js, home-ja.js and the Profile specification in STYLE-GUIDE.md. The shared integration below supersedes those file owners. The existing shared pen icon, controls, themes and version-1 profile record are reused. The avatar stays left and the name right; themes and badges follow beneath. Narrow/short screens may scroll vertically rather than enforcing an aspect ratio.
+
+The new `tests/check-profile-browser.cjs` passed 50 combinations (five themes, English/Japanese, desktop, portrait tablet, phone, narrow phone and short landscape). Checks cover explicit Save/Enter, unsaved input isolation, Cancel/Escape/close discard, reload persistence, empty and long/hostile names as literal text, failed storage writes retaining the editor, concurrent-tab changes without destroying a draft, preservation of extra profile fields and an independent creation key, left/right positioning, horizontal containment and enlarged text. A desktop screenshot was reviewed. The theme browser suite now uses the explicit name-save flow. Shared ownership, token contrast, asset hashes and changed-file whitespace checks also passed. Physical iPad Safari on-screen keyboard and VoiceOver announcements/focus remain device checks; no commit or deployment was made.
+
+### Shared Profile ownership (homepage and My Blog)
+
+The current Profile implementation supersedes the homepage-only ownership above: `shared/profile.js` owns modal markup, translations, avatar/name editing, and badge presentation; `shared/profile.css` owns its styling. The homepage, NH6-5, NH1-5, NH2-4, and Journal all load these same files. My Blog replaces fullscreen with the Profile trigger. Update the shared component and version every consumer together; `tests/check-profile-browser.cjs` covers home and app integration, same-page author updates, responsive layouts, and local-file asset resolution.

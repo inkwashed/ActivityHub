@@ -34,3 +34,8 @@
 
 /* Single Builder lesson-label policy; height/orientation never hides context. */
 @media(max-width:739px){.ah-builder .edition{display:none}}
+
+/* Optional app action beside the prompt, never over the creation or its text. */
+.ah-builder #builder .builder-prompt-row{display:grid;grid-template-columns:minmax(0,1fr) 44px;align-items:center;gap:8px}
+.ah-builder #builder .builder-prompt-row .question{min-width:0;margin:0;overflow-wrap:anywhere}
+.ah-builder #builder .builder-prompt-row #fullscreen{width:44px;height:44px;min-width:44px;min-height:44px;justify-self:end;align-self:center}

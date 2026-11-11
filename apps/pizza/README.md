@@ -52,3 +52,6 @@ For those measured rectangles, the raw-area export squares (before any farther p
 LEARN reloads restore data first, animate the sauce, then sprinkle toppings in batches of 12 every 180ms. PLAY reloads, mode switches and Reset/Restore remain immediate. Editing during the replay reveals the remaining toppings immediately and cancels their queue. Reduced motion skips the replay. Normal student-triggered sauce and topping animations remain unchanged.
 
 Sauce reveal uses one fixed spiral path and numeric SVG-unit dash offsets, avoiding per-frame path-string rebuilding. Cumulative segment lengths preserve the original angular timing without SVG pathLength normalization. A circular clip contains the highlight, and the larger mask bounds avoid cutting off the round reveal cap. Physical iPad/Safari smoothness remains a device check.
+
+### Practice badges
+Creation edits now earn a local first-builder badge, with higher ranks after 5/10/15/20 qualifying sessions, at most once per 30 minutes. Opening/restoring alone does not award credit. Reset does not remove earned badges. See docs/WORKFLOW.md → Local achievements and app visits for shared ownership and checks.

@@ -1,5 +1,6 @@
 /* Final layout policy: roomy landscape workspace, otherwise activity-first stack. */
-.builder-jump{display:none}
+.builder-jump{position:fixed;right:16px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:40;display:none;background:transparent}
+.builder-jump .ah-button{font-size:14px;padding:8px 14px;min-height:44px;background:var(--ah-canvas);box-shadow:0 2px 8px #263f3620}
 @media(min-width:740px){
  .ah-builder #builder{min-height:calc(100svh - var(--header-height,56px) - var(--footer-height,26px));height:auto}
  .ah-builder #pizza-workspace{height:calc(100svh - var(--header-height,56px) - var(--footer-height,26px) - 2 * clamp(12px,2vh,24px))}
@@ -16,6 +17,5 @@
  .ah-builder #builder .heading{margin-bottom:16px}
  .ah-builder #builder .pantry{height:auto;min-height:0}
  .ah-builder [data-jump-section]{scroll-margin-top:16px}
- .builder-jump{position:fixed;right:16px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;background:transparent}
- .builder-jump .ah-button{font-size:14px;padding:8px 14px;min-height:44px;background:var(--ah-canvas);box-shadow:0 2px 8px #263f3620}
+ .builder-jump{display:flex}
 }

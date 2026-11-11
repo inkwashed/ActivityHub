@@ -15,6 +15,10 @@
   if(line.trim())lines.push(line.trimEnd());return lines.length?lines:[''];
  }
  window.BlogSnapshot=async post=>{
+  // Capture the active CSS palette before asynchronous image loading.
+  const style=typeof getComputedStyle==='function'?getComputedStyle(document.documentElement):null;
+  const token=(name,fallback)=>style?.getPropertyValue(name).trim()||fallback;
+  const colors={surface:token('--ah-surface','#fffefa'),bar:token('--ah-hover','#e8eddf'),ink:token('--ah-ink','#263f36'),muted:token('--ah-muted','#4b594f'),photo:token('--ah-play-surface','#eee6d2'),divider:token('--ah-divider','#dcded0')};
   const [avatar,...photos]=await Promise.all([post.avatar,...post.images].map(load));
   const canvas=document.createElement('canvas'),ctx=canvas.getContext('2d');
   if(!ctx)throw Error('Canvas unavailable');
@@ -30,11 +34,11 @@
   const scale=Math.min(2,16000/totalHeight);canvas.width=Math.round(width*scale);canvas.height=Math.round(totalHeight*scale);ctx.scale(scale,scale);ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
   // Match the Sample's rounded website frame in the exported PNG itself.
   ctx.save();ctx.beginPath();ctx.roundRect(1,1,width-2,totalHeight-2,18);ctx.clip();
-  ctx.fillStyle='#fffefa';ctx.fillRect(0,0,width,totalHeight);
-  ctx.fillStyle='#e8eddf';ctx.fillRect(0,0,width,46);
-  ctx.fillStyle='#627067';for(let i=0;i<3;i++){ctx.beginPath();ctx.arc(24+i*18,23,4,0,Math.PI*2);ctx.fill();}
+  ctx.fillStyle=colors.surface;ctx.fillRect(0,0,width,totalHeight);
+  ctx.fillStyle=colors.bar;ctx.fillRect(0,0,width,46);
+  ctx.fillStyle=colors.muted;for(let i=0;i<3;i++){ctx.beginPath();ctx.arc(24+i*18,23,4,0,Math.PI*2);ctx.fill();}
   ctx.font='bold 15px Arial';ctx.fillText('MY BLOG',width-110,29);
-  ctx.fillStyle='#263f36';ctx.font='bold 34px Arial';title.forEach((line,i)=>ctx.fillText(line,pad,titleY+i*44));
+  ctx.fillStyle=colors.ink;ctx.font='bold 34px Arial';title.forEach((line,i)=>ctx.fillText(line,pad,titleY+i*44));
   ctx.save();ctx.beginPath();ctx.arc(pad+48,authorY+48,48,0,Math.PI*2);ctx.clip();ctx.drawImage(avatar,pad,authorY,96,96);ctx.restore();
   ctx.font='bold 26px Arial';name.forEach((line,i)=>ctx.fillText(line,pad+120,authorY+authorHeight/2-(name.length-1)*17+9+i*34));
   if(post.design){
@@ -42,12 +46,12 @@
     const x=pad+block.x,y=galleryY+block.y;
     if(block.ink){window.BlogInk.paint(ctx,block.ink,x,y,block.width,block.height);}
     else if(block.key==='text'||/^text:\d+$/.test(block.key)){
-     ctx.fillStyle='#263f36';ctx.font='26px Arial';ctx.textBaseline='top';
+     ctx.fillStyle=colors.ink;ctx.font='26px Arial';ctx.textBaseline='top';
      block.lines.forEach((line,i)=>ctx.fillText(line,x+12,y+12+i*38));ctx.textBaseline='alphabetic';
     }else{
      const image=photos[post.photoKeys.indexOf(block.key)];if(!image)continue;
      ctx.save();ctx.beginPath();ctx.roundRect(x,y,block.width,block.height,12);ctx.clip();
-     ctx.fillStyle='#eee6d2';ctx.fillRect(x,y,block.width,block.height);
+     ctx.fillStyle=colors.photo;ctx.fillRect(x,y,block.width,block.height);
      const ratio=Math.max(block.width/image.naturalWidth,block.height/image.naturalHeight),w=image.naturalWidth*ratio,h=image.naturalHeight*ratio;
      ctx.drawImage(image,x+(block.width-w)*(block.cropX??50)/100,y+(block.height-h)*(block.cropY??50)/100,w,h);ctx.restore();
     }
@@ -55,15 +59,15 @@
   }else{
   const gap=12,cell=photos.length?(content-gap*(photos.length-1))/photos.length:0;
   photos.forEach((image,i)=>{
-   const x=pad+i*(cell+gap);ctx.fillStyle='#eee6d2';ctx.fillRect(x,galleryY,cell,photoHeight);
+   const x=pad+i*(cell+gap);ctx.fillStyle=colors.photo;ctx.fillRect(x,galleryY,cell,photoHeight);
    const scale=Math.min(cell/image.naturalWidth,photoHeight/image.naturalHeight),w=image.naturalWidth*scale,h=image.naturalHeight*scale;
    ctx.drawImage(image,x+(cell-w)/2,galleryY+(photoHeight-h)/2,w,h);
   });
-  ctx.fillStyle='#263f36';ctx.font='26px Arial';let y=textY+26;
+  ctx.fillStyle=colors.ink;ctx.font='26px Arial';let y=textY+26;
   for(const lines of paragraphs){for(const line of lines){ctx.fillText(line,pad,y);y+=38;}y+=14;}
   }
-  ctx.fillStyle='#627067';ctx.font='14px Arial';ctx.fillText(`Let's EiGo! ・${post.activityTitle||'My Blog'}`,pad,totalHeight-24);
-  ctx.restore();ctx.strokeStyle='#dcded0';ctx.lineWidth=2;ctx.beginPath();ctx.roundRect(1,1,width-2,totalHeight-2,18);ctx.stroke();
+  ctx.fillStyle=colors.muted;ctx.font='14px Arial';ctx.fillText(`Let's EiGo! ・${post.activityTitle||'My Blog'}`,pad,totalHeight-24);
+  ctx.restore();ctx.strokeStyle=colors.divider;ctx.lineWidth=2;ctx.beginPath();ctx.roundRect(1,1,width-2,totalHeight-2,18);ctx.stroke();
   return canvas;
  };
 })();

@@ -110,12 +110,12 @@
   if(mapFocused)$('#blocks').children[selected].focus({preventScroll:true});
  });
  $('#clear').onclick=()=>{if(routeMode)resetRoute();else{state=M.initial();selected=null;}render()};
- render();save=window.ActivityAutosave.connect('my-town',{canSave:()=>recovery?.canSave()!==false,onRestoreError:()=>announce('Saved creation could not be opened. Reload to try again.'),capture:()=>state,restore:raw=>{state=M.restore(raw);render()}});
+ render();const storage={canSave:()=>recovery?.canSave()!==false,onRestoreError:()=>announce('Saved creation could not be opened. Reload to try again.'),capture:()=>state,restore:raw=>{state=M.restore(raw);render()}};save=window.ActivityAutosave.connect('my-town',window.ActivityAchievements?.builderAdapter('my-town',storage)||storage);
  recovery=window.BuilderReset.connect({button:$('#clear'),onError:()=>announce('Could not restore the creation. Please try Restore again.'),mode:()=>routeMode?'route':'build',capture:()=>({state,selected}),
   hasCreation:value=>routeMode?value.state.route.length>1:value.state.blocks.some(Boolean),
   signature:value=>JSON.stringify(routeMode?value.state:value.state.blocks),
   clear:()=>{finishPickup(false);dragging=false;if(routeMode)resetRoute();else{state=M.initial();selected=null;}render()},
   restore:(value,key)=>{if(key==='route'){state.route=value.state.route;state.facing=value.state.facing;state.destination=value.state.destination;}else{state=value.state;selected=value.selected;}render()},after:()=>save?.flush()});
- window.BuilderPhoto({builder:()=>state,imageSelector:'#town-photo',render:()=>A.map(state,routeMode),caption:'My town!'});
+ window.BuilderPhoto({appName:'My Town',builder:()=>state,imageSelector:'#town-photo',render:()=>A.map(state,routeMode),caption:'My town!'});
  document.addEventListener('activityhub:languagechange',render);
 })();

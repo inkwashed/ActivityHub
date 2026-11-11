@@ -1,0 +1,52 @@
+#home-profile{width:var(--ah-control-size);height:var(--ah-control-size);padding:0;overflow:hidden}
+#home-profile-picture{display:block;width:100%;height:100%;border-radius:inherit;overflow:hidden;background:#e7e7e7}
+#home-profile-picture>svg,#home-profile-picture>img{display:block;width:100%;height:100%;max-width:none}
+
+#profile-dialog{width:min(680px,calc(100vw - 32px))}
+#profile-selfie{width:144px;height:144px;margin:0 auto;border-radius:var(--ah-radius-control);overflow:hidden;background:#e7e7e7}
+#profile-selfie>svg,#profile-selfie>img{display:block;width:100%;height:100%}
+.profile-actions{display:flex;justify-content:center;margin-top:12px}
+.profile-actions .ah-button{width:100%;text-decoration:none}
+
+.profile-identity{display:grid;grid-template-columns:160px minmax(0,1.2fr) minmax(0,1fr);grid-template-areas:"portrait name badges";gap:20px;align-items:start;margin-top:20px}
+.profile-portrait{grid-area:portrait}
+.profile-name-field{grid-area:name;display:grid;gap:8px;min-width:0}
+.profile-field-label{font-weight:700;font-size:14px;color:var(--ah-muted)}
+#profile-name-display{display:flex;align-items:center;gap:12px;min-width:0}
+#profile-name-text{font-size:26px;font-weight:700;line-height:1.3;overflow-wrap:anywhere;min-width:0}
+#profile-name-text.is-empty{font-size:20px;color:var(--ah-muted);font-weight:normal}
+#edit-profile-name{flex-shrink:0}
+#profile-name-editor{display:grid;gap:12px;min-width:0}
+.profile-name-actions{display:flex;flex-wrap:wrap;gap:8px}
+.profile-preferences{display:grid;grid-template-columns:minmax(0,1fr);border-top:1px solid var(--ah-divider);margin-top:24px;padding-top:20px}
+.profile-preferences .ah-theme-picker{margin:0}
+.profile-badges #badge-empty{font-size:14px;line-height:1.5;margin:8px 0 0}
+#profile-name-status{line-height:1.5;overflow-wrap:anywhere}
+@media(max-width:600px){.profile-preferences{grid-template-columns:minmax(0,1fr);gap:20px}.profile-identity{grid-template-columns:120px minmax(0,1fr);grid-template-areas:"portrait name" "badges badges";gap:20px 16px}#profile-selfie{width:120px;height:120px}.profile-actions .ah-button{padding:8px;font-size:14px}}
+@media(max-width:380px){.profile-identity{grid-template-columns:88px minmax(0,1fr);gap:12px}#profile-selfie{width:88px;height:88px}#profile-name-text{font-size:22px}#profile-name-display{gap:4px}.profile-actions .ah-button{flex-wrap:wrap;gap:4px}}
+
+#profile-name{box-sizing:border-box;width:100%;min-height:44px;padding:10px 12px;font:inherit;color:var(--ah-ink);background:var(--ah-surface);border:1px solid var(--ah-border);border-radius:var(--ah-radius-control)}
+#profile-name:focus-visible{outline:3px solid var(--ah-focus);outline-offset:3px}
+.profile-actions img{width:22px;height:22px;flex-shrink:0}
+
+
+/* A closer portrait crop in both homepage profile previews. */
+#home-profile-picture>svg,#home-profile-picture>img,
+#profile-selfie>svg,#profile-selfie>img{transform:scale(1.1);transform-origin:center top}
+
+.profile-badges{grid-area:badges;min-width:0;margin:0;overflow-wrap:anywhere}
+.profile-badges h3 {font-size:1rem;margin:0 0 8px;}
+.profile-badge-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:12px;}
+.profile-badge {display:grid;place-items:center;justify-self:center;width:44px;height:44px;padding:7px;border:0;background:transparent;box-shadow:none;color:inherit;cursor:pointer;}
+.profile-badge img {display:block;width:30px;height:30px;}
+.profile-badge:focus-visible {outline:3px solid var(--ah-focus);outline-offset:2px;border-radius:4px;}
+.badge-detail p {margin:6px 0 0;}
+.badge-detail {margin-top:20px;overflow-wrap:anywhere;background:var(--ah-secondary);border:1px solid var(--ah-divider);border-radius:var(--ah-radius-control);padding:12px;line-height:1.5;}
+
+
+#profile-dialog [hidden]{display:none!important}
+#profile-dialog .quiet{color:var(--ah-muted);font-size:14px}
+
+.badge-detail-heading{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:start}
+#badge-detail-icon{display:block;width:30px;height:30px;object-fit:contain}
+#badge-progress{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ah-muted)}

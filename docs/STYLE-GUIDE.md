@@ -16,36 +16,36 @@ See [styling ownership and exceptions](STYLE-ARCHITECTURE.md) for the family bou
 
 ## Visual direction
 
-A warm, clear classroom workspace: pale backgrounds, near-white surfaces, dark text, softly shaded controls, and restrained accents. Green retains the original cream/sage identity and is the default. Keep the activity prominent. Avoid decorative content that reduces its available space.
+A warm, clear classroom workspace: pale backgrounds, near-white surfaces, dark text, softly shaded controls, and restrained accents. Blue is the default for visitors without a saved theme; Green retains the original cream/sage identity. Keep the activity prominent. Avoid decorative content that reduces its available space.
 
 ## Palette
 
 | Role | Token | Color |
 | --- | --- | --- |
-| Page background | `--ah-canvas` | #f8f6ed |
-| Panel/control surface | `--ah-surface` | #fffefa |
-| Main text | `--ah-ink` | #263f36 |
-| Supporting text | `--ah-muted` | #4b594f |
-| Thin control border | `--ah-border` | #697a68 |
-| Hover fill | `--ah-hover` | #e8eddf |
-| Pressed fill | `--ah-pressed` | #d5e1cc |
-| Secondary action fill | `--ah-secondary` | #e0ead7 |
-| Secondary action hover | `--ah-secondary-hover` | #cedfc2 |
-| Selected fill / border | `--ah-selected` / `--ah-selected-border` | #eef4e8 / #417655 |
-| Strong fill (HARD mode) | `--ah-strong` | #294e40 |
-| Decorative accent | `--ah-accent` | #d85836 |
+| Page background | `--ah-canvas` | #f3f7fb |
+| Panel/control surface | `--ah-surface` | #fdfefe |
+| Main text | `--ah-ink` | #253e50 |
+| Supporting text | `--ah-muted` | #475c6a |
+| Thin control border | `--ah-border` | #637e91 |
+| Hover fill | `--ah-hover` | #e6eff6 |
+| Pressed fill | `--ah-pressed` | #d4e4f0 |
+| Secondary action fill | `--ah-secondary` | #deecf7 |
+| Secondary action hover | `--ah-secondary-hover` | #ccdfef |
+| Selected fill / border | `--ah-selected` / `--ah-selected-border` | #ecf4fb / #346a94 |
+| Strong fill (HARD mode) | `--ah-strong` | #294f70 |
+| Decorative accent | `--ah-accent` | #c46b3e |
 | Keyboard focus | `--ah-focus` | #245eb3 |
 
 Do not use orange as small text on cream without checking contrast. Food/artwork colors are activity-specific, not UI palette tokens.
 
 ## Curated site themes
 
-All palettes live in `shared/tokens.css`, selected with `html[data-ah-theme]`. Green uses the root defaults. Keep muted surfaces dominant; do not recolor activity artwork, student choices, lesson content or export artwork. The palette is related to Teacher Tools through restrained colored controls and pale surfaces, without copying its stronger Ocean Blue (#1e40af / #60a5fa). Blue also echoes the original Let’s Go! blue/white direction. Maroon takes POST’s #963f4c and #f1e3d8 directly.
+All palettes live in `shared/tokens.css`, selected with `html[data-ah-theme]`. Blue uses the root defaults; an explicit green selection retains the original palette. Keep muted surfaces dominant; do not recolor activity artwork, student choices, lesson content or export artwork. The palette is related to Teacher Tools through restrained colored controls and pale surfaces, without copying its stronger Ocean Blue (#1e40af / #60a5fa). Blue also echoes the original Let’s Go! blue/white direction. Maroon takes POST’s #963f4c and #f1e3d8 directly.
 
 | Theme | Canvas | Surface | Ink | Secondary | Selected border / dot | Strong | Focus |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Green (default) | #f8f6ed | #fffefa | #263f36 | #e0ead7 | #417655 | #294e40 | #245eb3 |
-| Blue | #f3f7fb | #fdfefe | #253e50 | #deecf7 | #346a94 | #294f70 | #245eb3 |
+| Green | #f8f6ed | #fffefa | #263f36 | #e0ead7 | #417655 | #294e40 | #245eb3 |
+| Blue (default) | #f3f7fb | #fdfefe | #253e50 | #deecf7 | #346a94 | #294f70 | #245eb3 |
 | Maroon | #fcf5ef | #fffdfa | #49342c | #f2e1dc | #963f4c | #74323e | #326c68 |
 | Gold | #fbf7ed | #fffefa | #493c24 | #f1e5c6 | #846321 | #70521d | #245a8e |
 | Purple | #f8f5fa | #fffdff | #41354d | #eadef1 | #78538e | #624275 | #315e9b |
@@ -54,9 +54,9 @@ The full hover, press, muted, border, disabled and play-surface values are execu
 
 Profile places the shared theme picker immediately below Name. Use a labelled fieldset and native radios with descriptive accessible names and native checked state. Five 22px colored dots sit in 44×44px labels with 4px gaps. Selection uses a dark ring separated from the dot by the panel color; keyboard focus uses a distinct 3px outline outside that ring. Arrow keys change/wrap selection; Space selects; Tab enters/leaves the group. Theme swatches are preference radios, not app artwork swatches. Keep the same shared picker in the interactive guide. Forced-color mode retains swatch colors with system-colored selection/focus rings.
 
-`shared/theme.js` owns the independent `letseigo.theme` string key and only accepts green/blue/maroon/gold/purple. Startup never writes a default or overwrites an unknown stored value. Explicit user selection writes only that key; names, avatar, badges, language, and app saves are independent. Shared entrypoints load this small local script synchronously before CSS so a saved palette is applied before rendering. Storage and pageshow/visibility events synchronize other tabs and restored pages. A failed save keeps the choice for the current page and exposes a translated status message; it cannot promise persistence/navigation without working storage. With JavaScript unavailable, the root green styles remain usable.
+`shared/theme.js` owns the independent `letseigo.theme` string key and only accepts green/blue/maroon/gold/purple. Startup never writes a default or overwrites an unknown stored value. Explicit user selection writes only that key; names, avatar, badges, language, and app saves are independent. Shared entrypoints load this small local script synchronously before CSS so a saved palette is applied before rendering. Storage and pageshow/visibility events synchronize other tabs and restored pages. A failed save keeps the choice for the current page and exposes a translated status message; it cannot promise persistence/navigation without working storage. With JavaScript unavailable, the root blue styles remain usable.
 
-POST keeps its documented independent warm typography/editor/postcard identity; shared navigation buttons and dialogs adopt the selected suite tokens. Its preview art and the homepage’s POST illustration background stay warm. Avatar pictures, food artwork, My Town map/route colors and Blog’s exported composition are content, not generic chrome. Do not theme their source art. Fixed SVG utility icons retain their dark stroke; the five pale palettes keep these readable.
+POST keeps its documented independent warm typography/editor/postcard identity; shared navigation buttons and dialogs adopt the selected suite tokens. Its preview art and the homepage’s POST illustration background stay warm. Avatar pictures, food artwork and My Town map/route colors are content, not generic chrome. Blog exports capture the current theme tokens for their surface, header, typed text, photo backing, credit and border; photos, avatars and handwritten ink retain their original colors. Do not theme their source art. Fixed SVG utility icons retain their dark stroke; the five pale palettes keep these readable.
 
 Run `tests/check-themes.cjs` for validated restore/storage isolation, entrypoint order and WCAG sRGB contrast. Active text and supporting text must reach 4.5:1 on all interactive light fills; inverse labels on strong fills must reach 4.5:1; selected borders, focus and dot identities must reach 3:1 against adjacent light surfaces. Control boundaries are checked against canvas, surface, hover and selected fills. `tests/check-themes-browser.cjs` covers responsive pages, native radio keyboard use, focus, reload/navigation, first-style restore, cross-tab updates and unavailable storage. See [theme verification](STYLE-ARCHITECTURE.md#theme-verification) for dated evidence and physical-device limitations.
 
@@ -92,7 +92,7 @@ Actions use a thin 1px border and dark text. Secondary actions start a shade dar
 
 ## Shared header and icons
 
-Left: textbook-back control, applet-specific mark (or shared mark), activity title. Right: Language, app-link QR, textbook/unit context, fullscreen. Use 24px icons in 44px targets. For the reviewed food/Supplies Builders, LEARN/PLAY belongs beside the first choices heading; EASY/HARD and its separate touch/keyboard help belong in the app’s documented choices heading. Do not put difficulty back in the header. Wrap rather than overflow. The phone-only textbook-label policy below owns label visibility. Legacy Lab retains its documented difficulty fixture; Blog/POST have separate shells.
+Left: textbook-back control, applet-specific mark (or shared mark), activity title. Right: Language, app-link QR, textbook/unit context. Builders place the optional fullscreen button at the right end of the activity prompt row above the creation area, using shared builder-prompt-row styling: a reserved 44px column, 8px gap, and wrapping prompt text. Keep the same button in both modes and while fullscreen is active; do not overlay it on artwork. Use 24px icons in 44px targets. For the reviewed food/Supplies Builders, LEARN/PLAY belongs beside the first choices heading; EASY/HARD and its separate touch/keyboard help belong in the app’s documented choices heading. Do not put difficulty back in the header. Wrap rather than overflow. The phone-only textbook-label policy below owns label visibility. Legacy Lab retains its documented difficulty fixture; Blog/POST have separate shells.
 
 Reset uses `reset.svg`; picture preview/Save uses `camera.svg`. Both have a 24×24 viewBox, 1.8px rounded strokes, and similar drawing bounds; render them at the shared 24px icon size. Avoid font glyphs for these actions because their apparent size varies by platform.
 
@@ -332,9 +332,17 @@ App-link sharing uses a QR icon button immediately after Language in the header,
 
 QR dialog actions use the short labels “Download” and “Copy”, with a decorative download arrow or overlapping-sheets icon on the left, using the same shared button spacing as Reset/Save.
 
-The homepage header ends with a rounded-square saved-avatar button after Language and QR. The avatar fills the button’s interior with no padding and follows its shared rounded corners. The larger Profile dialog avatar also uses a rounded-square crop with the shared control radius. Both previews show the artwork at 110% scale, anchored at the top center so the top stays visible and the extra height crops at the bottom. Use the shared grey profile silhouette when no valid local avatar is available. It opens a Profile dialog with the current selfie, a locally saved Name field, and an Edit Selfie action with a small Polaroid icon at the bottom linking to the avatar builder.
+## Shared Profile
+
+`shared/profile.js` owns Profile markup, translations and behavior; `shared/profile.css` owns its layout and avatar trigger styling. The homepage, NH1-5, NH2-4, NH6-5 and Journal all use these same files. Do not put modal layout in home.css or Blog/Journal styles. Theme palettes and persistence remain in tokens.css/theme.js; shared controls own buttons and theme-radio visuals. See [integration and rollout](WORKFLOW.md#shared-profile-integration) for dependencies and consumer verification.
+
+The homepage, My Blog and Journal use the same 44px avatar trigger; in My Blog and Journal it replaces fullscreen. Builder fullscreen placement is a separate policy. Successful name saves immediately update the current Blog author or Journal presentation without reloading or modifying draft content.
+
+The homepage header ends with a rounded-square saved-avatar button after Language and QR. The avatar fills the button’s interior with no padding and follows its shared rounded corners. The larger Profile dialog avatar also uses a rounded-square crop with the shared control radius. Both previews show the artwork at 110% scale, anchored at the top center so the top stays visible and the extra height crops at the bottom. Use the shared grey profile silhouette when no valid local avatar is available. It opens a landscape ID-card Profile dialog, up to 680px wide. The identity row top-aligns three columns: selfie on the left (144px normally) with Edit Selfie directly beneath it, Name in the middle, and Badges at the right. The Name label starts level with the top of the avatar. Show the saved name as wrapping text with a shared 44px pencil button (`shared/icons/pen.svg`); an empty name reads “Add your name.” The pencil reveals a labelled text input with Save name and Cancel. Enter saves; Cancel or Escape discards the draft and returns focus to the pencil; Escape when not editing closes Profile. Closing Profile also discards an unsaved draft. Write only on explicit Save, preserving the existing version-1 `letseigo.profile` format and other fields. A failed local save keeps the editor/draft open and shows a translated status; never report a failed write as saved. Theme controls occupy their own full-width row beneath the divider. At widths of 600px and below, badges move beneath the avatar/name pair, above the theme controls. Keep avatar left/name right on narrow screens with smaller artwork and wrapping controls, permitting vertical scrolling instead of locking an aspect ratio. Retain the shared dialog frame, all five theme palettes, keyboard focus and English/Japanese labels. Run `node tests/check-profile-browser.cjs` with Playwright available (and optional `CHROME_PATH`) for save/cancel, storage, cross-tab, keyboard and responsive regressions.
 
 ## My Blog writing and snapshots
+
+The shared BlogSnapshot renderer captures resolved theme tokens at export start, before image loading. Both arranged and simple exports use that captured palette, including when the theme cannot be saved to storage. Regenerate a snapshot after changing themes; existing downloaded images remain unchanged.
 
 ES My Blog uses Post/Photos/Design, with guided TYPE textareas or WRITE pads rather than the former segmented fields. Show Help controls visual samples only; hints and guides do not enter saved/exported answers. Keep the profile beside writing and use layout-only reset. The ES lesson README and MY-BLOG-ENGINE.md own the current focus, handwriting and help behavior; Builder changes must not alter it.
 
@@ -362,7 +370,7 @@ JHS My Blog navigation uses a tab strip, not pill action buttons: rounded upper 
 
 ES My Blog offers TYPE/WRITE via a shared-style pill opposite the author/avatar. WRITE pads use theme-selected baseline and black guide rules, one or two writing lines per sentence according to available width. Keep help as a faint overlay, omit automatic periods, and expose Pen/Eraser and per-sentence Undo as labelled 44px controls. Restrict touch drawing behavior to pads so the surrounding Post panel can still scroll.
 
-Profile badges appear beneath Name and above Edit Selfie. Show only the highest earned rank per badge family, in an evenly spaced responsive grid, with a 30px My Blog icon matching its app header and an invisible 44px touch target. No visible button border, fill, or label; retain native button semantics and a visible keyboard focus outline. Green preserves the original My Blog SVG; bronze, silver, gold and aqua diamond reuse its geometry with rank palettes in `shared/badges/`. The accessible button name includes the rank as a non-color cue. A native button expands one inline help bubble beneath it, showing the title “Budding Journalist” without a rank descriptor, completion counts and the next threshold; it supports keyboard activation and `aria-expanded`. An empty collection explains how to earn the first badge. Labels and details support English/Japanese.
+Profile badges occupy the top-right column beside Name on wide screens; at widths of 600px and below, they span a row beneath the avatar/name pair and above the theme controls. Show only the highest earned rank per badge family, in an evenly spaced responsive grid, with 30px app icons matching the My Blog header and an invisible 44px touch target. No visible button border, fill, or label; retain native button semantics and a visible keyboard focus outline. Green preserves the original My Blog SVG; bronze, silver, gold and aqua diamond reuse its geometry with rank palettes in `shared/badges/`. The accessible button name includes the rank as a non-color cue. A native button expands one shared full-width help panel below the complete avatar/name/badge area (including Edit Selfie) and above the theme controls, showing a 30px copy of the selected badge at the left of its rank-specific title, a compact progress counter at the upper right, and a short earning explanation below; it supports keyboard activation and `aria-expanded`. An empty collection explains how to earn the first badge. Labels and details support English/Japanese.
 
 
 ## Grid-map Builder workspaces (My Town reference)
@@ -381,11 +389,11 @@ Verify empty and populated maps, BUILD/ROUTE, station-dependent resizing, drag/s
 
 ### Builder recovery, selection and picture saving
 
-Use the existing Reset button for temporary Restore, with translated visible/accessibility labels and no extra controls or confirmation. Use **Save** for the reviewed Builder English picture-preview/export action (food Builders, Class Supplies, My Town and Lab’s sample). My Selfie and Blog retain their existing Share wording pending separate review; QR sharing keeps its own Share wording. Preserve the existing preview and centered Download action.
+Use the existing Reset button for temporary Restore, with translated visible/accessibility labels and no extra controls or confirmation. Use **Save** for the reviewed Builder English picture-preview/export action (food Builders, Class Supplies, My Town, My Selfie and Lab’s sample). Blog retains its existing Share wording; QR sharing keeps its own Share wording. Preserve the existing preview and centered Download action.
 
 Selected LEARN fruit/filling slots use a 3px inset ink outline and subtle selected tint inside their existing footprint. Keep unselected slots visible and keyboard focus as a separate outside focus outline. Do not change selection behavior, dimensions, or add animation.
 
-A site/app-name export tagline is under review, not an enabled standard. The `?export-tagline=preview` review flag uses the Blog approach (muted 14px text) in the existing upper white margin only. Normal exports omit it; never include student information or reduce artwork/sentence space for this preview.
+Builder polaroid exports include “Let's EiGo! ・ [App name]” at the bottom left, using Blog's muted #627067 color with 28px Arial on the 1000px export canvas (about 11px when displayed at 390px wide) for readability in scaled Builder previews. The shared photo renderer owns this credit (50px left inset, 24px bottom baseline inset on the 1000px canvas). Long sentences grow the lower margin to keep the credit clear without shrinking artwork or sentence text. Supply a stable appName matching the visible app-page brand title (title case is appropriate for the credit), not a generic Builder or browser-tab label; never include student information. Square portrait exports and custom canvases keep their own formats. The former upper-margin preview flag is retired.
 
 ### PLAY artwork fitting
 
@@ -435,7 +443,7 @@ Sandwich difficulty controls sentence detail, not quantity language: EASY explai
 
 #### Growing sentence regions and layout ownership
 
-The approved right-column workspace uses content-height output, not the legacy 21–16px fixed-height fitting loop. Its adapter calls `output.stopFitting()` to disconnect that loop's observers and clears the fitted font override. My Selfie retains the legacy bounded output layout and fitting. My Town disables fitting and uses its shared scrolling choices/directions column. Keep the native scrollbar and existing lower inset shadow (`has-more`) as the unobtrusive scroll cue; do not add permanent sentence navigation without review. Listen remains a normal focusable 44px control at the top right of its sentence box and is reached by scrolling the column or keyboard navigation.
+The approved right-column workspace uses content-height output, not the legacy 21–16px fixed-height fitting loop. Its adapter calls `output.stopFitting()` to disconnect that loop's observers and clears the fitted font override. My Selfie has no sentence/output card; its portrait fills the space below the prompt. My Selfie keeps a proportional square portrait (96% of the smaller available dimension), its 404px phone play frame, and its app-specific preview cards; do not reserve food toolbar or sentence space. At widths below 740px, or widths at least 740px with heights at most 380px, use page flow with the shared Jump to choices / Back to activity control; the short-wide play frame remains 340px high. At 381px high and above, wide windows retain two columns and may scroll the activity if its 240px minimum artwork row cannot fit. Its bounded choices column uses the shared native scrollbar colors, stable gutter and lower inset shadow; `BuilderScrollCue` in `builder-panel-workspace.js` can be used independently of `BuilderPanelWorkspace`. Show the cue only for a scrollable column with more than 2px remaining below, clear it at the bottom and in page-flow layouts, and update after tab/content/size changes. Picture-card heights follow their scaled previews with a 44px minimum touch target rather than fixed tall minimums. Compact nose/mouth grids wrap before 44px targets overflow; the five desktop tabs remain one row and scroll horizontally by touch/trackpad or keyboard focus if enlarged text needs more space. The tab strip has no visible scrollbars and never scrolls vertically; only the outer choices panel shows its native scrollbar. My Town disables fitting and uses its shared scrolling choices/directions column. Keep the native scrollbar and existing lower inset shadow (`has-more`) as the unobtrusive scroll cue; do not add permanent sentence navigation without review. Listen remains a normal focusable 44px control at the top right of its sentence box and is reached by scrolling the column or keyboard navigation.
 
 Geometry observers belong to the shared workspace coordinator, not panel adapters or artwork renderers. This ownership does not change the preferred-size/minimal-shift/last-resort-scale policy, full-frame piece placement, or app-specific base geometry. See WORKFLOW.md for repaint and recovery contracts.
 
@@ -452,3 +460,9 @@ LEARN/PLAY and EASY/HARD use the shared toggle typography and dimensions from `s
 ## Homepage feedback announcement
 
 The feedback invitation is a small, in-flow aside beside the introduction at widths of 1000px and above (224px column with a 32px gap). Below that, it stacks after the introduction and stays at most 360px wide. Use a surface fill, subtle divider border and a narrow selected-color top edge; retain the shared feedback button and visible new-tab notice. Keep the bug-report link independent. This homepage-only layout belongs in home.css.
+
+Builder starting badges use the original app favicon directly. Ranked variants preserve its geometry in bronze, silver, gold and aqua diamond palettes; generated artwork lives in shared/badges and is derived by scripts/generate-builder-badges.cjs. Keep all badge families in the same icon-only grid and show only one details bubble at a time. Ranked builder descriptions say “Play [app] [5/10/15/20] times.” Titles use Bronze/Silver/Gold/Diamond plus Pizza, Sandwich, Parfait, Pen or Map. My Blog Bronze uses “Growing Journalist” and “Write at least 5 entries in My Blog.” Higher Blog ranks retain their previous wording pending approved copy. The help heading shows current progress toward the next rank (for example 2/5); the highest rank displays 20/20. Keep cooldowns and counting mechanics out of student-facing descriptions. `shared/achievements.js` owns rank copy in both languages.
+
+## Homepage navigation
+
+The homepage navigation uses a compact 56px minimum height with 6px vertical padding, 44px shared controls, the original 38px airplane and 26px wordmark (24px below 620px; 21px below 380px). Its full-width theme-canvas background and divider remain visible with `position:sticky; top:0`; page content scrolls normally beneath it. The tagline/report row spans the complete intro grid, placing the report link at the far right above the feedback column. Intro top padding is 12px with a 12px gap before the title/feedback row; avoid restoring the old 48px top allowance. On narrow screens the tagline wraps within its column while the report link remains right-aligned. Let navigation wrap for very narrow screens or enlarged text; home.js measures its rendered height for anchor scroll padding. The fixed skip link appears above navigation on keyboard focus. Keep theme, QR and Profile dialogs in the native top layer. Header layout belongs in home.css; Profile trigger dimensions remain shared.

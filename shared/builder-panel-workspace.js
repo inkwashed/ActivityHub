@@ -1,3 +1,16 @@
+/* Optional native-scroll cue, independent of artwork, output and editor adapters. */
+window.BuilderScrollCue=(column,content)=>{
+ const update=()=>{
+  const scrollable=/^(auto|scroll)$/.test(getComputedStyle(column).overflowY);
+  column.classList.toggle('has-more',scrollable&&column.clientHeight>0&&column.scrollHeight-column.clientHeight-column.scrollTop>2);
+ };
+ column.addEventListener('scroll',update,{passive:true});
+ const sizes=new ResizeObserver(update);sizes.observe(column);if(content)sizes.observe(content);
+ new MutationObserver(update).observe(column,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['hidden']});
+ window.addEventListener('resize',update);update();
+ return update;
+};
+
 /* Opt-in workspace: one scrolling choices/sentence column, full-frame editing. */
 window.BuilderPanelWorkspace=(builder,{preferredFrameClass}={})=>{
  const root=builder.root,column=root.querySelector('[data-jump-section="choices"]');
@@ -49,10 +62,7 @@ window.BuilderPanelWorkspace=(builder,{preferredFrameClass}={})=>{
   const top=editOffsets.get(event);column.scrollTop=top;update();
   requestAnimationFrame(()=>{column.scrollTop=top;update()});
  });
- const update=()=>column.classList.toggle('has-more',column.scrollHeight-column.clientHeight-column.scrollTop>2);
- column.addEventListener('scroll',update,{passive:true});
- new ResizeObserver(update).observe(column);new ResizeObserver(update).observe(output);
- new MutationObserver(update).observe(column,{childList:true,subtree:true,characterData:true});update();
+ const update=window.BuilderScrollCue(column,output);
 };
 window.BuilderPanelWorkspace.photoFrame=(area,scene,map,base)=>{
  if(![area.width,area.height,scene.width,scene.height].every(n=>Number.isFinite(n)&&n>0))return {...base};

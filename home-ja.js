@@ -1,16 +1,4 @@
 window.ActivityHubI18n.register({
-  "Color theme": "カラーテーマ",
-  "Green — original cream and sage": "グリーン：いつものクリームとセージ",
-  "Blue — airy blue and white": "ブルー：爽やかな青と白",
-  "Maroon — warm POST-inspired tones": "マルーン：POSTをイメージした暖かな色",
-  "Gold — warm honey and cream": "ゴールド：暖かな蜂蜜色とクリーム",
-  "Purple — soft lilac and plum": "パープル：柔らかなライラックとプラム",
-  "Theme changed for this visit. It could not be saved on this device.": "テーマを変更しました。この端末には保存できませんでした。",
-  "Profile settings": "プロフィール設定",
-  "Name": "名前",
-  "Profile": "プロフィール",
-  "Close profile settings": "プロフィール設定を閉じる",
-  "Edit Selfie": "アバターを編集",
   "Unit 5": "Unit 5",
   "Make a sandwich": "サンドイッチを作る",
   "Choose your fillings, explore where they come from, and tell us about your sandwich.": "具材を選んで産地を調べ、自分のサンドイッチを紹介しよう。",
@@ -34,82 +22,28 @@ window.ActivityHubI18n.register({
   "Unit 7 · What do you want?": "Unit 7 · What do you want?",
   "Choose your toppings, practice your order, or make a pizza your own way.": "トッピングを選んで注文を練習したり、自由にピザを作ったりしてみよう。",
   "Make a pizza": "ピザを作る",
-  "Made for speaking, choosing, and trying things out—together or on your own.": "話して、選んで、試してみよう。みんなでも、ひとりでも。"
-});
-
-window.ActivityHubI18n.register({
-  "Color theme": "カラーテーマ",
-  "Green — original cream and sage": "グリーン：いつものクリームとセージ",
-  "Blue — airy blue and white": "ブルー：爽やかな青と白",
-  "Maroon — warm POST-inspired tones": "マルーン：POSTをイメージした暖かな色",
-  "Gold — warm honey and cream": "ゴールド：暖かな蜂蜜色とクリーム",
-  "Purple — soft lilac and plum": "パープル：柔らかなライラックとプラム",
-  "Theme changed for this visit. It could not be saved on this device.": "テーマを変更しました。この端末には保存できませんでした。","Write about your item and add pictures to make your own blog post.":"持ち物について書いて、画像を追加して、自分のブログをつくろう。","Make a post":"投稿をつくる","2 activities":"2つのアクティビティ"});
-
-window.ActivityHubI18n.register({
-  "Color theme": "カラーテーマ",
-  "Green — original cream and sage": "グリーン：いつものクリームとセージ",
-  "Blue — airy blue and white": "ブルー：爽やかな青と白",
-  "Maroon — warm POST-inspired tones": "マルーン：POSTをイメージした暖かな色",
-  "Gold — warm honey and cream": "ゴールド：暖かな蜂蜜色とクリーム",
-  "Purple — soft lilac and plum": "パープル：柔らかなライラックとプラム",
-  "Theme changed for this visit. It could not be saved on this device.": "テーマを変更しました。この端末には保存できませんでした。","Find activities":"教材を探す","Search activities":"教材を検索","Textbook":"教科書","All textbooks":"すべての教科書","Show all":"すべて表示","No activities found. Try another word or textbook.":"教材が見つかりません。別の言葉や教科書で探してみてください。","3 activities":"教材 3つ","{count} activities found":"{count}件の教材が見つかりました","1 activity found":"1件の教材が見つかりました","Choose your classroom supplies, add colors, and ask a partner what they have.":"文房具を選んで色をつけ、友だちに何を持っているか聞いてみよう。","Choose your supplies":"文房具を選ぶ"});
-
-window.ActivityHubI18n.register({
-  "Color theme": "カラーテーマ",
-  "Green — original cream and sage": "グリーン：いつものクリームとセージ",
-  "Blue — airy blue and white": "ブルー：爽やかな青と白",
-  "Maroon — warm POST-inspired tones": "マルーン：POSTをイメージした暖かな色",
-  "Gold — warm honey and cream": "ゴールド：暖かな蜂蜜色とクリーム",
-  "Purple — soft lilac and plum": "パープル：柔らかなライラックとプラム",
-  "Theme changed for this visit. It could not be saved on this device.": "テーマを変更しました。この端末には保存できませんでした。",'Write your blog':'ブログを書く','Write about a place you have been to or want to visit. Add photos, arrange your post, and save your blog snapshot.':'行ったことのある場所や行ってみたい場所について書こう。写真を追加し、レイアウトを整えて、ブログの画像を保存できます。'});
-
-window.ActivityHubI18n.register({
-  "Color theme": "カラーテーマ",
-  "Green — original cream and sage": "グリーン：いつものクリームとセージ",
-  "Blue — airy blue and white": "ブルー：爽やかな青と白",
-  "Maroon — warm POST-inspired tones": "マルーン：POSTをイメージした暖かな色",
-  "Gold — warm honey and cream": "ゴールド：暖かな蜂蜜色とクリーム",
-  "Purple — soft lilac and plum": "パープル：柔らかなライラックとプラム",
-  "Theme changed for this visit. It could not be saved on this device.": "テーマを変更しました。この端末には保存できませんでした。",'Give advice to students coming to Japan for a homestay. Write your post, add photos, and arrange your blog.':'日本へホームステイに来る生徒にアドバイスしよう。文章を書き、写真を追加して、ブログを作ろう。'});
-
-window.ActivityHubI18n.register({
-  "Color theme": "カラーテーマ",
-  "Green — original cream and sage": "グリーン：いつものクリームとセージ",
-  "Blue — airy blue and white": "ブルー：爽やかな青と白",
-  "Maroon — warm POST-inspired tones": "マルーン：POSTをイメージした暖かな色",
-  "Gold — warm honey and cream": "ゴールド：暖かな蜂蜜色とクリーム",
-  "Purple — soft lilac and plum": "パープル：柔らかなライラックとプラム",
-  "Theme changed for this visit. It could not be saved on this device.": "テーマを変更しました。この端末には保存できませんでした。",'Unit 4':'Unit 4'});
-
-window.ActivityHubI18n.register({
-  "Color theme": "カラーテーマ",
-  "Green — original cream and sage": "グリーン：いつものクリームとセージ",
-  "Blue — airy blue and white": "ブルー：爽やかな青と白",
-  "Maroon — warm POST-inspired tones": "マルーン：POSTをイメージした暖かな色",
-  "Gold — warm honey and cream": "ゴールド：暖かな蜂蜜色とクリーム",
-  "Purple — soft lilac and plum": "パープル：柔らかなライラックとプラム",
-  "Theme changed for this visit. It could not be saved on this device.": "テーマを変更しました。この端末には保存できませんでした。",'Pick something you like and write about where it is from. Type or handwrite your sentences, add photos, and arrange your blog.':'好きなものを選んで、どこから来たのかを書こう。文字入力や手書きで文を書き、写真を追加してブログを作ろう。','2 activities':'2つのアクティビティ'});
-
-window.ActivityHubI18n.register({
-  "Color theme": "カラーテーマ",
-  "Green — original cream and sage": "グリーン：いつものクリームとセージ",
-  "Blue — airy blue and white": "ブルー：爽やかな青と白",
-  "Maroon — warm POST-inspired tones": "マルーン：POSTをイメージした暖かな色",
-  "Gold — warm honey and cream": "ゴールド：暖かな蜂蜜色とクリーム",
-  "Purple — soft lilac and plum": "パープル：柔らかなライラックとプラム",
-  "Theme changed for this visit. It could not be saved on this device.": "テーマを変更しました。この端末には保存できませんでした。",'Help us improve Let’s EiGo!':'Let’s EiGo! をよりよくするために、ご意見をお聞かせください。','Give feedback':'意見・感想を送る'});
-
-window.ActivityHubI18n.register({
-  "Color theme": "カラーテーマ",
-  "Green — original cream and sage": "グリーン：いつものクリームとセージ",
-  "Blue — airy blue and white": "ブルー：爽やかな青と白",
-  "Maroon — warm POST-inspired tones": "マルーン：POSTをイメージした暖かな色",
-  "Gold — warm honey and cream": "ゴールド：暖かな蜂蜜色とクリーム",
-  "Purple — soft lilac and plum": "パープル：柔らかなライラックとプラム",
-  "Theme changed for this visit. It could not be saved on this device.": "テーマを変更しました。この端末には保存できませんでした。",'Report a bug':'不具合を報告'});
-
-window.ActivityHubI18n.register({
+  "Made for speaking, choosing, and trying things out—together or on your own.": "話して、選んで、試してみよう。みんなでも、ひとりでも。",
+  "Write about your item and add pictures to make your own blog post.": "持ち物について書いて、画像を追加して、自分のブログをつくろう。",
+  "Make a post": "投稿をつくる",
+  "Find activities": "教材を探す",
+  "Search activities": "教材を検索",
+  "Textbook": "教科書",
+  "All textbooks": "すべての教科書",
+  "Show all": "すべて表示",
+  "No activities found. Try another word or textbook.": "教材が見つかりません。別の言葉や教科書で探してみてください。",
+  "3 activities": "教材 3つ",
+  "{count} activities found": "{count}件の教材が見つかりました",
+  "1 activity found": "1件の教材が見つかりました",
+  "Choose your classroom supplies, add colors, and ask a partner what they have.": "文房具を選んで色をつけ、友だちに何を持っているか聞いてみよう。",
+  "Choose your supplies": "文房具を選ぶ",
+  "Write your blog": "ブログを書く",
+  "Write about a place you have been to or want to visit. Add photos, arrange your post, and save your blog snapshot.": "行ったことのある場所や行ってみたい場所について書こう。写真を追加し、レイアウトを整えて、ブログの画像を保存できます。",
+  "Give advice to students coming to Japan for a homestay. Write your post, add photos, and arrange your blog.": "日本へホームステイに来る生徒にアドバイスしよう。文章を書き、写真を追加して、ブログを作ろう。",
+  "Unit 4": "Unit 4",
+  "Pick something you like and write about where it is from. Type or handwrite your sentences, add photos, and arrange your blog.": "好きなものを選んで、どこから来たのかを書こう。文字入力や手書きで文を書き、写真を追加してブログを作ろう。",
+  "Help us improve Let’s EiGo!": "Let’s EiGo! をよりよくするために、ご意見をお聞かせください。",
+  "Give feedback": "意見・感想を送る",
+  "Report a bug": "不具合を報告",
   "Build your town, trace a route, and give a partner directions to your favorite places.": "自分の町を作り、道順をたどって、お気に入りの場所まで友達を案内しよう。",
   "Build your town": "町を作ろう"
 });

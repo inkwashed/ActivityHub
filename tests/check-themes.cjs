@@ -7,16 +7,16 @@ function fixture(initial,blocked=false){
  vm.runInNewContext(source,context);return {context,data,events,attrs,writes,theme:context.window.ActivityTheme};
 }
 for(const value of [undefined,'green','blue','maroon','gold','purple','<invalid>']){
- const f=fixture(value?{'letseigo.theme':value}:{});assert.equal(f.attrs['data-ah-theme'],['blue','maroon','gold','purple'].includes(value)?value:'green');assert.equal(f.writes.length,0);if(value)assert.equal(f.data.get('letseigo.theme'),value);
+ const f=fixture(value?{'letseigo.theme':value}:{});assert.equal(f.attrs['data-ah-theme'],['green','blue','maroon','gold','purple'].includes(value)?value:'blue');assert.equal(f.writes.length,0);if(value)assert.equal(f.data.get('letseigo.theme'),value);
 }
 const f=fixture({'letseigo.profile':'name sentinel','letseigo.app.pizza':'creation sentinel'});
 for(const name of ['green','blue','maroon','gold','purple']){assert.equal(f.theme.set(name),true);assert.equal(f.data.get('letseigo.theme'),name);assert.equal(fixture(Object.fromEntries(f.data)).theme.current,name);}
 assert.equal(f.theme.set('unknown'),false);assert.equal(f.data.get('letseigo.profile'),'name sentinel');assert.equal(f.data.get('letseigo.app.pizza'),'creation sentinel');assert.ok(f.writes.every(k=>k==='letseigo.theme'));
-f.data.set('letseigo.theme','blue');f.events.storage({key:'letseigo.theme'});assert.equal(f.theme.current,'blue');f.data.set('letseigo.theme','maroon');f.events.pageshow();assert.equal(f.theme.current,'maroon');f.data.delete('letseigo.theme');f.events.storage({key:null});assert.equal(f.theme.current,'green');
-const blocked=fixture({},true);blocked.theme.set('purple');blocked.events.pageshow();assert.equal(blocked.theme.current,'purple');
+f.data.set('letseigo.theme','blue');f.events.storage({key:'letseigo.theme'});assert.equal(f.theme.current,'blue');f.data.set('letseigo.theme','maroon');f.events.pageshow();assert.equal(f.theme.current,'maroon');f.data.delete('letseigo.theme');f.events.storage({key:null});assert.equal(f.theme.current,'blue');
+const blocked=fixture({},true);assert.equal(blocked.theme.current,'blue');blocked.theme.set('purple');blocked.events.pageshow();assert.equal(blocked.theme.current,'purple');
 const css=fs.readFileSync(path.join(root,'shared/tokens.css'),'utf8');
 const blocks=[...css.matchAll(/:root(?:\[data-ah-theme="(\w+)"\])?\s*\{([^}]+)\}/g)];let base={};const palettes={};
-for(const m of blocks){const values=Object.fromEntries([...m[2].matchAll(/--ah-([\w-]+):\s*(#[\da-f]{6})/g)].map(v=>[v[1],v[2]]));if(!m[1])base={...base,...values};else palettes[m[1]]=values;}palettes.green=base;
+for(const m of blocks){const values=Object.fromEntries([...m[2].matchAll(/--ah-([\w-]+):\s*(#[\da-f]{6})/g)].map(v=>[v[1],v[2]]));if(!m[1])base={...base,...values};else palettes[m[1]]=values;}palettes.blue=base;
 function lum(hex){const c=hex.slice(1).match(/../g).map(v=>parseInt(v,16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return c[0]*.2126+c[1]*.7152+c[2]*.0722;}
 function ratio(a,b){const x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05);}
 let minimum=99;

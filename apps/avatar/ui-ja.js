@@ -33,3 +33,7 @@ window.ActivityHubI18n.register({'Custom clothing color':'服の色を自由に�
 window.ActivityHubI18n.register({'Pointed-collar shirt':'えり付きシャツ'});
 
 window.ActivityHubI18n.register({'Rounded-collar shirt':'丸えりシャツ'});
+
+window.ActivityHubI18n.register({'Custom color selected':'カスタムの色を選択中','Preset color selected':'既定の色を選択中'});
+
+window.ActivityHubI18n.register({'Avatar restored.':'アバターを元に戻しました。'});

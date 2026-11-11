@@ -3,14 +3,14 @@
  const sessions=[];
  const read=(key,version)=>{try{const data=JSON.parse(localStorage.getItem(key));return data?.version===version?data.value:null}catch{return null}};
  const write=(key,version,value)=>{try{localStorage.setItem(key,JSON.stringify({version,value}));return true}catch{return false}};
- function connect(id,{version=1,capture,restore,canSave=()=>true,onRestoreError=()=>{}}){
+ function connect(id,{version=1,capture,restore,canSave=()=>true,onRestoreError=()=>{},onSave=()=>{}}){
   const key=`letseigo.app.${id}`,saved=read(key,version);
   let restoreFailed=false;
   if(saved!==null){try{restore(saved)}catch(error){
    restoreFailed=true;console.error('[ActivityAutosave] Restore failed; existing saved creation is protected from overwriting.',error);onRestoreError();
   }}
   let timer;
-  const flush=()=>{clearTimeout(timer);try{if(!restoreFailed&&canSave())write(key,version,capture())}catch{}};
+  const flush=()=>{clearTimeout(timer);try{if(!restoreFailed&&canSave()){const value=capture();if(write(key,version,value))onSave(value);}}catch{}};
   const schedule=()=>{clearTimeout(timer);timer=setTimeout(flush,200)};
   sessions.push(flush);
   for(const event of ['click','input','change','pointerup','pointercancel','keyup'])document.addEventListener(event,schedule);

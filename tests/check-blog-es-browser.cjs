@@ -1,6 +1,8 @@
 const {chromium}=require('playwright'),assert=require('node:assert/strict');
 (async()=>{const browser=await chromium.launch({headless:true,...(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{})});try{
 const p=await browser.newPage({viewport:{width:1024,height:768}}),errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto((process.env.BLOG_BASE_URL||'http://127.0.0.1:8776')+'/myblog/NH6-5/');
+await p.evaluate(()=>document.fonts.load('34px Urbanist'));
+assert.ok(await p.locator('#blog-sentences').evaluate(el=>getComputedStyle(el).fontFamily.includes('Urbanist')&&document.fonts.check('34px Urbanist')));
 const first=p.locator('[data-sentence="0"]'),second=p.locator('[data-sentence="1"]');
 const tail=()=>p.locator('.sentence-editor').first().locator('.sample-frame,.sample-variable').allTextContents();
 assert.equal(await p.locator('.sentence-input').count(),4);

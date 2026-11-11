@@ -54,5 +54,5 @@
   return `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="${vx} ${vy} ${side} ${side}">${backdrop}${output}</svg>`;
  }
  window.parfaitPhotoSVG=parfaitSVG;
- window.BuilderPhoto({builder:()=>window.parfaitBuilder,render:parfaitSVG,imageSelector:'#parfait-photo',caption:'My parfait!',background:'#eff3e8'});
+ window.BuilderPhoto({appName:'Little Parfait Cafe',builder:()=>window.parfaitBuilder,render:parfaitSVG,imageSelector:'#parfait-photo',caption:'My parfait!',background:'#eff3e8'});
 })();

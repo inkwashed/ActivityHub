@@ -1,16 +1,17 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const rect=(left,top,width,height)=>({left,top,width,height,right:left+width,bottom:top+height});
 const classes=()=>({add(){},toggle(){}});
-const listeners={};const output={setAttribute(){}};
+const rootListeners={};const listeners={};const output={setAttribute(){}};
 const column={classList:classes(),scrollHeight:800,clientHeight:500,scrollTop:120,querySelector:()=>({classList:classes()}),append:x=>column.output=x,addEventListener(){}};
 const scene={dataset:{}},safe=rect(0,0,336,400),full=rect(0,0,400,400);
 const surface={querySelector:()=>({firstElementChild:scene}),getBoundingClientRect:()=>safe,fitArtwork(){}};
 const frame={querySelector:()=>surface,getBoundingClientRect:()=>full};
-const root={classList:classes(),querySelector:s=>s.includes('choices')?column:s==='.builder-output'?output:frame,addEventListener(){}};
+const root={classList:classes(),querySelector:s=>s.includes('choices')?column:s==='.builder-output'?output:frame,addEventListener:(name,fn,capture)=>{rootListeners[name+(capture?'Capture':'')]=fn}};
 const item={id:1,x:90,y:50,node:{querySelector:()=>({getBoundingClientRect:()=>rect(350,180,44,44)})}};
 let synced=0;const editor={options:{},items:[item],selected:1,active:true,picker:{addEventListener:(event,fn)=>listeners[event]=fn},tools:{getBoundingClientRect:()=>rect(346,3,44,394)},pizza:{getBoundingClientRect:()=>rect(0,0,400,400)},paint(){},sync(){synced++}};
-const window={};vm.runInNewContext(fs.readFileSync('shared/builder-panel-workspace.js','utf8'),{window,document:{currentScript:null},ResizeObserver:class{observe(){}},MutationObserver:class{observe(){}},requestAnimationFrame:fn=>fn()});
+const window={addEventListener(){}};vm.runInNewContext(fs.readFileSync('shared/builder-panel-workspace.js','utf8'),{window,getComputedStyle:()=>({overflowY:'auto'}),document:{currentScript:null},ResizeObserver:class{observe(){}},MutationObserver:class{observe(){}},requestAnimationFrame:fn=>fn()});
 const builder={root,creative:editor};window.BuilderPanelWorkspace(builder);
+const click={target:{closest:()=>column}};rootListeners.clickCapture(click);column.scrollTop=0;rootListeners.click(click);assert.equal(column.scrollTop,120,'choice update preserves panel scroll and refreshes cue');
 assert.equal(column.output,output);assert.equal(editor.options.placementBounds(),frame);assert.equal(scene.dataset.builderPlacement,'full');
 listeners.change();assert.equal(item.x,74);assert.equal(item.y,50);assert.equal(synced,1);
 // No movement on picker selection of a visible piece.

@@ -8,8 +8,8 @@ const root=path.resolve(__dirname,'..'),themes=['green','blue','maroon','gold','
   if(!base){server=http.createServer((req,res)=>{let file=path.resolve(root,'.'+decodeURIComponent(req.url.split('?')[0]));try{if(!file.startsWith(root+path.sep)&&file!==root)throw Error('path');if(fs.statSync(file).isDirectory())file=path.join(file,'index.html');const ext=path.extname(file);res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png'})[ext]||'application/octet-stream');res.end(fs.readFileSync(file));}catch{res.writeHead(404);res.end();}});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));base='http://127.0.0.1:'+server.address().port;}
   browser=await chromium.launch({headless:true,...(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{})});
   const context=await browser.newContext(),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(base+'/');assert.equal(await page.evaluate(()=>localStorage.getItem('letseigo.theme')),null);
-  await page.click('#home-profile');await page.fill('#profile-name','Theme regression');
+  await page.goto(base+'/');assert.equal(await page.evaluate(()=>localStorage.getItem('letseigo.theme')),null);assert.equal(await page.evaluate(()=>ActivityTheme.current),'blue');assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--ah-canvas').trim()),'#f3f7fb');
+  await page.click('#home-profile');await page.click('#edit-profile-name');await page.fill('#profile-name','Theme regression');await page.locator('#profile-name-editor button[type=submit]').click();
   const savedProfile=await page.evaluate(()=>localStorage.getItem('letseigo.profile'));
   await page.evaluate(()=>localStorage.setItem('letseigo.app.theme-test','creation sentinel'));
   const radio=page.locator('[data-theme-picker] input');assert.equal(await radio.count(),5);

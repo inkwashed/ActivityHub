@@ -146,7 +146,7 @@
  window.BuilderAutosave={adapter};
  document.addEventListener('DOMContentLoaded',()=>{
   for(const [id,b] of [['pizza',window.pizzaBuilder],['parfait',window.parfaitBuilder],['sandwich',window.sandwichBuilder],['builder-lab',window.labBuilder]]){
-   if(b){const storage=adapter(b);const session=window.ActivityAutosave.connect(id,storage);b.resetRecovery=installReset(b,storage,session.flush);}
+   if(b){const storage=adapter(b);const session=window.ActivityAutosave.connect(id,window.ActivityAchievements?.builderAdapter(id,storage)||storage);b.resetRecovery=installReset(b,storage,session.flush);}
   }
  });
 })();

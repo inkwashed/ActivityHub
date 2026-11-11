@@ -93,12 +93,14 @@ console.log('PASS: Lab slots and dropdown restore.');
 {
  class El{constructor(){this.children=[];this.dataset={};this.style={};this.listeners={}}append(...x){this.children.push(...x)}setAttribute(){}addEventListener(k,f){this.listeners[k]=f}querySelectorAll(){return []}querySelector(){return null}focus(){}}
  const nodes=Object.fromEntries(['tabs','panels','portrait','announcement','clear'].map(k=>['#'+k,new El()]));let adapter,photo;
- const ctx={window:{ActivityHubI18n:{t:x=>x},renderAvatar:s=>JSON.stringify(s),ActivityAutosave:{connect:(id,a)=>adapter=a},BuilderPhoto:x=>photo=x},document:{querySelector:id=>nodes[id],createElement:()=>new El()}};
+ const ctx={window:{ActivityHubI18n:{t:x=>x},renderAvatar:s=>JSON.stringify(s),ActivityAutosave:{connect:(id,a)=>(adapter=a,{flush(){}})},BuilderScrollCue(){},BuilderPhoto:x=>photo=x},document:{querySelector:id=>nodes[id],createElement:()=>new El(),addEventListener(){}},console,queueMicrotask};
  vm.runInNewContext(fs.readFileSync('apps/avatar/config.js','utf8'),ctx);
+ vm.runInNewContext(fs.readFileSync('shared/builder-autosave.js','utf8'),ctx);
+ vm.runInNewContext(fs.readFileSync('apps/avatar/persistence.js','utf8'),ctx);
  vm.runInNewContext(fs.readFileSync('apps/avatar/app.js','utf8'),ctx);
  const saved={state:{...ctx.window.AvatarConfig.defaults,hair:'curly',skin:ctx.window.AvatarConfig.palettes.skin[2]},active:'colors'};
  adapter.restore(saved);assert.equal(photo.builder().hair,'curly');assert.equal(adapter.capture().active,'design');
- nodes['#clear'].listeners.click();assert.equal(adapter.capture().state.hair,ctx.window.AvatarConfig.defaults.hair);
+ nodes['#clear'].listeners.click({preventDefault(){},stopImmediatePropagation(){}});assert.equal(adapter.capture().state.hair,ctx.window.AvatarConfig.defaults.hair);
  adapter.restore({state:{hair:'invalid',skin:'bad'},active:'bad'});assert.equal(adapter.capture().active,'face');assert.equal(adapter.capture().state.skin,ctx.window.AvatarConfig.defaults.skin);
  console.log('PASS: Profile Pic appearance, tab, reset, and invalid choices.');
 }

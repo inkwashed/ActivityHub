@@ -9,7 +9,7 @@ Students write about a place they have visited or want to visit. They supply a t
 
 ## Reusable engine
 
-Uses `shared/blog-post.js` with `mode: 'free'` and `design: true`, fields named `title` and `body`, and `multiline: true` on the body. The HTML supplies labelled `blog-title` and `blog-body` controls. NH6-5 uses the separate guided TYPE/WRITE editor; its older segmented fields are supported for save migration. Draft ID `myblog-nh1-5` is separate from NH6-5's legacy `world-blog` ID. Both use the existing homepage name/avatar and shared local snapshot lifecycle.
+Uses `shared/blog-post.js` with `mode: 'free'` and `design: true`, fields named `title` and `body`, and `multiline: true` on the body. The HTML supplies labelled `blog-title` and `blog-body` controls. NH6-5 uses the separate guided TYPE/WRITE editor; its older segmented fields are supported for save migration. Draft ID `myblog-nh1-5` is separate from NH6-5's legacy `world-blog` ID. Both use the shared name/avatar and shared local snapshot lifecycle.
 
 `config.sample` supplies the read-only sample title, author and paragraphs. Sample opens a native, viewport-constrained dialog beside the activity heading. Its webpage-style article uses semantic, selectable text and shared styling; it never replaces or saves over student work. The user supplied the Cafe Maria passage, attributed to Fumiya; no textbook illustration or cafe photograph is included. No web claims about the cafe are made beyond the supplied sample.
 
@@ -46,3 +46,7 @@ Selected photos show crop-position sliders only on overflowing axes. Position is
 Share uses a rounded, thin-bordered website frame matching Sample. Its lower-left credit uses the configured activity title: Let's EiGo! ・A Place I Like.
 
 Share renders the profile avatar at 96 logical pixels from an explicitly sized 512px SVG and exports at 2× resolution (subject to the tall-image limit) for clearer previews and downloads.
+
+## Shared Profile
+
+The header uses Profile in place of fullscreen. Its ID-card layout, name editing, themes and badges come from `shared/profile.js` and `shared/profile.css`, shared with the homepage, all My Blog lessons and Journal. Successful name saves update the current author presentation immediately; settings remain separate from lesson drafts. Change the shared component once rather than adding app-local modal markup/styles. See [integration and rollout](../../docs/WORKFLOW.md#shared-profile-integration) and the [visual specification](../../docs/STYLE-GUIDE.md#shared-profile). Run `node tests/check-profile-browser.cjs` for shared changes; physical iPad/Safari and VoiceOver checks remain outstanding.

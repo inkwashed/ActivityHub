@@ -22,8 +22,8 @@
    if(!getState().showHelp)return;
    const words=config.rows[index].flatMap(key=>{const f=config.fields.find(f=>f.id===key);return (f.help||f.placeholder||'').split(' ').map(text=>({text,variable:!f.help}));});
    const theme=getComputedStyle(host),variableColor=theme.getPropertyValue('--ah-selected-border').trim()||'#417655',frameColor=theme.getPropertyValue('--ah-muted').trim()||'#89968b';
-   ctx.font='34px "Comic Sans MS", "Chalkboard SE", cursive';ctx.fillStyle='#89968b';ctx.globalAlpha=.65;
-   let line=0,x=10;for(const word of words){const w=ctx.measureText(word.text+' ').width;if(x+w>segment-10){line++;x=10;}if(line===start){ctx.fillStyle=word.variable?variableColor:frameColor;ctx.fillText(word.text,x,46);}x+=w;}ctx.globalAlpha=1;
+   ctx.font='34px Urbanist, Arial, sans-serif';ctx.fillStyle='#89968b';ctx.globalAlpha=.65;
+   let line=0,x=10;for(const word of words){const w=ctx.measureText(word.text+' ').width;if(x+w>segment-10){line++;x=10;}if(line===start){ctx.fillStyle=word.variable?variableColor:frameColor;ctx.fillText(word.text,x,48);}x+=w;}ctx.globalAlpha=1;
   }
   function redraw(pad){
    const segment=width/parts;
@@ -55,6 +55,7 @@
   new ResizeObserver(()=>{if(active)return;refresh();}).observe(host);
   function leave(){finish();flushSave();}
   window.addEventListener('pagehide',leave);document.addEventListener('visibilitychange',()=>{if(document.hidden)leave();});
+  document.fonts?.load('34px Urbanist').then(()=>{if(!active)refresh();});
   return {refresh,finish};
  }
  window.BlogInk={width,height,normalize,paint,mount};

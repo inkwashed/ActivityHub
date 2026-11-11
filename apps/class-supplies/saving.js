@@ -15,5 +15,5 @@ document.addEventListener('DOMContentLoaded',()=>{
    document.querySelector('#color-target').value=ids.includes(raw?.colorTarget)?raw.colorTarget:'';b.refreshColors();
   }
  };
- const session=window.ActivityAutosave.connect('class-supplies',storage);b.resetRecovery=window.BuilderReset.install(b,storage,session?.flush);
+ const session=window.ActivityAutosave.connect('class-supplies',window.ActivityAchievements?.builderAdapter('class-supplies',storage)||storage);b.resetRecovery=window.BuilderReset.install(b,storage,session?.flush);
 });

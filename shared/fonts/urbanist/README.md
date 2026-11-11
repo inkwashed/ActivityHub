@@ -1,0 +1,1 @@
+Urbanist variable upright font from https://github.com/google/fonts/tree/main/ofl/urbanist . Distributed under the SIL Open Font License; see OFL.txt. Used by guided My Blog TYPE fields and WRITE model text.

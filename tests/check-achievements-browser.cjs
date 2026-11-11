@@ -7,7 +7,7 @@ const {chromium}=require('playwright'),assert=require('node:assert/strict');
  await page.fill('#blog-body','');await page.waitForTimeout(400);await page.reload();assert.equal(await page.evaluate(()=>ActivityAchievements.blogProgress().count),1);
  await page.goto(base+'/myblog/NH6-5/');for(const field of ['item','country','continent'])await page.fill(`[data-field=${field}]`,'yes');await page.waitForTimeout(400);assert.equal(await page.evaluate(()=>ActivityAchievements.blogProgress().count),1);
  await page.fill('[data-field=description]','nice');await page.waitForTimeout(400);assert.equal(await page.evaluate(()=>ActivityAchievements.blogProgress().count),2);
- await page.goto(base+'/');await page.click('#home-profile');await page.click('#blog-badge');assert.match(await page.textContent('#badge-detail'),/2 blog entries/);
+ await page.goto(base+'/');await page.click('#home-profile');await page.click('#blog-badge');assert.equal(await page.textContent('#badge-description'),'Write at least one entry in My Blog.');
  await page.evaluate(()=>{for(let i=0;i<18;i++)ActivityAchievements.recordBlog({id:'test-'+i,mode:'free'},{fields:{body:'a'.repeat(100)}});});
  assert.match(await page.getAttribute('#blog-badge-icon','src'),/diamond/);assert.equal(await page.getAttribute('#blog-badge','aria-expanded'),'true');
  assert.ok(await page.locator('#profile-dialog').evaluate(el=>el.scrollWidth<=el.clientWidth));

@@ -1,0 +1,1 @@
+body{margin:0;padding:24px;background:var(--ah-canvas);color:var(--ah-ink);font-family:var(--ah-font)}main{max-width:480px;margin:auto}h1{font-size:24px}p{line-height:1.5}#preview>svg{display:block;width:100%;height:auto;border-radius:16px}.actions{display:flex;flex-wrap:wrap;gap:12px}[hidden]{display:none!important}

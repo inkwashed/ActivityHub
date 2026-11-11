@@ -1,0 +1,21 @@
+/* Selfie-specific geometry, loaded after shared workspace rules. */
+/* Horizontal access remains available for narrow/enlarged tabs; never create a vertical scroller. */
+.ah-builder .avatar-tabs{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;grid-template-columns:minmax(max-content,1fr) minmax(max-content,1.35fr) repeat(3,minmax(max-content,1fr))}
+.ah-builder .avatar-tabs::-webkit-scrollbar{display:none}
+/* Wrap compact choices before their touch targets would overflow the panel. */
+.face-nose-options .options,.expression-mouth-options .options{grid-template-columns:repeat(auto-fit,minmax(var(--ah-control-size),1fr))}
+@media(min-width:740px){
+ .ah-builder #builder.avatar-workspace .builder-menu-scroll{padding:4px 4px 6px;overflow-x:hidden;overflow-y:auto}
+}
+@media(max-width:739px), (max-height:380px){
+ .ah-builder #builder.avatar-workspace .builder-menu-scroll{scrollbar-gutter:auto;overflow:visible}
+}
+@media(min-width:740px) and (max-height:380px){
+ body.ah-builder.avatar-app{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+ .avatar-app [data-jump-section]{scroll-margin-top:16px}
+ .avatar-app .builder-jump{display:flex}
+}
+@media(max-width:739px){
+ .face-nose-options .options{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .expression-mouth-options .options{grid-template-columns:repeat(4,minmax(0,1fr))}
+}

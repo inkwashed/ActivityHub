@@ -5,6 +5,10 @@ Repository for English textbook-based activities and games for use in and out of
 
 Open `index.html` locally for the textbook activity directory. It lists the released activity links by textbook, with name search and textbook filtering, English/Japanese interface text, shared controls and usage terms. Builder back arrows return to their textbook sections. Homepage feedback and bug-report links open their configured external surveys. Publish the repository root through GitHub Pages to include the home page.
 
+## Shared Profile
+
+The homepage, all My Blog lessons, and Journal use one Profile component (`shared/profile.js` and `shared/profile.css`). It owns the ID-card layout, name editing, avatar preview, theme picker and badges. My Blog and Journal show Profile in place of fullscreen; saved name changes refresh the current author immediately. For integration, dependencies and rollout, see [Shared Profile integration](docs/WORKFLOW.md#shared-profile-integration); visual specifications remain in the [style guide](docs/STYLE-GUIDE.md#shared-profile).
+
 ## Shared design system
 
 Read [the style guide](docs/STYLE-GUIDE.md) and open [the interactive examples](docs/style-guide.html). Shared styles and icons live under `shared/`. Keep that folder alongside `apps/` when moving or hosting the project.

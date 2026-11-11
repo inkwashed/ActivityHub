@@ -19,7 +19,8 @@ New JHS lessons should follow NH1-5's structure with different prompts and sampl
 - `shared/blog-design.js` / `.css`: shared three-tab Design selection, toolbar, crop sliders, preview fitting and three-tab geometry.
 - `shared/blog-snapshot.js`: variable-height webpage PNG, including header, profile, composition and activity credit.
 - `shared/builder-photo.js`: existing shared async preview/download lifecycle, cancellation and object-URL cleanup. Food renderers remain independent.
-- Shared tokens, controls, icons, translations, autosave, fullscreen, local links, QR and copyright provide suite-wide behavior. Do not copy these into lesson code.
+- `shared/profile.js` / `.css`: shared Profile modal, name editing, avatar preview, theme controls and badges; used by the homepage, all three lessons and Journal.
+- Shared tokens, controls, icons, translations, autosave, local links, QR and copyright provide suite-wide behavior. Do not copy these into lesson code.
 
 ## Creating a JHS lesson
 
@@ -37,7 +38,7 @@ Drafts use `letseigo.app.<id>`, version 1. NH6-5 retains `world-blog`; NH1-5 use
 
 Photos are decoded locally from JPG/PNG/WebP, limited to 15 MB input, resized to a maximum dimension of 960px and saved as validated JPEG data URLs. Rotation re-encodes the photo clockwise by 90 degrees. Uploaded photo UIDs stay stable through layout changes and rotation. Older photos receive deterministic legacy UIDs. Storage failure is reported; local drafts are not permanent backups. No external upload occurs.
 
-The adapter reads the homepage name from `letseigo.profile` and validated avatar parts from `letseigo.app.avatar`. Missing data uses the default silhouette/name. Share serializes the avatar SVG at an explicit 512px size. Lesson actions must not overwrite the shared profile.
+The author adapter reads the shared name from `letseigo.profile` and validated avatar parts from `letseigo.app.avatar`. Missing data uses the default silhouette/name. Share serializes the avatar SVG at an explicit 512px size. Lesson draft actions must not overwrite the shared profile. Explicit name edits in the shared Profile dialog update that same record; successful saves emit `letseigo:profilechange` so Blog authors and the current Journal page refresh immediately.
 
 ## Layout contract
 
@@ -65,6 +66,7 @@ Run from repository root:
 - `node tests/check-blog-layout.cjs`: layout, source inclusion, text splitting, swaps and wrapping.
 - `node tests/check-blog-jhs-browser.cjs`: current JHS photo rotation/deletion, crop state, reload, export, text sections, deselection, responsive Share and basic keyboard/help checks.
 - `node tests/check-sharing.cjs` when shared export plumbing changes.
+- `node tests/check-profile-browser.cjs`: shared Profile save/cancel/failure behavior, all lesson/Journal integrations, immediate Blog author updates, responsive themes/languages and local-file asset loading.
 
 The browser check needs Playwright available to Node and a local HTTP server. `BLOG_BASE_URL` defaults to `http://127.0.0.1:8776`; `CHROME_PATH` optionally selects installed Chrome. `NODE_PATH` can point to an existing Playwright installation. Older `work/check-*.cjs` files are historical development probes, not the current acceptance suite.
 
@@ -95,3 +97,5 @@ Load `shared/achievements.js` before BlogPost. On draft restore and persistence,
 `letseigo.achievements` version 1 stores completion booleans by stable lesson ID separately from drafts. Each lesson counts once forever within this browser storage; erasing or deleting a draft cannot revoke credit. Ranks derive from the growing completed set: green 1, bronze 5, silver 10, gold 15, diamond 20. There are currently only three distinct lessons; higher ranks require future lessons. Clearing site data still clears the ledger. No account or cloud synchronization is introduced. New lessons must use unique permanent IDs and include the shared script. Failed ledger writes do not announce success and are retried on later saves/opens.
 
 Checks: `node tests/check-achievements.cjs` and `node tests/check-achievements-browser.cjs` (same browser environment as the other suites). Browser coverage includes real typed completion, deletion/reload, ES row attempts, profile details, rank rendering, Japanese and narrow layout; pure checks additionally cover mixed handwriting/typing and all thresholds. Physical iPad/Safari verification remains outstanding.
+
+My Blog headers use the shared Profile trigger in place of fullscreen, including Journal. Follow [Shared Profile integration](WORKFLOW.md#shared-profile-integration) for dependencies, trigger markup, event handling and coordinated publishing. Profile layout/behavior must be changed in the shared component rather than copied into lesson code.

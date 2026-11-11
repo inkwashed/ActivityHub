@@ -239,6 +239,7 @@
     line.append(ghost,input);$('blog-sentences').append(line);sentenceEditors.push({input,refresh});
    });
    new ResizeObserver(()=>sentenceEditors.forEach(editor=>editor.refresh())).observe($('blog-sentences'));
+   document.fonts?.load('34px Urbanist').then(()=>sentenceEditors.forEach(editor=>editor.refresh()));
    $('writing-mode').onchange=()=>{inkEditor?.finish();state.inputMode=$('writing-mode').checked?'write':'type';render();persist();};
    $('show-help').onchange=()=>{state.showHelp=$('show-help').checked;state.fields.body=sentences(config,state).join('\n');render();persist();};
   }
@@ -275,7 +276,7 @@
    }else{const img=document.createElement('img');img.src='../../shared/icons/profile-default.svg';img.alt='';slot.append(img);}
    designer?.refresh();
   }
-  window.addEventListener('storage',event=>{if(event.key==='letseigo.app.avatar'||event.key==='letseigo.profile'||event.key===null)avatar();});window.addEventListener('focus',avatar);
+  window.addEventListener('storage',event=>{if(event.key==='letseigo.app.avatar'||event.key==='letseigo.profile'||event.key===null)avatar();});window.addEventListener('focus',avatar);window.addEventListener('letseigo:profilechange',avatar);
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)avatar();});
   async function photo(file){
    if(!['image/jpeg','image/png','image/webp'].includes(file.type)||file.size>15000000)throw Error('format');

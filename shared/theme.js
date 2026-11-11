@@ -4,10 +4,11 @@
   const key = 'letseigo.theme';
   const themes = ['green', 'blue', 'maroon', 'gold', 'purple'];
   const root = document.documentElement;
-  let current = 'green';
+  const defaultTheme = 'blue';
+  let current = defaultTheme;
   let storageFailed = false;
   function read() {
-    try { const saved = window.localStorage.getItem(key); return themes.includes(saved) ? saved : 'green'; }
+    try { const saved = window.localStorage.getItem(key); return themes.includes(saved) ? saved : defaultTheme; }
     catch { return null; }
   }
   function apply(value) {

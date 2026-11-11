@@ -18,3 +18,11 @@ async function check(mode){
  await click();doc[key]=null;events[pref?'webkitfullscreenchange':'fullscreenchange']();assert.equal(attrs['aria-label'],'Enter fullscreen');
 }
 (async()=>{for(const mode of ['standard','webkit','unsupported','denied'])await check(mode);console.log('PASS: fullscreen enter/exit, browser-owned exit, WebKit variant, unsupported and rejected requests.');})();
+
+for(const app of ['apps/pizza','apps/parfait','apps/sandwich','apps/class-supplies','apps/my-town','apps/avatar','_dev/builder']){
+ const html=fs.readFileSync(app+'/index.html','utf8');
+ assert.equal((html.match(/id="fullscreen"/g)||[]).length,1);
+ assert(!html.match(/<header>.*?<\/header>/s)[0].includes('id="fullscreen"'));
+ assert.match(html,/<div class="heading builder-prompt-row">.*?class="question".*?id="fullscreen".*?<\/div>/s);
+}
+console.log('PASS: all seven Builder fullscreen controls live in the prompt row, once, outside the site header.');

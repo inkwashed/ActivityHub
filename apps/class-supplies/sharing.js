@@ -17,5 +17,5 @@
    <path d="M${left-20} ${top+side-5}H${left+side+20}" stroke="#ad8452" stroke-width="1.4"/>
    <g clip-path="url(#desk-frame)">${caseArt(palette.case)}${content}</g></svg>`;
  };
- window.BuilderPhoto({builder:()=>window.suppliesBuilder,imageSelector:'#supplies-photo',render:window.renderSupplies,caption:'Class Supplies',background:'#eee6d2'});
+ window.BuilderPhoto({appName:'My Pencil Case',builder:()=>window.suppliesBuilder,imageSelector:'#supplies-photo',render:window.renderSupplies,caption:'My Pencil Case',background:'#eee6d2'});
 })();

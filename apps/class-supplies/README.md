@@ -1,4 +1,6 @@
-# Class Supplies
+# My Pencil Case
+
+Display name: My Pencil Case (formerly Class Supplies). The class-supplies URL, storage keys and internal identifiers remain unchanged. The numbered “Class supplies” heading describes the item choices, not the app title.
 
 Entry: `apps/class-supplies/index.html`. Let’s Try! 2, Unit 5: “Do you have a pen?” Listed on the homepage under Let’s Try! 2 Unit 5; publishing is handled separately.
 
@@ -98,3 +100,6 @@ The optional native difficulty switch lives beside Color, with a keyboard/touch 
 The sentence speaker reserves a separate 44px flex column, aligns to the top, and sticks 8px below the scrolling column edge while its sentence remains in view. It is not a global floating player: it leaves view when the sentence itself is out of view. Phones keep the existing whole-page scrolling fallback. This avoids overlaying words and inline pronunciation controls.
 
 Verified locally: all four combinations in English/Japanese, adapter reload round trips, populated browser reload, Reset/Restore, Save preview, playback activation and keyboard help. Viewports: 1440×900, 1133×678/599, 768×1024, 390×844 and 320×568. At 150% text in a short window, the 573px sentence scrolls with its 44×44 speaker still visible at the column top; its text remains in a separate column. The Color row wraps at narrow/enlarged sizes. Physical iPad sticky positioning, touch scrolling, accidental taps and audible playback still need hands-on testing.
+
+### Practice badges
+Creation edits now earn a local first-builder badge, with higher ranks after 5/10/15/20 qualifying sessions, at most once per 30 minutes. Opening/restoring alone does not award credit. Reset does not remove earned badges. See docs/WORKFLOW.md → Local achievements and app visits for shared ownership and checks.

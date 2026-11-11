@@ -1,3 +1,4 @@
+@font-face{font-family:Urbanist;src:url("fonts/urbanist/Urbanist.ttf") format("truetype");font-style:normal;font-weight:100 900;font-display:swap}
 /* Opt-in three-step shell. Older inline blog applets retain their two-pane layout. */
 .blog-three .blog-workspace{grid-template-rows:auto minmax(0,1fr) auto}
 .blog-three .blog-switch{display:flex;gap:8px}
@@ -76,7 +77,7 @@
 .blog-guided #blog-sentences p{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:10px 0}
 
 /* ES handwriting guides repeat on wrapped rows; only the baseline uses the theme accent. */
-.blog-guided #blog-sentences{font-family:"Comic Sans MS","Chalkboard SE","Chalkboard",cursive;font-size:34px;font-weight:400;line-height:64px;color:#000}
+.blog-guided #blog-sentences{font-family:Urbanist,Arial,sans-serif;font-size:34px;font-weight:400;line-height:64px;color:#000}
 .blog-guided #blog-sentences p{gap:0 8px;align-items:center;margin:12px 0;line-height:64px;background-image:linear-gradient(to bottom,transparent 46px,var(--ah-selected-border) 46px,var(--ah-selected-border) 48px,transparent 48px),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='64'%3E%3Cpath d='M0 16H8M0 57H8' fill='none' stroke='black' stroke-width='1'/%3E%3Cpath d='M0 30H8' fill='none' stroke='black' stroke-width='1' stroke-dasharray='2 2'/%3E%3C/svg%3E");background-size:100% 64px,8px 64px;background-repeat:repeat-y,repeat}
 .blog-guided #blog-sentences input{font:inherit;line-height:64px;height:64px;min-height:64px;padding:0 5px;margin:0;border:0;border-radius:0;background:transparent;vertical-align:baseline;box-shadow:none}
 .blog-guided #blog-sentences input::placeholder{color:var(--ah-muted);opacity:.65}
@@ -131,3 +132,6 @@
 .country-unrecognized,.phrase-unrecognized{text-decoration-line:underline;text-decoration-style:wavy;text-decoration-color:var(--ah-muted);text-decoration-thickness:1.5px;text-underline-offset:4px}
 
 .name-capitalization{text-decoration-line:underline;text-decoration-style:double;text-decoration-color:var(--ah-muted);text-decoration-thickness:1px;text-underline-offset:4px}
+
+/* Align Urbanist with the unchanged writing guides in both text layers. */
+.sentence-editor .sentence-input,.sentence-editor .sentence-ghost{transform:translateY(2px)}

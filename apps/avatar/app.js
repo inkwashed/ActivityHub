@@ -7,13 +7,13 @@
  const categories=[...Object.keys(config.parts).filter(key=>!['nose','mouth','accessories'].includes(key)),'design'];
  function selectTab(key,focus=false){
   active=key;
-  for(const tab of tabs.children){const selected=tab.dataset.key===key;tab.setAttribute('aria-selected',selected);tab.setAttribute('aria-pressed',selected);tab.tabIndex=selected?0:-1;if(selected&&focus)tab.focus()}
+  for(const tab of tabs.children){const selected=tab.dataset.key===key;tab.setAttribute('aria-selected',selected);tab.tabIndex=selected?0:-1;if(selected&&focus)tab.focus()}
   for(const panel of panels.children)panel.hidden=panel.id!==`panel-${key}`;
  }
  function update(){
   document.querySelector('#portrait').innerHTML=window.renderAvatar(state);
   const lashes=panels.querySelector('#eyelashes-toggle');if(lashes)lashes.checked=state.eyeStyle==='eyelashes';
-  panels.querySelectorAll('[data-custom-color]').forEach(input=>{const key=input.dataset.customColor;input.value=state[key];input.parentElement.classList.toggle('is-custom',!config.palettes[key].includes(state[key]));});
+  panels.querySelectorAll('[data-custom-color]').forEach(input=>{const key=input.dataset.customColor;input.value=state[key];const custom=!config.palettes[key].includes(state[key]);input.parentElement.classList.toggle('is-custom',custom);translated(input.parentElement.querySelector('.custom-color-status'),custom?'Custom color selected':'Preset color selected');});
   panels.querySelectorAll('[data-part]').forEach(button=>{
    button.setAttribute('aria-pressed',state[button.dataset.part]===button.dataset.value);
    const preview=button.querySelector('.part-preview');
@@ -37,7 +37,7 @@
    const customLabel={eyeColor:'Custom eye color',hairColor:'Custom hair color',shirtColor:'Custom clothing color'}[key];
    const custom=document.createElement('label');custom.className='custom-color';custom.title=t(customLabel);custom.dataset.i18nTitle=customLabel;
    const input=document.createElement('input');input.type='color';input.dataset.customColor=key;input.value=state[key];input.dataset.i18nAriaLabel=customLabel;input.setAttribute('aria-label',t(customLabel));
-   const rainbow=document.createElement('span');rainbow.className='custom-color-rainbow';rainbow.setAttribute('aria-hidden','true');custom.append(input,rainbow);row.append(custom);
+   const rainbow=document.createElement('span');rainbow.className='custom-color-rainbow';rainbow.setAttribute('aria-hidden','true');const status=document.createElement('span');status.className='sr-only custom-color-status';status.id=`${key}-custom-status`;input.setAttribute('aria-describedby',status.id);custom.append(input,rainbow,status);row.append(custom);
    input.addEventListener('input',()=>{if(config.isCustomColor(key,input.value)){state[key]=input.value;update();}});
    input.addEventListener('change',()=>{document.querySelector('#announcement').textContent=`${t(label(key))}: ${input.value}`;});
   }
@@ -92,18 +92,13 @@
   if(event.key==='Home')next=0;if(event.key==='End')next=categories.length-1;
   if(next!==undefined){event.preventDefault();selectTab(categories[next],true)}
  });
- document.querySelector('#clear').addEventListener('click',()=>{state={...config.defaults};update();document.querySelector('#announcement').textContent=t('Avatar reset.')});
  selectTab(active);update();
- window.ActivityAutosave?.connect('avatar',{
-  capture:()=>({state,active}),
-  restore:saved=>{
-   const clean={...config.defaults};
-   for(const key of Object.keys(clean)){
-    const options=config.optionsFor(key);
-    if(options.includes(saved?.state?.[key])||config.isCustomColor(key,saved?.state?.[key]))clean[key]=saved.state[key];
-   }
-   state=clean;const restoredTab=({mouth:'eyes',nose:'face',accessories:'clothes',colors:'design'})[saved?.active]||saved?.active;selectTab(categories.includes(restoredTab)?restoredTab:'face');update();
-  }
+ window.AvatarPersistence({
+  capture:()=>({state:{...state},active}),
+  apply:saved=>{state={...saved.state};selectTab(saved.active);update()},
+  categories,
+  announce:text=>{document.querySelector('#announcement').textContent=t(text)}
  });
+ window.BuilderScrollCue(document.querySelector('[data-jump-section="choices"]'),document.querySelector('.pantry'));
  window.BuilderPhoto({builder:()=>({...state}),render:window.renderAvatar,imageSelector:'#avatar-photo',square:true});
 })();

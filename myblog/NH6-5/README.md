@@ -12,7 +12,7 @@ Each sentence allows 320 characters and wraps along the existing 64px writing gu
 
 Keep draft ID `world-blog` and version 1. `typedRows` stores four complete sentences, and `fields.body` derives from these for Design and Journal. Existing segmented drafts migrate once using their previous rendered sentences, preserving typed text and missing-field underscores. Once `typedRows` exists, clearing a sentence never restores old field data. Legacy fields remain for compatibility; photo and handwriting data stay intact.
 
-The shared profile adapter, QR dialog, photo rotation/cropping, three-image limit, natural-height Share preview, and local PNG download are inherited. No changes to the homepage profile occur.
+The shared profile adapter, QR dialog, photo rotation/cropping, three-image limit, natural-height Share preview, and local PNG download are inherited. Lesson draft edits do not change the shared profile; explicit name saves in Profile do.
 
 ## Checks
 
@@ -20,7 +20,7 @@ The shared profile adapter, QR dialog, photo rotation/cropping, three-image limi
 - `node tests/check-blog-es-browser.cjs`: help toggle, preserved inputs/reload, shared tabs/photos/design/export and responsive page bounds. Uses the same Playwright / CHROME_PATH / BLOG_BASE_URL setup as the JHS suite.
 - Physical iPad handwriting, virtual keyboard and Safari checks remain pending.
 
-Post uses transparent fields over repeating handwriting guides: black outer rules and dashed midline, with the writing baseline from the theme’s green `--ah-selected-border`. The writing area prefers locally installed Comic Sans MS, then Chalkboard SE/Chalkboard and a cursive fallback, for single-storey letterforms. No proprietary font is bundled; appearance depends on installed fonts. Focus outlines remain visible. JHS and exported typography remain unchanged.
+Post uses transparent fields over repeating handwriting guides: black outer rules and dashed midline, with the writing baseline from the theme’s green `--ah-selected-border`. The TYPE writing area and WRITE model text use bundled Urbanist, with Arial/sans-serif fallback. The font and its OFL license live under shared/fonts/urbanist; no external font service is required. Editors refresh after font loading. Focus outlines remain visible. JHS and exported typography remain unchanged.
 
 ## TYPE / WRITE
 
@@ -51,3 +51,7 @@ With Show Help on, completed misspelled standard words receive the same muted sq
 Country and continent sample words use the same mismatch skipping as other variables. The configurable continentNames list checks the continent after “is in”; unknown completed names get a squiggle, while partial multiword names wait. This validates names only, not country–continent associations.
 
 Recognized country/continent names use a double underline on lowercase letters that should be capitalized according to their configured spelling (including initials in multiword names and acronyms). Lowercase articles such as “the” remain allowed. This visual hint follows Show Help and is never exported.
+
+## Shared Profile
+
+The header uses Profile in place of fullscreen. Its ID-card layout, name editing, themes and badges come from `shared/profile.js` and `shared/profile.css`, shared with the homepage, all My Blog lessons and Journal. Successful name saves update the current author presentation immediately; settings remain separate from lesson drafts. Change the shared component once rather than adding app-local modal markup/styles. See [integration and rollout](../../docs/WORKFLOW.md#shared-profile-integration) and the [visual specification](../../docs/STYLE-GUIDE.md#shared-profile). Run `node tests/check-profile-browser.cjs` for shared changes; physical iPad/Safari and VoiceOver checks remain outstanding.

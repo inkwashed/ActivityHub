@@ -1,12 +1,12 @@
-*{box-sizing:border-box}body{margin:0;background:var(--ah-canvas);color:var(--ah-ink);font-family:var(--ah-font)}button{font:inherit;cursor:pointer}#builder{display:grid;grid-template-columns:1fr}.kitchen{text-align:center;min-width:0}.heading{text-align:center;margin-bottom:12px}.pantry{background:var(--ah-surface);border:1px solid var(--ah-divider)}#portrait{width:min(96cqw,96cqh);height:min(96cqw,96cqh)}#portrait>svg{display:block;width:100%;height:100%}.builder-output{display:grid;place-items:center}.builder-output p{margin:0;line-height:1.5}.options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.part-choice{min-height:90px;padding:8px;position:relative;display:grid;justify-items:center;gap:4px;font-size:14px}.part-choice .part-preview>svg{width:100%;max-width:100px;aspect-ratio:1}.color-options{display:flex;gap:4px;flex-wrap:wrap}.swatch{min-width:44px;min-height:44px;padding:5px;position:relative}.swatch span{display:block;width:28px;height:28px;border-radius:50%;border:1px solid #493b3866}.color-group{border:0;margin:0 0 10px;padding:0}.ah-builder .color-group legend{font-size:14px;margin-bottom:5px}.builder-actions{display:flex;gap:8px;margin-top:16px}.builder-actions button{flex:1}#avatar-photo{display:block;width:100%;border-radius:12px;margin:16px 0}#avatar-photo[hidden]{display:none}[hidden]{display:none!important}@media(max-width:739px){.ah-builder main{padding:16px;grid-template-columns:1fr}}
+*{box-sizing:border-box}body{margin:0;background:var(--ah-canvas);color:var(--ah-ink);font-family:var(--ah-font)}button{font:inherit;cursor:pointer}#builder{display:grid;grid-template-columns:1fr}.kitchen{text-align:center;min-width:0}.heading{text-align:center;margin-bottom:12px}.pantry{background:var(--ah-surface);border:1px solid var(--ah-divider)}#portrait{width:min(96cqw,96cqh);height:min(96cqw,96cqh)}#portrait>svg{display:block;width:100%;height:100%}.options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ah-space-2)}.part-choice{min-height:var(--ah-control-size);padding:8px;position:relative;display:grid;justify-items:center;gap:4px;font-size:14px}.part-choice .part-preview{display:grid;place-items:center;width:100%;min-width:0}.part-choice .part-preview>svg{display:block;width:100%;max-width:100px;aspect-ratio:1}.color-options{display:flex;gap:4px;flex-wrap:wrap}.swatch{min-width:var(--ah-control-size);min-height:var(--ah-control-size);padding:5px;position:relative}.swatch span{display:block;width:28px;height:28px;border-radius:50%;border:1px solid var(--ah-border)}.color-group{border:0;margin:0 0 10px;padding:0}.ah-builder .color-group legend{font-size:14px;margin-bottom:5px}.builder-actions{display:flex;gap:var(--ah-space-2);margin-top:var(--ah-space-4)}.builder-actions button{flex:1}#avatar-photo{display:block;width:100%;border-radius:var(--ah-radius-control);margin:0}#avatar-photo[hidden]{display:none}[hidden]{display:none!important}@media(max-width:739px){.ah-builder main{padding:16px;grid-template-columns:1fr}}
 
 /* Close-up eye choices make lash shapes and expressions easy to compare. */
-.part-choice[data-part="eyes"] svg{max-width:80px;aspect-ratio:190/135}
+.part-choice[data-part="eyes"] .part-preview>svg{max-width:80px;aspect-ratio:190/135}
 .expression-options{grid-template-columns:repeat(4,minmax(0,1fr))}
-.part-choice[data-part="eyes"]{padding:6px 2px;min-height:90px;font-size:14px}
+.part-choice[data-part="eyes"]{padding:6px 2px;min-height:var(--ah-control-size);font-size:14px}
 #panel-eyes .hint{margin-top:10px}
 
- .eyelashes-toggle{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-bottom:10px;padding:6px 12px;border:1px solid var(--ah-border);border-radius:var(--ah-radius-pill);cursor:pointer}
+ .eyelashes-toggle{display:inline-flex;align-items:center;gap:var(--ah-space-2);min-height:var(--ah-control-size);margin-bottom:10px;padding:6px 12px;border:1px solid var(--ah-border);border-radius:var(--ah-radius-pill);cursor:pointer}
 .eyelashes-toggle input{width:18px;height:18px;margin:0;accent-color:var(--ah-strong);cursor:pointer}
 .eyelashes-toggle:has(input:checked){background:var(--ah-secondary);border-color:var(--ah-selected-border)}
 .eyelashes-toggle input:focus-visible{outline:3px solid var(--ah-focus);outline-offset:3px}
@@ -14,8 +14,8 @@
 .ah-builder #panel-eyes .color-group legend:not(.sr-only){font-size:14px;margin-bottom:5px}
 
 /* Native color input overlays a decorative rainbow swatch, retaining keyboard access. */
-.custom-color{position:relative;display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;cursor:pointer}
-.custom-color-rainbow{display:block;width:28px;height:28px;border-radius:50%;border:1px solid #493b3866;background:conic-gradient(#ee7181,#efc65f,#80bc79,#62bccc,#8580c9,#c77eb7,#ee7181)}
+.custom-color{position:relative;display:grid;place-items:center;flex:0 0 var(--ah-control-size);width:var(--ah-control-size);height:var(--ah-control-size);cursor:pointer}
+.custom-color-rainbow{display:block;width:28px;height:28px;border-radius:50%;border:1px solid var(--ah-border);background:conic-gradient(#ee7181,#efc65f,#80bc79,#62bccc,#8580c9,#c77eb7,#ee7181)}
 .custom-color input{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;opacity:0;cursor:pointer;z-index:1}
 .custom-color:focus-within{outline:3px solid var(--ah-focus);outline-offset:2px;border-radius:50%}
 
@@ -23,17 +23,17 @@
 
 /* Compact nose choices retain comfortable touch targets. */
 .face-nose-options .options{grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
-.face-nose-options .part-choice{min-width:44px;min-height:64px;padding:4px;gap:0;align-items:center}
+.face-nose-options .part-choice{min-width:var(--ah-control-size);min-height:var(--ah-control-size);padding:4px;gap:0;align-items:center}
 .face-nose-options .part-preview{display:grid;place-items:center;width:100%}
 .face-nose-options .part-preview>svg{display:block;width:100%;max-width:64px;height:auto;aspect-ratio:1}
 @media(max-width:739px){.face-nose-options .options{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
 .expression-mouth-options{margin-top:20px}
 
-.eyes-heading-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.eyes-heading-row{display:flex;align-items:center;justify-content:space-between;gap:var(--ah-space-3);margin-bottom:10px;flex-wrap:wrap}
 .eyes-heading-row h2,.eyes-heading-row .eyelashes-toggle{margin:0}
 .expression-mouth-options .options{grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
-.expression-mouth-options .part-choice{min-width:44px;min-height:64px;padding:4px;gap:0;align-items:center}
+.expression-mouth-options .part-choice{min-width:var(--ah-control-size);min-height:var(--ah-control-size);padding:4px;gap:0;align-items:center}
 .expression-mouth-options .part-preview{display:grid;place-items:center;width:100%}
 .expression-mouth-options .part-preview>svg{display:block;width:100%;max-width:64px;height:auto;aspect-ratio:1}
 @media(max-width:739px){.expression-mouth-options .options{grid-template-columns:repeat(4,minmax(0,1fr))}}
@@ -42,8 +42,20 @@
 
 /* Connected tab strip: five desktop tabs, horizontally scrollable on small screens. */
 .ah-builder .avatar-tabs{display:grid;grid-template-columns:1fr 1.35fr 1fr 1fr 1fr;gap:3px;align-items:end;margin-bottom:18px;border-bottom:1px solid var(--ah-border);padding:3px 3px 0}
-.ah-builder .avatar-tabs .ah-button{min-width:0;min-height:44px;padding:9px 5px;font-size:14px;white-space:nowrap;overflow-wrap:normal;border:1px solid transparent;border-bottom:0;border-radius:10px 10px 0 0;background:var(--ah-canvas);text-decoration:none;margin-bottom:-1px;color:var(--ah-muted)}
+.ah-builder .avatar-tabs .ah-button{min-width:0;min-height:var(--ah-control-size);padding:9px 5px;font-size:14px;white-space:nowrap;overflow-wrap:normal;border:1px solid transparent;border-bottom:0;border-radius:10px 10px 0 0;background:var(--ah-canvas);text-decoration:none;margin-bottom:-1px;color:var(--ah-muted)}
 .ah-builder .avatar-tabs .ah-button[aria-selected="true"]{background:var(--ah-surface);color:var(--ah-ink);border-color:var(--ah-border);border-top:3px solid var(--ah-strong);padding-top:7px;padding-bottom:10px;font-weight:700}
 .ah-builder .avatar-tabs .ah-button:focus-visible{outline-offset:-3px}
 @media(max-width:739px){.ah-builder .avatar-tabs{display:flex;overflow-x:auto;gap:3px}.ah-builder .avatar-tabs .ah-button{flex:1 0 auto;padding-inline:12px}}
 
+
+/* Selfie has no sentence output: give that row to the portrait instead. */
+@media(min-width:740px){body.ah-builder.avatar-app #builder .kitchen{grid-template-rows:minmax(var(--ah-control-size),auto) minmax(240px,1fr)}}
+
+.custom-color.is-custom{background:var(--ah-selected);border-radius:var(--ah-radius-control);box-shadow:inset 0 0 0 2px var(--ah-selected-border)}
+@media(forced-colors:active){.custom-color.is-custom{outline:2px solid Highlight;outline-offset:-2px}}
+/* Short landscape: use page flow rather than squeezing artwork or controls. */
+@media(min-width:740px) and (max-height:380px){
+ body.ah-builder.avatar-app #builder{height:auto;min-height:0;grid-template-columns:minmax(0,1fr)}
+ body.ah-builder.avatar-app #builder .kitchen{height:auto;grid-template-rows:auto 340px;overflow:visible}
+ body.ah-builder.avatar-app #builder>[data-jump-section="choices"]{height:auto;overflow:visible}
+}

@@ -53,5 +53,5 @@
     art += '<circle cx="50" cy="50" r="40" fill="#ad6426" opacity=".06"/></svg>';
     return art;
   }
-window.BuilderPhoto({builder:()=>window.pizzaBuilder,render:pizzaSVG,imageSelector:'#pizza-photo',caption:'My pizza!'});
+window.BuilderPhoto({appName:'Little Pizza Kitchen',builder:()=>window.pizzaBuilder,render:pizzaSVG,imageSelector:'#pizza-photo',caption:'My pizza!'});
 })();
