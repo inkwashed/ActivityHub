@@ -13,7 +13,7 @@
 @media(max-width:739px){
  .ah-builder #builder.panel-workspace .builder-menu-scroll{overflow:visible;scrollbar-gutter:auto}
 }
-/* Extremely short windows deliberately scroll the page, preserving a usable
+/* Extremely short windows deliberately scroll activity content, preserving a usable
    creation and full controls, instead of clipping a tiny viewport. */
 @media(min-width:740px) and (max-height:380px){
  .ah-builder:has(#builder.panel-workspace):not([data-app-shell]){height:auto;overflow:auto}

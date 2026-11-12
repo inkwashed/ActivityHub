@@ -123,3 +123,7 @@ a.ah-button.builder-photo-download[hidden]{display:none}
  }
 }
 @media(forced-colors:active){*{scrollbar-color:auto}}
+
+/* Give WebKit an opaque viewport-edge header for system color extension.
+   Scroll containment stays with each page shell; native dialogs stay above it. */
+body>header{position:sticky;top:0;z-index:10;background-color:var(--ah-canvas)}

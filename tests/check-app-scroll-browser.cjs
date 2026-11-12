@@ -16,9 +16,10 @@ const root=path.resolve(__dirname,'..'),themes=['green','blue','maroon','gold','
   const measurements=[];let cases=0;
   for(const route of routes)for(const viewport of [{width:1133,height:744},{width:768,height:1024},{width:390,height:844},{width:844,height:360}]){
    await page.setViewportSize(viewport);await page.goto(base+route);await page.waitForTimeout(100);
-   const header=page.locator('body>header'),before=await header.boundingBox();
+   const header=page.locator('body>header'),before=await header.boundingBox();assert.equal(await header.evaluate(el=>getComputedStyle(el).position),'sticky');assert.equal(await header.evaluate(el=>getComputedStyle(el).backdropFilter),'none');assert.ok(await header.evaluate(el=>{const color=getComputedStyle(el).backgroundColor;return color!=='transparent'&&(!color.startsWith('rgba')||color.endsWith(', 1)'));}));
    assert.ok(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight+1),route+' document overflow '+JSON.stringify(viewport));
    measurements.push(await page.evaluate(({route,viewport})=>({route:route.split('/').filter(Boolean).pop(),viewport,header:document.querySelector('header').getBoundingClientRect().toJSON(),boxes:[...document.querySelectorAll('main,.builder-play-area,.pantry,#town-map,#portrait')].map(el=>({selector:el.id||el.className,rect:el.getBoundingClientRect().toJSON()}))}),{route,viewport}));
+   fs.writeFileSync(path.join(require('node:os').tmpdir(),'app-scroll-partial.json'),JSON.stringify(measurements));
    await page.evaluate(()=>{const el=[...document.querySelectorAll('.app-scroll,.blog-panel,#blog-sentences,#blog-handwriting,.journal-contents')].find(el=>el.getBoundingClientRect().height>0&&['auto','scroll'].includes(getComputedStyle(el).overflowY));if(el)el.dataset.nativeScrollAudit='';});
    const target=page.locator('[data-native-scroll-audit]');assert.equal(await target.count(),1,route+' native scroller');
    assert.ok((await target.boundingBox()).y>=before.y+before.height-1,route+' scroller below header');
@@ -30,13 +31,17 @@ const root=path.resolve(__dirname,'..'),themes=['green','blue','maroon','gold','
    }
    assert.ok(await target.evaluate(el=>el.scrollTop>0));assert.equal(await page.evaluate(()=>document.scrollingElement.scrollTop),0);
    await target.focus();const oldScroll=await target.evaluate(el=>el.scrollTop);await page.keyboard.press('PageDown');await page.waitForFunction(old=>document.querySelector('[data-scroll-test]').scrollTop>old,oldScroll,{timeout:3000}).catch(async()=>{throw Error(route+' '+JSON.stringify(viewport)+' keyboard '+JSON.stringify(await target.evaluate(el=>({scroll:el.scrollTop,height:el.clientHeight,total:el.scrollHeight,focused:el===document.activeElement}))))});
+   // Native PageDown animates independently of CSS reduced-motion. Let it settle
+   // before removing the temporary overflow or exercising the separate jump action.
+   await target.evaluate(el=>new Promise(resolve=>{let previous=el.scrollTop,stable=0;function tick(){const current=el.scrollTop;stable=Math.abs(current-previous)<.5?stable+1:0;previous=current;if(stable>=8)resolve();else requestAnimationFrame(tick);}requestAnimationFrame(tick);}));
    await target.evaluate(el=>{el.querySelector('[data-scroll-fixture]').remove();el.scrollTop=0;});
+   await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
    if(await page.locator('.app-scroll').count()&&await page.locator('.ah-copyright').count())assert.equal(await page.locator('.ah-copyright').evaluate(el=>!!el.closest('.app-scroll')),true);
    const jump=page.locator('.builder-jump button:visible');
    if(await jump.count()){
     await page.locator('[data-jump-section=choices]').evaluate(el=>el.scrollIntoView({block:'start',behavior:'instant'}));
     await page.waitForFunction(()=>document.querySelector('.builder-jump button').textContent.includes(ActivityHubI18n.t('Back to activity')));
-    await jump.click();assert.ok((await page.locator('[data-jump-section=activity]').boundingBox()).y>=before.height-1);
+    await jump.click();const activityTop=(await page.locator('[data-jump-section=activity]').boundingBox()).y;assert.ok(activityTop>=before.height-1,route+' '+JSON.stringify(viewport)+' jump top '+activityTop+' header '+before.height+' root '+await page.evaluate(()=>document.scrollingElement.scrollTop));
    }
    await page.evaluate(()=>ActivityHubI18n.setLanguage('ja',false));assert.ok(Math.abs((await header.boundingBox()).y)<1);
    const toggle=page.locator('#free-mode');if(await toggle.count()){await toggle.check();await toggle.uncheck();}

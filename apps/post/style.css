@@ -140,3 +140,6 @@ header .brand-taglines span,.reader header .brand-taglines span{display:block;co
 
 /* Shared site navigation, without changing POST’s card/editor styling. */
 .post-brand-group,.post-header-actions{display:flex;align-items:center;gap:8px}.post-header-actions{margin-left:auto;flex-shrink:0}.post-brand-group{min-width:0}.post-brand-group>.ah-button{flex-shrink:0}
+
+/* Keep POST's independent warm identity while making the system edge opaque. */
+body[data-app-shell]>header{background-color:#fff8ed}
