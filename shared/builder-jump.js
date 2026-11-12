@@ -19,6 +19,6 @@
   destination.scrollIntoView({block:'start',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
  });
  const schedule=()=>{if(!scheduled){scheduled=true;requestAnimationFrame(update)}};
- window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule);
+ window.addEventListener('scroll',schedule,{passive:true,capture:true});window.addEventListener('resize',schedule);
  document.addEventListener('activityhub:languagechange',update);update();
 })();

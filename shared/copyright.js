@@ -7,5 +7,5 @@
   notice.dataset.i18n = 'Let’s EiGo! © 2026 letseigo.com · All rights reserved.';
   notice.textContent = notice.dataset.i18n;
   footer.append(notice);
-  document.body.append(footer);
+  (document.querySelector('[data-site-scroll]') || document.body).append(footer);
 })();

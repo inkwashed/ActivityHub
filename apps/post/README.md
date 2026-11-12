@@ -23,3 +23,7 @@ Version 9 adds a frozen exact-string dictionary (`link-dictionary.js`) for commo
 The header QR shares the public POST entry through shared/page-qr.js. Card QR sharing remains separate; both use shared/qr.js (BSD license in shared/qr-LICENSE.txt).
 
 The header includes a homepage back link and shared English/Japanese language dialog beside the app QR action. Navigation, language and QR controls translate and use the suite’s saved preference; the card editor remains English, as stated in the dialog. Switching language never translates or edits card text.
+
+## Header and overflow
+
+This app loads `shared/app-shell.css` last: navigation stays outside the named activity scroll region, while narrow/short screens and long content retain necessary scrolling. Scrollbar appearance comes from shared controls.css. See [the shared contract](../../docs/STYLE-GUIDE.md#app-headers-and-overflow) and run `node tests/check-app-scroll-browser.cjs` for shell changes.

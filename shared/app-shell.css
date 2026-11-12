@@ -1,0 +1,10 @@
+/* Opt-in page-flow shell: header is outside every activity scroll region.
+   Load last; activity sizing, inner panels and artwork remain their owners. */
+html:has(body[data-app-shell]){height:100%;overflow:hidden}
+body[data-app-shell],body.ah-builder[data-app-shell]{display:grid;grid-template-rows:auto minmax(0,1fr);height:100vh;height:100svh;overflow:hidden;padding-bottom:0}
+body[data-app-shell]>header{width:100%;box-sizing:border-box}
+.app-scroll{min-width:0;min-height:0;overflow:auto;scroll-padding-block:16px}
+.app-scroll:focus-visible{outline:3px solid var(--ah-focus);outline-offset:-3px}
+@media(max-width:739px),(max-height:380px){
+ body.ah-builder[data-app-shell]>.app-scroll{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+}

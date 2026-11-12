@@ -1,7 +1,7 @@
 /* Approved opt-in workspace. App art geometry remains in its own adapter. */
 .ah-builder #builder.panel-workspace .builder-output{height:auto;min-height:0;overflow:visible;overscroll-behavior:auto;margin-top:8px;font-size:21px}
 .ah-builder #builder.panel-workspace .builder-output #sentence{overflow-wrap:anywhere}
-.ah-builder #builder:is(.panel-workspace,.avatar-workspace) .builder-menu-scroll{overflow-anchor:none;scrollbar-gutter:stable;scrollbar-color:var(--ah-border) transparent;scrollbar-width:auto}
+.ah-builder #builder:is(.panel-workspace,.avatar-workspace) .builder-menu-scroll{overflow-anchor:none;scrollbar-gutter:stable}
 .ah-builder #builder.panel-workspace.is-create .builder-art-area{overflow:visible}
 @media(min-width:740px){
  .ah-builder #builder.panel-workspace .kitchen,.ah-builder #builder.panel-workspace.is-create .kitchen{grid-template-rows:minmax(44px,auto) minmax(0,1fr);min-height:0;overflow:hidden}
@@ -16,7 +16,7 @@
 /* Extremely short windows deliberately scroll the page, preserving a usable
    creation and full controls, instead of clipping a tiny viewport. */
 @media(min-width:740px) and (max-height:380px){
- .ah-builder:has(#builder.panel-workspace){height:auto;overflow:auto}
+ .ah-builder:has(#builder.panel-workspace):not([data-app-shell]){height:auto;overflow:auto}
  .ah-builder #builder.panel-workspace{height:auto;min-height:500px}
  .ah-builder #builder.panel-workspace .kitchen{height:440px}
  .ah-builder #builder.panel-workspace .builder-menu-scroll{height:auto;overflow:visible;container-type:normal}

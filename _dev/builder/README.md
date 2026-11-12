@@ -81,3 +81,7 @@ Mode rendering keeps both sizing layers connected; the inactive one is invisible
 Reset failure coverage: `tests/check-restore-failures.cjs` verifies pre-clear snapshot retention and save suppression; app recovery fixtures exercise real adapters in both modes. Custom adapters must forward recovery `canSave()` to autosave. PLAY piece buttons expose `aria-pressed` independently of focus; maintain it on selection, deselection, mounting and recovery without changing their accessible names. Physical VoiceOver announcements still require device testing.
 
 Fullscreen is an optional activity action in the shared `builder-prompt-row`, to the right of the prompt. Reuse the existing button, 44px target and shared fullscreen controller; omit the control for apps that do not need it. The header retains site navigation, language and textbook context.
+
+## Header and overflow
+
+This app loads `shared/app-shell.css` last: navigation stays outside the named activity scroll region, while narrow/short screens and long content retain necessary scrolling. Scrollbar appearance comes from shared controls.css. See [the shared contract](../../docs/STYLE-GUIDE.md#app-headers-and-overflow) and run `node tests/check-app-scroll-browser.cjs` for shell changes.

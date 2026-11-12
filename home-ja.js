@@ -1,4 +1,5 @@
 window.ActivityHubI18n.register({
+  "Home page content": "ホームページのコンテンツ",
   "Unit 5": "Unit 5",
   "Make a sandwich": "サンドイッチを作る",
   "Choose your fillings, explore where they come from, and tell us about your sandwich.": "具材を選んで産地を調べ、自分のサンドイッチを紹介しよう。",

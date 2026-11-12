@@ -1,4 +1,5 @@
 window.ActivityHubI18n.register({
+  "Activity content": "アクティビティのコンテンツ",
   'Restore':'復元', 'Save':'保存',
   "No sound on iPad? Turn off Silent Mode in Control Center.": "iPadで音が出ない場合は、コントロールセンターで消音モードをオフにしてください。",
   "Starting audio…": "音声を開始しています…",

@@ -9,7 +9,8 @@ This is an ownership map and a record of the conservative cleanup, not a replace
 | `shared/profile.js`, `shared/profile.css` | Shared Profile markup, translations, ID-card layout, name editing, avatar preview and badge presentation for homepage/My Blog/Journal | Theme definitions/persistence and lesson draft state |
 | `shared/theme.js` | Validated site theme key, before-style restore, radio selection and cross-tab/page restore | Profile data and creations |
 | `shared/tokens.css` | Five curated site palettes, type, radii, spacing, control and icon sizes | SVG dimensions and illustrated colors |
-| `shared/controls.css` | Shared buttons, choices, focus/pressed/disabled states, mode switches, dialogs, visually hidden utility, fullscreen icon state | Activity geometry and specialized editing layouts |
+| `shared/controls.css` | Shared buttons, choices, focus/pressed/disabled states, mode switches, dialogs, native scrollbar appearance, visually hidden utility, fullscreen icon state | Activity geometry and specialized editing layouts |
+| `shared/app-shell.css` | Opt-in viewport header/content separation for Builders and POST, content overflow and Jump clearance | Artwork, applet main/panel geometry and scrollbar colors |
 | `shared/builder-layout.css` | Builder header and basic panel chrome | Food artwork |
 | `shared/builder-responsive.css` | Baseline responsive behavior | Final opted-in workspace policy |
 | `shared/builder-editor.css` | CreativeBuilder item positioning, minimum hit area, artwork transforms, inactive-layer pointer suppression and keyboard outline | App shadows, stacking groups, selected artwork decoration |
@@ -18,10 +19,10 @@ This is an ownership map and a record of the conservative cleanup, not a replace
 | `shared/builder-reference-panels.css` | Class Supplies and Lab density | Other app families |
 | `shared/builder-panel-workspace.css` | Approved right-column sentence/scrolling pattern | My Town/My Selfie layouts |
 | `shared/blog-post.css`, `shared/blog-design.css` | Blog shell and optional design editor | Builder layout conventions |
-| `home.css` | Homepage cards, filters and page composition | Profile modal layout and copies of shared control states |
+| `home.css` | Homepage cards, filters, fixed header row and independent content scroll region | Profile modal layout and copies of shared control states |
 | App CSS and documented geometry adapters | Artwork, vocabulary-specific controls and deliberate exceptions | Copies of the editor coordinate contract |
 
-Every maintained suite entrypoint first loads blocking `shared/theme.js`, before CSS. Builder style order is tokens → app base → builder chrome → controls → optional components/responsive baseline → app geometry → editor → workspace → family panel density → panel-workspace → explicit app adapter. The editor sheet is required by Pizza, Parfait, Sandwich, Class Supplies and Lab. Avatar and My Town do not use that coordinate contract.
+Every maintained suite entrypoint first loads blocking `shared/theme.js`, before CSS. Builder style order is tokens → app base → builder chrome → controls → optional components/responsive baseline → app geometry → editor → workspace → family panel density → panel-workspace → explicit app adapter. The editor sheet is required by Pizza, Parfait, Sandwich, Class Supplies and Lab. Opted-in Builders and POST load app-shell.css last for the outer header/content boundary; Blog and Journal retain their existing shells. Avatar and My Town do not use that coordinate contract.
 
 Blog order remains tokens → blog shell → controls → optional design styles. POST intentionally retains its separate typography and postcard UI; its shared tokens/controls support shared utilities. Do not reorder every page into the Builder sequence.
 

@@ -35,12 +35,3 @@
  document.addEventListener('activityhub:languagechange',update);
  finder.hidden=false;update();
 })();
-
-/* Keep anchor destinations clear of the sticky header, including wrapped text. */
-(() => {
- const header=document.querySelector('.home-header');
- const measure=()=>document.documentElement.style.setProperty('--home-header-height',`${header.getBoundingClientRect().height}px`);
- measure();
- if(window.ResizeObserver)new ResizeObserver(measure).observe(header);
- else window.addEventListener('resize',measure);
-})();

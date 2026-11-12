@@ -36,3 +36,12 @@ const header=fs.readFileSync(path.join(root,'shared/builder-layout.css'),'utf8')
 assert.match(header,/@media\(max-width:739px\)\{\.ah-builder \.edition\{display:none\}\}/);
 for(const file of ['apps/pizza/index.html','apps/pizza/styles.css','apps/pizza/ui-ja.js','shared/builder-create.css','shared/builder-food-panels.css'])assert.ok(!/pantry-footer|A little of this\. A little of that/.test(fs.readFileSync(path.join(root,file),'utf8')));
 console.log('PASS: one Builder edition breakpoint and obsolete Pizza slogan removed.');
+
+// Page-flow shells pin headers without duplicating app geometry or palettes.
+for(const app of [...editors,'apps/avatar','apps/my-town','apps/post']){
+ const html=fs.readFileSync(path.join(root,app,'index.html'),'utf8'),styles=links(html);
+ assert.equal(styles.at(-1),'app-shell.css',app+': load the viewport boundary last');
+ assert.match(html,/<body\b[^>]*data-app-shell/);
+ assert.match(html,/class="app-scroll"[^>]*data-site-scroll/);
+}
+console.log('PASS: page-flow app shell ownership and explicit rollout.');
