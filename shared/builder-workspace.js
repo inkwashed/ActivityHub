@@ -19,12 +19,21 @@
   const flush=()=>{if(pending!==null)cancel(pending);pending=null;fit();repaint();};
   return {schedule(){if(pending===null)pending=request(flush)},flush};
  };
+ // Keep browser selection, image dragging and touch callouts out of artwork.
+ // Leave editable controls and native selects alone if an app places one here.
+ const protectSurface=surface=>{
+  const editable='input,textarea,select,[contenteditable=""],[contenteditable="true"],[contenteditable="plaintext-only"]';
+  for(const type of ['selectstart','dragstart','contextmenu'])surface.addEventListener(type,event=>{
+   if(!event.target.closest?.(editable))event.preventDefault();
+  });
+ };
+ document.querySelectorAll?.('[data-builder-no-selection]')?.forEach(protectSurface);
  const root=document.querySelector('#builder');
  const kitchen=root?.querySelector('.kitchen');
  const scene=kitchen?.querySelector('[data-builder-scene],.pizza-stage,.parfait-stage,#sandwich');
  const order=kitchen?.querySelector('.order');
  if(!scene||!order)return;
- const frame=document.createElement('div');frame.className='builder-play-area';
+ const frame=document.createElement('div');frame.className='builder-play-area';protectSurface(frame);
  scene.before(frame);
  const tools=root.querySelector('#free-tools');
  // A separate size container keeps art sizing and drag bounds outside the tool strip.

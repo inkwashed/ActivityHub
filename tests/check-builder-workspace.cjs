@@ -1,6 +1,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 class Element{
- constructor(){this.children=[];this.props={};this.style={setProperty:(k,v)=>this.props[k]=v,removeProperty:k=>delete this.props[k]};this.clientHeight=140;this.long=false;}
+ constructor(){this.listeners={};this.children=[];this.props={};this.style={setProperty:(k,v)=>this.props[k]=v,removeProperty:k=>delete this.props[k]};this.clientHeight=140;this.long=false;}
+ addEventListener(type,fn){this.listeners[type]=fn}
  append(node){if(node.parent)node.parent.children.splice(node.parent.children.indexOf(node),1);node.parent=this;this.children.push(node);}
  before(node){const p=this.parent;node.parent=p;p.children.splice(p.children.indexOf(this),0,node);}
  get scrollHeight(){return this.long?(parseInt(this.props['--output-font-size'])>17?170:136):100;}
@@ -8,10 +9,10 @@ class Element{
 const kitchen=new Element(),scene=new Element(),order=new Element(),source=new Element();
 kitchen.append(scene);kitchen.append(order);kitchen.append(source);
 kitchen.querySelector=s=>{if(s==='.order')return order;if(s==='#source-sentence')return source;assert.ok(s.includes('[data-builder-scene]'));return scene;};
-const tools=new Element();const root={classList:{contains:()=>panel},querySelector:s=>s==='#free-tools'?tools:kitchen},queue=[];let changed,resized,ready,stopped=0,panel=false;
+const portrait=new Element();const tools=new Element();const root={classList:{contains:()=>panel},querySelector:s=>s==='#free-tools'?tools:kitchen},queue=[];let changed,resized,ready,stopped=0,panel=false;
 vm.runInNewContext(fs.readFileSync('shared/builder-workspace.js','utf8'),{
  CustomEvent:class{constructor(type,options){this.detail=options.detail}},
- document:{querySelector:()=>root,createElement:()=>new Element(),dispatchEvent:event=>{ready=event.detail}},window:{ResizeObserver:true,addEventListener(){},removeEventListener(){}},
+ document:{querySelector:()=>root,querySelectorAll:selector=>{assert.equal(selector,'[data-builder-no-selection]');return [portrait]},createElement:()=>new Element(),dispatchEvent:event=>{ready=event.detail}},window:{ResizeObserver:true,addEventListener(){},removeEventListener(){}},
  cancelAnimationFrame(){},requestAnimationFrame:fn=>queue.push(fn),MutationObserver:class{constructor(fn){changed=fn}observe(){}disconnect(){stopped++}},ResizeObserver:class{constructor(fn){resized=fn}observe(){}disconnect(){stopped++}}
 });
 const [frame,output]=kitchen.children;
@@ -27,3 +28,11 @@ console.log('PASS: stable scene, source placement, bounded fitting, font restora
 
 panel=true;output.stopFitting();assert.equal(stopped,2);assert.equal(output.props['--output-font-size'],undefined);changed();queue.shift()();assert.equal(output.props['--output-font-size'],undefined);assert.equal(output.tabIndex,-1);
 console.log('PASS: panel output stops legacy observers; pending text fit cannot shrink growing output.');
+
+for(const area of [frame,portrait])for(const type of ['selectstart','dragstart','contextmenu']){
+ let prevented=0;area.listeners[type]({target:{closest:()=>null},preventDefault(){prevented++}});assert.equal(prevented,1);
+ area.listeners[type]({target:{closest:()=>({tagName:'INPUT'})},preventDefault(){prevented++}});assert.equal(prevented,1);
+}
+assert.equal(frame.listeners.pointerdown,undefined);assert.equal(frame.listeners.touchstart,undefined);
+console.log('PASS: artwork blocks selection, native drag and context menus; editable controls are exempt and pointer/touch gestures are not intercepted.');
+assert.equal(order.listeners.selectstart,undefined);assert.equal(output.listeners.selectstart,undefined);

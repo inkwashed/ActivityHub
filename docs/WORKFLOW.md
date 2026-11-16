@@ -70,7 +70,7 @@ Written references define intent. Shared code implements it. Editing a Markdown 
 
 Use checks proportional to the change; do not add tests that merely restate CSS declarations.
 
-- Activity: initial state, selection/removal, reset, relevant modes, long prompts, and fully populated states.
+- Activity: initial state, selection/removal, reset, relevant modes, long prompts, and fully populated states. For touch workspaces, check long-press selection/callout suppression within art, retained selection/copy outside art, native editable controls, and unchanged drag/pinch/keyboard/scroll behavior (see STYLE-GUIDE.md → Artwork long-press protection).
 - Shared controls: default, hover on pointer devices, touch press, keyboard focus/activation, selected, disabled, and reduced motion.
 - Layout: verify that choices stay top-aligned when modes, ingredient sources, or order length change; check shared card-sizing stylesheet and row-count configuration. Check iPad portrait and landscape, desktop normal/fullscreen, narrow mobile, and enlarged text. Include both short and long order text; preserve meaningful activity space without horizontal overflow.
 - Files: local assets resolve; shared relative paths survive hosting and local opening; no unnecessary network dependency has been introduced.

@@ -4,6 +4,7 @@ const rect=(left,top,width,height)=>({left,top,width,height,right:left+width,bot
 let safeWidth=536,active=true,extra=[];
 class E{
  constructor(){this.children=[];this.style={setProperty(){}};this.dataset={};this.clientHeight=140;this.scrollHeight=100;}
+ addEventListener(){}
  append(n){if(n.parent)n.parent.children.splice(n.parent.children.indexOf(n),1);n.parent=this;this.children.push(n)}
  before(n){n.parent=this.parent;this.parent.children.splice(this.parent.children.indexOf(this),0,n)}
  getBoundingClientRect(){return rect(0,0,this.className==='builder-art-area'?safeWidth:600,450)}

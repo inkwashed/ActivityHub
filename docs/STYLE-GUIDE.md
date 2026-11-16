@@ -126,6 +126,12 @@ Preset colors belong to each configured item, not the interface theme. For Penci
 
 Interactive LEARN scenes must retain group semantics when they contain selectable piece buttons; an image role hides those controls from assistive technology. Preserve native keyboard activation, selected pressed states and 44px targets. White/background contrast, dense fixed placements, enlarged text and physical touch still need visual/device review.
 
+### Artwork long-press protection
+
+Shared builder workspace styles disable text/element selection and the WebKit touch callout only within `.builder-play-area` and explicitly marked `[data-builder-no-selection]` artwork surfaces (My Selfie’s portrait). Include descendants so SVG letters and images cannot be highlighted separately. Disable native image/SVG dragging with `-webkit-user-drag:none`. Keep sentence/output text, choices, menus and the rest of the page outside this protection.
+
+`builder-workspace.js` cancels `selectstart`, `dragstart` and `contextmenu` inside those surfaces; native input/textarea/select and editable-content targets are exempt, including editable text selection styles. Do not blanket-cancel touchstart, pointerdown or scrolling to solve long-press selection: preserve existing one-finger drag, pinch resizing, keyboard focus and intentional LEARN/page-flow scrolling. Fullscreen and touch actions retain their existing owners. This mitigates browser highlighting and long-press popovers; physical iPad Safari testing is still required, since operating-system actions are not entirely controlled by page code.
+
 ## Shared header and icons
 
 Left: textbook-back control, applet-specific mark (or shared mark), activity title. Right: Language, app-link QR, textbook/unit context. Builders place the optional fullscreen button at the right end of the activity prompt row above the creation area, using shared builder-prompt-row styling: a reserved 44px column, 8px gap, and wrapping prompt text. Keep the same button in both modes and while fullscreen is active; do not overlay it on artwork. Use 24px icons in 44px targets. For the reviewed food/Supplies Builders, LEARN/PLAY belongs beside the first choices heading; EASY/HARD and its separate touch/keyboard help belong in the app’s documented choices heading. Do not put difficulty back in the header. Wrap rather than overflow. The phone-only textbook-label policy below owns label visibility. Legacy Lab retains its documented difficulty fixture; Blog/POST have separate shells.
