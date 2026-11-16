@@ -12,7 +12,7 @@
    });
   },
   scene:'#parfait',workspace:'#parfait-workspace',menuBody:'.parfait-menu-body',menu:'#parfait-menu',
-  help:{learn:'Choose a flavor, pick two fruits, and add syrup. Swap the fruit choices to change their order.',play:'Tap flavors or fruit to add pieces. Drag to arrange; pinch or use the tools to resize. Use the item menu to bring hidden pieces into view.'},
+  help:{learn:'Choose a flavor, pick two fruits, and add syrup. Swap the fruit choices to change their order.',play:'Tap flavors or fruit to add pieces. Drag to arrange; pinch or use the tools to resize. Use the item menu to bring hidden pieces into view. Use the layer arrows to move a piece forward or backward one layer.'},
   resetMessage:'Parfait reset. Choose your fruit.',
   constrain(item,editor){
    item.scale=Math.max(editor.sizes.min,Math.min(editor.sizes.max,item.scale));

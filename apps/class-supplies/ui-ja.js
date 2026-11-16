@@ -6,5 +6,5 @@ window.ActivityHubI18n.register({
  'Class supplies':'学用品','Color':'色','Item color':'道具の色','Tap to add.':'タップして追加。','Back to textbook activities':'教科書の活動にもどる','Supplies cleared.':'学用品をリセットしました。',
  'red':'赤','orange':'オレンジ','yellow':'黄','green':'緑','blue':'青','purple':'紫','pink':'ピンク','black':'黒','white':'白','brown':'茶色',
  'Tap supplies to add or remove them. Select an item in the picture to change its color.':'学用品をタップして追加・削除します。画面の道具を選ぶと色を変えられます。',
- 'Tap supplies to add copies. Drag to arrange; pinch or use the tools to resize. Select an item to change its color. Use the item menu to bring hidden items into view.':'学用品をタップして追加します。ドラッグで移動し、ピンチやボタンで大きさを変えます。道具を選ぶと色を変えられます。隠れた道具は選択メニューから選ぶと見える場所に移動します。'
+ 'Tap supplies to add copies. Drag to arrange; pinch or use the tools to resize. Select an item to change its color. Use the item menu to bring hidden items into view. Use the layer arrows to move a piece forward or backward one layer.':'学用品をタップして追加します。ドラッグで移動し、ピンチやボタンで大きさを変えます。道具を選ぶと色を変えられます。隠れた道具は選択メニューから選ぶと見える場所に移動します。レイヤーの矢印で、選んだパーツを1つ前や後ろに移動できます。'
 });

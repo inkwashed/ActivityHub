@@ -111,6 +111,8 @@ Deploy only when requested as part of the current work. Identify the destination
 
 ## Decision history
 
+- November 16, 2026: approved the Paper Craft layer-arrow trial for all CreativeBuilder consumers. Replaced TOP with one-step forward/backward controls, shared translations and nine-tool workspace sizing; preserved category boundaries and saved state formats.
+
 - Current standards: Let’s EiGo! public branding; textbook-section back navigation; shared English/Japanese interface controls with English lesson content; text-only app copyright with home-page terms; vertical editing actions ordered larger before smaller. See the style guide for visual details.
 - Initial workflow: central process reference, separate visual specification, shared executable styles, per-app exceptions, and explicit multi-applet rollout checks. Based on the current Pizza Builder and Let’s EiGo! design system.
 
@@ -222,12 +224,12 @@ This is the default for every current and future builder using CreativeBuilder.
 
 - `orderedItems()` is the single source of truth for the dropdown and visual depth. First entry is at the back; each later entry is above earlier entries. Repeated ingredient types interleave normally.
 - Preserve insertion order within each category. Do not sort by ingredient name, ingredient catalog position, size, or current selection. Selecting, dragging, resizing, rotating, or flipping must not bring a piece to the front.
-- An app may explicitly define category `layer` values when needed (Parfait scoops before fruit). Missing values default to zero. Within each category, new pieces and duplicates append after existing pieces; TOP explicitly moves the selected piece to the end of its category, keeping selection and transforms intact; do not regroup individual flavors or fruits.
+- An app may explicitly define category `layer` values when needed (Parfait scoops before fruit). Missing values default to zero. Within each category, new pieces and duplicates append after existing pieces; Forward/backward explicitly swap the selected piece with its immediate neighbor in the same category, keeping selection and transforms intact; do not regroup individual flavors or fruits.
 - After adding/removing items, synchronize drawing depth and picker order. Delete selects the previous displayed item, or the first remaining item if the first was removed; empty lists clear selection.
 - Any preview/export must consume the same ordered list. Do not reconstruct PLAY order by looping through ingredient definitions. All CreativeBuilder exports must follow this rule, including Parfait’s scoop/fruit categories.
 - LEARN owns its separate composition rules: Pizza uses configured topping order; Parfait alternates its fruit pair. This contract does not change LEARN placement.
 
-Paper Craft alone trials `layerSteps:true`: forward/backward swap immediate neighbors within a category, with unavailable directions disabled. Existing consumers retain TOP pending approval. Its README owns the trial UI and verification.
+All CreativeBuilder consumers use forward/backward one-layer actions, replacing TOP: Pizza, Parfait, Sandwich, Class Supplies, Paper Craft and Builder Lab. Disable each direction at its category boundary and both without selection. `orderedItems()` remains authoritative for picker, visual depth and export; swapping must not alter coordinates, colors, source choices or difficulty. Shared workspace CSS owns the nine-control responsive reservations. Run `node tests/check-layer-order.cjs` for cross-consumer ordering, boundaries, transform/selection retention, save/Restore and export parity.
 
 When modifying ordering, verify mixed repeated ingredients, duplicates, deletion, selection without reordering, category boundaries, and export parity. Run both creative-editor suites and the affected export checks. Any future user-controlled reorder feature must update this same ordered list rather than introducing a second visual order.
 

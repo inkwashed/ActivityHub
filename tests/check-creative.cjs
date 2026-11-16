@@ -73,7 +73,7 @@ console.log('PASS: pinch limits, live size language, no gesture rotation, smooth
 free.clear();free.add('mushrooms');free.add('cheese');free.add('mushrooms');
 assert.deepEqual(free.orderedItems().map(item=>item.topping),['mushrooms','cheese','mushrooms']);
 free.items.forEach((item,i)=>assert.equal(item.node.style.zIndex,i+1));
-const first=free.items[0];free.select(first.id);free.edit('top');assert.equal(free.orderedItems().at(-1),first);assert.equal(first.node.style.zIndex,3);assert.equal(free.selected,first.id);
+const first=free.items[0];free.select(first.id);free.edit('forward');assert.equal(free.orderedItems()[1],first);free.edit('forward');assert.equal(free.orderedItems().at(-1),first);assert.equal(first.node.style.zIndex,3);assert.equal(free.selected,first.id);
 console.log('PASS: PLAY count/size groups, plural forms, resizing, duplication, deletion, sauce suffix, and thresholds.');
 // Tool strips reduce the canvas without changing scene-relative drag units.
 const originalClosest=free.pizza.closest,originalRect=free.pizza.getBoundingClientRect;

@@ -85,3 +85,8 @@ Creation edits now earn a local first-builder badge, with higher ranks after 5/1
 ## Header and overflow
 
 This app loads `shared/app-shell.css` last: navigation stays outside the named activity scroll region, while narrow/short screens and long content retain necessary scrolling. Scrollbar appearance comes from shared controls.css. See [the shared contract](../../docs/STYLE-GUIDE.md#app-headers-and-overflow) and run `node tests/check-app-scroll-browser.cjs` for shell changes.
+
+
+### Layer-arrow rollout — 2026-11-16
+
+This app now uses the shared one-step layer arrows instead of TOP, with the common nine-control workspace layout. The ordering/layout contract is owned by docs/WORKFLOW.md and docs/STYLE-GUIDE.md; `node tests/check-layer-order.cjs` covers the migrated consumers. Automated checks pass; rendered layout and physical-device touch review remain pending. Nothing committed or deployed.

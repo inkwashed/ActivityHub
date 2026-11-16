@@ -62,22 +62,26 @@
 .ah-builder #builder.is-create .pizza-menu-body,
 .ah-builder #builder.is-create .parfait-menu-body,
 .ah-builder #builder.is-create .sandwich-menu-body{grid-template-columns:minmax(0,1fr)}
-.ah-builder #builder.is-create .builder-art-area{bottom:114px}
+.ah-builder #builder.is-create .builder-art-area{bottom:164px}
 .ah-builder #builder .builder-play-area #free-tools{position:absolute;z-index:20;left:50%;bottom:10px;top:auto;right:auto;transform:translateX(-50%);width:max-content;max-width:calc(100% - 20px);margin:0;align-self:auto}
-.ah-builder #builder .builder-play-area .free-toolbar{display:grid;grid-template-columns:repeat(4,44px);gap:6px;justify-content:center}
+.ah-builder #builder .builder-play-area .free-toolbar{display:grid;grid-template-columns:repeat(3,44px);gap:6px;justify-content:center}
 .ah-builder #builder .builder-play-area .free-toolbar .ah-button{width:44px;height:44px;min-width:44px;padding:0}
-@container builder-frame (min-width:414px){
+@container builder-frame (min-width:264px){
+ .ah-builder #builder.is-create .builder-art-area{bottom:114px}
+ .ah-builder #builder .builder-play-area .free-toolbar{grid-template-columns:repeat(5,44px)}
+}
+@container builder-frame (min-width:464px){
  .ah-builder #builder.is-create .builder-art-area{bottom:64px}
- .ah-builder #builder .builder-play-area .free-toolbar{grid-template-columns:repeat(8,44px)}
+ .ah-builder #builder .builder-play-area .free-toolbar{grid-template-columns:repeat(9,44px)}
 }
 @media(orientation:landscape) and (min-width:740px){
  /* Require 280px of usable artwork width beside the compact 94px rail. */
- @container builder-frame (min-width:394px) and (min-height:214px){
+ @container builder-frame (min-width:394px) and (min-height:264px){
   .ah-builder #builder.is-create .builder-art-area{right:114px;bottom:0}
   .ah-builder #builder .builder-play-area #free-tools{left:auto;right:10px;top:50%;bottom:auto;transform:translateY(-50%)}
   .ah-builder #builder .builder-play-area .free-toolbar{grid-template-columns:repeat(2,44px)}
  }
- @container builder-frame (min-width:344px) and (min-height:414px){
+ @container builder-frame (min-width:344px) and (min-height:464px){
   .ah-builder #builder.is-create .builder-art-area{right:64px;bottom:0}
   .ah-builder #builder .builder-play-area #free-tools{left:auto;right:10px;top:50%;bottom:auto;transform:translateY(-50%)}
   .ah-builder #builder .builder-play-area .free-toolbar{grid-template-columns:44px}

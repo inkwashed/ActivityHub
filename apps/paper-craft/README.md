@@ -31,11 +31,11 @@ Background offers Plain, Polka dots, Stripes, Zigzag, Hearts and Stars, matching
 
 `background.js` generates the live full-frame background, previews and export from scene-anchored patterns; the live SVG is cached until the background changes. Existing workspace geometry/observers are unchanged. Palette metadata lives in `palettes.learn` / `palettes.play` so the shared Reset/Restore mechanism owns recovery.
 
-## One-step layer controls (local trial)
+## One-step layer controls
 
-Paper Craft alone opts into shared `CreativeBuilder`’s `layerSteps:true`: forward/backward replace TOP and swap with an immediate neighbor in drawing order. Directions disable at their respective boundaries; both disable without selection. Selection and transforms remain intact. Save, Restore, picker and export use this same order. Other builders retain TOP pending approval.
+Shared CreativeBuilder uses layer forward/backward after Duplicate, replacing TOP across Pizza, Parfait, Sandwich, Pencil Case, Paper Craft and Builder Lab. Each action swaps the selected piece with its immediate neighbor within the same category. Unavailable directions disable at boundaries; both disable without selection. Selection and transforms remain intact. Save, Restore, picker and export use this same order.
 
-Shared layer-up/layer-down icons show arrows between horizontal layers. App-scoped toolbar reservations accommodate nine 44px controls in rails/strips. LEARN hides these tools. Nothing committed or deployed by this trial.
+Shared layer-up/layer-down icons and English/Japanese labels are used directly. Nine-button workspace reservations now live in shared/builder-workspace.css; Paper Craft’s earlier app-local trial CSS has been removed. LEARN hides the creative tools.
 
 ## Export and implementation
 
@@ -62,14 +62,19 @@ Review fixes: interactive LEARN scenes now retain group semantics; piece-color s
 
 Remaining differences/review items:
 
-- Paper Craft’s one-step depth tools are an approved-for-trial app opt-in, not a rollout to the other Builders. The nine-control toolbar requires different fit budgets from their eight-control toolbars.
+- The approved one-step depth controls and nine-control toolbar budgets are now shared across all CreativeBuilder consumers.
 - No Paper Craft achievement/badge family exists. Existing badges are named/art-specific; adding one needs a separate product/art decision. Visit counting is already integrated.
 - The loose LEARN shape arrangement and letter grid can overlap when mixed; narrow screens, crowded letter touch targets and enlarged text require visual/physical review. No claim of browser layout validation is made.
 - Speech fallback covers unsupported shapes/letters, but recording completeness and audible device pronunciation have not been verified.
 - Browser review is blocked: shell Chrome launch/local server are restricted, and available in-app browser security rejects local file URLs. The browser suite is provided but not claimed as passed. Physical iPad pinch/scroll, downloads and VoiceOver remain open.
 
-Reusable category-tray styling, preview-only outlines, per-item default-color behavior, interactive scene semantics and nine-tool trial sizing are documented in STYLE-GUIDE.md. Snapshot/background ownership and required checks live in WORKFLOW.md; app-specific vocabulary, artwork and defaults remain here/config.js.
+Reusable category-tray styling, preview-only outlines, per-item default-color behavior, interactive scene semantics and nine-tool sizing are documented in STYLE-GUIDE.md. Snapshot/background ownership and required checks live in WORKFLOW.md; app-specific vocabulary, artwork and defaults remain here/config.js.
 
 Audit validation: Paper Craft’s mock suite plus 18 related suites passed (Pencil Case, creative editor, Parfait creative, Sandwich, Lab, sharing, reset recovery, restore failures, autosave, panel workspace, artwork/base fitting, bounds, pronunciation, interface-language defaults, section jump, themes and shared style ownership). Local HTML/manifest assets resolve and IDs are unique. These are source/mock checks, not rendered-browser or physical-device evidence.
 
 The Shape Builder homepage card uses `assets/paper-craft-preview.svg`, generated through the actual production Save renderer in `sharing.js`: a PLAY greeting card spelling HI with flat colored cut-outs on dotted brown paper. The generator uses a fixed normalized square camera (not a measured device viewport). Run `scripts/generate-home-previews.cjs` / `--check` and `tests/check-home-previews.cjs` to keep this example synchronized with app artwork; see docs/HOME-PREVIEWS.md.
+
+
+### Layer-arrow rollout — 2026-11-16
+
+This app now uses the shared one-step layer arrows instead of TOP, with the common nine-control workspace layout. The ordering/layout contract is owned by docs/WORKFLOW.md and docs/STYLE-GUIDE.md; `node tests/check-layer-order.cjs` covers the migrated consumers. Automated checks pass; rendered layout and physical-device touch review remain pending. Nothing committed or deployed.

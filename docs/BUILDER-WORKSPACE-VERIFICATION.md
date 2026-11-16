@@ -174,3 +174,12 @@ Local Class Supplies mode comparisons covered 1133×716/714/678/600/599, 1024×7
 
 Browser checks included rotation, resizing, keyboard movement toward the usable edge, exact normalized style equality after Reset→Restore and reload, and a successful real Save preview. Automated pointer/pinch tests cover shared drag bounds. Physical iPad Safari (tabs shown/hidden), touch dragging and pinch remain separate release checks. No deployment.
 
+
+
+## Layer-arrow rollout — 2026-11-16
+
+Migrated every CreativeBuilder consumer (Pizza, Parfait, Sandwich, Class Supplies, Paper Craft and local Builder Lab) from TOP to one-step forward/backward. Category boundaries, selected identity/transforms and saved-data formats are preserved. The nine-control toolbar now uses shared workspace CSS; Paper Craft's trial overrides were removed. Shared English/Japanese labels/help and the interactive style-guide examples were updated.
+
+Passed 23 automated suites: the new cross-consumer layer-order suite, Paper Craft, Reset recovery, Restore failures, autosave, sharing, panel workspace, artwork fit, base fit, PLAY bounds, pronunciation, language defaults, Builder jump, themes, style ownership, homepage previews, photo framing, Builder workspace, creative editor, Parfait creative, Sandwich, Class Supplies and Lab. The new suite invokes real consumer fixtures and production Save SVG renderers to check immediate-neighbor swaps, category boundaries, disabled actions, selection/transforms, picker/depth/export parity, save/Restore and delete/duplicate behavior. Class Supplies additionally round-trips through its app-owned color adapter. Asset-version validation and whitespace checks pass.
+
+Evidence is source/mock execution, not rendered-browser verification. Existing host restrictions prevent Chrome/local-server testing, and the in-app browser rejects local file URLs. `tests/check-layer-order-browser.cjs` is provided for an environment with Playwright/Chrome and allowed local HTTP (or BUILDER_BASE_URL); it covers six real routes, English/Japanese controls and 36 frame/toolbar layouts. It was syntax-checked but not executed here. Physical iPad pinch, accidental taps, scrolling and manual viewport checks remain outstanding. Earlier rendered measurements in this document predate the nine-control toolbar and must not be treated as verification of this rollout. Nothing committed or deployed.

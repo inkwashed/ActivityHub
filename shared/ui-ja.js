@@ -53,7 +53,7 @@ window.ActivityHubI18n.register({"Back to activity":"作品に戻る","Jump to c
 
 window.ActivityHubI18n.register({"Select a piece": "材料を選ぶ", "Edit ingredient": "材料を編集", "Smaller": "小さく", "Larger": "大きく", "Rotate left": "左に回す", "Rotate right": "右に回す", "Flip": "裏返す", "Duplicate": "コピー", "Delete": "取り除く", "Add one piece.": "1つ追加します。", "Learn mode.": "学習モードです。", "Play mode. Easy language is on.": "自由に作るモードです。かんたんモードになります。"});
 
-window.ActivityHubI18n.register({"Move to top of group":"このグループの一番手前へ"});
+window.ActivityHubI18n.register({"Move forward one layer":"1つ前に移動","Move backward one layer":"1つ後ろに移動"});
 
 window.ActivityHubI18n.register({"Making your photo…":"写真を作っています…","Ready to save!":"写真を保存できます！","If the photo opens in a new tab, save it from there.":"写真が別のタブで開いたら、そこから保存してください。","The photo could not be made. Please close this preview and try again.":"写真を作れませんでした。閉じて、もう一度試してください。","Close preview":"写真を閉じる"});
 

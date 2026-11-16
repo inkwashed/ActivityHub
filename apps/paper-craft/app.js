@@ -1,6 +1,6 @@
 (() => {
  const {config,colors,art}=PaperCraft,t=s=>window.ActivityHubI18n?.t(s)||s;
- const help='Tap a shape or letter to add it in its preset color. Drag to move; pinch or use the tools to resize. Select a piece to recolor it. Use the piece menu to reveal covered pieces. Choose Background to change the paper pattern and pastel color. Make a gift and say: This is for you.';
+ const help='Tap a shape or letter to add it in its preset color. Drag to move; pinch or use the tools to resize. Select a piece to recolor it. Use the piece menu to reveal covered pieces. Use the layer arrows to move a piece forward or backward one layer. Choose Background to change the paper pattern and pastel color. Make a gift and say: This is for you.';
  class CraftBuilder extends FoodBuilder {
   palette(){
    this.palettes ||= {};
@@ -51,7 +51,7 @@
   clear(){const mode=this.creative.active?'play':'learn';delete this.palettes[mode];this.learnSelected=null;if(this.creative.active)this.creative.clear();else super.clear();this.updateSentence();}
  }
  const b=window.craftBuilder=new CraftBuilder(document.querySelector('#builder'),config);
- b.creative=new CreativeBuilder(b,{layerSteps:true,scene:'#craft-scene',workspace:'#craft-workspace',menuBody:'.pizza-menu-body',menu:'#craft-menu',resetMessage:'Paper cleared.',art:item=>{item.color ||= config.toppings.find(x=>x.id===item.topping).color;return art(item.topping,item.color)},onSelect:()=>b.updateSentence(),onBackgroundSelect:()=>{b.learnSelected=null;b.refreshColors()},help:{play:help,learn:'Tap shapes or letters to add or remove one in its fixed place. Select a piece in the picture to change its color. Choose Background to change the paper. EASY names your pieces; HARD adds colors.'}});
+ b.creative=new CreativeBuilder(b,{scene:'#craft-scene',workspace:'#craft-workspace',menuBody:'.pizza-menu-body',menu:'#craft-menu',resetMessage:'Paper cleared.',art:item=>{item.color ||= config.toppings.find(x=>x.id===item.topping).color;return art(item.topping,item.color)},onSelect:()=>b.updateSentence(),onBackgroundSelect:()=>{b.learnSelected=null;b.refreshColors()},help:{play:help,learn:'Tap shapes or letters to add or remove one in its fixed place. Select a piece in the picture to change its color. Choose Background to change the paper. EASY names your pieces; HARD adds colors.'}});
  b.creative.updateHelp();
  const helpDialog=document.querySelector('#free-info-dialog');
  document.querySelector('#craft-help').addEventListener('click',()=>helpDialog.showModal());

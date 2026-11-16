@@ -17,7 +17,7 @@ for(const [file,name,nested] of [['check-creative.cjs','pizza',true],['check-par
  const semantic=()=>{const r=JSON.parse(JSON.stringify(storage.capture()));r.items=r.items.map(({id,...x})=>x);delete r.selected;return r};
  for(const play of [false,true])for(const initialHard of [false,true]){
   rb.creative.switchMode(play);rb.advancedMode=initialHard;rb.clear();recovery.refresh();
-  if(play){rb.creative.add(rb.config.toppings[0].id);rb.creative.add(rb.config.toppings[1].id);const item=rb.creative.items[0];item.rotate=30;item.flip=true;rb.creative.select(item.id);rb.creative.edit('top');}
+  if(play){rb.creative.add(rb.config.toppings[0].id);rb.creative.add(rb.config.toppings[1].id);const item=rb.creative.items[0];item.rotate=30;item.flip=true;rb.creative.select(item.id);rb.creative.edit('forward');}
   else if(rb.slots)rb.slots.choose(rb.config.toppings[0].id);
   else if(rb.chooseTopping)rb.chooseTopping(rb.config.toppings[0].id);
   else rb.setLevel(rb.config.toppings[0].id,1,false);

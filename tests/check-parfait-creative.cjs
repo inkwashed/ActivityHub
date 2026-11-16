@@ -24,7 +24,7 @@ assert(editor.picker.children[2].textContent.includes('mint chocolate chip scoop
 assert(editor.picker.children[3].textContent.includes('apple'));
 const z=item=>item.node.style.zIndex||Number(item.node.style.cssText.match(/z-index:(\\d+)/)[1]);
 assert(z(vanilla)<z(editor.items[0]));
-editor.select(vanilla.id);editor.edit('top');assert.equal(editor.orderedItems()[1],vanilla);assert.equal(editor.orderedItems()[2].topping,'apples');
+editor.select(vanilla.id);editor.edit('forward');assert.equal(editor.orderedItems()[1],vanilla);assert.equal(editor.orderedItems()[2].topping,'apples');
 app.setSauce('chocolate');assert(vanilla.node.html.includes('scoop-syrup'));
 let writes=0;const original=Object.getOwnPropertyDescriptor(Element.prototype,'innerHTML').set;
 Object.defineProperty(vanilla.node,'innerHTML',{set(value){writes++;original.call(this,value)}});

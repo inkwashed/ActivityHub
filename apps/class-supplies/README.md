@@ -10,7 +10,7 @@ LEARN is one building flow. Tap a supply to toggle it; one of each type has a fi
 
 The question follows the selected item in LEARN and PLAY, returns to “Do you have a …?” when selection clears (confirmed wording, November 9, 2026), and uses a/an (for example, “Do you have an eraser?”). Its pronunciation button reads the current question. The output area contains only the inventory sentence; the Yes/No response line is intentionally omitted. The app does not ask questions or decide which response a student should say. The independent-difficulty section below owns the language policy; PLAY does not force a difficulty.
 
-PLAY reuses CreativeBuilder for drag/pinch, size, rotation, flip, duplicate, TOP, delete, keyboard movement and ordered picking. Each mode keeps independent supplies and colors. Each PLAY piece has its own color; duplication preserves that color. Output grouping follows the selected difficulty as documented below. The fixed case is a backdrop in both modes. Reset clears only the active mode and returns its colors to defaults.
+PLAY reuses CreativeBuilder for drag/pinch, size, rotation, flip, duplicate, layer forward/backward, delete, keyboard movement and ordered picking. Each mode keeps independent supplies and colors. Each PLAY piece has its own color; duplication preserves that color. Output grouping follows the selected difficulty as documented below. The fixed case is a backdrop in both modes. Reset clears only the active mode and returns its colors to defaults.
 
 The app header and browser favicon use a red pen pointing tip-down. Original SVG artwork and fixed LEARN coordinates live in config.js. The eraser is white with a text-free blue/white/black sleeve by default; its color control changes only the colored sleeve band. The glue stick also defaults to white with a blue band near its ribbed twist base; its color control changes the band, leaving the cap and body white. Saved color choices are retained. A plain pencil retains a graphite tip when its barrel is recolored; colored pencils retain colored cores. Shared controls, tokens, icons, viewport/workspace, pronunciation, language dialog, QR and photo lifecycle are consumed directly. Missing vocabulary recordings use the shared browser-speech fallback.
 
@@ -107,3 +107,8 @@ Creation edits now earn a local first-builder badge, with higher ranks after 5/1
 ## Header and overflow
 
 This app loads `shared/app-shell.css` last: navigation stays outside the named activity scroll region, while narrow/short screens and long content retain necessary scrolling. Scrollbar appearance comes from shared controls.css. See [the shared contract](../../docs/STYLE-GUIDE.md#app-headers-and-overflow) and run `node tests/check-app-scroll-browser.cjs` for shell changes.
+
+
+### Layer-arrow rollout — 2026-11-16
+
+This app now uses the shared one-step layer arrows instead of TOP, with the common nine-control workspace layout. The ordering/layout contract is owned by docs/WORKFLOW.md and docs/STYLE-GUIDE.md; `node tests/check-layer-order.cjs` covers the migrated consumers. Automated checks pass; rendered layout and physical-device touch review remain pending. Nothing committed or deployed.

@@ -7,7 +7,7 @@ Open `index.html` in this directory using a local browser. The page works withou
 - LEARN: three icon-only slots with adjacent swaps and × clear controls; four ingredient choices below them. The active slot stays selected when replacing items.
 - LEARN: four-across quantity choices with left/right paging, three quantity dots and the existing none → light → regular → extra → none cycle. All 16 examples are available over four pages.
 - LEARN: a labelled dropdown, including a long option to test width.
-- PLAY: all 16 choices in four columns, larger icon-only cards, a piece picker and the shared drag/pinch/rotate/flip/duplicate/TOP/delete toolbar. PLAY state is separate from LEARN.
+- PLAY: all 16 choices in four columns, larger icon-only cards, a piece picker and the shared drag/pinch/rotate/flip/duplicate/layer-forward/layer-backward/delete toolbar. PLAY state is separate from LEARN.
 - Reset temporarily becomes Restore, recovering the entire active-mode creation. Adding an item starts a new creation and discards that mode’s snapshot. Save opens a sample caption dialog; it does not export or publish.
 - The info dialog offers live, short, long and overflowing sentence examples. Check that the play frame stays fixed as text changes. EASY/HARD exercises quantity wording; language/fullscreen/pronunciation use the existing shared features.
 
@@ -85,3 +85,5 @@ Fullscreen is an optional activity action in the shared `builder-prompt-row`, to
 ## Header and overflow
 
 This app loads `shared/app-shell.css` last: navigation stays outside the named activity scroll region, while narrow/short screens and long content retain necessary scrolling. Scrollbar appearance comes from shared controls.css. See [the shared contract](../../docs/STYLE-GUIDE.md#app-headers-and-overflow) and run `node tests/check-app-scroll-browser.cjs` for shell changes.
+
+The nine-control layer-arrow toolbar now consumes the shared editor/workspace policy. Run `node tests/check-layer-order.cjs` for Lab and production consumer checks. Lab remains local-only; its Save action is a sample.
