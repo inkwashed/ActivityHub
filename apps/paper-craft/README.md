@@ -2,13 +2,13 @@
 
 Entry: `apps/paper-craft/index.html`. Let’s Try! 1 Unit 7, “This is for you.” Listed as **Shape Builder** on the local homepage under Let’s Try! 1, Unit 7, using the shared activity-card artwork/copy/practice/button layout. The app title remains Paper Craft; not deployed.
 
-Ten original flat SVG shapes (triangle, circle, square, heart, star, diamond, rectangle, oval, semicircle, pentagon) and uppercase A–Z. Letters use local Arial/Helvetica/sans-serif SVG text, with no typing or downloaded font. The ten named piece colors and exact hex values match My Pencil Case. No accounts, uploads or external dependencies.
+Thirteen original flat SVG shapes (triangle, circle, square, heart, star, diamond, rectangle, oval, semicircle, pentagon, cross, club, spade) and uppercase A–Z. Letters use local Arial/Helvetica/sans-serif SVG text, with no typing or downloaded font. The ten named piece colors and exact hex values match My Pencil Case. No accounts, uploads or external dependencies.
 
 ## Modes and sentences
 
 New sessions start in LEARN. The visible shared LEARN/PLAY toggle sits beside Pieces; EASY/HARD is independently selectable beside Color. Difficulty persists across mode switches and does not change either creation. Reload restores the saved active mode and both creations. Older creative-only saves retain their PLAY pieces, colors, transforms and background.
 
-LEARN shows text labels on choice buttons and toggles one of each type at a preset position. The ten shapes use a loose fixed arrangement across the paper, with varied sizes of 22–30 scene units (formerly 12) and slight rotations. Letters retain their original grid positions. Positions, rotations and preset colors live in config.js; LEARN exports use the same geometry. Mixed shapes/letters may overlap like a collage. Select a placed piece to recolor it. No dragging or creative toolbar in LEARN. Choices retain their configured colors until changed, rather than inheriting the last PLAY selection. Reset returns only the active mode to its empty/default state.
+LEARN shows text labels on choice buttons and toggles one of each type at a preset position. The thirteen shapes use a loose fixed arrangement across the paper, with varied sizes of 22–30 scene units (formerly 12) and slight rotations. The 26 letters use their own loose full-paper arrangement, including the top and upper left, with sizes of 16–22 units (formerly 12) and small varied rotations. These placements are deterministic, not randomized on each edit or reload. Positions, rotations and preset colors live in config.js; LEARN exports use the same geometry. Mixed shapes/letters may overlap like a collage. Select a placed piece to recolor it. No dragging or creative toolbar in LEARN. Choices retain their configured colors until changed, rather than inheriting the last PLAY selection. Reset returns only the active mode to its empty/default state.
 
 PLAY hides visible choice labels (including background pattern names), while preserving accessible names. Each tap adds a movable copy, up to 120 pieces. Shared CreativeBuilder supplies drag, pinch resize, rotation, flip, duplicate, delete, arrow-key movement and a covered-piece picker. Shapes and letters freely interleave in one stacking group. PLAY choice previews and each new piece use that type’s preset color from config.js, matching LEARN’s starting palette. Select a piece to recolor only that copy. Duplicates preserve the copied color; later additions start in their preset color. Saved custom colors are preserved.
 
@@ -64,7 +64,7 @@ Remaining differences/review items:
 
 - The approved one-step depth controls and nine-control toolbar budgets are now shared across all CreativeBuilder consumers.
 - No Paper Craft achievement/badge family exists. Existing badges are named/art-specific; adding one needs a separate product/art decision. Visit counting is already integrated.
-- The loose LEARN shape arrangement and letter grid can overlap when mixed; narrow screens, crowded letter touch targets and enlarged text require visual/physical review. No claim of browser layout validation is made.
+- The loose LEARN shape and letter arrangements can overlap when mixed; narrow screens, crowded letter touch targets and enlarged text require visual/physical review. No claim of browser layout validation is made.
 - Speech fallback covers unsupported shapes/letters, but recording completeness and audible device pronunciation have not been verified.
 - Browser review is blocked: shell Chrome launch/local server are restricted, and available in-app browser security rejects local file URLs. The browser suite is provided but not claimed as passed. Physical iPad pinch/scroll, downloads and VoiceOver remain open.
 
@@ -78,3 +78,5 @@ The Shape Builder homepage card uses `assets/paper-craft-preview.svg`, generated
 ### Layer-arrow rollout — 2026-11-16
 
 This app now uses the shared one-step layer arrows instead of TOP, with the common nine-control workspace layout. The ordering/layout contract is owned by docs/WORKFLOW.md and docs/STYLE-GUIDE.md; `node tests/check-layer-order.cjs` covers the migrated consumers. Automated checks pass; rendered layout and physical-device touch review remain pending. Nothing committed or deployed.
+
+Cross is an X-shaped cut-out (railroad-crossing style); club and spade use original card-suit silhouettes. Each supports both modes, recoloring, duplication and exports. New defaults are red/green/black respectively; existing shape and letter defaults remain unchanged. The plural of cross is crosses.
