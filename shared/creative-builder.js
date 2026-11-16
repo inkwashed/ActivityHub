@@ -32,9 +32,10 @@
       const help = document.querySelector('#free-info-dialog');
       document.querySelector('#free-info').addEventListener('click', () => {this.updateHelp();help.showModal();});
       document.querySelector('#free-info-close').addEventListener('click', () => help.close());
-      for (const [action,label] of [['larger','Larger'],['smaller','Smaller'],['left','Rotate left'],['right','Rotate right'],['flip','Flip'],['duplicate','Duplicate'],['top','Move to top of group'],['delete','Delete']]) {
+      const depthActions=options.layerSteps?[['forward','Move forward one layer'],['backward','Move backward one layer']]:[['top','Move to top of group']];
+      for (const [action,label] of [['larger','Larger'],['smaller','Smaller'],['left','Rotate left'],['right','Rotate right'],['flip','Flip'],['duplicate','Duplicate'],...depthActions,['delete','Delete']]) {
         const b = document.createElement('button');b.type='button';b.className='ah-button ah-button-icon';b.setAttribute('aria-label',t(label));b.title=t(label);b.setAttribute('data-i18n-aria-label',label);b.setAttribute('data-i18n-title',label);b.disabled=true;
-        const icon = {left:'rotate-left',right:'rotate-right',flip:'flip',duplicate:'duplicate',top:'top',delete:'delete',smaller:'smaller',larger:'larger'}[action];
+        const icon = {left:'rotate-left',right:'rotate-right',flip:'flip',duplicate:'duplicate',top:'top',forward:'layer-up',backward:'layer-down',delete:'delete',smaller:'smaller',larger:'larger'}[action];
         b.innerHTML=`<img src="../../shared/icons/${icon}.svg" alt="" aria-hidden="true">`;
         b.addEventListener('click',()=>this.edit(action));this.actions.set(action,b);this.tools.querySelector('.free-toolbar').append(b);
       }
@@ -187,11 +188,28 @@
     select(id){
       this.selected=this.items.some(x=>x.id===id)?id:null;
       this.items.forEach(x=>{const selected=x.id===this.selected;x.node.classList.toggle('selected',selected);x.node.setAttribute('aria-pressed',String(selected));});
-      this.actions.forEach(b=>b.disabled=this.selected===null);this.picker.value=this.selected?String(this.selected):'';
+      this.actions.forEach(b=>b.disabled=this.selected===null);
+      if(this.options.layerSteps){
+        const item=this.items.find(x=>x.id===this.selected);
+        const peers=item?this.orderedItems().filter(x=>(this.topping(x).layer||0)===(this.topping(item).layer||0)):[];
+        const index=peers.indexOf(item);
+        this.actions.get('forward').disabled=index<0||index===peers.length-1;
+        this.actions.get('backward').disabled=index<=0;
+      }
+      this.picker.value=this.selected?String(this.selected):'';
       this.options.onSelect?.(this);
     }
     edit(action){
       const item=this.items.find(x=>x.id===this.selected);if(!item)return;
+      if(this.options.layerSteps&&(action==='forward'||action==='backward')){
+        const peers=this.orderedItems().filter(x=>(this.topping(x).layer||0)===(this.topping(item).layer||0));
+        const neighbor=peers[peers.indexOf(item)+(action==='forward'?1:-1)];
+        if(!neighbor)return;
+        this.gestures.cancel();
+        const from=this.items.indexOf(item),to=this.items.indexOf(neighbor);
+        [this.items[from],this.items[to]]=[this.items[to],this.items[from]];
+        this.sync();this.select(item.id);return;
+      }
       if(action==='top'){
         this.gestures.cancel();
         this.items.splice(this.items.indexOf(item),1);this.items.push(item);

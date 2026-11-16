@@ -48,3 +48,5 @@ window.ActivityHubI18n.register({
   "Build your town, trace a route, and give a partner directions to your favorite places.": "自分の町を作り、道順をたどって、お気に入りの場所まで友達を案内しよう。",
   "Build your town": "町を作ろう"
 });
+
+ActivityHubI18n.register({'Layer colorful shapes and letters to make your own greeting card.':'色とりどりの形や文字を重ねて、自分だけのグリーティングカードを作りましょう。','Build with shapes':'形で作品を作る'});

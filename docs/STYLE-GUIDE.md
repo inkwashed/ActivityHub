@@ -74,6 +74,7 @@ Use 4, 8, 12, 16, and 24px spacing tokens as a baseline. Quantity dots sit close
 | Secondary action | `ah-button ah-button-secondary` | Save, Download photo |
 | Icon action | `ah-button ah-button-icon` | Language, fullscreen, close, back |
 | Selectable card | `ah-choice` | Sauce, topping |
+| Connected category selector | `ah-selector-tray` containing `ah-button` pills | Shapes / Letters / Background |
 | Difficulty | `ah-mode-toggle` and switch markup | EASY/HARD with command knob |
 
 Actions use a thin 1px border and dark text. Secondary actions start a shade darker rather than using an unrelated solid fill. Choice cards retain a 2px border for selection clarity and use `--ah-radius-control` (12px) for rounded corners. Their corner radius belongs in the shared control rule, not in app or example overrides. Text buttons are pills; icon buttons have 12px corners; panels use roughly 20px corners.
@@ -89,6 +90,41 @@ Actions use a thin 1px border and dark text. Secondary actions start a shade dar
 - Motion: 150ms control transitions. Reduced motion disables transitions and press scaling; activity animations also respect it.
 - Touch: minimum 44×44 CSS pixels. Hover is optional feedback, never required.
 - Use native buttons for actions, links for navigation/downloads, and checkbox switches for modes. Give icon-only controls accessible names and hide decorative art from screen readers.
+
+### Connected category selectors
+
+Use the shared `ah-selector-tray` component for similar groups that switch between mutually exclusive trays, categories or views. This is a reusable suite pattern, first used by Paper Craft’s Shapes / Letters / Background selector. Reuse `shared/controls.css`; do not recreate the housing or selected treatment in app-local styles. The working example is in `docs/style-guide.html` under “Connected category tray”.
+
+- Housing: `--ah-radius-pill` (999px), 4px inner padding, 4px gaps, a 1px `--ah-border` outline and `--ah-selected` fill. The fully rounded outer ends wrap around the inner pills rather than using the panel corner radius.
+- Buttons: shared `ah-button` pills, equal flexible widths and at least 44px touch targets. Reserve a 2px border on every choice, transparent when inactive, so selection does not change dimensions.
+- Active choice: `--ah-surface` fill, 2px `--ah-selected-border` outline and bold label. Set exactly one `aria-pressed="true"`; all other choices are false. Reuse shared hover, press and focus states, theme tokens and reduced-motion behavior.
+- Grouping: house only related selectors together. Put Help and other independent actions outside the housing. Give the group a descriptive, translated accessible name; translate interface labels as appropriate.
+- Responsive behavior: allow labels and choices to wrap for narrow screens or enlarged text. Preserve full touch targets and visible keyboard focus; do not clip labels or shrink controls to force a single row.
+- Behavior: native buttons support Tab and Enter/Space. App code updates the active choice and corresponding tray together, preserving activity state. This is a pressed-button group; use full tab semantics and arrow-key behavior only if implementing a proper tab interface.
+
+```html
+<div class="ah-selector-tray" role="group" aria-label="Piece category"
+     data-i18n-aria-label="Piece category">
+  <button type="button" class="ah-button" aria-pressed="true"
+          data-i18n="Shapes">Shapes</button>
+  <button type="button" class="ah-button" aria-pressed="false"
+          data-i18n="Letters">Letters</button>
+  <button type="button" class="ah-button" aria-pressed="false"
+          data-i18n="Background">Background</button>
+</div>
+```
+
+Use this pattern for new comparable selectors. Existing app interfaces are migrated when requested; documenting the pattern does not change their current presentation.
+
+### Builder category trays and preview artwork
+
+The connected selector tray chooses a content category (such as Shapes / Letters / Background). It is distinct from LEARN/PLAY and EASY/HARD: retain the shared mode switches in their documented heading positions. Changing category must not reset the creation or difficulty. Keep Help outside the housing, and keep category labels visible in both modes. PLAY may hide labels on the *content choices*, while those buttons retain meaningful accessible names; LEARN keeps instructional vocabulary visible.
+
+For pale or white cut-outs, button previews may use a 2-unit outline in `--ah-selected-border` on a 100-unit SVG viewBox. Keep this a rendering option, separate from the underlying piece data: a preview outline must not enter canvas artwork or exports when the activity calls for flat cut-outs. The CSS token makes the outline follow theme changes without rewriting stored colors. Paper Craft demonstrates this for shapes and uppercase letters; other activities keep their reviewed artwork.
+
+Preset colors belong to each configured item, not the interface theme. For Pencil Case-style independent pieces, show those colors in the choice previews and start each new PLAY copy with its configured color. Recolor only the selected copy; Duplicate preserves that copy’s color. LEARN can keep a per-type palette and fixed positions. Disable piece-color swatches without a selected piece; background controls remain usable independently. Do not silently use a color tap as a global default unless that behavior is an explicit lesson choice and is explained.
+
+Interactive LEARN scenes must retain group semantics when they contain selectable piece buttons; an image role hides those controls from assistive technology. Preserve native keyboard activation, selected pressed states and 44px targets. White/background contrast, dense fixed placements, enlarged text and physical touch still need visual/device review.
 
 ## Shared header and icons
 
@@ -259,6 +295,9 @@ The picker reads from back to front: item 1 is behind item 2, and so on. Preserv
 LEARN four-choice cards use 6px vertical padding and a 3px artwork/label gap; scoop icons are 32px. Long flavor labels can still increase row height rather than shrinking vocabulary text. Paired fruit selectors use a 48px minimum height, distinct from ingredient cards. PLAY retains its shared responsive artwork sizing.
 
 The shared PLAY toolbar includes TOP (shared/icons/top.svg) after Duplicate. It brings the selected piece to the front of its category and updates its picker position; scoops cannot cross in front of fruit. Use a translated accessible name and tooltip, and disable it when nothing is selected.
+
+Paper Craft alone opts into one-step depth buttons through `CreativeBuilder({layerSteps:true})`: theme-compatible shared `layer-up.svg` / `layer-down.svg` icons replace TOP after Duplicate. Disable forward/backward at their category boundaries and both without selection. Keep transforms and selection unchanged. This remains an app trial until approved for rollout; default builders retain TOP. Nine controls require their own measured layout budgets: a single 44px rail needs 464px including gaps/clearance, a two-column rail 264px, and a five-column bottom strip 114px. Narrower strips need three rows (164px). Reserve the full strip and keep 44px targets; do not apply the eight-tool thresholds unchanged. Paper Craft’s app-scoped CSS is the trial reference, not a new default workspace layout.
+
 
 Parfait now includes Share beside Reset with equal flexible widths, using the shared camera icon, secondary button, and photo-preview dialog. Photo captions retain English target sentences; dialog controls translate.
 

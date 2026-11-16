@@ -127,3 +127,9 @@ a.ah-button.builder-photo-download[hidden]{display:none}
 /* Give WebKit an opaque viewport-edge header for system color extension.
    Scroll containment stays with each page shell; native dialogs stay above it. */
 body>header{position:sticky;top:0;z-index:10;background-color:var(--ah-canvas)}
+
+/* Reusable connected category/view selectors; see STYLE-GUIDE.md. Keep native buttons
+   and aria-pressed, with the same hover/focus behavior as other shared actions. */
+.ah-selector-tray{display:flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--ah-border);border-radius:var(--ah-radius-pill);background:var(--ah-selected)}
+.ah-selector-tray .ah-button{flex:1 1 76px;min-width:0;min-height:44px;padding:8px 10px;border-width:2px;border-color:transparent;background:transparent;white-space:normal;overflow-wrap:anywhere;text-align:center}
+.ah-selector-tray .ah-button[aria-pressed="true"]{border-color:var(--ah-selected-border);background:var(--ah-surface);font-weight:700}

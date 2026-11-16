@@ -1,0 +1,38 @@
+const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
+(async()=>{let browser;const root=path.resolve(__dirname,'..');const server=http.createServer((req,res)=>{let file=path.join(root,decodeURIComponent(req.url.split('?')[0]));try{if(fs.statSync(file).isDirectory())file=path.join(file,'index.html');res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml'})[path.extname(file)]||'application/octet-stream');res.end(fs.readFileSync(file));}catch{res.writeHead(404);res.end()}});if(!process.env.PAPER_FILE)await new Promise(r=>server.listen(0,'127.0.0.1',r));try{
+ browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});const page=await browser.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(process.env.PAPER_FILE?'file://'+root+'/apps/paper-craft/index.html':`http://127.0.0.1:${server.address().port}/apps/paper-craft/`);
+ await page.waitForFunction(()=>window.craftBuilder?.exportFrame);assert.deepEqual(errors,[]);
+ assert.equal(await page.locator('#free-mode').isChecked(),false);
+ await page.locator('.topping-button').filter({hasText:'triangle'}).click();
+ assert.equal(await page.locator('#sentence').textContent(),'I want a triangle.');
+ assert.equal(await page.locator('.topping-button').filter({hasText:'triangle'}).locator('.ingredient-name').isVisible(),true);
+ await page.locator('#advanced-mode').check();assert.equal(await page.locator('#sentence').textContent(),'I want a red triangle.');
+ await page.locator('#free-mode').check();
+ assert.equal(await page.locator('.topping-button').filter({hasText:'triangle'}).locator('.ingredient-name').isVisible(),false);
+ assert.equal(await page.locator('.learn-piece:visible').count(),0);
+ await page.locator('#advanced-mode').uncheck();
+ await page.locator('.topping-button').filter({hasText:'triangle'}).click();
+ await page.locator('[data-color="red"]').click();await page.evaluate(()=>craftBuilder.creative.edit('duplicate'));assert.equal(await page.locator('.free-piece').count(),2);
+ await page.locator('[data-color="yellow"]').click();
+ await page.locator('[data-category="letters"]').click();await page.locator('.topping-button').filter({hasText:/^A$/}).click();
+ assert.equal(await page.locator('.free-piece').count(),3);
+ await page.getByRole('button',{name:'Move backward one layer',exact:true}).click();
+ assert.deepEqual(await page.evaluate(()=>craftBuilder.creative.orderedItems().map(x=>x.topping)),['triangle','A','triangle']);
+ await page.getByRole('button',{name:'Move forward one layer',exact:true}).click();
+ assert.deepEqual(await page.evaluate(()=>craftBuilder.creative.orderedItems().map(x=>x.topping)),['triangle','triangle','A']);
+ assert.equal(await page.getByRole('button',{name:'Move forward one layer',exact:true}).isDisabled(),true);
+ const before=await page.evaluate(()=>craftBuilder.creative.items.map(({topping,color,x,y,scale,rotate,flip})=>({topping,color,x,y,scale,rotate,flip})));
+ await page.locator('#advanced-mode').check();assert.equal(await page.locator('.free-piece').count(),3);
+ await page.locator('#clear').click();assert.equal(await page.locator('.free-piece').count(),0);await page.locator('#clear').click();assert.equal(await page.locator('.free-piece').count(),3);
+ assert.deepEqual(await page.evaluate(()=>craftBuilder.creative.items.map(({topping,color,x,y,scale,rotate,flip})=>({topping,color,x,y,scale,rotate,flip}))),before);
+ await page.waitForTimeout(800);await page.reload();await page.waitForFunction(()=>window.craftBuilder?.creative.items.length===3);assert.deepEqual(await page.evaluate(()=>craftBuilder.creative.items.map(x=>x.color)),['red','yellow','red']);
+ await page.locator('[data-category="background"]').click();
+ await page.locator('[data-pattern="dots"]').click();await page.locator('[data-color="green"]').click();
+ assert.equal(await page.evaluate(()=>craftBuilder.background().pattern),'dots');
+ assert.deepEqual(await page.evaluate(()=>craftBuilder.creative.items.map(x=>x.color)),['red','yellow','red']);
+ await page.waitForTimeout(800);await page.reload();await page.waitForFunction(()=>window.craftBuilder?.background().pattern==='dots');
+ assert.equal(await page.evaluate(()=>craftBuilder.background().color),'green');
+ await page.locator('#share').click();await page.waitForFunction(()=>!document.querySelector('#download-photo').hidden);assert.match(await page.locator('#download-photo').getAttribute('href'),/^blob:/);await page.locator('#share-dialog .dialog-close').click();
+ for(const v of [{width:1440,height:900},{width:1133,height:599},{width:768,height:1024},{width:390,height:844},{width:320,height:568},{width:844,height:360}]){await page.setViewportSize(v);await page.waitForTimeout(120);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),JSON.stringify(v)+' overflow');const box=await page.locator('#craft-scene').boundingBox();assert.ok(box.width>100&&box.height>100,JSON.stringify(v)+' scene');}
+ await page.setViewportSize({width:1133,height:744});await page.screenshot({path:'/tmp/paper-craft-desktop.png'});assert.deepEqual(errors,[]);console.log('Paper Craft browser checks passed: creation, colors, duplicate, letters, difficulty, Reset/Restore, reload, PNG, six viewports.');
+ }finally{await browser?.close();server.close()}})().catch(e=>{console.error(e);process.exitCode=1});

@@ -10,7 +10,7 @@ node scripts/version-builder-assets.cjs
 node scripts/version-builder-assets.cjs --check
 ```
 
-The five `assets/*-preview.svg` files are static exports, not independent drawings. The homepage loads only images; it never initializes the apps to make previews. The older `build-pizza-preview.cjs` is a compatibility redirect to the complete generator, including `--check`. Do not add a second renderer there.
+The six `assets/*-preview.svg` files are static exports, not independent drawings. The homepage loads only images; it never initializes the apps to make previews. The older `build-pizza-preview.cjs` is a compatibility redirect to the complete generator, including `--check`. Do not add a second renderer there.
 
 | Preview | Sample | Authoritative sources |
 | --- | --- | --- |
@@ -18,7 +18,10 @@ The five `assets/*-preview.svg` files are static exports, not independent drawin
 | Parfait | LEARN, vanilla, chocolate syrup, strawberries in both fruit slots | Parfait config, builder scoopArtwork, glass-art.js and sharing.js |
 | Sandwich | LEARN, slots bacon → lettuce → tomato, no origin labels | Sandwich config, model.js through the actual sharing.js registration |
 | My Town | BUILD, twelve landmarks including a station, park and zoo; no selection or traced route | TownModel and TownArt.map, the same renderer used by Save; fixed proportional 720-wide map in a square image |
+| Shape Builder | PLAY greeting card: HI letters, colored shapes and hearts on muted brown dotted paper; fixed 0–100 square camera | Paper Craft config/background.js and production sharing.js Save renderer |
 | Class Supplies | LEARN, one of every supply; configured colors except red pen; blue case | Supplies config/art and sharing.js |
+
+Shape Builder uses a deliberately fixed 100×100 normalized PLAY camera, rather than a measured viewport fixture. Its sample consists entirely of valid editor pieces and their actual transforms; no choice outlines or editing controls enter the preview. The production renderer is separated into `apps/paper-craft/sharing.js` and registered through BuilderPhoto, just like the other builder previews. This illustrates a reproducible creation, not a claim of browser-measured framing.
 
 My Town uses its fixed map viewBox rather than the viewport framing fixture; its full map is proportionally contained in the square preview. Its sample landmark order is defined in the generator.
 
@@ -49,3 +52,5 @@ Fresh browser Save previews were produced for all four samples at 1133×678 and 
 Homepage measurements at actual 1440×900, 768×1024 and 390×844 viewports confirmed all four images loaded, stayed square with `object-fit:contain`, and introduced no horizontal overflow. Desktop/tablet images were 260×260; phone images were 220×220. The four static SVGs total approximately 69 KB uncompressed. No homepage runtime or CSS changes were needed.
 
 Passed: preview generation/freshness test, Class Supplies behavior/export test, sharing, Parfait creative export, Sandwich, photo framing, panel workspace, asset-version validation and whitespace checks. Physical iPad Safari and every possible PLAY viewport/crop were not tested in this pass. Nothing committed or deployed.
+
+Shape Builder addition (2026-11-16): six-preview generation, determinism/freshness and Paper Craft behavior/export checks pass. Its generated SVG was rasterized locally and visually inspected; this is artifact review, not browser/iPad verification. The homepage description now refers to making your own greeting card.

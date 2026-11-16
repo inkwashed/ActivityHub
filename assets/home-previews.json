@@ -1,10 +1,13 @@
 {
-  "policy": "Food/supplies: LEARN 1133x678 reference; My Town: fixed BUILD map. Square Save artwork, without polaroid caption; see docs/HOME-PREVIEWS.md",
+  "policy": "Food/supplies: LEARN 1133x678 reference; My Town: fixed BUILD map; Shape Builder: fixed square PLAY greeting card. Square Save artwork, without polaroid caption; see docs/HOME-PREVIEWS.md",
   "sources": {
     "apps/class-supplies/config.js": "61167766741c6a67993c10a6e69a140b2c1711374e3003edaf93a991feaf4b3f",
     "apps/class-supplies/sharing.js": "c19e2a08594e4139e27a12b4b70ec1c934849299166adf9274b15f3fd375f7a7",
     "apps/my-town/art.js": "0f1e4c273379a31e02580b8ea3bd36138acf6a5ebc4249ef603bf6264353d7f8",
     "apps/my-town/model.js": "201b3858516eee5ee2e1997de9f6ea54ea35f5ab2be06df7792702f9b35a5eaf",
+    "apps/paper-craft/background.js": "c014d8137cbad639ddfdaa9541f1674267730a2d4a3b60083f5fd4bfa1f7fa99",
+    "apps/paper-craft/config.js": "6c385b98e763544434d8663cdd2b599fc55248e86d63328dbfd56d16e265ecde",
+    "apps/paper-craft/sharing.js": "dbf35ade14c9a0df98073d7de21d38eb3c273e51cfc73146762d2d322b504c25",
     "apps/parfait/builder.js": "367132db7468f0c94afc0bc11e350fea6430b9605bad948d7bd262c3e4dd54e5",
     "apps/parfait/config.js": "3c41c829060fa3ac6c80d76792f14cad1380e72ab68fe10a0cfe2f7f55d680d0",
     "apps/parfait/glass-art.js": "e8143fb57ee445d5169d5cc2e8f7f9908bc4c77416b3073ab389772915716d3f",
@@ -14,9 +17,9 @@
     "apps/sandwich/config.js": "ff74bf2e503d601c00013a0db6ffc3ca7d7c0589a95cd63d2b0c4c25b84f3b5d",
     "apps/sandwich/model.js": "e95d09bf43a08fa710db96178707ef3d16abb8de735657baf1931ada19366d90",
     "apps/sandwich/sharing.js": "da9009628abc9c88aca772f91bd5735fe8243cf74d188517502fd413e32f94eb",
-    "scripts/generate-home-previews.cjs": "5c068b8f97e7fc05318844132fc4f826c953fc5dba4fee369b66640919856a62",
+    "scripts/generate-home-previews.cjs": "fddc2067f8e109618588f61573d5160a46435c6504ed9b5dd45e767ab51d8e17",
     "scripts/home-preview-frames.json": "483318b72ab02ad57a15ce5a7b700462fc756de098c4ea35e498aa9072b63894",
-    "shared/builder-panel-workspace.js": "356a5636436cf38a0a1dd7f5fac05061c7bacc4d3e03515de94fc7365f81599d",
+    "shared/builder-panel-workspace.js": "21c70a5db0bb4b59ef303461bed98f92e2d4000376ec9dde6cfe8dbe12dff2b2",
     "shared/builder.js": "d2ed171a2bc142b1a5c1709b36591f6fc850be593aa1791586219dc196e01ad4"
   },
   "outputs": {
@@ -24,6 +27,7 @@
     "parfait-preview.svg": "e2fa4a721e8e8a77a0ba2ea799f583c9b22b61d1a651f7adb5c65c793dc1e5d2",
     "sandwich-preview.svg": "ceff360d619ec669c16a1940a122d276325cb73302c217e040f932aba0bd2c5f",
     "class-supplies-preview.svg": "7869b31b5b13e1dca1b98f81fcc7629093bbfa58d52f1d99150f7a678765ad43",
-    "my-town-preview.svg": "512432b1a794052c8b365a6d654a80987511c1e67bf10b7bcbe644ebe58fa19e"
+    "my-town-preview.svg": "512432b1a794052c8b365a6d654a80987511c1e67bf10b7bcbe644ebe58fa19e",
+    "paper-craft-preview.svg": "99e4952ec2f738e168baf2fd1d11c84f1d1cf03d4fc8d08d72ce943c01011b46"
   }
 }

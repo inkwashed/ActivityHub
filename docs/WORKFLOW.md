@@ -90,6 +90,7 @@ Listing refers to the local homepage, not proof of deployment. Verification limi
 | My Blog: Where is it from? | `myblog/NH6-5/index.html` | `node tests/check-blog-post.cjs`; Chrome responsive/state/image checks | NEW HORIZON Elementary 6 Unit 5; listed on homepage; local PNG snapshot; physical iPad/Safari review pending. |
 | My Selfie (Beta) | `apps/avatar/index.html` | Browser: tabs, selections, reset, square PNG preview; shared photo regression checks | User-authored SVG parts; accessed through shared Profile, not a textbook activity. See apps/avatar/README.md for layout checks and TRANSFER.md for pending Teacher Tools integration verification. Physical iPad saving unverified. |
 | My Town (prototype) | `apps/my-town/index.html` | `node tests/check-my-town.cjs`; browser placement, route and Share checks | NEW HORIZON 5 Unit 5; unlisted. 12 fixed lots, street-snapped routes; physical iPad review pending. |
+| Shape Builder (Paper Craft) | `apps/paper-craft/index.html` | `node tests/check-paper-craft.cjs`; browser suite provided | Let’s Try! 1 Unit 7; fixed LEARN and free-design PLAY with independent creations; EASY names pieces, HARD adds colors. Physical iPad review pending; see app README. |
 | Class Supplies | `apps/class-supplies/index.html` | `node tests/check-class-supplies.cjs`; in-app browser landscape/portrait/phone checks | Let’s Try! 2 Unit 5; listed on homepage. Independent LEARN/PLAY, mode-scoped palettes and per-piece PLAY colors, local saves and PNG export. Physical iPad checks pending. |
 | Builder Lab (local only) | `_dev/builder/index.html` | `node tests/check-builder-lab.cjs`, `node tests/check-builder-workspace.cjs` | Non-live candidate; sample Share only; browser/device review pending. |
 | Sandwich Builder | `apps/sandwich/index.html` | `node tests/check-sandwich.cjs` | Three filling slots and source choices; shared PLAY editor; local browser/device review pending. Listed under NEW HORIZON Elementary 6. |
@@ -205,6 +206,16 @@ Shared card-sizing defaults live in builder-card-sizing.css; food/reference pane
 
 CreativeBuilder supports an optional item catalog, artwork callback, and synchronization callback for app-specific editable categories. Parfait adds scoops to this catalog without adding them to LEARN fruit choices; category layer plus insertion order determines both picker order and drawing depth. Syrup artwork remains Parfait-owned.
 
+## Builder category, color and background state
+
+Reuse `ah-selector-tray` from shared controls.css for comparable mutually exclusive category/view choices; the complete styling, markup and accessibility contract is in STYLE-GUIDE.md → Connected category selectors. Category selection does not replace the existing LEARN/PLAY or EASY/HARD switches. App code owns which content is shown; avoid duplicating the shared appearance in app CSS.
+
+For new colorable builders, keep configured default art/colors separate from per-copy PLAY edits and LEARN per-type edits. Snapshot only data; reconstruct art through the same app-owned renderer. Add live/preview-only treatments through explicit render options so choice outlines cannot leak into the creation or export. Cache unchanged choice artwork rather than replacing every SVG after unrelated selections or sentence updates.
+
+Store mode-specific metadata (including an editable background) with the corresponding mode snapshot. Existing adapters can extend `palettes.learn` / `palettes.play`, provided they validate all added keys and preserve the other mode. Follow the shared BuilderReset merge/signature contract rather than adding another reset listener or parallel undo store. Background-only changes must count as a creation and be recovered by Restore; old/invalid metadata must receive documented safe defaults. This is a data-ownership pattern, not a requirement to add backgrounds to every app.
+
+Verify all four mode/difficulty combinations; fixed positions/default colors; recolored duplicates and new copies; selection without reordering; mode-isolated Reset/Restore including background-only edits; legacy saves and invalid values; and live/picker/export parity. Visual/device evidence remains separate from mock checks. Register new applets in `scripts/version-builder-assets.cjs` as well as this inventory so their entry pages can be versioned before an authorized publication.
+
 ## Builder PLAY stacking contract
 
 This is the default for every current and future builder using CreativeBuilder.
@@ -215,6 +226,8 @@ This is the default for every current and future builder using CreativeBuilder.
 - After adding/removing items, synchronize drawing depth and picker order. Delete selects the previous displayed item, or the first remaining item if the first was removed; empty lists clear selection.
 - Any preview/export must consume the same ordered list. Do not reconstruct PLAY order by looping through ingredient definitions. All CreativeBuilder exports must follow this rule, including Parfait’s scoop/fruit categories.
 - LEARN owns its separate composition rules: Pizza uses configured topping order; Parfait alternates its fruit pair. This contract does not change LEARN placement.
+
+Paper Craft alone trials `layerSteps:true`: forward/backward swap immediate neighbors within a category, with unavailable directions disabled. Existing consumers retain TOP pending approval. Its README owns the trial UI and verification.
 
 When modifying ordering, verify mixed repeated ingredients, duplicates, deletion, selection without reordering, category boundaries, and export parity. Run both creative-editor suites and the affected export checks. Any future user-controlled reorder feature must update this same ordered list rather than introducing a second visual order.
 

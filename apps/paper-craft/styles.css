@@ -1,0 +1,42 @@
+*{box-sizing:border-box}body{margin:0;background:var(--ah-canvas);color:var(--ah-ink);font-family:var(--ah-font)}[hidden]{display:none!important}main{display:grid}.kitchen,.heading{text-align:center;min-width:0}.pantry{background:var(--ah-surface);border:1px solid var(--ah-divider)}.craft-menu-column{min-width:0}.pizza-menu-body{display:grid;grid-template-columns:1fr}.first-heading,.color-heading-row,.difficulty-controls,.category-options,.builder-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.first-heading h2{margin:0!important}.difficulty-controls{margin-left:auto}.builder-actions button{flex:1}.builder-actions img{width:22px;height:22px}.category-options{margin-bottom:8px}.category-options{flex-wrap:nowrap;align-items:flex-start}.category-options>.ah-selector-tray{flex:1;min-width:0}.category-options>#craft-help{flex:0 0 44px;margin-top:5px}.dots{display:none}#piece-picker-wrap{margin-bottom:8px}#topping-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.topping-button{font:inherit;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;gap:3px;padding:4px}.ingredient-art{width:36px;height:36px;display:block}.ingredient-art svg{width:100%;height:100%}.ingredient-name{font-size:14px}.board{position:relative;isolation:isolate;background:#fffdf5;border:1px solid var(--ah-border);border-radius:8px}#pieces,.ingredient-layer{position:absolute;inset:0;pointer-events:none}.free-layer{z-index:2}.is-create #craft-scene{touch-action:none}.piece{position:absolute}#free-tools{width:44px}.free-toolbar{display:flex;flex-direction:column;gap:6px}select{width:100%;min-width:0;min-height:44px;padding:6px;background:var(--ah-surface);color:var(--ah-ink);border:1px solid var(--ah-border);border-radius:12px;font:inherit}.color-row{display:grid;grid-template-columns:72px minmax(0,1fr);gap:8px;align-items:center;container-type:inline-size}.color-heading-row{grid-column:1/-1}.color-preview{width:72px;height:72px;padding:6px;display:grid;place-items:center;border:1px dashed var(--ah-border);border-radius:12px}.color-preview svg{width:100%;height:100%}.color-swatches{display:grid;grid-template-columns:repeat(5,44px);gap:6px}.color-swatch{width:44px;height:44px;padding:5px;display:grid;place-items:center}.color-swatch span{width:28px;height:28px;border-radius:50%;border:1px solid var(--ah-border)}#craft-photo{max-width:100%;max-height:65vh;object-fit:contain;margin:auto}.order{align-items:flex-start}.order .pronunciation-speaker{min-width:44px;flex:0 0 44px;position:sticky;top:8px}@container(max-width:315px){.color-preview,.color-swatches{grid-column:1/-1}}
+/* Scene geometry only; shared workspace owns fitting and the toolbar exclusion. */
+.paper-craft .pizza-stage{width:100%;height:100%;display:grid;place-items:center;container-type:size}.paper-craft .board{width:min(92cqw,92cqh);height:min(92cqw,92cqh);aspect-ratio:1}.paper-craft #builder{--learn-card-rows:3;--play-card-rows:3}
+/* Nine-tool trial: preserve 44px targets and reserve the complete tool strip.
+   Scoped to Paper Craft until the one-step depth controls are approved. */
+.ah-builder.paper-craft #builder.is-create .builder-art-area{right:0;bottom:164px}
+.ah-builder.paper-craft #builder .builder-play-area #free-tools{left:50%;right:auto;top:auto;bottom:10px;transform:translateX(-50%)}
+.ah-builder.paper-craft #builder .builder-play-area .free-toolbar{grid-template-columns:repeat(3,44px)}
+@container builder-frame (min-width:264px){
+ .ah-builder.paper-craft #builder.is-create .builder-art-area{bottom:114px}
+ .ah-builder.paper-craft #builder .builder-play-area .free-toolbar{grid-template-columns:repeat(5,44px)}
+}
+@container builder-frame (min-width:464px){
+ .ah-builder.paper-craft #builder.is-create .builder-art-area{bottom:64px}
+ .ah-builder.paper-craft #builder .builder-play-area .free-toolbar{grid-template-columns:repeat(9,44px)}
+}
+@media(orientation:landscape) and (min-width:740px){
+ @container builder-frame (min-width:394px) and (min-height:264px){
+  .ah-builder.paper-craft #builder.is-create .builder-art-area{right:114px;bottom:0}
+  .ah-builder.paper-craft #builder .builder-play-area #free-tools{left:auto;right:10px;top:50%;bottom:auto;transform:translateY(-50%)}
+  .ah-builder.paper-craft #builder .builder-play-area .free-toolbar{grid-template-columns:repeat(2,44px)}
+ }
+ @container builder-frame (min-width:344px) and (min-height:464px){
+  .ah-builder.paper-craft #builder.is-create .builder-art-area{right:64px;bottom:0}
+  .ah-builder.paper-craft #builder .builder-play-area #free-tools{left:auto;right:10px;top:50%;bottom:auto;transform:translateY(-50%)}
+  .ah-builder.paper-craft #builder .builder-play-area .free-toolbar{grid-template-columns:44px}
+ }
+}
+/* Non-interactive stationery shares scene coordinates with the exported SVG. */
+#craft-background{position:absolute;inset:0;pointer-events:none;z-index:-1}
+#craft-background>svg{display:block;width:100%;height:100%;overflow:visible}
+#background-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.background-choice{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0;min-height:44px;padding:6px;font:inherit;font-size:14px}
+.background-sample{display:block;width:48px;height:48px;border:1px solid var(--ah-border);border-radius:6px;overflow:hidden}
+.background-sample svg{width:100%;height:100%}
+.build-mode-controls{display:flex;align-items:center;gap:6px}.build-toggle{width:128px}
+.paper-craft .is-create .ingredient-name,.paper-craft .is-create .background-choice>span:not(.background-sample){display:none}
+.paper-craft .piece{aspect-ratio:1;transform:translate(-50%,-50%) rotate(var(--rotation)) scale(var(--scale))}
+.learn-piece{position:absolute;inset:0;min-width:44px;min-height:44px;margin:auto;padding:0;border:0;background:transparent;pointer-events:auto;cursor:pointer;display:grid;place-items:center}
+.learn-piece svg{width:100%;height:100%;pointer-events:none}
+.learn-piece[aria-pressed=true]{outline:2px dashed var(--ah-focus);border-radius:8px}
+.learn-piece:focus-visible{outline:3px solid var(--ah-focus);outline-offset:3px}

@@ -15,8 +15,9 @@ function generate(){
   const frameFile='scripts/home-preview-frames.json', frameSource=fs.readFileSync(path.join(root,frameFile),'utf8');
   sources.set(frameFile,hash(frameSource));
   const geometry=JSON.parse(frameSource).frames[name];
-  for(const rect of Object.values(geometry)){rect.right=rect.left+rect.width;rect.bottom=rect.top+rect.height;}
-  return {window,load,render:builder=>{builder.exportFrame=(mapping={x:0,y:0,width:100,height:100},baseline={left:-5,top:-5,side:110})=>window.BuilderPanelWorkspace.photoFrame(geometry.frame,geometry.scene,mapping,baseline);if(!render)throw Error('Missing production Save renderer');return render(builder)+'\n'}};
+  if(!geometry&&name!=='paper-craft')throw Error('Missing measured preview frame: '+name);
+  for(const rect of Object.values(geometry||{})){rect.right=rect.left+rect.width;rect.bottom=rect.top+rect.height;}
+  return {window,load,render:builder=>{builder.exportFrame=(mapping={x:0,y:0,width:100,height:100},baseline={left:-5,top:-5,side:110})=>geometry?window.BuilderPanelWorkspace.photoFrame(geometry.frame,geometry.scene,mapping,baseline):{left:0,top:0,side:100};if(!render)throw Error('Missing production Save renderer');return render(builder)+'\n'}};
  }
  {
   const e=environment('pizza');e.load('shared/builder.js');e.load('apps/pizza/config.js');e.load('apps/pizza/sharing.js');
@@ -51,9 +52,21 @@ function generate(){
   state.blocks=['house','park','library','zoo','hospital','station','museum','restaurant','post office','supermarket','elementary school','bus stop'];
   outputs['my-town']=window.TownArt.map(state,false)+'\n';
  }
+ {
+  const e=environment('paper-craft');e.load('apps/paper-craft/config.js');e.load('apps/paper-craft/background.js');e.load('apps/paper-craft/sharing.js');
+  // A greeting card assembled from actual PLAY pieces; fixed square camera,
+  // not a claimed browser measurement. Scales use the editor's 22-unit pieces.
+  const pieces=[
+   ['circle',82,17,18,'yellow',0],['star',18,19,17,'orange',-12],
+   ['heart',18,48,15,'red',-12],['heart',82,48,15,'red',12],
+   ['H',41,45,29,'blue',-5],['I',61,45,29,'purple',5],
+   ['triangle',20,77,22,'green',-8],['circle',50,78,19,'pink',0],['star',80,77,22,'yellow',12]
+  ].map(([topping,x,y,size,color,rotate])=>({topping,x,y,scale:size/22,color,rotate,flip:false}));
+  outputs['paper-craft']=e.render({creative:{active:true,orderedItems:()=>pieces},background:()=>({pattern:'dots',color:'brown'})});
+ }
  for(const [name,svg] of Object.entries(outputs))if(/NaN|undefined/.test(svg))throw Error(`${name}: invalid export geometry`);
  sources.set('scripts/generate-home-previews.cjs',hash(fs.readFileSync(__filename)));
- const manifest={policy:'Food/supplies: LEARN 1133x678 reference; My Town: fixed BUILD map. Square Save artwork, without polaroid caption; see docs/HOME-PREVIEWS.md',sources:Object.fromEntries([...sources].sort()),outputs:Object.fromEntries(Object.entries(outputs).map(([name,svg])=>[`${name}-preview.svg`,hash(svg)]))};
+ const manifest={policy:'Food/supplies: LEARN 1133x678 reference; My Town: fixed BUILD map; Shape Builder: fixed square PLAY greeting card. Square Save artwork, without polaroid caption; see docs/HOME-PREVIEWS.md',sources:Object.fromEntries([...sources].sort()),outputs:Object.fromEntries(Object.entries(outputs).map(([name,svg])=>[`${name}-preview.svg`,hash(svg)]))};
  return {outputs,manifest};
 }
 function run(check=false){
@@ -66,7 +79,7 @@ function run(check=false){
   else fs.writeFileSync(path.join(root,file),content);
  }
  if(stale)process.exitCode=1;
- else console.log(check?'Homepage previews and source fingerprints are current.':'Updated five homepage previews from production Save renderers.');
+ else console.log(check?'Homepage previews and source fingerprints are current.':'Updated six homepage previews from production Save renderers.');
 }
 module.exports={generate,run};
 if(require.main===module)run(process.argv.includes('--check'));
