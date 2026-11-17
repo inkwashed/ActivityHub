@@ -133,3 +133,8 @@ body>header{position:sticky;top:0;z-index:10;background-color:var(--ah-canvas)}
 .ah-selector-tray{display:flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--ah-border);border-radius:var(--ah-radius-pill);background:var(--ah-selected)}
 .ah-selector-tray .ah-button{flex:1 1 76px;min-width:0;min-height:44px;padding:8px 10px;border-width:2px;border-color:transparent;background:transparent;white-space:normal;overflow-wrap:anywhere;text-align:center}
 .ah-selector-tray .ah-button[aria-pressed="true"]{border-color:var(--ah-selected-border);background:var(--ah-surface);font-weight:700}
+
+/* App title self-navigation: keep the existing typography and a touch-sized target. */
+.ah-app-title{display:inline-flex;align-items:center;min-height:44px;min-width:44px;color:inherit;font:inherit;letter-spacing:inherit;text-decoration:none}
+.ah-app-title:hover{text-decoration:underline;text-underline-offset:4px}
+.ah-app-title:focus-visible{outline:3px solid var(--ah-focus);outline-offset:3px;border-radius:4px}

@@ -12,10 +12,20 @@ const root=path.resolve(__dirname,'..'),themes=['green','blue','maroon','gold','
 
 
   await page.emulateMedia({reducedMotion:'reduce'});
-  const routes=['/apps/pizza/','/apps/parfait/','/apps/sandwich/','/apps/class-supplies/','/apps/avatar/','/apps/my-town/','/apps/post/','/myblog/NH1-5/','/myblog/NH2-4/','/myblog/NH6-5/','/myblog/journal/','/_dev/builder/'];
+  const routes=['/apps/pizza/','/apps/parfait/','/apps/sandwich/','/apps/class-supplies/','/apps/avatar/','/apps/my-town/','/apps/paper-craft/','/apps/post/','/myblog/NH1-5/','/myblog/NH2-4/','/myblog/NH6-5/','/myblog/journal/','/_dev/builder/'];
   const measurements=[];let cases=0;
   for(const route of routes)for(const viewport of [{width:1133,height:744},{width:768,height:1024},{width:390,height:844},{width:844,height:360}]){
    await page.setViewportSize(viewport);await page.goto(base+route);await page.waitForTimeout(100);
+   const title=page.locator('body>header a.ah-app-title,body>header a.brand');assert.equal(await title.count(),1,route+' self link');
+   assert.equal(await title.evaluate(el=>new URL(el.href).pathname.replace(/index\.html$/,'')),route,route+' self destination');
+   assert.ok((await title.boundingBox()).height>=44,route+' title touch height');
+   if(viewport.width===1133){
+    await title.focus();assert.equal(await title.evaluate(el=>getComputedStyle(el).outlineStyle),'solid');
+    await page.evaluate(()=>window.__titleNavigationMarker=true);
+    await Promise.all([page.waitForNavigation(),page.keyboard.press('Enter')]);
+    assert.equal(await page.evaluate(()=>window.__titleNavigationMarker),undefined,route+' title reloads document');
+    await page.waitForTimeout(100);
+   }
    const header=page.locator('body>header'),before=await header.boundingBox();assert.equal(await header.evaluate(el=>getComputedStyle(el).position),'sticky');assert.equal(await header.evaluate(el=>getComputedStyle(el).backdropFilter),'none');assert.ok(await header.evaluate(el=>{const color=getComputedStyle(el).backgroundColor;return color!=='transparent'&&(!color.startsWith('rgba')||color.endsWith(', 1)'));}));
    assert.ok(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight+1),route+' document overflow '+JSON.stringify(viewport));
    measurements.push(await page.evaluate(({route,viewport})=>({route:route.split('/').filter(Boolean).pop(),viewport,header:document.querySelector('header').getBoundingClientRect().toJSON(),boxes:[...document.querySelectorAll('main,.builder-play-area,.pantry,#town-map,#portrait')].map(el=>({selector:el.id||el.className,rect:el.getBoundingClientRect().toJSON()}))}),{route,viewport}));
@@ -48,6 +58,6 @@ const root=path.resolve(__dirname,'..'),themes=['green','blue','maroon','gold','
   }
   if(process.env.THEME_SCREENSHOTS){await page.setViewportSize({width:390,height:844});await page.goto(base+'/apps/pizza/');await page.locator('.app-scroll').evaluate(el=>el.scrollTop=450);await page.screenshot({path:path.join(process.env.THEME_SCREENSHOTS,'app-scroll-phone.png')});}
   fs.writeFileSync(process.env.APP_SCROLL_MEASUREMENTS||path.join(require('node:os').tmpdir(),'app-scroll-after.json'),JSON.stringify(measurements));
-  assert.deepEqual(errors,[]);console.log(`PASS app shells: ${cases} scrollbar theme/page/viewport cases across 12 entrypoints; real forced overflow, root/header isolation, keyboard scrolling, builder jumps, Japanese, mode changes and footer containment.`);
+  assert.deepEqual(errors,[]);console.log(`PASS app shells: ${cases} scrollbar theme/page/viewport cases across 13 entrypoints; real forced overflow, root/header isolation, keyboard scrolling, builder jumps, Japanese, mode changes and footer containment.`);
  }finally{await browser?.close();await new Promise(resolve=>server?server.close(resolve):resolve());}
 })().catch(error=>{console.error(error);process.exitCode=1;});
