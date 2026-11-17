@@ -11,7 +11,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ælfɹˈɛdO sˈɔs."
+      "l\u02c8\u026as\u1d4an: \u00e6lf\u0279\u02c8\u025bdO s\u02c8\u0254s."
     ],
     "seconds": 1.398,
     "mp3Bytes": 11948,
@@ -44,7 +44,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈæpᵊl."
+      "l\u02c8\u026as\u1d4an: \u02c8\u00e6p\u1d4al."
     ],
     "seconds": 0.748,
     "mp3Bytes": 6764,
@@ -77,7 +77,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈæpᵊlz."
+      "l\u02c8\u026as\u1d4an: \u02c8\u00e6p\u1d4alz."
     ],
     "seconds": 0.823,
     "mp3Bytes": 7340,
@@ -101,16 +101,16 @@
   {
     "id": "banana",
     "text": "banana",
-    "prompt": "[banana](/bʌnˈænə/).",
+    "prompt": "[banana](/b\u028cn\u02c8\u00e6n\u0259/).",
     "apps": [
       "parfait"
     ],
-    "generationPrompt": "Listen: [banana](/bʌnˈænə/).",
+    "generationPrompt": "Listen: [banana](/b\u028cn\u02c8\u00e6n\u0259/).",
     "trimSeconds": 1.3325,
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: bʌnˈænə."
+      "l\u02c8\u026as\u1d4an: b\u028cn\u02c8\u00e6n\u0259."
     ],
     "seconds": 0.93,
     "mp3Bytes": 8108,
@@ -134,16 +134,16 @@
   {
     "id": "bananas",
     "text": "bananas",
-    "prompt": "[bananas](/bʌnˈænəz/).",
+    "prompt": "[bananas](/b\u028cn\u02c8\u00e6n\u0259z/).",
     "apps": [
       "parfait"
     ],
-    "generationPrompt": "Listen: [bananas](/bʌnˈænəz/).",
+    "generationPrompt": "Listen: [bananas](/b\u028cn\u02c8\u00e6n\u0259z/).",
     "trimSeconds": 1.2825,
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: bʌnˈænəz."
+      "l\u02c8\u026as\u1d4an: b\u028cn\u02c8\u00e6n\u0259z."
     ],
     "seconds": 0.952,
     "mp3Bytes": 8300,
@@ -176,7 +176,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: bˈɑɹbəkjˌu sˈɔs."
+      "l\u02c8\u026as\u1d4an: b\u02c8\u0251\u0279b\u0259kj\u02ccu s\u02c8\u0254s."
     ],
     "seconds": 1.45,
     "mp3Bytes": 12332,
@@ -209,7 +209,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: kˈɑɹməl."
+      "l\u02c8\u026as\u1d4an: k\u02c8\u0251\u0279m\u0259l."
     ],
     "seconds": 0.81,
     "mp3Bytes": 7148,
@@ -242,7 +242,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: kˈɑɹməl sˈɪɹəp."
+      "l\u02c8\u026as\u1d4an: k\u02c8\u0251\u0279m\u0259l s\u02c8\u026a\u0279\u0259p."
     ],
     "seconds": 1.389,
     "mp3Bytes": 11756,
@@ -275,7 +275,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ʧˈiz."
+      "l\u02c8\u026as\u1d4an: \u02a7\u02c8iz."
     ],
     "seconds": 0.762,
     "mp3Bytes": 6764,
@@ -308,7 +308,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ʧˈɛɹiz."
+      "l\u02c8\u026as\u1d4an: \u02a7\u02c8\u025b\u0279iz."
     ],
     "seconds": 0.861,
     "mp3Bytes": 7532,
@@ -341,7 +341,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ʧˈɛɹi."
+      "l\u02c8\u026as\u1d4an: \u02a7\u02c8\u025b\u0279i."
     ],
     "seconds": 0.801,
     "mp3Bytes": 7148,
@@ -374,7 +374,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ʧˈɑkᵊlət."
+      "l\u02c8\u026as\u1d4an: \u02a7\u02c8\u0251k\u1d4al\u0259t."
     ],
     "seconds": 0.947,
     "mp3Bytes": 8300,
@@ -407,7 +407,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ʧˈɑkᵊlət sˈɪɹəp."
+      "l\u02c8\u026as\u1d4an: \u02a7\u02c8\u0251k\u1d4al\u0259t s\u02c8\u026a\u0279\u0259p."
     ],
     "seconds": 1.464,
     "mp3Bytes": 12332,
@@ -440,7 +440,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: kˈɔɹn."
+      "l\u02c8\u026as\u1d4an: k\u02c8\u0254\u0279n."
     ],
     "seconds": 0.771,
     "mp3Bytes": 6956,
@@ -473,7 +473,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ɡɹˈin pˈɛpəɹ."
+      "l\u02c8\u026as\u1d4an: \u0261\u0279\u02c8in p\u02c8\u025bp\u0259\u0279."
     ],
     "seconds": 1.238,
     "mp3Bytes": 10604,
@@ -506,7 +506,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ɡɹˈin pˈɛpəɹz."
+      "l\u02c8\u026as\u1d4an: \u0261\u0279\u02c8in p\u02c8\u025bp\u0259\u0279z."
     ],
     "seconds": 1.376,
     "mp3Bytes": 11756,
@@ -539,7 +539,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: kˈiwi fɹˈut."
+      "l\u02c8\u026as\u1d4an: k\u02c8iwi f\u0279\u02c8ut."
     ],
     "seconds": 1.218,
     "mp3Bytes": 10412,
@@ -572,7 +572,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: kˈiwi fɹˈuts."
+      "l\u02c8\u026as\u1d4an: k\u02c8iwi f\u0279\u02c8uts."
     ],
     "seconds": 1.294,
     "mp3Bytes": 10988,
@@ -605,7 +605,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˈɛlən."
+      "l\u02c8\u026as\u1d4an: m\u02c8\u025bl\u0259n."
     ],
     "seconds": 0.786,
     "mp3Bytes": 6956,
@@ -638,7 +638,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˈɛlənz."
+      "l\u02c8\u026as\u1d4an: m\u02c8\u025bl\u0259nz."
     ],
     "seconds": 0.859,
     "mp3Bytes": 7532,
@@ -671,7 +671,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˈɪnt ʧˈɑkᵊlət ʧˈɪp."
+      "l\u02c8\u026as\u1d4an: m\u02c8\u026ant \u02a7\u02c8\u0251k\u1d4al\u0259t \u02a7\u02c8\u026ap."
     ],
     "seconds": 1.682,
     "mp3Bytes": 14252,
@@ -704,7 +704,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˈɪnt ʧˈɑkᵊlət ʧˈɪp ˈIs kɹˈim."
+      "l\u02c8\u026as\u1d4an: m\u02c8\u026ant \u02a7\u02c8\u0251k\u1d4al\u0259t \u02a7\u02c8\u026ap \u02c8Is k\u0279\u02c8im."
     ],
     "seconds": 2.282,
     "mp3Bytes": 19052,
@@ -737,7 +737,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˈɪnt ʧˈɑkᵊlət ʧˈɪp skˈup."
+      "l\u02c8\u026as\u1d4an: m\u02c8\u026ant \u02a7\u02c8\u0251k\u1d4al\u0259t \u02a7\u02c8\u026ap sk\u02c8up."
     ],
     "seconds": 1.961,
     "mp3Bytes": 16364,
@@ -770,7 +770,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˈɪnt ʧˈɑkᵊlət ʧˈɪp skˈups."
+      "l\u02c8\u026as\u1d4an: m\u02c8\u026ant \u02a7\u02c8\u0251k\u1d4al\u0259t \u02a7\u02c8\u026ap sk\u02c8ups."
     ],
     "seconds": 2.081,
     "mp3Bytes": 17324,
@@ -803,7 +803,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˈʌʃɹˌum."
+      "l\u02c8\u026as\u1d4an: m\u02c8\u028c\u0283\u0279\u02ccum."
     ],
     "seconds": 0.986,
     "mp3Bytes": 8684,
@@ -836,7 +836,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˈʌʃɹˌumz."
+      "l\u02c8\u026as\u1d4an: m\u02c8\u028c\u0283\u0279\u02ccumz."
     ],
     "seconds": 1.035,
     "mp3Bytes": 9068,
@@ -869,7 +869,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: nˈO ˈIs kɹˈim."
+      "l\u02c8\u026as\u1d4an: n\u02c8O \u02c8Is k\u0279\u02c8im."
     ],
     "seconds": 1.318,
     "mp3Bytes": 11180,
@@ -902,7 +902,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: nˈO sˈɔs."
+      "l\u02c8\u026as\u1d4an: n\u02c8O s\u02c8\u0254s."
     ],
     "seconds": 1.01,
     "mp3Bytes": 8876,
@@ -935,7 +935,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: nˈO sˈɪɹəp."
+      "l\u02c8\u026as\u1d4an: n\u02c8O s\u02c8\u026a\u0279\u0259p."
     ],
     "seconds": 1.014,
     "mp3Bytes": 8876,
@@ -968,7 +968,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈʌnjᵊn."
+      "l\u02c8\u026as\u1d4an: \u02c8\u028cnj\u1d4an."
     ],
     "seconds": 0.764,
     "mp3Bytes": 6764,
@@ -1001,7 +1001,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈʌnjᵊnz."
+      "l\u02c8\u026as\u1d4an: \u02c8\u028cnj\u1d4anz."
     ],
     "seconds": 0.848,
     "mp3Bytes": 7532,
@@ -1034,7 +1034,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈɔɹᵊnʤ."
+      "l\u02c8\u026as\u1d4an: \u02c8\u0254\u0279\u1d4an\u02a4."
     ],
     "seconds": 0.853,
     "mp3Bytes": 7532,
@@ -1067,7 +1067,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈɔɹᵊnʤᵻz."
+      "l\u02c8\u026as\u1d4an: \u02c8\u0254\u0279\u1d4an\u02a4\u1d7bz."
     ],
     "seconds": 0.933,
     "mp3Bytes": 8108,
@@ -1100,7 +1100,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˈiʧ."
+      "l\u02c8\u026as\u1d4an: p\u02c8i\u02a7."
     ],
     "seconds": 0.709,
     "mp3Bytes": 6380,
@@ -1133,7 +1133,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˈiʧᵻz."
+      "l\u02c8\u026as\u1d4an: p\u02c8i\u02a7\u1d7bz."
     ],
     "seconds": 0.897,
     "mp3Bytes": 7916,
@@ -1166,7 +1166,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˌɛpəɹˈOni."
+      "l\u02c8\u026as\u1d4an: p\u02cc\u025bp\u0259\u0279\u02c8Oni."
     ],
     "seconds": 1.106,
     "mp3Bytes": 9644,
@@ -1200,7 +1200,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˈInˌæpᵊl."
+      "l\u02c8\u026as\u1d4an: p\u02c8In\u02cc\u00e6p\u1d4al."
     ],
     "seconds": 0.986,
     "mp3Bytes": 8684,
@@ -1234,7 +1234,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˈInˌæpᵊlz."
+      "l\u02c8\u026as\u1d4an: p\u02c8In\u02cc\u00e6p\u1d4alz."
     ],
     "seconds": 1.024,
     "mp3Bytes": 8876,
@@ -1267,7 +1267,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: sˈɔsɪʤ."
+      "l\u02c8\u026as\u1d4an: s\u02c8\u0254s\u026a\u02a4."
     ],
     "seconds": 0.97,
     "mp3Bytes": 8492,
@@ -1300,7 +1300,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: sˈɔsɪʤᵻz."
+      "l\u02c8\u026as\u1d4an: s\u02c8\u0254s\u026a\u02a4\u1d7bz."
     ],
     "seconds": 1.082,
     "mp3Bytes": 9452,
@@ -1333,7 +1333,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: stɹˈɔbˌɛɹiz."
+      "l\u02c8\u026as\u1d4an: st\u0279\u02c8\u0254b\u02cc\u025b\u0279iz."
     ],
     "seconds": 1.174,
     "mp3Bytes": 10028,
@@ -1366,7 +1366,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: stɹˈɔbˌɛɹi."
+      "l\u02c8\u026as\u1d4an: st\u0279\u02c8\u0254b\u02cc\u025b\u0279i."
     ],
     "seconds": 1.14,
     "mp3Bytes": 9836,
@@ -1399,7 +1399,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: stɹˈɔbˌɛɹi ˈIs kɹˈim."
+      "l\u02c8\u026as\u1d4an: st\u0279\u02c8\u0254b\u02cc\u025b\u0279i \u02c8Is k\u0279\u02c8im."
     ],
     "seconds": 1.783,
     "mp3Bytes": 15020,
@@ -1432,7 +1432,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: stɹˈɔbˌɛɹi skˈup."
+      "l\u02c8\u026as\u1d4an: st\u0279\u02c8\u0254b\u02cc\u025b\u0279i sk\u02c8up."
     ],
     "seconds": 1.427,
     "mp3Bytes": 12140,
@@ -1465,7 +1465,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: stɹˈɔbˌɛɹi skˈups."
+      "l\u02c8\u026as\u1d4an: st\u0279\u02c8\u0254b\u02cc\u025b\u0279i sk\u02c8ups."
     ],
     "seconds": 1.535,
     "mp3Bytes": 12908,
@@ -1498,7 +1498,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: stɹˈɔbˌɛɹi sˈɪɹəp."
+      "l\u02c8\u026as\u1d4an: st\u0279\u02c8\u0254b\u02cc\u025b\u0279i s\u02c8\u026a\u0279\u0259p."
     ],
     "seconds": 1.515,
     "mp3Bytes": 12908,
@@ -1531,7 +1531,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: təmˈATO."
+      "l\u02c8\u026as\u1d4an: t\u0259m\u02c8ATO."
     ],
     "seconds": 1.058,
     "mp3Bytes": 9260,
@@ -1564,7 +1564,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: təmˈATO sˈɔs."
+      "l\u02c8\u026as\u1d4an: t\u0259m\u02c8ATO s\u02c8\u0254s."
     ],
     "seconds": 1.296,
     "mp3Bytes": 10988,
@@ -1597,7 +1597,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: təmˈATOz."
+      "l\u02c8\u026as\u1d4an: t\u0259m\u02c8ATOz."
     ],
     "seconds": 0.944,
     "mp3Bytes": 8300,
@@ -1630,7 +1630,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: vənˈɪlə."
+      "l\u02c8\u026as\u1d4an: v\u0259n\u02c8\u026al\u0259."
     ],
     "seconds": 0.96,
     "mp3Bytes": 8300,
@@ -1663,7 +1663,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: vənˈɪlə ˈIs kɹˈim."
+      "l\u02c8\u026as\u1d4an: v\u0259n\u02c8\u026al\u0259 \u02c8Is k\u0279\u02c8im."
     ],
     "seconds": 1.61,
     "mp3Bytes": 13676,
@@ -1696,7 +1696,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: vənˈɪlə skˈup."
+      "l\u02c8\u026as\u1d4an: v\u0259n\u02c8\u026al\u0259 sk\u02c8up."
     ],
     "seconds": 1.313,
     "mp3Bytes": 11180,
@@ -1729,7 +1729,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: vənˈɪlə skˈups."
+      "l\u02c8\u026as\u1d4an: v\u0259n\u02c8\u026al\u0259 sk\u02c8ups."
     ],
     "seconds": 1.348,
     "mp3Bytes": 11564,
@@ -1763,7 +1763,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: wˌʌt dˈu ju wˈɑnt?"
+      "l\u02c8\u026as\u1d4an: w\u02cc\u028ct d\u02c8u ju w\u02c8\u0251nt?"
     ],
     "seconds": 1.119,
     "mp3Bytes": 9644,
@@ -1796,7 +1796,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: bˈif."
+      "l\u02c8\u026as\u1d4an: b\u02c8if."
     ],
     "seconds": 0.705,
     "mp3Bytes": 6380,
@@ -1829,7 +1829,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ʧˈɪkən."
+      "l\u02c8\u026as\u1d4an: \u02a7\u02c8\u026ak\u0259n."
     ],
     "seconds": 0.781,
     "mp3Bytes": 6956,
@@ -1862,7 +1862,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: kjˈukˌʌmbəɹ."
+      "l\u02c8\u026as\u1d4an: kj\u02c8uk\u02cc\u028cmb\u0259\u0279."
     ],
     "seconds": 1.082,
     "mp3Bytes": 9452,
@@ -1895,7 +1895,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: hˈæm."
+      "l\u02c8\u026as\u1d4an: h\u02c8\u00e6m."
     ],
     "seconds": 0.71,
     "mp3Bytes": 6380,
@@ -1928,7 +1928,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: lˈɛTəs."
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259s."
     ],
     "seconds": 0.813,
     "mp3Bytes": 7148,
@@ -1961,7 +1961,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˈɔɹk."
+      "l\u02c8\u026as\u1d4an: p\u02c8\u0254\u0279k."
     ],
     "seconds": 0.75,
     "mp3Bytes": 6764,
@@ -1994,7 +1994,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ʃɹˈɪmp."
+      "l\u02c8\u026as\u1d4an: \u0283\u0279\u02c8\u026amp."
     ],
     "seconds": 0.757,
     "mp3Bytes": 6764,
@@ -2018,16 +2018,16 @@
   {
     "id": "bacon",
     "text": "bacon",
-    "prompt": "[bacon](/bˈAkn/).",
+    "prompt": "[bacon](/b\u02c8Akn/).",
     "apps": [
       "sandwich"
     ],
-    "generationPrompt": "Listen: [bacon](/bˈAkn/).",
+    "generationPrompt": "Listen: [bacon](/b\u02c8Akn/).",
     "trimSeconds": 1.2825,
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: bˈAkn."
+      "l\u02c8\u026as\u1d4an: b\u02c8Akn."
     ],
     "seconds": 0.813,
     "mp3Bytes": 7148,
@@ -2060,7 +2060,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: blˈu."
+      "l\u02c8\u026as\u1d4an: bl\u02c8u."
     ],
     "seconds": 0.731,
     "mp3Bytes": 6572,
@@ -2093,7 +2093,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: kˈʌləɹd pˈɛnsᵊl."
+      "l\u02c8\u026as\u1d4an: k\u02c8\u028cl\u0259\u0279d p\u02c8\u025bns\u1d4al."
     ],
     "seconds": 1.391,
     "mp3Bytes": 11756,
@@ -2126,7 +2126,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: kˈʌləɹd pˈɛnsᵊlz."
+      "l\u02c8\u026as\u1d4an: k\u02c8\u028cl\u0259\u0279d p\u02c8\u025bns\u1d4alz."
     ],
     "seconds": 1.404,
     "mp3Bytes": 11948,
@@ -2159,7 +2159,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˈɛnsᵊl."
+      "l\u02c8\u026as\u1d4an: p\u02c8\u025bns\u1d4al."
     ],
     "seconds": 0.868,
     "mp3Bytes": 7724,
@@ -2192,7 +2192,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˈɛnsᵊl kˈAs."
+      "l\u02c8\u026as\u1d4an: p\u02c8\u025bns\u1d4al k\u02c8As."
     ],
     "seconds": 1.347,
     "mp3Bytes": 11564,
@@ -2225,7 +2225,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˈɛnsᵊlz."
+      "l\u02c8\u026as\u1d4an: p\u02c8\u025bns\u1d4alz."
     ],
     "seconds": 0.943,
     "mp3Bytes": 8300,
@@ -2258,7 +2258,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˈɜɹpᵊl."
+      "l\u02c8\u026as\u1d4an: p\u02c8\u025c\u0279p\u1d4al."
     ],
     "seconds": 0.879,
     "mp3Bytes": 7724,
@@ -2291,7 +2291,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ɹˈɛd."
+      "l\u02c8\u026as\u1d4an: \u0279\u02c8\u025bd."
     ],
     "seconds": 0.635,
     "mp3Bytes": 5804,
@@ -2324,7 +2324,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: əɹˈAsəɹ."
+      "l\u02c8\u026as\u1d4an: \u0259\u0279\u02c8As\u0259\u0279."
     ],
     "seconds": 0.932,
     "mp3Bytes": 8108,
@@ -2357,7 +2357,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: əɹˈAsəɹz."
+      "l\u02c8\u026as\u1d4an: \u0259\u0279\u02c8As\u0259\u0279z."
     ],
     "seconds": 1.034,
     "mp3Bytes": 9068,
@@ -2390,7 +2390,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˈɑɹkəɹ."
+      "l\u02c8\u026as\u1d4an: m\u02c8\u0251\u0279k\u0259\u0279."
     ],
     "seconds": 0.92,
     "mp3Bytes": 8108,
@@ -2423,7 +2423,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˈɑɹkəɹz."
+      "l\u02c8\u026as\u1d4an: m\u02c8\u0251\u0279k\u0259\u0279z."
     ],
     "seconds": 0.986,
     "mp3Bytes": 8684,
@@ -2456,7 +2456,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˈɛn."
+      "l\u02c8\u026as\u1d4an: p\u02c8\u025bn."
     ],
     "seconds": 0.69,
     "mp3Bytes": 6188,
@@ -2489,7 +2489,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˈɛnz."
+      "l\u02c8\u026as\u1d4an: p\u02c8\u025bnz."
     ],
     "seconds": 0.771,
     "mp3Bytes": 6956,
@@ -2522,7 +2522,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ɹˈuləɹ."
+      "l\u02c8\u026as\u1d4an: \u0279\u02c8ul\u0259\u0279."
     ],
     "seconds": 0.835,
     "mp3Bytes": 7340,
@@ -2555,7 +2555,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ɹˈuləɹz."
+      "l\u02c8\u026as\u1d4an: \u0279\u02c8ul\u0259\u0279z."
     ],
     "seconds": 0.885,
     "mp3Bytes": 7724,
@@ -2588,7 +2588,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: kˈæləndəɹ."
+      "l\u02c8\u026as\u1d4an: k\u02c8\u00e6l\u0259nd\u0259\u0279."
     ],
     "seconds": 0.994,
     "mp3Bytes": 8684,
@@ -2621,7 +2621,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: kˈæləndəɹz."
+      "l\u02c8\u026as\u1d4an: k\u02c8\u00e6l\u0259nd\u0259\u0279z."
     ],
     "seconds": 1.065,
     "mp3Bytes": 9260,
@@ -2654,7 +2654,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ɡlˈu stˈɪk."
+      "l\u02c8\u026as\u1d4an: \u0261l\u02c8u st\u02c8\u026ak."
     ],
     "seconds": 1.168,
     "mp3Bytes": 10028,
@@ -2687,7 +2687,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ɡlˈu stˈɪks."
+      "l\u02c8\u026as\u1d4an: \u0261l\u02c8u st\u02c8\u026aks."
     ],
     "seconds": 1.188,
     "mp3Bytes": 10220,
@@ -2720,7 +2720,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: nˈOtbˌʊk."
+      "l\u02c8\u026as\u1d4an: n\u02c8Otb\u02cc\u028ak."
     ],
     "seconds": 0.952,
     "mp3Bytes": 8300,
@@ -2753,7 +2753,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: nˈOtbˌʊks."
+      "l\u02c8\u026as\u1d4an: n\u02c8Otb\u02cc\u028aks."
     ],
     "seconds": 0.998,
     "mp3Bytes": 8684,
@@ -2786,7 +2786,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: stˈApᵊləɹ."
+      "l\u02c8\u026as\u1d4an: st\u02c8Ap\u1d4al\u0259\u0279."
     ],
     "seconds": 1.066,
     "mp3Bytes": 9260,
@@ -2819,7 +2819,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: stˈApᵊləɹz."
+      "l\u02c8\u026as\u1d4an: st\u02c8Ap\u1d4al\u0259\u0279z."
     ],
     "seconds": 1.114,
     "mp3Bytes": 9644,
@@ -2852,7 +2852,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: blˈæk."
+      "l\u02c8\u026as\u1d4an: bl\u02c8\u00e6k."
     ],
     "seconds": 0.692,
     "mp3Bytes": 6188,
@@ -2885,7 +2885,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: bɹˈWn."
+      "l\u02c8\u026as\u1d4an: b\u0279\u02c8Wn."
     ],
     "seconds": 0.824,
     "mp3Bytes": 7340,
@@ -2918,7 +2918,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ɡɹˈin."
+      "l\u02c8\u026as\u1d4an: \u0261\u0279\u02c8in."
     ],
     "seconds": 0.827,
     "mp3Bytes": 7340,
@@ -2951,7 +2951,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˈæɡnət."
+      "l\u02c8\u026as\u1d4an: m\u02c8\u00e6\u0261n\u0259t."
     ],
     "seconds": 0.89,
     "mp3Bytes": 7916,
@@ -2984,7 +2984,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˈæɡnəts."
+      "l\u02c8\u026as\u1d4an: m\u02c8\u00e6\u0261n\u0259ts."
     ],
     "seconds": 0.982,
     "mp3Bytes": 8492,
@@ -3017,7 +3017,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˈɛnsᵊl ʃˈɑɹpᵊnəɹ."
+      "l\u02c8\u026as\u1d4an: p\u02c8\u025bns\u1d4al \u0283\u02c8\u0251\u0279p\u1d4an\u0259\u0279."
     ],
     "seconds": 1.501,
     "mp3Bytes": 12716,
@@ -3050,7 +3050,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˈɛnsᵊl ʃˈɑɹpᵊnəɹz."
+      "l\u02c8\u026as\u1d4an: p\u02c8\u025bns\u1d4al \u0283\u02c8\u0251\u0279p\u1d4an\u0259\u0279z."
     ],
     "seconds": 1.568,
     "mp3Bytes": 13292,
@@ -3083,7 +3083,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˈɪŋk."
+      "l\u02c8\u026as\u1d4an: p\u02c8\u026a\u014bk."
     ],
     "seconds": 0.636,
     "mp3Bytes": 5804,
@@ -3116,7 +3116,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: wˈIt."
+      "l\u02c8\u026as\u1d4an: w\u02c8It."
     ],
     "seconds": 0.694,
     "mp3Bytes": 6188,
@@ -3149,7 +3149,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: jˈɛlO."
+      "l\u02c8\u026as\u1d4an: j\u02c8\u025blO."
     ],
     "seconds": 0.824,
     "mp3Bytes": 7340,
@@ -3184,7 +3184,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: dˈu ju hæv ɐ pˈɛn?"
+      "l\u02c8\u026as\u1d4an: d\u02c8u ju h\u00e6v \u0250 p\u02c8\u025bn?"
     ],
     "seconds": 0.652,
     "mp3Bytes": 5996,
@@ -3207,7 +3207,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: dˈu ju hæv ɐn əɹˈAsəɹ?"
+      "l\u02c8\u026as\u1d4an: d\u02c8u ju h\u00e6v \u0250n \u0259\u0279\u02c8As\u0259\u0279?"
     ],
     "seconds": 0.574,
     "mp3Bytes": 5228,
@@ -3244,7 +3244,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˌI hæv ˈæpᵊlz."
+      "l\u02c8\u026as\u1d4an: \u02ccI h\u00e6v \u02c8\u00e6p\u1d4alz."
     ],
     "seconds": 0.515,
     "mp3Bytes": 4844,
@@ -3269,7 +3269,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˌI wˈɑnt ˈæpᵊlz."
+      "l\u02c8\u026as\u1d4an: \u02ccI w\u02c8\u0251nt \u02c8\u00e6p\u1d4alz."
     ],
     "seconds": 0.54,
     "mp3Bytes": 5036,
@@ -3282,56 +3282,44 @@
   {
     "id": "a",
     "text": "a",
-    "prompt": "a pen.",
+    "prompt": "[a](/\u0259/)!",
     "apps": [
       "pizza",
       "parfait",
-      "class-supplies"
+      "class-supplies",
+      "my-town",
+      "paper-craft"
     ],
-    "endBeforeWord": "pen",
-    "generationPrompt": "Listen: a pen.",
-    "trimSeconds": 1.3824999999999998,
+    "role": "sentence-part",
+    "generationPrompt": "Listen: [a](/\u0259/)!",
+    "trimSeconds": 1.72,
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ɐ pˈɛn."
+      "l\u02c8\u026as\u1d4an: \u0259!"
     ],
-    "seconds": 0.142,
-    "mp3Bytes": 1772,
-    "review": "approved by user",
-    "trimEndSeconds": 1.61,
-    "role": "sentence-part",
-    "sourceBatch": "sentence-pieces-01",
-    "sha256": "0e7c81b151a8962489c999caa1c25db151b5a35f7afcd604e775a8f4ece35aae",
-    "boundaryTrim": {
-      "id": "a",
-      "originalSeconds": 0.2275,
-      "startRemovedSeconds": 0.08520833333333333,
-      "endRemovedSeconds": 0.0,
-      "changed": true,
-      "originalSha256": "e2d47409dc724efa6fe83655c13ff548887c92d170c92b72e5a7b82aec08ad26",
-      "thresholdAmplitude": 0.0005,
-      "leadingMarginSeconds": 0.035,
-      "trailingMarginSeconds": 0.05,
-      "backupBatch": "boundary-trim-2026-10-23",
-      "review": "Automated boundary audit; listening review pending"
-    }
+    "seconds": 0.73,
+    "mp3Bytes": 6572,
+    "review": "approved",
+    "sourceBatch": "article-joins-20261117-01",
+    "sha256": "b1ca4539124aacced24c20cf28f1bf98ea081159a99dfbecb52d15d8b43dd087",
+    "approvedDate": "2026-11-17"
   },
   {
     "id": "an",
     "text": "an",
-    "prompt": "[an](/ɐn/).",
+    "prompt": "[an](/\u0250n/).",
     "apps": [
       "pizza",
       "parfait",
       "class-supplies"
     ],
-    "generationPrompt": "Listen: [an](/ɐn/).",
+    "generationPrompt": "Listen: [an](/\u0250n/).",
     "trimSeconds": 1.5325,
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ɐn."
+      "l\u02c8\u026as\u1d4an: \u0250n."
     ],
     "seconds": 0.507,
     "mp3Bytes": 4844,
@@ -3368,7 +3356,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ænd ʧˈiz."
+      "l\u02c8\u026as\u1d4an: \u00e6nd \u02a7\u02c8iz."
     ],
     "seconds": 0.195,
     "mp3Bytes": 2348,
@@ -3406,7 +3394,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: wɪð ʧˈiz."
+      "l\u02c8\u026as\u1d4an: w\u026a\u00f0 \u02a7\u02c8iz."
     ],
     "seconds": 0.352,
     "mp3Bytes": 3500,
@@ -3431,7 +3419,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ɐ lˈɪTᵊl bˈɪt ʌv ʧˈiz."
+      "l\u02c8\u026as\u1d4an: \u0250 l\u02c8\u026aT\u1d4al b\u02c8\u026at \u028cv \u02a7\u02c8iz."
     ],
     "seconds": 0.677,
     "mp3Bytes": 6188,
@@ -3456,7 +3444,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: sˌʌm ʧˈiz."
+      "l\u02c8\u026as\u1d4an: s\u02cc\u028cm \u02a7\u02c8iz."
     ],
     "seconds": 0.403,
     "mp3Bytes": 3884,
@@ -3481,7 +3469,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ɐ lˈɑt ʌv ʧˈiz."
+      "l\u02c8\u026as\u1d4an: \u0250 l\u02c8\u0251t \u028cv \u02a7\u02c8iz."
     ],
     "seconds": 0.578,
     "mp3Bytes": 5420,
@@ -3506,7 +3494,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: sˌʌm ʌv ˈɛvəɹiθˌɪŋ."
+      "l\u02c8\u026as\u1d4an: s\u02cc\u028cm \u028cv \u02c8\u025bv\u0259\u0279i\u03b8\u02cc\u026a\u014b."
     ],
     "seconds": 0.427,
     "mp3Bytes": 4076,
@@ -3529,7 +3517,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˌI sˈændwˌɪʧ ɪz dəlˈɪʃəs."
+      "l\u02c8\u026as\u1d4an: m\u02ccI s\u02c8\u00e6ndw\u02cc\u026a\u02a7 \u026az d\u0259l\u02c8\u026a\u0283\u0259s."
     ],
     "seconds": 1.124,
     "mp3Bytes": 9644,
@@ -3565,7 +3553,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˌI sˈændwˌɪʧ ɪz ɐ bˌiˌɛltˈi."
+      "l\u02c8\u026as\u1d4an: m\u02ccI s\u02c8\u00e6ndw\u02cc\u026a\u02a7 \u026az \u0250 b\u02cci\u02cc\u025blt\u02c8i."
     ],
     "seconds": 1.29,
     "mp3Bytes": 10988,
@@ -3578,16 +3566,16 @@
   {
     "id": "my-sandwich-is-an",
     "text": "My sandwich is an",
-    "prompt": "My sandwich is [an](/ɐn/).",
+    "prompt": "My sandwich is [an](/\u0250n/).",
     "apps": [
       "sandwich"
     ],
-    "generationPrompt": "Listen: My sandwich is [an](/ɐn/).",
+    "generationPrompt": "Listen: My sandwich is [an](/\u0250n/).",
     "trimSeconds": 1.1575,
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˌI sˈændwˌɪʧ ɪz ɐn."
+      "l\u02c8\u026as\u1d4an: m\u02ccI s\u02c8\u00e6ndw\u02cc\u026a\u02a7 \u026az \u0250n."
     ],
     "seconds": 1.557,
     "mp3Bytes": 13100,
@@ -3622,7 +3610,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ɪz fɔɹ ʧˈiz."
+      "l\u02c8\u026as\u1d4an: \u026az f\u0254\u0279 \u02a7\u02c8iz."
     ],
     "seconds": 0.396,
     "mp3Bytes": 3884,
@@ -3658,7 +3646,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˌɪts fɹʌm ˈɪTəli."
+      "l\u02c8\u026as\u1d4an: \u02cc\u026ats f\u0279\u028cm \u02c8\u026aT\u0259li."
     ],
     "seconds": 0.59,
     "mp3Bytes": 5420,
@@ -3682,7 +3670,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: smˈɔl."
+      "l\u02c8\u026as\u1d4an: sm\u02c8\u0254l."
     ],
     "seconds": 0.764,
     "mp3Bytes": 6764,
@@ -3718,7 +3706,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˈidiəm."
+      "l\u02c8\u026as\u1d4an: m\u02c8idi\u0259m."
     ],
     "seconds": 0.934,
     "mp3Bytes": 8108,
@@ -3754,7 +3742,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: bˈɪɡ."
+      "l\u02c8\u026as\u1d4an: b\u02c8\u026a\u0261."
     ],
     "seconds": 0.579,
     "mp3Bytes": 5420,
@@ -3790,7 +3778,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈɛvəɹiθˌɪŋ."
+      "l\u02c8\u026as\u1d4an: \u02c8\u025bv\u0259\u0279i\u03b8\u02cc\u026a\u014b."
     ],
     "seconds": 0.979,
     "mp3Bytes": 8492,
@@ -3826,7 +3814,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˈitsə."
+      "l\u02c8\u026as\u1d4an: p\u02c8its\u0259."
     ],
     "seconds": 0.97,
     "mp3Bytes": 8492,
@@ -3860,7 +3848,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: bɹˈɛd."
+      "l\u02c8\u026as\u1d4an: b\u0279\u02c8\u025bd."
     ],
     "seconds": 0.698,
     "mp3Bytes": 6380,
@@ -3894,7 +3882,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: bɹˈɛd slˈIs."
+      "l\u02c8\u026as\u1d4an: b\u0279\u02c8\u025bd sl\u02c8Is."
     ],
     "seconds": 1.227,
     "mp3Bytes": 10604,
@@ -3928,7 +3916,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: bɹˈɛd slˈIsᵻz."
+      "l\u02c8\u026as\u1d4an: b\u0279\u02c8\u025bd sl\u02c8Is\u1d7bz."
     ],
     "seconds": 1.327,
     "mp3Bytes": 11372,
@@ -3964,7 +3952,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: zˈɪɹO."
+      "l\u02c8\u026as\u1d4an: z\u02c8\u026a\u0279O."
     ],
     "seconds": 0.854,
     "mp3Bytes": 7532,
@@ -4000,7 +3988,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: wˈʌn."
+      "l\u02c8\u026as\u1d4an: w\u02c8\u028cn."
     ],
     "seconds": 0.637,
     "mp3Bytes": 5804,
@@ -4036,7 +4024,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: tˈu."
+      "l\u02c8\u026as\u1d4an: t\u02c8u."
     ],
     "seconds": 0.677,
     "mp3Bytes": 6188,
@@ -4072,7 +4060,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: θɹˈi."
+      "l\u02c8\u026as\u1d4an: \u03b8\u0279\u02c8i."
     ],
     "seconds": 0.739,
     "mp3Bytes": 6572,
@@ -4108,7 +4096,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: fˈɔɹ."
+      "l\u02c8\u026as\u1d4an: f\u02c8\u0254\u0279."
     ],
     "seconds": 0.707,
     "mp3Bytes": 6380,
@@ -4144,7 +4132,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: fˈIv."
+      "l\u02c8\u026as\u1d4an: f\u02c8Iv."
     ],
     "seconds": 0.747,
     "mp3Bytes": 6764,
@@ -4180,7 +4168,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: sˈɪks."
+      "l\u02c8\u026as\u1d4an: s\u02c8\u026aks."
     ],
     "seconds": 0.763,
     "mp3Bytes": 6764,
@@ -4216,7 +4204,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: sˈɛvən."
+      "l\u02c8\u026as\u1d4an: s\u02c8\u025bv\u0259n."
     ],
     "seconds": 0.854,
     "mp3Bytes": 7532,
@@ -4252,7 +4240,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈAt."
+      "l\u02c8\u026as\u1d4an: \u02c8At."
     ],
     "seconds": 0.614,
     "mp3Bytes": 5612,
@@ -4288,7 +4276,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: nˈIn."
+      "l\u02c8\u026as\u1d4an: n\u02c8In."
     ],
     "seconds": 0.726,
     "mp3Bytes": 6572,
@@ -4324,7 +4312,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: tˈɛn."
+      "l\u02c8\u026as\u1d4an: t\u02c8\u025bn."
     ],
     "seconds": 0.707,
     "mp3Bytes": 6380,
@@ -4360,7 +4348,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: əlˈɛvᵊn."
+      "l\u02c8\u026as\u1d4an: \u0259l\u02c8\u025bv\u1d4an."
     ],
     "seconds": 0.848,
     "mp3Bytes": 7532,
@@ -4396,7 +4384,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: twˈɛlv."
+      "l\u02c8\u026as\u1d4an: tw\u02c8\u025blv."
     ],
     "seconds": 0.805,
     "mp3Bytes": 7148,
@@ -4432,7 +4420,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: θˌɜɹtˈin."
+      "l\u02c8\u026as\u1d4an: \u03b8\u02cc\u025c\u0279t\u02c8in."
     ],
     "seconds": 1.016,
     "mp3Bytes": 8876,
@@ -4468,7 +4456,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: fˌɔɹtˈin."
+      "l\u02c8\u026as\u1d4an: f\u02cc\u0254\u0279t\u02c8in."
     ],
     "seconds": 1.026,
     "mp3Bytes": 8876,
@@ -4504,7 +4492,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: fˌɪftˈin."
+      "l\u02c8\u026as\u1d4an: f\u02cc\u026aft\u02c8in."
     ],
     "seconds": 1.022,
     "mp3Bytes": 8876,
@@ -4540,7 +4528,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: sˌɪkstˈin."
+      "l\u02c8\u026as\u1d4an: s\u02cc\u026akst\u02c8in."
     ],
     "seconds": 1.109,
     "mp3Bytes": 9644,
@@ -4576,7 +4564,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: sˌɛvəntˈin."
+      "l\u02c8\u026as\u1d4an: s\u02cc\u025bv\u0259nt\u02c8in."
     ],
     "seconds": 1.132,
     "mp3Bytes": 9836,
@@ -4612,7 +4600,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˌAtˈin."
+      "l\u02c8\u026as\u1d4an: \u02ccAt\u02c8in."
     ],
     "seconds": 0.974,
     "mp3Bytes": 8492,
@@ -4648,7 +4636,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: nˌIntˈin."
+      "l\u02c8\u026as\u1d4an: n\u02ccInt\u02c8in."
     ],
     "seconds": 1.007,
     "mp3Bytes": 8684,
@@ -4684,7 +4672,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: twˈɛnti."
+      "l\u02c8\u026as\u1d4an: tw\u02c8\u025bnti."
     ],
     "seconds": 0.879,
     "mp3Bytes": 7724,
@@ -4720,7 +4708,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: θˈɜɹTi."
+      "l\u02c8\u026as\u1d4an: \u03b8\u02c8\u025c\u0279Ti."
     ],
     "seconds": 0.881,
     "mp3Bytes": 7724,
@@ -4756,7 +4744,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: fˈɔɹTi."
+      "l\u02c8\u026as\u1d4an: f\u02c8\u0254\u0279Ti."
     ],
     "seconds": 0.885,
     "mp3Bytes": 7724,
@@ -4792,7 +4780,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: fˈɪfti."
+      "l\u02c8\u026as\u1d4an: f\u02c8\u026afti."
     ],
     "seconds": 0.938,
     "mp3Bytes": 8300,
@@ -4828,7 +4816,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: sˈɪksti."
+      "l\u02c8\u026as\u1d4an: s\u02c8\u026aksti."
     ],
     "seconds": 0.955,
     "mp3Bytes": 8300,
@@ -4864,7 +4852,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: sˈɛvənti."
+      "l\u02c8\u026as\u1d4an: s\u02c8\u025bv\u0259nti."
     ],
     "seconds": 1.056,
     "mp3Bytes": 9068,
@@ -4900,7 +4888,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈATi."
+      "l\u02c8\u026as\u1d4an: \u02c8ATi."
     ],
     "seconds": 0.712,
     "mp3Bytes": 6380,
@@ -4936,7 +4924,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: nˈIndi."
+      "l\u02c8\u026as\u1d4an: n\u02c8Indi."
     ],
     "seconds": 0.877,
     "mp3Bytes": 7724,
@@ -4972,7 +4960,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: wˈʌn hˈʌndɹəd."
+      "l\u02c8\u026as\u1d4an: w\u02c8\u028cn h\u02c8\u028cnd\u0279\u0259d."
     ],
     "seconds": 1.13,
     "mp3Bytes": 9836,
@@ -4997,16 +4985,16 @@
   {
     "id": "letter-a",
     "text": "A",
-    "prompt": "[A](/ˈA/).",
+    "prompt": "[A](/\u02c8A/).",
     "apps": [
       "sandwich"
     ],
-    "generationPrompt": "Listen: [A](/ˈA/).",
+    "generationPrompt": "Listen: [A](/\u02c8A/).",
     "trimSeconds": 1.6199999999999999,
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈA"
+      "l\u02c8\u026as\u1d4an: \u02c8A"
     ],
     "seconds": 0.489,
     "mp3Bytes": 4652,
@@ -5040,7 +5028,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: bˈi."
+      "l\u02c8\u026as\u1d4an: b\u02c8i."
     ],
     "seconds": 0.678,
     "mp3Bytes": 6188,
@@ -5074,7 +5062,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: sˈi."
+      "l\u02c8\u026as\u1d4an: s\u02c8i."
     ],
     "seconds": 0.671,
     "mp3Bytes": 5996,
@@ -5108,7 +5096,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ʤˈi."
+      "l\u02c8\u026as\u1d4an: \u02a4\u02c8i."
     ],
     "seconds": 0.671,
     "mp3Bytes": 5996,
@@ -5142,7 +5130,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈAʧ."
+      "l\u02c8\u026as\u1d4an: \u02c8A\u02a7."
     ],
     "seconds": 0.664,
     "mp3Bytes": 5996,
@@ -5176,7 +5164,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: kˈA."
+      "l\u02c8\u026as\u1d4an: k\u02c8A."
     ],
     "seconds": 0.699,
     "mp3Bytes": 6380,
@@ -5210,7 +5198,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˌɛl."
+      "l\u02c8\u026as\u1d4an: \u02cc\u025bl."
     ],
     "seconds": 0.559,
     "mp3Bytes": 5228,
@@ -5244,7 +5232,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈO."
+      "l\u02c8\u026as\u1d4an: \u02c8O."
     ],
     "seconds": 0.626,
     "mp3Bytes": 5804,
@@ -5278,7 +5266,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: pˈi."
+      "l\u02c8\u026as\u1d4an: p\u02c8i."
     ],
     "seconds": 0.664,
     "mp3Bytes": 5996,
@@ -5312,7 +5300,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈɛs."
+      "l\u02c8\u026as\u1d4an: \u02c8\u025bs."
     ],
     "seconds": 0.615,
     "mp3Bytes": 5612,
@@ -5346,7 +5334,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: tˈi."
+      "l\u02c8\u026as\u1d4an: t\u02c8i."
     ],
     "seconds": 0.634,
     "mp3Bytes": 5804,
@@ -5371,16 +5359,16 @@
   {
     "id": "source-aichi",
     "text": "Aichi",
-    "prompt": "[Aichi](/ˈIʧi/).",
+    "prompt": "[Aichi](/\u02c8I\u02a7i/).",
     "apps": [
       "sandwich"
     ],
-    "generationPrompt": "Listen: [Aichi](/ˈIʧi/).",
+    "generationPrompt": "Listen: [Aichi](/\u02c8I\u02a7i/).",
     "trimSeconds": 1.42,
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈIʧi."
+      "l\u02c8\u026as\u1d4an: \u02c8I\u02a7i."
     ],
     "seconds": 0.849,
     "mp3Bytes": 7532,
@@ -5414,7 +5402,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: əmˈɛɹəkə."
+      "l\u02c8\u026as\u1d4an: \u0259m\u02c8\u025b\u0279\u0259k\u0259."
     ],
     "seconds": 1.062,
     "mp3Bytes": 9260,
@@ -5439,16 +5427,16 @@
   {
     "id": "source-aomori",
     "text": "Aomori",
-    "prompt": "[Aomori](/ˈWmɔɹi/).",
+    "prompt": "[Aomori](/\u02c8Wm\u0254\u0279i/).",
     "apps": [
       "sandwich"
     ],
-    "generationPrompt": "Listen: [Aomori](/ˈWmɔɹi/).",
+    "generationPrompt": "Listen: [Aomori](/\u02c8Wm\u0254\u0279i/).",
     "trimSeconds": 1.3199999999999998,
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈWmɔɹi."
+      "l\u02c8\u026as\u1d4an: \u02c8Wm\u0254\u0279i."
     ],
     "seconds": 0.882,
     "mp3Bytes": 7724,
@@ -5482,7 +5470,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ɔstɹˈAljə."
+      "l\u02c8\u026as\u1d4an: \u0254st\u0279\u02c8Alj\u0259."
     ],
     "seconds": 1.126,
     "mp3Bytes": 9644,
@@ -5516,7 +5504,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ʧˈɪli."
+      "l\u02c8\u026as\u1d4an: \u02a7\u02c8\u026ali."
     ],
     "seconds": 0.779,
     "mp3Bytes": 6956,
@@ -5550,7 +5538,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈɛkwədˌɔɹ."
+      "l\u02c8\u026as\u1d4an: \u02c8\u025bkw\u0259d\u02cc\u0254\u0279."
     ],
     "seconds": 0.979,
     "mp3Bytes": 8492,
@@ -5584,7 +5572,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: fˌukuˈOkə."
+      "l\u02c8\u026as\u1d4an: f\u02ccuku\u02c8Ok\u0259."
     ],
     "seconds": 1.193,
     "mp3Bytes": 10220,
@@ -5609,16 +5597,16 @@
   {
     "id": "source-gunma",
     "text": "Gunma",
-    "prompt": "[Gunma](/ɡˈunmə/).",
+    "prompt": "[Gunma](/\u0261\u02c8unm\u0259/).",
     "apps": [
       "sandwich"
     ],
-    "generationPrompt": "Listen: [Gunma](/ɡˈunmə/).",
+    "generationPrompt": "Listen: [Gunma](/\u0261\u02c8unm\u0259/).",
     "trimSeconds": 1.3699999999999999,
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ɡˈunmə."
+      "l\u02c8\u026as\u1d4an: \u0261\u02c8unm\u0259."
     ],
     "seconds": 0.874,
     "mp3Bytes": 7724,
@@ -5643,16 +5631,16 @@
   {
     "id": "source-hokkaido",
     "text": "Hokkaido",
-    "prompt": "[Hokkaido](/hˌOkˈIdO/).",
+    "prompt": "[Hokkaido](/h\u02ccOk\u02c8IdO/).",
     "apps": [
       "sandwich"
     ],
-    "generationPrompt": "Listen: [Hokkaido](/hˌOkˈIdO/).",
+    "generationPrompt": "Listen: [Hokkaido](/h\u02ccOk\u02c8IdO/).",
     "trimSeconds": 1.2825,
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: hˌOkˈIdO."
+      "l\u02c8\u026as\u1d4an: h\u02ccOk\u02c8IdO."
     ],
     "seconds": 1.09,
     "mp3Bytes": 9452,
@@ -5677,16 +5665,16 @@
   {
     "id": "source-hyogo",
     "text": "Hyogo",
-    "prompt": "[Hyogo](/hˌijˈOɡO/).",
+    "prompt": "[Hyogo](/h\u02ccij\u02c8O\u0261O/).",
     "apps": [
       "sandwich"
     ],
-    "generationPrompt": "Listen: [Hyogo](/hˌijˈOɡO/).",
+    "generationPrompt": "Listen: [Hyogo](/h\u02ccij\u02c8O\u0261O/).",
     "trimSeconds": 1.2075,
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: hˌijˈOɡO."
+      "l\u02c8\u026as\u1d4an: h\u02ccij\u02c8O\u0261O."
     ],
     "seconds": 1.072,
     "mp3Bytes": 9260,
@@ -5711,16 +5699,16 @@
   {
     "id": "source-ibaraki",
     "text": "Ibaraki",
-    "prompt": "[Ibaraki](/ˌibɑɹˈɑki/).",
+    "prompt": "[Ibaraki](/\u02ccib\u0251\u0279\u02c8\u0251ki/).",
     "apps": [
       "sandwich"
     ],
-    "generationPrompt": "Listen: [Ibaraki](/ˌibɑɹˈɑki/).",
+    "generationPrompt": "Listen: [Ibaraki](/\u02ccib\u0251\u0279\u02c8\u0251ki/).",
     "trimSeconds": 1.2825,
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˌibɑɹˈɑki."
+      "l\u02c8\u026as\u1d4an: \u02ccib\u0251\u0279\u02c8\u0251ki."
     ],
     "seconds": 1.191,
     "mp3Bytes": 10220,
@@ -5754,7 +5742,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈɪndiə."
+      "l\u02c8\u026as\u1d4an: \u02c8\u026andi\u0259."
     ],
     "seconds": 0.852,
     "mp3Bytes": 7532,
@@ -5788,7 +5776,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˌɪndənˈiʒə."
+      "l\u02c8\u026as\u1d4an: \u02cc\u026and\u0259n\u02c8i\u0292\u0259."
     ],
     "seconds": 1.145,
     "mp3Bytes": 9836,
@@ -5822,7 +5810,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˈɪTəli."
+      "l\u02c8\u026as\u1d4an: \u02c8\u026aT\u0259li."
     ],
     "seconds": 0.821,
     "mp3Bytes": 7340,
@@ -5847,16 +5835,16 @@
   {
     "id": "source-iwate",
     "text": "Iwate",
-    "prompt": "[Iwate](/ˌiwˈɑtA/).",
+    "prompt": "[Iwate](/\u02cciw\u02c8\u0251tA/).",
     "apps": [
       "sandwich"
     ],
-    "generationPrompt": "Listen: [Iwate](/ˌiwˈɑtA/).",
+    "generationPrompt": "Listen: [Iwate](/\u02cciw\u02c8\u0251tA/).",
     "trimSeconds": 1.3325,
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ˌiwˈɑtA."
+      "l\u02c8\u026as\u1d4an: \u02cciw\u02c8\u0251tA."
     ],
     "seconds": 1.015,
     "mp3Bytes": 8876,
@@ -5890,7 +5878,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: kˌɑɡəʃˈimə."
+      "l\u02c8\u026as\u1d4an: k\u02cc\u0251\u0261\u0259\u0283\u02c8im\u0259."
     ],
     "seconds": 1.159,
     "mp3Bytes": 10028,
@@ -5924,7 +5912,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: kOʧˈi."
+      "l\u02c8\u026as\u1d4an: kO\u02a7\u02c8i."
     ],
     "seconds": 0.866,
     "mp3Bytes": 7724,
@@ -5958,7 +5946,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: kˌuməmˈOTO."
+      "l\u02c8\u026as\u1d4an: k\u02ccum\u0259m\u02c8OTO."
     ],
     "seconds": 1.101,
     "mp3Bytes": 9452,
@@ -5992,7 +5980,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˈɛksəkO."
+      "l\u02c8\u026as\u1d4an: m\u02c8\u025bks\u0259kO."
     ],
     "seconds": 1.097,
     "mp3Bytes": 9452,
@@ -6026,7 +6014,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: mˌɪjəzˈæki."
+      "l\u02c8\u026as\u1d4an: m\u02cc\u026aj\u0259z\u02c8\u00e6ki."
     ],
     "seconds": 1.144,
     "mp3Bytes": 9836,
@@ -6060,7 +6048,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: nɑɡˈɑnO."
+      "l\u02c8\u026as\u1d4an: n\u0251\u0261\u02c8\u0251nO."
     ],
     "seconds": 1.036,
     "mp3Bytes": 9068,
@@ -6094,7 +6082,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: nˈu zˈilənd."
+      "l\u02c8\u026as\u1d4an: n\u02c8u z\u02c8il\u0259nd."
     ],
     "seconds": 1.1,
     "mp3Bytes": 9452,
@@ -6128,7 +6116,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: sˈɑɡə."
+      "l\u02c8\u026as\u1d4an: s\u02c8\u0251\u0261\u0259."
     ],
     "seconds": 0.856,
     "mp3Bytes": 7532,
@@ -6153,16 +6141,16 @@
   {
     "id": "source-saitama",
     "text": "Saitama",
-    "prompt": "[Saitama](/sIˈtɑmə/).",
+    "prompt": "[Saitama](/sI\u02c8t\u0251m\u0259/).",
     "apps": [
       "sandwich"
     ],
-    "generationPrompt": "Listen: [Saitama](/sIˈtɑmə/).",
+    "generationPrompt": "Listen: [Saitama](/sI\u02c8t\u0251m\u0259/).",
     "trimSeconds": 1.3699999999999999,
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: sIˈtɑmə."
+      "l\u02c8\u026as\u1d4an: sI\u02c8t\u0251m\u0259."
     ],
     "seconds": 1.072,
     "mp3Bytes": 9260,
@@ -6196,7 +6184,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: tˈIlˌænd."
+      "l\u02c8\u026as\u1d4an: t\u02c8Il\u02cc\u00e6nd."
     ],
     "seconds": 0.874,
     "mp3Bytes": 7724,
@@ -6221,16 +6209,16 @@
   {
     "id": "source-tochigi",
     "text": "Tochigi",
-    "prompt": "[Tochigi](/tˌOʧˈiɡi/).",
+    "prompt": "[Tochigi](/t\u02ccO\u02a7\u02c8i\u0261i/).",
     "apps": [
       "sandwich"
     ],
-    "generationPrompt": "Listen: [Tochigi](/tˌOʧˈiɡi/).",
+    "generationPrompt": "Listen: [Tochigi](/t\u02ccO\u02a7\u02c8i\u0261i/).",
     "trimSeconds": 1.2325,
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: tˌOʧˈiɡi."
+      "l\u02c8\u026as\u1d4an: t\u02ccO\u02a7\u02c8i\u0261i."
     ],
     "seconds": 1.026,
     "mp3Bytes": 8876,
@@ -6264,7 +6252,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: vˌiɛtnˈɑm."
+      "l\u02c8\u026as\u1d4an: v\u02cci\u025btn\u02c8\u0251m."
     ],
     "seconds": 1.051,
     "mp3Bytes": 9068,
@@ -6298,7 +6286,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: ðə fˈɪləpˌinz."
+      "l\u02c8\u026as\u1d4an: \u00f0\u0259 f\u02c8\u026al\u0259p\u02ccinz."
     ],
     "seconds": 1.311,
     "mp3Bytes": 11180,
@@ -6332,7 +6320,7 @@
     "voice": "af_heart",
     "speed": 0.7,
     "phonemes": [
-      "lˈɪsᵊn: tˈɛl mˌi əbˈWt jʊɹ sˈændwˌɪʧ."
+      "l\u02c8\u026as\u1d4an: t\u02c8\u025bl m\u02cci \u0259b\u02c8Wt j\u028a\u0279 s\u02c8\u00e6ndw\u02cc\u026a\u02a7."
     ],
     "seconds": 1.779,
     "mp3Bytes": 15020,
@@ -6352,5 +6340,3180 @@
       "backupBatch": "boundary-trim-2026-10-23",
       "review": "Automated boundary audit; listening review pending"
     }
+  },
+  {
+    "id": "amusement-park",
+    "text": "amusement park",
+    "prompt": "amusement park.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: amusement park.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0259mj\u02c8uzm\u0259nt p\u02c8\u0251\u0279k."
+    ],
+    "seconds": 1.942,
+    "mp3Bytes": 16172,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "734f5d323697b059f87808d2420d4ed581239cd97a533b87d874c1cdce46a352",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "amusement-parks",
+    "text": "amusement parks",
+    "prompt": "amusement parks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: amusement parks.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0259mj\u02c8uzm\u0259nt p\u02c8\u0251\u0279ks."
+    ],
+    "seconds": 2.042,
+    "mp3Bytes": 17132,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "0cba73d123b46cca36442f337fff09d9b973a564855c09c51aacf50b75d18f6f",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "aquarium",
+    "text": "aquarium",
+    "prompt": "aquarium.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: aquarium.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0259kw\u02c8\u025b\u0279i\u0259m."
+    ],
+    "seconds": 1.692,
+    "mp3Bytes": 14252,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "5e8a8b8b88dfa0632fb039b19bba4564095c1c00874e54a9c9f27f4b6a4e2b85",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "aquariums",
+    "text": "aquariums",
+    "prompt": "aquariums.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: aquariums.",
+    "trimSeconds": 1.2075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0259kw\u02c8\u025b\u0279i\u0259mz."
+    ],
+    "seconds": 1.792,
+    "mp3Bytes": 15020,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "1aaa5de6e81786c714d8e1adb4340a77cd300b6306000d897ba4457c7ab48189",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "bookstore",
+    "text": "bookstore",
+    "prompt": "bookstore.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: bookstore.",
+    "trimSeconds": 1.2325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: b\u02c8\u028akst\u02cc\u0254\u0279."
+    ],
+    "seconds": 1.617,
+    "mp3Bytes": 13676,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "169a84378602f2d90bc66fa02a95341a6e857286d9ac6764ab5abd1944899017",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "bookstores",
+    "text": "bookstores",
+    "prompt": "bookstores.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: bookstores.",
+    "trimSeconds": 1.2075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: b\u02c8\u028akst\u02cc\u0254\u0279z."
+    ],
+    "seconds": 1.692,
+    "mp3Bytes": 14252,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "4e8b8e19d07ddddaa53f2c56c2bccdbe7e3a2f90258ad7bdf97ad60b5ef46534",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "bus-stop",
+    "text": "bus stop",
+    "prompt": "bus stop.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: bus stop.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: b\u02c8\u028cs st\u02c8\u0251p."
+    ],
+    "seconds": 1.667,
+    "mp3Bytes": 14060,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "10fd4bf686e838bcf48500d063565c41a1af65af4f3031fb128ac95494bb5243",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "bus-stops",
+    "text": "bus stops",
+    "prompt": "bus stops.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: bus stops.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: b\u02c8\u028cs st\u02c8\u0251ps."
+    ],
+    "seconds": 1.768,
+    "mp3Bytes": 14828,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "3640d25d2d8904a25d851f12b1f1b76eb13e7d2955de6e2cf5adad0ffb571936",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "castle",
+    "text": "castle",
+    "prompt": "castle.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: castle.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u02c8\u00e6s\u1d4al."
+    ],
+    "seconds": 1.505,
+    "mp3Bytes": 12716,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "ee8b21a31354fd8f4d290da57b8d81331d26e72b70350cd43a8dbbbc02711305",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "castles",
+    "text": "castles",
+    "prompt": "castles.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: castles.",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u02c8\u00e6s\u1d4alz."
+    ],
+    "seconds": 1.617,
+    "mp3Bytes": 13676,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "55478b50de8ef8b99a87b0cdcc201acb7710f1ee28e6f8869a85278e1b3ddc3e",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "church",
+    "text": "church",
+    "prompt": "church.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: church.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u02a7\u02c8\u025c\u0279\u02a7."
+    ],
+    "seconds": 1.405,
+    "mp3Bytes": 11948,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "26d0dbe84f0fc291754c68f1cfce952b2951ab1e6ec2c6b0856dc27343292f5c",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "churches",
+    "text": "churches",
+    "prompt": "churches.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: churches.",
+    "trimSeconds": 1.3199999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u02a7\u02c8\u025c\u0279\u02a7\u1d7bz."
+    ],
+    "seconds": 1.655,
+    "mp3Bytes": 13868,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "668695fb63dde198d3f0f90960a429c5211526d371043f313aa62070d4bb5b41",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "circle",
+    "text": "circle",
+    "prompt": "circle.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: circle.",
+    "trimSeconds": 1.3575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: s\u02c8\u025c\u0279k\u1d4al."
+    ],
+    "seconds": 1.492,
+    "mp3Bytes": 12716,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "925dc6cf7aace546381a88177a4e7f58b76366e5cb6c3017f98beff84875108e",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "circles",
+    "text": "circles",
+    "prompt": "circles.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: circles.",
+    "trimSeconds": 1.3199999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: s\u02c8\u025c\u0279k\u1d4alz."
+    ],
+    "seconds": 1.58,
+    "mp3Bytes": 13292,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "10d86a34329b1236932e9b64c7870e9b300d08e324ffe09e635b89474235a973",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "club",
+    "text": "club",
+    "prompt": "club.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: club.",
+    "trimSeconds": 1.3199999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: kl\u02c8\u028cb."
+    ],
+    "seconds": 1.405,
+    "mp3Bytes": 11948,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "624a8e43f0db8593930101154f7a4bea86139851a479f696814b0025eae1b5ba",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "clubs",
+    "text": "clubs",
+    "prompt": "clubs.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: clubs.",
+    "trimSeconds": 1.295,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: kl\u02c8\u028cbz."
+    ],
+    "seconds": 1.48,
+    "mp3Bytes": 12524,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "15caadc16a3c108768f3ef51455c4d253872d2415ae1d57b141aa2e6e89109e0",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "continue-eight-blocks",
+    "text": "Continue eight blocks.",
+    "prompt": "Continue eight blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Continue eight blocks.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0259nt\u02c8\u026anju \u02c8At bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.417,
+    "mp3Bytes": 20012,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "453284d6efa609cb7c5f104e73c134d8af6c7ae75d988f13330f6bfa35841076",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "continue-eleven-blocks",
+    "text": "Continue eleven blocks.",
+    "prompt": "Continue eleven blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Continue eleven blocks.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0259nt\u02c8\u026anju \u0259l\u02c8\u025bv\u1d4an bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.667,
+    "mp3Bytes": 22124,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "8625fbe8b51f6f189da14c9a7718a8ee60b72c41c780883bb7c7c965bb637d98",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "continue-five-blocks",
+    "text": "Continue five blocks.",
+    "prompt": "Continue five blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Continue five blocks.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0259nt\u02c8\u026anju f\u02c8Iv bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.567,
+    "mp3Bytes": 21164,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "7ab12fb97b06e2895f8e084c1258aa4e6ed1646d00cbd0ace1c0282cf8ba1321",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "continue-four-blocks",
+    "text": "Continue four blocks.",
+    "prompt": "Continue four blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Continue four blocks.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0259nt\u02c8\u026anju f\u02c8\u0254\u0279 bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.442,
+    "mp3Bytes": 20204,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "e37a63533f8368991405ddb15b414d039a6427f587e91c0da07c514c7c29deed",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "continue-nine-blocks",
+    "text": "Continue nine blocks.",
+    "prompt": "Continue nine blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Continue nine blocks.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0259nt\u02c8\u026anju n\u02c8In bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.467,
+    "mp3Bytes": 20396,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "5e65c34e1cc347c106d626fa696506cf8ecc9f1857c4c7aa1adba262fef855bc",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "continue-one-block",
+    "text": "Continue one block.",
+    "prompt": "Continue one block.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Continue one block.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0259nt\u02c8\u026anju w\u02c8\u028cn bl\u02c8\u0251k."
+    ],
+    "seconds": 2.342,
+    "mp3Bytes": 19436,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "4a99ea21bb01a2955e997f732b1d2c824b91c7485cd337285504b99f52094e6a",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "continue-seven-blocks",
+    "text": "Continue seven blocks.",
+    "prompt": "Continue seven blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Continue seven blocks.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0259nt\u02c8\u026anju s\u02c8\u025bv\u0259n bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.592,
+    "mp3Bytes": 21548,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "634f089a035fd2284b3e15f0fbf0b2ff39d3fcfe7505629cd0726b48f68e20e5",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "continue-six-blocks",
+    "text": "Continue six blocks.",
+    "prompt": "Continue six blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Continue six blocks.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0259nt\u02c8\u026anju s\u02c8\u026aks bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.493,
+    "mp3Bytes": 20588,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "7a6e2d146a59f34f1cce4b754bfc1bc188baa9a91f1a2ab37a807a3260bbf9ef",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "continue-ten-blocks",
+    "text": "Continue ten blocks.",
+    "prompt": "Continue ten blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Continue ten blocks.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0259nt\u02c8\u026anju t\u02c8\u025bn bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.467,
+    "mp3Bytes": 20396,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "af2dcd1f6eb1048c97e3fd874107d0f8f984eebc4fcf5fd0937d3a638853e4be",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "continue-three-blocks",
+    "text": "Continue three blocks.",
+    "prompt": "Continue three blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Continue three blocks.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0259nt\u02c8\u026anju \u03b8\u0279\u02c8i bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.467,
+    "mp3Bytes": 20396,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "a6d2ce5733c49efb7e053a499697c2c577867eb42c966bbcde8b43a964ac6c88",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "continue-twelve-blocks",
+    "text": "Continue twelve blocks.",
+    "prompt": "Continue twelve blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Continue twelve blocks.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0259nt\u02c8\u026anju tw\u02c8\u025blv bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.518,
+    "mp3Bytes": 20780,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "1088900861e6405b1abacb23adb019937f355a9349c4da8d001647aff47a4adf",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "continue-two-blocks",
+    "text": "Continue two blocks.",
+    "prompt": "Continue two blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Continue two blocks.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0259nt\u02c8\u026anju t\u02c8u bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.417,
+    "mp3Bytes": 20012,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "d3a3ec51237b7a2d85bd7ec4a75db66a645d2fc40145070dff256757d6748d32",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "convenience-store",
+    "text": "convenience store",
+    "prompt": "convenience store.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: convenience store.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0259nv\u02c8inj\u0259ns st\u02c8\u0254\u0279."
+    ],
+    "seconds": 2.143,
+    "mp3Bytes": 17900,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "d5b72e65870b6dc0657c721c0ef0b515a2e9f69a993fd2da7ecd149a2a767522",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "convenience-stores",
+    "text": "convenience stores",
+    "prompt": "convenience stores.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: convenience stores.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0259nv\u02c8inj\u0259ns st\u02c8\u0254\u0279z."
+    ],
+    "seconds": 2.268,
+    "mp3Bytes": 18860,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "c3d75d517b41060b3cc34ec4938bcd8b6818dabd9a21bef02d22c1baa9d7ca70",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "cross",
+    "text": "cross",
+    "prompt": "cross.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: cross.",
+    "trimSeconds": 1.3074999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0279\u02c8\u0254s."
+    ],
+    "seconds": 1.468,
+    "mp3Bytes": 12524,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "e70420e750ae1b0f36f3ee58f2d79474f983dcd281d362ae3d1492783747a24d",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "cross-the-bridge",
+    "text": "Cross the bridge.",
+    "prompt": "Cross the bridge.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Cross the bridge.",
+    "trimSeconds": 1.0574999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0279\u02c8\u0254s \u00f0\u0259 b\u0279\u02c8\u026a\u02a4."
+    ],
+    "seconds": 1.917,
+    "mp3Bytes": 15980,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "fae64c53759692116c4106860889eabd4497ca550d4d726a9586f336d870bcc8",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "cross-the-tracks",
+    "text": "Cross the tracks.",
+    "prompt": "Cross the tracks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Cross the tracks.",
+    "trimSeconds": 1.0574999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0279\u02c8\u0254s \u00f0\u0259 t\u0279\u02c8\u00e6ks."
+    ],
+    "seconds": 1.942,
+    "mp3Bytes": 16172,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "d17d71cfda1fb0ffe66817f3df0efdde7084f798104439688cbe3ad41d86bef1",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "crosses",
+    "text": "crosses",
+    "prompt": "crosses.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: crosses.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: k\u0279\u02c8\u0254s\u1d7bz."
+    ],
+    "seconds": 1.643,
+    "mp3Bytes": 13868,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "9c978ce7e53ca874f59e27d0a8a3b4324be7d7f7c51028b6490e34be07b8b964",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "diamond",
+    "text": "diamond",
+    "prompt": "diamond.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: diamond.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: d\u02c8I\u0259m\u0259nd."
+    ],
+    "seconds": 1.593,
+    "mp3Bytes": 13484,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "f1f5dde732872fb2e6ceda51432291563cf9fe594d3dbfbc440732dccc18caf2",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "diamonds",
+    "text": "diamonds",
+    "prompt": "diamonds.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: diamonds.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: d\u02c8I\u0259m\u0259ndz."
+    ],
+    "seconds": 1.617,
+    "mp3Bytes": 13676,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "579c33e26522ade97827f88d925673f829840941de1e7331c4ebf2e0f06a45e9",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "elementary-school",
+    "text": "elementary school",
+    "prompt": "elementary school.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: elementary school.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u02cc\u025bl\u0259m\u02c8\u025bnt\u0259\u0279i sk\u02c8ul."
+    ],
+    "seconds": 2.118,
+    "mp3Bytes": 17708,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "0b8652ae34f1d9afa0bdcf7695507def001793544b701dba7bafc36fb1665f44",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "elementary-schools",
+    "text": "elementary schools",
+    "prompt": "elementary schools.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: elementary schools.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u02cc\u025bl\u0259m\u02c8\u025bnt\u0259\u0279i sk\u02c8ulz."
+    ],
+    "seconds": 2.217,
+    "mp3Bytes": 18476,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "c513fd137b4472b200e7ee19ae5296ee52d40567c20e089bf86b5aae69535d60",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "fire-station",
+    "text": "fire station",
+    "prompt": "fire station.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: fire station.",
+    "trimSeconds": 1.145,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: f\u02c8I\u0259\u0279 st\u02c8A\u0283\u0259n."
+    ],
+    "seconds": 1.98,
+    "mp3Bytes": 16556,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "766f1e5723aea219557e3448b9dae427868f7a3841445bccad6d5b56f7f6412c",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "fire-stations",
+    "text": "fire stations",
+    "prompt": "fire stations.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: fire stations.",
+    "trimSeconds": 1.1199999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: f\u02c8I\u0259\u0279 st\u02c8A\u0283\u0259nz."
+    ],
+    "seconds": 2.08,
+    "mp3Bytes": 17324,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "75b309cf312e198980b41041ca1a467e6d649eb921370f43ab2632c807e262fc",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "go-straight-for-eight-blocks",
+    "text": "Go straight for eight blocks.",
+    "prompt": "Go straight for eight blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Go straight for eight blocks.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0261\u02ccO st\u0279\u02c8At f\u0254\u0279 \u02c8At bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.567,
+    "mp3Bytes": 21164,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "c88e92658d5678b929c138634d195d5cbc65c2f16cb2fe844cc30ccf231c44a0",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "go-straight-for-eleven-blocks",
+    "text": "Go straight for eleven blocks.",
+    "prompt": "Go straight for eleven blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Go straight for eleven blocks.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0261\u02ccO st\u0279\u02c8At f\u0254\u0279 \u0259l\u02c8\u025bv\u1d4an bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.743,
+    "mp3Bytes": 22700,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "ef77367d6f4871d197d09a238c07c3d3a8d368ec42986fb72d88deb15149c1b8",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "go-straight-for-five-blocks",
+    "text": "Go straight for five blocks.",
+    "prompt": "Go straight for five blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Go straight for five blocks.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0261\u02ccO st\u0279\u02c8At f\u0254\u0279 f\u02c8Iv bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.743,
+    "mp3Bytes": 22700,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "1d22ad79723f522d45037dd13f96d4f6078f6b2ded3482f57639863c62b6b751",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "go-straight-for-four-blocks",
+    "text": "Go straight for four blocks.",
+    "prompt": "Go straight for four blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Go straight for four blocks.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0261\u02ccO st\u0279\u02c8At f\u0254\u0279 f\u02c8\u0254\u0279 bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.618,
+    "mp3Bytes": 21740,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "e7bba5d3482bcc8cdefd8ffab3fd6677e6bc9a26be64322047c08ab8235fcad9",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "go-straight-for-nine-blocks",
+    "text": "Go straight for nine blocks.",
+    "prompt": "Go straight for nine blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Go straight for nine blocks.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0261\u02ccO st\u0279\u02c8At f\u0254\u0279 n\u02c8In bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.618,
+    "mp3Bytes": 21740,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "cdcc1fb33eabba0acfbc47bb5f3448d82902bd92b008be582a597167f839738e",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "go-straight-for-one-block",
+    "text": "Go straight for one block.",
+    "prompt": "Go straight for one block.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Go straight for one block.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0261\u02ccO st\u0279\u02c8At f\u0254\u0279 w\u02c8\u028cn bl\u02c8\u0251k."
+    ],
+    "seconds": 2.417,
+    "mp3Bytes": 20012,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "5aee243052c0911af8ceca1504cca30c5f4c399f9a3702ff444789a5d7de11f0",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "go-straight-for-seven-blocks",
+    "text": "Go straight for seven blocks.",
+    "prompt": "Go straight for seven blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Go straight for seven blocks.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0261\u02ccO st\u0279\u02c8At f\u0254\u0279 s\u02c8\u025bv\u0259n bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.768,
+    "mp3Bytes": 22892,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "41ff0a882771496512caca55396a61d423b4976ffffaa57c860b63c17eaf9f66",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "go-straight-for-six-blocks",
+    "text": "Go straight for six blocks.",
+    "prompt": "Go straight for six blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Go straight for six blocks.",
+    "trimSeconds": 1.0825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0261\u02ccO st\u0279\u02c8At f\u0254\u0279 s\u02c8\u026aks bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.692,
+    "mp3Bytes": 22316,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "943710cadc156cda93348c08e0b56445dc2aea2e025019cd54ae098a68cc2c91",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "go-straight-for-ten-blocks",
+    "text": "Go straight for ten blocks.",
+    "prompt": "Go straight for ten blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Go straight for ten blocks.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0261\u02ccO st\u0279\u02c8At f\u0254\u0279 t\u02c8\u025bn bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.643,
+    "mp3Bytes": 21932,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "1c8c9aab4e235884abb4cb65a25fbe8a80eb1ea7108c4bbe0ef280d1a1808680",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "go-straight-for-three-blocks",
+    "text": "Go straight for three blocks.",
+    "prompt": "Go straight for three blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Go straight for three blocks.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0261\u02ccO st\u0279\u02c8At f\u0254\u0279 \u03b8\u0279\u02c8i bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.667,
+    "mp3Bytes": 22124,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "5ee11c4c4b8c0ea6c5311c56ad757f6432e18028fa5449b2e84260db39b9dbe0",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "go-straight-for-twelve-blocks",
+    "text": "Go straight for twelve blocks.",
+    "prompt": "Go straight for twelve blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Go straight for twelve blocks.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0261\u02ccO st\u0279\u02c8At f\u0254\u0279 tw\u02c8\u025blv bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.692,
+    "mp3Bytes": 22316,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "af0e14b39d1d7c5ee2eae7e5e831798934be2ce59cffe123b89e789fc534d0c0",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "go-straight-for-two-blocks",
+    "text": "Go straight for two blocks.",
+    "prompt": "Go straight for two blocks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Go straight for two blocks.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0261\u02ccO st\u0279\u02c8At f\u0254\u0279 t\u02c8u bl\u02c8\u0251ks."
+    ],
+    "seconds": 2.542,
+    "mp3Bytes": 20972,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "9171301dabc76a17476f1e2a1b94dcd4164d7b85528902a0a3d6b4cedfb17056",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "heart",
+    "text": "heart",
+    "prompt": "heart.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: heart.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: h\u02c8\u0251\u0279t."
+    ],
+    "seconds": 1.317,
+    "mp3Bytes": 11180,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "048832e9ac890212a0b2786d486f812679a8f1e87bd803c7ed9c340feeb5df6f",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "hearts",
+    "text": "hearts",
+    "prompt": "hearts.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: hearts.",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: h\u02c8\u0251\u0279ts."
+    ],
+    "seconds": 1.442,
+    "mp3Bytes": 12332,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "b8df1510de66d9a83f10bea1e852bfe342a4a525f236f88dfcce5c0740956302",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "hospital",
+    "text": "hospital",
+    "prompt": "hospital.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: hospital.",
+    "trimSeconds": 1.2075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: h\u02c8\u0251sp\u02cc\u026aT\u1d4al."
+    ],
+    "seconds": 1.692,
+    "mp3Bytes": 14252,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "3f98c7297cc052bfaa0649354bc1fd28994c585bfd455d46e9afc02aa1e17634",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "hospitals",
+    "text": "hospitals",
+    "prompt": "hospitals.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: hospitals.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: h\u02c8\u0251sp\u02cc\u026aT\u1d4alz."
+    ],
+    "seconds": 1.768,
+    "mp3Bytes": 14828,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "36f0b2789f3f4a6104d70358f32973fdbb966d0fef738a93a77f5f3820b80283",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "house",
+    "text": "house",
+    "prompt": "house.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: house.",
+    "trimSeconds": 1.3074999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: h\u02c8Ws."
+    ],
+    "seconds": 1.393,
+    "mp3Bytes": 11948,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "e24b61f15b9f8bb765e8559a068dcac3009f48b9f97f630c1c00de0b1a0c4bb3",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "houses",
+    "text": "houses",
+    "prompt": "houses.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: houses.",
+    "trimSeconds": 1.3074999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: h\u02c8Ws\u1d7bz."
+    ],
+    "seconds": 1.617,
+    "mp3Bytes": 13676,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "07f938f7f0ca92a3e045272d6c1f6333594ca990e8c384ce50592ee7c25161df",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "junior-high-school",
+    "text": "junior high school",
+    "prompt": "junior high school.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: junior high school.",
+    "trimSeconds": 1.17,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u02a4\u02c8unj\u0259\u0279 h\u02c8I sk\u02c8ul."
+    ],
+    "seconds": 2.08,
+    "mp3Bytes": 17324,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "e47cb8503e8ec41d0f9e5a26b3e1c892219f77a12c98cf7673c0485cce0363c2",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "junior-high-schools",
+    "text": "junior high schools",
+    "prompt": "junior high schools.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: junior high schools.",
+    "trimSeconds": 1.17,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u02a4\u02c8unj\u0259\u0279 h\u02c8I sk\u02c8ulz."
+    ],
+    "seconds": 2.23,
+    "mp3Bytes": 18476,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "0e940f148632e1a72696ccb10edbad99f75c1fe3ed5b882bbd927aa73321da25",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter",
+    "text": "letter",
+    "prompt": "letter.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter.",
+    "trimSeconds": 1.4449999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279."
+    ],
+    "seconds": 1.405,
+    "mp3Bytes": 11948,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "84405ed63404fd3f6abda5d1bfea8429bcae0ae5547390a708fce4dc9b0b4360",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-a-plural",
+    "text": "letter As",
+    "prompt": "letter [As](/\u02c8Az/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [As](/\u02c8Az/).",
+    "trimSeconds": 1.295,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 \u02c8Az."
+    ],
+    "seconds": 1.78,
+    "mp3Bytes": 15020,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "29279899991d6d77d4ad6d45608dea894a76347800a83230dc1738c849fb097e",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-b-plural",
+    "text": "letter Bs",
+    "prompt": "letter [Bs](/b\u02c8iz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Bs](/b\u02c8iz/).",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 b\u02c8iz."
+    ],
+    "seconds": 1.792,
+    "mp3Bytes": 15020,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "f52b516327582b07dc88037b3b1077f5994db5bb3ae5a723c678472605764770",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-c-plural",
+    "text": "letter Cs",
+    "prompt": "letter [Cs](/s\u02c8iz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Cs](/s\u02c8iz/).",
+    "trimSeconds": 1.1824999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 s\u02c8iz."
+    ],
+    "seconds": 1.792,
+    "mp3Bytes": 15020,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "2fa0d714dc18f5a7f50895032fa6d0be398a11c727b2a2ea15fa20aac4f3c714",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-d",
+    "text": "D",
+    "prompt": "D.",
+    "apps": [
+      "paper-craft"
+    ],
+    "role": "letter",
+    "generationPrompt": "Listen: D.",
+    "trimSeconds": 1.4449999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: d\u02c8i"
+    ],
+    "seconds": 1.405,
+    "mp3Bytes": 11948,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "85d0a461d6f144cb1a4b6f15169169b9386ab787d0f8a4a0008e0c32d99ea0ea",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-d-plural",
+    "text": "letter Ds",
+    "prompt": "letter [Ds](/d\u02c8iz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Ds](/d\u02c8iz/).",
+    "trimSeconds": 1.2449999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 d\u02c8iz."
+    ],
+    "seconds": 1.83,
+    "mp3Bytes": 15404,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "93f643af2f5074b05636fcc57a0e6742bcbcccd14b72d66f1be8f33563db65b4",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-e",
+    "text": "E",
+    "prompt": "E.",
+    "apps": [
+      "paper-craft"
+    ],
+    "role": "letter",
+    "generationPrompt": "Listen: E.",
+    "trimSeconds": 1.5699999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u02c8i"
+    ],
+    "seconds": 1.005,
+    "mp3Bytes": 8684,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "d11281a7c4d307e9abf3f6cb777ad9ca77a93c3fd9e73826a12dad97c2fa75c0",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-e-plural",
+    "text": "letter Es",
+    "prompt": "letter [Es](/\u02c8iz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Es](/\u02c8iz/).",
+    "trimSeconds": 1.295,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 \u02c8iz."
+    ],
+    "seconds": 1.78,
+    "mp3Bytes": 15020,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "1254b94c34eee9578f5e142dd3c8e28d879e59e7637692bca9e8c35909c2368b",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-f",
+    "text": "F",
+    "prompt": "F.",
+    "apps": [
+      "paper-craft"
+    ],
+    "role": "letter",
+    "generationPrompt": "Listen: F.",
+    "trimSeconds": 1.52,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u02c8\u025bf"
+    ],
+    "seconds": 1.03,
+    "mp3Bytes": 8876,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "6701cc16903b5d237a17217e4e169714d790a8946c50ff6c4d0917481f2e649d",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-f-plural",
+    "text": "letter Fs",
+    "prompt": "letter [Fs](/\u02c8\u025bfs/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Fs](/\u02c8\u025bfs/).",
+    "trimSeconds": 1.22,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 \u02c8\u025bfs."
+    ],
+    "seconds": 1.68,
+    "mp3Bytes": 14060,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "546890466160c4dcbd348b9e2f196a0383494720a689bcba83ad5e0d93115795",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-g-plural",
+    "text": "letter Gs",
+    "prompt": "letter [Gs](/\u02a4\u02c8iz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Gs](/\u02a4\u02c8iz/).",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 \u02a4\u02c8iz."
+    ],
+    "seconds": 1.817,
+    "mp3Bytes": 15212,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "d1dbacb805f333a87551b189a9e539367e9e55de24df01940098cf34146ecf56",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-h-plural",
+    "text": "letter Hs",
+    "prompt": "letter [Hs](/\u02c8A\u02a7\u026az/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Hs](/\u02c8A\u02a7\u026az/).",
+    "trimSeconds": 1.27,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 \u02c8A\u02a7\u026az."
+    ],
+    "seconds": 1.905,
+    "mp3Bytes": 15980,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "d65a626381ff9b496a49ddfe060719d9573fa6ee52d55ba34c6a4410b006fbc3",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-i",
+    "text": "I",
+    "prompt": "I.",
+    "apps": [
+      "paper-craft"
+    ],
+    "role": "letter",
+    "generationPrompt": "Listen: I.",
+    "trimSeconds": 1.6199999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u02c8I"
+    ],
+    "seconds": 1.08,
+    "mp3Bytes": 9260,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "4af93b92e86cc4be6fb24db97a4fac89c40c02bd49165220359366f6abde03ea",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-i-plural",
+    "text": "letter Is",
+    "prompt": "letter [Is](/\u02c8Iz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Is](/\u02c8Iz/).",
+    "trimSeconds": 1.295,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 \u02c8Iz."
+    ],
+    "seconds": 1.78,
+    "mp3Bytes": 15020,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "368cf42cfc0951627b7c407e3d2f4008d32bff61d970b209cd24039c6340ddc1",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-j",
+    "text": "J",
+    "prompt": "J.",
+    "apps": [
+      "paper-craft"
+    ],
+    "role": "letter",
+    "generationPrompt": "Listen: J.",
+    "trimSeconds": 1.52,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u02a4\u02c8A"
+    ],
+    "seconds": 1.255,
+    "mp3Bytes": 10796,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "bb8fcc4a93cc19cd3097d9940618d2998069924662f765626e5ae920d0785c2d",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-j-plural",
+    "text": "letter Js",
+    "prompt": "letter [Js](/\u02a4\u02c8Az/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Js](/\u02a4\u02c8Az/).",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 \u02a4\u02c8Az."
+    ],
+    "seconds": 1.817,
+    "mp3Bytes": 15212,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "f01c5e5c8253053e34a5724313d9bba37e9d05380625abbf4193ef60379a9f5f",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-k-plural",
+    "text": "letter Ks",
+    "prompt": "letter [Ks](/k\u02c8Az/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Ks](/k\u02c8Az/).",
+    "trimSeconds": 1.2075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 k\u02c8Az."
+    ],
+    "seconds": 1.742,
+    "mp3Bytes": 14636,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "7c453adab9253358458f7c206a97a449eb511b3dbbe748e43ea53e257477aac1",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-l-plural",
+    "text": "letter Ls",
+    "prompt": "letter [Ls](/\u02c8\u025blz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Ls](/\u02c8\u025blz/).",
+    "trimSeconds": 1.27,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 \u02c8\u025blz."
+    ],
+    "seconds": 1.755,
+    "mp3Bytes": 14828,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "0682575500c06592c9e9d66bd486072a609f0c68fe3d26761533f019360e79a4",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-m",
+    "text": "M",
+    "prompt": "M.",
+    "apps": [
+      "paper-craft"
+    ],
+    "role": "letter",
+    "generationPrompt": "Listen: M.",
+    "trimSeconds": 1.4449999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u02c8\u025bm"
+    ],
+    "seconds": 1.33,
+    "mp3Bytes": 11372,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "2f9551e4c45672dbab52ac214f587543953c532e0c767aec0d538c870cfddc2f",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-m-plural",
+    "text": "letter Ms",
+    "prompt": "letter [Ms](/\u02c8\u025bmz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Ms](/\u02c8\u025bmz/).",
+    "trimSeconds": 1.3199999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 \u02c8\u025bmz"
+    ],
+    "seconds": 1.755,
+    "mp3Bytes": 14828,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "fc1891fc33cc6b8db35c6f5a48821056d6c83dbb34b84b3f5c27139b9a9159a9",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-n",
+    "text": "N",
+    "prompt": "N.",
+    "apps": [
+      "paper-craft"
+    ],
+    "role": "letter",
+    "generationPrompt": "Listen: N.",
+    "trimSeconds": 1.47,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u02c8\u025bn"
+    ],
+    "seconds": 1.08,
+    "mp3Bytes": 9260,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "da768987cf17d3bfb1f3b971b120a03cee1ef012cd2a180229776b69a42571d0",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-n-plural",
+    "text": "letter Ns",
+    "prompt": "letter [Ns](/\u02c8\u025bnz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Ns](/\u02c8\u025bnz/).",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 \u02c8\u025bnz."
+    ],
+    "seconds": 1.768,
+    "mp3Bytes": 14828,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "af10491c2652d9dcde9883935bb9c436c2611953057b52168053354eafc83060",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-o-plural",
+    "text": "letter Os",
+    "prompt": "letter [Os](/\u02c8Oz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Os](/\u02c8Oz/).",
+    "trimSeconds": 1.295,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 \u02c8Oz."
+    ],
+    "seconds": 1.78,
+    "mp3Bytes": 15020,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "b4180723c9615bfb188f2c955d90df60acd1a21b326cabd648e3bee0fcf1c543",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-p-plural",
+    "text": "letter Ps",
+    "prompt": "letter [Ps](/p\u02c8iz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Ps](/p\u02c8iz/).",
+    "trimSeconds": 1.2325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 p\u02c8iz."
+    ],
+    "seconds": 1.768,
+    "mp3Bytes": 14828,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "70324e77c1c0515a4928ec8301975a0ebd29af5788a0af3e519172c2dd074cf6",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-q",
+    "text": "Q",
+    "prompt": "Q.",
+    "apps": [
+      "paper-craft"
+    ],
+    "role": "letter",
+    "generationPrompt": "Listen: Q.",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: kj\u02c8u"
+    ],
+    "seconds": 1.33,
+    "mp3Bytes": 11372,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "0febfd4ef7bcf76f8cb906e21d55499b6668b0f1a09c9d44d71ad99c0fea338b",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-q-plural",
+    "text": "letter Qs",
+    "prompt": "letter [Qs](/kj\u02c8uz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Qs](/kj\u02c8uz/).",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 kj\u02c8uz."
+    ],
+    "seconds": 1.817,
+    "mp3Bytes": 15212,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "186ffef1851122cf4addb1b3a18389ec02686064f0c41ca73347e0f3211ad1cc",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-r",
+    "text": "R",
+    "prompt": "[R](/\u02c8\u0251\u0279/)!",
+    "apps": [
+      "paper-craft"
+    ],
+    "role": "letter",
+    "generationPrompt": "Listen: [R](/\u02c8\u0251\u0279/)!",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u02c8\u0251\u0279!"
+    ],
+    "seconds": 1.255,
+    "mp3Bytes": 10796,
+    "review": "approved",
+    "sourceBatch": "town-shapes-r-20261116-03",
+    "sha256": "36cfacef4aab5e622155e8f1583aae9f547fbbbe11c236bc9bd522a8ee07fcad",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-r-plural",
+    "text": "letter Rs",
+    "prompt": "letter [Rs](/\u02c8\u0251\u0279z/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Rs](/\u02c8\u0251\u0279z/).",
+    "trimSeconds": 1.27,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 \u02c8\u0251\u0279z."
+    ],
+    "seconds": 1.805,
+    "mp3Bytes": 15212,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "a1ba36ca2ca4caf719cfb7d26865353618bbb8566ce80c1ed448197a3d79bfb2",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-s-plural",
+    "text": "letter Ss",
+    "prompt": "letter [Ss](/\u02c8\u025bs\u026az/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Ss](/\u02c8\u025bs\u026az/).",
+    "trimSeconds": 1.27,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 \u02c8\u025bs\u026az."
+    ],
+    "seconds": 1.855,
+    "mp3Bytes": 15596,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "36e3f071b20afb5a92e3298d7381616235f7f808e1d7793dc5d704eca33e529b",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-t-plural",
+    "text": "letter Ts",
+    "prompt": "letter [Ts](/t\u02c8iz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Ts](/t\u02c8iz/).",
+    "trimSeconds": 1.2325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 t\u02c8iz."
+    ],
+    "seconds": 1.792,
+    "mp3Bytes": 15020,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "f3599632c6f53ae4ccd50aa4e9be24d26981fc8b0b02188347c04e8161ec9612",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-u",
+    "text": "U",
+    "prompt": "U.",
+    "apps": [
+      "paper-craft"
+    ],
+    "role": "letter",
+    "generationPrompt": "Listen: U.",
+    "trimSeconds": 1.5074999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: j\u02c8u"
+    ],
+    "seconds": 1.292,
+    "mp3Bytes": 10988,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "3ec27fbdb63e7bf0c183f01783319a9199a18bd6abb4b69419913e1c6b0a71b9",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-u-plural",
+    "text": "letter Us",
+    "prompt": "letter [Us](/j\u02c8uz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Us](/j\u02c8uz/).",
+    "trimSeconds": 1.2325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 j\u02c8uz."
+    ],
+    "seconds": 1.817,
+    "mp3Bytes": 15212,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "d9fcd634806c03d0cddf79911b512c00d2ba333e75bcc268ef2fa89a083ed9d9",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-v",
+    "text": "V",
+    "prompt": "V.",
+    "apps": [
+      "paper-craft"
+    ],
+    "role": "letter",
+    "generationPrompt": "Listen: V.",
+    "trimSeconds": 1.4825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: v\u02c8i"
+    ],
+    "seconds": 1.393,
+    "mp3Bytes": 11948,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "da6040f77988a2c710bd27b1481dfda5fb1a29369951d27d3a6e06d2a4e21bf5",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-v-plural",
+    "text": "letter Vs",
+    "prompt": "letter [Vs](/v\u02c8iz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Vs](/v\u02c8iz/).",
+    "trimSeconds": 1.27,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 v\u02c8iz."
+    ],
+    "seconds": 1.805,
+    "mp3Bytes": 15212,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "22f7ab3fd7cc512588a219b9baeab98b7918143d285da48dbb0bc97434dff9c4",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-w",
+    "text": "W",
+    "prompt": "W.",
+    "apps": [
+      "paper-craft"
+    ],
+    "role": "letter",
+    "generationPrompt": "Listen: W.",
+    "trimSeconds": 1.3824999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: d\u02c8\u028cb\u1d4alju"
+    ],
+    "seconds": 1.667,
+    "mp3Bytes": 14060,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "99e831eeae88d31b77609d4b866310eb5ef6a577997c65d2b10c00fbff3528b7",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-w-plural",
+    "text": "letter Ws",
+    "prompt": "letter [Ws](/d\u02c8\u028cb\u1d4aljuz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Ws](/d\u02c8\u028cb\u1d4aljuz/).",
+    "trimSeconds": 1.2449999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 d\u02c8\u028cb\u1d4aljuz."
+    ],
+    "seconds": 2.055,
+    "mp3Bytes": 17132,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "087b46d153722ff17f4038fd2bfc89135d4ed76513e5abb5e94f921c134bd0a8",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-x",
+    "text": "X",
+    "prompt": "X.",
+    "apps": [
+      "paper-craft"
+    ],
+    "role": "letter",
+    "generationPrompt": "Listen: X.",
+    "trimSeconds": 1.4949999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u02c8\u025bks"
+    ],
+    "seconds": 1.055,
+    "mp3Bytes": 9068,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "8db7beda0d3ffeeb38d595d22c2ee714312436b82e1b2273aaa50a1b0c168f6a",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-x-plural",
+    "text": "letter Xs",
+    "prompt": "letter [Xs](/\u02c8\u025bks\u026az/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Xs](/\u02c8\u025bks\u026az/).",
+    "trimSeconds": 1.2075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 \u02c8\u025bks\u026az."
+    ],
+    "seconds": 1.893,
+    "mp3Bytes": 15788,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "a16195e2cf98d9eb2b00fa04ef84c21d20eeb1abb5f419addfbe0c2b0d0e23f8",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-y",
+    "text": "Y",
+    "prompt": "Y.",
+    "apps": [
+      "paper-craft"
+    ],
+    "role": "letter",
+    "generationPrompt": "Listen: Y.",
+    "trimSeconds": 1.52,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: w\u02c8I"
+    ],
+    "seconds": 1.255,
+    "mp3Bytes": 10796,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "bd5739a52e700db95afd12856ddb1702c117eb64c7e102165339a118ad22963b",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-y-plural",
+    "text": "letter Ys",
+    "prompt": "letter [Ys](/w\u02c8Iz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Ys](/w\u02c8Iz/).",
+    "trimSeconds": 1.2325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 w\u02c8Iz."
+    ],
+    "seconds": 1.817,
+    "mp3Bytes": 15212,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "7d552764577ebc25eadecd36a4810d3719a1d30673e9272cf8bcb860000c0846",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-z",
+    "text": "Z",
+    "prompt": "Z.",
+    "apps": [
+      "paper-craft"
+    ],
+    "role": "letter",
+    "generationPrompt": "Listen: Z.",
+    "trimSeconds": 1.4575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: z\u02c8i"
+    ],
+    "seconds": 1.292,
+    "mp3Bytes": 10988,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "84ea8450d069c9707a0a050003bf6908c9d4deaa29f4162de8d19bf30b2881a4",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "letter-z-plural",
+    "text": "letter Zs",
+    "prompt": "letter [Zs](/z\u02c8iz/).",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: letter [Zs](/z\u02c8iz/).",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8\u025bT\u0259\u0279 z\u02c8iz."
+    ],
+    "seconds": 1.817,
+    "mp3Bytes": 15212,
+    "review": "approved",
+    "sourceBatch": "town-shapes-plurals-20261116-01",
+    "sha256": "17f5fc664921385b9c47d165e45d9bba580bb76bd72bcdc8b61fdb1fc71fe9f2",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "libraries",
+    "text": "libraries",
+    "prompt": "libraries.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: libraries.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8Ib\u0279\u02cc\u025b\u0279iz."
+    ],
+    "seconds": 1.792,
+    "mp3Bytes": 15020,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "7a04759ab1e2801d50937f48a0a908aba90cb6c0f9c46f7e494d06fb35d28f61",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "library",
+    "text": "library",
+    "prompt": "library.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: library.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: l\u02c8Ib\u0279\u02cc\u025b\u0279i."
+    ],
+    "seconds": 1.68,
+    "mp3Bytes": 14060,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "5b26884cb020bdba2b4af0177f50088c48c5e92d0f2218bc5f56f90e08e63439",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "museum",
+    "text": "museum",
+    "prompt": "museum.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: museum.",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: mjuz\u02c8i\u0259m."
+    ],
+    "seconds": 1.617,
+    "mp3Bytes": 13676,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "56263f1ef6c50efbbaf2018c25fa6caebfc3a5b7d037f169504e8d5b3b74e5e6",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "museums",
+    "text": "museums",
+    "prompt": "museums.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: museums.",
+    "trimSeconds": 1.3074999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: mjuz\u02c8i\u0259mz."
+    ],
+    "seconds": 1.718,
+    "mp3Bytes": 14444,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "dcba91526a7b4f1cf01711421a3ab3995516463feaef6f492fad629f4ca62d2d",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "oval",
+    "text": "oval",
+    "prompt": "oval.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: oval.",
+    "trimSeconds": 1.395,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u02c8Ov\u1d4al."
+    ],
+    "seconds": 1.38,
+    "mp3Bytes": 11756,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "f149c82b70ffee63818e1deada65edb5a5bf2a6288242efa0fd31419289cc563",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "ovals",
+    "text": "ovals",
+    "prompt": "ovals.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: ovals.",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u02c8Ov\u1d4alz."
+    ],
+    "seconds": 1.53,
+    "mp3Bytes": 12908,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "86e59d72c02491e775e8720acb28c21610dadbc2fb958628c6da0279494f294b",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "park",
+    "text": "park",
+    "prompt": "park.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: park.",
+    "trimSeconds": 1.3074999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: p\u02c8\u0251\u0279k."
+    ],
+    "seconds": 1.343,
+    "mp3Bytes": 11372,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "bd0cdb2807ca30129edbeda4e2801db0e0e41e17402b3cf686183e0514d6062e",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "parks",
+    "text": "parks",
+    "prompt": "parks.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: parks.",
+    "trimSeconds": 1.3325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: p\u02c8\u0251\u0279ks."
+    ],
+    "seconds": 1.417,
+    "mp3Bytes": 12140,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "07af5900269e5d188e9cf88fc38152c22e63987a391efb2166d7c71ebdd9011a",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "pentagon",
+    "text": "pentagon",
+    "prompt": "pentagon.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: pentagon.",
+    "trimSeconds": 1.2325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: p\u02c8\u025bnt\u0259\u0261\u02cc\u0251n."
+    ],
+    "seconds": 1.692,
+    "mp3Bytes": 14252,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "7e8baea7f95f8b91bb51d31452eeaebbf25cf5a08f014eaa875a352bb4aed910",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "pentagons",
+    "text": "pentagons",
+    "prompt": "pentagons.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: pentagons.",
+    "trimSeconds": 1.2075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: p\u02c8\u025bnt\u0259\u0261\u02cc\u0251nz."
+    ],
+    "seconds": 1.792,
+    "mp3Bytes": 15020,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "dbfa03e751fa0d9481dc18d4cb7fc420e2c30cb5c1627da3130a8e39ce4f840a",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "police-station",
+    "text": "police station",
+    "prompt": "police station.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: police station.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: p\u0259l\u02c8is st\u02c8A\u0283\u0259n."
+    ],
+    "seconds": 1.968,
+    "mp3Bytes": 16364,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "bc1a046583439bcb4ce91d117fb77a38471f03a0eabb8ab3c6e05f45c622ed7d",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "police-stations",
+    "text": "police stations",
+    "prompt": "police stations.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: police stations.",
+    "trimSeconds": 1.0825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: p\u0259l\u02c8is st\u02c8A\u0283\u0259nz."
+    ],
+    "seconds": 2.092,
+    "mp3Bytes": 17516,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "5466247bd5bf0c3fae23fc7d59edc69e98a8dbd4e5f30284a7ba6830a7f1fa46",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "post-office",
+    "text": "post office",
+    "prompt": "post office.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: post office.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: p\u02c8Ost \u02c8\u0254f\u0259s."
+    ],
+    "seconds": 1.893,
+    "mp3Bytes": 15788,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "49c3c8c85de7ff3b5fa8429ea4f64562ee4f7df7d0fa5533d0450e477dac5c2b",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "post-offices",
+    "text": "post offices",
+    "prompt": "post offices.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: post offices.",
+    "trimSeconds": 1.0825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: p\u02c8Ost \u02c8\u0254f\u0259s\u1d7bz."
+    ],
+    "seconds": 2.018,
+    "mp3Bytes": 16940,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "590e3a6d8a496848c092ef6843d154c15910b10b8ebb7deb4e999ab6fd1183ee",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "rectangle",
+    "text": "rectangle",
+    "prompt": "rectangle.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: rectangle.",
+    "trimSeconds": 1.2574999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0279\u02c8\u025bkt\u02cc\u00e6\u014b\u0261\u1d4al."
+    ],
+    "seconds": 1.792,
+    "mp3Bytes": 15020,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "884eb522cf0d2dfbfc1eeaa53c5b0708a1096845f97a577064778a4257a0fbb2",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "rectangles",
+    "text": "rectangles",
+    "prompt": "rectangles.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: rectangles.",
+    "trimSeconds": 1.2075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0279\u02c8\u025bkt\u02cc\u00e6\u014b\u0261\u1d4alz."
+    ],
+    "seconds": 1.893,
+    "mp3Bytes": 15788,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "cf22300416e5528f87acacd93d13ed20bc70215ab760f65b100a63e7eca52f0d",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "restaurant",
+    "text": "restaurant",
+    "prompt": "[restaurant](/\u0279\u02c8\u025bst\u0259\u0279\u0251nt/).",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: [restaurant](/\u0279\u02c8\u025bst\u0259\u0279\u0251nt/).",
+    "trimSeconds": 1.2325,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0279\u02c8\u025bst\u0259\u0279\u0251nt."
+    ],
+    "seconds": 1.667,
+    "mp3Bytes": 14060,
+    "review": "approved",
+    "sourceBatch": "town-shapes-corrections-20261116-01",
+    "sha256": "3c07a35d9feb2c3699f98e512a20d055595651b8aba87e6891154004b5658261",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "restaurants",
+    "text": "restaurants",
+    "prompt": "[restaurants](/\u0279\u02c8\u025bst\u0259\u0279\u0251nts/).",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: [restaurants](/\u0279\u02c8\u025bst\u0259\u0279\u0251nts/).",
+    "trimSeconds": 1.2075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0279\u02c8\u025bst\u0259\u0279\u0251nts."
+    ],
+    "seconds": 1.768,
+    "mp3Bytes": 14828,
+    "review": "approved",
+    "sourceBatch": "town-shapes-corrections-20261116-01",
+    "sha256": "cc81aff5c4a0b42c8c3762c17fc1450ab2683df17dc871db37a8017b002be206",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "semicircle",
+    "text": "semicircle",
+    "prompt": "semicircle.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: semicircle.",
+    "trimSeconds": 1.27,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: s\u02c8\u025bm\u02ccIs\u02cc\u025c\u0279k\u1d4al."
+    ],
+    "seconds": 1.805,
+    "mp3Bytes": 15212,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "cc42e3e11e01a55f6833dff7bce0962c1024075729b568ff27aafc5bd80dce61",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "semicircles",
+    "text": "semicircles",
+    "prompt": "semicircles.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: semicircles.",
+    "trimSeconds": 1.22,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: s\u02c8\u025bm\u02ccIs\u02cc\u025c\u0279k\u1d4alz."
+    ],
+    "seconds": 1.955,
+    "mp3Bytes": 16364,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "a431479ecdaf47701c52ea89220bfda9afc067a077962b557a78cab2755dfafe",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "shrine",
+    "text": "shrine",
+    "prompt": "shrine.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: shrine.",
+    "trimSeconds": 1.3199999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0283\u0279\u02c8In."
+    ],
+    "seconds": 1.455,
+    "mp3Bytes": 12332,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "318c89f36f4cee6ab4e330497e3f4d41216ae51533057ffed19c3b0418d7a2b1",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "shrines",
+    "text": "shrines",
+    "prompt": "shrines.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: shrines.",
+    "trimSeconds": 1.3199999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u0283\u0279\u02c8Inz."
+    ],
+    "seconds": 1.53,
+    "mp3Bytes": 12908,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "457b84afc7e4dd6e80aa0c6916cdeba24789a2c7072a1aa5247e8ef6f8e2bf50",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "spade",
+    "text": "spade",
+    "prompt": "spade.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: spade.",
+    "trimSeconds": 1.295,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: sp\u02c8Ad."
+    ],
+    "seconds": 1.505,
+    "mp3Bytes": 12716,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "2f849012ce447c2d78df0185066cbf87a3ca585f01b13f69809d46a594cc9054",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "spades",
+    "text": "spades",
+    "prompt": "spades.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: spades.",
+    "trimSeconds": 1.3699999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: sp\u02c8Adz."
+    ],
+    "seconds": 1.58,
+    "mp3Bytes": 13292,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "4ec1e1e83cc58e800e04f7d1e21347bba1014b80210cf248a327faa5494e8985",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "square",
+    "text": "square",
+    "prompt": "square.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: square.",
+    "trimSeconds": 1.2449999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: skw\u02c8\u025b\u0279."
+    ],
+    "seconds": 1.455,
+    "mp3Bytes": 12332,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "b27557f910e7ea61b15f9c1d7eed5be260dde6066394b3c0eb64b033265f12cd",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "squares",
+    "text": "squares",
+    "prompt": "squares.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: squares.",
+    "trimSeconds": 1.3199999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: skw\u02c8\u025b\u0279z."
+    ],
+    "seconds": 1.58,
+    "mp3Bytes": 13292,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "51770c6e3449481f387628ebe37dd4533621c85fd2fe227a2581313e889d3718",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "stadium",
+    "text": "stadium",
+    "prompt": "stadium.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: stadium.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: st\u02c8Adi\u0259m."
+    ],
+    "seconds": 1.605,
+    "mp3Bytes": 13484,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "7008e572e33b70034903bdac3f05da51d1890d95f222f55249c6ea0eda4ed55b",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "stadiums",
+    "text": "stadiums",
+    "prompt": "stadiums.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: stadiums.",
+    "trimSeconds": 1.295,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: st\u02c8Adi\u0259mz."
+    ],
+    "seconds": 1.705,
+    "mp3Bytes": 14444,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "5d0bbbb6676397e8d7ce728812c0bfd55b19eecc7fee60daed386d58a4341300",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "star",
+    "text": "star",
+    "prompt": "star.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: star.",
+    "trimSeconds": 1.3199999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: st\u02c8\u0251\u0279."
+    ],
+    "seconds": 1.405,
+    "mp3Bytes": 11948,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "13111ad562177d656fb531d53bbf88ce62d76c7aff2baae628da5d4cbdbc8c50",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "stars",
+    "text": "stars",
+    "prompt": "stars.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: stars.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: st\u02c8\u0251\u0279z."
+    ],
+    "seconds": 1.555,
+    "mp3Bytes": 13100,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "2562efd01845a4a2e36bb1c71258739e5153ab2474f70bcbb719f3e854e3816c",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "station",
+    "text": "station",
+    "prompt": "station.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: station.",
+    "trimSeconds": 1.345,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: st\u02c8A\u0283\u0259n."
+    ],
+    "seconds": 1.63,
+    "mp3Bytes": 13676,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "bc7784f78fe54476239a810a1397064d21e26bf3421a0623702dfcd94a5940c8",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "stations",
+    "text": "stations",
+    "prompt": "stations.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: stations.",
+    "trimSeconds": 1.295,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: st\u02c8A\u0283\u0259nz."
+    ],
+    "seconds": 1.705,
+    "mp3Bytes": 14444,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "0e9404a11653eb4b3ee4823bc2473362af5f0f86eca033ef063538bac11a1ad8",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "supermarket",
+    "text": "supermarket",
+    "prompt": "supermarket.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: supermarket.",
+    "trimSeconds": 1.1824999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: s\u02c8up\u0259\u0279m\u02cc\u0251\u0279k\u0259t."
+    ],
+    "seconds": 1.843,
+    "mp3Bytes": 15404,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "9fac69d5b8b02d04b54569f8f1baad1fcb9ed6deaaf81967b12b958d4b1678b4",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "supermarkets",
+    "text": "supermarkets",
+    "prompt": "supermarkets.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: supermarkets.",
+    "trimSeconds": 1.1824999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: s\u02c8up\u0259\u0279m\u02cc\u0251\u0279k\u0259ts."
+    ],
+    "seconds": 1.893,
+    "mp3Bytes": 15788,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "c2074ee82cb2ecff1763ef833ce3834b87c16cc7923a3ace0b501794e590eece",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "temple",
+    "text": "temple",
+    "prompt": "temple.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: temple.",
+    "trimSeconds": 1.3575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: t\u02c8\u025bmp\u1d4al."
+    ],
+    "seconds": 1.468,
+    "mp3Bytes": 12524,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "e4f752f0d18e43ce7fede5eda27cccdf468e350385cdac9ffe1ea3f3f66261c2",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "temples",
+    "text": "temples",
+    "prompt": "temples.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: temples.",
+    "trimSeconds": 1.2825,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: t\u02c8\u025bmp\u1d4alz."
+    ],
+    "seconds": 1.567,
+    "mp3Bytes": 13292,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "f8220dbaa4e00e98a5d2de33acf749e50d94a82ae18084dbb6be3bd092d7bc9b",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "this-is-for-you",
+    "text": "This is for you.",
+    "prompt": "This is for you.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: This is for you.",
+    "trimSeconds": 1.1324999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: \u00f0\u02cc\u026as \u026az f\u0254\u0279 ju."
+    ],
+    "seconds": 1.867,
+    "mp3Bytes": 15596,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "4831faa603476b547c35d3d35ab978e3b61fb63e6e956aba06df2a2aa2729af0",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "triangle",
+    "text": "triangle",
+    "prompt": "triangle.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: triangle.",
+    "trimSeconds": 1.295,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: t\u0279\u02c8I\u02cc\u00e6\u014b\u0261\u1d4al."
+    ],
+    "seconds": 1.68,
+    "mp3Bytes": 14060,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "9f8fac695068440f2f387371d03524900173c7fb0daf37f35505a3e7d3dba325",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "triangles",
+    "text": "triangles",
+    "prompt": "triangles.",
+    "apps": [
+      "paper-craft"
+    ],
+    "generationPrompt": "Listen: triangles.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: t\u0279\u02c8I\u02cc\u00e6\u014b\u0261\u1d4alz."
+    ],
+    "seconds": 1.742,
+    "mp3Bytes": 14636,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "238057b806a272221941bfc8fb3626abf049d7a2868b98010e6e79f50e6601c7",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "turn-left",
+    "text": "Turn left.",
+    "prompt": "Turn left.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Turn left.",
+    "trimSeconds": 1.1075,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: t\u02c8\u025c\u0279n l\u02c8\u025bft."
+    ],
+    "seconds": 1.718,
+    "mp3Bytes": 14444,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "b2d7148b07f4e3cb4bb4b664542c33b6bf34c911ef5b114241612e2f06c4d9a5",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "turn-right",
+    "text": "Turn right.",
+    "prompt": "Turn right.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Turn right.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: t\u02c8\u025c\u0279n \u0279\u02c8It."
+    ],
+    "seconds": 1.667,
+    "mp3Bytes": 14060,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "63708aa063b69f3f93d7458d7b90f90af7d12763777ccbace20ae6ae90b838b6",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "we-have",
+    "text": "We have",
+    "prompt": "We have.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: We have.",
+    "trimSeconds": 1.1824999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: w\u02cci h\u02c8\u00e6v."
+    ],
+    "seconds": 1.542,
+    "mp3Bytes": 13100,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "2c90f7203f8bdf05114f2b6179c9e970da28e8339ddb53f3618d878790f607dd",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "what-do-you-have-in-your-town",
+    "text": "What do you have in your town?",
+    "prompt": "What do you have in your town?",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: What do you have in your town?",
+    "trimSeconds": 1.1824999999999999,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: w\u02cc\u028ct d\u02c8u ju h\u00e6v \u026an j\u028a\u0279 t\u02c8Wn?"
+    ],
+    "seconds": 2.292,
+    "mp3Bytes": 19052,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "b6dd3c66fd7d763760594000515e84ff73691a55523658f565e79cb0ae5493b4",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "where-is-the",
+    "text": "Where is the",
+    "prompt": "Where is [the](/\u00f0\u0259/)!",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: Where is [the](/\u00f0\u0259/)!",
+    "trimSeconds": 1.27,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: w\u02cc\u025b\u0279 \u026az \u00f0\u0259!"
+    ],
+    "seconds": 1.63,
+    "mp3Bytes": 13676,
+    "review": "approved",
+    "sourceBatch": "article-joins-20261117-01",
+    "sha256": "4bfbff4788f2531acc2230397eb558a357ddb0db8ea58d901e73b25a8fa15d20",
+    "approvedDate": "2026-11-17",
+    "boundaryTrim": {
+      "backupBatch": "the-join-trim-20261117",
+      "originalSha256": "8e17b0a9ffb96abbea353ef0edd8574ddca1a5cd371aea8d7d0496e799929892",
+      "originalSeconds": 1.63,
+      "startRemovedSeconds": 0,
+      "endRemovedSeconds": 0.5404583333333334,
+      "thresholdAmplitude": 0.001,
+      "trailingMarginSeconds": 0.025,
+      "review": "User requested a shorter quiet join; speech retained, listening check pending."
+    }
+  },
+  {
+    "id": "you-can-see-it-on-your-left",
+    "text": "You can see it on your left.",
+    "prompt": "You can see it on your left.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: You can see it on your left.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: j\u02ccu k\u00e6n s\u02c8i \u026at \u02cc\u0254n j\u028a\u0279 l\u02c8\u025bft."
+    ],
+    "seconds": 2.417,
+    "mp3Bytes": 20012,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "6fa6d41a8b3f75adf59eb8b04adf608ecd74306ac70830a83242b5732883897a",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "you-can-see-it-on-your-right",
+    "text": "You can see it on your right.",
+    "prompt": "You can see it on your right.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: You can see it on your right.",
+    "trimSeconds": 1.1575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: j\u02ccu k\u00e6n s\u02c8i \u026at \u02cc\u0254n j\u028a\u0279 \u0279\u02c8It."
+    ],
+    "seconds": 2.368,
+    "mp3Bytes": 19628,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "3225ea78ff24577a80461d55e4240f1961165d8b95ceb511e573c2211c82d334",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "zoo",
+    "text": "zoo",
+    "prompt": "zoo.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: zoo.",
+    "trimSeconds": 1.4575,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: z\u02c8u."
+    ],
+    "seconds": 1.242,
+    "mp3Bytes": 10604,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "7f1d582ef9e67acc71501a77ec42fc5e7542543998c56cb514e82e372bbaff18",
+    "approvedDate": "2026-11-17"
+  },
+  {
+    "id": "zoos",
+    "text": "zoos",
+    "prompt": "zoos.",
+    "apps": [
+      "my-town"
+    ],
+    "generationPrompt": "Listen: zoos.",
+    "trimSeconds": 1.3824999999999998,
+    "voice": "af_heart",
+    "speed": 0.7,
+    "phonemes": [
+      "l\u02c8\u026as\u1d4an: z\u02c8uz."
+    ],
+    "seconds": 1.442,
+    "mp3Bytes": 12332,
+    "review": "approved",
+    "sourceBatch": "town-shapes-20261116-01",
+    "sha256": "aa35f7853a0e2f2c858c00883b23f50567d9dae1c96ce35a6b5e8a0531429a49",
+    "approvedDate": "2026-11-17"
   }
 ]

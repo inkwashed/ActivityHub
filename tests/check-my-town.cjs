@@ -12,9 +12,9 @@ assert.deepEqual([...M.restore({blocks:Array(12).fill(null),route:[17,1]}).route
 for(const mode of [false,true])assert.match(A.map(M.initial(),mode),/viewBox="0 0 720 660"/);
 console.log('My Town: vocabulary, counts, relative turns/sides, route guards, saved-state validation and fixed framing passed.');
 
-assert.equal(M.directions({route:[17,12,7,22,2],facing:0,destination:2}),'Go straight for two blocks. Cross the bridge. Continue one block.');
-assert.equal(M.directions({route:[2,22,7,12,17],facing:2,destination:null}),'Go straight for one block. Cross the bridge. Continue two blocks.');
-assert.equal(M.directions({route:[7,22,23],facing:0,destination:2}),'Cross the bridge. Turn right. Continue one block.');
+assert.equal(M.directions({route:[17,12,7,22,2],facing:0,destination:2}),'Go straight for two blocks. Cross the bridge. Go straight for one block.');
+assert.equal(M.directions({route:[2,22,7,12,17],facing:2,destination:null}),'Go straight for one block. Cross the bridge. Go straight for two blocks.');
+assert.equal(M.directions({route:[7,22,23],facing:0,destination:2}),'Cross the bridge. Turn right. Go straight for one block.');
 assert.equal(M.directions({route:[22,7],facing:2,destination:6}),'Cross the bridge. You can see it on your left.');
 assert.equal(M.side([7,12],6),null);
 assert.deepEqual([...M.extend([2],7,2)],[2]);
@@ -41,7 +41,7 @@ assert.deepEqual([...M.extend([17],37,0,tracks)],[17,37]);
 assert.equal(M.side([17],9,0,tracks),null);
 assert.equal(M.side([17,37],9,0,tracks),'left');
 assert.equal(M.directions({blocks:tracks,route:[17,37],facing:0,destination:9}),'Cross the tracks. You can see it on your left.');
-assert.equal(M.directions({blocks:tracks,route:[17,37,12,7],facing:0,destination:null}),'Cross the tracks. Continue two blocks.');
+assert.equal(M.directions({blocks:tracks,route:[17,37,12,7],facing:0,destination:null}),'Cross the tracks. Go straight for two blocks.');
 assert.equal(M.directions({blocks:tracks,route:[12,37,17],facing:2,destination:null}),'Go straight for one block. Cross the tracks.');
 assert.equal(M.directions({blocks:tracks,route:[16,17,18],facing:1,destination:null}),'Go straight for two blocks.');
 assert.deepEqual([...M.restore({topology:2,blocks:tracks,route:[17,12],facing:0}).route],[17,37,12]);

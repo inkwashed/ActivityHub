@@ -7,14 +7,15 @@
     {
       "id": "a",
       "text": "a",
-      "prompt": "a pen.",
+      "prompt": "[a](/\u0259/)!",
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "my-town",
+        "paper-craft"
       ],
-      "role": "sentence-part",
-      "endBeforeWord": "pen"
+      "role": "sentence-part"
     },
     {
       "id": "a-little-bit-of",
@@ -49,13 +50,31 @@
       ]
     },
     {
+      "id": "amusement-park",
+      "text": "amusement park",
+      "prompt": "amusement park.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "amusement-parks",
+      "text": "amusement parks",
+      "prompt": "amusement parks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
       "id": "an",
       "text": "an",
-      "prompt": "[an](/ɐn/).",
+      "prompt": "[an](/\u0250n/).",
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "my-town",
+        "paper-craft"
       ],
       "role": "sentence-part"
     },
@@ -66,7 +85,9 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "my-town",
+        "paper-craft"
       ],
       "role": "sentence-part",
       "endBeforeWord": "cheese"
@@ -89,9 +110,25 @@
       ]
     },
     {
+      "id": "aquarium",
+      "text": "aquarium",
+      "prompt": "aquarium.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "aquariums",
+      "text": "aquariums",
+      "prompt": "aquariums.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
       "id": "bacon",
       "text": "bacon",
-      "prompt": "[bacon](/bˈAkn/).",
+      "prompt": "[bacon](/b\u02c8Akn/).",
       "apps": [
         "sandwich"
       ]
@@ -99,7 +136,7 @@
     {
       "id": "banana",
       "text": "banana",
-      "prompt": "[banana](/bʌnˈænə/).",
+      "prompt": "[banana](/b\u028cn\u02c8\u00e6n\u0259/).",
       "apps": [
         "parfait",
         "sandwich"
@@ -108,7 +145,7 @@
     {
       "id": "bananas",
       "text": "bananas",
-      "prompt": "[bananas](/bʌnˈænəz/).",
+      "prompt": "[bananas](/b\u028cn\u02c8\u00e6n\u0259z/).",
       "apps": [
         "parfait"
       ]
@@ -145,7 +182,8 @@
       "text": "black",
       "prompt": "black.",
       "apps": [
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ]
     },
     {
@@ -153,7 +191,24 @@
       "text": "blue",
       "prompt": "blue.",
       "apps": [
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "bookstore",
+      "text": "bookstore",
+      "prompt": "bookstore.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "bookstores",
+      "text": "bookstores",
+      "prompt": "bookstores.",
+      "apps": [
+        "my-town"
       ]
     },
     {
@@ -188,7 +243,24 @@
       "text": "brown",
       "prompt": "brown.",
       "apps": [
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "bus-stop",
+      "text": "bus stop",
+      "prompt": "bus stop.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "bus-stops",
+      "text": "bus stops",
+      "prompt": "bus stops.",
+      "apps": [
+        "my-town"
       ]
     },
     {
@@ -221,6 +293,22 @@
       "prompt": "caramel syrup.",
       "apps": [
         "parfait"
+      ]
+    },
+    {
+      "id": "castle",
+      "text": "castle",
+      "prompt": "castle.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "castles",
+      "text": "castles",
+      "prompt": "castles.",
+      "apps": [
+        "my-town"
       ]
     },
     {
@@ -273,6 +361,54 @@
       ]
     },
     {
+      "id": "church",
+      "text": "church",
+      "prompt": "church.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "churches",
+      "text": "churches",
+      "prompt": "churches.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "circle",
+      "text": "circle",
+      "prompt": "circle.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "circles",
+      "text": "circles",
+      "prompt": "circles.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "club",
+      "text": "club",
+      "prompt": "club.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "clubs",
+      "text": "clubs",
+      "prompt": "clubs.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
       "id": "colored-pencil",
       "text": "colored pencil",
       "prompt": "colored pencil.",
@@ -289,6 +425,118 @@
       ]
     },
     {
+      "id": "continue-eight-blocks",
+      "text": "Continue eight blocks.",
+      "prompt": "Continue eight blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "continue-eleven-blocks",
+      "text": "Continue eleven blocks.",
+      "prompt": "Continue eleven blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "continue-five-blocks",
+      "text": "Continue five blocks.",
+      "prompt": "Continue five blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "continue-four-blocks",
+      "text": "Continue four blocks.",
+      "prompt": "Continue four blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "continue-nine-blocks",
+      "text": "Continue nine blocks.",
+      "prompt": "Continue nine blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "continue-one-block",
+      "text": "Continue one block.",
+      "prompt": "Continue one block.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "continue-seven-blocks",
+      "text": "Continue seven blocks.",
+      "prompt": "Continue seven blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "continue-six-blocks",
+      "text": "Continue six blocks.",
+      "prompt": "Continue six blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "continue-ten-blocks",
+      "text": "Continue ten blocks.",
+      "prompt": "Continue ten blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "continue-three-blocks",
+      "text": "Continue three blocks.",
+      "prompt": "Continue three blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "continue-twelve-blocks",
+      "text": "Continue twelve blocks.",
+      "prompt": "Continue twelve blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "continue-two-blocks",
+      "text": "Continue two blocks.",
+      "prompt": "Continue two blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "convenience-store",
+      "text": "convenience store",
+      "prompt": "convenience store.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "convenience-stores",
+      "text": "convenience stores",
+      "prompt": "convenience stores.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
       "id": "corn",
       "text": "corn",
       "prompt": "corn.",
@@ -297,11 +545,59 @@
       ]
     },
     {
+      "id": "cross",
+      "text": "cross",
+      "prompt": "cross.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "cross-the-bridge",
+      "text": "Cross the bridge.",
+      "prompt": "Cross the bridge.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "cross-the-tracks",
+      "text": "Cross the tracks.",
+      "prompt": "Cross the tracks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "crosses",
+      "text": "crosses",
+      "prompt": "crosses.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
       "id": "cucumber",
       "text": "cucumber",
       "prompt": "cucumber.",
       "apps": [
         "sandwich"
+      ]
+    },
+    {
+      "id": "diamond",
+      "text": "diamond",
+      "prompt": "diamond.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "diamonds",
+      "text": "diamonds",
+      "prompt": "diamonds.",
+      "apps": [
+        "paper-craft"
       ]
     },
     {
@@ -321,6 +617,22 @@
         "class-supplies"
       ],
       "endBeforeWord": "eraser"
+    },
+    {
+      "id": "elementary-school",
+      "text": "elementary school",
+      "prompt": "elementary school.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "elementary-schools",
+      "text": "elementary schools",
+      "prompt": "elementary schools.",
+      "apps": [
+        "my-town"
+      ]
     },
     {
       "id": "eraser",
@@ -350,6 +662,22 @@
       "role": "sentence-part"
     },
     {
+      "id": "fire-station",
+      "text": "fire station",
+      "prompt": "fire station.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "fire-stations",
+      "text": "fire stations",
+      "prompt": "fire stations.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
       "id": "glue-stick",
       "text": "glue stick",
       "prompt": "glue stick.",
@@ -366,11 +694,108 @@
       ]
     },
     {
+      "id": "go-straight-for-eight-blocks",
+      "text": "Go straight for eight blocks.",
+      "prompt": "Go straight for eight blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "go-straight-for-eleven-blocks",
+      "text": "Go straight for eleven blocks.",
+      "prompt": "Go straight for eleven blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "go-straight-for-five-blocks",
+      "text": "Go straight for five blocks.",
+      "prompt": "Go straight for five blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "go-straight-for-four-blocks",
+      "text": "Go straight for four blocks.",
+      "prompt": "Go straight for four blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "go-straight-for-nine-blocks",
+      "text": "Go straight for nine blocks.",
+      "prompt": "Go straight for nine blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "go-straight-for-one-block",
+      "text": "Go straight for one block.",
+      "prompt": "Go straight for one block.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "go-straight-for-seven-blocks",
+      "text": "Go straight for seven blocks.",
+      "prompt": "Go straight for seven blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "go-straight-for-six-blocks",
+      "text": "Go straight for six blocks.",
+      "prompt": "Go straight for six blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "go-straight-for-ten-blocks",
+      "text": "Go straight for ten blocks.",
+      "prompt": "Go straight for ten blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "go-straight-for-three-blocks",
+      "text": "Go straight for three blocks.",
+      "prompt": "Go straight for three blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "go-straight-for-twelve-blocks",
+      "text": "Go straight for twelve blocks.",
+      "prompt": "Go straight for twelve blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "go-straight-for-two-blocks",
+      "text": "Go straight for two blocks.",
+      "prompt": "Go straight for two blocks.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
       "id": "green",
       "text": "green",
       "prompt": "green.",
       "apps": [
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ]
     },
     {
@@ -399,6 +824,54 @@
       ]
     },
     {
+      "id": "heart",
+      "text": "heart",
+      "prompt": "heart.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "hearts",
+      "text": "hearts",
+      "prompt": "hearts.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "hospital",
+      "text": "hospital",
+      "prompt": "hospital.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "hospitals",
+      "text": "hospitals",
+      "prompt": "hospitals.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "house",
+      "text": "house",
+      "prompt": "house.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "houses",
+      "text": "houses",
+      "prompt": "houses.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
       "id": "i-have",
       "text": "I have",
       "prompt": "I have apples.",
@@ -417,7 +890,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "sentence-part",
       "endBeforeWord": "apples"
@@ -443,6 +917,22 @@
       "endBeforeWord": "Italy"
     },
     {
+      "id": "junior-high-school",
+      "text": "junior high school",
+      "prompt": "junior high school.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "junior-high-schools",
+      "text": "junior high schools",
+      "prompt": "junior high schools.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
       "id": "kiwi-fruit",
       "text": "kiwi fruit",
       "prompt": "kiwi fruit.",
@@ -460,103 +950,465 @@
       ]
     },
     {
+      "id": "letter",
+      "text": "letter",
+      "prompt": "letter.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
       "id": "letter-a",
       "text": "A",
-      "prompt": "[A](/ˈA/).",
+      "prompt": "[A](/\u02c8A/).",
       "apps": [
-        "sandwich"
+        "sandwich",
+        "paper-craft"
       ],
       "role": "letter"
+    },
+    {
+      "id": "letter-a-plural",
+      "text": "letter As",
+      "prompt": "letter [As](/\u02c8Az/).",
+      "apps": [
+        "paper-craft"
+      ]
     },
     {
       "id": "letter-b",
       "text": "B",
       "prompt": "Bee.",
       "apps": [
-        "sandwich"
+        "sandwich",
+        "paper-craft"
       ],
       "role": "letter"
+    },
+    {
+      "id": "letter-b-plural",
+      "text": "letter Bs",
+      "prompt": "letter [Bs](/b\u02c8iz/).",
+      "apps": [
+        "paper-craft"
+      ]
     },
     {
       "id": "letter-c",
       "text": "C",
       "prompt": "See.",
       "apps": [
-        "sandwich"
+        "sandwich",
+        "paper-craft"
       ],
       "role": "letter"
+    },
+    {
+      "id": "letter-c-plural",
+      "text": "letter Cs",
+      "prompt": "letter [Cs](/s\u02c8iz/).",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "letter-d",
+      "text": "D",
+      "prompt": "D.",
+      "apps": [
+        "paper-craft"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-d-plural",
+      "text": "letter Ds",
+      "prompt": "letter [Ds](/d\u02c8iz/).",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "letter-e",
+      "text": "E",
+      "prompt": "E.",
+      "apps": [
+        "paper-craft"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-e-plural",
+      "text": "letter Es",
+      "prompt": "letter [Es](/\u02c8iz/).",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "letter-f",
+      "text": "F",
+      "prompt": "F.",
+      "apps": [
+        "paper-craft"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-f-plural",
+      "text": "letter Fs",
+      "prompt": "letter [Fs](/\u02c8\u025bfs/).",
+      "apps": [
+        "paper-craft"
+      ]
     },
     {
       "id": "letter-g",
       "text": "G",
       "prompt": "Gee.",
       "apps": [
-        "sandwich"
+        "sandwich",
+        "paper-craft"
       ],
       "role": "letter"
+    },
+    {
+      "id": "letter-g-plural",
+      "text": "letter Gs",
+      "prompt": "letter [Gs](/\u02a4\u02c8iz/).",
+      "apps": [
+        "paper-craft"
+      ]
     },
     {
       "id": "letter-h",
       "text": "H",
       "prompt": "Aitch.",
       "apps": [
-        "sandwich"
+        "sandwich",
+        "paper-craft"
       ],
       "role": "letter"
+    },
+    {
+      "id": "letter-h-plural",
+      "text": "letter Hs",
+      "prompt": "letter [Hs](/\u02c8A\u02a7\u026az/).",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "letter-i",
+      "text": "I",
+      "prompt": "I.",
+      "apps": [
+        "paper-craft"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-i-plural",
+      "text": "letter Is",
+      "prompt": "letter [Is](/\u02c8Iz/).",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "letter-j",
+      "text": "J",
+      "prompt": "J.",
+      "apps": [
+        "paper-craft"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-j-plural",
+      "text": "letter Js",
+      "prompt": "letter [Js](/\u02a4\u02c8Az/).",
+      "apps": [
+        "paper-craft"
+      ]
     },
     {
       "id": "letter-k",
       "text": "K",
       "prompt": "Kay.",
       "apps": [
-        "sandwich"
+        "sandwich",
+        "paper-craft"
       ],
       "role": "letter"
+    },
+    {
+      "id": "letter-k-plural",
+      "text": "letter Ks",
+      "prompt": "letter [Ks](/k\u02c8Az/).",
+      "apps": [
+        "paper-craft"
+      ]
     },
     {
       "id": "letter-l",
       "text": "L",
       "prompt": "El.",
       "apps": [
-        "sandwich"
+        "sandwich",
+        "paper-craft"
       ],
       "role": "letter"
+    },
+    {
+      "id": "letter-l-plural",
+      "text": "letter Ls",
+      "prompt": "letter [Ls](/\u02c8\u025blz/).",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "letter-m",
+      "text": "M",
+      "prompt": "M.",
+      "apps": [
+        "paper-craft"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-m-plural",
+      "text": "letter Ms",
+      "prompt": "letter [Ms](/\u02c8\u025bmz/).",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "letter-n",
+      "text": "N",
+      "prompt": "N.",
+      "apps": [
+        "paper-craft"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-n-plural",
+      "text": "letter Ns",
+      "prompt": "letter [Ns](/\u02c8\u025bnz/).",
+      "apps": [
+        "paper-craft"
+      ]
     },
     {
       "id": "letter-o",
       "text": "O",
       "prompt": "Oh.",
       "apps": [
-        "sandwich"
+        "sandwich",
+        "paper-craft"
       ],
       "role": "letter"
+    },
+    {
+      "id": "letter-o-plural",
+      "text": "letter Os",
+      "prompt": "letter [Os](/\u02c8Oz/).",
+      "apps": [
+        "paper-craft"
+      ]
     },
     {
       "id": "letter-p",
       "text": "P",
       "prompt": "Pee.",
       "apps": [
-        "sandwich"
+        "sandwich",
+        "paper-craft"
       ],
       "role": "letter"
+    },
+    {
+      "id": "letter-p-plural",
+      "text": "letter Ps",
+      "prompt": "letter [Ps](/p\u02c8iz/).",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "letter-q",
+      "text": "Q",
+      "prompt": "Q.",
+      "apps": [
+        "paper-craft"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-q-plural",
+      "text": "letter Qs",
+      "prompt": "letter [Qs](/kj\u02c8uz/).",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "letter-r",
+      "text": "R",
+      "prompt": "[R](/\u02c8\u0251\u0279/)!",
+      "apps": [
+        "paper-craft"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-r-plural",
+      "text": "letter Rs",
+      "prompt": "letter [Rs](/\u02c8\u0251\u0279z/).",
+      "apps": [
+        "paper-craft"
+      ]
     },
     {
       "id": "letter-s",
       "text": "S",
       "prompt": "Ess.",
       "apps": [
-        "sandwich"
+        "sandwich",
+        "paper-craft"
       ],
       "role": "letter"
+    },
+    {
+      "id": "letter-s-plural",
+      "text": "letter Ss",
+      "prompt": "letter [Ss](/\u02c8\u025bs\u026az/).",
+      "apps": [
+        "paper-craft"
+      ]
     },
     {
       "id": "letter-t",
       "text": "T",
       "prompt": "Tee.",
       "apps": [
-        "sandwich"
+        "sandwich",
+        "paper-craft"
       ],
       "role": "letter"
+    },
+    {
+      "id": "letter-t-plural",
+      "text": "letter Ts",
+      "prompt": "letter [Ts](/t\u02c8iz/).",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "letter-u",
+      "text": "U",
+      "prompt": "U.",
+      "apps": [
+        "paper-craft"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-u-plural",
+      "text": "letter Us",
+      "prompt": "letter [Us](/j\u02c8uz/).",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "letter-v",
+      "text": "V",
+      "prompt": "V.",
+      "apps": [
+        "paper-craft"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-v-plural",
+      "text": "letter Vs",
+      "prompt": "letter [Vs](/v\u02c8iz/).",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "letter-w",
+      "text": "W",
+      "prompt": "W.",
+      "apps": [
+        "paper-craft"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-w-plural",
+      "text": "letter Ws",
+      "prompt": "letter [Ws](/d\u02c8\u028cb\u1d4aljuz/).",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "letter-x",
+      "text": "X",
+      "prompt": "X.",
+      "apps": [
+        "paper-craft"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-x-plural",
+      "text": "letter Xs",
+      "prompt": "letter [Xs](/\u02c8\u025bks\u026az/).",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "letter-y",
+      "text": "Y",
+      "prompt": "Y.",
+      "apps": [
+        "paper-craft"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-y-plural",
+      "text": "letter Ys",
+      "prompt": "letter [Ys](/w\u02c8Iz/).",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "letter-z",
+      "text": "Z",
+      "prompt": "Z.",
+      "apps": [
+        "paper-craft"
+      ],
+      "role": "letter"
+    },
+    {
+      "id": "letter-z-plural",
+      "text": "letter Zs",
+      "prompt": "letter [Zs](/z\u02c8iz/).",
+      "apps": [
+        "paper-craft"
+      ]
     },
     {
       "id": "lettuce",
@@ -564,6 +1416,22 @@
       "prompt": "lettuce.",
       "apps": [
         "sandwich"
+      ]
+    },
+    {
+      "id": "libraries",
+      "text": "libraries",
+      "prompt": "libraries.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "library",
+      "text": "library",
+      "prompt": "library.",
+      "apps": [
+        "my-town"
       ]
     },
     {
@@ -658,6 +1526,22 @@
       ]
     },
     {
+      "id": "museum",
+      "text": "museum",
+      "prompt": "museum.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "museums",
+      "text": "museums",
+      "prompt": "museums.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
       "id": "mushroom",
       "text": "mushroom",
       "prompt": "mushroom.",
@@ -696,7 +1580,7 @@
     {
       "id": "my-sandwich-is-an",
       "text": "My sandwich is an",
-      "prompt": "My sandwich is [an](/ɐn/).",
+      "prompt": "My sandwich is [an](/\u0250n/).",
       "apps": [
         "sandwich"
       ],
@@ -749,7 +1633,9 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft",
+        "my-town"
       ],
       "role": "number"
     },
@@ -760,7 +1646,9 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft",
+        "my-town"
       ],
       "role": "number"
     },
@@ -771,7 +1659,9 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft",
+        "my-town"
       ],
       "role": "number"
     },
@@ -782,7 +1672,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "number"
     },
@@ -793,7 +1684,9 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft",
+        "my-town"
       ],
       "role": "number"
     },
@@ -804,7 +1697,9 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft",
+        "my-town"
       ],
       "role": "number"
     },
@@ -815,7 +1710,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "number"
     },
@@ -826,7 +1722,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "number"
     },
@@ -837,7 +1734,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "number"
     },
@@ -848,7 +1746,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "number"
     },
@@ -859,7 +1758,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "number"
     },
@@ -870,7 +1770,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "number"
     },
@@ -881,7 +1782,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "number"
     },
@@ -892,7 +1794,9 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft",
+        "my-town"
       ],
       "role": "number"
     },
@@ -903,7 +1807,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "number"
     },
@@ -914,7 +1819,9 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft",
+        "my-town"
       ],
       "role": "number"
     },
@@ -925,7 +1832,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "number"
     },
@@ -936,7 +1844,9 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft",
+        "my-town"
       ],
       "role": "number"
     },
@@ -947,7 +1857,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "number"
     },
@@ -958,7 +1869,9 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft",
+        "my-town"
       ],
       "role": "number"
     },
@@ -969,7 +1882,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "number"
     },
@@ -980,7 +1894,9 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft",
+        "my-town"
       ],
       "role": "number"
     },
@@ -991,7 +1907,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "number"
     },
@@ -1002,7 +1919,9 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft",
+        "my-town"
       ],
       "role": "number"
     },
@@ -1013,7 +1932,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "number"
     },
@@ -1024,7 +1944,9 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft",
+        "my-town"
       ],
       "role": "number"
     },
@@ -1035,7 +1957,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "number"
     },
@@ -1046,7 +1969,9 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft",
+        "my-town"
       ],
       "role": "number"
     },
@@ -1057,7 +1982,8 @@
       "apps": [
         "pizza",
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ],
       "role": "number"
     },
@@ -1084,7 +2010,8 @@
       "prompt": "orange.",
       "apps": [
         "parfait",
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ]
     },
     {
@@ -1093,6 +2020,38 @@
       "prompt": "oranges.",
       "apps": [
         "parfait"
+      ]
+    },
+    {
+      "id": "oval",
+      "text": "oval",
+      "prompt": "oval.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "ovals",
+      "text": "ovals",
+      "prompt": "ovals.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "park",
+      "text": "park",
+      "prompt": "park.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "parks",
+      "text": "parks",
+      "prompt": "parks.",
+      "apps": [
+        "my-town"
       ]
     },
     {
@@ -1168,6 +2127,22 @@
       ]
     },
     {
+      "id": "pentagon",
+      "text": "pentagon",
+      "prompt": "pentagon.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "pentagons",
+      "text": "pentagons",
+      "prompt": "pentagons.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
       "id": "pepperoni",
       "text": "pepperoni",
       "prompt": "pepperoni.",
@@ -1198,7 +2173,8 @@
       "text": "pink",
       "prompt": "pink.",
       "apps": [
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ]
     },
     {
@@ -1213,6 +2189,22 @@
       "role": "sentence-part"
     },
     {
+      "id": "police-station",
+      "text": "police station",
+      "prompt": "police station.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "police-stations",
+      "text": "police stations",
+      "prompt": "police stations.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
       "id": "pork",
       "text": "pork",
       "prompt": "pork.",
@@ -1221,11 +2213,44 @@
       ]
     },
     {
+      "id": "post-office",
+      "text": "post office",
+      "prompt": "post office.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "post-offices",
+      "text": "post offices",
+      "prompt": "post offices.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
       "id": "purple",
       "text": "purple",
       "prompt": "purple.",
       "apps": [
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "rectangle",
+      "text": "rectangle",
+      "prompt": "rectangle.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "rectangles",
+      "text": "rectangles",
+      "prompt": "rectangles.",
+      "apps": [
+        "paper-craft"
       ]
     },
     {
@@ -1233,7 +2258,24 @@
       "text": "red",
       "prompt": "red.",
       "apps": [
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "restaurant",
+      "text": "restaurant",
+      "prompt": "[restaurant](/\u0279\u02c8\u025bst\u0259\u0279\u0251nt/).",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "restaurants",
+      "text": "restaurants",
+      "prompt": "[restaurants](/\u0279\u02c8\u025bst\u0259\u0279\u0251nts/).",
+      "apps": [
+        "my-town"
       ]
     },
     {
@@ -1269,11 +2311,43 @@
       ]
     },
     {
+      "id": "semicircle",
+      "text": "semicircle",
+      "prompt": "semicircle.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "semicircles",
+      "text": "semicircles",
+      "prompt": "semicircles.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
       "id": "shrimp",
       "text": "shrimp",
       "prompt": "shrimp.",
       "apps": [
         "sandwich"
+      ]
+    },
+    {
+      "id": "shrine",
+      "text": "shrine",
+      "prompt": "shrine.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "shrines",
+      "text": "shrines",
+      "prompt": "shrines.",
+      "apps": [
+        "my-town"
       ]
     },
     {
@@ -1314,7 +2388,7 @@
     {
       "id": "source-aichi",
       "text": "Aichi",
-      "prompt": "[Aichi](/ˈIʧi/).",
+      "prompt": "[Aichi](/\u02c8I\u02a7i/).",
       "apps": [
         "sandwich"
       ],
@@ -1332,7 +2406,7 @@
     {
       "id": "source-aomori",
       "text": "Aomori",
-      "prompt": "[Aomori](/ˈWmɔɹi/).",
+      "prompt": "[Aomori](/\u02c8Wm\u0254\u0279i/).",
       "apps": [
         "sandwich"
       ],
@@ -1377,7 +2451,7 @@
     {
       "id": "source-gunma",
       "text": "Gunma",
-      "prompt": "[Gunma](/ɡˈunmə/).",
+      "prompt": "[Gunma](/\u0261\u02c8unm\u0259/).",
       "apps": [
         "sandwich"
       ],
@@ -1386,7 +2460,7 @@
     {
       "id": "source-hokkaido",
       "text": "Hokkaido",
-      "prompt": "[Hokkaido](/hˌOkˈIdO/).",
+      "prompt": "[Hokkaido](/h\u02ccOk\u02c8IdO/).",
       "apps": [
         "sandwich"
       ],
@@ -1395,7 +2469,7 @@
     {
       "id": "source-hyogo",
       "text": "Hyogo",
-      "prompt": "[Hyogo](/hˌijˈOɡO/).",
+      "prompt": "[Hyogo](/h\u02ccij\u02c8O\u0261O/).",
       "apps": [
         "sandwich"
       ],
@@ -1404,7 +2478,7 @@
     {
       "id": "source-ibaraki",
       "text": "Ibaraki",
-      "prompt": "[Ibaraki](/ˌibɑɹˈɑki/).",
+      "prompt": "[Ibaraki](/\u02ccib\u0251\u0279\u02c8\u0251ki/).",
       "apps": [
         "sandwich"
       ],
@@ -1440,7 +2514,7 @@
     {
       "id": "source-iwate",
       "text": "Iwate",
-      "prompt": "[Iwate](/ˌiwˈɑtA/).",
+      "prompt": "[Iwate](/\u02cciw\u02c8\u0251tA/).",
       "apps": [
         "sandwich"
       ],
@@ -1521,7 +2595,7 @@
     {
       "id": "source-saitama",
       "text": "Saitama",
-      "prompt": "[Saitama](/sIˈtɑmə/).",
+      "prompt": "[Saitama](/sI\u02c8t\u0251m\u0259/).",
       "apps": [
         "sandwich"
       ],
@@ -1548,7 +2622,7 @@
     {
       "id": "source-tochigi",
       "text": "Tochigi",
-      "prompt": "[Tochigi](/tˌOʧˈiɡi/).",
+      "prompt": "[Tochigi](/t\u02ccO\u02a7\u02c8i\u0261i/).",
       "apps": [
         "sandwich"
       ],
@@ -1564,6 +2638,54 @@
       "role": "source"
     },
     {
+      "id": "spade",
+      "text": "spade",
+      "prompt": "spade.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "spades",
+      "text": "spades",
+      "prompt": "spades.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "square",
+      "text": "square",
+      "prompt": "square.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "squares",
+      "text": "squares",
+      "prompt": "squares.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "stadium",
+      "text": "stadium",
+      "prompt": "stadium.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "stadiums",
+      "text": "stadiums",
+      "prompt": "stadiums.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
       "id": "stapler",
       "text": "stapler",
       "prompt": "stapler.",
@@ -1577,6 +2699,38 @@
       "prompt": "staplers.",
       "apps": [
         "class-supplies"
+      ]
+    },
+    {
+      "id": "star",
+      "text": "star",
+      "prompt": "star.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "stars",
+      "text": "stars",
+      "prompt": "stars.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "station",
+      "text": "station",
+      "prompt": "station.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "stations",
+      "text": "stations",
+      "prompt": "stations.",
+      "apps": [
+        "my-town"
       ]
     },
     {
@@ -1629,11 +2783,51 @@
       ]
     },
     {
+      "id": "supermarket",
+      "text": "supermarket",
+      "prompt": "supermarket.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "supermarkets",
+      "text": "supermarkets",
+      "prompt": "supermarkets.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
       "id": "tell-me-about-your-sandwich",
       "text": "Tell me about your sandwich.",
       "prompt": "Tell me about your sandwich.",
       "apps": [
         "sandwich"
+      ]
+    },
+    {
+      "id": "temple",
+      "text": "temple",
+      "prompt": "temple.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "temples",
+      "text": "temples",
+      "prompt": "temples.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "this-is-for-you",
+      "text": "This is for you.",
+      "prompt": "This is for you.",
+      "apps": [
+        "paper-craft"
       ]
     },
     {
@@ -1659,6 +2853,38 @@
       "prompt": "tomatoes.",
       "apps": [
         "pizza"
+      ]
+    },
+    {
+      "id": "triangle",
+      "text": "triangle",
+      "prompt": "triangle.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "triangles",
+      "text": "triangles",
+      "prompt": "triangles.",
+      "apps": [
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "turn-left",
+      "text": "Turn left.",
+      "prompt": "Turn left.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "turn-right",
+      "text": "Turn right.",
+      "prompt": "Turn right.",
+      "apps": [
+        "my-town"
       ]
     },
     {
@@ -1694,12 +2920,37 @@
       ]
     },
     {
+      "id": "we-have",
+      "text": "We have",
+      "prompt": "We have.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "what-do-you-have-in-your-town",
+      "text": "What do you have in your town?",
+      "prompt": "What do you have in your town?",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
       "id": "what-do-you-want",
       "text": "What do you want?",
       "prompt": "What do you want?",
       "apps": [
         "pizza",
-        "parfait"
+        "parfait",
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "where-is-the",
+      "text": "Where is the",
+      "prompt": "Where is [the](/\u00f0\u0259/)!",
+      "apps": [
+        "my-town"
       ]
     },
     {
@@ -1707,7 +2958,8 @@
       "text": "white",
       "prompt": "white.",
       "apps": [
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
       ]
     },
     {
@@ -1727,7 +2979,40 @@
       "text": "yellow",
       "prompt": "yellow.",
       "apps": [
-        "class-supplies"
+        "class-supplies",
+        "paper-craft"
+      ]
+    },
+    {
+      "id": "you-can-see-it-on-your-left",
+      "text": "You can see it on your left.",
+      "prompt": "You can see it on your left.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "you-can-see-it-on-your-right",
+      "text": "You can see it on your right.",
+      "prompt": "You can see it on your right.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "zoo",
+      "text": "zoo",
+      "prompt": "zoo.",
+      "apps": [
+        "my-town"
+      ]
+    },
+    {
+      "id": "zoos",
+      "text": "zoos",
+      "prompt": "zoos.",
+      "apps": [
+        "my-town"
       ]
     }
   ]

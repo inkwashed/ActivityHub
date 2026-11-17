@@ -2,6 +2,7 @@
 (() => {
  const places=['house','park','library','museum','hospital','bus stop','station','police station','fire station','post office','bookstore','restaurant','supermarket','castle','shrine','temple','church','aquarium','stadium','zoo','amusement park','convenience store','elementary school','junior high school'];
  const plural={house:'houses',library:'libraries',church:'churches'};
+ const pluralPlace=name=>plural[name]||name+'s';
  const dirs=[[0,-1],[1,0],[0,1],[-1,0]],numbers=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'];
  const valid=n=>Number.isInteger(n)&&n>=0&&n<40;
  // Preserve original node IDs; 20–24 add the north riverbank.
@@ -55,18 +56,18 @@
  }
  function directions(state){
 
-  let h=state.facing,run=0,result=[],crossed=false;
-  const flush=()=>{if(run)result.push(`${crossed?'Continue':'Go straight for'} ${numbers[run]||run} ${run===1?'block':'blocks'}.`);run=0};
+  let h=state.facing,run=0,result=[];
+  const flush=()=>{if(run)result.push(`Go straight for ${numbers[run]||run} ${run===1?'block':'blocks'}.`);run=0};
   for(let i=1;i<state.route.length;i++){
    const next=heading(state.route[i-1],state.route[i]),turn=(next-h+4)%4;
    if(turn){flush();result.push(turn===1?'Turn right.':'Turn left.');h=next;}
-   if(track(state.route[i-1],state.route[i])){flush();result.push('Cross the tracks.');crossed=true;}else if(bridge(state.route[i-1],state.route[i])){flush();result.push('Cross the bridge.');crossed=true;}else run++;
+   if(track(state.route[i-1],state.route[i])){flush();result.push('Cross the tracks.');}else if(bridge(state.route[i-1],state.route[i])){flush();result.push('Cross the bridge.');}else run++;
   }
   flush();const arrival=side(state.route,state.destination,state.facing,state.blocks);
   if(arrival)result.push(`You can see it on your ${arrival}.`);
   return result.join(' ');
  }
- function inventory(blocks){const counts=new Map();blocks.filter(Boolean).forEach(x=>counts.set(x,(counts.get(x)||0)+1));const phrases=[...counts].map(([x,n])=>n===1?`${/^[aeiou]/.test(x)?'an':'a'} ${x}`:`${n} ${plural[x]||x+'s'}`);return phrases.length?'We have '+(phrases.length===1?phrases[0]:phrases.slice(0,-1).join(', ')+' and '+phrases.at(-1))+'.':'We have ….';}
+ function inventory(blocks){const counts=new Map();blocks.filter(Boolean).forEach(x=>counts.set(x,(counts.get(x)||0)+1));const phrases=[...counts].map(([x,n])=>n===1?`${/^[aeiou]/.test(x)?'an':'a'} ${x}`:`${n} ${pluralPlace(x)}`);return phrases.length?'We have '+(phrases.length===1?phrases[0]:phrases.slice(0,-1).join(', ')+' and '+phrases.at(-1))+'.':'We have ….';}
  function restore(raw){
   const s=initial();if(!raw||!Array.isArray(raw.blocks)||raw.blocks.length!==12)return s;
   s.blocks=raw.blocks.map(x=>places.includes(x)?x:null);
@@ -103,5 +104,5 @@
   return best;
  }
 
- window.TownModel={hitNode,heading,places,initial,movePlace,extend,side,directions,inventory,restore,xy,bridge,point,blockRect,railRows,railNode,track,railSpacing,activeNode,mapHeight,shift,nodeCount:40};
+ window.TownModel={pluralPlace,hitNode,heading,places,initial,movePlace,extend,side,directions,inventory,restore,xy,bridge,point,blockRect,railRows,railNode,track,railSpacing,activeNode,mapHeight,shift,nodeCount:40};
 })();

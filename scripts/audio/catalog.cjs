@@ -27,11 +27,36 @@ for(const app of ['pizza','parfait','sandwich']){
   Object.assign(entries.get(`do-you-have-${article}`),{prompt:`Do you have ${article} ${noun}?`,endBeforeWord:noun});
  }
 }
+// Town words and reusable route sentences come from its maintained model.
+{
+ const context={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'apps/my-town/model.js'),'utf8'),context);
+ const model=context.window.TownModel;
+ for(const name of model.places){add(name,'my-town');add(model.pluralPlace(name),'my-town');}
+ for(const phrase of ['What do you have in your town?','We have','Turn left.','Turn right.','Cross the bridge.','Cross the tracks.','You can see it on your left.','You can see it on your right.'])add(phrase,'my-town');
+ add('Where is the','my-town');Object.assign(entries.get('where-is-the'),{prompt:'Where is the park?',endBeforeWord:'park'});
+ const numbers=['one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'];
+ for(let i=1;i<=12;i++)for(const prefix of ['Go straight for','Continue'])add(`${prefix} ${numbers[i-1]} ${i===1?'block':'blocks'}.`,'my-town');
+ for(const phrase of ['a','an','and'])add(phrase,'my-town');
+}
+// Paper Craft shares colors/articles/counts and uses a distinct letter-name index.
+{
+ const context={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'apps/paper-craft/config.js'),'utf8'),context);
+ const {config,colors}=context.window.PaperCraft;
+ for(const item of config.toppings){
+  if(item.category==='shapes'){add(item.countSingular,'paper-craft');add(item.countPlural,'paper-craft');}
+  else {const id='letter-'+item.id.toLowerCase();add(item.id,'paper-craft',id);entries.get(id).role='letter';add(item.countPlural,'paper-craft','letter-'+item.id.toLowerCase()+'-plural');}
+ }
+ for(const color of Object.keys(colors))add(color,'paper-craft');
+ for(const phrase of ['letter','a','an','and','I want','What do you want?','This is for you.'])add(phrase,'paper-craft');
+}
 const target=path.join(root,'assets/audio/catalog.json');
 const previous=fs.existsSync(target)?JSON.parse(fs.readFileSync(target,'utf8')):null;
 // Reviewed sentence pieces and number prompts are owned by the catalog, rather
 // than app configuration. Preserve their IDs (letter A and article a differ).
-for(const old of previous?.clips||[])if(['sentence-part','number'].includes(old.role))entries.set(old.id,{...old});
+for(const old of previous?.clips||[])if(['sentence-part','number'].includes(old.role)){
+ const numberConsumers=old.role==='number'?['paper-craft',...(Number(old.text)<=12?['my-town']:[])]:[];
+ entries.set(old.id,{...old,apps:[...new Set([...(old.apps||[]),...(entries.get(old.id)?.apps||[]),...numberConsumers])]});
+}
 const clips=[...entries.values()].sort((a,b)=>a.id.localeCompare(b.id)).map(entry=>({...entry,...previous?.clips.find(x=>x.id===entry.id),apps:entry.apps}));
 for(const old of previous?.clips||[])if(!entries.has(old.id))clips.push({...old,apps:[]});
 fs.writeFileSync(target,JSON.stringify({language:'en-US',voice:'af_heart',speed:0.7,sampleRate:24000,clips},null,2)+'\n');

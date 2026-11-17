@@ -2,7 +2,7 @@
 (() => {
  const M=window.TownModel,A=window.TownArt,$=s=>document.querySelector(s),t=s=>window.ActivityHubI18n?.t(s)||s;
  let state=M.initial(),routeMode=false,selected=0,dragging=false,save,recovery;
- const voice={root:document,config:{toppings:M.places.map(label=>({label})),sauces:[]}};
+ const voice={root:document,config:{toppings:M.places.map(label=>({label,countSingular:label,countPlural:M.pluralPlace(label)})),sauces:[]}};
  const announce=message=>{$('#announcement').textContent=t(message)};
  const nodeLabel=n=>n>=25?`${t('North side of tracks')}: ${Math.floor((n-25)/5)+1}, ${(n-25)%5+1}`:`${t('Street')} ${M.xy(n)[0]+1}, ${M.xy(n)[1]+1}`;
  const blockName=i=>`${String.fromCharCode(65+i%4)}${1+Math.floor(i/4)}`;
@@ -14,11 +14,15 @@
  }
  function sentence(){const text=routeMode?(M.directions(state)||'Go straight for … blocks.'):M.inventory(state.blocks);window.FoodBuilder.prototype.setSentence.call(voice,text);}
  function render(){
+  const heading=routeMode?'Give directions':'Build a landmark';
+  $('#mode-heading').dataset.i18n=heading;$('#mode-heading').textContent=t(heading);
   $('#map-art').innerHTML=A.map(state,routeMode);
   const height=M.mapHeight(state.blocks);$('#town-map').style.aspectRatio=`720 / ${height}`;$('#town-map').style.setProperty('--town-ratio',720/height);
   [...$('#blocks').children].forEach((b,i)=>{const r=M.blockRect(i,state.blocks);b.style.cssText=`left:${r.x/7.2}%;top:${r.y/height*100}%;width:${r.width/7.2}%;height:${r.height/height*100}%`;});
   [...$('#nodes').children].forEach((b,n)=>{const [x,y]=M.point(n,state.blocks);b.hidden=!M.activeNode(n,state.blocks);b.setAttribute('aria-label',nodeLabel(n));if(n===state.route.at(-1))b.setAttribute('aria-current','location');else b.removeAttribute('aria-current');b.classList.toggle('car-node',n===state.route.at(-1));b.style.left=`${x/7.2}%`;b.style.top=`${y/height*100}%`;});
-  $('#question').textContent=routeMode?`Where is the ${state.destination===null?'…':state.blocks[state.destination]}?`:'What do you have in your town?';
+  const questionText=routeMode?`Where is the ${state.destination===null?'…':state.blocks[state.destination]}?`:'What do you have in your town?';
+  if($('#question').textContent!==questionText)voice.pronunciation?.stop();
+  $('#question').textContent=questionText;
   [...$('#blocks').children].forEach((b,i)=>{b.disabled=routeMode&&!state.blocks[i];b.setAttribute('aria-pressed',String(i===(routeMode?state.destination:selected)));b.setAttribute('aria-label',`${blockName(i)}: ${state.blocks[i]||t('Empty block')}`);b.style.touchAction=!routeMode&&state.blocks[i]?'none':'auto'});
   $('#town-tools').hidden=routeMode;$('#nodes').hidden=!routeMode;$('#build-tools').hidden=routeMode;$('#route-tools').hidden=!routeMode;
   [...$('#place-options').children].forEach((b,i)=>{b.disabled=selected===null;b.setAttribute('aria-pressed',String(selected!==null&&state.blocks[selected]===M.places[i]));});
@@ -28,7 +32,9 @@
   $('#destination').innerHTML='<option value="">…</option>'+state.blocks.map((name,i)=>name?`<option value="${i}">${name} · ${blockName(i)}</option>`:'').join('');$('#destination').value=state.destination??'';
   $('#undo').disabled=state.route.length<2;
   $('#route-status').textContent=t(state.destination===null?'Add places in BUILD, then choose a destination.':M.side(state.route,state.destination,state.facing,state.blocks)?'Destination reached!':'Follow the dots to a street beside your destination.');
-  sentence();save?.flush();
+  sentence();
+  if(voice.pronunciation){$('#question').disabled=!(voice.pronunciation.available||voice.pronunciation.recording(questionText));voice.pronunciation.labels();}
+  save?.flush();
  }
  function resetRoute(){state.route=[17];state.facing=0;}
  M.places.forEach(name=>{const b=document.createElement('button');b.type='button';b.className='ah-choice';b.innerHTML=A.icon(name)+`<span>${name}</span>`;b.onclick=()=>{if(selected===null)return;state.blocks[selected]=name;selected=Math.min(selected+1,state.blocks.length-1);state.destination=null;resetRoute();render()};$('#place-options').append(b)});

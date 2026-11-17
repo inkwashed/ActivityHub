@@ -82,6 +82,7 @@ for(const base of ['https://example.test/assets/audio/library.js','file:///examp
  }
  assert.deepEqual(ids('My sandwich is an AHL. A is for apple.'),['my-sandwich-is-an','letter-a','letter-h','letter-l','letter-a','is-for','apple']);
  assert.deepEqual(ids('I have a pencil case and an eraser.'),['i-have','a','pencil-case','and','an','eraser']);
+ assert.deepEqual(ids('My sandwich is a Z.'),['my-sandwich-is-a','letter-z']);
  assert.deepEqual(ids('Do you have a …?'),['do-you-have-a']);
  assert.deepEqual(ids('Tell me about your sandwich.'),['tell-me-about-your-sandwich']);
  for(const location of ['Aichi','Aomori','Gunma','Hokkaido','Hyogo','Ibaraki','Iwate','Saitama','Tochigi']){
@@ -89,7 +90,7 @@ for(const base of ['https://example.test/assets/audio/library.js','file:///examp
  }
  assert.ok(lib.resolveSequence("My sandwich is a T. It's from the Philippines."));
  assert.ok(lib.resolveSequence("My sandwich is a T. It’s from New Zealand."));
- for(const text of ['I have 121 pens.','I have 01 pens.','I have 1.5 pens.','I have -1 pens.','I have a unicorn.','I want cheese and something unknown.','My sandwich is a Z.','My sandwich is a T. It is from Atlantis.','Do you have a red pen?','Do you have a eraser?','Read this arbitrary sentence.']){
+ for(const text of ['I have 121 pens.','I have 01 pens.','I have 1.5 pens.','I have -1 pens.','I have a unicorn.','I want cheese and something unknown.','My sandwich is a Ñ.','My sandwich is a T. It is from Atlantis.','Do you have a red pen?','Do you have a eraser?','Read this arbitrary sentence.']){
   assert.equal(lib.resolveSequence(text),null,text);
  }
 }

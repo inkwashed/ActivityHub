@@ -65,7 +65,7 @@ Remaining differences/review items:
 - The approved one-step depth controls and nine-control toolbar budgets are now shared across all CreativeBuilder consumers.
 - No Paper Craft achievement/badge family exists. Existing badges are named/art-specific; adding one needs a separate product/art decision. Visit counting is already integrated.
 - The loose LEARN shape and letter arrangements can overlap when mixed; narrow screens, crowded letter touch targets and enlarged text require visual/physical review. No claim of browser layout validation is made.
-- Speech fallback covers unsupported shapes/letters, but recording completeness and audible device pronunciation have not been verified.
+- Recording coverage is complete; physical-device playback still needs verification. Speech fallback covers unsupported text or failed audio.
 - Browser review is blocked: shell Chrome launch/local server are restricted, and available in-app browser security rejects local file URLs. The browser suite is provided but not claimed as passed. Physical iPad pinch/scroll, downloads and VoiceOver remain open.
 
 Reusable category-tray styling, preview-only outlines, per-item default-color behavior, interactive scene semantics and nine-tool sizing are documented in STYLE-GUIDE.md. Snapshot/background ownership and required checks live in WORKFLOW.md; app-specific vocabulary, artwork and defaults remain here/config.js.
@@ -80,3 +80,5 @@ The Shape Builder homepage card uses `assets/paper-craft-preview.svg`, generated
 This app now uses the shared one-step layer arrows instead of TOP, with the common nine-control workspace layout. The ordering/layout contract is owned by docs/WORKFLOW.md and docs/STYLE-GUIDE.md; `node tests/check-layer-order.cjs` covers the migrated consumers. Automated checks pass; rendered layout and physical-device touch review remain pending. Nothing committed or deployed.
 
 Cross is an X-shaped cut-out (railroad-crossing style); club and spade use original card-suit silhouettes. Each supports both modes, recoloring, duplication and exports. New defaults are red/green/black respectively; existing shape and letter defaults remain unchanged. The plural of cross is crosses.
+
+Audio expansion approved and integrated November 17, 2026: all 69 additional clips, including the final normal-speed R, are in the shared library. All 124 required clips are available. Plural letter names use dedicated recordings; singular letter A resolves separately from article a. See assets/audio/README.md for provenance and checks. Local integration only; nothing committed or deployed.
