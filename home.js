@@ -35,3 +35,23 @@
  document.addEventListener('activityhub:languagechange',update);
  finder.hidden=false;update();
 })();
+
+/* Home-only favorites reuse the published activity directory as their catalog. */
+(() => {
+ const panel=document.querySelector('.home-shortcuts'),links=document.querySelector('#shortcut-links'),dialog=document.querySelector('#shortcuts-dialog'),options=document.querySelector('#shortcut-options'),opener=document.querySelector('#edit-shortcuts'),status=document.querySelector('#shortcut-status');
+ const key='letseigo.home.shortcuts';
+ const catalog=[...document.querySelectorAll('.activity-card')].map(card=>{
+  const link=card.querySelector('a[href]'),url=new URL(link.getAttribute('href'),location.href);
+  const id=url.pathname.replace(/index\.html$/,'');
+  return {id,href:link.getAttribute('href'),name:card.querySelector('h3').textContent,icon:new URL(id.includes('/post/')?'assets/envelope-heart.svg':'icon.svg',url).href};
+ });
+ let selected=catalog.slice(0,4).map(app=>app.id);
+ try{const saved=JSON.parse(localStorage.getItem(key));if(Array.isArray(saved))selected=saved.filter(id=>catalog.some(app=>app.id===id));}catch{}
+ const t=text=>ActivityHubI18n.t(text);
+ function render(){links.replaceChildren();for(const app of catalog.filter(app=>selected.includes(app.id))){const a=document.createElement('a');a.className='shortcut-link ah-button ah-button-icon';a.setAttribute('aria-label',app.name);a.title=app.name;a.href=app.href;if(location.protocol==='file:'&&a.href.endsWith('/'))a.href+='index.html';const img=document.createElement('img');img.src=app.icon;img.alt='';a.append(img);links.append(a);}document.querySelector('#shortcuts-empty').hidden=selected.length!==0;}
+ opener.addEventListener('click',()=>{status.textContent='';options.replaceChildren();for(const app of catalog){const label=document.createElement('label'),input=document.createElement('input'),img=document.createElement('img'),name=document.createElement('span');input.type='checkbox';input.value=app.id;input.checked=selected.includes(app.id);img.src=app.icon;img.alt='';name.textContent=app.name;label.append(input,img,name);options.append(label);}dialog.showModal();});
+ document.querySelector('#save-shortcuts').addEventListener('click',event=>{event.preventDefault();selected=[...options.querySelectorAll('input:checked')].map(input=>input.value);render();try{localStorage.setItem(key,JSON.stringify(selected));dialog.close();}catch{status.textContent=t('Your shortcuts are updated for this visit, but could not be saved in this browser.');}});
+ dialog.addEventListener('close',()=>opener.focus());
+ window.addEventListener('storage',event=>{if(event.key!==key)return;try{const value=JSON.parse(event.newValue);if(Array.isArray(value)){selected=value.filter(id=>catalog.some(app=>app.id===id));render();}}catch{}});
+ render();panel.hidden=false;
+})();

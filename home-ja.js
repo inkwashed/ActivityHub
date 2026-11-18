@@ -50,3 +50,7 @@ window.ActivityHubI18n.register({
 });
 
 ActivityHubI18n.register({'Layer colorful shapes and letters to make your own greeting card.':'色とりどりの形や文字を重ねて、自分だけのグリーティングカードを作りましょう。','Build with shapes':'形で作品を作る'});
+
+ActivityHubI18n.register({"Are you a teacher? Check out the Let's EiGo! Teacher Tools for more helpful teaching resources here →":"先生ですか？授業に役立つリソースがそろった Let's EiGo! Teacher Tools はこちら →"});
+
+ActivityHubI18n.register({'My shortcuts':'マイショートカット','Edit shortcuts':'ショートカットを編集','Choose your favorite activities with the pencil button.':'鉛筆ボタンでお気に入りのアクティビティを選びましょう。','Choose the activities you want to keep here.':'ここに表示するアクティビティを選んでください。','Your shortcuts are updated for this visit, but could not be saved in this browser.':'今回の表示は更新されましたが、このブラウザには保存できませんでした。'});

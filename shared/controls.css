@@ -136,5 +136,4 @@ body>header{position:sticky;top:0;z-index:10;background-color:var(--ah-canvas)}
 
 /* App title self-navigation: keep the existing typography and a touch-sized target. */
 .ah-app-title{display:inline-flex;align-items:center;min-height:44px;min-width:44px;color:inherit;font:inherit;letter-spacing:inherit;text-decoration:none}
-.ah-app-title:hover{text-decoration:underline;text-underline-offset:4px}
 .ah-app-title:focus-visible{outline:3px solid var(--ah-focus);outline-offset:3px;border-radius:4px}
