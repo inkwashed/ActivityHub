@@ -16,7 +16,7 @@ window.AnimalBlogCatalog=[
  },
  {
   id:'polar-bears',category:'Animal',name:'polar bears',ja:'ホッキョクグマ',image:'art/polar-bears.webp',
-  habitat:{fact:'Polar bears live in **the Arctic**. They hunt for food on sea ice.',note:'the ice'},
+  habitat:{fact:'Polar bears live in **the Arctic**. They hunt for food on **the ice**.',note:'the ice'},
   problem:{fact:'Global warming melts sea ice. Less sea ice makes it hard for polar bears to find food.',note:'global warming'},
   action:{image:'art/polar-bears-action.webp',fact:'We can save energy. We can turn off lights when we leave a room.',note:'save energy'},
   sources:['https://www.fws.gov/species/polar-bear-ursus-maritimus','https://www.worldwildlife.org/species/polar-bear/','https://www.un.org/en/actnow/home-energy']
@@ -65,10 +65,10 @@ window.AnimalBlogCatalog=[
  },
  {
   id:'asian-elephants',category:'Animal',name:'Asian elephants',ja:'アジアゾウ',image:'art/asian-elephants.webp',
-  habitat:{fact:'Asian elephants live in **forests** and **grasslands** in Asia.',note:['forests','grasslands']},
+  habitat:{fact:'Asian elephants live in **forests**, **rainforests**, and **savannas** in Asia.',note:['forests','rainforests','savannas']},
   problem:{fact:'People clear forests for farms and roads. Elephants have less room to move and find food.',note:'forest loss'},
-  action:{image:'art/giant-pandas-action.webp',fact:'We can **protect forests** and keep them connected. Elephants need room to travel between forests.',note:'protect forests'},
-  sources:['https://www.worldwildlife.org/species/elephant/asian-elephant/','https://www.fws.gov/species/asian-elephant-elephas-maximus']
+  action:{image:'art/giant-pandas-action.webp',fact:'We can **plant trees** to help connect forests. Elephants need room to travel between them.',note:'plant trees'},
+  sources:['https://www.worldwildlife.org/species/elephant/asian-elephant/','https://www.fws.gov/species/asian-elephant-elephas-maximus','https://portals.iucn.org/library/sites/library/files/documents/2011-124.pdf']
  },
  {
   id:'red-pandas',category:'Animal',name:'red pandas',ja:'レッサーパンダ',image:'art/red-pandas.webp',
@@ -79,7 +79,7 @@ window.AnimalBlogCatalog=[
  },
  {
   id:'emperor-penguins',category:'Sea animal',name:'emperor penguins',ja:'コウテイペンギン',image:'art/emperor-penguins.webp',
-  habitat:{fact:'Emperor penguins live in **Antarctica**. They raise their chicks on **sea ice** and swim in **the sea** to find food.',note:['Antarctica','sea ice','the sea']},
+  habitat:{fact:'Emperor penguins live in **Antarctica**. They raise their chicks on **the ice** and swim in **the sea** to find food.',note:['Antarctica','the ice','the sea']},
   problem:{fact:'**Global warming** can make sea ice break up too early. Young chicks may fall into the water before they can swim.',note:'global warming'},
   action:{image:'art/polar-bears-action.webp',fact:'We can **save energy** to help slow global warming. We can turn off lights when we leave a room.',note:'save energy'},
   sources:['https://www.bas.ac.uk/news/emperor-penguin-and-antarctic-fur-seal-now-endangered-due-to-climate-change-iucn-red-list/','https://www.un.org/en/actnow/ten-actions/']
@@ -88,12 +88,12 @@ window.AnimalBlogCatalog=[
   id:'bornean-orangutans',category:'Animal',name:'Bornean orangutans',ja:'ボルネオオランウータン',image:'art/bornean-orangutans.webp',
   habitat:{fact:'Bornean orangutans live in **rainforests** on the island of Borneo. They spend a lot of time in trees.',note:'rainforests'},
   problem:{fact:'People cut down trees for wood and to make farms. Orangutans lose trees where they can eat and sleep.',note:'forest loss'},
-  action:{image:'art/giant-pandas-action.webp',fact:'We can **protect forests** and help keep them connected. Orangutans need trees to move from place to place.',note:'protect forests'},
+  action:{image:'art/giant-pandas-action.webp',fact:'We can **plant trees** to help connect forests. Orangutans need trees to move from place to place.',note:'plant trees'},
   sources:['https://www.worldwildlife.org/species/orangutan/bornean-orangutan/']
  },
  {
   id:'koalas',category:'Animal',name:'koalas',ja:'コアラ',image:'art/koalas.webp',
-  habitat:{fact:'Koalas live in **forests** and **woodlands** in Australia. They eat eucalyptus leaves.',note:['forests','woodlands']},
+  habitat:{fact:'Koalas live in **forests** in Australia. They eat eucalyptus leaves.',note:'forests'},
   problem:{fact:'People clear land for farms, homes, and roads. Koalas lose trees that give them food and shelter.',note:'forest loss'},
   action:{image:'art/giant-pandas-action.webp',fact:'We can help **plant trees** where koalas live. The right kinds of eucalyptus trees can give them more food and places to rest.',note:'plant trees'},
   sources:['https://www.dcceew.gov.au/environment/biodiversity/threatened/species/koalas','https://www.environment.nsw.gov.au/sites/default/files/koala-habitat-restoration-guidelines-220154.pdf']
@@ -107,36 +107,36 @@ window.AnimalBlogCatalog=[
  },
  {
   id:'tigers',category:'Animal',name:'tigers',ja:'トラ',image:'art/tigers.webp',
-  habitat:{fact:'Tigers live in **forests**, **rainforests**, and some **grasslands** in Asia.',note:['forests','rainforests','grasslands']},
+  habitat:{fact:'Tigers live in **forests**, **rainforests**, and some **grasslands** in Asia.',note:['forests','rainforests']},
   problem:{fact:'People clear forests to build roads and farms. Tigers have less space to live and find food.',note:'forest loss'},
-  action:{image:'art/giant-pandas-action.webp',fact:'We can **protect forests** and keep them connected so tigers can move between them.',note:'protect forests'},
+  action:{image:'art/giant-pandas-action.webp',fact:'We can **plant trees** to help connect forests so tigers can move between them.',note:'plant trees'},
   sources:['https://www.worldwildlife.org/species/tiger/']
  },
  {
   id:'okapis',category:'Animal',name:'okapis',ja:'オカピ',image:'art/okapis.webp',
   habitat:{fact:'Okapis live in **rainforests** in the Democratic Republic of the Congo. They eat leaves and other plants.',note:'rainforests'},
   problem:{fact:'People clear parts of the forest. Okapis lose places to find food and hide.',note:'forest loss'},
-  action:{image:'art/giant-pandas-action.webp',fact:'We can help **protect rainforests** so okapis have safe places to live.',note:'protect rainforests'},
+  action:{image:'art/giant-pandas-action.webp',fact:'We can **plant trees** to help bring back forests where okapis live.',note:'plant trees'},
   sources:['https://www.okapiconservation.org/','https://www.iucnsos.org/projects/establishing-a-conservation-presence-to-protect-okapi-in-mount-hoyo-eastern-drc/']
  },
  {
   id:'chimpanzees',category:'Animal',name:'chimpanzees',ja:'チンパンジー',image:'art/chimpanzees.webp',
   habitat:{fact:'Chimpanzees live in **forests**, **rainforests**, and some **savannas** in Africa.',note:['forests','rainforests','savannas']},
   problem:{fact:'When people cut down forests, chimpanzees lose trees for food and places to sleep.',note:'forest loss'},
-  action:{image:'art/giant-pandas-action.webp',fact:'We can **protect forests** and help keep them connected so chimpanzees can move between them.',note:'protect forests'},
+  action:{image:'art/giant-pandas-action.webp',fact:'We can **plant trees** to help connect forests so chimpanzees can move between them.',note:'plant trees'},
   sources:['https://primate.wisc.edu/primate-info-net/pin-factsheets/pin-factsheet-chimpanzee/','https://www.worldwildlife.org/species/chimpanzee/']
  },
  {
   id:'giant-armadillos',category:'Animal',name:'giant armadillos',ja:'オオアルマジロ',image:'art/giant-armadillos.webp',
   habitat:{fact:'Giant armadillos live in **forests** and **savannas** in South America. They dig burrows in the ground.',note:['forests','savannas']},
   problem:{fact:'People clear land for farms. Giant armadillos lose places to dig burrows and look for food.',note:'forest loss'},
-  action:{image:'art/giant-pandas-action.webp',fact:'We can help **protect forests** and other wild areas where giant armadillos live.',note:'protect forests'},
+  action:{image:'art/giant-pandas-action.webp',fact:'We can **plant trees** in places where giant armadillos have lost their forests.',note:'plant trees'},
   sources:['https://xenarthrans.org/species/armadillos-2/giant-armadillo/']
  },
  {
   id:'komodo-dragons',category:'Animal',name:'Komodo dragons',ja:'コモドオオトカゲ',image:'art/komodo-dragons.webp',
   habitat:{fact:'Komodo dragons live in **savannas** and **forests** on a few islands in Indonesia.',note:['savannas','forests']},
-  problem:{fact:'When forests are cleared, Komodo dragons have less space to live. As the Earth warms, rising seas can also cover some of their coastal homes.',note:['forest loss','global warming']},
+  problem:{fact:'As the Earth warms, rising seas can cover some of the places where Komodo dragons live. When forests are cleared, Komodo dragons also lose places to live.',note:['global warming','forest loss']},
   action:{image:'art/polar-bears-action.webp',fact:'We can **save energy** to help slow global warming. We can turn off the lights when we leave a room.',note:'save energy'},
   sources:['https://doi.org/10.2305/IUCN.UK.2021-2.RLTS.T22884A123633058.en','https://www.un.org/en/actnow/ten-actions/']
  },
@@ -144,7 +144,7 @@ window.AnimalBlogCatalog=[
   id:'pygmy-hippos',category:'Animal',name:'pygmy hippos',ja:'コビトカバ',image:'art/pygmy-hippos.webp',
   habitat:{fact:'Pygmy hippos live in **forests** near **rivers** in West Africa. They spend time on land and in the water.',note:['forests','rivers']},
   problem:{fact:'People cut down forests or clear them for farms. Pygmy hippos lose places to live and hide.',note:'forest loss'},
-  action:{image:'art/giant-pandas-action.webp',fact:'We can help **protect forests** near rivers so pygmy hippos have shade and places to hide.',note:'protect forests'},
+  action:{image:'art/giant-pandas-action.webp',fact:'We can **plant trees** near rivers where pygmy hippos live. Trees give them shade and places to hide.',note:'plant trees'},
   sources:['https://zoo.sandiegozoo.org/animals/pygmy-hippopotamus']
  },
  {
@@ -207,14 +207,14 @@ window.AnimalBlogCatalog=[
   id:'oceanic-whitetip-sharks',category:'Sea animal',name:'oceanic whitetip sharks',ja:'ヨゴレ',image:'art/oceanic-whitetip-sharks.webp',
   habitat:{fact:'Oceanic whitetip sharks live in warm parts of **the sea**, far from land. They have white tips on their fins.',note:'the sea'},
   problem:{image:'art/fishing-bycatch.webp',fact:'These sharks can get caught in **fishing nets** by mistake when people fish for other fish.',note:'fishing nets'},
-  action:{image:'art/safer-fishing.webp',fact:'We can **use safer fishing gear**. Fishers can use gear that catches fewer sharks by mistake.',note:'use safer fishing gear'},
+  action:{image:'art/safer-fishing.webp',fact:'We can **stop net-fishing** where sharks often get caught. Fishers can fish without nets in those places.',note:'stop net-fishing'},
   sources:['https://www.fisheries.noaa.gov/species/oceanic-whitetip-shark','https://www.fisheries.noaa.gov/feature-story/modifying-fishing-gear-reduces-shark-bycatch-pacific','https://iotc.org/sites/default/files/documents/2026/11/IOTC-2026-WPEB22AS-R.pdf']
  },
  {
   id:'southern-darwins-frogs',category:'Animal',name:'Southern Darwin’s frogs',ja:'ダーウィンハナガエル',image:'art/southern-darwins-frogs.webp',
   habitat:{fact:'Southern Darwin’s frogs live in cool, wet **forests** in Chile and Argentina. They are small and have pointed noses.',note:'forests'},
   problem:{fact:'When people cut down trees, these frogs lose the cool, damp places where they live.',note:'forest loss'},
-  action:{image:'art/giant-pandas-action.webp',fact:'We can **protect forests** so these frogs have damp, shady places to live.',note:'protect forests'},
+  action:{image:'art/giant-pandas-action.webp',fact:'We can **plant trees** to help bring back damp, shady places for these frogs.',note:'plant trees'},
   sources:['https://www.zsl.org/saving-southern-darwins-frog']
  },
  {
@@ -228,7 +228,7 @@ window.AnimalBlogCatalog=[
   id:'maui-dolphins',category:'Sea animal',name:'Māui dolphins',ja:'マウイイルカ',image:'art/maui-dolphins.webp',
   habitat:{fact:'Māui dolphins live in **the sea** near the west coast of New Zealand’s North Island. The fin on their back is round.',note:'the sea'},
   problem:{image:'art/dolphin-fishing-nets.webp',fact:'Māui dolphins can get caught in **fishing nets**. They need to swim up to breathe air.',note:'fishing nets'},
-  action:{image:'art/dolphin-safe-fishing.webp',fact:'We can **keep nets away from dolphins**. Fishers can follow local rules and fish without nets in places where these dolphins live.',note:'keep nets away from dolphins'},
+  action:{image:'art/dolphin-safe-fishing.webp',fact:'We can **stop net-fishing** where these dolphins live. Fishers can follow local rules and fish without nets in those places.',note:'stop net-fishing'},
   sources:['https://www.doc.govt.nz/mauidolphin','https://www.doc.govt.nz/our-work/protecting-species/protecting-marine-species/our-work-with-maui-dolphin/hectors-and-maui-dolphin-threat-management-plan/']
  },
  {
@@ -242,7 +242,7 @@ window.AnimalBlogCatalog=[
   id:'mountain-gorillas',category:'Animal',name:'mountain gorillas',ja:'マウンテンゴリラ',image:'art/mountain-gorillas.webp',
   habitat:{fact:'Mountain gorillas live in cool **forests** in the **mountains** of Africa. They eat leaves and other plants.',note:['forests','mountains']},
   problem:{fact:'When people clear forests for farms, gorillas have less space to live and find food.',note:'forest loss'},
-  action:{image:'art/giant-pandas-action.webp',fact:'We can **protect forests** in parks where mountain gorillas live. That gives them safe places to find food.',note:'protect forests'},
+  action:{image:'art/giant-pandas-action.webp',fact:'We can **plant trees** to help bring back forests where mountain gorillas live.',note:'plant trees'},
   sources:['https://www.worldwildlife.org/species/gorilla/mountain-gorilla/']
  },
  {

@@ -35,7 +35,7 @@ The sea label includes sea birds and species that live in coastal mudflats.
 | Malayan tapirs | Pairs forest loss with planting trees to reconnect habitat. |
 | Japanese eels | Shows both river and sea habitats and pairs overfishing with choosing other fish. |
 | Iriomote cats | Uses a second Japanese wildlife example to connect traffic accidents with slower driving. |
-| Asian elephants | Forests and grasslands, with connected habitat for elephants to travel between forests. |
+| Asian elephants | Forests, rainforests, and savannas, with connected habitat for elephants to travel between forests. |
 | Red pandas | Mountain forests and bamboo, with tree planting as a response to forest loss. |
 | Emperor penguins | Antarctic sea ice and how early break-up affects chicks. |
 | Bornean orangutans | Rainforest trees provide food, shelter and routes between habitat areas. |

@@ -28,9 +28,9 @@
  }
  // Wrapped input uses two fixed halves of the sentence strip. Only close a
  // gap at that seam when the second run starts near its left writing margin.
- function compact(lines,parts){
+ function compact(lines,parts,trimLeading=false){
   const seam=width/2,wordSpace=12;
-  let rightEdge=0,firstEnd=0,secondStart=width,crosses=false;
+  let rightEdge=0,firstEnd=0,firstStart=width,secondStart=width,crosses=false;
   for(const stroke of lines){
    let start=width,end=0;
    for(const [x] of stroke){start=Math.min(start,x);end=Math.max(end,x);}
@@ -38,17 +38,22 @@
    if(start<seam&&end>=seam)crosses=true;
    if(end<seam||parts===2&&start<seam)firstEnd=Math.max(firstEnd,end);
    if(start>=seam)secondStart=Math.min(secondStart,start);
+   else firstStart=Math.min(firstStart,start);
   }
   const gap=secondStart-firstEnd;
   const confirmedWrap=parts===2&&firstEnd>0&&secondStart<width;
   const inferredWrap=parts===undefined&&!crosses&&firstEnd>0&&secondStart<=seam+40&&gap>=24;
   const trim=confirmedWrap||inferredWrap?gap-wordSpace:parts===2&&firstEnd===0&&secondStart<width?seam:0;
-  const packed=trim?lines.map(stroke=>stroke[0][0]>=seam?stroke.map(([x,y])=>[x-trim,y]):stroke):lines;
-  return {lines:packed,right:rightEdge-trim};
+  const leading=trimLeading&&lines.length?Math.max(0,Math.min(firstStart,secondStart-trim)-10):0;
+  const packed=trim||leading?lines.map(stroke=>{
+   const offset=leading+(stroke[0][0]>=seam?trim:0);
+   return offset?stroke.map(([x,y])=>[x-offset,y]):stroke;
+  }):lines;
+  return {lines:packed,right:rightEdge-trim-leading};
  }
- function fitOneLine(lines,sheet,availableWidth,wordCount){
+ function fitOneLine(lines,sheet,availableWidth,wordCount,trimLeading=false){
   if(sheet?.parts!==2||!lines.length||availableWidth<1||availableWidth>16384)return null;
-  const packed=compact(lines,2);
+  const packed=compact(lines,2,trimLeading);
   // A wrapped row uses half the coordinate strip at the saved canvas width.
   // Rebase X into the full strip while keeping the same physical ink size.
   const ratio=2*sheet.width/availableWidth;
@@ -60,7 +65,7 @@
  }
  function paint(ctx,lines,x,y,w,h,sheet){
   if(!lines.length)return;
-  const packed=compact(lines,sheet?.parts);
+  const packed=compact(lines,sheet?.parts,true);
   const aspect=sheet?sheet.width*sheet.parts/width*height/128:1;
   const scale=Math.min(w/((packed.right+4)*aspect),h/height);
   ctx.save();ctx.translate(x,y+(h-height*scale)/2);strokes(ctx,packed.lines,scale*aspect,scale);ctx.restore();
@@ -116,8 +121,9 @@
    if(!visibleWidth)return;
    const editing=selected===pad,zoom=editing?2:1;
    const state=getState(),savedInk=state.ink[pad.index];
-   const savedSheet=state.inkSheets[pad.index]||(active?.pad===pad?active.sheet:null);
-   const folded=editing?null:fitOneLine(savedInk,savedSheet,visibleWidth*2,pad.words.length);
+   const savedSheet=active?.pad===pad?active.sheet:state.inkSheets[pad.index];
+   const trimLeading=!editing&&!state.showHelp;
+   const folded=editing?null:fitOneLine(savedInk,savedSheet,visibleWidth*2,pad.words.length,trimLeading);
    const sheet=folded?.sheet||savedSheet;
    const inset=editing||sheet?expandedInset:previewInset;
    const guideWidth=sheet?sheet.width/2:visibleWidth/zoom;
@@ -130,14 +136,15 @@
     lines:[pad.words.slice(0,sheet.split),pad.words.slice(sheet.split)],
     font:`${sheet.fontSize}px Urbanist, Arial, sans-serif`
    }:pad.guide;
-   if(active?.pad!==pad)pad.parts=sheet?.parts||((editing&&visibleWidth<600)||layout.lines[1].length?2:1);
+   if(active?.pad!==pad)pad.parts=editing?2:sheet?.parts||(layout.lines[1].length?2:1);
    const segment=width/pad.parts;
-   const displayInk=folded?.ink||(!sheet&&!editing&&pad.parts===1?compact(savedInk).lines:savedInk);
+   const displayInk=editing&&sheet?.parts===1?firstLineInk(savedInk):
+    folded?.ink||(!editing&&pad.parts===1?compact(savedInk,sheet?.parts,trimLeading).lines:savedInk);
    const displayWidth=sheet?Math.min(visibleWidth,guideWidth*zoom):visibleWidth;
    const displayHeight=64*displayWidth/guideWidth;
    if(editing&&!sheet)pad.pendingSheet={width:visibleWidth,parts:pad.parts,split:layout.lines[0].length,fontSize:parseFloat(layout.font)};
    pad.canvases.forEach((canvas,i)=>{
-    canvas.hidden=i>=pad.parts;
+    canvas.hidden=i>=pad.parts||(!editing&&i===1&&!layout.lines[1].length&&!displayInk.some(stroke=>stroke.some(([x])=>x>=segment)));
     canvas.style.width=sheet?`${displayWidth}px`:'';
     canvas.style.height=sheet?`${displayHeight}px`:'';
     if(canvas.hidden)return;
@@ -157,6 +164,22 @@
     ctx.restore();
    });
    historyButtons(pad);
+  }
+  function firstLineInk(lines){
+   return lines.map(stroke=>stroke.map(([x,y])=>[Math.min(width/2-.1,Math.round(x*5)/10),y]));
+  }
+  function startStroke(event,canvas,i,pad){
+   const state=getState(),index=pad.index;
+   const before=state.ink[index];
+   const savedSheet=state.inkSheets[index];
+   const sheet=savedSheet?{...savedSheet,parts:2}:pad.pendingSheet;
+   const p=point(event,canvas,i,pad);
+   // Older single-line drafts keep their physical positions on the first row.
+   state.ink[index]=savedSheet?.parts===1?firstLineInk(before):before.slice();
+   active={pad,id:event.pointerId,before,sheet,points:eraser?null:[p]};
+   canvas.setPointerCapture(event.pointerId);
+   if(eraser)state.ink[index]=state.ink[index].filter(stroke=>!near(p,stroke));
+   redraw(pad);
   }
   function step(pad,from,to){
    finish();
@@ -185,7 +208,7 @@
      if(pad.history.length>20)pad.history.shift();
      pad.future.length=0;
      scheduleSave();
-    }
+    }else ink[pad.index]=before;
    }
    if(dirty&&!saveTimer)scheduleSave();
    redraw(pad);
@@ -214,7 +237,7 @@
     // Safari needs explicit non-passive touch cancellation as well as touch-action.
     for(const type of ['touchstart','touchmove'])canvas.addEventListener(type,event=>{if(selected===pad&&event.cancelable)event.preventDefault();},{passive:false});
     canvas.oncontextmenu=event=>event.preventDefault();
-    canvas.onpointerdown=event=>{if(selected!==pad||active||event.button!==0)return;event.preventDefault();clearTimeout(saveTimer);saveTimer=null;if(!eraser&&getState().ink[index].length>=maxStrokes){notice.textContent=t('This pad is full. Erase or undo a stroke to keep writing.');if(dirty)scheduleSave();return;}notice.textContent='';active={pad,id:event.pointerId,before:structuredClone(getState().ink[index]),sheet:getState().inkSheets[index]||pad.pendingSheet,points:eraser?null:[point(event,canvas,i,pad)]};canvas.setPointerCapture(event.pointerId);if(eraser){const p=point(event,canvas,i,pad);getState().ink[index]=getState().ink[index].filter(s=>!near(p,s));}redraw(pad);};
+    canvas.onpointerdown=event=>{if(selected!==pad||active||event.button!==0)return;event.preventDefault();clearTimeout(saveTimer);saveTimer=null;if(!eraser&&getState().ink[index].length>=maxStrokes){notice.textContent=t('This pad is full. Erase or undo a stroke to keep writing.');if(dirty)scheduleSave();return;}notice.textContent='';startStroke(event,canvas,i,pad);};
     canvas.onpointermove=event=>{if(!active||active.id!==event.pointerId||active.pad!==pad)return;event.preventDefault();const p=point(event,canvas,i,pad);if(active.points){const last=active.points.at(-1);if(Math.hypot(p[0]-last[0],p[1]-last[1])<.6)return;if(active.points.length>=maxPoints)active.points=active.points.filter((_,j)=>j%2===0);active.points.push(p);}else getState().ink[index]=getState().ink[index].filter(s=>!near(p,s));redraw(pad);};
     canvas.onpointerup=event=>{if(active?.id===event.pointerId)finish();};canvas.onpointercancel=event=>{if(active?.id===event.pointerId)finish(true);};canvas.onlostpointercapture=event=>{if(active?.id===event.pointerId)finish();};
    }host.append(section);
