@@ -2,6 +2,7 @@
 (() => {
  const safePhoto=value=>typeof value==='string' && value.length<700000 && /^data:image\/jpeg;base64,[A-Za-z0-9+/=]+$/.test(value);
  function normalize(config,raw={}){
+  raw=config.migrateDraft?.(raw)??raw;
   const fields={};
   for(const field of config.fields) fields[field.id]=typeof raw?.fields?.[field.id]==='string'?(field.multiline?raw.fields[field.id].replace(/\r\n?/g,'\n'):raw.fields[field.id].replace(/[\r\n\t]/g,' ')).slice(0,field.maxLength||80):field.default;
   if(config.mode==='guided'&&raw?.fields&&!Object.hasOwn(raw,'showHelp')){
@@ -19,7 +20,7 @@
     let uid=typeof rawImage?.uid==='string'&&/^[a-zA-Z0-9_-]{1,50}$/.test(rawImage.uid)?rawImage.uid:`legacy-${i}`;
     while(used.has(uid))uid+='-x';used.add(uid);image.uid=uid;
    });
-   return {fields,images,...(config.mode==='guided'?{showHelp,typedRows,inputMode:raw?.inputMode==='write'?'write':'type',ink,inkLayout:window.BlogLayout.normalize(raw?.inkLayout,images,'',ink)}:{}),layout:window.BlogLayout.normalize(raw?.layout,images,fields.body)};
+   return {fields,images,...(config.mode==='guided'?{showHelp,typedRows,inputMode:raw?.inputMode==='write'?'write':'type',ink,inkSheets:window.BlogInk.normalizeSheets(raw?.inkSheets,ink),inkLayout:window.BlogLayout.normalize(raw?.inkLayout,images,'',ink)}:{}),layout:window.BlogLayout.normalize(raw?.layout,images,fields.body)};
   }
   return {fields,images};
  }
@@ -55,16 +56,23 @@
  }
  // Align recognized countries or an explicitly typed following phrase; never edit answers.
  function countryHint(config,row,text,blurred=false){
-  const at=row.findIndex(key=>config.fields.find(f=>f.id===key)?.country);
-  if(at<0||!config.countryNames?.length)return {consumed:text.length};
   const fields=row.map(key=>config.fields.find(f=>f.id===key));
+  const at=fields.findIndex(f=>f.country||f.hintNames?.length);
+  if(at<0)return {consumed:text.length};
+  const field=fields[at],values=field.country?config.countryNames:field.hintNames;
+  if(!values?.length)return {consumed:text.length};
   const before=fields.slice(0,at).map(f=>f.help||f.placeholder||'').join(' ');
   const prefix=before?before+' ':'';
   if(text.slice(0,prefix.length).toLowerCase()!==prefix.toLowerCase())return {consumed:text.length};
   const rest=text.slice(prefix.length),sample=fields[at].placeholder||'';
-  const names=[...config.countryNames].sort((a,b)=>b.length-a.length);
+  const names=[...values].sort((a,b)=>b.length-a.length);
   const match=names.find(name=>rest.slice(0,name.length).toLowerCase()===name.toLowerCase()&&/^[\s.!?]/.test(rest.slice(name.length)));
   if(match)return {consumed:prefix.length+sample.length+rest.length-match.length,alignedText:prefix+sample+rest.slice(match.length)};
+  if(!field.country){
+   const next=fields[at+1]?.help?.split(' ')[0];
+   const boundary=rest.search(next?new RegExp('\\s+'+next+'\\b|[.!?]','i'):/[.!?]/);
+   return boundary>0?{consumed:prefix.length+sample.length+rest.length-boundary,alignedText:prefix+sample+rest.slice(boundary)}:{consumed:text.length};
+  }
   const candidate=rest.split(/\s+is\b|[.!?]/i)[0].trimEnd();
   const partial=names.some(name=>name.toLowerCase().startsWith(rest.toLowerCase()));
   const complete=blurred||/\s$|[.!?]|\s+is\b/i.test(rest);
@@ -117,9 +125,10 @@
   for(let i=0;i<fields.length;i++){
    const field=fields[i];
    if(field.help){for(const word of field.help.split(/\s+/))check(tokens[cursor++],word);continue;}
-   if(field.country){
+   if(field.country||field.hintNames?.length){
     const tail=text.slice(tokens[cursor]?.index??text.length);
-    const name=[...(config.countryNames||[])].sort((a,b)=>b.length-a.length).find(name=>tail.toLowerCase().startsWith(name.toLowerCase())&&/^(?:[\s.!?]|$)/.test(tail.slice(name.length)));
+    const names=field.country?config.countryNames:field.hintNames;
+    const name=[...(names||[])].sort((a,b)=>b.length-a.length).find(name=>tail.toLowerCase().startsWith(name.toLowerCase())&&/^(?:[\s.!?]|$)/.test(tail.slice(name.length)));
     if(name){cursor+=name.split(/\s+/).length;continue;}
     // Unknown multiword names: align only when the following fixed phrase is explicit.
     const next=fields[i+1]?.help?.split(/\s+/)[0];
@@ -140,10 +149,11 @@
   const $=id=>document.getElementById(id),t=value=>window.ActivityHubI18n.t(value);
   let state=normalize(config),busy=false,generation=0;
   const controls=new Map(),sentenceEditors=[];
+  let openSentence;
   let saveTimer,designer,inkEditor;
   const label=(node,value)=>{node.dataset.i18n=value;node.textContent=t(value);};
   const status=value=>{label($('blog-status'),config.design&&value==='Images added.'?'':value);};
-  function persist(){window.ActivityAchievements?.recordBlog(config,state);clearTimeout(saveTimer);const saved=window.ActivityAutosave.write(`letseigo.app.${config.id}`,1,state);
+  function persist(){window.ActivityAchievements?.recordBlog(config,state);clearTimeout(saveTimer);saveTimer=undefined;const saved=window.ActivityAutosave.write(`letseigo.app.${config.id}`,1,state);
    if($('blog-save-error')){const node=$('blog-save-error');node.hidden=saved;label(node,saved?'':'This browser could not save your post. Keep this tab open.');}
    else if(!saved)status('This browser could not save your post. Keep this tab open.');}
   const scheduleSave=()=>{clearTimeout(saveTimer);saveTimer=setTimeout(persist,250);};
@@ -157,10 +167,12 @@
    input.style.width=`${Math.max(44,Math.ceil(writingMeasure.measureText(text).width)+8)}px`;
    return;
   }if(config.mode==='free')return;input.style.width=`${Math.max(7,Math.min(32,Array.from(input.value||input.placeholder).length+1))}ch`;}
+  const imageUid=()=> 'p-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10);
   function source(item){return item.src||config.images.find(x=>x.id===item.id).src;}
   function render(){
    if(config.mode==='guided'){
     $('show-help').checked=state.showHelp;
+    $('expanded-show-help').checked=state.showHelp;
     if($('writing-mode')){$('writing-mode').checked=state.inputMode==='write';$('blog-sentences').hidden=state.inputMode==='write';}
     inkEditor?.refresh();
     sentenceEditors.forEach(editor=>editor.refresh());
@@ -194,6 +206,7 @@
    $('blog-upload').disabled=busy||state.images.length>=3;
    if($('blog-example'))$('blog-example').disabled=busy;if($('blog-reset'))$('blog-reset').disabled=busy;$('share').disabled=busy;
    designer?.refresh();
+   refreshBookmarkImages();
   }
   // Build sentence nodes once: typing and IME composition must retain focus/caret.
   if(config.mode==='free'){
@@ -203,10 +216,62 @@
    }
   }
   if(config.mode==='guided'){
+   const help=$('show-help');
+   const helpLabel=help.closest('label');
+   const expandedHelpLabel=helpLabel.cloneNode(true);
+   const expandedHelp=expandedHelpLabel.querySelector('input');
+   expandedHelp.id='expanded-show-help';
+   const mode=$('writing-mode').closest('label');
+   const writingOptions=document.createElement('div');writingOptions.className='blog-writing-options';
+   mode.before(writingOptions);
+   writingOptions.append(helpLabel,mode);
+   const dialog=document.createElement('dialog');dialog.className='blog-sentence-dialog';
+   const header=document.createElement('header');
+   const title=document.createElement('h2');title.id='expanded-sentence-title';
+   dialog.setAttribute('aria-labelledby',title.id);
+   dialog.setAttribute('closedby','none');
+   const close=document.createElement('button');close.type='button';close.className='ah-button ah-button-icon blog-sentence-close';
+   close.textContent='×';close.setAttribute('aria-label',t('Done'));
+   const content=document.createElement('div');content.className='blog-sentence-dialog-content';
+   const actions=document.createElement('div');actions.className='blog-sentence-actions';
+   actions.append(expandedHelpLabel,close);
+   header.append(title,actions);dialog.append(header,content);document.body.append(dialog);
+   dialog.addEventListener('cancel',event=>event.preventDefault());
+   const viewport=window.visualViewport;
+   const fitViewport=()=>{
+    dialog.style.height=`${viewport.height}px`;
+    dialog.style.top=`${viewport.offsetTop}px`;
+   };
+   openSentence=(index,node,trigger,{focus=close,onClose=()=>{},isTyping=false,tools}={})=>{
+    if(dialog.open)return;
+    const anchor=document.createComment('sentence position');
+    node.before(anchor);
+    title.textContent=`${t('Sentence')} ${index+1}`;
+    close.setAttribute('aria-label',t('Done'));
+    content.classList.toggle('blog-typing-expanded',isTyping);
+    if(tools)header.insertBefore(tools,actions);
+    content.append(node);
+    dialog.showModal();
+    if(viewport){
+     fitViewport();
+     viewport.addEventListener('resize',fitViewport);
+     viewport.addEventListener('scroll',fitViewport);
+    }
+    focus.focus();
+    close.onclick=()=>{
+     viewport?.removeEventListener('resize',fitViewport);
+     viewport?.removeEventListener('scroll',fitViewport);
+     if(tools)node.prepend(tools);
+     anchor.replaceWith(node);
+     onClose();
+     dialog.close();
+     trigger.focus();
+    };
+   };
    config.rows.forEach((row,index)=>{
     const line=document.createElement('p');line.className='sentence-editor';
     const ghost=document.createElement('div');ghost.className='sentence-ghost';ghost.setAttribute('aria-hidden','true');
-    const input=document.createElement('textarea');input.className='sentence-input';input.rows=1;input.maxLength=320;input.lang='en';input.dataset.sentence=String(index);
+    const input=document.createElement('textarea');input.className='sentence-input';input.rows=1;input.readOnly=true;input.maxLength=320;input.lang='en';input.dataset.sentence=String(index);
     input.setAttribute('aria-label',`${t('Sentence')} ${index+1}`);input.setAttribute('autocapitalize','off');input.setAttribute('autocorrect','off');input.autocomplete='off';input.spellcheck=false;
     const sample=row.map((key,i)=>{const field=config.fields.find(f=>f.id===key);return {text:(i?' ':'')+(field.help||field.placeholder||'')+(i===row.length-1?'.':''),variable:!field.help};});
     function refresh(){
@@ -235,13 +300,25 @@
     }
     input.oninput=()=>{if(/[\r\n\t]/.test(input.value))input.value=input.value.replace(/[\r\n\t]/g,' ');state.typedRows[index]=input.value;state.fields.body=state.typedRows.join('\n');refresh();scheduleSave();};
     input.onfocus=refresh;input.onblur=refresh;input.oncompositionstart=()=>{input.composing=true;};input.oncompositionend=()=>{input.composing=false;refresh();};
-    input.onkeydown=event=>{if(event.key==='Enter'&&!event.isComposing){event.preventDefault();sentenceEditors[index+1]?.input.focus();}};
+    const expand=()=>{
+     if(dialog.open)return;
+     const {selectionStart,selectionEnd}=input;
+     input.readOnly=false;
+     openSentence(index,line,input,{focus:input,isTyping:true,onClose:()=>{input.readOnly=true;refresh();if(saveTimer)persist();}});
+     input.setSelectionRange(selectionStart,selectionEnd);
+     refresh();
+    };
+    input.onclick=expand;
+    input.onkeydown=event=>{if(!event.isComposing&&(event.key==='Enter'||(input.readOnly&&event.key===' '))){event.preventDefault();expand();}};
     line.append(ghost,input);$('blog-sentences').append(line);sentenceEditors.push({input,refresh});
    });
-   new ResizeObserver(()=>sentenceEditors.forEach(editor=>editor.refresh())).observe($('blog-sentences'));
-   document.fonts?.load('34px Urbanist').then(()=>sentenceEditors.forEach(editor=>editor.refresh()));
+   const sentenceResize=new ResizeObserver(()=>sentenceEditors.forEach(editor=>editor.refresh()));
+   sentenceResize.observe($('blog-sentences'));
+   sentenceResize.observe(content);
+   document.fonts?.load(`${getComputedStyle($('blog-sentences')).fontSize} Urbanist`).then(()=>sentenceEditors.forEach(editor=>editor.refresh()));
    $('writing-mode').onchange=()=>{inkEditor?.finish();state.inputMode=$('writing-mode').checked?'write':'type';render();persist();};
-   $('show-help').onchange=()=>{state.showHelp=$('show-help').checked;state.fields.body=sentences(config,state).join('\n');render();persist();};
+   const changeHelp=event=>{state.showHelp=event.currentTarget.checked;state.fields.body=sentences(config,state).join('\n');render();persist();};
+   help.onchange=expandedHelp.onchange=changeHelp;
   }
   for(const template of config.sentences||[]){
    const paragraph=document.createElement('p');
@@ -286,7 +363,7 @@
     if(!img.naturalWidth||!img.naturalHeight)throw Error('decode');
     const scale=Math.min(1,960/Math.max(img.naturalWidth,img.naturalHeight)),canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));
     const ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0,canvas.width,canvas.height);
-    const src=canvas.toDataURL('image/jpeg',.75);if(!safePhoto(src))throw Error('size');return config.design?{src,uid:'p-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10)}:{src};
+    const src=canvas.toDataURL('image/jpeg',.75);if(!safePhoto(src))throw Error('size');return config.design?{src,uid:imageUid()}:{src};
    }finally{URL.revokeObjectURL(url);}
   }
   $('blog-upload').onchange=async event=>{
@@ -299,9 +376,20 @@
   };
   if($('blog-reset'))$('blog-reset').onclick=()=>{state=normalize(config);render();persist();status('Post reset.');};
   if($('blog-example'))$('blog-example').onclick=()=>{state=normalize(config,config.example);render();persist();status('Example loaded.');};
+  const reading=config.design&&config.reading?window.BlogReading.mount(config):null;
+  function refreshBookmarkImages(){
+   reading?.renderDesign(state.images,busy,id=>{
+    if(busy)return;
+    const index=state.images.findIndex(image=>image.id===id);
+    if(index>=0)state.images.splice(index,1);
+    else if(state.images.length<3)state.images.push({id,uid:imageUid()});
+    persist();render();
+   });
+  }
   const viewButtons=[...document.querySelectorAll('[data-blog-view]')];
   function setView(button){
    inkEditor?.finish();
+   reading?.beforeView();
    document.querySelector('.blog-workspace').dataset.view=button.dataset.blogView;
    for(const other of viewButtons){
     other.setAttribute('aria-pressed',String(other===button));
@@ -309,8 +397,9 @@
    }
    if(config.design){
     for(const panel of document.querySelectorAll('[data-blog-panel]'))panel.hidden=panel.dataset.blogPanel!==button.dataset.blogView;
-    if(button.dataset.blogView==='design'){avatar();designer?.refresh();}
+    if(button.dataset.blogView==='design'){avatar();designer?.refresh();refreshBookmarkImages();}
    }
+   reading?.afterView();
   }
   viewButtons.forEach((button,index)=>{
    button.onclick=()=>setView(button);
@@ -319,7 +408,7 @@
     if(next!==undefined){event.preventDefault();viewButtons[next].focus();setView(viewButtons[next]);}
    };
   });
-  if(config.mode==='guided')inkEditor=window.BlogInk.mount({host:$('blog-handwriting'),getState:()=>state,save:persist,config});
+  if(config.mode==='guided')inkEditor=window.BlogInk.mount({host:$('blog-handwriting'),getState:()=>state,save:persist,config,openSentence});
   document.addEventListener('activityhub:languagechange',()=>{render();avatar();});avatar();render();
   if(config.design){designer=window.BlogDesign({getState:()=>state,save:persist,source});designer.refresh();setView(viewButtons[0]);}
   function snapshotAvatar(){

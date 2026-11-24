@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>School Tour · Let’s EiGo!</title>
+  <script src="../../shared/theme.js?v=2608f49a27f9"></script>
+  <link rel="icon" href="art/library-hint.webp">
+  <link rel="stylesheet" href="../../shared/tokens.css?v=f79c5313466a">
+  <link rel="stylesheet" href="styles.css?v=fcc323831f0a">
+  <link rel="stylesheet" href="../../shared/controls.css?v=5073a002219b">
+  <link rel="stylesheet" href="../../shared/app-shell.css?v=0cc10f83f5e7">
+  <script defer src="../../shared/i18n.js?v=dfcdbf06d2f6"></script>
+  <script defer src="../../shared/ui-ja.js?v=e2bd38eac0ee"></script>
+  <script defer src="../../shared/language-dialog.js?v=3104c801fc43"></script>
+  <script defer src="../../shared/local-links.js?v=0040b3f45d65"></script>
+  <script defer src="../../shared/copyright.js?v=9e2657db7b93"></script>
+  <script defer src="rooms.js?v=bef6a40fb740"></script>
+  <script defer src="ui-ja.js?v=55498f0159ed"></script>
+  <script defer src="app.js?v=1a000b36e6c4"></script>
+</head>
+<body data-app-shell>
+  <header>
+    <div class="brand">
+      <a class="ah-button ah-button-icon" href="../../#lets-try-2" aria-label="Back to textbook activities" data-i18n-aria-label="Back to textbook activities">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+      </a>
+      <img src="art/library-hint.webp" width="34" height="34" alt="">
+      <a class="ah-app-title" href="index.html" lang="en">School Tour</a>
+    </div>
+    <div class="header-actions">
+      <button id="language" class="ah-button ah-button-icon" type="button" aria-label="Language settings" data-i18n-aria-label="Language settings" aria-haspopup="dialog" aria-controls="language-dialog"><img src="../../shared/icons/language.svg?v=dffd4d6da96f" alt=""></button>
+      <span class="edition" lang="en">Let’s Try! 2 · Unit 8</span>
+    </div>
+  </header>
+  <div class="app-scroll" data-site-scroll role="region" aria-label="Activity content" data-i18n-aria-label="Activity content" tabindex="0">
+    <main>
+      <div class="activity-heading">
+        <h1 lang="en">This is my favorite place.</h1>
+        <div class="ah-selector-tray" role="group" aria-label="Activity mode" data-i18n-aria-label="Activity mode">
+          <button class="ah-button" type="button" data-mode="learn" aria-pressed="true" data-i18n="LEARN">LEARN</button>
+          <button class="ah-button" type="button" data-mode="quiz" aria-pressed="false" data-i18n="QUIZ">QUIZ</button>
+        </div>
+      </div>
+      <div class="workspace" data-mode="learn">
+        <section class="map panel" aria-labelledby="map-title">
+          <div class="map-heading">
+            <h2 id="map-title" data-i18n="School map">School map</h2>
+            <p id="map-instructions" data-i18n="Tap a place to explore.">Tap a place to explore.</p>
+          </div>
+          <div id="campus"></div>
+        </section>
+        <div class="side">
+          <section id="detective" class="panel" aria-labelledby="detective-title" hidden>
+            <div class="panel-heading">
+              <h2 id="detective-title" tabindex="-1" data-i18n="School Detective">School Detective</h2>
+              <p id="progress"></p>
+            </div>
+            <div id="question">
+              <div class="prompt">
+                <p id="clue" lang="en"></p>
+                <button class="ah-button ah-button-secondary" type="button" data-audio="clue" aria-label="Listen to the clue" data-i18n-aria-label="Listen to the clue">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4 6 8H3v8h3l5 4zM15 8q4 4 0 8m3-11q6 7 0 14"/></svg>
+                  <span data-i18n="Listen">Listen</span>
+                </button>
+              </div>
+              <div class="hint-row">
+                <button id="hint-toggle" class="ah-button" type="button" aria-pressed="false" aria-controls="hint" data-i18n="Picture hint">Picture hint</button>
+                <img id="hint" width="72" height="72" alt="" hidden>
+              </div>
+            </div>
+            <p id="feedback" role="status"></p>
+          </section>
+          <section id="detail" class="panel" aria-labelledby="room-title">
+            <div class="panel-heading">
+              <h2 id="room-title" tabindex="-1" lang="en"></h2>
+              <button id="back-to-room" class="ah-button" type="button" data-i18n="Back to map">Back to map</button>
+            </div>
+            <img id="scene" alt="" width="480" height="220">
+            <div class="prompt">
+              <div id="model" lang="en"><p></p><p></p></div>
+              <button class="ah-button ah-button-secondary" type="button" data-audio="model" aria-label="Listen to the model" data-i18n-aria-label="Listen to the model">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4 6 8H3v8h3l5 4zM15 8q4 4 0 8m3-11q6 7 0 14"/></svg>
+                <span data-i18n="Listen">Listen</span>
+              </button>
+            </div>
+            <div id="favorite-area">
+              <button id="favorite" class="ah-button" type="button" aria-pressed="false">
+                <span id="favorite-icon" aria-hidden="true">☆</span><span data-i18n="My favorite">My favorite</span>
+              </button>
+              <div id="partner" hidden>
+                <h3 data-i18n="Point and talk with a partner">Point and talk with a partner</h3>
+                <p lang="en">“What’s your favorite place?”</p>
+                <p id="partner-answer" lang="en"></p>
+              </div>
+            </div>
+          </section>
+          <button id="next" class="ah-button ah-button-secondary" type="button" hidden></button>
+          <p id="audio-status" role="status"></p>
+        </div>
+      </div>
+    </main>
+  </div>
+  <dialog class="ah-dialog" id="language-dialog" aria-labelledby="language-title">
+    <div class="dialog-heading">
+      <h2 id="language-title" data-i18n="Language">Language</h2>
+      <button type="button" class="dialog-close ah-button ah-button-icon" aria-label="Close language settings" data-i18n-aria-label="Close language settings">×</button>
+    </div>
+    <div class="language-options">
+      <button type="button" class="ah-button" lang="en" data-language="en" aria-pressed="false">English</button>
+      <button type="button" class="ah-button" lang="ja" data-language="ja" aria-pressed="false">日本語</button>
+    </div>
+    <p data-i18n="English practice words and sentences stay in English.">English practice words and sentences stay in English.</p>
+  </dialog>
+</body>
+</html>

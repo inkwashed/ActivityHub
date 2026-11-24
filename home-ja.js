@@ -54,3 +54,8 @@ ActivityHubI18n.register({'Layer colorful shapes and letters to make your own gr
 ActivityHubI18n.register({"Are you a teacher? Check out the Let's EiGo! Teacher Tools for more helpful teaching resources here →":"先生ですか？授業に役立つリソースがそろった Let's EiGo! Teacher Tools はこちら →"});
 
 ActivityHubI18n.register({'My shortcuts':'マイショートカット','Edit shortcuts':'ショートカットを編集','Choose your favorite activities with the pencil button.':'鉛筆ボタンでお気に入りのアクティビティを選びましょう。','Choose the activities you want to keep here.':'ここに表示するアクティビティを選んでください。','Your shortcuts are updated for this visit, but could not be saved in this browser.':'今回の表示は更新されましたが、このブラウザには保存できませんでした。'});
+
+window.ActivityHubI18n.register({
+ "Open activity":"教材を開く",
+ "Explore animal habitats, keep notes, and write a post about how to help.":"動物のすみかを調べてメモをとり、動物を守るためにできることをブログに書こう。"
+});

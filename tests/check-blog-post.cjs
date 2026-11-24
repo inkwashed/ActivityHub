@@ -94,3 +94,28 @@ assert.equal(b.capitalizationWarnings(c,c.rows[2],'New Zealand is in North Ameri
 assert.equal(b.capitalizationWarnings(c,c.rows[2],'the United States is in Asia.').length,0);
 assert.equal(b.capitalizationWarnings(c,c.rows[2],'usa is in asia.').length,4);
 assert.equal(b.capitalizationWarnings(c,c.rows[2],'jappan is in Asai.').length,0);
+
+for(const file of ['animals.js','config.js']){
+ vm.runInContext(fs.readFileSync(path.join(root,'myblog/NH6-6',file),'utf8'),context);
+}
+const animals=context.window.AnimalBlogConfig;
+const animalSentences=['Let’s save the sea turtles.','Sea turtles live in the sea.','Plastic is a big problem.','We can bring reusable bags.'];
+const migrated=b.normalize(animals,{fields:{title:'Sea turtles',body:animalSentences.join(' ')}});
+assert.equal(animals.mode,'guided');
+assert.equal(b.normalize(animals).typedRows.join('|'),'|||');
+const animalExamples=Array.from(animals.rows,row=>Array.from(row,key=>{
+ const field=animals.fields.find(field=>field.id===key);
+ return field.help||field.placeholder;
+}).join(' ')+'.');
+assert.deepEqual(animalExamples,['Let’s save the sea turtles.','Sea turtles live in the sea.','Plastic pollution is a big problem.','We can use eco-friendly bags.']);
+assert.equal(b.countryHint(animals,animals.rows[1],'North Atlantic right whales ').alignedText,'Sea turtles ');
+assert.equal(b.countryHint(animals,animals.rows[1],'Japanese giant salamanders live ').alignedText,'Sea turtles live ');
+assert.equal(b.countryHint(animals,animals.rows[2],'Hunting ').alignedText,'Plastic pollution ');
+assert.equal(b.phraseWarnings(animals,animals.rows[1],'Przewalski’s horses live in grasslands.',true).length,0);
+assert.equal(migrated.typedRows.join('\n'),animalSentences.join('\n'));
+assert.equal(b.sentences(animals,migrated).join('\n'),animalSentences.join('\n'));
+const restored=b.normalize(animals,{...migrated,showHelp:false,inputMode:'write'});
+assert.equal(restored.showHelp,false);
+assert.equal(restored.inputMode,'write');
+assert.equal(restored.fields.body,animalSentences.join('\n'));
+console.log('PASS: Save the Animals has four blank guided rows, migrates free drafts, and restores ES input preferences.');

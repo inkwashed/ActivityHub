@@ -4,15 +4,39 @@ window.BlogDesign=({getState,save,source})=>{
  const measureContext=document.createElement('canvas').getContext('2d');measureContext.font='26px Arial';
  const measure=text=>measureContext.measureText(text).width;
  let selected=null,current;
+ const elementPreview=document.createElement('div');
+ elementPreview.className='design-element-preview';
+ elementPreview.hidden=true;
+ elementPreview.setAttribute('aria-hidden','true');
+ $('design-picker').after(elementPreview);
+ let previewSource=null;
  const message=text=>{const node=$('design-message');node.dataset.i18n=text;node.textContent=t(text);};
  const layoutKey=s=>s.inputMode==='write'?'inkLayout':'layout';
  const name=key=>L.isInk(key)?`${t('Handwriting')} ${Number(key.slice(4))+1}`:L.isText(key)?`${t('Text')} ${L.textIndex(key)+1}`:`${t('Image')} ${getState().images.findIndex(x=>L.keyOf(x)===key)+1}`;
  const option=(value,text)=>{const node=document.createElement('option');node.value=value;node.textContent=text;return node;};
- function plan(priority){const s=getState();return L.plan(s[layoutKey(s)],s.images,s.fields.body,measure,priority,s.inputMode==='write'?s.ink:null);}
+ function plan(priority){const s=getState();return L.plan(s[layoutKey(s)],s.images,s.fields.body,measure,priority,s.inputMode==='write'?s.ink:null,s.inkSheets);}
  function updateControls(){
   const block=current.blocks.find(b=>b.key===selected);
   $('design-picker').value=selected||'';
-  const photo=block&&!L.isText(block.key)&&!L.isInk(block.key)?[...$('design-grid').children].find(node=>node.dataset.key===selected)?.querySelector('img'):null;
+  const content=block?[...$('design-grid').children].find(node=>node.dataset.key===selected)?.firstElementChild:null;
+  const photo=content?.matches('img')?content:null;
+  if(content!==previewSource){
+   previewSource=content;
+   elementPreview.hidden=!content;
+   elementPreview.replaceChildren();
+   if(content){
+    const thumbnail=content.cloneNode(true);
+    if(content.matches('canvas')){
+     thumbnail.classList.remove('design-ink');
+     thumbnail.getContext('2d').drawImage(content,0,0);
+    }
+    if(photo){
+     thumbnail.style.aspectRatio=`${block.width} / ${block.height}`;
+     thumbnail.style.maxWidth=`${Math.min(144,96*block.width/block.height)}px`;
+    }
+    elementPreview.append(thumbnail);
+   }
+  }
   const ratio=photo?.naturalWidth?Math.max(block.width/photo.naturalWidth,block.height/photo.naturalHeight):0;
   const cropX=ratio&&photo.naturalWidth*ratio>block.width+.5,cropY=ratio&&photo.naturalHeight*ratio>block.height+.5;
   $('design-crop').hidden=!(cropX||cropY);
@@ -51,7 +75,7 @@ window.BlogDesign=({getState,save,source})=>{
    const node=document.createElement('div');node.className='design-block';node.dataset.key=block.key;
    node.style.gridColumn=`${block.col+1} / span ${block.w}`;node.style.gridRow=`${block.row+1} / span ${block.rows}`;
    if(L.isInk(block.key)){
-    const canvas=document.createElement('canvas');canvas.className='design-ink';canvas.width=816;canvas.height=120;canvas.setAttribute('aria-label',name(block.key));window.BlogInk.paint(canvas.getContext('2d'),block.ink,0,0,816,120);node.append(canvas);
+    const canvas=document.createElement('canvas');canvas.className='design-ink';canvas.width=816;canvas.height=120;canvas.setAttribute('aria-label',name(block.key));window.BlogInk.paint(canvas.getContext('2d'),block.ink,0,0,816,120,block.inkSheet);node.append(canvas);
    }else if(L.isText(block.key)){
     const content=document.createElement('div');content.className='design-text';content.lang='en';
     for(const line of block.lines){const span=document.createElement('span');span.textContent=line||'\u00a0';content.append(span);}node.append(content);
@@ -85,7 +109,11 @@ window.BlogDesign=({getState,save,source})=>{
   const s=getState();s[layoutKey(s)]=L.positions(current);const block=s[layoutKey(s)].find(b=>b.key===selected);if(!block)return;
   block[property]=Number($('crop-'+axis).value);current=plan();
   const img=[...$('design-grid').children].find(node=>node.dataset.key===selected)?.querySelector('img');
-  if(img)img.style.objectPosition=`${block.cropX}% ${block.cropY}%`;
+  if(img){
+   const position=`${block.cropX}% ${block.cropY}%`;
+   img.style.objectPosition=position;
+   elementPreview.firstElementChild.style.objectPosition=position;
+  }
   save();
  };
  $('design-info').onclick=()=>$('design-help-dialog').showModal();

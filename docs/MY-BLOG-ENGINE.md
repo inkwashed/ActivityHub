@@ -7,7 +7,7 @@ This is the implementation reference for the My Blog family. Project process rem
 | Variant | Reference | Contract |
 | --- | --- | --- |
 | JHS | `myblog/NH1-5/` | Free title/body writing, Write/Photos/Design tabs, read-only Sample, three-column composition, layout-only reset |
-| ES | `myblog/NH6-5/` | Guided or independent sentence-frame writing, independent answers, Post/Photos/Design and layout-only reset |
+| ES | `myblog/NH6-5/`, `myblog/NH6-6/` | Guided TYPE/WRITE sentence rows, optional help, and layout-only reset. Lessons with reading content add Read before the writing tab. |
 
 New JHS lessons should follow NH1-5's structure with different prompts and samples. ES shares Photos/Design/Share with JHS while keeping its guided Post editor. NH1-5 is listed under NEW HORIZON 1 on the homepage; NH6-5 is listed under NEW HORIZON Elementary 6. There is no separate JHS Lab yet: any future lab must have its own draft ID, remain unlisted, and preserve shared relative paths.
 
@@ -84,7 +84,7 @@ JHS consumer NH2-4 (Welcome to Japan) follows NH1-5 with a separate draft ID, a 
 
 JHS photo progress/errors stay in Photos; successful uploads clear their progress message. The shared action footer has no routine status text. A save failure remains an explicit global alert until a successful save.
 
-ES guided mode uses configurable sample rows with grey standard phrases and green variable hints. TYPE uses one textarea per sentence, stored in validated `typedRows`; legacy segmented drafts migrate to complete strings. Focused sentences show the untyped sample suffix, which disappears on blur for nonempty answers. Help never contributes to saved/exported text. `fields.body` derives from typed rows for Design and Journal. See NH6-5 README and `tests/check-blog-es-browser.cjs`.
+ES guided mode uses configurable sample rows with grey standard phrases and green variable hints. TYPE uses one textarea per sentence, stored in validated `typedRows`; legacy segmented drafts migrate to complete strings. Focused sentences show the untyped sample suffix, which disappears on blur for nonempty answers. Tap a sentence or activate it with the keyboard to open its full-screen editor. In WRITE, Pen, Eraser and Undo stay in the editor header. The top-right × closes either editor, saves pending changes and returns focus to the same sentence. Escape leaves the editor open. Help never contributes to saved/exported text. `fields.body` derives from typed rows for Design and Journal. See NH6-5 README and `tests/check-blog-es-browser.cjs`.
 
 ## ES handwriting
 

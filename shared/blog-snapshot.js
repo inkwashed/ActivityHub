@@ -44,7 +44,7 @@
   if(post.design){
    for(const block of post.design.blocks){
     const x=pad+block.x,y=galleryY+block.y;
-    if(block.ink){window.BlogInk.paint(ctx,block.ink,x,y,block.width,block.height);}
+    if(block.ink){window.BlogInk.paint(ctx,block.ink,x,y,block.width,block.height,block.inkSheet);}
     else if(block.key==='text'||/^text:\d+$/.test(block.key)){
      ctx.fillStyle=colors.ink;ctx.font='26px Arial';ctx.textBaseline='top';
      block.lines.forEach((line,i)=>ctx.fillText(line,x+12,y+12+i*38));ctx.textBaseline='alphabetic';

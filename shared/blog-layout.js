@@ -30,14 +30,14 @@
   return result;
  }
  const overlap=(a,b)=>a.col<b.col+b.w&&a.col+a.w>b.col&&a.row<b.row+b.rows&&a.row+a.rows>b.row;
- function plan(layout,images,text,measure,priority,ink=null){
+ function plan(layout,images,text,measure,priority,ink=null,inkSheets=null){
   const blocks=normalize(layout,images,text,ink)??defaults(images,text,ink),placed=[],parts=sections(text);
   const ordered=priority?[...blocks.filter(b=>b.key===priority),...blocks.filter(b=>b.key!==priority)]:blocks;
   for(const block of ordered){
    const pixelWidth=column*block.w+gap*(block.w-1);
    const lines=isText(block.key)?wrap(parts[textIndex(block.key)],pixelWidth-24,measure):[];
    const rows=isInk(block.key)?1:isText(block.key)?Math.max(1,Math.ceil((lines.length*38+24+gap)/(rowHeight+gap))):block.h;
-   const item={...block,rows,lines,...(isInk(block.key)?{ink:ink[Number(block.key.slice(4))]}:{})};
+   const item={...block,rows,lines,...(isInk(block.key)?{ink:ink[Number(block.key.slice(4))],inkSheet:inkSheets?.[Number(block.key.slice(4))]}:{})};
    while(placed.some(other=>overlap(item,other)))item.row++;
    placed.push(item);
   }

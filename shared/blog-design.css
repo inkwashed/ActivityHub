@@ -28,6 +28,12 @@
 .design-tools label{display:block;font-size:14px;margin:12px 0 6px;font-weight:bold}
 .design-tools select{display:block;max-width:100%;width:100%;min-height:44px;font:inherit;padding:8px;color:var(--ah-ink);background:var(--ah-surface);border:1px solid var(--ah-border);border-radius:var(--ah-radius-control)}
 .design-tools select:focus-visible{outline:3px solid var(--ah-focus);outline-offset:2px}
+.design-element-preview{margin-top:8px;padding:8px;border:1px solid var(--ah-divider);border-radius:var(--ah-radius-control);background:var(--ah-surface)}
+.design-element-preview>img{display:block;width:100%;height:auto;object-fit:cover;border-radius:var(--ah-radius-control)}
+.design-element-preview>canvas{display:block;width:min(100%,240px);height:auto}
+.design-element-preview>.design-text{padding:0;font:14px/1.35 Arial,sans-serif;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.design-element-preview>.design-text>span{display:inline;white-space:normal;overflow-wrap:anywhere}
+.design-element-preview>.design-text>span+span::before{content:' '}
 .design-tools>button{margin-top:12px;width:100%}
 @media(max-width:739px){.design-workspace{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(80px,1fr) auto minmax(100px,28%);gap:0}.design-tools{border-left:0;border-top:1px solid var(--ah-divider);padding:12px}.design-sheet-scroll{padding:16px}.blog-three .blog-bottom{flex-wrap:wrap;gap:4px}.blog-three #blog-status{max-height:44px;overflow:auto}}
 
@@ -77,8 +83,9 @@
 .blog-guided #blog-sentences p{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:10px 0}
 
 /* ES handwriting guides repeat on wrapped rows; only the baseline uses the theme accent. */
-.blog-guided #blog-sentences{font-family:Urbanist,Arial,sans-serif;font-size:34px;font-weight:400;line-height:64px;color:#000}
-.blog-guided #blog-sentences p{gap:0 8px;align-items:center;margin:12px 0;line-height:64px;background-image:linear-gradient(to bottom,transparent 46px,var(--ah-selected-border) 46px,var(--ah-selected-border) 48px,transparent 48px),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='64'%3E%3Cpath d='M0 16H8M0 57H8' fill='none' stroke='black' stroke-width='1'/%3E%3Cpath d='M0 30H8' fill='none' stroke='black' stroke-width='1' stroke-dasharray='2 2'/%3E%3C/svg%3E");background-size:100% 64px,8px 64px;background-repeat:repeat-y,repeat}
+.blog-guided{--blog-writing-font-size:36px;--blog-writing-inset:2px}
+.blog-guided :is(#blog-sentences,.blog-typing-expanded){font-family:Urbanist,Arial,sans-serif;font-size:var(--blog-writing-font-size);font-weight:400;line-height:64px;color:#000}
+.blog-guided :is(#blog-sentences,.blog-typing-expanded) p{gap:0 8px;align-items:center;margin:12px 0;line-height:64px;background-image:linear-gradient(to bottom,transparent 46px,var(--ah-selected-border) 46px,var(--ah-selected-border) 48px,transparent 48px),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='64'%3E%3Cpath d='M0 16H8M0 57H8' fill='none' stroke='black' stroke-width='1'/%3E%3Cpath d='M0 30H8' fill='none' stroke='black' stroke-width='1' stroke-dasharray='2 2'/%3E%3C/svg%3E");background-size:100% 64px,8px 64px;background-repeat:repeat-y,repeat}
 .blog-guided #blog-sentences input{font:inherit;line-height:64px;height:64px;min-height:64px;padding:0 5px;margin:0;border:0;border-radius:0;background:transparent;vertical-align:baseline;box-shadow:none}
 .blog-guided #blog-sentences input::placeholder{color:var(--ah-muted);opacity:.65}
 .blog-guided #blog-sentences input.sentence-answer::placeholder{color:var(--ah-selected-border);opacity:.65}
@@ -92,6 +99,7 @@
 .blog-guided #blog-sentences p{column-gap:4px}
 
 .es-byline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 0;flex-wrap:wrap}.es-byline .blog-author{margin:0}.ink-mode-toggle .switch-track{width:132px}.ink-mode-toggle input:checked+.switch-track .switch-knob{transform:translateX(88px)}
+.blog-writing-options,.blog-sentence-actions{display:flex;align-items:center;gap:12px;margin-inline-start:auto}
 #blog-handwriting[hidden],#blog-sentences[hidden]{display:none!important}.ink-tools{display:flex;gap:8px;flex-wrap:wrap}.ink-pad{margin:12px 0 20px}.ink-pad-heading{display:flex;align-items:center;justify-content:flex-start;gap:8px;flex-wrap:wrap}.ink-pad-heading h3{font-size:16px;margin:0;color:var(--ah-muted)}
 .ink-canvas{display:block;width:100%;height:64px;touch-action:none;user-select:none;-webkit-user-select:none;cursor:crosshair}.ink-canvas[hidden]{display:none}.design-ink{display:block;width:100%;height:100%;object-fit:contain}
 /* Keep ES help and input-mode controls outside the sentence scroller. */
@@ -99,6 +107,8 @@
 .blog-guided #blog-preview>article{display:flex;flex-direction:column;flex:1;min-height:0}
 .blog-guided #blog-preview>.blog-heading,.blog-guided #blog-preview>.blog-hint,.blog-guided .es-byline{flex-shrink:0}
 .blog-guided #blog-handwriting,.blog-guided #blog-sentences{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding-inline-end:6px}
+.blog-guided #blog-handwriting:not([hidden]),.blog-guided #blog-sentences:not([hidden]){display:flex;flex-direction:column;gap:6px;padding-block:4px}
+.blog-guided #blog-handwriting>.ink-pad,.blog-guided #blog-sentences>p.sentence-editor{flex:none;margin:0}
 @media(max-height:599px){
  .blog-guided #blog-preview{padding:8px 12px}
  .blog-guided #blog-preview>.blog-hint{display:none}
@@ -115,13 +125,12 @@
 .ink-select{position:absolute;inset:0;z-index:1;width:100%;border:0;background:transparent;cursor:pointer;border-radius:4px;touch-action:pan-y}
 .ink-select:focus-visible{outline:2px solid var(--ah-focus);outline-offset:-2px}
 .ink-pad.is-active{box-shadow:inset 3px 0 var(--ah-selected-border);padding-inline-start:10px}
-.ink-done{margin-inline-start:auto}
 .blog-writing,.blog-writing *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .ink-pad:not(.is-active) .ink-canvas{touch-action:pan-y}
 
 /* A real sentence field above a non-editable, character-by-character sample. */
-.blog-guided #blog-sentences p.sentence-editor{display:block;position:relative}
-.sentence-editor .sentence-input,.sentence-editor .sentence-ghost{box-sizing:border-box;width:100%;margin:0;padding:0 2px;border:0;font:inherit;line-height:64px;letter-spacing:normal;white-space:pre-wrap;overflow-wrap:break-word;word-break:normal}
+.blog-guided :is(#blog-sentences,.blog-typing-expanded) p.sentence-editor{display:block;position:relative}
+.sentence-editor .sentence-input,.sentence-editor .sentence-ghost{box-sizing:border-box;width:100%;margin:0;padding:0 var(--blog-writing-inset);border:0;font:inherit;line-height:64px;letter-spacing:normal;white-space:pre-wrap;overflow-wrap:break-word;word-break:normal}
 .sentence-editor .sentence-input{display:block;position:relative;z-index:1;resize:none;min-height:64px;background:transparent;color:#000;overflow:hidden;border-radius:var(--ah-radius-control)}
 .sentence-editor .sentence-ghost{position:absolute;inset:0 0 auto;pointer-events:none}
 .sentence-entered{color:transparent}
@@ -135,3 +144,14 @@
 
 /* Align Urbanist with the unchanged writing guides in both text layers. */
 .sentence-editor .sentence-input,.sentence-editor .sentence-ghost{transform:translateY(2px)}
+
+.blog-sentence-dialog{box-sizing:border-box;position:fixed;inset:0;margin:0;width:100%;max-width:none;height:100dvh;max-height:none;padding:0;border:0;background:var(--ah-surface);color:var(--ah-ink);overflow:hidden}
+.blog-sentence-dialog[open]{display:flex;flex-direction:column}
+.ah-blog .blog-sentence-dialog>header{flex:none;display:grid;grid-template-columns:auto 1fr auto;max-height:none}
+.blog-sentence-dialog>header h2{margin:0;font-size:1.125rem}
+.blog-sentence-actions{grid-column:3;grid-row:1}
+@media(max-width:560px){.blog-sentence-dialog>header>.ink-pad-heading{grid-column:1/-1;grid-row:2}}
+.blog-sentence-dialog-content{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:0 clamp(12px,3vw,32px)}
+.blog-sentence-dialog .ink-pad.is-active{margin:0;padding:0;box-shadow:none}
+.blog-sentence-dialog .ink-canvas{height:128px}
+.blog-sentence-dialog .ink-pad-heading h3,.blog-sentence-dialog .blog-hint:empty{display:none}

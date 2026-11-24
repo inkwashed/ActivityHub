@@ -1,12 +1,18 @@
 const {chromium}=require('playwright'),assert=require('node:assert/strict');
 (async()=>{const browser=await chromium.launch({headless:true,...(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{})});try{
-const p=await browser.newPage({viewport:{width:1024,height:768}}),errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto((process.env.BLOG_BASE_URL||'http://127.0.0.1:8776')+'/myblog/NH6-5/');await p.fill('[data-sentence="0"]','my hat');await p.check('#writing-mode');assert.equal(await p.locator('.ink-pad').count(),4);assert.equal(await p.locator('.ink-canvas:visible').count(),4);
+const p=await browser.newPage({viewport:{width:1024,height:768}}),errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto((process.env.BLOG_BASE_URL||'http://127.0.0.1:8776')+'/myblog/NH6-5/');await p.click('[data-sentence="0"]');await p.fill('[data-sentence="0"]','my hat');await p.locator('.blog-sentence-close').click();await p.check('#writing-mode');assert.equal(await p.locator('.ink-pad').count(),4);assert.equal(await p.locator('.ink-canvas:visible').count(),4);
+const expanded=p.getByRole('dialog',{name:'Sentence 1'});
+const close=()=>expanded.getByRole('button',{name:'Done',exact:true}).click();
 await p.locator('.ink-select').first().click();
-await p.locator('.blog-heading h1').click();
-assert.equal(await p.locator('.ink-pad.is-active').count(),1);
-await p.locator('.ink-select').nth(1).click();
-assert.ok(await p.locator('.ink-pad').first().evaluate(el=>el.classList.contains('is-active')));
-await p.locator('.ink-done').first().click();
+assert.equal(await expanded.locator('.ink-pad.is-active').count(),1);
+assert.equal(await expanded.locator('.ink-canvas:visible').first().evaluate(canvas=>canvas.clientHeight),128);
+assert.equal(await expanded.locator('header').getByRole('button',{name:'Pen',exact:true}).isVisible(),true);
+await expanded.getByRole('checkbox',{name:'Show Help?'}).uncheck();
+await p.keyboard.press('Escape');
+assert.equal(await expanded.isVisible(),true);
+await close();
+assert.equal(await p.locator('#show-help').isChecked(),false);
+await p.check('#show-help');
 assert.equal(await p.locator('.ink-pad.is-active').count(),0);
 for(const viewport of [{width:1024,height:768},{width:390,height:844},{width:844,height:390}]){
  await p.setViewportSize(viewport);
@@ -21,19 +27,44 @@ for(const viewport of [{width:1024,height:768},{width:390,height:844},{width:844
 }
 await p.setViewportSize({width:1024,height:768});
 const read=async()=>{await p.waitForTimeout(2100);return p.evaluate(()=>ActivityAutosave.read('letseigo.app.world-blog',1));};
-async function draw(locator){const pad=locator.locator('..');if(await pad.locator('.ink-select').isVisible())await pad.locator('.ink-select').click();await locator.scrollIntoViewIfNeeded();const box=await locator.boundingBox();await p.mouse.move(box.x+box.width*.15,box.y+box.height*.45);await p.mouse.down();await p.mouse.move(box.x+box.width*.35,box.y+box.height*.65,{steps:10});await p.mouse.up();}
+async function draw(line=0){if(!(await expanded.isVisible()))await p.locator('.ink-select').first().click();const locator=expanded.locator('.ink-canvas').nth(line);await locator.scrollIntoViewIfNeeded();const box=await locator.boundingBox();await p.mouse.move(box.x+box.width*.15,box.y+box.height*.45);await p.mouse.down();await p.mouse.move(box.x+box.width*.35,box.y+box.height*.65,{steps:10});await p.mouse.up();}
 await p.evaluate(()=>{window.inkSaveTimes=[];const original=ActivityAutosave.write;ActivityAutosave.write=(...args)=>{inkSaveTimes.push(performance.now());return original(...args);};});
-await draw(p.locator('.ink-canvas').first());
+await draw();
 await p.waitForTimeout(1100);
 assert.equal(await p.evaluate(()=>inkSaveTimes.length),0);
-await draw(p.locator('.ink-canvas').first());
+await draw();
 await p.waitForTimeout(1100);
 assert.equal(await p.evaluate(()=>inkSaveTimes.length),0);
 await p.waitForTimeout(1100);
 assert.equal(await p.evaluate(()=>inkSaveTimes.length),1);
-await p.locator('.ink-pad').first().getByRole('button',{name:'Undo',exact:true}).click();
-assert.equal((await read()).ink[0].length,1);await p.locator('.ink-pad').first().getByRole('button',{name:'Undo',exact:true}).click();assert.equal((await read()).ink[0].length,0);await draw(p.locator('.ink-canvas').first());
-await p.locator('.ink-pad').first().getByRole('button',{name:'Eraser',exact:true}).click();await draw(p.locator('.ink-canvas').first());assert.equal((await read()).ink[0].length,0);await p.locator('.ink-pad').first().getByRole('button',{name:'Undo',exact:true}).click();assert.equal((await read()).ink[0].length,1);await p.locator('.ink-pad').first().getByRole('button',{name:'Pen',exact:true}).click();await p.uncheck('#show-help');assert.equal((await read()).ink[0].length,1);await p.uncheck('#writing-mode');assert.equal(await p.locator('[data-sentence="0"]').inputValue(),'my hat');await p.check('#writing-mode');await p.setViewportSize({width:390,height:844});await p.waitForFunction(()=>[...document.querySelectorAll('.ink-canvas')].filter(c=>!c.hidden).length===8);await draw(p.locator('.ink-pad').first().locator('canvas').nth(1));assert.ok((await read()).ink[0][1][0][0]>408);
-await p.reload();assert.ok(await p.locator('#writing-mode').isChecked());assert.equal((await read()).ink[0].length,2);await p.setViewportSize({width:1024,height:768});await p.click('#tab-design');assert.equal(await p.locator('.design-ink').count(),4);await p.selectOption('#design-picker','ink:0');assert.ok(await p.locator('#design-taller').isDisabled());await p.click('#design-down');assert.ok((await read()).inkLayout);await p.click('#share');await p.waitForFunction(()=>document.querySelector('#blog-snapshot').naturalWidth>0);await p.locator('#blog-snapshot').screenshot({path:'work/ink-share.png'});await p.keyboard.press('Escape');await p.click('#tab-write');await p.screenshot({path:'work/ink-post.png'});
+const redo=expanded.getByRole('button',{name:'Redo',exact:true});
+assert.equal(await redo.isDisabled(),true);
+await expanded.getByRole('button',{name:'Undo',exact:true}).click();
+assert.equal(await redo.isEnabled(),true);
+await redo.click();
+assert.equal((await read()).ink[0].length,2);
+await expanded.getByRole('button',{name:'Undo',exact:true}).click();
+assert.equal((await read()).ink[0].length,1);await expanded.getByRole('button',{name:'Undo',exact:true}).click();assert.equal((await read()).ink[0].length,0);await draw();assert.equal(await redo.isDisabled(),true);
+await expanded.getByRole('button',{name:'Eraser',exact:true}).click();await draw();assert.equal((await read()).ink[0].length,0);await expanded.getByRole('button',{name:'Undo',exact:true}).click();assert.equal((await read()).ink[0].length,1);await redo.click();assert.equal((await read()).ink[0].length,0);await expanded.getByRole('button',{name:'Undo',exact:true}).click();await expanded.getByRole('button',{name:'Pen',exact:true}).click();await close();await p.uncheck('#show-help');assert.equal((await read()).ink[0].length,1);await p.uncheck('#writing-mode');assert.equal(await p.locator('[data-sentence="0"]').inputValue(),'my hat');await p.check('#writing-mode');await p.setViewportSize({width:390,height:844});await p.locator('.ink-select').first().click();
+assert.equal(await expanded.locator('.ink-canvas:visible').count(),1);
+await expanded.getByRole('button',{name:'Undo',exact:true}).click();
+assert.equal(await expanded.locator('.ink-canvas:visible').count(),2);
+await draw(1);
+const savedSheet=(await read()).inkSheets[0];
+assert.equal(savedSheet.parts,2);
+assert.ok((await read()).ink[0][0][0][0]>408);
+const savedInk=(await read()).ink[0];
+await p.reload();
+assert.ok(await p.locator('#writing-mode').isChecked());
+await p.setViewportSize({width:1024,height:768});
+const previewLines=p.locator('#blog-handwriting > .ink-pad').first().locator('.ink-canvas:visible');
+await p.waitForFunction(()=>document.querySelector('#blog-handwriting > .ink-pad').querySelectorAll('.ink-canvas:not([hidden])').length===1);
+assert.equal(await previewLines.count(),1);
+await p.locator('.ink-select').first().click();
+assert.equal(await expanded.locator('.ink-canvas:visible').count(),2);
+await close();
+assert.deepEqual((await read()).inkSheets[0],savedSheet);
+assert.deepEqual((await read()).ink[0],savedInk);
+await p.click('#tab-design');assert.equal(await p.locator('.design-ink').count(),4);await p.selectOption('#design-picker','ink:0');assert.ok(await p.locator('#design-taller').isDisabled());await p.click('#design-down');assert.ok((await read()).inkLayout);await p.click('#share');await p.waitForFunction(()=>document.querySelector('#blog-snapshot').naturalWidth>0);await p.locator('#blog-snapshot').screenshot({path:'work/ink-share.png'});await p.keyboard.press('Escape');await p.click('#tab-write');await p.screenshot({path:'work/ink-post.png'});
 const before=JSON.stringify(await read());await p.goto((process.env.BLOG_BASE_URL||'http://127.0.0.1:8776')+'/myblog/journal/');await p.waitForFunction(()=>document.querySelector('#entry-image').naturalWidth>0);assert.equal(JSON.stringify(await read()),before);assert.deepEqual(errors,[]);console.log('PASS writing strokes, undo, two-line combination, modes, help, reload, layout, Share and Journal.');
 }finally{await browser.close()}})().catch(e=>{console.error(e);process.exit(1)});
