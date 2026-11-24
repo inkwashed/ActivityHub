@@ -11,7 +11,21 @@
    return {width:sheet.width,fontSize:sheet.fontSize,split:sheet.split,parts:sheet.parts};
   });
  }
- function strokes(ctx,lines){ctx.strokeStyle='#17251f';ctx.fillStyle='#17251f';ctx.lineWidth=3;ctx.lineCap='round';ctx.lineJoin='round';for(const points of lines){ctx.beginPath();if(points.length===1){ctx.arc(points[0][0],points[0][1],1.5,0,Math.PI*2);ctx.fill();}else{points.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.stroke();}}}
+ // Map positions independently so a wide row never stretches the round pen tip.
+ function strokes(ctx,lines,scaleX,scaleY,offsetX=0){
+  ctx.strokeStyle='#17251f';ctx.fillStyle='#17251f';ctx.lineWidth=3*scaleY;
+  ctx.lineCap='round';ctx.lineJoin='round';
+  for(const points of lines){
+   ctx.beginPath();
+   if(points.length===1){
+    const [[x,y]]=points;
+    ctx.arc((x-offsetX)*scaleX,y*scaleY,ctx.lineWidth/2,0,Math.PI*2);ctx.fill();
+   }else{
+    points.forEach(([x,y],i)=>i?ctx.lineTo((x-offsetX)*scaleX,y*scaleY):ctx.moveTo((x-offsetX)*scaleX,y*scaleY));
+    ctx.stroke();
+   }
+  }
+ }
  // Wrapped input uses two fixed halves of the sentence strip. Only close a
  // gap at that seam when the second run starts near its left writing margin.
  function compact(lines,parts){
@@ -49,7 +63,7 @@
   const packed=compact(lines,sheet?.parts);
   const aspect=sheet?sheet.width*sheet.parts/width*height/128:1;
   const scale=Math.min(w/((packed.right+4)*aspect),h/height);
-  ctx.save();ctx.translate(x,y+(h-height*scale)/2);ctx.scale(scale*aspect,scale);strokes(ctx,packed.lines);ctx.restore();
+  ctx.save();ctx.translate(x,y+(h-height*scale)/2);strokes(ctx,packed.lines,scale*aspect,scale);ctx.restore();
  }
  function mount({host,getState,save,config,openSentence}){
   const t=s=>window.ActivityHubI18n.t(s),pads=[];let active=null,eraser=false,saveTimer=null,dirty=false,selected=null;
@@ -136,10 +150,10 @@
     guide(ctx,guideWidth);
     if(state.showHelp)sample(ctx,layout.lines[i],layout.font,editing||sheet?expandedBaseline:47,inset,available);
     ctx.restore();
-    ctx.scale(canvas.width/segment,canvas.height/height);
-    ctx.save();ctx.beginPath();ctx.rect(0,0,segment,height);ctx.clip();ctx.translate(-i*segment,0);
-    strokes(ctx,displayInk);
-    if(active?.pad===pad&&active.points)strokes(ctx,[active.points]);
+    const scaleX=canvas.width/segment,scaleY=canvas.height/height,offsetX=i*segment;
+    ctx.save();ctx.beginPath();ctx.rect(0,0,canvas.width,canvas.height);ctx.clip();
+    strokes(ctx,displayInk,scaleX,scaleY,offsetX);
+    if(active?.pad===pad&&active.points)strokes(ctx,[active.points],scaleX,scaleY,offsetX);
     ctx.restore();
    });
    historyButtons(pad);
