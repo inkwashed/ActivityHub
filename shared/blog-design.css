@@ -152,6 +152,8 @@
 .blog-sentence-actions{grid-column:3;grid-row:1}
 @media(max-width:560px){.blog-sentence-dialog>header>.ink-pad-heading{grid-column:1/-1;grid-row:2}}
 .blog-sentence-dialog-content{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:0 clamp(12px,3vw,32px)}
+.blog-sentence-dialog-content.blog-typing-expanded{flex:none;max-height:max(72px,40%)}
+.blog-guided .blog-typing-expanded p.sentence-editor{margin-block:4px}
 .blog-sentence-dialog .ink-pad.is-active{margin:0;padding:0;box-shadow:none}
 .blog-sentence-dialog .ink-canvas{height:128px}
 .blog-sentence-dialog .ink-pad-heading h3,.blog-sentence-dialog .blog-hint:empty{display:none}

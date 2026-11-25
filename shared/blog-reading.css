@@ -69,6 +69,7 @@ html:not([lang=ja]) .blog-animal-gloss{display:none}
 .blog-guided #blog-preview:has(.blog-research)>article{min-height:124px}
 .blog-sentence-notes:empty{display:none}
 .blog-sentence-notes{display:flex;flex-direction:column;max-height:32%;min-height:0;padding:8px clamp(12px,3vw,32px) 0}
+.blog-sentence-dialog:has(>.blog-typing-expanded)>.blog-sentence-notes{max-height:none}
 .blog-sentence-notes .blog-notes-card{display:flex;flex-direction:column;min-height:0}
 .blog-sentence-notes .blog-notes-card h2{flex:none;padding-block:4px;font-size:1rem}
 .blog-sentence-notes .blog-note-list{min-height:0;max-height:140px}
