@@ -111,7 +111,7 @@ assert.deepEqual(animalExamples,['Let’s save the sea turtles.','Sea turtles li
 assert.equal(b.countryHint(animals,animals.rows[1],'North Atlantic right whales ').alignedText,'Sea turtles ');
 assert.equal(b.countryHint(animals,animals.rows[1],'Japanese giant salamanders live ').alignedText,'Sea turtles live ');
 assert.equal(b.countryHint(animals,animals.rows[2],'Hunting ').alignedText,'Plastic pollution ');
-assert.equal(b.phraseWarnings(animals,animals.rows[1],'Przewalski’s horses live in grasslands.',true).length,0);
+assert.equal(b.phraseWarnings(animals,animals.rows[1],'Tigers live in forests.',true).length,0);
 assert.equal(migrated.typedRows.join('\n'),animalSentences.join('\n'));
 assert.equal(b.sentences(animals,migrated).join('\n'),animalSentences.join('\n'));
 const restored=b.normalize(animals,{...migrated,showHelp:false,inputMode:'write'});
@@ -119,3 +119,56 @@ assert.equal(restored.showHelp,false);
 assert.equal(restored.inputMode,'write');
 assert.equal(restored.fields.body,animalSentences.join('\n'));
 console.log('PASS: Save the Animals has four blank guided rows, migrates free drafts, and restores ES input preferences.');
+
+const mixedImages=Array.from({length:4},(_,i)=>[
+ {id:animals.images[i].id,uid:`art-${i}`},
+ {src:'data:image/jpeg;base64,AAAA',uid:`upload-${i}`}
+]).flat();
+const mixed=b.normalize(animals,{...migrated,images:mixedImages});
+assert.deepEqual(Array.from(mixed.images,image=>image.uid),['art-0','upload-0','art-1','upload-1','art-2','upload-2']);
+const mixedPlan=context.window.BlogLayout.plan(null,mixed.images,mixed.fields.body,text=>text.length*12,undefined,null,null,animals.designGridColumns);
+assert.deepEqual(Array.from(mixedPlan.blocks.slice(0,6),block=>[block.col,block.row]),[[0,0],[2,0],[4,0],[0,2],[2,2],[4,2]]);
+assert.equal(mixedPlan.blocks[6].row,4);
+
+assert.equal(mixedPlan.blocks[0].width,mixedPlan.blocks[0].height);
+const layoutModel=context.window.BlogLayout;
+assert.equal(layoutModel.drop(mixedPlan,'photo:art-0',1,0),null);
+assert.equal(layoutModel.drop(mixedPlan,'photo:art-0',-1,0),null);
+assert.equal(layoutModel.drop(mixedPlan,'photo:art-0',0,3),null);
+const swap=layoutModel.drop(mixedPlan,'photo:art-0',2,0);
+assert.equal(swap.find(block=>block.key==='photo:art-0').col,2);
+assert.equal(swap.find(block=>block.key==='photo:upload-0').col,0);
+const move=layoutModel.drop(mixedPlan,'photo:art-0',0,mixedPlan.rows);
+assert.equal(move.find(block=>block.key==='photo:art-0').row,mixedPlan.rows);
+const upgraded=b.normalize(animals,{...migrated,designGridColumns:3,images:mixedImages,layout:[{key:'photo:art-0',col:1,row:4,w:2,h:3,cropX:25}]});
+assert.deepEqual({...upgraded.layout[0]},{key:'photo:art-0',col:2,row:4,w:4,h:3,cropX:25,cropY:50});
+assert.deepEqual({...b.normalize(animals,upgraded).layout[0]},{...upgraded.layout[0]});
+console.log('PASS: six-column sizing, drops, swaps, collision rejection, and draft migration.');
+
+assert.equal(animals.reading.profiles.length,33);
+assert.ok(animals.images.some(image=>image.profile==='przewalskis-horses'));
+
+
+const animalVocabulary=animals.reading.vocabulary;
+for(const term of ['polar bears','sea turtles','forests','rivers','penguins','foxes','mice','fish','sea ice'])assert.ok(animalVocabulary.includes(term),term);
+const [saveRow,habitatRow,problemRow,actionRow]=animals.rows;
+for(const [row,sentence] of [
+ [saveRow,"Let's save the polar bears."],
+ [habitatRow,'Polar bears live in the ice.'],
+ [habitatRow,'Tigers live in forests and mountains.'],
+ [problemRow,'Forest loss is a big problem.'],
+ [actionRow,'We can reuse plastic bags.']
+])assert.equal(b.vocabularyHints(animals,row,sentence,true).warnings.length,0,sentence);
+for(const [row,sentence,unknown] of [
+ [saveRow,'Let’s save the poler bears.','poler bears'],
+ [habitatRow,'Penguins live in the see.','the see'],
+ [problemRow,'Forrest loss is a big problem.','Forrest loss'],
+ [actionRow,'We can receycle.','receycle']
+]){
+ const [warning]=b.vocabularyHints(animals,row,sentence,true).warnings;
+ assert.equal(sentence.slice(warning.start,warning.end),unknown);
+}
+assert.equal(b.vocabularyHints(animals,habitatRow,'Polar bears live in the ').warnings.length,0);
+assert.equal(b.vocabularyHints(animals,habitatRow,'Polar bears live in forests ').alignedText,'Sea turtles live in the sea ');
+assert.equal(b.vocabularyHints(animals,habitatRow,'Polar bears live ').warnings.length,0);
+console.log('PASS: ES vocabulary variants, field-specific warnings, and hint alignment.');

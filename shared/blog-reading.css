@@ -1,5 +1,5 @@
 /* Optional reading and research regions in the normal Blog panels. */
-.blog-panel.blog-read{display:grid;grid-template-rows:auto minmax(0,1fr) auto;overflow:hidden;scrollbar-gutter:auto}
+.blog-panel.blog-read{--blog-vocabulary-tint:color-mix(in srgb,var(--ah-selected),var(--ah-selected-border) 19%);display:grid;grid-template-rows:auto minmax(0,1fr) auto;overflow:hidden;scrollbar-gutter:auto}
 .blog-read-heading{padding-bottom:8px;border-bottom:1px solid var(--ah-divider)}
 .blog-read-heading h1{margin:0}
 .blog-read-content{min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:6px}
@@ -24,8 +24,11 @@ html:not([lang=ja]) .blog-animal-gloss{display:none}
 .blog-profile-art{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:var(--ah-radius-control)}
 .blog-profile-copy h2{margin-bottom:0}
 .blog-profile-copy p{margin:0;line-height:1.5}
+.blog-profile-facts{margin:0;padding-inline-start:1.25em;line-height:1.5}
+.blog-profile-facts li+li{margin-top:6px}
+.blog-vocabulary-highlight{background:var(--ah-selected);background:var(--blog-vocabulary-tint);color:inherit;border-radius:.2em}
 .blog-reading-words{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:12px 0}
-.blog-reading-words li{padding:4px 8px;border-radius:var(--ah-radius-control);background:var(--ah-hover);font-size:.875rem}
+.blog-reading-words li{padding:4px 8px;border-radius:var(--ah-radius-control);background:var(--ah-hover);background:var(--blog-vocabulary-tint);font-size:.875rem}
 .blog-profile-heading .blog-keep-note{margin-inline-start:auto}
 .blog-keep-note[aria-pressed=true]{color:var(--ah-selected-border);border-color:var(--ah-selected-border)}
 .blog-keep-note[aria-pressed=true] svg{fill:currentColor}
@@ -64,14 +67,21 @@ html:not([lang=ja]) .blog-animal-gloss{display:none}
 .blog-guided #blog-preview>.blog-research{flex:none}
 .blog-guided #blog-preview>.blog-research .blog-note-list{max-height:min(150px,22svh)}
 .blog-guided #blog-preview:has(.blog-research)>article{min-height:124px}
+.blog-sentence-notes:empty{display:none}
+.blog-sentence-notes{display:flex;flex-direction:column;max-height:32%;min-height:0;padding:8px clamp(12px,3vw,32px) 0}
+.blog-sentence-notes .blog-notes-card{display:flex;flex-direction:column;min-height:0}
+.blog-sentence-notes .blog-notes-card h2{flex:none;padding-block:4px;font-size:1rem}
+.blog-sentence-notes .blog-note-list{min-height:0;max-height:140px}
 
-dialog.ah-dialog.blog-bookmark-gallery{position:fixed;inset:0;margin:0;width:100%;max-width:none;height:100dvh;max-height:none;border:0;border-radius:0;padding:0;overflow:hidden}
-.blog-bookmark-gallery[open]{display:flex;flex-direction:column}
-.ah-blog .blog-bookmark-gallery>header{flex:none;max-height:none}
+dialog.ah-dialog.blog-image-dialog{position:fixed;inset:0;margin:0;width:100%;max-width:none;height:100dvh;max-height:none;border:0;border-radius:0;padding:0;overflow:hidden}
+.blog-image-dialog[open]{display:flex;flex-direction:column}
+.ah-blog .blog-image-dialog>header{flex:none;max-height:none}
 .blog-bookmark-gallery h2,.blog-bookmark-gallery h4{margin:0}
-.blog-bookmark-gallery-body{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:16px}
-.blog-bookmark-gallery h2{display:flex;align-items:center;gap:8px}
-.blog-bookmark-gallery h2 svg{width:var(--ah-icon-size);height:var(--ah-icon-size);flex-shrink:0}
+.blog-image-dialog-body{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:16px}
+.blog-image-dialog-title{display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px}
+.blog-image-dialog-title .blog-hint{margin:0}
+.blog-image-dialog-title h2{display:flex;align-items:center;gap:8px}
+.blog-image-dialog-title h2 svg{width:var(--ah-icon-size);height:var(--ah-icon-size);flex-shrink:0}
 .blog-bookmark-open svg,.blog-bookmark-gallery h2 svg{fill:currentColor}
 .blog-bookmark-images{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:20px;max-width:1100px;margin-inline:auto}
 .blog-bookmark-animal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-content:start}
@@ -80,3 +90,23 @@ dialog.ah-dialog.blog-bookmark-gallery{position:fixed;inset:0;margin:0;width:100
 .blog-bookmark-preview{position:relative;display:block}
 .blog-bookmark-indicator{position:absolute;inset-block-start:6px;inset-inline-end:6px;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#fff;color:#263f36;font-size:1.25rem;line-height:1}
 .blog-bookmark-animal button.ah-button img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:var(--ah-radius-control)}
+
+#blog-custom-images #blog-images{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,224px),1fr));gap:16px;max-width:1100px;margin:16px auto 0}
+#blog-custom-images .blog-image-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px;margin:0;align-self:start;justify-self:center;width:100%;max-width:352px}
+#blog-custom-images .blog-image-row>img{grid-column:1/-1;width:100%;height:auto;aspect-ratio:1;object-fit:contain;background:var(--ah-play-surface);border-radius:var(--ah-radius-control)}
+#blog-custom-images .blog-image-row span{min-width:0;overflow-wrap:anywhere}
+
+.blog-custom-picker{max-width:1100px;margin:16px auto 0}
+.blog-custom-picker label{display:block;margin-bottom:6px}
+.blog-custom-picker input{max-width:100%;font:inherit}
+.blog-custom-picker input::file-selector-button{min-height:var(--ah-control-size);margin-inline-end:8px;padding:8px 12px;border:1px solid var(--ah-border);border-radius:var(--ah-radius-control);background:var(--ah-surface);color:var(--ah-ink);font:inherit;cursor:pointer}
+.blog-custom-picker input:disabled::file-selector-button{background:var(--ah-disabled);color:var(--ah-muted);border-color:var(--ah-divider);cursor:default}
+
+.blog-read-title{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.blog-read-title .is-filtered{background:var(--ah-selected);border-color:var(--ah-selected-border)}
+.blog-habitat-group+ .blog-habitat-group{margin-top:20px}
+.blog-habitat-group h2{margin:0 0 8px;font-size:1.1rem}
+.blog-animal-filters label{display:block;margin:12px 0 4px;font-weight:700}
+.blog-animal-filters select{display:block;width:100%;min-height:44px;padding:6px 8px;font:inherit;color:var(--ah-ink);background:var(--ah-surface);border:1px solid var(--ah-border);border-radius:var(--ah-radius-control)}
+.blog-animal-filters select:focus-visible{outline:3px solid var(--ah-focus);outline-offset:2px}
+.blog-animal-filters>button{margin-top:16px}

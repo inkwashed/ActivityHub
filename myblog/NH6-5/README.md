@@ -55,3 +55,10 @@ Recognized country/continent names use a double underline on lowercase letters t
 ## Shared Profile
 
 The header uses Profile in place of fullscreen. Its ID-card layout, name editing, themes and badges come from `shared/profile.js` and `shared/profile.css`, shared with the homepage, all My Blog lessons and Journal. Successful name saves update the current author presentation immediately; settings remain separate from lesson drafts. Change the shared component once rather than adding app-local modal markup/styles. See [integration and rollout](../../docs/WORKFLOW.md#shared-profile-integration) and the [visual specification](../../docs/STYLE-GUIDE.md#shared-profile). Run `node tests/check-profile-browser.cjs` for shared changes; physical iPad/Safari and VoiceOver checks remain outstanding.
+
+
+### Vocabulary checks for ES lessons
+
+Guided ES lessons can give a variable field a `hintNames` list alongside its sample `placeholder`. Use the lesson’s own `help` phrases to define the sentence frame and give each checked field the words and phrases appropriate to that slot. Include common inflections and classroom aliases. Use `allowList: true` when a field accepts multiple entries joined with commas or “and”.
+
+With Show Help on, a recognized answer aligns the remaining sample text. A completed answer outside the suggested list receives the same muted squiggle used for country names. Students can still use any wording, and hints never change saved or exported answers. The country and continent fields in Where is it from? retain their existing checks. Save the Animals uses the same lesson vocabulary for reading highlights and its animal, habitat, problem, and action suggestions, supplemented by the encyclopedia tags.

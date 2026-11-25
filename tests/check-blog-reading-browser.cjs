@@ -1,5 +1,6 @@
 const assert = require('node:assert/strict');
 const path = require('node:path');
+const fs = require('node:fs');
 const { pathToFileURL } = require('node:url');
 const { chromium } = require('playwright');
 
@@ -17,7 +18,22 @@ const draft = 'Let’s save the sea turtles.\nSea turtles live in the sea.\nPlas
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(lesson('NH6-6'));
-    assert.equal(await page.locator('.blog-animal-card').count(), 36);
+    assert.equal(await page.locator('.blog-animal-card').count(), 33);
+    assert.equal(await page.locator('[data-animal=przewalskis-horses]').count(),0);
+    assert.equal(await page.locator('[data-animal=bornean-orangutans]').count(),0);
+    assert.deepEqual((await page.locator('.blog-habitat-group h2').allTextContents()).slice(0,2),['The Ice','The Sea']);
+    await page.getByRole('button',{name:'Filter animals'}).click();
+    const animalFilters=page.getByRole('dialog',{name:'Filter animals'});
+    await animalFilters.getByLabel('Habitat').selectOption('forests');
+    await animalFilters.getByLabel('Problem').selectOption('global warming');
+    await animalFilters.getByRole('button',{name:'Done'}).click();
+    assert.equal(await page.locator('[data-animal=komodo-dragons]').count(),1);
+    assert.equal(await page.locator('[data-animal=sea-turtles]').count(),0);
+    await page.getByRole('button',{name:'Filter animals'}).click();
+    await animalFilters.getByRole('button',{name:'Clear filters'}).click();
+    await animalFilters.getByRole('button',{name:'Done'}).click();
+    assert.equal(await page.locator('.blog-animal-card').count(),33);
+
     await page.setViewportSize({ width: 320, height: 568 });
     assert.equal(await page.locator('.blog-read-footer').innerText(), 'My Encyclopedia - Animals');
     const scrollCheck=await page.locator('.blog-read-content').evaluate(content=>{
@@ -90,12 +106,18 @@ const draft = 'Let’s save the sea turtles.\nSea turtles live in the sea.\nPlas
     assert.equal(await page.locator('.blog-animal-notes').count(), 1);
     for (const [i,sentence] of draft.split('\n').entries()) {
       await rows.nth(i).click();
+      assert.equal(await page.locator('.blog-sentence-dialog .blog-animal-notes').count(),1);
       await page.locator('.blog-sentence-dialog [data-sentence]').fill(sentence);
       await page.locator('.blog-sentence-close').click();
     }
     await page.check('#writing-mode');
     assert.equal(await page.locator('.ink-pad:visible').count(), 4);
     assert.equal(await rows.first().isVisible(), false);
+    await page.locator('.ink-select').first().click();
+    assert.equal(await page.locator('.blog-sentence-dialog .blog-animal-notes').count(),1);
+    await page.locator('.blog-sentence-close').click();
+    assert.equal(await page.locator('#blog-preview .blog-animal-notes').count(),1);
+
     await page.uncheck('#writing-mode');
 
     await page.click('#tab-read');
@@ -131,6 +153,52 @@ const draft = 'Let’s save the sea turtles.\nSea turtles live in the sea.\nPlas
     assert.equal(await page.locator('#design-grid img').count(),1);
     await illustrations.getByRole('button',{name:'Done',exact:true}).click();
     assert.equal(await openIllustrations.evaluate(button=>document.activeElement===button),true);
+    assert.deepEqual(await page.getByRole('tab').allTextContents(), ['Read', 'Write', 'Design']);
+    await page.locator('#blog-custom-open').click();
+    const uploads=page.getByRole('dialog',{name:'Uploaded images',exact:true});
+    const photo=fs.readFileSync(path.join(__dirname,'../myblog/NH6-6/art/sea-turtles.webp'));
+    await uploads.locator('#blog-upload').setInputFiles(Array.from({length:3},(_,i)=>({name:`photo-${i}.webp`,mimeType:'image/webp',buffer:photo})));
+    await uploads.locator('.blog-image-row').nth(2).waitFor();
+    assert.equal(await uploads.locator('#blog-upload').isDisabled(),true);
+    assert.deepEqual(await uploads.locator('.blog-image-row > span').allTextContents(),['Image 1','Image 2','Image 3']);
+    await uploads.getByRole('button',{name:'Done',exact:true}).click();
+    await openIllustrations.click();
+    await illustrations.getByRole('button',{name:'sea turtles: Problem',exact:true}).click();
+    await illustrations.getByRole('button',{name:'sea turtles: Action',exact:true}).click();
+    await illustrations.getByRole('button',{name:'Done',exact:true}).click();
+    assert.equal(await page.locator('#design-grid img').count(),6);
+    const photoNames=await page.locator('#design-picker option[value^="photo:"]').allTextContents();
+    assert.deepEqual(photoNames,['Bookmark 1','Image 1','Image 2','Image 3','Bookmark 2','Bookmark 3']);
+    await page.getByRole('button',{name:'Select Bookmark 1',exact:true}).click();
+    const selectedBlock=page.locator('.design-block.is-selected');
+    const selectedArea=await selectedBlock.locator('.design-select').boundingBox();
+    const grid=await page.locator('#design-grid').boundingBox();
+    const start={x:selectedArea.x+selectedArea.width/2,y:selectedArea.y+selectedArea.height/2};
+    const other=await page.getByRole('button',{name:'Select Image 1',exact:true}).boundingBox();
+    const originalColumn=await selectedBlock.evaluate(block=>block.style.gridColumnStart);
+    await page.mouse.move(start.x,start.y);
+    await page.mouse.down();
+    await page.mouse.move(grid.x-12,start.y);
+    assert.equal(await selectedBlock.evaluate(block=>block.classList.contains('is-invalid-drop')),true);
+    await page.mouse.up();
+    assert.equal(await selectedBlock.evaluate(block=>block.style.gridColumnStart),originalColumn);
+    await selectedBlock.locator('.design-select').evaluate(button=>{
+      button.addEventListener('pointerdown',event=>{button.dataset.testPointer=event.pointerId;},{once:true});
+    });
+    await page.mouse.move(start.x,start.y);
+    await page.mouse.down();
+    await page.mouse.move(other.x+other.width/2,other.y+other.height/2);
+    assert.equal(await page.locator('.design-drag-preview img').isVisible(),true);
+    assert.equal(await selectedBlock.evaluate(block=>block.classList.contains('is-picked-up')),true);
+    assert.equal(await page.locator('.design-drop-target').isVisible(),true);
+    await selectedBlock.locator('.design-select').evaluate(button=>{
+      button.dispatchEvent(new PointerEvent('pointerup',{pointerId:Number(button.dataset.testPointer),bubbles:true,clientX:-1,clientY:-1}));
+    });
+    await page.mouse.up();
+    assert.equal(await selectedBlock.evaluate(block=>block.style.gridColumnStart),'3');
+    assert.equal(await page.locator('.design-drag-preview').count(),0);
+
+
     await page.click('#share');
     await page.waitForFunction(() => document.querySelector('#blog-snapshot').naturalWidth > 0);
     assert.equal(await page.locator('#download-photo').isVisible(), true);
@@ -143,7 +211,7 @@ const draft = 'Let’s save the sea turtles.\nSea turtles live in the sea.\nPlas
     await page.click('#tab-design');
     await openIllustrations.click();
     assert.equal(await habitatImage.getAttribute('aria-pressed'),'true');
-    assert.equal(await page.locator('#design-grid img').count(),1);
+    assert.equal(await page.locator('#design-grid img').count(),6);
 
     await page.goto(lesson('NH1-5'));
     assert.deepEqual(await page.getByRole('tab').allTextContents(), ['Write', 'Photos', 'Design']);

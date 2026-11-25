@@ -3,6 +3,7 @@ window.ActivityHubI18n.register({
  "Preview": "プレビュー",
  "Images": "画像",
  "Image": "画像",
+ "Bookmark": "ブックマーク",
  "Post image": "投稿の画像",
  "Remove": "削除",
  "Add images": "画像を追加",
@@ -31,7 +32,7 @@ window.ActivityHubI18n.register({
  "Post sections": "投稿の編集手順",
  "Post layout": "投稿のレイアウト",
  "Design controls": "デザインの操作",
- "Arrange your post": "投稿を配置しよう",
+ "Design your post": "投稿をデザインしよう",
  "Text": "本文",
  "Select": "選択",
  "Width": "幅",
@@ -60,8 +61,10 @@ window.ActivityHubI18n.register({
  "column": "列",
  "columns": "列",
  "Automatic text height": "本文の高さは自動",
- "Select an element here or tap it in the layout. Use the editing bar to move and resize it.": "ここで要素を選ぶか、レイアウト内でタップしよう。編集バーで移動やサイズ変更ができます。",
- "Text height adjusts automatically. Edit your writing in Write, and add or delete pictures in Photos.": "本文の高さは自動で調整されます。文章は「書く」で編集し、写真は「写真」で追加・削除しよう。",
+ "Tap an element to select it, then drag it to move it. Green means it fits. Red means it stays in place. Use the editing bar to move or resize it.": "要素をタップして選び、ドラッグして動かそう。緑なら移動でき、赤なら元の場所に残ります。編集バーでも移動やサイズ変更ができます。",
+ "row": "行",
+ "rows": "行",
+ "Text height adjusts automatically. Edit your writing in Write.": "本文の高さは自動で調整されます。文章は「書く」で編集しよう。",
  "Reset layout": "配置をリセット",
  "Layout help": "配置のヘルプ",
  "Rotate image": "画像を回転",
@@ -89,4 +92,6 @@ window.ActivityHubI18n.register({'Tap a sentence to write.':'文をタップし�
 
 window.ActivityHubI18n.register({'Show Help?':'ヒントを表示'});
 
-window.ActivityHubI18n.register({'Your post can include up to three images.':'投稿には画像を3枚まで入れられます。'});
+window.ActivityHubI18n.register({'You can select up to 3 images.':'画像は3枚まで選べます。','Uploaded images':'アップロードした画像','Choose up to three uploaded images.':'アップロードする画像は合計3枚まで選べます。'});
+
+window.ActivityHubI18n.register({"Filter animals":"動物を絞り込む","All habitats":"すべてのすみか","All problems":"すべての問題","Clear filters":"絞り込みを解除","No animals match these filters.":"条件に合う動物はいません。"});

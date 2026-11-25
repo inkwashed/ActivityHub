@@ -29,12 +29,29 @@
   return image;
  }
  window.BlogReading={mount(config){
-  const {sections,profiles,starters,prompt,footer}=config.reading;
+  const {sections,profiles,catalog=profiles,starters,prompt,footer,vocabulary=[]}=config.reading;
+  const vocabularyAlternatives=[...vocabulary].sort((a,b)=>b.length-a.length)
+   .map(term=>term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|');
+  const vocabularyPattern=vocabularyAlternatives&&new RegExp(
+   `(^|[^\\p{L}\\p{N}_-])(${vocabularyAlternatives})(?![\\p{L}\\p{N}_-])`,'giu'
+  );
+  function appendFact(node,text){
+   let offset=0;
+   if(vocabularyPattern)for(const match of text.matchAll(vocabularyPattern)){
+    const start=match.index+match[1].length;
+    node.append(text.slice(offset,start),element('mark','blog-vocabulary-highlight',match[2]));
+    offset=start+match[2].length;
+   }
+   node.append(text.slice(offset));
+  }
   const key=`letseigo.app.${config.id}.reading`;
   const saved=window.ActivityAutosave.read(key,1);
   const kept=new Set(Array.isArray(saved?.bookmarks)?saved.bookmarks:[]);
   let current=profiles.find(profile=>profile.id===saved?.profile);
   let readOffset=0;
+  const tags=(profile,section)=>[].concat(profile[section].note);
+  const habitats=['the ice','the sea','forests','rainforests','mountains'];
+  const labelHabitat=tag=>tag.replace(/\b\w/g,letter=>letter.toUpperCase());
 
   const tabs=document.querySelector('.blog-switch');
   const tab=button('Read');
@@ -65,6 +82,52 @@
   renderReadHint();
   const readContent=element('div','blog-read-content');
   readContent.tabIndex=0;
+  const search=element('button','ah-button ah-button-icon');
+  search.type='button';
+  search.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 5 5"/></svg>';
+  search.dataset.i18nAriaLabel='Filter animals';
+  search.setAttribute('aria-label',window.ActivityHubI18n.t('Filter animals'));
+  search.setAttribute('aria-haspopup','dialog');
+  search.setAttribute('aria-controls','blog-animal-filters');
+  const filters=element('dialog','ah-dialog blog-animal-filters');
+  filters.id='blog-animal-filters';
+  const filterTitle=translate(element('h2'),'Filter animals');
+  filterTitle.id='blog-filter-title';
+  filters.setAttribute('aria-labelledby',filterTitle.id);
+  const filterHeader=element('div','dialog-heading');
+  const doneFilters=button('Done');
+  filterHeader.append(filterTitle,doneFilters);
+  filters.append(filterHeader);
+  function filterSelect(section,label,allLabel){
+   const field=translate(element('label'),label);
+   const control=element('select');
+   control.id=`blog-filter-${section}`;
+   field.htmlFor=control.id;
+   const all=translate(element('option'),allLabel);
+   all.value='';
+   control.append(all);
+   for(const tag of [...new Set(profiles.flatMap(profile=>tags(profile,section)))].sort()){
+    const option=english('option',section==='habitat'?labelHabitat(tag):tag);
+    option.value=tag;
+    control.append(option);
+   }
+   control.onchange=()=>{renderAnimalList();readContent.scrollTop=0;};
+   filters.append(field,control);
+   return control;
+  }
+  const habitatFilter=filterSelect('habitat','Habitat','All habitats');
+  const problemFilter=filterSelect('problem','Problem','All problems');
+  const clearFilters=button('Clear filters');
+  clearFilters.onclick=()=>{
+   habitatFilter.value=problemFilter.value='';
+   renderAnimalList();
+   readContent.scrollTop=0;
+  };
+  filters.append(clearFilters);
+  document.body.append(filters);
+  search.onclick=()=>filters.showModal();
+  doneFilters.onclick=()=>filters.close();
+  filters.addEventListener('close',()=>search.focus());
   read.append(readHeading,readContent);
   if(footer){
    const label=english('p',footer,'blog-read-footer');
@@ -167,14 +230,24 @@
    readContent.scrollTop=0;
    focus().focus();
   }
-  function renderRead(){
-   bookmarkButton=undefined;
-   readHeading.replaceChildren();
+  function renderAnimalList(){
    readContent.replaceChildren();
-   if(!current){
-    readHeading.append(english('h1',config.title),readHint);
+   const groups=new Map();
+   for(const profile of profiles){
+    if((habitatFilter.value&&!tags(profile,'habitat').includes(habitatFilter.value))||
+       (problemFilter.value&&!tags(profile,'problem').includes(problemFilter.value)))continue;
+    const primary=tags(profile,'habitat')[0];
+    if(!groups.has(primary))groups.set(primary,[]);
+    groups.get(primary).push(profile);
+   }
+   search.classList.toggle('is-filtered',Boolean(habitatFilter.value||problemFilter.value));
+   clearFilters.disabled=!(habitatFilter.value||problemFilter.value);
+   const order=[...habitats,...[...groups.keys()].filter(habitat=>!habitats.includes(habitat)).sort()];
+   for(const habitat of order){
+    if(!groups.has(habitat))continue;
+    const group=element('section','blog-habitat-group');
     const cards=element('div','blog-animal-grid');
-    for(const profile of profiles){
+    for(const profile of groups.get(habitat)){
      const card=element('button','ah-button ah-choice blog-animal-card');
      card.type='button';
      card.dataset.animal=profile.id;
@@ -182,7 +255,20 @@
      card.onclick=()=>select(profile,()=>read.querySelector('h1'));
      cards.append(card);
     }
-    readContent.append(cards);
+    group.append(english('h2',labelHabitat(habitat)),cards);
+    readContent.append(group);
+   }
+   if(!groups.size)readContent.append(translate(element('p','blog-hint'),'No animals match these filters.'));
+  }
+  function renderRead(){
+   bookmarkButton=undefined;
+   readHeading.replaceChildren();
+   readContent.replaceChildren();
+   if(!current){
+    const title=element('div','blog-read-title');
+    title.append(english('h1',config.title),search);
+    readHeading.append(title,readHint);
+    renderAnimalList();
     return;
    }
 
@@ -194,7 +280,7 @@
    const backLabel=window.ActivityHubI18n.t('All animals');
    back.setAttribute('aria-label',backLabel);
    back.title=backLabel;
-   back.append(document.querySelector('.back-button svg').cloneNode(true));
+   back.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h5v-6h4v6h5V9"/></svg>';
    back.onclick=()=>select(undefined,()=>read.querySelector(`[data-animal="${profile.id}"]`));
    const heading=name(profile,'h1');
    heading.tabIndex=-1;
@@ -234,10 +320,14 @@
     question.id=`blog-question-${section.id}`;
     const words=element('ul','blog-reading-words');
     words.append(...tags.map(tag=>english('li',tag)));
-    const fact=english('p');
-    data.fact.split('**').forEach((part,index)=>{
-     fact.append(index%2?element('strong','',part):part);
-    });
+    const fact=Array.isArray(data.fact)?english('ul',undefined,'blog-profile-facts'):english('p');
+    if(Array.isArray(data.fact)){
+     for(const text of data.fact){
+      const item=element('li');
+      appendFact(item,text);
+      fact.append(item);
+     }
+    }else appendFact(fact,data.fact);
     copy.append(question,words,fact);
     block.append(media,copy);
     content.append(block);
@@ -253,39 +343,45 @@
   openGallery.hidden=true;
   openGallery.setAttribute('aria-haspopup','dialog');
   document.querySelector('.design-heading').after(openGallery);
-  const gallery=element('dialog','ah-dialog blog-bookmark-gallery');
+  const gallery=element('dialog','ah-dialog blog-image-dialog blog-bookmark-gallery');
   const galleryHeading=element('h2');
   galleryHeading.innerHTML=bookmarkIcon;
   galleryHeading.append(translate(element('span'),'Images'));
   galleryHeading.id='blog-bookmark-heading';
   gallery.setAttribute('aria-labelledby',galleryHeading.id);
   const galleryHeader=element('header','dialog-heading');
+  const galleryTitle=element('div','blog-image-dialog-title');
+  const limitHint=translate(element('p','blog-hint'),'You can select up to 3 images.');
+  limitHint.hidden=true;
+  galleryTitle.append(galleryHeading,limitHint);
   const done=translate(element('button','ah-button'),'Done');
   done.type='button';
-  const galleryBody=element('div','blog-bookmark-gallery-body');
-  galleryHeader.append(galleryHeading,done);
+  const galleryBody=element('div','blog-image-dialog-body');
+  galleryHeader.append(galleryTitle,done);
   gallery.append(galleryHeader,galleryBody);
   document.body.append(gallery);
   openGallery.onclick=()=>gallery.showModal();
   done.onclick=()=>gallery.close();
   gallery.addEventListener('close',()=>openGallery.focus());
-  function renderDesign(images,busy,toggle){
-   const available=config.images.filter(image=>kept.has(image.profile));
+  function renderDesign(images,busy,atLimit,imageName,toggle){
+   limitHint.hidden=!atLimit;
+   const addedIds=new Set(images.map(image=>image.id));
+   const available=config.images.filter(image=>addedIds.has(image.id)||(kept.has(image.profile)&&profiles.some(profile=>profile.id===image.profile)));
    openGallery.hidden=!available.length;
    const scrollTop=galleryBody.scrollTop;
    galleryBody.replaceChildren();
    if(openGallery.hidden)return;
    const list=element('div','blog-bookmark-images');
-   for(const profile of profiles){
+   for(const profile of catalog){
     const choices=available.filter(image=>image.profile===profile.id);
     if(!choices.length)continue;
     const group=element('div','blog-bookmark-animal');
     group.append(name(profile,'h4'));
     for(const image of choices){
-     const added=images.some(item=>item.id===image.id);
+     const added=addedIds.has(image.id);
      const choice=element('button','ah-button ah-choice');
      choice.type='button';
-     choice.disabled=busy||(!added&&images.length>=3);
+     choice.disabled=busy||(!added&&atLimit);
      choice.setAttribute('aria-pressed',String(added));
      choice.setAttribute('aria-label',`${profile.name}: ${window.ActivityHubI18n.t(image.label)}`);
      const thumbnail=art(image.src);
@@ -296,6 +392,7 @@
      indicator.innerHTML=added?'−':'+';
      preview.append(thumbnail,indicator);
      choice.append(preview,translate(element('span'),image.label));
+     if(added)choice.append(element('span','',imageName(images.findIndex(item=>item.id===image.id))));
      choice.onclick=()=>{
       toggle(image.id);
       const next=[...galleryBody.querySelectorAll('button')].find(button=>button.getAttribute('aria-label')===choice.getAttribute('aria-label'));
@@ -305,7 +402,6 @@
     }
     list.append(group);
    }
-   if(images.length>=3)galleryBody.append(translate(element('p','blog-hint'),'Your post can include up to three images.'));
    galleryBody.append(list);
    galleryBody.scrollTop=scrollTop;
   }
@@ -316,6 +412,7 @@
   document.addEventListener('activityhub:languagechange',renderReadHint);
   return {
    renderDesign,
+   placeNotes(container=hints){container.prepend(notes);},
    beforeView(){if(!read.hidden)readOffset=readContent.scrollTop;},
    afterView(){if(!read.hidden)readContent.scrollTop=readOffset;}
   };

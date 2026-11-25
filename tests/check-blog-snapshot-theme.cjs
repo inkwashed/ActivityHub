@@ -11,7 +11,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('nod
   class Image{constructor(){this.naturalWidth=this.naturalHeight=100}set src(v){queueMicrotask(()=>{active={};this.onload()})}}
   const env={window:{},Image,document:{documentElement:{},createElement:()=>({getContext:()=>ctx})},getComputedStyle:()=>({getPropertyValue:k=>active[k]||''})};
   vm.runInNewContext(fs.readFileSync('shared/blog-snapshot.js','utf8'),env);
-  await env.window.BlogSnapshot({avatar:'avatar',images:['photo'],title:'Title',name:'Name',sentences:['Sentence'],photoKeys:['photo'],...(arranged?{design:{rows:2,blocks:[{key:'text',x:0,y:0,lines:['Sentence']},{key:'photo',x:0,y:132,width:100,height:100}]}}:{})});
+  await env.window.BlogSnapshot({avatar:'avatar',images:['photo'],title:'Title',name:'Name',sentences:['Sentence'],photoKeys:['photo'],...(arranged?{design:{rows:2,rowHeight:120,gap:12,blocks:[{key:'text',x:0,y:0,lines:['Sentence']},{key:'photo',x:0,y:132,width:100,height:100}]}}:{})});
   for(const token of ['--ah-surface','--ah-hover','--ah-play-surface'])assert(fills.includes(palette[token]),theme+token);
   assert(texts.some(([t,c])=>t==='Sentence'&&c===palette['--ah-ink']));
   assert.equal(texts.at(-1)[1],palette['--ah-muted']);

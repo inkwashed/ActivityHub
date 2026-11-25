@@ -1,6 +1,8 @@
 /* Configuration-driven, local-only guided posts. No lesson vocabulary lives here. */
 (() => {
  const safePhoto=value=>typeof value==='string' && value.length<700000 && /^data:image\/jpeg;base64,[A-Za-z0-9+/=]+$/.test(value);
+ const imageLimit=3;
+ const imageCount=(config,images,bookmarked=false)=>config.separateImageLimits?images.filter(image=>Boolean(image.id)===bookmarked).length:images.length;
  function normalize(config,raw={}){
   raw=config.migrateDraft?.(raw)??raw;
   const fields={};
@@ -13,14 +15,24 @@
   const ink=config.mode==='guided'?window.BlogInk.normalize(raw?.ink,config.rows.length):null;
   const typedRows=config.mode==='guided'?(Array.isArray(raw?.typedRows)?config.rows.map((_,i)=>typeof raw.typedRows[i]==='string'?raw.typedRows[i].replace(/[\r\n\t]/g,' ').slice(0,320):''):sentences(config,{fields,showHelp})):null;
   if(config.mode==='guided')fields.body=typedRows.join('\n');
-  const images=(Array.isArray(raw?.images)?raw.images:[]).filter(x=>x && (config.images.some(y=>y.id===x.id)||safePhoto(x.src))).slice(0,3).map(x=>config.images.some(y=>y.id===x.id)?{id:x.id}:{src:x.src});
+  const images=[],accepted=[];
+  for(const rawImage of Array.isArray(raw?.images)?raw.images:[]){
+   if(!rawImage)continue;
+   const bookmarked=config.images.some(image=>image.id===rawImage.id);
+   if((!bookmarked&&!safePhoto(rawImage.src))||imageCount(config,images,bookmarked)>=imageLimit)continue;
+   images.push(bookmarked?{id:rawImage.id}:{src:rawImage.src});
+   accepted.push(rawImage);
+  }
   if(config.design){
    const used=new Set();images.forEach((image,i)=>{
-    const rawImage=(Array.isArray(raw?.images)?raw.images:[]).filter(x=>x&&(config.images.some(y=>y.id===x.id)||safePhoto(x.src)))[i];
+    const rawImage=accepted[i];
     let uid=typeof rawImage?.uid==='string'&&/^[a-zA-Z0-9_-]{1,50}$/.test(rawImage.uid)?rawImage.uid:`legacy-${i}`;
     while(used.has(uid))uid+='-x';used.add(uid);image.uid=uid;
    });
-   return {fields,images,...(config.mode==='guided'?{showHelp,typedRows,inputMode:raw?.inputMode==='write'?'write':'type',ink,inkSheets:window.BlogInk.normalizeSheets(raw?.inkSheets,ink),inkLayout:window.BlogLayout.normalize(raw?.inkLayout,images,'',ink)}:{}),layout:window.BlogLayout.normalize(raw?.layout,images,fields.body)};
+   const columns=config.designGridColumns||3;
+   const restoreLayout=layout=>columns===6&&raw?.designGridColumns!==6&&Array.isArray(layout)?
+    layout.map(block=>block&&{...block,col:Number.isInteger(block.col)?block.col*2:block.col,w:Number.isInteger(block.w)?block.w*2:block.w}):layout;
+   return {fields,images,...(config.designGridColumns?{designGridColumns:columns}:{}),...(config.mode==='guided'?{showHelp,typedRows,inputMode:raw?.inputMode==='write'?'write':'type',ink,inkSheets:window.BlogInk.normalizeSheets(raw?.inkSheets,ink),inkLayout:window.BlogLayout.normalize(restoreLayout(raw?.inkLayout),images,'',ink,columns)}:{}),layout:window.BlogLayout.normalize(restoreLayout(raw?.layout),images,fields.body,null,columns)};
   }
   return {fields,images};
  }
@@ -113,6 +125,45 @@
   if(continent>=0){const phrase=fields[continent-1]?.help;if(phrase){const marker=' '+phrase+' ',at=text.toLowerCase().indexOf(marker.toLowerCase());if(at>=0)check(config.continentNames,at+marker.length);}}
   return warnings;
  }
+ // Check configured answer slots independently of the fixed sentence frame.
+ function vocabularyHints(config,row,text,blurred=false){
+  const fields=row.map(key=>config.fields.find(field=>field.id===key));
+  const warnings=[],replacements=[];
+  const normalizePhrase=value=>value.trim().replace(/\s+/g,' ').replace(/’/g,"'").toLowerCase();
+  const framePattern=phrase=>phrase.split(/\s+/).map(word=>word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/['’]/g,"['’]")).join('\\s+');
+  let cursor=0;
+  for(let i=0;i<fields.length;i++){
+   const field=fields[i];
+   if(field.help){
+    const match=text.slice(cursor).match(new RegExp(`^\\s*${framePattern(field.help)}(?=\\s|[.!?]|$)`,'i'));
+    if(!match)break;
+    cursor+=match[0].length;
+    continue;
+   }
+   if(!field.hintNames?.length)break;
+   cursor+=text.slice(cursor).match(/^\s*/)[0].length;
+   const rest=text.slice(cursor),next=fields[i+1]?.help;
+   const boundary=next?rest.search(new RegExp(`\\s+${framePattern(next)}(?=\\s|[.!?]|$)`,'i')):-1;
+   const candidate=(boundary>=0?rest.slice(0,boundary):rest.split(/[.!?]/)[0]).trimEnd();
+   const value=normalizePhrase(candidate);
+   const names=field.hintNames.map(normalizePhrase);
+   const entries=field.allowList?value.split(/\s*,\s*(?:and\s+)?|\s+and\s+/):[value];
+   const known=entries.every(entry=>names.includes(entry));
+   const partial=entries.slice(0,-1).every(entry=>names.includes(entry))&&names.some(name=>name.startsWith(entries.at(-1)));
+   const ended=/[.!?]/.test(rest);
+   const complete=boundary>=0||ended||blurred||(!next&&/\s$/.test(rest)&&!partial);
+   if(value&&!known&&complete)warnings.push({start:cursor,end:cursor+candidate.length});
+   if(value&&(boundary>=0||known&&(ended||/\s$/.test(rest))))replacements.push({start:cursor,end:cursor+candidate.length,text:field.placeholder||''});
+   if(boundary<0)break;
+   cursor+=boundary;
+  }
+  let alignedText;
+  if(replacements.length){
+   alignedText=text;
+   for(const slot of replacements.reverse())alignedText=alignedText.slice(0,slot.start)+slot.text+alignedText.slice(slot.end);
+  }
+  return {warnings,alignedText};
+ }
  function phraseWarnings(config,row,text,blurred=false){
   const tokens=[...text.matchAll(/\S+/g)],warnings=[],clean=word=>word.replace(/[.!?,]+$/,'').replace(/’/g,"'").toLowerCase();
   const fields=row.map(key=>config.fields.find(f=>f.id===key));let cursor=0;
@@ -145,9 +196,14 @@
   }
   return warnings;
  }
- window.BlogPost={capitalizationWarnings,continentHint,phraseWarnings,wordHint,countryHint,normalize,sentences,safePhoto,mount(config){
+ window.BlogPost={capitalizationWarnings,continentHint,vocabularyHints,phraseWarnings,wordHint,countryHint,normalize,sentences,safePhoto,mount(config){
   const $=id=>document.getElementById(id),t=value=>window.ActivityHubI18n.t(value);
   let state=normalize(config),busy=false,generation=0;
+  const imageName=index=>{
+   const bookmarked=config.separateImageLimits&&Boolean(state.images[index]?.id);
+   const number=imageCount(config,state.images.slice(0,index+1),Boolean(bookmarked));
+   return `${t(bookmarked?'Bookmark':'Image')} ${number}`;
+  };
   const controls=new Map(),sentenceEditors=[];
   let openSentence;
   let saveTimer,designer,inkEditor;
@@ -181,13 +237,14 @@
     }
    }
    for(const [id,inputs] of controls)for(const input of inputs){if(input.value!==state.fields[id])input.value=state.fields[id];sizeInput(input);}
-   $('blog-gallery').replaceChildren(...state.images.map((item,index)=>{const img=document.createElement('img');img.src=source(item);img.alt=item.id?config.images.find(x=>x.id===item.id).alt:`${t('Post image')} ${index+1}`;return img;}));
-   $('blog-images').replaceChildren(...state.images.map((item,index)=>{
+   $('blog-gallery')?.replaceChildren(...state.images.map((item,index)=>{const img=document.createElement('img');img.src=source(item);img.alt=item.id?config.images.find(x=>x.id===item.id).alt:`${t('Post image')} ${index+1}`;return img;}));
+   $('blog-images').replaceChildren(...state.images.flatMap((item,index)=>{
+    if(config.separateImageLimits&&item.id)return [];
     const row=document.createElement('div');row.className='blog-image-row';
     const img=document.createElement('img');img.src=source(item);img.alt='';
-    const name=document.createElement('span');name.textContent=`${t('Image')} ${index+1}`;
+    const name=document.createElement('span');name.textContent=imageName(index);
     const action=(icon,title)=>{const button=document.createElement('button');button.type='button';button.className='ah-button ah-button-icon';button.title=title;button.setAttribute('aria-label',title);button.disabled=busy;const image=document.createElement('img');image.src=`../../shared/icons/${icon}.svg`;image.alt='';button.append(image);return button;};
-    const rotate=action('rotate-right',`${t('Rotate image')} ${index+1}`);
+    const rotate=action('rotate-right',`${t('Rotate image')} ${imageCount(config,state.images.slice(0,index+1))}`);
     rotate.onclick=async()=>{
      busy=true;render();
      try{
@@ -199,11 +256,13 @@
      }catch{status('Could not rotate this image.');}
      finally{busy=false;render();$('blog-images').children[index]?.querySelector('button')?.focus();}
     };
-    const remove=action('delete',`${t('Remove')} ${t('Image')} ${index+1}`);
-    remove.onclick=()=>{state.images.splice(index,1);render();persist();($('blog-images').querySelector('button')||$('blog-upload')).focus();};
+    const remove=action('delete',`${t('Remove')} ${imageName(index)}`);
+    remove.onclick=()=>{state.images.splice(index,1);render();persist();($('blog-images').querySelector('button')||($('blog-upload').disabled?$('blog-custom-close'):$('blog-upload')))?.focus();};
     row.append(img,name,rotate,remove);return row;
    }));
-   $('blog-upload').disabled=busy||state.images.length>=3;
+   const atUploadLimit=imageCount(config,state.images)>=imageLimit;
+   $('blog-upload').disabled=busy||atUploadLimit;
+   if($('blog-custom-limit'))$('blog-custom-limit').hidden=!atUploadLimit;
    if($('blog-example'))$('blog-example').disabled=busy;if($('blog-reset'))$('blog-reset').disabled=busy;$('share').disabled=busy;
    designer?.refresh();
    refreshBookmarkImages();
@@ -233,9 +292,10 @@
    const close=document.createElement('button');close.type='button';close.className='ah-button ah-button-icon blog-sentence-close';
    close.textContent='×';close.setAttribute('aria-label',t('Done'));
    const content=document.createElement('div');content.className='blog-sentence-dialog-content';
+   const notesPanel=document.createElement('div');notesPanel.className='blog-sentence-notes';
    const actions=document.createElement('div');actions.className='blog-sentence-actions';
    actions.append(expandedHelpLabel,close);
-   header.append(title,actions);dialog.append(header,content);document.body.append(dialog);
+   header.append(title,actions);dialog.append(header,notesPanel,content);document.body.append(dialog);
    dialog.addEventListener('cancel',event=>event.preventDefault());
    const viewport=window.visualViewport;
    const fitViewport=()=>{
@@ -250,6 +310,7 @@
     close.setAttribute('aria-label',t('Done'));
     content.classList.toggle('blog-typing-expanded',isTyping);
     if(tools)header.insertBefore(tools,actions);
+    reading?.placeNotes(notesPanel);
     content.append(node);
     dialog.showModal();
     if(viewport){
@@ -263,6 +324,7 @@
      viewport?.removeEventListener('scroll',fitViewport);
      if(tools)node.prepend(tools);
      anchor.replaceWith(node);
+     reading?.placeNotes();
      onClose();
      dialog.close();
      trigger.focus();
@@ -278,9 +340,11 @@
      if(input.value!==state.typedRows[index])input.value=state.typedRows[index];
      ghost.replaceChildren();
      const hint=countryHint(config,row,input.value,document.activeElement!==input);
+     const vocabulary=state.showHelp?vocabularyHints(config,row,input.value,document.activeElement!==input):null;
      const prefix=document.createElement('span');prefix.className='sentence-entered';
      if(state.showHelp&&!input.composing){
       const warnings=phraseWarnings(config,row,input.value,document.activeElement!==input).map(w=>({...w,kind:'phrase-unrecognized'}));
+      warnings.push(...vocabulary.warnings.map(warning=>({...warning,kind:'country-unrecognized'})));
       if(hint.warning)warnings.push({...hint.warning,kind:'country-unrecognized'});
       const continent=continentHint(config,row,input.value,document.activeElement!==input);
       if(continent.warning)warnings.push({...continent.warning,kind:'country-unrecognized'});
@@ -292,7 +356,7 @@
      }else prefix.textContent=input.value;
      ghost.append(prefix);
      if(state.showHelp&&(!input.value||document.activeElement===input)){
-      let consumed=wordHint(sample,hint.alignedText??input.value).consumed;
+      let consumed=wordHint(sample,vocabulary?.alignedText??hint.alignedText??input.value).consumed;
       for(const part of sample){const chars=Array.from(part.text),skip=Math.min(consumed,chars.length);consumed-=skip;const span=document.createElement('span');span.className=part.variable?'sample-variable':'sample-frame';span.textContent=chars.slice(skip).join('');ghost.append(span);}
      }
      ghost.append(document.createTextNode('\u200b'));
@@ -366,9 +430,17 @@
     const src=canvas.toDataURL('image/jpeg',.75);if(!safePhoto(src))throw Error('size');return config.design?{src,uid:imageUid()}:{src};
    }finally{URL.revokeObjectURL(url);}
   }
+  const customImages=$('blog-custom-images');
+  if(customImages){
+   const trigger=$('blog-custom-open');
+   trigger.onclick=()=>customImages.showModal();
+   $('blog-custom-close').onclick=()=>customImages.close();
+   customImages.addEventListener('close',()=>trigger.focus());
+  }
   $('blog-upload').onchange=async event=>{
-   const files=[...event.target.files],epoch=++generation;event.target.value='';if(!files.length)return;
-   const capacity=3-state.images.length;if(files.length>capacity){status('Choose only enough images to make three in total.');return;}
+   const files=[...event.target.files];event.target.value='';if(busy||!files.length)return;
+   const epoch=++generation;
+   const capacity=imageLimit-imageCount(config,state.images);if(files.length>capacity){status(config.separateImageLimits?'Choose up to three uploaded images.':'Choose only enough images to make three in total.');return;}
    busy=true;render();status('Adding images…');
    try{const next=[];for(const file of files)next.push(await photo(file));if(epoch!==generation)return;state.images.push(...next);status('Images added.');persist();}
    catch{status('Use a JPG, PNG or WebP image under 15 MB. Try a smaller image.');}
@@ -378,11 +450,11 @@
   if($('blog-example'))$('blog-example').onclick=()=>{state=normalize(config,config.example);render();persist();status('Example loaded.');};
   const reading=config.design&&config.reading?window.BlogReading.mount(config):null;
   function refreshBookmarkImages(){
-   reading?.renderDesign(state.images,busy,id=>{
+   reading?.renderDesign(state.images,busy,imageCount(config,state.images,true)>=imageLimit,imageName,id=>{
     if(busy)return;
     const index=state.images.findIndex(image=>image.id===id);
     if(index>=0)state.images.splice(index,1);
-    else if(state.images.length<3)state.images.push({id,uid:imageUid()});
+    else if(imageCount(config,state.images,true)<imageLimit)state.images.push({id,uid:imageUid()});
     persist();render();
    });
   }
@@ -410,7 +482,7 @@
   });
   if(config.mode==='guided')inkEditor=window.BlogInk.mount({host:$('blog-handwriting'),getState:()=>state,save:persist,config,openSentence});
   document.addEventListener('activityhub:languagechange',()=>{render();avatar();});avatar();render();
-  if(config.design){designer=window.BlogDesign({getState:()=>state,save:persist,source});designer.refresh();setView(viewButtons[0]);}
+  if(config.design){designer=window.BlogDesign({getState:()=>state,save:persist,source,imageName,columns:config.designGridColumns});designer.refresh();setView(viewButtons[0]);}
   function snapshotAvatar(){
    const svg=$('blog-avatar').querySelector('svg');
    if(!svg)return $('blog-avatar').querySelector('img').src;

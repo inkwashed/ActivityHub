@@ -12,13 +12,13 @@
 <link rel="stylesheet" href="../../shared/tokens.css?v=f79c5313466a">
 <link rel="stylesheet" href="../../shared/blog-post.css?v=b2890908a6df">
 <link rel="stylesheet" href="../../shared/controls.css?v=5073a002219b">
-<link rel="stylesheet" href="../../shared/blog-design.css?v=3763cba75b7d">
+<link rel="stylesheet" href="../../shared/blog-design.css?v=94f026d8229f">
 <link rel="stylesheet" href="../../shared/page-qr.css?v=a68fbbb331bb">
 <script defer src="../../shared/i18n.js?v=dfcdbf06d2f6">
 </script>
 <script defer src="../../shared/ui-ja.js?v=e2bd38eac0ee">
 </script>
-<script defer src="ui-ja.js?v=067ba278af21">
+<script defer src="ui-ja.js?v=a1a8c0e74acd">
 </script>
 <script defer src="../../shared/autosave.js?v=2b1ae4e968d9">
 </script>
@@ -38,23 +38,23 @@
 </script>
 <script defer src="../../shared/builder-photo.js?v=2dd608f0b71b">
 </script>
-<script defer src="../../shared/blog-snapshot.js?v=c9ddb43fc91f">
+<script defer src="../../shared/blog-snapshot.js?v=0b2f3a7c4087">
 </script>
-<script defer src="../../shared/blog-layout.js?v=806cb55ce33b">
+<script defer src="../../shared/blog-layout.js?v=10a0d19c3b9e">
 </script>
-<script defer src="../../shared/blog-design.js?v=b7f4c7dde090">
+<script defer src="../../shared/blog-design.js?v=41ebe7ee146a">
 </script>
 <script defer src="../../shared/achievements.js?v=2c9043f6ade9">
 </script>
-<script defer src="../../shared/blog-post.js?v=36372666a541">
+<script defer src="../../shared/blog-post.js?v=ff2126fc81bc">
 </script>
-<link rel="stylesheet" href="../../shared/blog-reading.css?v=62d23f0a5745">
+<link rel="stylesheet" href="../../shared/blog-reading.css?v=620680bcdaaa">
 <script defer src="../../shared/blog-ink.js?v=61194f091bc0"></script>
-<script defer src="../../shared/blog-reading.js?v=ae383fd31bbe">
+<script defer src="../../shared/blog-reading.js?v=f782cfa6662c">
 </script>
-<script defer src="animals.js?v=86b6e790e184">
+<script defer src="animals.js?v=18780f386444">
 </script>
-<script defer src="config.js?v=2b806bf75408">
+<script defer src="config.js?v=99d9526783b2">
 </script>
 <script defer src="app.js?v=976d02d2be97">
 </script>
@@ -91,7 +91,6 @@
 <main class="blog-workspace" data-view="preview">
 <nav class="blog-switch" role="tablist" aria-label="Post sections" data-i18n-aria-label="Post sections">
 <button id="tab-write" class="ah-button" role="tab" aria-controls="blog-preview" data-blog-view="preview" aria-selected="true" data-i18n="Write">Write</button>
-<button id="tab-photos" class="ah-button" role="tab" aria-controls="blog-editor" data-blog-view="edit" aria-selected="false" tabindex="-1" data-i18n="Photos">Photos</button>
 <button id="tab-design" class="ah-button" role="tab" aria-controls="blog-design" data-blog-view="design" aria-selected="false" tabindex="-1" data-i18n="Design">Design</button>
 </nav>
 <div class="blog-columns">
@@ -128,20 +127,6 @@
 <div id="blog-sentences">
 </div>
 </article>
-</section>
-<section data-blog-panel="edit" role="tabpanel" aria-labelledby="tab-photos" hidden id="blog-editor" class="blog-panel" tabindex="0" aria-label="Post editor" data-i18n-aria-label="Post editor">
-<section class="blog-images-section">
-<h2 data-i18n="Images">Images</h2>
-<p class="blog-hint" data-i18n="Add up to 3 images.">Add up to 3 images.</p>
-<div id="blog-gallery">
-</div>
-<div id="blog-images">
-</div>
-<label for="blog-upload" data-i18n="Add images">Add images</label>
-<input type="file" id="blog-upload" accept="image/jpeg,image/png,image/webp" multiple>
-<p id="blog-status" role="status">
-</p>
-</section>
 </section>
 <section id="blog-design" data-blog-panel="design" role="tabpanel" aria-labelledby="tab-design" class="blog-panel" hidden>
 <div class="design-workspace">
@@ -186,17 +171,40 @@
 </div>
 <aside class="design-tools" aria-label="Design controls" data-i18n-aria-label="Design controls">
 <div class="design-heading">
-<h2 data-i18n="Arrange your post">Arrange your post</h2>
+<h2 data-i18n="Design your post">Design your post</h2>
 <button id="design-info" type="button" class="ah-button ah-button-icon" aria-label="Layout help" data-i18n-aria-label="Layout help" aria-haspopup="dialog" aria-controls="design-help-dialog">
 <img src="../../shared/icons/info.svg?v=e357ff2be2d5" alt="">
 </button>
 </div>
+<button id="blog-custom-open" type="button" class="ah-button" aria-label="Uploaded images" data-i18n-aria-label="Uploaded images" aria-haspopup="dialog" aria-controls="blog-custom-images">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<span data-i18n="Images">Images</span>
+</button>
+<dialog id="blog-custom-images" class="ah-dialog blog-image-dialog" aria-labelledby="blog-custom-heading">
+<header class="dialog-heading">
+<div class="blog-image-dialog-title">
+<h2 id="blog-custom-heading" aria-label="Uploaded images" data-i18n-aria-label="Uploaded images">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<span data-i18n="Images">Images</span>
+</h2>
+<p id="blog-custom-limit" class="blog-hint" data-i18n="You can select up to 3 images." hidden>You can select up to 3 images.</p>
+</div>
+<button id="blog-custom-close" type="button" class="ah-button" data-i18n="Done">Done</button>
+</header>
+<section class="blog-images-section blog-image-dialog-body">
+<div id="blog-images"></div>
+<div class="blog-custom-picker">
+<label for="blog-upload" data-i18n="Add images">Add images</label>
+<input type="file" id="blog-upload" accept="image/jpeg,image/png,image/webp" multiple>
+<p id="blog-status" role="status"></p>
+</div>
+</section>
+</dialog>
 <label for="design-picker" data-i18n="Element">Element</label>
 <select id="design-picker">
 </select>
 <p id="design-size" class="blog-hint" aria-live="polite">
 </p>
-<p class="blog-hint" data-i18n="Text height adjusts automatically. Edit your writing in Write, and add or delete pictures in Photos.">Text height adjusts automatically. Edit your writing in Write, and add or delete pictures in Photos.</p>
 <div id="design-crop" hidden>
 <h3 data-i18n="Adjust photo crop">Adjust photo crop</h3>
 <div id="crop-x-row" hidden>
@@ -260,10 +268,11 @@
 </dialog>
 <dialog id="design-help-dialog" class="ah-dialog" aria-labelledby="design-help-title">
 <div class="dialog-heading">
-<h2 id="design-help-title" data-i18n="Arrange your post">Arrange your post</h2>
+<h2 id="design-help-title" data-i18n="Design your post">Design your post</h2>
 <button id="design-help-close" class="ah-button ah-button-icon" type="button" aria-label="Close help" data-i18n-aria-label="Close help">×</button>
 </div>
-<p id="design-help" class="blog-hint" data-i18n="Select an element here or tap it in the layout. Use the editing bar to move and resize it.">Select an element here or tap it in the layout. Use the editing bar to move and resize it.</p>
+<p id="design-help" class="blog-hint" data-i18n="Tap an element to select it, then drag it to move it. Green means it fits. Red means it stays in place. Use the editing bar to move or resize it.">Tap an element to select it, then drag it to move it. Green means it fits. Red means it stays in place. Use the editing bar to move or resize it.</p>
+<p class="blog-hint" data-i18n="Text height adjusts automatically. Edit your writing in Write.">Text height adjusts automatically. Edit your writing in Write.</p>
 </dialog>
 </body>
 </html>

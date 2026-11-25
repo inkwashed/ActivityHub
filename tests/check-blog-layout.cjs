@@ -48,3 +48,20 @@ let saved=L.positions(split);saved.find(b=>b.key==='text:1').w=2;
 split=L.plan(saved,images,'First edited.\nSecond edited.\nThird edited.\nNew fourth.',measure);valid(split);assert.equal(split.blocks.length,7);assert.equal(split.blocks.find(b=>b.key==='text:1').w,2);
 assert.equal(L.plan(L.positions(split),images,'Only one.',measure).blocks.length,4);
 console.log('PASS: newline splitting, blank lines, all sections retained, custom sizing, adding/removing sections.');
+
+// An incompatible swap can land beside the hovered block or push it into free space.
+{
+ const selected={key:'photo:a',col:2,row:1,w:4,rows:1,h:1};
+ const hovered={key:'photo:b',col:0,row:0,w:2,rows:2,h:2};
+ const blocker={key:'photo:c',col:2,row:2,w:4,rows:1,h:1};
+ const plan={columns:6,blocks:[selected,hovered,blocker]};
+ const cell=(result,key)=>Array.from(result.filter(item=>item.key===key),item=>[item.col,item.row])[0];
+ const adjacent=L.dropNear(plan,selected.key,hovered,3);
+ assert.deepEqual(cell(adjacent,selected.key),[2,0]);
+ assert.deepEqual(cell(adjacent,hovered.key),[0,0]);
+ plan.blocks.push({key:'photo:d',col:4,row:0,w:2,rows:1,h:1});
+ const pushed=L.dropNear(plan,selected.key,hovered,3);
+ assert.deepEqual(cell(pushed,selected.key),[0,0]);
+ assert.deepEqual(cell(pushed,hovered.key),[0,1]);
+ assert.equal(L.dropNear(plan,selected.key,hovered,2),null);
+}

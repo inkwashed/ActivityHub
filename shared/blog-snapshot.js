@@ -30,7 +30,7 @@
   const authorY=post.authorFirst?72:88+title.length*44;
   const titleY=post.authorFirst?authorY+authorHeight+54:91;
   const galleryY=post.authorFirst?titleY+(title.length-1)*44+34:authorY+authorHeight+28,photoHeight=photos.length?260:0,textY=photos.length?galleryY+photoHeight+34:galleryY;
-  const totalHeight=post.design?galleryY+(post.design.rows*132-12)+64:textY+paragraphs.reduce((sum,lines)=>sum+lines.length*38+14,0)+64;
+  const totalHeight=post.design?galleryY+(post.design.rows*(post.design.rowHeight+post.design.gap)-post.design.gap)+64:textY+paragraphs.reduce((sum,lines)=>sum+lines.length*38+14,0)+64;
   const scale=Math.min(2,16000/totalHeight);canvas.width=Math.round(width*scale);canvas.height=Math.round(totalHeight*scale);ctx.scale(scale,scale);ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
   // Match the Sample's rounded website frame in the exported PNG itself.
   ctx.save();ctx.beginPath();ctx.roundRect(1,1,width-2,totalHeight-2,18);ctx.clip();
