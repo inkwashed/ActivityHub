@@ -52,9 +52,9 @@ window.AnimalBlogCatalog=[
  {
   id:'japanese-eels',category:'Sea animal',name:'Japanese eels',ja:'ニホンウナギ',image:'art/japanese-eels.webp',
   habitat:{fact:'Many Japanese eels grow up in rivers. They swim to the sea to lay eggs.',note:['rivers','the sea']},
-  problem:{fact:'People catch too many eels. Many are caught when they are still small.',note:'overfishing'},
-  action:{image:'art/humphead-wrasses-action.webp',fact:'We can reduce fishing. We can eat other fish instead.',note:'reduce fishing'},
-  sources:['https://kokushi.fra.go.jp/R06/R06_82_ELJ_English.pdf','https://www.wwf.or.jp/activities/data/Current-Situation-of-Japanese-Eel-and-Stock-Management_EN.pdf','https://www.seafoodwatch.org/recommendation/eel/japanese-eel-37703']
+  problem:{fact:['People catch too many eels. Many are caught when they are still small.','Global warming can change how water moves in the sea. This can make it harder for young eels to reach rivers.'],note:['overfishing','global warming']},
+  action:{image:'art/humphead-wrasses-action.webp',fact:['We can reduce fishing. We can eat other fish instead.','We can save energy. We can turn off lights when we leave a room.'],note:['reduce fishing','save energy']},
+  sources:['https://kokushi.fra.go.jp/R06/R06_82_ELJ_English.pdf','https://www.wwf.or.jp/activities/data/Current-Situation-of-Japanese-Eel-and-Stock-Management_EN.pdf','https://www.seafoodwatch.org/recommendation/eel/japanese-eel-37703','https://doi.org/10.1016/j.dsr2.2019.104685']
  },
  {
   id:'iriomote-cats',category:'Animal',name:'Iriomote cats',ja:'イリオモテヤマネコ',image:'art/iriomote-cats.webp',
@@ -137,7 +137,7 @@ window.AnimalBlogCatalog=[
   id:'komodo-dragons',category:'Animal',name:'Komodo dragons',ja:'コモドオオトカゲ',image:'art/komodo-dragons.webp',
   habitat:{fact:'Komodo dragons live in savannas and forests on a few islands in Indonesia.',note:['savannas','forests']},
   problem:{fact:['As the Earth warms, rising seas can cover some of the places where Komodo dragons live.','When forests are cleared, Komodo dragons also lose places to live.'],note:['global warming','forest loss']},
-  action:{image:'art/polar-bears-action.webp',fact:'We can save energy. We can turn off lights when we leave a room.',note:'save energy'},
+  action:{image:'art/polar-bears-action.webp',fact:['We can save energy. We can turn off lights when we leave a room.','We can plant trees to help restore forests. We can recycle paper products.'],note:['save energy','plant trees']},
   sources:['https://doi.org/10.2305/IUCN.UK.2021-2.RLTS.T22884A123633058.en','https://www.un.org/en/actnow/ten-actions/']
  },
  {
@@ -179,7 +179,7 @@ window.AnimalBlogCatalog=[
   id:'grevys-zebras',category:'Animal',name:'Grévy’s zebras',ja:'グレビーシマウマ',image:'art/grevys-zebras.webp',
   habitat:{fact:'Grévy’s zebras live in dry savannas in East Africa. They eat grass.',note:'savannas'},
   problem:{fact:'Sometimes it doesn’t rain for a long time. Zebras and farm animals share the little grass and water that’s left.',note:'water shortage'},
-  action:{image:'art/protect-water-sources.webp',fact:'We can keep paths to water open so the zebras can reach places to drink.',note:'keep paths to water open'},
+  action:{image:'art/protect-water-sources.webp',fact:'We can protect water sources so Grévy’s zebras have places to drink.',note:'protect water sources'},
   sources:['https://www.grevyszebratrust.org/conservation-status/','https://www.grevyszebratrust.org/Downloads/Grevy%27s%20Zebra%20Recovery%20and%20Action%20Plan%20%282017-2026%29.pdf']
  },
  {
