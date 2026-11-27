@@ -99,3 +99,9 @@ Load `shared/achievements.js` before BlogPost. On draft restore and persistence,
 Checks: `node tests/check-achievements.cjs` and `node tests/check-achievements-browser.cjs` (same browser environment as the other suites). Browser coverage includes real typed completion, deletion/reload, ES row attempts, profile details, rank rendering, Japanese and narrow layout; pure checks additionally cover mixed handwriting/typing and all thresholds. Physical iPad/Safari verification remains outstanding.
 
 My Blog headers use the shared Profile trigger in place of fullscreen, including Journal. Follow [Shared Profile integration](WORKFLOW.md#shared-profile-integration) for dependencies, trigger markup, event handling and coordinated publishing. Profile layout/behavior must be changed in the shared component rather than copied into lesson code.
+
+## Picture Dictionary reuse
+
+Save the Animals ships the first dictionary catalog in [dictionary.js](../myblog/NH6-6/dictionary.js). It supplies ordered categories, English headwords, English and Japanese definitions, and local illustration paths. [Picture Dictionary artwork and cards](STYLE-GUIDE.md#picture-dictionary-artwork-and-cards) owns the visual references, generation prompt, and card format.
+
+When a second app adopts the dictionary, extract the catalog, illustrations, and renderer into one shared resource. Give entries stable IDs so apps and blogs can surface relevant units or categories from the same catalog. Keep textbook category order for browsing and search across headwords and common variants, with Japanese terms supported when available. Resolve artwork from the shared catalog so every activity shows the same illustration for the same entry.

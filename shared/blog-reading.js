@@ -1,6 +1,7 @@
 /* Optional research workspace for Blog lessons with a profile catalog. */
 (() => {
  const bookmarkIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v16l-6-4-6 4z"/></svg>';
+ const encyclopediaIcon='<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="14" r="11.5"/><ellipse cx="16" cy="14" rx="5" ry="11.5"/><path d="M4.5 14h23"/><path fill="var(--ah-surface)" d="M16 21c-4-3-8-4-13-3v10c5-1 9 0 13 2 4-2 8-3 13-2V18c-5-1-9 0-13 3Z"/><path d="M16 21v9"/></svg>';
  function element(tag, className, text){
   const node=document.createElement(tag);
   if(className)node.className=className;
@@ -28,8 +29,96 @@
   image.alt='';
   return image;
  }
+ function mountDictionary(groups){
+  const bookIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19V5a2 2 0 0 1 2-2h12v14H7a2 2 0 0 0 0 4h12M9 7h6m-6 4h6"/></svg>';
+  const dialog=element('dialog','ah-dialog blog-dictionary');
+  dialog.id='blog-dictionary';
+  const title=element('h2');
+  title.innerHTML=bookIcon;
+  title.append(translate(element('span'),'Dictionary'));
+  title.id='blog-dictionary-title';
+  dialog.setAttribute('aria-labelledby',title.id);
+  const header=element('div','dialog-heading');
+  const search=element('input','blog-dictionary-search');
+  search.type='search';
+  search.autocomplete='off';
+  search.spellcheck=false;
+  search.dataset.i18nAriaLabel='Search words';
+  const close=element('button','dialog-close ah-button ah-button-icon','×');
+  close.type='button';
+  close.autofocus=true;
+  close.dataset.i18nAriaLabel='Close';
+  close.setAttribute('aria-label',window.ActivityHubI18n.t('Close'));
+  const body=element('div','blog-dictionary-content');
+  header.append(title,search,close);
+  dialog.append(header,body);
+  document.body.append(dialog);
+  function render(){
+   const language=document.documentElement.lang==='ja'?'ja':'en';
+   search.placeholder=window.ActivityHubI18n.t('Search words');
+   search.setAttribute('aria-label',search.placeholder);
+   const query=search.value.trim().toLowerCase().replace(/\s+/g,' ');
+   body.replaceChildren();
+   for(const group of groups){
+    const matches=group.terms.filter(([term])=>term.toLowerCase().includes(query));
+    if(!matches.length)continue;
+    const section=element('section');
+    const heading=element('h3','',group[language]);
+    heading.lang=language;
+    const list=element('dl');
+    for(const [term,en,ja,picture] of matches){
+     const entry=element('div','blog-dictionary-entry');
+     const label=english('dt',term);
+     if(picture){
+      const thumbnail=element('span','blog-dictionary-picture');
+      thumbnail.setAttribute('aria-hidden','true');
+      if(picture.startsWith('art/')){
+       const image=art(picture);
+       image.loading='lazy';
+       thumbnail.append(image);
+      }else thumbnail.textContent=picture;
+      label.prepend(thumbnail);
+     }
+     const definition=element('dd','',language==='ja'?ja:en);
+     definition.lang=language;
+     entry.append(label,definition);
+     list.append(entry);
+    }
+    section.append(heading,list);
+    body.append(section);
+   }
+   if(!body.childElementCount){
+    const empty=translate(element('p','blog-hint'),'No matching words.');
+    empty.setAttribute('role','status');
+    body.append(empty);
+   }
+  }
+  let opener;
+  search.oninput=()=>{render();body.scrollTop=0;};
+  close.onclick=()=>dialog.close();
+  dialog.addEventListener('close',()=>opener?.focus({preventScroll:true}));
+  document.addEventListener('activityhub:languagechange',()=>{if(dialog.open)render();});
+  return ()=>{
+   const trigger=element('button','ah-button ah-button-icon');
+   trigger.type='button';
+   trigger.innerHTML=bookIcon;
+   trigger.dataset.i18nAriaLabel=trigger.dataset.i18nTitle='Dictionary';
+   trigger.title=window.ActivityHubI18n.t('Dictionary');
+   trigger.setAttribute('aria-label',trigger.title);
+   trigger.setAttribute('aria-haspopup','dialog');
+   trigger.setAttribute('aria-controls',dialog.id);
+   trigger.onclick=()=>{
+    opener=trigger;
+    search.value='';
+    render();
+    dialog.showModal();
+    body.scrollTop=0;
+   };
+   return trigger;
+  };
+ }
  window.BlogReading={mount(config){
-  const {sections,profiles,catalog=profiles,starters,prompt,footer,vocabulary=[]}=config.reading;
+  const {sections,profiles,catalog=profiles,starters,prompt,footer,vocabulary=[],dictionary}=config.reading;
   const vocabularyAlternatives=[...vocabulary].sort((a,b)=>b.length-a.length)
    .map(term=>term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|');
   const vocabularyPattern=vocabularyAlternatives&&new RegExp(
@@ -47,6 +136,7 @@
   const key=`letseigo.app.${config.id}.reading`;
   const saved=window.ActivityAutosave.read(key,1);
   const kept=new Set(Array.isArray(saved?.bookmarks)?saved.bookmarks:[]);
+  const collapsed=new Set(Array.isArray(saved?.collapsedHabitats)?saved.collapsedHabitats.filter(tag=>typeof tag==='string'):[]);
   let current=profiles.find(profile=>profile.id===saved?.profile);
   let readOffset=0;
   const tags=(profile,section)=>[].concat(profile[section].note);
@@ -89,6 +179,11 @@
   search.setAttribute('aria-label',window.ActivityHubI18n.t('Filter animals'));
   search.setAttribute('aria-haspopup','dialog');
   search.setAttribute('aria-controls','blog-animal-filters');
+  const listActions=element('div','blog-read-actions');
+  const makeDictionaryButton=dictionary?.length?mountDictionary(dictionary):null;
+  const profileDictionary=makeDictionaryButton?.();
+  if(makeDictionaryButton)listActions.append(makeDictionaryButton());
+  listActions.append(search);
   const filters=element('dialog','ah-dialog blog-animal-filters');
   filters.id='blog-animal-filters';
   const filterTitle=translate(element('h2'),'Filter animals');
@@ -172,7 +267,7 @@
   document.querySelector('.blog-workspace').append(warning);
 
   function save(){
-   warning.hidden=window.ActivityAutosave.write(key,1,{profile:current?.id,bookmarks:[...kept]});
+   warning.hidden=window.ActivityAutosave.write(key,1,{profile:current?.id,bookmarks:[...kept],collapsedHabitats:[...collapsed]});
   }
   function name(profile,tag){
    const heading=english(tag,profile.name);
@@ -247,6 +342,24 @@
     if(!groups.has(habitat))continue;
     const group=element('section','blog-habitat-group');
     const cards=element('div','blog-animal-grid');
+    cards.id=`blog-habitat-cards-${readContent.childElementCount}`;
+    const heading=element('h2');
+    const toggle=english('button',labelHabitat(habitat),'ah-button blog-habitat-toggle');
+    toggle.type='button';
+    toggle.setAttribute('aria-controls',cards.id);
+    toggle.insertAdjacentHTML('beforeend','<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>');
+    function updateDisclosure(){
+     cards.hidden=collapsed.has(habitat);
+     toggle.setAttribute('aria-expanded',String(!cards.hidden));
+    }
+    toggle.onclick=()=>{
+     if(collapsed.has(habitat))collapsed.delete(habitat);
+     else collapsed.add(habitat);
+     updateDisclosure();
+     save();
+    };
+    updateDisclosure();
+    heading.append(toggle);
     for(const profile of groups.get(habitat)){
      const card=element('button','ah-button ah-choice blog-animal-card');
      card.type='button';
@@ -255,7 +368,7 @@
      card.onclick=()=>select(profile,()=>read.querySelector('h1'));
      cards.append(card);
     }
-    group.append(english('h2',labelHabitat(habitat)),cards);
+    group.append(heading,cards);
     readContent.append(group);
    }
    if(!groups.size)readContent.append(translate(element('p','blog-hint'),'No animals match these filters.'));
@@ -266,7 +379,9 @@
    readContent.replaceChildren();
    if(!current){
     const title=element('div','blog-read-title');
-    title.append(english('h1',config.title),search);
+    const heading=english('h1',config.title);
+    heading.insertAdjacentHTML('afterbegin',encyclopediaIcon);
+    title.append(heading,listActions);
     readHeading.append(title,readHint);
     renderAnimalList();
     return;
@@ -280,9 +395,14 @@
    const backLabel=window.ActivityHubI18n.t('All animals');
    back.setAttribute('aria-label',backLabel);
    back.title=backLabel;
-   back.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h5v-6h4v6h5V9"/></svg>';
+   back.innerHTML=encyclopediaIcon;
    back.onclick=()=>select(undefined,()=>read.querySelector(`[data-animal="${profile.id}"]`));
    const heading=name(profile,'h1');
+   if(profile.pronunciation){
+    const pronunciation=element('small','blog-animal-pronunciation',profile.pronunciation);
+    pronunciation.lang='ja';
+    heading.insertBefore(pronunciation,heading.querySelector('.blog-animal-gloss'));
+   }
    heading.tabIndex=-1;
    const profileHeading=element('div','blog-profile-heading');
    profileHeading.append(back,heading);
@@ -305,7 +425,10 @@
     renderNotes();
    };
    bookmarkButton=keep;
-   profileHeading.append(keep);
+   const profileActions=element('div','blog-read-actions');
+   if(profileDictionary)profileActions.append(profileDictionary);
+   profileActions.append(keep);
+   profileHeading.append(profileActions);
    readHeading.append(profileHeading);
    const content=element('div','blog-profile-sections');
    for(const section of sections){

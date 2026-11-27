@@ -535,3 +535,23 @@ Each activity header title is a native link to its own `index.html`, retaining t
 ## Homepage app shortcuts
 
 The home-only My shortcuts panel sits between the Teacher Tools invitation and activity finder. home.js derives its catalog from published activity cards, retaining distinct Blog lessons and existing app icons. Icon-only links use 60px shared buttons with 40px artwork, accessible app names and native hover titles; the chooser retains visible names. The heading is screen-reader-only; the pencil occupies its own top-aligned right column while the left-aligned icons wrap independently and opens a native dialog with labeled checkboxes and Save/Cancel. Start with the first four directory entries when no preference exists; an explicitly empty choice stays empty. Store only app identifiers under `letseigo.home.shortcuts`, independently of Profile and creations. Storage failure keeps the current visit's choice and reports that persistence failed. home.css owns responsive wrapping and uses shared theme tokens and controls; home-ja.js owns the Japanese interface copy. This adds no app offline capability.
+
+## Picture Dictionary artwork and cards
+
+The Save the Animals dictionary establishes the style for future Let’s EiGo! picture dictionaries. Use the finished local WebP tiles as ImageGen references. Pick a reference close to the new subject and one from another category to keep the linework and palette consistent. These four tiles show the intended range.
+
+| Subject | Reference |
+| --- | --- |
+| Habitat | [Forest](../myblog/NH6-6/art/dictionary-forest.webp) |
+| Land animal | [Bear](../myblog/NH6-6/art/dictionary-bear.webp) |
+| Sea animal | [Sea turtle](../myblog/NH6-6/art/dictionary-sea-turtle.webp) |
+| Problem or action | [Plant trees](../myblog/NH6-6/art/dictionary-plant-trees.webp) |
+
+- Draw clean, consistent dark-teal outlines with flat colors from a limited, cheerful palette. Use slightly chibi proportions and recognizable silhouettes. Show one clear concept per card with one or two setting details.
+- Compose in a full-bleed square, leaving room around ears, tails, tools, and other identifying details. Keep labels and definitions in HTML. For general vocabulary, illustrate a familiar example of the term. Use the detailed species artwork for encyclopedia profiles.
+- When generating a batch, specify a grid of equal square cells, with no gutters, lettering, or frames, and give the exact row-major order. Inspect each tile at card size for clarity, stray seams, and missing details. Export individual lightweight local WebP tiles at about 400 × 400 pixels using the existing `dictionary-<term>.webp` convention.
+- Keep the card reading order image, English term, then definition. Definitions and category headings follow the interface language. Use square image frames with `object-fit: contain` and keep the theme tint and corner radius on the card UI. The current modal uses four columns above 890px, three through 890px, and two through 640px, with text wrapping and a scrollable body.
+
+**Reusable ImageGen prompt**
+
+> Create a square, full-bleed picture dictionary illustration for elementary English learners. Subject and setting: [describe one recognizable subject and one or two setting details]. Match the attached Let’s EiGo! dictionary references. Use clean dark-teal monoline outlines, flat colors, a limited palette, and friendly, slightly chibi proportions. Keep the silhouette readable at thumbnail size and leave breathing room around the subject. Use an uncluttered background and omit lettering, borders, gradients, and textures.

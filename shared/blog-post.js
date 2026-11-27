@@ -78,8 +78,8 @@
   if(text.slice(0,prefix.length).toLowerCase()!==prefix.toLowerCase())return {consumed:text.length};
   const rest=text.slice(prefix.length),sample=fields[at].placeholder||'';
   const names=[...values].sort((a,b)=>b.length-a.length);
-  const match=names.find(name=>rest.slice(0,name.length).toLowerCase()===name.toLowerCase()&&/^[\s.!?]/.test(rest.slice(name.length)));
-  if(match)return {consumed:prefix.length+sample.length+rest.length-match.length,alignedText:prefix+sample+rest.slice(match.length)};
+  const match=names.find(name=>rest.slice(0,name.length).toLowerCase()===name.toLowerCase()&&/^(?:[\s.!?]|$)/.test(rest.slice(name.length)));
+  if(match)return {consumed:prefix.length+sample.length+rest.length-match.length,alignedText:prefix+sample+rest.slice(match.length),accepted:field.country?{start:prefix.length,end:prefix.length+match.length}:null};
   if(!field.country){
    const next=fields[at+1]?.help?.split(' ')[0];
    const boundary=rest.search(next?new RegExp('\\s+'+next+'\\b|[.!?]','i'):/[.!?]/);
@@ -105,7 +105,8 @@
   const names=config.continentNames.map(value=>value.toLowerCase()),lower=name.toLowerCase();
   const known=names.includes(lower),partial=names.some(value=>value.startsWith(rest.toLowerCase()));
   const complete=blurred||/[.!?]|\s$/.test(rest);
-  return {warning:complete&&!known&&!partial&&name?{start:offset,end:offset+name.length}:null};
+  return {warning:complete&&!known&&!partial&&name?{start:offset,end:offset+name.length}:null,
+   accepted:known?{start:offset,end:offset+name.length}:null};
  }
  function capitalizationWarnings(config,row,text){
   const warnings=[],fields=row.map(key=>config.fields.find(f=>f.id===key));
@@ -128,7 +129,7 @@
  // Check configured answer slots independently of the fixed sentence frame.
  function vocabularyHints(config,row,text,blurred=false){
   const fields=row.map(key=>config.fields.find(field=>field.id===key));
-  const warnings=[],replacements=[];
+  const warnings=[],accepted=[],replacements=[];
   const normalizePhrase=value=>value.trim().replace(/\s+/g,' ').replace(/’/g,"'").toLowerCase();
   const framePattern=phrase=>phrase.split(/\s+/).map(word=>word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/['’]/g,"['’]")).join('\\s+');
   let cursor=0;
@@ -153,6 +154,7 @@
    const ended=/[.!?]/.test(rest);
    const complete=boundary>=0||ended||blurred||(!next&&/\s$/.test(rest)&&!partial);
    if(value&&!known&&complete)warnings.push({start:cursor,end:cursor+candidate.length});
+   if(value&&known)accepted.push({start:cursor,end:cursor+candidate.length});
    if(value&&(boundary>=0||known&&(ended||/\s$/.test(rest))))replacements.push({start:cursor,end:cursor+candidate.length,text:field.placeholder||''});
    if(boundary<0)break;
    cursor+=boundary;
@@ -162,7 +164,7 @@
    alignedText=text;
    for(const slot of replacements.reverse())alignedText=alignedText.slice(0,slot.start)+slot.text+alignedText.slice(slot.end);
   }
-  return {warnings,alignedText};
+  return {warnings,accepted,alignedText};
  }
  function phraseWarnings(config,row,text,blurred=false){
   const tokens=[...text.matchAll(/\S+/g)],warnings=[],clean=word=>word.replace(/[.!?,]+$/,'').replace(/’/g,"'").toLowerCase();
@@ -205,6 +207,13 @@
    return `${t(bookmarked?'Bookmark':'Image')} ${number}`;
   };
   const controls=new Map(),sentenceEditors=[];
+  const writingModes=[];
+  function changeWritingMode(event){
+   inkEditor?.finish();
+   state.inputMode=event.currentTarget.checked?'write':'type';
+   render();
+   persist();
+  }
   let openSentence;
   let saveTimer,designer,inkEditor;
   const label=(node,value)=>{node.dataset.i18n=value;node.textContent=t(value);};
@@ -229,7 +238,8 @@
    if(config.mode==='guided'){
     $('show-help').checked=state.showHelp;
     $('expanded-show-help').checked=state.showHelp;
-    if($('writing-mode')){$('writing-mode').checked=state.inputMode==='write';$('blog-sentences').hidden=state.inputMode==='write';}
+    for(const mode of writingModes)mode.checked=state.inputMode==='write';
+    if(writingModes.length)$('blog-sentences').hidden=state.inputMode==='write';
     inkEditor?.refresh();
     sentenceEditors.forEach(editor=>editor.refresh());
     for(const field of config.fields){
@@ -349,9 +359,12 @@
       const continent=continentHint(config,row,input.value,document.activeElement!==input);
       if(continent.warning)warnings.push({...continent.warning,kind:'country-unrecognized'});
       warnings.push(...capitalizationWarnings(config,row,input.value));
-      warnings.sort((a,b)=>a.start-b.start);
+      const highlights=[...vocabulary.accepted,hint.accepted,continent.accepted]
+       .filter(range=>range&&!warnings.some(warning=>warning.start<range.end&&warning.end>range.start))
+       .map(range=>({...range,kind:'vocabulary-accepted'}));
+      const feedback=[...warnings,...highlights].sort((a,b)=>a.start-b.start);
       let end=0;
-      for(const warning of warnings){if(warning.start<end)continue;prefix.append(document.createTextNode(input.value.slice(end,warning.start)));const mark=document.createElement('span');mark.className=warning.kind;mark.textContent=input.value.slice(warning.start,warning.end);prefix.append(mark);end=warning.end;}
+      for(const range of feedback){if(range.start<end)continue;prefix.append(document.createTextNode(input.value.slice(end,range.start)));const mark=document.createElement('span');mark.className=range.kind;mark.textContent=input.value.slice(range.start,range.end);prefix.append(mark);end=range.end;}
       prefix.append(document.createTextNode(input.value.slice(end)));
      }else prefix.textContent=input.value;
      ghost.append(prefix);
@@ -380,7 +393,8 @@
    sentenceResize.observe($('blog-sentences'));
    sentenceResize.observe(content);
    document.fonts?.load(`${getComputedStyle($('blog-sentences')).fontSize} Urbanist`).then(()=>sentenceEditors.forEach(editor=>editor.refresh()));
-   $('writing-mode').onchange=()=>{inkEditor?.finish();state.inputMode=$('writing-mode').checked?'write':'type';render();persist();};
+   writingModes.push($('writing-mode'));
+   $('writing-mode').onchange=changeWritingMode;
    const changeHelp=event=>{state.showHelp=event.currentTarget.checked;state.fields.body=sentences(config,state).join('\n');render();persist();};
    help.onchange=expandedHelp.onchange=changeHelp;
   }
@@ -449,6 +463,14 @@
   if($('blog-reset'))$('blog-reset').onclick=()=>{state=normalize(config);render();persist();status('Post reset.');};
   if($('blog-example'))$('blog-example').onclick=()=>{state=normalize(config,config.example);render();persist();status('Example loaded.');};
   const reading=config.design&&config.reading?window.BlogReading.mount(config):null;
+  if(config.design&&writingModes.length){
+   const mode=writingModes[0].closest('label').cloneNode(true);
+   const input=mode.querySelector('input');
+   input.id='design-writing-mode';
+   input.onchange=changeWritingMode;
+   writingModes.push(input);
+   document.querySelector('.design-heading').after(mode);
+  }
   function refreshBookmarkImages(){
    reading?.renderDesign(state.images,busy,imageCount(config,state.images,true)>=imageLimit,imageName,id=>{
     if(busy)return;

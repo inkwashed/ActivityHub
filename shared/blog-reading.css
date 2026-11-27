@@ -16,6 +16,7 @@
 html:not([lang=ja]) .blog-animal-gloss{display:none}
 .blog-profile-heading{display:flex;align-items:center;gap:12px}
 .blog-profile-heading h1{min-width:0;overflow-wrap:anywhere}
+.blog-animal-pronunciation{display:block;margin-top:2px;color:var(--ah-muted);font-size:.875rem;font-weight:500;line-height:1.35}
 .blog-profile-category{flex:none;padding:4px 8px;border-radius:var(--ah-radius-control);background:var(--ah-hover);font-size:.875rem}
 .blog-profile-sections{display:grid;gap:12px;grid-template-columns:minmax(0,1fr)}
 @media(min-width:700px){.blog-profile-sections{grid-template-columns:repeat(3,minmax(0,1fr))}}
@@ -29,7 +30,7 @@ html:not([lang=ja]) .blog-animal-gloss{display:none}
 .blog-vocabulary-highlight{background:var(--ah-selected);background:var(--blog-vocabulary-tint);color:inherit;border-radius:.2em}
 .blog-reading-words{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:12px 0}
 .blog-reading-words li{padding:4px 8px;border-radius:var(--ah-radius-control);background:var(--ah-hover);background:var(--blog-vocabulary-tint);font-size:.875rem}
-.blog-profile-heading .blog-keep-note{margin-inline-start:auto}
+.blog-profile-heading .blog-read-actions{margin-inline-start:auto}
 .blog-keep-note[aria-pressed=true]{color:var(--ah-selected-border);border-color:var(--ah-selected-border)}
 .blog-keep-note[aria-pressed=true] svg{fill:currentColor}
 .blog-research{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));align-items:start;gap:8px;margin:0 0 12px}
@@ -104,9 +105,34 @@ dialog.ah-dialog.blog-image-dialog{position:fixed;inset:0;margin:0;width:100%;ma
 .blog-custom-picker input:disabled::file-selector-button{background:var(--ah-disabled);color:var(--ah-muted);border-color:var(--ah-divider);cursor:default}
 
 .blog-read-title{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.blog-read-actions{display:flex;gap:8px;flex:none}
+.blog-read-title h1{display:flex;align-items:center;gap:.4em}
+.blog-read-title h1 svg{width:1.15em;height:1.15em;flex:none;fill:none;stroke:var(--ah-selected-border);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .blog-read-title .is-filtered{background:var(--ah-selected);border-color:var(--ah-selected-border)}
 .blog-habitat-group+ .blog-habitat-group{margin-top:20px}
-.blog-habitat-group h2{margin:0 0 8px;font-size:1.1rem}
+.blog-habitat-group>h2{margin:0;font-size:1.1rem}
+.blog-habitat-group .blog-habitat-toggle{display:flex;justify-content:space-between;width:100%;padding:6px 12px;border-inline-start:3px solid var(--ah-selected-border);border-radius:var(--ah-radius-control);background:var(--ah-selected);font-size:inherit;text-align:start}
+.blog-habitat-toggle[aria-expanded=false] svg{transform:rotate(-90deg)}
+.blog-habitat-group>.blog-animal-grid{margin-top:8px}
+.blog-habitat-group>.blog-animal-grid[hidden]{display:none}
+dialog.ah-dialog.blog-dictionary{width:min(1060px,calc(100vw - 28px));padding:clamp(12px,3vw,24px);overflow:hidden}
+.blog-dictionary[open]{display:flex;flex-direction:column;gap:12px}
+.blog-dictionary .dialog-heading h2{display:flex;align-items:center;gap:8px}
+.blog-dictionary .dialog-heading h2 svg{width:var(--ah-icon-size);height:var(--ah-icon-size);flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.blog-dictionary .dialog-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(120px,280px) auto;gap:8px}
+.blog-dictionary-search{box-sizing:border-box;width:100%;min-width:0;min-height:44px;padding:6px 10px;border:1px solid var(--ah-border);border-radius:var(--ah-radius-control);background:var(--ah-surface);color:var(--ah-ink);font:inherit}
+.blog-dictionary-search:focus-visible{outline:2px solid var(--ah-focus);outline-offset:-2px}
+@media(max-width:420px){.blog-dictionary .dialog-heading{grid-template-columns:minmax(0,1fr) auto}.blog-dictionary .dialog-heading h2{grid-column:1/-1}}
+.blog-dictionary-content{min-height:0;overflow:auto;overscroll-behavior:contain}
+.blog-dictionary-content h3{margin:0;padding:8px 12px;border-radius:var(--ah-radius-control);background:var(--ah-selected)}
+.blog-dictionary-content dl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:8px 0 16px;padding:0}
+@media(max-width:890px){.blog-dictionary-content dl{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:640px){.blog-dictionary-content dl{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.blog-dictionary-entry{padding:8px;border:1px solid var(--ah-divider);border-radius:var(--ah-radius-control);background:var(--ah-surface);overflow-wrap:anywhere}
+.blog-dictionary-content dt{margin:0;font-weight:700}
+.blog-dictionary-content dd{margin:2px 0 0;line-height:1.45}
+.blog-dictionary-picture{display:grid;place-items:center;aspect-ratio:1;margin-bottom:6px;border-radius:var(--ah-radius-control);background:var(--ah-selected);font-size:2rem;overflow:hidden}
+.blog-dictionary-picture img{display:block;width:100%;height:100%;object-fit:contain}
 .blog-animal-filters label{display:block;margin:12px 0 4px;font-weight:700}
 .blog-animal-filters select{display:block;width:100%;min-height:44px;padding:6px 8px;font:inherit;color:var(--ah-ink);background:var(--ah-surface);border:1px solid var(--ah-border);border-radius:var(--ah-radius-control)}
 .blog-animal-filters select:focus-visible{outline:3px solid var(--ah-focus);outline-offset:2px}

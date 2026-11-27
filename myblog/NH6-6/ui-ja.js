@@ -95,3 +95,4 @@ window.ActivityHubI18n.register({'Show Help?':'ヒントを表示'});
 window.ActivityHubI18n.register({'You can select up to 3 images.':'画像は3枚まで選べます。','Uploaded images':'アップロードした画像','Choose up to three uploaded images.':'アップロードする画像は合計3枚まで選べます。'});
 
 window.ActivityHubI18n.register({"Filter animals":"動物を絞り込む","All habitats":"すべてのすみか","All problems":"すべての問題","Clear filters":"絞り込みを解除","No animals match these filters.":"条件に合う動物はいません。"});
+window.ActivityHubI18n.register({"Dictionary":"辞書","Search words":"単語を検索","No matching words.":"一致する単語がありません。"});

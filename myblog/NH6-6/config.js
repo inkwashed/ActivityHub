@@ -9,7 +9,7 @@ const animalNouns=[
 ];
 const animalVariants=['fox','foxes','mouse','mice','fish','jellyfish','fishes','jellyfishes'];
 const problems=['forest loss','global warming','plastic','hunting','overfishing','air pollution','chemicals','traffic accidents','plastic pollution'];
-const actions=['plant trees','save energy','use eco-friendly bags','refuse','reduce','reuse','recycle'];
+const actions=['plant trees','save energy','use eco-friendly bags','refuse','reduce','reuse','recycle','stop overfishing','stop hunting'];
 const pluralForms=words=>words.flatMap(word=>[word,word+'s']);
 const habitats=[...pluralForms(habitatNouns),'sea','ice','sea ice'];
 const animals=[...pluralForms(animalNouns),...animalVariants];
@@ -41,6 +41,7 @@ window.AnimalBlogConfig={
  reading:{
   profiles,
   catalog,
+  dictionary:window.AnimalBlogDictionary,
   vocabulary:['nature','sea animals','animals',...habitats,...animals,...problems,...actions,
    'hunted','reused','reduced','recycled','refused'],
   problemImages:{

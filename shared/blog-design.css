@@ -134,6 +134,7 @@
 .sentence-editor .sentence-input{display:block;position:relative;z-index:1;resize:none;min-height:64px;background:transparent;color:#000;overflow:hidden;border-radius:var(--ah-radius-control)}
 .sentence-editor .sentence-ghost{position:absolute;inset:0 0 auto;pointer-events:none}
 .sentence-entered{color:transparent}
+.vocabulary-accepted{background:color-mix(in srgb,var(--ah-selected-border) 16%,transparent);border-radius:.15em}
 .sample-frame{color:var(--ah-muted);opacity:.65}
 .sample-variable{color:var(--ah-selected-border);opacity:.65}
 .sentence-editor .sentence-input:focus-visible{outline:2px solid var(--ah-focus);outline-offset:-2px}
