@@ -519,7 +519,7 @@
    $('blog-sample').onclick=()=>dialog.showModal();
    dialog.querySelector('.dialog-close').onclick=()=>dialog.close();
   }
-  window.BlogStartup?.ready();
+  window.AppStartup?.ready();
   return {capture:()=>structuredClone(state)};
  }};
 })();

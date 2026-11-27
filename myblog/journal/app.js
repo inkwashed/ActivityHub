@@ -44,3 +44,5 @@
  document.addEventListener('visibilitychange',()=>{if(!document.hidden)render();});document.addEventListener('activityhub:languagechange',render);
  window.addEventListener('pagehide',()=>{generation++;if(url)URL.revokeObjectURL(url);});render();
 })();
+
+window.AppStartup?.ready();

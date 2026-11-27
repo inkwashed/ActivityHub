@@ -31,3 +31,5 @@
  const dialog=document.querySelector('#sample-share');document.querySelector('#share').addEventListener('click',()=>{document.querySelector('#sample-caption').textContent=document.querySelector('#sentence').textContent;dialog.showModal()});document.querySelector('#close-share').addEventListener('click',()=>dialog.close());
  b.updateSentence();
 })();
+
+window.AppStartup?.ready();

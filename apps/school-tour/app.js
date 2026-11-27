@@ -246,3 +246,5 @@
   mountMap();
   render();
 })();
+
+window.AppStartup?.ready();

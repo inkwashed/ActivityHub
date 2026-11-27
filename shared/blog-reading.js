@@ -144,7 +144,8 @@
   const labelHabitat=tag=>tag.replace(/\b\w/g,letter=>letter.toUpperCase());
 
   const tabs=document.querySelector('.blog-switch');
-  const tab=button('Read');
+  const tab=english('button','Read','ah-button');
+  tab.type='button';
   tab.id='tab-read';
   tab.dataset.blogView='read';
   tab.setAttribute('role','tab');

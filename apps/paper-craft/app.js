@@ -76,3 +76,5 @@
  document.querySelector('[data-category="shapes"]').click();b.updateSentence();
  document.addEventListener('activityhub:languagechange',()=>b.refreshColors());
 })();
+
+window.AppStartup?.ready();

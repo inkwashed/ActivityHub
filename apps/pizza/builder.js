@@ -84,3 +84,5 @@
  }
  window.pizzaBuilder = new PizzaBuilder(document.querySelector('#builder'), window.PIZZA_CONFIG);
 })();
+
+window.AppStartup?.ready();

@@ -552,3 +552,5 @@ if(document.modelContext?.registerTool&&!reading){try{Promise.resolve(document.m
 window.addEventListener('pagehide',()=>{if(!reading){try{localStorage.setItem('little-postcard-draft-v1',JSON.stringify(state))}catch{}}});
 
 document.fonts.addEventListener('loadingdone',()=>preview());
+
+window.AppStartup?.ready();

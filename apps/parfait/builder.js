@@ -56,3 +56,5 @@
  }
  window.parfaitBuilder = new ParfaitBuilder(document.querySelector('#builder'),window.PARFAIT_CONFIG);
 })();
+
+window.AppStartup?.ready();

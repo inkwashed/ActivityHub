@@ -128,3 +128,5 @@
  document.addEventListener('activityhub:languagechange',()=>b.refreshColors());
  b.creative.updateHelp();b.updateSentence();
 })();
+
+window.AppStartup?.ready();

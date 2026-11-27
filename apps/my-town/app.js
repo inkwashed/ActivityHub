@@ -125,3 +125,5 @@
  window.BuilderPhoto({appName:'My Town',builder:()=>state,imageSelector:'#town-photo',render:()=>A.map(state,routeMode),caption:'My town!'});
  document.addEventListener('activityhub:languagechange',render);
 })();
+
+window.AppStartup?.ready();

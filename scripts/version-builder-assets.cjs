@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {createHash} = require('node:crypto');
 const root = path.resolve(__dirname, '..');
-const defaults = ['.', 'apps/post', 'apps/pizza', 'apps/parfait', 'apps/sandwich', 'apps/avatar', '_dev/builder', 'apps/class-supplies', 'apps/paper-craft', 'apps/my-town', 'apps/school-tour', 'myblog/NH1-5', 'myblog/NH6-5', 'myblog/NH6-6', 'myblog/NH2-4', 'myblog/journal', 'docs/style-guide.html'];
+const defaults = ['.', 'apps/post', 'apps/pizza', 'apps/parfait', 'apps/sandwich', 'apps/avatar', '_dev/builder', 'apps/class-supplies', 'apps/paper-craft', 'apps/my-town', 'apps/school-tour', 'myblog/NH1-5', 'myblog/NH6-5', 'myblog/NH6-6', 'myblog/NH2-4', 'myblog/journal', 'docs/style-guide.html', 'shared/app-recover.html'];
 const check = process.argv.includes('--check');
 const requested = process.argv.slice(2).filter(arg => arg !== '--check');
 for (const app of requested.length ? requested : defaults) {

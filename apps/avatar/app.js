@@ -102,3 +102,5 @@
  window.BuilderScrollCue(document.querySelector('[data-jump-section="choices"]'),document.querySelector('.pantry'));
  window.BuilderPhoto({builder:()=>({...state}),render:window.renderAvatar,imageSelector:'#avatar-photo',square:true});
 })();
+
+window.AppStartup?.ready();

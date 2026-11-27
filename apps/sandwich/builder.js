@@ -101,3 +101,5 @@
  }
  window.sandwichBuilder=new SandwichBuilder(document.querySelector('#builder'),window.SANDWICH_CONFIG);
 })();
+
+window.AppStartup?.ready();

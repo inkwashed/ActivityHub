@@ -7,7 +7,7 @@
 <link rel="icon" href="icon.svg?v=45b85344694d">
 <link rel="apple-touch-icon" href="../../shared/icons/apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
-<script src="../../shared/blog-startup.js?v=68e271d08ab0"></script><script src="../../shared/theme.js?v=2608f49a27f9">
+<script src="../../shared/app-startup.js?v=9e37c2f38f28"></script><script src="../../shared/theme.js?v=2608f49a27f9">
 </script>
 <link rel="stylesheet" href="../../shared/tokens.css?v=f79c5313466a">
 <link rel="stylesheet" href="../../shared/blog-post.css?v=b2890908a6df">
@@ -46,11 +46,11 @@
 </script>
 <script defer src="../../shared/achievements.js?v=2c9043f6ade9">
 </script>
-<script defer src="../../shared/blog-post.js?v=413308391ccd">
+<script defer src="../../shared/blog-post.js?v=9309d0c4e7f2">
 </script>
 <link rel="stylesheet" href="../../shared/blog-reading.css?v=94bdb4a75b7b">
 <script defer src="../../shared/blog-ink.js?v=61194f091bc0"></script>
-<script defer src="../../shared/blog-reading.js?v=6cbde2bcacfb">
+<script defer src="../../shared/blog-reading.js?v=98e6a835fb34">
 </script>
 <script defer src="animals.js?v=6e1ea8f7841e">
 </script>
@@ -65,7 +65,7 @@
 <script defer src="../../shared/profile.js?v=24fe2712c28b">
 </script>
 </head>
-<body class="ah-blog blog-guided blog-three">
+<body data-startup-app class="ah-blog blog-guided blog-three">
 <header>
 <div class="brand">
 <a class="icon-button back-button ah-button ah-button-icon" href="../../#new-horizon-6" aria-label="Back to textbook activities" data-i18n-aria-label="Back to textbook activities" title="Back to textbook activities" data-i18n-title="Back to textbook activities">
@@ -91,8 +91,8 @@
 </header>
 <main class="blog-workspace" data-view="preview">
 <nav class="blog-switch" role="tablist" aria-label="Post sections" data-i18n-aria-label="Post sections">
-<button id="tab-write" class="ah-button" role="tab" aria-controls="blog-preview" data-blog-view="preview" aria-selected="true" data-i18n="Write">Write</button>
-<button id="tab-design" class="ah-button" role="tab" aria-controls="blog-design" data-blog-view="design" aria-selected="false" tabindex="-1" data-i18n="Design">Design</button>
+<button id="tab-write" class="ah-button" role="tab" aria-controls="blog-preview" data-blog-view="preview" aria-selected="true" lang="en">Write</button>
+<button id="tab-design" class="ah-button" role="tab" aria-controls="blog-design" data-blog-view="design" aria-selected="false" tabindex="-1" lang="en">Design</button>
 </nav>
 <div class="blog-columns">
 <section data-blog-panel="preview" role="tabpanel" aria-labelledby="tab-write" id="blog-preview" class="blog-panel" tabindex="0" aria-label="Your post" data-i18n-aria-label="Your post">
@@ -118,8 +118,8 @@
 <span class="switch-knob">
 <img src="../../shared/icons/pen.svg?v=c370cf0cc136" alt="">
 </span>
-<span class="mode-easy" data-i18n="TYPE">TYPE</span>
-<span class="mode-hard" data-i18n="WRITE">WRITE</span>
+<span class="mode-easy" lang="en">TYPE</span>
+<span class="mode-hard" lang="en">WRITE</span>
 </span>
 </label>
 </div>
